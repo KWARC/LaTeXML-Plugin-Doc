@@ -1,0 +1,83 @@
+\documentclass[usegraphicx]{mn2e}
+
+\usepackage{graphicx}
+
+% a simple MN2E example document
+% NOTE: I'm NOT using BiBTeX here - learning to use BiBTeX can make
+% your life easier with references!
+
+% following line makes paper more like real MNRAS
+\usepackage{times}
+% use this package instead to get equations very like MNRAS
+% (may break under certain circumstances)
+% \usepackage{mathptmx}
+
+\begin{document}
+
+% write title (with email and institute)
+\title{An example paper}
+\author[J.S. Sanders]
+{J.S. Sanders\thanks{E-mail: jss@ast.cam.ac.uk}\\
+Institute of Astronomy, Madingley Road, Cambridge. CB3 0HA}
+\maketitle
+
+\begin{abstract}
+  This is an example paper demonstrating a simple \emph{Monthly
+    Notices} paper.
+\end{abstract}
+
+% look up list of allowable keywords for this section
+\begin{keywords}
+ \LaTeX\ -- style files: \verb"mn2e.sty"\
+\end{keywords}
+
+\section{Introduction}
+This is where the introduction goes.
+
+% make a little table
+% use table* for a full page width table
+\begin{table}
+  \begin{tabular}{ll}
+    Head 1 & Head 2 \\ \hline
+    Test 1 & Test 2 \\
+    Test 3 & Test 4 \\
+  \end{tabular}
+  \caption{Example table}
+  \label{tab:example}
+\end{table}
+
+% we add a figure here (use figure* for full page width figures)
+\begin{figure}
+  \centering  % this centres figure in column
+  \includegraphics[width=0.99\columnwidth]{filesystem.eps}
+  \caption{Here is an example figure}
+  \label{fig:example}
+\end{figure}
+
+\section{Observations}
+Blah blah. Here we have an equation
+\begin{equation}
+  D = t / v
+\end{equation}
+or an equation in a line of text, $a = \cos \theta$.
+
+\subsection{Refer to table}
+I refer you to Table~\ref{tab:example}. I also refer to Smith et al.
+(2001).
+
+\section{Discussion}
+To sing or not to sing?
+
+\section{Conclusions}
+We love writing papers! I finally refer to Figure~\ref{fig:example}.
+
+% unnumbered section
+\section*{Acknowledgements}
+I would like to thank Muon for inspiring me to write this paper.
+
+\begin{thebibliography}{}
+\bibitem{sanders01} Sanders J.S., Fabian A.C., 2001, MNRAS, 325, 178
+\bibitem{smith01} Smith R.Q., Fred A.B., Bloggs J., 2001, ApJ, 123, 456
+\end{thebibliography}
+
+\end{document}

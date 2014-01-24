@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lenovo/ltx2word/examples/test6/test6.docx_FILES"?>
+<?latexml class="article"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+<para xml:id="penis">
+    <p>Hello World</p>
+</para>
+</document>

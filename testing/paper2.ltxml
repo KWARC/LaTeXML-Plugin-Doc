@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lenovo/ltx2word"?>
+<?latexml options="usegraphicx" class="mn2e"?>
+<?latexml package="graphicx"?>
+<!-- %a simple MN2E example document -->
+<!-- %NOTE: I’m NOT using BiBTeX here - learning to use BiBTeX can make -->
+<!-- %your life easier with references! -->
+<!-- %following line makes paper more like real MNRAS -->
+<?latexml package="times"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>An example paper</title>
+  <creator role="author">
+    <personname>J.S. Sanders<break/>Institute of Astronomy, Madingley Road, Cambridge. CB3 0HA</personname>
+    <contact role="thanks">E-mail: jss@ast.cam.ac.uk</contact>
+  </creator>
+  <abstract name="Abstract">
+    <!-- %**** latex˙paper˙example.tex Line 25 **** -->
+    <p>This is an example paper demonstrating a simple <emph>Monthly
+Notices</emph> paper.</p>
+  </abstract>
+  <classification scheme="keywords">
+LaTeX – style files: <verbatim font="typewriter">mn2e.sty</verbatim> </classification>
+  <!-- %write title (with email and institute) 
+     %look up list of allowable keywords for this section-->
+  <section refnum="1" xml:id="S1">
+    <title><tag close=" ">1</tag>Introduction</title>
+    <para xml:id="S1.p1">
+      <p>This is where the introduction goes.</p>
+    </para>
+    <!-- %make a little table 
+     %use table* for a full page width table-->
+    <table frefnum="Table 1" refnum="1" xml:id="S1.T1" labels="LABEL:tab:example">
+      <tabular>
+        <thead>
+          <tr>
+            <td align="left" thead="true">Head 1</td>
+            <td align="left" thead="true">Head 2</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left" border="t">Test 1</td>
+            <td align="left" border="t">Test 2</td>
+          </tr>
+          <tr>
+            <td align="left">Test 3</td>
+            <td align="left">Test 4</td>
+          </tr>
+        </tbody>
+      </tabular>
+      <toccaption><tag close=" ">1</tag>Example table</toccaption>
+      <caption><tag close=": ">Table 1</tag>Example table</caption>
+    </table>
+    <!-- %we add a figure here (use figure* for full page width figures) 
+     %**** latex˙paper˙example.tex Line 50 ****-->
+    <figure frefnum="Figure 1" refnum="1" xml:id="S1.F1" labels="LABEL:fig:example">
+      <!-- %this centres figure in column -->
+      <graphics graphic="filesystem.eps" options="width=429.2838pt" xml:id="S1.F1.g1" class="ltx_centering"/>
+      <toccaption class="ltx_centering"><tag close=" ">1</tag>Here is an example figure</toccaption>
+      <caption class="ltx_centering"><tag close=": ">Figure 1</tag>Here is an example figure</caption>
+    </figure>
+  </section>
+  <section refnum="2" xml:id="S2">
+    <title><tag close=" ">2</tag>Observations</title>
+    <para xml:id="S2.p1">
+      <p>Blah blah. Here we have an equation</p>
+      <equation frefnum="(1)" refnum="1" xml:id="S2.E1">
+        <Math mode="display" xml:id="S2.E1.m1" tex="D=t/v" text="D = t / v">
+          <XMath>
+            <XMApp>
+              <XMTok meaning="equals" role="RELOP">=</XMTok>
+              <XMTok role="UNKNOWN" font="italic">D</XMTok>
+              <XMApp>
+                <XMTok mathstyle="inline" meaning="divide" role="MULOP">/</XMTok>
+                <XMTok role="UNKNOWN" font="italic">t</XMTok>
+                <XMTok role="UNKNOWN" font="italic">v</XMTok>
+              </XMApp>
+            </XMApp>
+          </XMath>
+        </Math>
+      </equation>
+      <p>or an equation in a line of text, <Math mode="inline" xml:id="S2.p1.m1" tex="a=\cos\theta" text="a = cosine@(theta)"><XMath><XMApp><XMTok meaning="equals" role="RELOP">=</XMTok><XMTok role="UNKNOWN" font="italic">a</XMTok><XMApp><XMTok meaning="cosine" role="TRIGFUNCTION">cos</XMTok><XMTok name="theta" role="UNKNOWN" font="italic">θ</XMTok></XMApp></XMApp></XMath></Math>.</p>
+    </para>
+    <subsection refnum="2.1" xml:id="S2.SS1">
+      <title><tag close=" ">2.1</tag>Refer to table</title>
+      <para xml:id="S2.SS1.p1">
+        <p>I refer you to Table <ref labelref="LABEL:tab:example"/>. I also refer to Smith et al.
+(2001).</p>
+      </para>
+    </subsection>
+  </section>
+  <section refnum="3" xml:id="S3">
+    <title><tag close=" ">3</tag>Discussion</title>
+    <para xml:id="S3.p1">
+      <p>To sing or not to sing?</p>
+    </para>
+  </section>
+  <section refnum="4" xml:id="S4">
+    <title><tag close=" ">4</tag>Conclusions</title>
+    <para xml:id="S4.p1">
+      <p>We love writing papers! I finally refer to Figure <ref labelref="LABEL:fig:example"/>.</p>
+    </para>
+    <!-- %unnumbered section 
+     %**** latex˙paper˙example.tex Line 75 ****-->
+  </section>
+  <section xml:id="Sx1">
+    <title>Acknowledgements</title>
+    <para xml:id="Sx1.p1">
+      <p>I would like to thank Muon for inspiring me to write this paper.</p>
+    </para>
+  </section>
+  <bibliography xml:id="bib">
+    <title>References</title>
+    <biblist>
+      <bibitem key="sanders01" xml:id="bib.bib1">
+        <bibtag role="refnum">1</bibtag>
+        <bibblock> Sanders J.S., Fabian A.C., 2001, MNRAS, 325, 178
+</bibblock>
+      </bibitem>
+      <bibitem key="smith01" xml:id="bib.bib2">
+        <bibtag role="refnum">2</bibtag>
+        <bibblock> Smith R.Q., Fred A.B., Bloggs J., 2001, ApJ, 123, 456
+</bibblock>
+      </bibitem>
+    </biblist>
+  </bibliography>
+</document>

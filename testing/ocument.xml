@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:m="http://www.w3.org/1998/Math/MathML"
+            xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+            xmlns:w10="urn:schemas-microsoft-com:office:word"
+            xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+            xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+            xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math"
+            xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+            xmlns:o="urn:schemas-microsoft-com:office:office"
+            xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+            xmlns:v="urn:schemas-microsoft-com:vml">
+   <w:body>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+         </w:pPr>
+         <w:bookmarkStart w:name="" w:id="d2e7"/>
+         <w:bookmarkEnd w:id="d2e7"/>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="Heading1"/>
+         </w:pPr>
+         <w:r>
+            <w:rPr/>
+            <w:t>Beginning Dog</w:t>
+         </w:r>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+         </w:pPr>
+         <w:bookmarkStart w:name="S1.p1" w:id="d2e12"/>
+         <w:bookmarkEnd w:id="d2e12"/>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="Normal"/>
+         </w:pPr>
+         <w:r>
+            <w:rPr>
+               <w:b/>
+            </w:rPr>
+            <w:t>asdasdf</w:t>
+         </w:r>
+         <omml:oMath>⁢asdfasdf</omml:oMath>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+         </w:pPr>
+         <w:bookmarkStart w:name="S1.p2" w:id="d2e37"/>
+         <w:bookmarkEnd w:id="d2e37"/>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="Normal"/>
+         </w:pPr>
+         <w:r>
+            <w:rPr/>
+            <w:t>Yo dog I heard you like dogs, so I put a dog in a dog so you can watch a dog while you watch a dog.</w:t>
+         </w:r>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+            <w:SectPr/>
+            <!--This is just to create a new section --></w:pPr>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+         </w:pPr>
+         <w:bookmarkStart w:name="" w:id="d2e40"/>
+         <w:bookmarkEnd w:id="d2e40"/>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="Heading1"/>
+         </w:pPr>
+         <w:r>
+            <w:rPr/>
+            <w:t>new</w:t>
+         </w:r>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+         </w:pPr>
+         <w:bookmarkStart w:name="" w:id="d2e45"/>
+         <w:bookmarkEnd w:id="d2e45"/>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="Heading2"/>
+         </w:pPr>
+         <w:r>
+            <w:rPr/>
+            <w:t>newer</w:t>
+         </w:r>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+         </w:pPr>
+         <w:bookmarkStart w:name="S2.SS1.p1" w:id="d2e50"/>
+         <w:bookmarkEnd w:id="d2e50"/>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="Normal"/>
+         </w:pPr>
+         <w:r>
+            <w:rPr/>
+            <w:t>asdfasdfasdfasdf</w:t>
+         </w:r>
+      </w:p>
+      <w:p>
+         <w:pPr>
+            <w:pstyle w:val="empty"/>
+            <w:SectPr/>
+            <!--This is just to create a new section --></w:pPr>
+      </w:p>
+   </w:body>
+</w:document>
