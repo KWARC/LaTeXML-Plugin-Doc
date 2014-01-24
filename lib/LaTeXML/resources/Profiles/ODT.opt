@@ -1,0 +1,10 @@
+# Profile for ODT generation
+post =
+format = odt
+whatsin = document
+whatsout = archive
+pmml =
+cmml =
+stylesheet = something-odt.xsl
+
+path = $LATEXMLINPUTS
