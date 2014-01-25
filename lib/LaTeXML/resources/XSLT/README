@@ -1,0 +1,9 @@
+This directory contains the transformation spreadsheets. 
+LaTeXML-*-ODT.xsl      transformation to OpenOffice
+ltx2ODTmanifest.xsl     transformation to OpenOffice Manifest
+ltx2docbook.xsl            very partial transformation to DocBook
+
+ltx2word.xsl                  transformation to WML (MS DocX)
+mml2omml.xsl              MathML to MS DocX Math
+relations.xsl 		      transformation for (MS DocX relations file)
+
