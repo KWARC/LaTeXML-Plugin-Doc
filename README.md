@@ -9,4 +9,4 @@ latexmlc paper --destination=paper.docx
 latexmlc paper --destination=paper.odt
 latexmlc paper --format=DocBook --destination=paper.xml
 ```
-to get one of the formats above. 
+to transform ```paper.tex``` into a document in one of the formats above. 
