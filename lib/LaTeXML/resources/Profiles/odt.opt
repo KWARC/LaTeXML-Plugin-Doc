@@ -5,4 +5,5 @@ whatsin = document
 whatsout = archive
 mathimages =
 stylesheet = LaTeXML-ODT.xsl
+nodefaultresources = 
 path = $LATEXMLINPUTS
