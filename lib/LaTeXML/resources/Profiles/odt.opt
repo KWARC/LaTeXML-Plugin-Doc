@@ -6,5 +6,4 @@ whatsout = archive
 pmml =
 cmml =
 stylesheet = LaTeXML-ODT.xsl
-
 path = $LATEXMLINPUTS
