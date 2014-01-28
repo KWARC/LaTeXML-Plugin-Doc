@@ -18,6 +18,20 @@ use LaTeXML::Util::Pathname;
 use File::Spec::Functions qw(catdir);
 use LaTeXML::Post;    # for error handling!
 
+our $manifest_content = <<'EOL';
+<?xml version="1.0"?>
+<manifest:manifest office:version="1.2"
+ xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" 
+ xmlns:ltx="http://dlmf.nist.gov/LaTeXML" 
+ xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0">
+  <manifest:file-entry manifest:media-type="application/vnd.oasis.opendocument.text" manifest:full-path="/"/>
+  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="content.xml"/>
+  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="meta.xml"/>
+  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="settings.xml"/>
+  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="styles.xml"/>
+</manifest:manifest>
+EOL
+
 sub new {
   my ($class, %options) = @_;
   my $self = $class->SUPER::new(%options);
@@ -27,9 +41,17 @@ sub initialize {
   my ($self, $doc) = @_;
   my $directory = $$self{siteDirectory};
   # Generate all auxiliary file and structure.
-  # E.g. for EPUB we do:
   # 1. Create mimetype declaration
-  # 2.1. Add the container.xml description
+  open my $odt_fh, ">", pathname_concat($directory, 'mimetype');
+  print $odt_fh 'application/vnd.oasis.opendocument.text';
+  close $odt_fh;
+  # 2. Create META-INF metadata directory
+  my $meta_inf_dir = catdir($directory, 'META-INF');
+  mkdir $meta_inf_dir;
+  # 2.1. Add the manifest.xml description (to be extended later)
+  open my $manifest_fh, ">" . pathname_concat($meta_inf_dir, 'manifest.xml');
+  print $manifest_fh $manifest_content;
+  close $container_fh;
   # 3. Create OPS content container
   # 3.1 OPS/content.opf XML Spine
   # Metadata
