@@ -44,7 +44,7 @@
 	      text:anchor-type="as-char" 
 	      svg:y="{-@imagedepth * .75}px" svg:width="{@imagewidth * .75}px" svg:height="{@imageheight * .75}px" 
 	      draw:z-index="0">
-    <draw:image xlink:href="Pictures/{$filename}" 
+    <draw:image xlink:href="{$filename}" 
 		xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
   </draw:frame>
 </xsl:template>
