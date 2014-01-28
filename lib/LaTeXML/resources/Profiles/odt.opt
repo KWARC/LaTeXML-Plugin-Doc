@@ -5,6 +5,6 @@ whatsin = document
 whatsout = archive
 pmml =
 cmml =
-stylesheet = something-odt.xsl
+stylesheet = LaTeXML-ODT.xsl
 
 path = $LATEXMLINPUTS

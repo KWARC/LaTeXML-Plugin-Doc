@@ -15,7 +15,7 @@ use strict;
 use warnings;
 
 use base qw(LaTeXML::Post::Manifest);
-use File::Spec::Functions qw(catdir);
+use File::Spec::Functions qw(catdir catfile);
 use XML::LibXML;
 use LaTeXML::Util::Pathname;
 use LaTeXML::Post;    # for error handling!
@@ -49,6 +49,7 @@ our %media_types = ('png'=>'image/png','jpg'=>'','jpeg'=>'');
 sub initialize {
   my ($self, $doc) = @_;
   my $directory = $$self{siteDirectory};
+  my $pictures_directory = catdir($directory,'Pictures');
   # Generate all auxiliary file and structure.
   # 1. Create mimetype declaration
   open my $odt_fh, ">", pathname_concat($directory, 'mimetype');
@@ -60,10 +61,12 @@ sub initialize {
   # 2.1. Add the manifest.xml description (to be extended later)
   my $manifest_dom = XML::LibXML->load_xml(string => $manifest_static);
   #Index all CSS files (written already)
-  opendir(my $dir_handle, $directory);
-  my @files = readdir($dir_handle);
-  closedir $dir_handle;
-  my @images = grep { /\.(png|jpg|jpeg)$/i && -f pathname_concat($directory, $_) } @files;
+  opendir(my $pictures_handle, $pictures_directory);
+  my @files = readdir($pictures_handle);
+  closedir $pictures_handle;
+  my $relative_pictures_directory = pathname_relative($pictures_directory,$directory);
+  my @images = map {catfile($relative_pictures_directory,$_)}
+  	grep { /\.(png|jpg|jpeg)$/i && -f pathname_concat($pictures_directory, $_) } @files;
   my $manifest_element = $manifest_dom->documentElement;
   foreach my $image_file(@images) {
   	my $extension;
