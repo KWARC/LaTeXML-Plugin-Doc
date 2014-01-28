@@ -26,7 +26,7 @@
 <xsl:template match="ltx:document">
   <office:document-content office:version="1.2">
     <office:scripts/>
-    <xsl:copy-of select="document('../minimal/font-face-decls.xml')//office:font-face-decls"/>
+    <xsl:copy-of select="document('../ODT-skeleton/font-face-decls.xml')//office:font-face-decls"/>
     <office:automatic-styles>
       <xsl:apply-templates select="//ltx:Math" mode="automatic-styles"/>
     </office:automatic-styles>
