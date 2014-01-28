@@ -15,14 +15,15 @@ use strict;
 use warnings;
 
 use base qw(LaTeXML::Post::Manifest);
-use LaTeXML::Util::Pathname;
 use File::Spec::Functions qw(catdir);
+use XML::LibXML;
+use LaTeXML::Util::Pathname;
 use LaTeXML::Post;    # for error handling!
-
-our $manifest_content = <<'EOL';
+our $odt_manifest_namespace = "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0";
+our $manifest_static = <<"EOL";
 <?xml version="1.0"?>
 <manifest:manifest office:version="1.2"
- xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" 
+ xmlns:manifest="$odt_manifest_namespace" 
  xmlns:ltx="http://dlmf.nist.gov/LaTeXML" 
  xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0">
   <manifest:file-entry manifest:media-type="application/vnd.oasis.opendocument.text" manifest:full-path="/"/>
@@ -33,11 +34,18 @@ our $manifest_content = <<'EOL';
 </manifest:manifest>
 EOL
 
+#  <manifest:file-entry manifest:full-path="Pictures/campanile_fog.jpg" manifest:media-type=""/>
+#  <manifest:file-entry manifest:full-path="Pictures/campanile_fog.jpg" manifest:media-type=""/>
+#  <manifest:file-entry manifest:full-path="Pictures/mi2.png" manifest:media-type="image/png"/>
+#  <manifest:file-entry manifest:full-path="Pictures/mi1.png" manifest:media-type="image/png"/>
+#  <manifest:file-entry manifest:full-path="Pictures/mi1.png" manifest:media-type="image/png"/>
+
 sub new {
   my ($class, %options) = @_;
   my $self = $class->SUPER::new(%options);
   return $self; }
 
+our %media_types = ('png'=>'image/png','jpg'=>'','jpeg'=>'');
 sub initialize {
   my ($self, $doc) = @_;
   my $directory = $$self{siteDirectory};
@@ -50,6 +58,20 @@ sub initialize {
   my $meta_inf_dir = catdir($directory, 'META-INF');
   mkdir $meta_inf_dir;
   # 2.1. Add the manifest.xml description (to be extended later)
+  my $manifest_dom = XML::LibXML->load_xml(string => $manifest_static);
+  #Index all CSS files (written already)
+  opendir(my $dir_handle, $directory);
+  my @files = readdir($dir_handle);
+  closedir $dir_handle;
+  my @images = grep { /\.(png|jpg|jpeg)$/i && -f pathname_concat($directory, $_) } @files;
+  my $manifest_element = $manifest_dom->documentElement;
+  foreach my $image_file(@images) {
+  	my $extension;
+  	if ($image_file =~ /\.(png|jpg|jpeg)$/) {$extension = $1;}
+  	my $file_entry = $manifest_element->addNewChild($odt_manifest_namespace, "file-entry");
+  	$file_entry->setAttributeNS($odt_manifest_namespace,'full-path',$image_file);
+  	$file_entry->setAttributeNS($odt_manifest_namespace,'media-type',$media_types{$extension}); }
+  my $manifest_content = $manifest_dom->toString(1);
   open my $manifest_fh, ">" . pathname_concat($meta_inf_dir, 'manifest.xml');
   print $manifest_fh $manifest_content;
   close $manifest_fh;
