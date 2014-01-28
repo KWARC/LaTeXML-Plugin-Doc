@@ -1,15 +1,16 @@
 # /=====================================================================\ #
-# |  LaTeXML::Post::Manifest::ODT                                       | #
-# | Manifest creation for EPUB                                          | #
+# | LaTeXML::Post::Manifest::ODT                                        | #
+# | Manifest creation for ODT                                           | #
 # |=====================================================================| #
 # | Part of LaTeXML:                                                    | #
 # |  Public domain software, produced as part of work done by the       | #
 # |  United States Government & not subject to copyright in the US.     | #
 # |---------------------------------------------------------------------| #
-# | Bruce Miller <bruce.miller@nist.gov>                        #_#     | #
+# | Lukas Kohlhase <l.kohlhase@jacobs-university.de>            #_#     | #
+# | Michael Kohlhase <m.kohlhase@jacobs-university.de>          #_#     | #
 # | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
 # \=========================================================ooo==U==ooo=/ #
-package LaTeXML::Post::Manifest::ODT;
+package LaTeXML::Post::Manifest::Odt;
 use strict;
 use warnings;
 
@@ -51,7 +52,7 @@ sub initialize {
   # 2.1. Add the manifest.xml description (to be extended later)
   open my $manifest_fh, ">" . pathname_concat($meta_inf_dir, 'manifest.xml');
   print $manifest_fh $manifest_content;
-  close $container_fh;
+  close $manifest_fh;
   # 3. Create OPS content container
   # 3.1 OPS/content.opf XML Spine
   # Metadata

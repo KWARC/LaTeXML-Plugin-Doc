@@ -8,12 +8,12 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-  NAME => 'LaTeXML::Plugin::Doc',
+  NAME => 'LaTeXML::Plugin::Odt',
   AUTHOR => 'Lukas Kohlahse <email>',
   ABSTRACT => "LaTeXML::Plugin::Doc - A LaTeXML post-processor for Word and OpenOffice",
-  VERSION_FROM => 'lib/LaTeXML/Post/Manifest/Doc.pm',
+  VERSION => '0.1',
   PREREQ_PM => {
-    'LaTeXML' => '0.7.9',
+    'LaTeXML' => '0.7.99',
   },
   test => {TESTS => 't/*.t'}
 );
