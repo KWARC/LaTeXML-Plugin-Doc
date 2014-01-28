@@ -39,7 +39,7 @@
 </xsl:template> -->
 
 <xsl:template match="ltx:Math">
-  <xsl:variable name="filename" select="substring-after(@imagesrc,'mi/')"/>
+  <xsl:variable name="filename" select="@imagesrc"/>
   <draw:frame draw:style-name="formula-{substring-before($filename,'.png')}" draw:name="{$filename}" 
 	      text:anchor-type="as-char" 
 	      svg:y="{-@imagedepth * .75}px" svg:width="{@imagewidth * .75}px" svg:height="{@imageheight * .75}px" 
