@@ -34,12 +34,6 @@ our $manifest_static = <<"EOL";
 </manifest:manifest>
 EOL
 
-#  <manifest:file-entry manifest:full-path="Pictures/campanile_fog.jpg" manifest:media-type=""/>
-#  <manifest:file-entry manifest:full-path="Pictures/campanile_fog.jpg" manifest:media-type=""/>
-#  <manifest:file-entry manifest:full-path="Pictures/mi2.png" manifest:media-type="image/png"/>
-#  <manifest:file-entry manifest:full-path="Pictures/mi1.png" manifest:media-type="image/png"/>
-#  <manifest:file-entry manifest:full-path="Pictures/mi1.png" manifest:media-type="image/png"/>
-
 sub new {
   my ($class, %options) = @_;
   my $self = $class->SUPER::new(%options);
@@ -78,20 +72,13 @@ sub initialize {
   open my $manifest_fh, ">" . pathname_concat($meta_inf_dir, 'manifest.xml');
   print $manifest_fh $manifest_content;
   close $manifest_fh;
-  # 3. Create OPS content container
-  # 3.1 OPS/content.opf XML Spine
-  # Metadata
-  # Fish out any existing unique identifier for the book
-  #       the UUID is the fallback default
-  # Manifest
-  # .. manifest generation
-  # To store the generated content (since we are not writing to disk here yet) use the Manifest object:
-    # $$self{OPS_directory} = $OPS_directory;
-    # $$self{opf}           = $opf;
-    # $$self{opf_spine}     = $spine;
-    # $$self{opf_manifest}  = $manifest;
-    # $$self{nav}           = $nav;
-    # $$self{nav_map}       = $nav_map;
+
+  # Copy static files from ODT-Skeleton
+  foreach my $static_resource(qw(settings meta styles)) {
+    my $static_path = pathname_find($static_resource,types=>['xml'],installation_subdir=>catdir('resources','ODT-Skeleton'));
+    if ($static_path) {
+    	pathname_copy($static_path,$directory); }
+    else { Error('I/O',$static_resource,undef,"Couldn't find ODT static resource: $static_resource.xml");} }
   return; }
 
 sub process {
@@ -128,31 +115,6 @@ sub process {
         # $nav_a->setAttribute('href', $file);
         # $nav_a->appendText($file); } 
   } }
-  $self->finalize;
   return; }
-
-sub finalize {
-  my ($self) = @_;
-  # Write everything to disk:
-
-  #Index all CSS files (written already)
-  # Write the content.opf file to disk
-  # my $directory = $$self{siteDirectory};
-  # my $OPF_FH;
-  # my $content_path = pathname_concat($OPS_directory, 'content.opf');
-  # open($OPF_FH, ">", $content_path)
-  #   or Fatal('I/O', 'content.opf', undef, "Couldn't open '$content_path' for writing: $_");
-  # print $OPF_FH $$self{opf}->toString(1);
-  # close $OPF_FH;
-
-  # Write toc.ncx file to disk
-  # my $NAV_FH;
-  # my $nav_path = pathname_concat($OPS_directory, 'nav.xhtml');
-  # open($NAV_FH, ">", $nav_path)
-  #   or Fatal('I/O', 'nav.xhtml', undef, "Couldn't open '$nav_path' for writing: $!");
-  # print $NAV_FH $$self{nav}->toString(1);
-  # close $NAV_FH;
-
-  return (); }
 
 1;
