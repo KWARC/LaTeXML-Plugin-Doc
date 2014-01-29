@@ -1,10 +1,10 @@
-# Profile for ODT generation
+# Profile for WML generation
 post =
-format = odt
+format = docx
 whatsin = document
 whatsout = archive
 pmml =
 cmml =
-stylesheet = something-odt.xsl
-
+stylesheet = ltx2word.xsl
+nodefaultresources = 
 path = $LATEXMLINPUTS
