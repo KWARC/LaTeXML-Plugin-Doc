@@ -22,10 +22,7 @@ use LaTeXML::Post;    # for error handling!
 our $odt_manifest_namespace = "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0";
 our $manifest_static = <<"EOL";
 <?xml version="1.0"?>
-<manifest:manifest office:version="1.2"
- xmlns:manifest="$odt_manifest_namespace" 
- xmlns:ltx="http://dlmf.nist.gov/LaTeXML" 
- xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0">
+<manifest:manifest manifest:version="1.2" xmlns:manifest="$odt_manifest_namespace"> 
   <manifest:file-entry manifest:media-type="application/vnd.oasis.opendocument.text" manifest:full-path="/"/>
   <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="content.xml"/>
   <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="meta.xml"/>
