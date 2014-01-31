@@ -51,7 +51,7 @@
 
 <xsl:template match="ltx:Math" mode="automatic-styles">
   <xsl:variable name="filename" select="substring-before(substring-after(@imagesrc,'mi/'),'.png')"/>
-  <style:style name="formula-{$filename}" style:family="graphic" style:parent-style-name="Graphics">
+  <style:style style:name="formula-{$filename}" style:family="graphic" style:parent-style-name="Graphics">
       <style:graphic-properties TexMathsArgs="{@tex}"
 				fo:margin-top="0in" fo:margin-bottom="0in" 
 				style:vertical-pos="from-top" style:horizontal-pos="center" style:horizontal-rel="paragraph" 

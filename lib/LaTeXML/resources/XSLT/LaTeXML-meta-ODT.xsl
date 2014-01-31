@@ -28,7 +28,7 @@
 </xsl:template>
 
 <xsl:template match="ltx:note[@role='footnote']">
-  <text:note note-class="footnote">
+  <text:note text:note-class="footnote">
     <text:note-citation><xsl:value-of select="@mark"/></text:note-citation>
     <text:note-body>
       <text:p text:style-name="Footnote"><xsl:apply-templates/></text:p>
