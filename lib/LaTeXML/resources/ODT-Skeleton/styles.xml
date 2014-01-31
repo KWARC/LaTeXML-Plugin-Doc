@@ -37,17 +37,17 @@
       <style:text-properties style:use-window-font-color="true" style:font-name="Times New Roman" fo:font-size="10pt" fo:language="en" fo:country="US" style:font-name-asian="Times New Roman" style:font-size-asian="10pt" style:font-name-complex="Times New Roman" style:font-size-complex="10pt" style:language-complex="ar" style:country-complex="SA" fo:hyphenate="true" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
     </style:style>
     <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text">
-      <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" fo:keep-with-next="always"/>
       <style:text-properties style:font-name="Arial" fo:font-size="14pt" style:font-name-asian="Arial Unicode MS" style:font-size-asian="14pt" style:font-name-complex="Arial Unicode MS" style:font-size-complex="14pt"/>
     </style:style>
     <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.0835in" style:contextual-spacing="false"/>
+      <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.0835in"/>
     </style:style>
     <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list">
       <style:text-properties style:font-size-asian="12pt"/>
     </style:style>
     <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="extra">
-      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" style:contextual-spacing="false"/>
+      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in"/>
       <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold"/>
     </style:style>
     <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
@@ -55,33 +55,33 @@
       <style:text-properties style:font-size-asian="12pt"/>
     </style:style>
     <style:style style:name="Heading_20_1" style:display-name="Heading 1" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0in" fo:margin-top="0.25in" fo:margin-bottom="0.1665in" style:contextual-spacing="false" style:line-height-at-least="0.2083in" fo:text-align="start" style:justify-single-word="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="-0.3937in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0in" fo:margin-top="0.25in" fo:margin-bottom="0.1665in" style:line-height-at-least="0.2083in" fo:text-align="start" style:justify-single-word="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="-0.3937in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="12pt" fo:font-weight="bold" style:font-size-asian="12pt" style:font-weight-asian="bold" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
     </style:style>
     <style:style style:name="Heading_20_2" style:display-name="Heading 2" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0in" fo:margin-top="0.25in" fo:margin-bottom="0.111in" style:contextual-spacing="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="-0.3937in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0in" fo:margin-top="0.25in" fo:margin-bottom="0.111in" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="-0.3937in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
     </style:style>
     <style:style style:name="Heading_20_3" style:display-name="Heading 3" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.25in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.25in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="Heading_20_4" style:display-name="Heading 4" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="Heading_20_5" style:display-name="Heading 5" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="Heading_20_6" style:display-name="Heading 6" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="Heading_20_7" style:display-name="Heading 7" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="Heading_20_8" style:display-name="Heading 8" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="Heading_20_9" style:display-name="Heading 9" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="text">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="Header" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
       <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:text-indent="0in" style:auto-text-indent="false">
@@ -101,11 +101,11 @@
       </style:paragraph-properties>
     </style:style>
     <style:style style:name="title" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="author">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.3335in" style:contextual-spacing="false" style:line-height-at-least="0.25in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.3335in" style:line-height-at-least="0.25in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="14pt" fo:font-weight="bold" style:font-size-asian="14pt" style:font-weight-asian="bold" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
     </style:style>
     <style:style style:name="author" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="address">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.139in" style:contextual-spacing="false" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.139in" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="authorinfo" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="email">
       <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
@@ -122,7 +122,7 @@
       <style:text-properties style:font-style-complex="italic" style:font-weight-complex="bold"/>
     </style:style>
     <style:style style:name="heading3_20_backup" style:display-name="heading3 backup" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="p1a">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.222in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always">
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.222in" fo:margin-bottom="0in" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always">
         <style:tab-stops>
           <style:tab-stop style:position="0.1972in"/>
         </style:tab-stops>
@@ -130,7 +130,7 @@
       <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
     </style:style>
     <style:style style:name="equation" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.111in" fo:margin-bottom="0.111in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false">
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.111in" fo:margin-bottom="0.111in" fo:text-indent="0in" style:auto-text-indent="false">
         <style:tab-stops>
           <style:tab-stop style:position="2.2839in" style:type="center"/>
           <style:tab-stop style:position="4.8035in" style:type="right"/>
@@ -138,15 +138,15 @@
       </style:paragraph-properties>
     </style:style>
     <style:style style:name="figlegend" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0835in" fo:margin-bottom="0.1665in" style:contextual-spacing="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0835in" fo:margin-bottom="0.1665in" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="tablelegend" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="9pt" fo:language="de" fo:country="DE" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="abstract" style:family="paragraph" style:parent-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0.3937in" fo:margin-top="0.4165in" fo:margin-bottom="0.25in" style:contextual-spacing="true" style:line-height-at-least="0.1528in" fo:text-indent="0.1575in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0.3937in" fo:margin-top="0.4165in" fo:margin-bottom="0.25in"  style:line-height-at-least="0.1528in" fo:text-indent="0.1575in" style:auto-text-indent="false"/>
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="p1a" style:family="paragraph" style:parent-style-name="Standard">
@@ -157,7 +157,7 @@
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="Running_20_head_20_-_20_left" style:display-name="Running head - left" style:family="paragraph" style:parent-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.1665in" style:contextual-spacing="false" fo:line-height="0.1665in" fo:text-align="start" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false">
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.1665in" fo:line-height="0.1665in" fo:text-align="start" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false">
         <style:tab-stops>
           <style:tab-stop style:position="0.472in"/>
           <style:tab-stop style:position="4.3311in" style:type="right"/>
@@ -184,7 +184,7 @@
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="programcode" style:family="paragraph" style:parent-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.111in" fo:margin-bottom="0.111in" style:contextual-spacing="true" fo:text-align="start" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false">
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.111in" fo:margin-bottom="0.111in"  fo:text-align="start" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false">
         <style:tab-stops>
           <style:tab-stop style:position="0.1575in"/>
           <style:tab-stop style:position="0.3154in"/>
@@ -228,19 +228,19 @@
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="heading4_20_backup" style:display-name="heading4 backup" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="p1a">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.222in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.222in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
       <style:text-properties fo:font-style="italic" style:font-style-asian="italic"/>
     </style:style>
     <style:style style:name="address" style:family="paragraph" style:parent-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.139in" style:contextual-spacing="true" style:line-height-at-least="0.1528in" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.139in"  style:line-height-at-least="0.1528in" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="figure_20_legend" style:display-name="figure legend" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0835in" fo:margin-bottom="0.1665in" style:contextual-spacing="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0835in" fo:margin-bottom="0.1665in" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="table_20_title" style:display-name="table title" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="9pt" fo:language="de" fo:country="DE" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="referenceitem" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="WW8Num21">
@@ -257,23 +257,23 @@
       <style:text-properties style:font-name="Tahoma" fo:font-size="8pt" style:font-size-asian="8pt" style:font-name-complex="Tahoma" style:font-size-complex="8pt"/>
     </style:style>
     <style:style style:name="bulletitem" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="WW8Num13">
-      <style:paragraph-properties fo:margin-top="0.111in" fo:margin-bottom="0.111in" style:contextual-spacing="true"/>
+      <style:paragraph-properties fo:margin-top="0.111in" fo:margin-bottom="0.111in" />
     </style:style>
     <style:style style:name="dashitem" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="WW8Num18">
-      <style:paragraph-properties fo:margin-top="0.111in" fo:margin-bottom="0.111in" style:contextual-spacing="true"/>
+      <style:paragraph-properties fo:margin-top="0.111in" fo:margin-bottom="0.111in" />
     </style:style>
     <style:style style:name="figurecaption" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0835in" fo:margin-bottom="0.1665in" style:contextual-spacing="false" style:line-height-at-least="0.1528in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0835in" fo:margin-bottom="0.1665in" style:line-height-at-least="0.1528in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false"/>
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="image" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="keywords" style:family="paragraph" style:parent-style-name="abstract">
       <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0.3937in" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="numitem" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="WW8Num16">
-      <style:paragraph-properties fo:margin-top="0.111in" fo:margin-bottom="0.111in" style:contextual-spacing="true"/>
+      <style:paragraph-properties fo:margin-top="0.111in" fo:margin-bottom="0.111in" />
     </style:style>
     <style:style style:name="running_20_head_20_-_20_left" style:display-name="running head - left" style:family="paragraph" style:parent-style-name="Standard">
       <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:text-align="start" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
@@ -284,23 +284,23 @@
       <style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="9pt" style:font-weight-complex="bold"/>
     </style:style>
     <style:style style:name="subtitle" style:family="paragraph" style:parent-style-name="title" style:next-style-name="author">
-      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.3335in" style:contextual-spacing="false" style:line-height-at-least="0.1945in"/>
+      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.3335in" style:line-height-at-least="0.1945in"/>
       <style:text-properties fo:font-size="12pt" style:font-size-asian="12pt"/>
     </style:style>
     <style:style style:name="tablecaption" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" style:line-height-at-least="0.1528in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:line-height-at-least="0.1528in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="9pt" fo:language="de" fo:country="DE" style:font-size-asian="9pt"/>
     </style:style>
     <style:style style:name="List_20_Bullet" style:display-name="List Bullet" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="WW8Num10">
-      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" style:contextual-spacing="true"/>
+      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" />
     </style:style>
     <style:style style:name="List_20_Number" style:display-name="List Number" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="WW8Num9"/>
     <style:style style:name="papertitle" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="author">
-      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.3335in" style:contextual-spacing="false" style:line-height-at-least="0.25in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
+      <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0.3335in" style:line-height-at-least="0.25in" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:hyphenation-ladder-count="no-limit" fo:text-indent="0in" style:auto-text-indent="false" fo:keep-with-next="always"/>
       <style:text-properties fo:font-size="14pt" fo:font-weight="bold" style:font-size-asian="14pt" style:font-weight-asian="bold" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2"/>
     </style:style>
     <style:style style:name="papersubtitle" style:family="paragraph" style:parent-style-name="papertitle" style:next-style-name="author">
-      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.3335in" style:contextual-spacing="false" style:line-height-at-least="0.1945in"/>
+      <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.3335in" style:line-height-at-least="0.1945in"/>
       <style:text-properties fo:font-size="12pt" style:font-size-asian="12pt"/>
     </style:style>
     <style:style style:name="ReferenceLine" style:family="paragraph" style:parent-style-name="p1a">
@@ -1026,47 +1026,47 @@
       </text:list-level-style-number>
     </text:list-style>
     <text:list-style style:name="WW8Num11">
-      <text:list-level-style-number text:level="1" style:num-format="" text:start-value="0">
+      <text:list-level-style-number text:level="1" style:num-format="">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="2" style:num-format="" text:start-value="0">
+      <text:list-level-style-number text:level="2" style:num-format="">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="3" style:num-format="" text:start-value="0">
+      <text:list-level-style-number text:level="3" style:num-format="">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="4" text:style-name="WW8Num11z3" style:num-format="1" text:start-value="0">
+      <text:list-level-style-number text:level="4" text:style-name="WW8Num11z3" style:num-format="1">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="5" text:style-name="WW8Num11z3" style:num-format="1" text:start-value="0">
+      <text:list-level-style-number text:level="5" text:style-name="WW8Num11z3" style:num-format="1">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="6" text:style-name="WW8Num11z3" style:num-format="1" text:start-value="0">
+      <text:list-level-style-number text:level="6" text:style-name="WW8Num11z3" style:num-format="1">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="7" text:style-name="WW8Num11z3" style:num-format="1" text:start-value="0">
+      <text:list-level-style-number text:level="7" text:style-name="WW8Num11z3" style:num-format="1">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="8" text:style-name="WW8Num11z3" style:num-format="1" text:start-value="0">
+      <text:list-level-style-number text:level="8" text:style-name="WW8Num11z3" style:num-format="1">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
       </text:list-level-style-number>
-      <text:list-level-style-number text:level="9" text:style-name="WW8Num11z3" style:num-format="1" text:start-value="0">
+      <text:list-level-style-number text:level="9" text:style-name="WW8Num11z3" style:num-format="1">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab"/>
         </style:list-level-properties>
@@ -1625,7 +1625,7 @@
       </text:list-level-style-number>
     </text:list-style>
     <text:list-style style:name="WW8StyleNum">
-      <text:list-level-style-bullet text:level="1">
+      <text:list-level-style-bullet text:level="1" text:bullet-char="─">
         <style:list-level-properties text:min-label-width="0.1575in"/>
         <style:text-properties style:font-name="Symbol1"/>
       </text:list-level-style-bullet>
@@ -1676,7 +1676,7 @@
       </text:list-level-style-number>
     </text:list-style>
     <text:list-style style:name="WW8StyleNum1">
-      <text:list-level-style-bullet text:level="1">
+      <text:list-level-style-bullet text:level="1" text:bullet-char="─">
         <style:list-level-properties text:min-label-width="0.1575in"/>
         <style:text-properties style:font-name="Symbol1"/>
       </text:list-level-style-bullet>
@@ -1776,8 +1776,8 @@
         </style:list-level-properties>
       </text:list-level-style-number>
     </text:list-style>
-    <text:notes-configuration text:note-class="footnote" text:citation-style-name="Footnote_20_Symbol" text:citation-body-style-name="Footnote_20_anchor" style:num-format="1" text:start-value="0" text:footnotes-position="page" text:start-numbering-at="document"/>
-    <text:notes-configuration text:note-class="endnote" style:num-format="i" text:start-value="0"/>
+    <text:notes-configuration text:note-class="footnote" text:citation-style-name="Footnote_20_Symbol" text:citation-body-style-name="Footnote_20_anchor" style:num-format="1" text:footnotes-position="page" text:start-numbering-at="document"/>
+    <text:notes-configuration text:note-class="endnote" style:num-format="i"/>
     <text:linenumbering-configuration text:number-lines="false" text:offset="0.1965in" style:num-format="1" text:number-position="left" text:increment="5"/>
     <style:default-page-layout>
       <style:page-layout-properties style:layout-grid-standard-mode="true"/>
@@ -1796,10 +1796,10 @@
       <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
     </style:style>
     <style:style style:name="smallcaps" style:family="text">
-      <style:text-properties officeooo:rsid="00137058"/>
+      <style:text-properties fo:font-variant="small-caps"/>
     </style:style>
     <style:style style:name="quote" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="address">
-      <style:paragraph-properties fo:margin-left=".2in" fo:margin-right=".2in" fo:margin-top=".1in" fo:margin-bottom=".1in" style:contextual-spacing="false" fo:text-align="justify" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
+      <style:paragraph-properties fo:margin-left=".2in" fo:margin-right=".2in" fo:margin-top=".1in" fo:margin-bottom=".1in" fo:text-align="justify" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
     </style:style>
     <style:style style:name="newparagraph" style:family="paragraph" style:parent-style-name="Standard">
       <style:paragraph-properties fo:margin-top=".1in"/>
@@ -1814,7 +1814,7 @@
   </office:styles>
   <office:automatic-styles>
     <style:page-layout style:name="Mpm1" style:page-usage="mirrored">
-      <style:page-layout-properties fo:page-width="8.2681in" fo:page-height="11.6929in" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2.0472in" fo:margin-bottom="2.0472in" fo:margin-left="1.7319in" fo:margin-right="1.7319in" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="40" style:layout-grid-base-height="0.189in" style:layout-grid-ruby-height="0in" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:layout-grid-base-width="0.139in" style:layout-grid-snap-to="true" style:layout-grid-snap-to-characters="true" style:footnote-max-height="0in">
+      <style:page-layout-properties fo:page-width="8.2681in" fo:page-height="11.6929in" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2.0472in" fo:margin-bottom="2.0472in" fo:margin-left="1.7319in" fo:margin-right="1.7319in" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="40" style:layout-grid-base-height="0.189in" style:layout-grid-ruby-height="0in" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:layout-grid-base-width="0.139in" style:layout-grid-snap-to="true" style:footnote-max-height="0in">
         <style:footnote-sep style:width="0.0071in" style:distance-before-sep="0.0398in" style:distance-after-sep="0.0398in" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
       </style:page-layout-properties>
       <style:header-style/>
