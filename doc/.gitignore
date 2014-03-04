@@ -2,4 +2,4 @@
 *.bcf
 *.log
 *.run.xml
-*.syntex.gz
+*.synctex.gz
