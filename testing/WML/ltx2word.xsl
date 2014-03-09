@@ -320,7 +320,7 @@
 <xsl:template match="ltx:break">
 <w:r>
 	<w:br/>
-</w:br>
+</w:r>
 </xsl:template>
 
 <xsl:template match="ltx:personname">
