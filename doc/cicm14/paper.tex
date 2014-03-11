@@ -1,4 +1,3 @@
-
 \documentclass[draft]{llncs}
 \usepackage[show]{ed}
 \usepackage{calbf}
@@ -31,21 +30,38 @@
 \end{abstract}
 
 \section{Problem \& State of the Art}\label{sec:intro}
-Many researchers in STEM fields only {\LaTeX} to typeset their documents. However many people still use Microsoft Word/Open office exclusively for their typesetting. When these two groups of people intersect, it can lead to friction, as transforming text to {\LaTex} is quite trivial but not the opposite. For example if a conference requested documents in Word format, the only recouse is often to just write the document in Word, which is a pain, especially if any Mathematics is to be included. \\
+
+Many researchers in STEM fields only use {\LaTeX} to typeset their documents. However many
+people still use Microsoft Word/Open office exclusively for their typesetting. When these
+two groups of people intersect, it can lead to friction, as transforming text to {\LaTeX}
+is quite trivial but not the opposite. For example if a conference requested documents in
+Word format, the only recouse is often to just write the document in Word, which is a
+pain, especially if any Mathematics is to be included.
 
 \ednote{Here we state the Problem, some conferences and admin want papers in word format, however LaTeX is superior for various reasons. Hence converter is needed. Two step process, wastes some time.}
-There already exist several methods to transform papers from {\LaTeX} to Word. The first method is to just generate a PDF file and then open this file in Word/Open Office. However this approach has several problems. First of all it does not convert semantically at all. A headline is not treated as a headline, but as a piece of centered text with larger font. Additionally math is treated as either not distinct from text in any meaningful way, or as a picture, making later editing impractical if not impossible. The same applies to references. Finally it is a two step process that would save some time if creating the pdf could be skipped. 
-\ednote{make PDF then open it with Word. Treats Math as either formatted Text or as pictures, unsuited for searching or for editing the math afterwards. References are also just pretty printed Text}
-\ednote{Various other ways that start at the .tex file, all either are buggy/not updated anymore or can't deal with math at all.}
+
+There are several methods to transform papers from {\LaTeX} to Word. The first method is
+to just generate a PDF file and then open this file in Word/Open Office. However this
+approach has several problems. First of all it does not convert semantically at all. A
+headline is not treated as a headline, but as a piece of centered text with larger
+font. Additionally math is treated as either not distinct from text in any meaningful way,
+or as an image, making later editing impractical if not impossible. The same applies to
+references. Finally it is a two step process that would save some time if creating the pdf
+could be skipped.  \ednote{make PDF then open it with Word. Treats Math as either
+  formatted Text or as pictures, unsuited for searching or for editing the math
+  afterwards. References are also just pretty printed Text} \ednote{Various other ways
+  that start at the .tex file, all either are buggy/not updated anymore or can't deal with
+  math at all.}
 
 \section{Implementation}\label{sec:impl}
 \ednote{First convert to Ltxml using LaTeXML}
 \ednote{Then convert the resulting ltxml using xslt stylesheets to a word apppropriate format. }
 \ednote{Finally use postprocessing to zip it all up}
 \ednote{Don't know where to put an explanation of Word format in this place}
+
 \section{Conclusion}\label{sec:concl}
 \ednote{MK@MK: say something}
-\ednote{In Conclusion, easy to use 
+\ednote{In Conclusion, easy to use}
 \printbibliography
 \end{document}
 
