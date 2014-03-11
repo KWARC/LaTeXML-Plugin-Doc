@@ -41,17 +41,9 @@ pain, especially if any Mathematics is to be included.
 \ednote{Here we state the Problem, some conferences and admin want papers in word format, however LaTeX is superior for various reasons. Hence converter is needed. Two step process, wastes some time.}
 
 There are several methods to transform papers from {\LaTeX} to Word. The first method is
-to just generate a PDF file and then open this file in Word/Open Office. However this
-approach has several problems. First of all it does not convert semantically at all. A
-headline is not treated as a headline, but as a piece of centered text with larger
-font. Additionally math is treated as either not distinct from text in any meaningful way,
-or as an image, making later editing impractical if not impossible. The same applies to
-references. Finally it is a two step process that would save some time if creating the pdf
-could be skipped.  \ednote{make PDF then open it with Word. Treats Math as either
-  formatted Text or as pictures, unsuited for searching or for editing the math
-  afterwards. References are also just pretty printed Text} \ednote{Various other ways
-  that start at the .tex file, all either are buggy/not updated anymore or can't deal with
-  math at all.}
+to just generate a PDF file and then open this file in Word/Open Office. This achieves the goal of looking like the desired pdf document, just in Office. However when later editing the resulting document, problems turn up. 
+The fundamental problem is that it converts the appearance of the document and loses meaning due to macro expansion. This is especially blatant when looking at the math in a document. Either it is treated as text, with no meaningful way to distinguish between math and formatted text that happens to contain some mathematical symbols, making automatic treatment of this kind of math difficult, or it is represented by an image of the relevant formulae, which makes editing extremely impractical if not impossible. The same holds true for references, they are essentially treated as parts of text with a linked number in front of them, complicating adding new references substantially. \\ 
+Hence the other way of directly transforming the {\LaTeX} to Word is the only option if 
 
 \section{Implementation}\label{sec:impl}
 \ednote{First convert to Ltxml using LaTeXML}
