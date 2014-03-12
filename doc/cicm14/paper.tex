@@ -43,16 +43,16 @@ pain, especially if any Mathematics is to be included.
 There are several methods to transform papers from {\LaTeX} to Word. The first method is
 to just generate a PDF file and then open this file in Word/Open Office. This achieves the goal of looking like the desired pdf document, just in Office. However when later editing the resulting document, problems turn up. 
 The fundamental problem is that it converts the appearance of the document and loses meaning due to macro expansion. This is especially blatant when looking at the math in a document. Either it is treated as text, with no meaningful way to distinguish between math and formatted text that happens to contain some mathematical symbols, making automatic treatment of this kind of math difficult, or it is represented by an image of the relevant formulae, which makes editing extremely impractical if not impossible. The same holds true for references, they are essentially treated as parts of text with a linked number in front of them, complicating adding new references substantially. \\ 
-Hence the other way of directly transforming the {\LaTeX} to Word is the only option if 
-
+The other way of transforming {\LaTeX} to Word, by transforming the .tex file directly, does away with some of these issues. Some editors to do this already exist, such as TeX4ht \ednote{Hier einen link einfuegen glaube ich}. This already does this admirably, however it is very focussed on Libreoffice, e.g. it can't handle mathematics in docx files. 
 \section{Implementation}\label{sec:impl}
-\ednote{First convert to Ltxml using LaTeXML}
-\ednote{Then convert the resulting ltxml using xslt stylesheets to a word apppropriate format. }
-\ednote{Finally use postprocessing to zip it all up}
-\ednote{Don't know where to put an explanation of Word format in this place}
+Both docx and odt files share a very similar structure and are almost interchangeable, except for slight differences in syntax and different names. At heart they are both zipped collections of XML files featuring one central document file and several supporting files such as styles, settings etc. \\
+To create the .odt/.docx files we first transform the .tex file to an intermediate XML-based format using {\LaTeX}ML. \ednote{Papa Latexml erlaerung einfuegen}. \\ 
+Then we use XSLT stylesheets to semantically transform them to the required XML formats and finally zip it using the {\LaTeX}ML posprocessor. \\ 
+\ednote{Screenshot einfuegen}
+\ednote{Bin eigentlich nicht zufrieden hiermit TT}
 
 \section{Conclusion}\label{sec:concl}
-\ednote{MK@MK: say something}
+In Conclusion we use {\LaTeX}ML and XSLT to transform {\LaTeX} files to Word/Office files semantically in an easy to use process. 
 \ednote{In Conclusion, easy to use}
 \printbibliography
 \end{document}
