@@ -16,7 +16,7 @@
 \addbibresource{rest.bib}
 
 \pagestyle{plain}
-\usepackage{tikz}\usetikzlibrary{mmt,fit}
+\usepackage{tikz}\usetikzlibrary{docicon}
 
 \usepackage{hyperref}
 \title{System Description: A Semantics-Aware {\LaTeX}-to-WORD/ODF Converter}
@@ -40,11 +40,13 @@ is quite trivial but not the opposite. For example if a conference requested doc
 Word format, the only recourse is often to just write the document in Word, which is a
 pain, especially if any Mathematics is to be included.
 
-\ednote{Here we state the Problem, some conferences and admin want papers in word format, however LaTeX is superior for various reasons. Hence converter is needed. Two step process, wastes some time.}
+\ednote{Here we state the Problem, some conferences and admin want papers in word format,
+  however LaTeX is superior for various reasons. Hence converter is needed. Two step
+  process, wastes some time.}
 
 \begin{figure}[ht]
   \begin{tabular}{|c|c|}\hline%|
-    copy & paste (libreoffice)\\\hline
+    copy from PDF & paste (libreoffice)\\\hline
     \includegraphics[width=6cm]{mathsnippet} & 
     \includegraphics[width=5cm]{mathsnippet-libreoffice}\\\hline
   \end{tabular}
@@ -57,11 +59,10 @@ Word/LibreOffice. This achieves the goal of looking like the desired PDF documen
 Office. There are two problems with this route: 
 \begin{enumerate}
 \item mathematical formulae are not preserved (see Figure~\ref{fig:cnp})
+\item even if the result looks OK the results have lost their links (e.g. for
+  citations/references or label/ref), or become difficult to edit, because they do not
+  conform to the styling system of the word processor.
 \end{enumerate}
-
-
- However when later editing the resulting document, problems turn up.
-
 The fundamental problem is that it converts the appearance of the document and loses
 meaning due to macro expansion. This is especially blatant when looking at the math in a
 document. Either it is treated as text, with no meaningful way to distinguish between math
@@ -69,14 +70,42 @@ and formatted text that happens to contain some mathematical symbols, making aut
 treatment of this kind of math difficult, or it is represented by an image of the relevant
 formulae, which makes editing extremely impractical if not impossible. The same holds true
 for references, they are essentially treated as parts of text with a linked number in
-front of them, complicating adding new references substantially. 
+front of them, complicating adding new references substantially.
 
 The other way of transforming {\LaTeX} to Word, by transforming the .tex file directly,
-does away with some of these issues. Some editors to do this already exist, such as TeX4ht
-\ednote{Hier einen link einfuegen glaube ich}. This already does this admirably, however
-it is very focussed on Libreoffice, e.g. it can't handle mathematics in docx files. 
+does away with some of these issues. Some editors to do this already exist, such as
+TeX4ht~\cite{tex4ht:online}. This already does this admirably, however it is very focussed
+on Libreoffice, e.g. it can't handle mathematics in docx files.
 
 \section{Implementation}\label{sec:impl}
+
+\begin{figure}[ht]\centering
+\begin{tikzpicture}[yscale=1.5,xscale=1.2]
+\tikzstyle{doc}=[draw,thick,align=center,color=black,
+                 shape=document,minimum width=10mm,minimum height=8mm]
+\node[doc] (p) at (-1,3.5) {\texttt{paper.tex}};
+\node[doc] (b) at (1,3.5) {\texttt{group.bib}};
+\node[doc,dashed] (px) at (-1,2.2) {\texttt{paper.ltxml}};
+\node[doc,dashed] (bx) at (1,2.67) {\texttt{group.ltxml}};
+\draw[->,thick] (p) -- node[left,near end] (l) {{\LaTeX}ML} (px);
+\draw[->,thick] (b) -- (bx);
+\draw[->,thick] (bx) -- (l);
+\node[doc,dashed] (d) at (-2,1) {\texttt{document.xml}};
+\node[doc,dashed] (r) at (0.2,1) {\texttt{relations.xml}};
+\node[doc] (s) at (1,.3) {\texttt{styles.xml}};
+\draw[->,thick] (px) -- node[left]{XSLT}(d);
+\draw[->,thick] (px) -- node[right]{XSLT}(r); 
+\node[inner sep=0pt,outer sep=0pt] (z) at (-1,.3) {};
+\draw[thick] (d) -- (z);
+\draw[thick] (r) -- (z);
+\draw[thick] (s) -- (z);
+\node[doc] (dx) at (0-1,-.4) {\texttt{paper.docx}};
+\draw[->,thick] (z) -- node[left] {zip} (dx);
+\draw[dotted] (-3.1,-.1) rectangle (1.9,1.9);
+\node at (1.6,1.8) {post};
+\end{tikzpicture}
+\caption{The Transformation Process}\label{fig:arch}
+\end{figure}
 
 Both docx and odt files share a very similar structure and are almost interchangeable,
 except for slight differences in syntax and different names. At heart they are both zipped
@@ -95,6 +124,10 @@ and finally zip it using the {\LaTeX}ML post-processor.
 \section{Conclusion}\label{sec:concl}
 In Conclusion we use {\LaTeX}ML and XSLT to transform {\LaTeX} files to Word/Office files
 semantically in an easy to use process.  \ednote{In Conclusion, easy to use}
+
+The {\LaTeX}ML Word Processing plugin is public domain and is available from GitHub
+at~\cite{LaTeX2Office:github:on}
+
 \printbibliography
 \end{document}
 
