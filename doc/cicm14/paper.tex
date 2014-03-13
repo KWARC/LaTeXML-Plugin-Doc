@@ -1,4 +1,4 @@
-\documentclass[draft]{llncs}
+\documentclass{llncs}
 \usepackage[show]{ed}
 \usepackage{calbf}
 \usepackage{amstext,amsmath,amssymb}
@@ -9,10 +9,10 @@
 
 \usepackage{wrapfig,paralist}
 \usepackage[hyperref,style=alphabetic]{biblatex}
-\addbibresource{kbibs/kwarcpubs.bib}
-\addbibresource{kbibs/extpubs.bib}
-\addbibresource{kbibs/kwarccrossrefs.bib}
-\addbibresource{kbibs/extcrossrefs.bib}
+\addbibresource{kwarcpubs.bib}
+\addbibresource{extpubs.bib}
+\addbibresource{kwarccrossrefs.bib}
+\addbibresource{extcrossrefs.bib}
 \addbibresource{rest.bib}
 
 \pagestyle{plain}
@@ -21,12 +21,14 @@
 \usepackage{hyperref}
 \title{System Description: A Semantics-Aware {\LaTeX}-to-WORD/ODF Converter}
 \author{Lukas Kohlhase and Michael Kohlhase}
-\institute{
-  Math/CS, Jacobs University Bremen}
+\institute{Mathematics/Computer Science\\
+  Jacobs University Bremen}
 \begin{document}
 \maketitle
 \begin{abstract}
-  \ednote{write something}
+  We present a {\LaTeX}-to-Office conversion plugin for {\LaTeX}ML that can bridge the
+  divide between publication practices in the theoretical disciplines (\LaTeX) and the
+  applied ones (predominantly Office). 
 \end{abstract}
 
 \section{Problem \& State of the Art}\label{sec:intro}
@@ -35,26 +37,69 @@ Many researchers in STEM fields only use {\LaTeX} to typeset their documents. Ho
 people still use Microsoft Word/Open office exclusively for their typesetting. When these
 two groups of people intersect, it can lead to friction, as transforming text to {\LaTeX}
 is quite trivial but not the opposite. For example if a conference requested documents in
-Word format, the only recouse is often to just write the document in Word, which is a
+Word format, the only recourse is often to just write the document in Word, which is a
 pain, especially if any Mathematics is to be included.
 
 \ednote{Here we state the Problem, some conferences and admin want papers in word format, however LaTeX is superior for various reasons. Hence converter is needed. Two step process, wastes some time.}
 
-There are several methods to transform papers from {\LaTeX} to Word. The first method is
-to just generate a PDF file and then open this file in Word/Open Office. This achieves the goal of looking like the desired pdf document, just in Office. However when later editing the resulting document, problems turn up. 
-The fundamental problem is that it converts the appearance of the document and loses meaning due to macro expansion. This is especially blatant when looking at the math in a document. Either it is treated as text, with no meaningful way to distinguish between math and formatted text that happens to contain some mathematical symbols, making automatic treatment of this kind of math difficult, or it is represented by an image of the relevant formulae, which makes editing extremely impractical if not impossible. The same holds true for references, they are essentially treated as parts of text with a linked number in front of them, complicating adding new references substantially. \\ 
-The other way of transforming {\LaTeX} to Word, by transforming the .tex file directly, does away with some of these issues. Some editors to do this already exist, such as TeX4ht \ednote{Hier einen link einfuegen glaube ich}. This already does this admirably, however it is very focussed on Libreoffice, e.g. it can't handle mathematics in docx files. 
+\begin{figure}[ht]
+  \begin{tabular}{|c|c|}\hline%|
+    copy & paste (libreoffice)\\\hline
+    \includegraphics[width=6cm]{mathsnippet} & 
+    \includegraphics[width=5cm]{mathsnippet-libreoffice}\\\hline
+  \end{tabular}
+\caption{Copy \& Paste in Word Processors}\label{fig:cnp}
+\end{figure}
+
+There are several methods to transform papers from {\LaTeX} to an office word
+processor. The first method is to just generate a PDF file and then open this file in
+Word/LibreOffice. This achieves the goal of looking like the desired PDF document, just in
+Office. There are two problems with this route: 
+\begin{enumerate}
+\item mathematical formulae are not preserved (see Figure~\ref{fig:cnp})
+\end{enumerate}
+
+
+ However when later editing the resulting document, problems turn up.
+
+The fundamental problem is that it converts the appearance of the document and loses
+meaning due to macro expansion. This is especially blatant when looking at the math in a
+document. Either it is treated as text, with no meaningful way to distinguish between math
+and formatted text that happens to contain some mathematical symbols, making automatic
+treatment of this kind of math difficult, or it is represented by an image of the relevant
+formulae, which makes editing extremely impractical if not impossible. The same holds true
+for references, they are essentially treated as parts of text with a linked number in
+front of them, complicating adding new references substantially. 
+
+The other way of transforming {\LaTeX} to Word, by transforming the .tex file directly,
+does away with some of these issues. Some editors to do this already exist, such as TeX4ht
+\ednote{Hier einen link einfuegen glaube ich}. This already does this admirably, however
+it is very focussed on Libreoffice, e.g. it can't handle mathematics in docx files. 
+
 \section{Implementation}\label{sec:impl}
-Both docx and odt files share a very similar structure and are almost interchangeable, except for slight differences in syntax and different names. At heart they are both zipped collections of XML files featuring one central document file and several supporting files such as styles, settings etc. \\
-To create the .odt/.docx files we first transform the .tex file to an intermediate XML-based format using {\LaTeX}ML. \ednote{Papa Latexml erlaerung einfuegen}. \\ 
-Then we use XSLT stylesheets to semantically transform them to the required XML formats and finally zip it using the {\LaTeX}ML posprocessor. \\ 
+
+Both docx and odt files share a very similar structure and are almost interchangeable,
+except for slight differences in syntax and different names. At heart they are both zipped
+collections of XML files featuring one central document file and several supporting files
+such as styles, settings etc. 
+
+To create the .odt/.docx files we first transform the .tex file to an intermediate
+XML-based format using {\LaTeX}ML. \ednote{Papa Latexml erlaerung einfuegen}.
+
+Then we use XSLT stylesheets to semantically transform them to the required XML formats
+and finally zip it using the {\LaTeX}ML post-processor. 
+
 \ednote{Screenshot einfuegen}
 \ednote{Bin eigentlich nicht zufrieden hiermit TT}
 
 \section{Conclusion}\label{sec:concl}
-In Conclusion we use {\LaTeX}ML and XSLT to transform {\LaTeX} files to Word/Office files semantically in an easy to use process. 
-\ednote{In Conclusion, easy to use}
+In Conclusion we use {\LaTeX}ML and XSLT to transform {\LaTeX} files to Word/Office files
+semantically in an easy to use process.  \ednote{In Conclusion, easy to use}
 \printbibliography
 \end{document}
 
 
+
+%  LocalWords:  maketitle ednote hline libreoffice includegraphics mathsnippet cnp Hier
+%  LocalWords:  einen einfuegen glaube ich docx impl odt Latexml erlaerung eigentlich
+%  LocalWords:  nicht zufrieden hiermit concl printbibliography
