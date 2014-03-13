@@ -4,3 +4,5 @@
 *.run.xml
 *.synctex.gz
 *.out
+*.bbl
+*.blg
