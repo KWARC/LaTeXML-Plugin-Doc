@@ -111,15 +111,15 @@ on Libreoffice, e.g. it can't handle mathematics in docx files.
 \end{figure}
 
 Both docx and odt files share a very similar structure and are almost interchangeable,
-except for slight differences in syntax and different names. At heart they are both zipped
-collections of XML files featuring one central document file and several supporting files
-such as styles, settings etc. 
+except for slight differences in syntax and different names. They both consist of zipped up XML files. The main content, such as text, placement of images, tables etc., is written in document.xml. The other important file is relations.xml, which contains information about where in the docx/odt file other supplementary files such as images are contained. Finally the archive contains various other objects such as style files, setting files and images. \\
+
+
 
 To create the .odt/.docx files we first transform the .tex file to an intermediate
-XML-based format using\latexml. \ednote{Papa Latexml erlaerung einfuegen}.
+XML-based format using{\LaTeX}ml. \ednote{Papa Latexml erlaerung einfuegen}.
 
-Then we use XSLT stylesheets to semantically transform them to the required XML formats
-and finally zip it using the \latexml post-processor.
+Then we use an XSLT stylesheet to generate document.xml from the .ltmxl file. The same goes for relations.xml .The other supporting files such as images are placed into the correct file structure the postprocessor. As the penultimate step some static files, that don't change depending on the input document, are also placed into the correct directories. Finally the document is zipped to create the docx/odt file. \\ 
+
 
 \ednote{Screenshot einfuegen}
 \ednote{Bin eigentlich nicht zufrieden hiermit TT}
