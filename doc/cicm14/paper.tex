@@ -1,6 +1,7 @@
 \documentclass{llncs}
 \usepackage[show]{ed}
 \usepackage{calbf}
+\usepackage{stex-logo}
 \usepackage{amstext,amsmath,amssymb}
 \usepackage{xspace}
 
@@ -125,11 +126,23 @@ Then we use an XSLT stylesheet to generate document.xml from the .ltmxl file. Fo
 \ednote{Bin eigentlich nicht zufrieden hiermit TT}
 
 \section{Conclusion}\label{sec:concl}
-In Conclusion we use \latexml and XSLT to transform {\LaTeX} files to Word/Office files
-semantically in an easy to use process.  \ednote{In Conclusion, easy to use}
+We have presented a \latexml plugin that transforms {\LaTeX} papers into Word/Office
+documents in a one-line system call. With the recent web front-end of \latexml, it will be
+simple to extend this to a web service. The \latexml Word Processing plugin is public
+domain and is available from GitHub at~\cite{LaTeX2Office:github:on}. The conversion makes
+crucial use of the fact that \latexml preserves more of the document and formula semantics
+than other systems that process \LaTeX documents, this ensures that the core process in
+the transformation -- the translation of \latexml XML to Office XML (DOCX or ODF) has
+enough information to generate the respective target document structures.
 
-The \latexml Word Processing plugin is public domain and is available from GitHub
-at~\cite{LaTeX2Office:github:on}
+In the future we want to develop an office package for \LaTeX, which allows the direct
+markup of higher-level structures -- e.g. document metadata in {\LaTeX} documents, so that
+it can be transferred to the office documents. Similarly, we want to extend the
+transformation to carry over even more semantics from the \stex format into semantically
+extended office formats like CPoint or
+CWord~\cite{Kohlhase:SemanticInteractionDesignDiss:biblatex}; this would finally give us a
+way to cleanly interface the currently {\LaTeX}-based document methods in the KWARC group
+to applied STEM disciplines.
 
 \printbibliography
 \end{document}
