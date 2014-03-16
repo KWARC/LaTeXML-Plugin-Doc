@@ -1,0 +1,8 @@
+<omml:oMath>
+  <r><t>1.5×</t></r>
+  <sSup>
+    <e><r><t>10</t></r></e>
+    <sup><r><t>7</t></r></sup>
+  </sSup>
+  1.5\times 10^{7}
+</omml:oMath>
