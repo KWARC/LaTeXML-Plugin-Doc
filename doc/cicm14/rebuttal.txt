@@ -1,8 +1,20 @@
 We thank the reviewers for their careful reviews, we will take care of all the errors reported, if the paper is accepted. Here are answers to the questions and suggestions. 
 
-- Reviewer 1 mentions industrial applications. Indeed we have not been thinking about those, thanks for the hint. 
+R1: industrial applications. 
+A: Indeed we have not been thinking about those, thanks for the hint. 
 
-- Reviewer 2 asks for examples; we will  add some example documents in the plugin distribution and think about extending Figure 1. (but that will be slightly boring since the result looks exactly like the PDF in Libreoffice as that uses PNGs for display; but Word is more interesting).
+R1: Is there a need for a translation in the opposite direction?
+A: that would be useful in practice, but MKM/CICM technologies are no substantial help here. 
 
- - Reviewer 3 comments on the coverage of LaTeXML, and indeed that does not cover exotic (and some common) packages (but coverage improving over time). This incompleteness is an inherent problem of the "semantic approach" that allows the higher-quality translation scheme reported here. But we should probably make this trade-off more explicit in the paper. 
+R1: problems I had installing LaTeXML.
+A: yes, but the installation problems of LaTeXML will become less with the 0.8 release and packaging effort due to be released in the next weeks/days. When the system stabilizes, we plan to deploy a LaTeX2Word web service on http://latexml.mathweb.org
+
+R1: libreoffice problems:
+A: even though this is probably due to LaTeXML installation problems, libreoffice lags MS Word somewhat. We hope to make progress here soon.  
+
+R2 asks for examples.
+A:  we will  add some example documents in the plugin distribution and think about extending Figure 1. (but that will be slightly boring since the result looks exactly like the PDF in Libreoffice as that uses PNGs for display; but Word is more interesting).
+
+R3 comments on the coverage of LaTeXML
+A: indeed that does not cover exotic (and some common) packages (but coverage improving over time). This incompleteness is an inherent problem of the "semantic approach" that allows the higher-quality translation scheme reported here. But we should probably make this trade-off more explicit in the paper. 
 
