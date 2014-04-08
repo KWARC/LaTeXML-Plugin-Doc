@@ -1,0 +1,8 @@
+We thank the reviewers for their careful reviews, we will take care of all the errors reported, if the paper is accepted. Here are answers to the questions and suggestions. 
+
+- Reviewer 1 mentions industrial applications. Indeed we have not been thinking about those, thanks for the hint. 
+
+- Reviewer 2 asks for examples; we will  add some example documents in the plugin distribution and think about extending Figure 1. (but that will be slightly boring since the result looks exactly like the PDF in Libreoffice as that uses PNGs for display; but Word is more interesting).
+
+ - Reviewer 3 comments on the coverage of LaTeXML, and indeed that does not cover exotic (and some common) packages (but coverage improving over time). This incompleteness is an inherent problem of the "semantic approach" that allows the higher-quality translation scheme reported here. But we should probably make this trade-off more explicit in the paper. 
+
