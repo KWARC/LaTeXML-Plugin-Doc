@@ -1,0 +1,88 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 58
+TITLE: System Description: A Semantics-Aware LaTeX-to-Office Converter
+AUTHORS: Lukas Kohlhase and Michael Kohlhase
+
+OVERALL EVALUATION: 1 (weak accept)
+
+----------- REVIEW -----------
+The authors report on a system aimed at mitigating the division between users
+of LaTeX and users of office suites for document preparation in academia. The
+system comprises a plug-in for the LaTeXML tool supporting conversion of LaTeX
+source into the formats used by MS Word and LibreOffice and OpenOffice.
+
+The paper is clearly written and well-motivated. it would be useful to have
+some more information about the workflows and use cases the authors are
+interested in supporting. Is there a need for a translation in the opposite
+direction?
+
+The authors don't mention industrial applications, but as incompatibility with
+the standard office suites has also been an issue for the take-up of formal
+methods in industry, this system certainly has potential outside academia.
+
+The software builds and the supplied test worked, but the graphic was
+not visible. I tried it with the maths in the test not commented out
+and the maths in LibreOffice was barely readable. However, this may
+well be due to problems I had installing LaTeXML.
+
+Typo: "... we use a stylesheet supplied by to ...": either name the
+supplier or delete "supplied by".
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 58
+TITLE: System Description: A Semantics-Aware LaTeX-to-Office Converter
+AUTHORS: Lukas Kohlhase and Michael Kohlhase
+
+OVERALL EVALUATION: 2 (accept)
+
+----------- REVIEW -----------
+The paper describes a new Latex to office converter, which is
+based on LatexML. Actually, the new converter is just a LatexML
+plugin, leveraging the structure preserving parsing and
+translation of LatexML.
+
+I am not completely sure, whether text processing tools are in
+the scope of the CICM systems track, but given that a lot of
+mathematical articles are written in Latex, I assume that the
+system is of interest to the CICM community.
+
+The presentation would benefit from an example that shows the
+quality of the translation process. I know that this is
+difficult, given the page limit. But maybe Fig 1 can get a 3rd
+column, showing the output of the new system, or a reference to
+some examples on the web could be added.
+
+Minor comments:
+
+- line 6: _use_ missing
+
+- 5th last line of sect 1: space missing after TeX
+
+- same sentence: I don't understand, why the TeX coverage
+  matters, when it parses Latex. I thought the question is
+  whether the Latex coverage is complete.
+
+- last line: please explain the KWARC abbreviation
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 58
+TITLE: System Description: A Semantics-Aware LaTeX-to-Office Converter
+AUTHORS: Lukas Kohlhase and Michael Kohlhase
+
+OVERALL EVALUATION: 2 (accept)
+
+----------- REVIEW -----------
+This paper presents a latexml-plugin which converts Latex files to Word or
+Libre/OpenOffice. 
+
+I really like this paper. It adresses a very relevant and important question,
+presents a single, useful tool. The tool description, and problems handled
+when developing this tool, is very lucid, and and easy to follow.
+
+My only lingering doubt is that latexml, last time I tried it (which
+admittedly was not very recent), does not handle all of latex, and has
+problems with some of the more exotic style files.
+
+I recommend this tool demonstration be accepted. If it performs as
+advertised, it would be of immense interest in the CICM and wider
+scientific community.
