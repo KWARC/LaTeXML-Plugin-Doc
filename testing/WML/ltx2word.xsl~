@@ -586,7 +586,7 @@
       	<w:rPr/>
   	<w:drawing>
           <wp:inline distT="0" distB="0" distL="0" distR="0">
-            <wp:extent cx="{formatnumber(9525*@imagewidth,'#')}" cy="{formatnumber(9525*@imageheight,'#')}"/> 
+            <wp:extent cx="{format-number(9525*@imagewidth,'#')}" cy="{format-number(9525*@imageheight,'#')}"/> 
             <wp:docPr id="1" name="Picture 0" descr="dot_green.png"/> 
             <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
               <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">

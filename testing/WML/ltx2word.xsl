@@ -40,6 +40,20 @@
   <xsl:apply-templates mode="mml"/>
 </omml:oMath>
 </xsl:template>
+<xsl:template match="ltx:Math[not(ancestor::ltx:p)]">
+<w:p>
+	<omml:oMath>
+		<xsl:apply-templates mode="mml"/>
+	</omml:oMath>
+</w:p>
+</xsl:template>
+<xsl:template match="ltx:equation[not(ancestor::ltx:p)]">
+<w:p>
+	<omml:oMath>
+		<xsl:apply-templates mode="mml"/>
+	</omml:oMath>
+</w:p>
+</xsl:template>
 <!-- Variables -->
 <xsl:variable name="bibliographyreferences"> <!--This is a step on the way to creating a dummy variable like the ones before for references to the bibliography.  -->
 <xsl:for-each select="//ltx:cite">

@@ -14,36 +14,46 @@
          <w:pPr>
             <w:pStyle w:val="empty"/>
          </w:pPr>
-         <w:bookmarkStart w:name="" w:id="d2e8"/>
-         <w:bookmarkEnd w:id="d2e8"/>
+         <w:bookmarkStart w:name="p1" w:id="d2e7"/>
+         <w:bookmarkEnd w:id="d2e7"/>
       </w:p>
       <w:p>
-         <w:pPr>
-            <w:pStyle w:val="style1"/>
-         </w:pPr>
-         <w:r>
-            <w:rPr/>
-            <w:t>Beginning Dog</w:t>
-         </w:r>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="empty"/>
-         </w:pPr>
-         <w:bookmarkStart w:name="S1.p1" w:id="d2e13"/>
-         <w:bookmarkEnd w:id="d2e13"/>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="style0"/>
-         </w:pPr>
-         <w:r>
-            <w:rPr>
-               <w:b/>
-            </w:rPr>
-            <w:t>asdasdf</w:t>
-         </w:r>
          <omml:oMath>
+            <sSub xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+                  xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
+                  xmlns:mml="http://www.w3.org/1998/Math/MathML">
+               <e>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t>h</t>
+                  </r>
+               </e>
+               <sub>
+                  <sSub>
+                     <e>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>μ</t>
+                        </r>
+                     </e>
+                     <sub>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>φ</t>
+                        </r>
+                     </sub>
+                  </sSub>
+               </sub>
+            </sSub>
             <r xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
                xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
                xmlns:mml="http://www.w3.org/1998/Math/MathML">
@@ -51,128 +61,227 @@
                   <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
                             w:cs="Cambria Math"/>
                </w:rPr>
-               <t>asdfasdf</t>
+               <t/>
+            </r>
+            <r xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns:mml="http://www.w3.org/1998/Math/MathML">
+               <w:rPr>
+                  <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                            w:cs="Cambria Math"/>
+               </w:rPr>
+               <t>(f)</t>
+            </r>
+            <r xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns:mml="http://www.w3.org/1998/Math/MathML">
+               <w:rPr>
+                  <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                            w:cs="Cambria Math"/>
+               </w:rPr>
+               <t>+</t>
+            </r>
+            <nary xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+                  xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
+                  xmlns:mml="http://www.w3.org/1998/Math/MathML">
+               <naryPr>
+                  <chr m:val="∫"/>
+                  <limLoc m:val="subSup"/>
+                  <grow m:val="on"/>
+                  <subHide m:val="off"/>
+                  <supHide m:val="on"/>
+               </naryPr>
+               <sub>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t>X</t>
+                  </r>
+               </sub>
+               <sup/>
+               <e>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t>φd</t>
+                  </r>
+                  <sSub>
+                     <e>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>μ</t>
+                        </r>
+                     </e>
+                     <sub>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>φ</t>
+                        </r>
+                     </sub>
+                  </sSub>
+               </e>
+            </nary>
+            <r xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns:mml="http://www.w3.org/1998/Math/MathML">
+               <w:rPr>
+                  <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                            w:cs="Cambria Math"/>
+               </w:rPr>
+               <t>=</t>
+            </r>
+            <func xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+                  xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
+                  xmlns:mml="http://www.w3.org/1998/Math/MathML">
+               <fName>
+                  <limLow>
+                     <e>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>sup</t>
+                        </r>
+                     </e>
+                     <lim>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>M</t>
+                        </r>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>(</t>
+                        </r>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>f,X</t>
+                        </r>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>)</t>
+                        </r>
+                     </lim>
+                  </limLow>
+               </fName>
+               <e>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t>{</t>
+                  </r>
+                  <sSub>
+                     <e>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>h</t>
+                        </r>
+                     </e>
+                     <sub>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>μ</t>
+                        </r>
+                     </sub>
+                  </sSub>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t/>
+                  </r>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t>(f)</t>
+                  </r>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t>+</t>
+                  </r>
+                  <nary>
+                     <naryPr>
+                        <chr m:val="∫"/>
+                        <limLoc m:val="subSup"/>
+                        <grow m:val="on"/>
+                        <subHide m:val="off"/>
+                        <supHide m:val="on"/>
+                     </naryPr>
+                     <sub>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>X</t>
+                        </r>
+                     </sub>
+                     <sup/>
+                     <e>
+                        <r>
+                           <w:rPr>
+                              <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                        w:cs="Cambria Math"/>
+                           </w:rPr>
+                           <t>φdμ</t>
+                        </r>
+                     </e>
+                  </nary>
+                  <r>
+                     <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                     </w:rPr>
+                     <t>}</t>
+                  </r>
+               </e>
+            </func>
+            <r xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"
+               xmlns:mml="http://www.w3.org/1998/Math/MathML">
+               <w:rPr>
+                  <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math"
+                            w:cs="Cambria Math"/>
+               </w:rPr>
+               <t>,</t>
             </r>
          </omml:oMath>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="empty"/>
-         </w:pPr>
-         <w:bookmarkStart w:name="S1.p2" w:id="d2e51"/>
-         <w:bookmarkEnd w:id="d2e51"/>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="style0"/>
-         </w:pPr>
-         <w:r>
-            <w:rPr/>
-            <w:t>Yo dog I heard you like dogs, so I put a dog in a dog so you can watch a dog while you watch a dog.</w:t>
-         </w:r>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="empty"/>
-            <w:SectPr/>
-            <!--This is just to create a new section --></w:pPr>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="empty"/>
-         </w:pPr>
-         <w:bookmarkStart w:name="" w:id="d2e54"/>
-         <w:bookmarkEnd w:id="d2e54"/>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="style1"/>
-         </w:pPr>
-         <w:r>
-            <w:rPr/>
-            <w:t>new</w:t>
-         </w:r>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="empty"/>
-         </w:pPr>
-         <w:bookmarkStart w:name="" w:id="d2e59"/>
-         <w:bookmarkEnd w:id="d2e59"/>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="style2"/>
-         </w:pPr>
-         <w:r>
-            <w:rPr/>
-            <w:t>newer</w:t>
-         </w:r>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="empty"/>
-         </w:pPr>
-         <w:bookmarkStart w:name="S2.SS1.p1" w:id="d2e64"/>
-         <w:bookmarkEnd w:id="d2e64"/>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="style0"/>
-         </w:pPr>
-         <w:r>
-            <w:rPr/>
-            <w:t>aksdfal sdfjkasd lfkjasdfl kasdjfas dlfkjasdfl kjasdfl sdkjfasdl fkjsadflkjsdf lskadjfsl dfjksdfl kasjdfl askdjfsdl fkjasdlfkjasdfl kasjdf lskdfjasdl kfjsdl fkjs dfl kasjdfl ksd jfasl dkfjasdl fkjsdflkasjdfl aksdjfasl kfasdl kasdfl kasjdfl aksdjfasdfas dfasdfasdfasdfasdfl kjl ak </w:t>
-         </w:r>
-         <w:r>
-            <w:rPr/>
-            <w:drawing>
-               <wp:inline distT="0" distB="0" distL="0" distR="0">
-                  <wp:extent cx="2600325" cy="209550"/>
-                  <wp:docPr id="1" name="Picture 0" descr="dot_green.png"/>
-                  <a:graphic>
-                     <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                        <pic:pic>
-                           <pic:nvPicPr>
-                              <pic:cNvPr id="0" name="don't know what I should write here"/>
-                              <pic:cNvPicPr/>
-                           </pic:nvPicPr>
-                           <pic:blipFill>
-                              <a:blip r:embed="d2e67"/>
-                              <picturus id="d2e67" reference="mathsnippet-libreoffice.png"/>
-                              <a:stretch>
-                                 <a:fillRect/>
-                              </a:stretch>
-                           </pic:blipFill>
-                           <pic:spPr>
-                              <a:xfrm>
-                                 <a:off x="0" y="0"/>
-                                 <a:ext cx="2.600325E6" cy="209550"/>
-                              </a:xfrm>
-                              <a:prstGeom prst="rect">
-                                 <a:avLst/>
-                              </a:prstGeom>
-                           </pic:spPr>
-                        </pic:pic>
-                     </a:graphicData>
-                  </a:graphic>
-               </wp:inline>
-            </w:drawing>
-         </w:r>
-         <w:r>
-            <w:rPr/>
-            <w:t> jl kjl kjsdfal kjsl dkf jl akjl  kjsdflk jasdflkjfl kjsdljksdl kjlkjljl kasdf lkasdl kfsadl kfjla kjl kj sdl fkjalkj lkj lksj dfl akjlkjl kjdsfl kjasdl fkjasd lfkjl kjl kjl kjasdflkjl kjljasdfl kjlkjl </w:t>
-         </w:r>
-         <w:r>
-            <w:rPr/>
-            <w:t>kjasdfl kjl kjasdflkj asdflk jl lkasdfll  ljjl a sfjkljkl jkl jkl fjlk asdjklfljkasdfj klkljjkl asdflkjlk jlkajsdf lkjl kjalksjdflkjsdlk fjasldkjf qpw oerifuwopijdfs ldkjfal  skdjfl as kdjfasldkjfoiejwoiefjs dlkfjsal dkjfsdkjfwiefskdj fwioefsldkjfealsdkjfiea sdkfjeialdkjfslakd  fie alsdkfjsdlkfssgfaafaf1151514 5145141414514l kjasdflkjasd fl kj asdfasdfasdfasd f</w:t>
-         </w:r>
-      </w:p>
-      <w:p>
-         <w:pPr>
-            <w:pStyle w:val="empty"/>
-            <w:SectPr/>
-            <!--This is just to create a new section --></w:pPr>
       </w:p>
    </w:body>
 </w:document>

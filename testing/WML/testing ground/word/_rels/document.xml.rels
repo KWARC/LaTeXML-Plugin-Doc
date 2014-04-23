@@ -12,9 +12,6 @@
    <Relationship Id="rId1"
                  Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles"
                  Target="styles.xml"/>
-   <Relationship Id="d2e67"
-                 Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image"
-                 Target="media/mathsnippet-libreoffice.png"/>
    <Relationship Id="rId3"
                  Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable"
                  Target="fontTable.xml"/>
