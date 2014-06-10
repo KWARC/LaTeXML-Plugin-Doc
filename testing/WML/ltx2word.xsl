@@ -11,7 +11,7 @@
 \=========================================================ooo==U==ooo=/
 -->
 <xsl:stylesheet
-    version     = "2.0"
+    version     = "1.0"
     
     xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
     xmlns:xsl   = "http://www.w3.org/1999/XSL/Transform"
@@ -55,7 +55,8 @@
 </w:p>
 </xsl:template>
 <!-- Variables -->
-<xsl:variable name="bibliographyreferences"> <!--This is a step on the way to creating a dummy variable like the ones before for references to the bibliography.  -->
+<!--
+<xsl:variable name="bibliographyreferences"> 
 <xsl:for-each select="//ltx:cite">
   <xsl:for-each select="./ltx:ref">
     <bibreference>
@@ -63,15 +64,16 @@
     </bibreference>
   </xsl:for-each>
 </xsl:for-each>
-</xsl:variable>
-
-<xsl:variable name="bibrefs"> <!--Here I am removing duplicates -->
+</xsl:variable> 
+--> 
+<!-- 
+<xsl:variable name="bibrefs"> 
 <xsl:for-each select="$bibliographyreferences/bibreference">
   <xsl:if test="not(preceding::bibreference[.=current()])">
     <bibref content="{./text()}"/>
   </xsl:if>
 </xsl:for-each>
-</xsl:variable>
+</xsl:variable> --> 
 
 <!-- End Variables-->
 <xsl:template match="ltx:document">
@@ -81,9 +83,9 @@
 <xsl:choose>        
   <xsl:when test="./ltx:bibliography/@files='local'">
     <xsl:variable name="foo"><xsl:copy-of select="./ltx:bibliography"/></xsl:variable>
-    <xsl:for-each select="$bibrefs/bibref">
+    <!-- <xsl:for-each select="$bibrefs/bibref">
       <xsl:apply-templates select="$foo/ltx:bibliography/ltx:biblist/ltx:bibitem[@xml:id=current()/@content]"/>
-    </xsl:for-each>
+    </xsl:for-each> -->
   </xsl:when>
   <xsl:otherwise>
     <xsl:message>Haven't dealt with this case yet </xsl:message>
@@ -655,8 +657,9 @@
   </xsl:for-each>
 </xsl:variable>
 <xsl:variable name="foo">
-<xsl:for-each select="$numtcs/number">
-<xsl:sort select="."/>
+<!-- <xsl:for-each select="$numtcs/number"> -->
+<xsl:for-each select="./ltx:tr">
+<xsl:sort select="count(./ltx:td)	"/>
 <xsl:if test="position()=last()">
   <xsl:value-of select="."/>
 </xsl:if>

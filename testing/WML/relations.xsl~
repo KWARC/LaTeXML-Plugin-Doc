@@ -43,6 +43,6 @@
     <Relationship Id="{./extra/@r:id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="{./*[@href]/@href}" TargetMode="External"/>
     </xsl:template>
     <xsl:template match="picturus">
-     <Relationship="{./@id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="{./@reference}"/>
+     <Relationship Id="{./@id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="{./@reference}"/>
     </xsl:template>
     </xsl:stylesheet>
