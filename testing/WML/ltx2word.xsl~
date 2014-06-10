@@ -80,22 +80,10 @@
 <w:document xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing">
 <w:body>
 <xsl:apply-templates/>
-<xsl:choose>        
-  <xsl:when test="./ltx:bibliography/@files='local'">
-    <xsl:variable name="foo"><xsl:copy-of select="./ltx:bibliography"/></xsl:variable>
-    <!-- <xsl:for-each select="$bibrefs/bibref">
-      <xsl:apply-templates select="$foo/ltx:bibliography/ltx:biblist/ltx:bibitem[@xml:id=current()/@content]"/>
-    </xsl:for-each> -->
-  </xsl:when>
-  <xsl:otherwise>
-    <xsl:message>Haven't dealt with this case yet </xsl:message>
-  </xsl:otherwise>
-</xsl:choose>
 </w:body>
 </w:document>
 </xsl:template>
 
-<xsl:template match="ltx:bibliography[@files='local']"/>
 
 <xsl:template match="ltx:bibitem">
 <w:p>
@@ -186,6 +174,12 @@
   <w:bookmarkEnd w:id="{generate-id(..)}"/>
 </xsl:template>
 
+<xsl:template match="ltx:bibtag[@role='refnumber']">
+ <w:bookmarkStart w:id="{generate-id(..)}" w:name="{../@xml:id}"/>
+    <xsl:apply-templates/>
+  
+  <w:bookmarkEnd w:id="{generate-id(..)}"/>
+</xsl:template>
 <!-- The information what kind of element is in these tags will be saved in the run properties. -->
 <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='authors']">
   <xsl:apply-templates/>
@@ -194,6 +188,24 @@
 <xsl:template match="ltx:bibtag[@class='ltx_bib_type']">
   <xsl:apply-templates/>
 </xsl:template>
+
+<xsl:template match="ltx:bibliography">
+	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="ltx:bibliography/ltx:title">
+<w:p>
+  <w:pPr>
+    <w:pStyle w:val="style1"/>
+  </w:pPr>
+<xsl:apply-templates/>
+</w:p>
+</xsl:template>
+
+<xsl:template match="ltx:biblist">
+	<xsl:apply-templates/>
+</xsl:template>
+
 
 <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='fullauthors']">
   <xsl:apply-templates/>
@@ -659,7 +671,7 @@
 <xsl:variable name="foo">
 <!-- <xsl:for-each select="$numtcs/number"> -->
 <xsl:for-each select="./ltx:tr">
-<xsl:sort select="count(./ltx:td)"/>
+<xsl:sort select="count(./ltx:td)	"/>
 <xsl:if test="position()=last()">
   <xsl:value-of select="."/>
 </xsl:if>
