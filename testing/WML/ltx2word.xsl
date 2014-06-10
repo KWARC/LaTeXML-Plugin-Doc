@@ -172,6 +172,10 @@
     <xsl:apply-templates/>
   
   <w:bookmarkEnd w:id="{generate-id(..)}"/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
 
 <xsl:template match="ltx:bibtag[@role='refnum']">
@@ -179,14 +183,26 @@
     <xsl:apply-templates/>
   
   <w:bookmarkEnd w:id="{generate-id(..)}"/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
 <!-- The information what kind of element is in these tags will be saved in the run properties. -->
 <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='authors']">
   <xsl:apply-templates/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
 
 <xsl:template match="ltx:bibtag[@class='ltx_bib_type']">
   <xsl:apply-templates/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
 
 <xsl:template match="ltx:bibliography">
@@ -213,10 +229,18 @@
 
 <xsl:template match="ltx:bibtag[@class='ltx_bib_year' and @role='year']">
   <xsl:apply-templates/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
 
 <xsl:template match="ltx:bibtag[@class='ltx_bib_title' and @role='title']">
   <xsl:apply-templates/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
 
 <xsl:template match="ltx:text[@class='ltx_bib_crossref']">
@@ -225,15 +249,27 @@
 
 <xsl:template match="ltx:bibtag[@class='ltx_bib_key' and @role='refnum']">
   <xsl:apply-templates/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
 
 <xsl:template match="ltx:bibtag[@class='ltx_bib_key' and @role='key']">
   <xsl:apply-templates/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
+
 <xsl:template match="ltx:cite">
   <xsl:apply-templates/>
+  <w:r>
+  	<w:rPr/>
+  	<w:t xml:space="preserve"> </w:t>
+  </w:r>
 </xsl:template>
- 
  
  <xsl:template match="ltx:text[@xml:id and @fragid]">
    <w:bookmarkStart w:id="{generate-id(.)}" w:name="@xml:id"/>
@@ -273,7 +309,7 @@
     <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
   </xsl:if>
   <xsl:if test="ancestor::ltx:bibtag[contains(@class,'ltx_bib_number') and @role='number']">
-    <w:rStyle w:val="bibnumber"/>
+   <!--  <w:rStyle w:val="bibnumber"/> --> <!-- I should add this back in at some point. I am removing it now to make references look better. --> 
   </xsl:if>
   <xsl:if test="ancestor::ltx:bibtag[@class='ltx_bib_author' and @role='authors']">
     <w:rStyle w:val="bibauthor"/>

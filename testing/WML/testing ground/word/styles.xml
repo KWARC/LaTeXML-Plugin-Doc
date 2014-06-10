@@ -789,9 +789,6 @@
    <w:style w:styleId="bibnumber" w:type="character">
    	<w:name w:val="bibnumber"/>
    	<w:basedOn w:val="style0"/>
-   	<w:rPr>
-   		<w:vanish/>
-   	</w:rPr>
    </w:style>
    <w:style w:styleId="bibauthor" w:type="character">
    	<w:name w:val="bibauthor"/>
