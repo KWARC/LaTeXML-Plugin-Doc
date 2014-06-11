@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/WML"?>
+<?latexml class="article"?>
+<?latexml package="graphicx"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" xml:id="Document">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <para xml:id="p1" fragid="p1">
+    <graphics candidates="image1.jpeg" graphic="image1" xml:id="p1.g1" fragid="p1.g1" imagesrc="image1.jpeg" imagewidth="600" imageheight="450"/>
+  </para>
+</document>

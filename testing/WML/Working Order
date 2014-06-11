@@ -1,0 +1,9 @@
+Current working order is: 
+get .tex file: file.tex
+Then: 
+latexmlc file.tex --destination=file.ltxml --post
+xsltproc --output=documentus.xml ltx2word.xsl file.ltxml 
+xsltproc --output=documentus.xml.rels relations.xsl documentus.xml
+Then move into appropriate file system (Currently in testing ground) and zip (not tar.gz) it into file.zip
+Then rename to file.docx. 
+Voila! Done with that part 
