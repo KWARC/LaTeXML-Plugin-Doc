@@ -656,7 +656,7 @@
 <wp:positionH relativeFrom="character">
 <wp:align>left</wp:align>
 </wp:positionH>
-<wp:positionV relativeFrom="character">
+<wp:positionV relativeFrom="paragraph">
 <wp:align>top</wp:align>
 </wp:positionV>
 </xsl:if>
@@ -685,6 +685,7 @@
 </wp:positionV>
 </xsl:if>
 <wp:extent cx="{format-number(9525*@imagewidth,'#')}" cy="{format-number(9525*@imageheight,'#')}"/>
+<wp:effectExtent l="0" t="0" r="0" b="0"/> <!-- I copied this in from a version that Word fixed --> 
 <wp:wrapSquare wrapText="bothSides"/>
 <wp:docPr id="1" name="Picture 0" descr="Blue hills.jpg"/>
 <wp:cNvGraphicFramePr>

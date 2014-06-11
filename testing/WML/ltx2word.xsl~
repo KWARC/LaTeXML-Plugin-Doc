@@ -656,7 +656,7 @@
 <wp:positionH relativeFrom="character">
 <wp:align>left</wp:align>
 </wp:positionH>
-<wp:positionV relativeFrom="character">
+<wp:positionV relativeFrom="paragraph">
 <wp:align>top</wp:align>
 </wp:positionV>
 </xsl:if>
@@ -725,6 +725,7 @@
 </xsl:template>
 
 <xsl:template match="ltx:graphics[ancestor::ltx:p]">
+      <w:r>
   	<w:drawing>
           <wp:inline distT="0" distB="0" distL="0" distR="0">
             <wp:extent cx="{format-number(9525*@imagewidth,'#')}" cy="{format-number(9525*@imageheight,'#')}"/> 
@@ -758,10 +759,12 @@
             </a:graphic>
           </wp:inline>
         </w:drawing>
+      </w:r>
 </xsl:template>
 
 <xsl:template match="ltx:graphics"> <!-- These are probably not inline, but I am treating them as inline for this period. --> 
     <w:p>
+      <w:r>
       	<w:rPr/>
   	<w:drawing>
           <wp:inline distT="0" distB="0" distL="0" distR="0">
@@ -796,6 +799,7 @@
             </a:graphic>
           </wp:inline>
         </w:drawing>
+       </w:r>
     </w:p>
 </xsl:template>
 
