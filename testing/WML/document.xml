@@ -5,43 +5,55 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="p1" w:id="idp15792"/>
-      <w:bookmarkEnd w:id="idp15792"/>
+      <w:bookmarkStart w:name="" w:id="idp15664"/>
+      <w:bookmarkEnd w:id="idp15664"/>
     </w:p>
-    <w:r>
-      <w:rPr/>
-      <w:drawing>
-        <wp:inline distT="0" distB="0" distL="0" distR="0">
-          <wp:extent cx="5715000" cy="4286250"/>
-          <wp:docPr id="1" name="Picture 0" descr="dot_green.png"/>
-          <a:graphic>
-            <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-              <pic:pic>
-                <pic:nvPicPr>
-                  <pic:cNvPr id="0" name="don't know what I should write here"/>
-                  <pic:cNvPicPr/>
-                </pic:nvPicPr>
-                <pic:blipFill>
-                  <a:blip r:embed="idp16592"/>
-                  <picturus id="idp16592" reference="media/image1.jpeg"/>
-                  <a:stretch>
-                    <a:fillRect/>
-                  </a:stretch>
-                </pic:blipFill>
-                <pic:spPr>
-                  <a:xfrm>
-                    <a:off x="0" y="0"/>
-                    <a:ext cx="5715000" cy="4286250"/>
-                  </a:xfrm>
-                  <a:prstGeom prst="rect">
-                    <a:avLst/>
-                  </a:prstGeom>
-                </pic:spPr>
-              </pic:pic>
-            </a:graphicData>
-          </a:graphic>
-        </wp:inline>
-      </w:drawing>
-    </w:r>
+    <w:p>
+      <w:r>
+        <w:drawing>
+          <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
+            <wp:simplePos x="1847850" y="914400"/>
+            <wp:positionH relativeFrom="character">
+              <wp:align>left</wp:align>
+            </wp:positionH>
+            <wp:positionV relativeFrom="character">
+              <wp:align>top</wp:align>
+            </wp:positionV>
+            <wp:extent cx="5715000" cy="4286250"/>
+            <wp:wrapSquare wrapText="bothSides"/>
+            <wp:docPr id="1" name="Picture 0" descr="Blue hills.jpg"/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic>
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic>
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="0" name="don't know what I should write here"/>
+                    <pic:cNvPicPr/>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="idp16704"/>
+                    <picturus id="idp16704" reference="media/image1.jpeg"/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr>
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="5715000" cy="4286250"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:anchor>
+        </w:drawing>
+      </w:r>
+    </w:p>
   </w:body>
 </w:document>
