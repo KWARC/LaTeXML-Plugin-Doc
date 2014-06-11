@@ -1,224 +1,47 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:document xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml">
-	<w:body>
-		<w:p w:rsidR="002E7C7C" w:rsidRDefault="002E7C7C" w:rsidP="002E7C7C">
-			<w:r>
-				<w:t xml:space="preserve">Images can be of three main types. Inline images are images that are part of the normal text flow, like this image of a green dot </w:t>
-			</w:r>
-			<w:r>
-				<w:rPr>					
-				</w:rPr>
-				<w:drawing>
-					<wp:inline distT="0" distB="0" distL="0" distR="0">
-						<wp:extent cx="137160" cy="187160"/> <!-- This shows how big it is I thinkch . The unit is EMU which is some weird ass unit. -->
-
-						<wp:docPr id="1" name="Picture 0" descr="dot_green.png"/> <!-- Cannot be removed, however changing the values of the attributes didnt' do anything so far. 
-						I should just number the ids by appearance in the document, since that is what they are doing in this document and there's no reason not to.--> 
-						<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-							<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-								<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-									<pic:nvPicPr>
-										<pic:cNvPr id="0" name="dot_green.png"/><!-- not deletable, however I can change both the name and id properties. --> 
-										<pic:cNvPicPr/> <!-- not removable either -->
-									</pic:nvPicPr>
-									<pic:blipFill>
-										<a:blip r:embed="rId10"/> <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
-										<a:stretch>
-											<a:fillRect/> <!-- This stuff tells Word to stretch the image to the frame size -->
-										</a:stretch>
-									</pic:blipFill>
-									<pic:spPr>
-										<a:xfrm>
-											<a:off x="0" y="0"/> <!-- offset. Is deletable if there is no offset. --> 
-											<a:ext cx="137160" cy="137160"/> <!-- I think this is just the size of the frame or something. Is deletable and values are changable, however there is no real picture if the values differ relevantly from the size of the frame given beforehand. Don't mess around with it I guess --> 
-										</a:xfrm>
-										<a:prstGeom prst="rect">
-											<a:avLst/> <!-- it's removable as well, but don't fuck with it overly much. --> 
-										</a:prstGeom>
-									</pic:spPr>
-								</pic:pic>
-							</a:graphicData>
-						</a:graphic>
-					</wp:inline>
-				</w:drawing>
-			</w:r>
-			<w:r>
-				<w:t>. Inline images do not cause breaks in the text and are usually small in size.</w:t>
-			</w:r>
-			<w:r>
-				<w:rPr>
-					<w:noProof/>
-				</w:rPr>
-				<w:drawing>
-					<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
-						<wp:simplePos x="3589020" y="1859280"/>
-						<wp:positionH relativeFrom="margin">
-							<wp:align>left</wp:align>
-						</wp:positionH>
-						<wp:positionV relativeFrom="margin">
-							<wp:align>top</wp:align>
-						</wp:positionV>
-						<wp:extent cx="975360" cy="975360"/>
-						<wp:effectExtent l="0" t="0" r="0" b="0"/>
-						<wp:wrapSquare wrapText="bothSides"/>
-						<wp:docPr id="2" name="Picture 1" descr="back.png"/>
-						<wp:cNvGraphicFramePr>
-							<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
-						</wp:cNvGraphicFramePr>
-						<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-							<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-								<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-									<pic:nvPicPr>
-										<pic:cNvPr id="0" name="back.png"/>
-										<pic:cNvPicPr/>
-									</pic:nvPicPr>
-									<pic:blipFill>
-										<a:blip r:embed="rId11"/>
-										<a:stretch>
-											<a:fillRect/>
-										</a:stretch>
-									</pic:blipFill>
-									<pic:spPr>
-										<a:xfrm>
-											<a:off x="0" y="0"/>
-											<a:ext cx="975360" cy="975360"/>
-										</a:xfrm>
-										<a:prstGeom prst="rect">
-											<a:avLst/>
-										</a:prstGeom>
-									</pic:spPr>
-								</pic:pic>
-							</a:graphicData>
-						</a:graphic>
-					</wp:anchor>
-				</w:drawing>
-			</w:r>
-			<w:r>
-				<w:t xml:space="preserve"> The next category of image is a floating image, one that “floats “ on the page and is surrounded by text. Word supports more types of floating images than are possible with current ebook technology, so the conversion maps floating images to simple left and right floats, as you can see with the left and right arrow images on the sides of this paragraph.</w:t>
-			</w:r>
-		</w:p>
-		<w:p w:rsidR="002E7C7C" w:rsidRDefault="002E7C7C" w:rsidP="002E7C7C">
-			<w:r>
-				<w:t>The final type of image is a “block” image, one that becomes a paragraph on its own and has no text on either side. Below is a centered green dot.</w:t>
-			</w:r>
-		</w:p>
-		<w:p w:rsidR="002E7C7C" w:rsidRDefault="00B830C2" w:rsidP="002E7C7C">
-			<w:r>
-				<w:rPr>
-					<w:noProof/>
-				</w:rPr>
-				<w:drawing>
-					<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251660288" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
-						<wp:simplePos x="0" y="0"/>
-						<wp:positionH relativeFrom="page">
-							<wp:align>center</wp:align>
-						</wp:positionH>
-						<wp:positionV relativeFrom="paragraph">
-							<wp:posOffset>6985</wp:posOffset>
-						</wp:positionV>
-						<wp:extent cx="251460" cy="243840"/>
-						<wp:effectExtent l="0" t="0" r="0" b="0"/>
-						<wp:wrapTopAndBottom/>
-						<wp:docPr id="5" name="Picture 4" descr="dot_green.png"/>
-						<wp:cNvGraphicFramePr>
-							<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
-						</wp:cNvGraphicFramePr>
-						<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-							<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-								<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-									<pic:nvPicPr>
-										<pic:cNvPr id="0" name="dot_green.png"/>
-										<pic:cNvPicPr/>
-									</pic:nvPicPr>
-									<pic:blipFill>
-										<a:blip r:embed="rId10"/>
-										<a:stretch>
-											<a:fillRect/>
-										</a:stretch>
-									</pic:blipFill>
-									<pic:spPr>
-										<a:xfrm>
-											<a:off x="0" y="0"/>
-											<a:ext cx="251460" cy="243840"/>
-										</a:xfrm>
-										<a:prstGeom prst="rect">
-											<a:avLst/>
-										</a:prstGeom>
-									</pic:spPr>
-								</pic:pic>
-							</a:graphicData>
-						</a:graphic>
-					</wp:anchor>
-				</w:drawing>
-			</w:r>
-			<w:r w:rsidR="002E7C7C">
-				<w:rPr>
-					<w:noProof/>
-				</w:rPr>
-				<w:drawing>
-					<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251659264" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
-						<wp:simplePos x="1950720" y="2865120"/>
-						<wp:positionH relativeFrom="margin">
-							<wp:align>right</wp:align>
-						</wp:positionH>
-						<wp:positionV relativeFrom="margin">
-							<wp:align>top</wp:align>
-						</wp:positionV>
-						<wp:extent cx="975360" cy="975360"/>
-						<wp:effectExtent l="0" t="0" r="0" b="0"/>
-						<wp:wrapSquare wrapText="bothSides"/>
-						<wp:docPr id="3" name="Picture 2" descr="forward.png"/>
-						<wp:cNvGraphicFramePr>
-							<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
-						</wp:cNvGraphicFramePr>
-						<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-							<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-								<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-									<pic:nvPicPr>
-										<pic:cNvPr id="0" name="forward.png"/>
-										<pic:cNvPicPr/>
-									</pic:nvPicPr>
-									<pic:blipFill>
-										<a:blip r:embed="rId12"/>
-										<a:stretch>
-											<a:fillRect/>
-										</a:stretch>
-									</pic:blipFill>
-									<pic:spPr>
-										<a:xfrm>
-											<a:off x="0" y="0"/>
-											<a:ext cx="975360" cy="975360"/>
-										</a:xfrm>
-										<a:prstGeom prst="rect">
-											<a:avLst/>
-										</a:prstGeom>
-									</pic:spPr>
-								</pic:pic>
-							</a:graphicData>
-						</a:graphic>
-					</wp:anchor>
-				</w:drawing>
-			</w:r>
-			<w:r>
-				<w:t>Centered images like this are useful for large pictures that should be a focus of attention.</w:t>
-			</w:r>
-			<w:r w:rsidR="005E116B">
-				<w:t xml:space="preserve"/>
-			</w:r>
-		</w:p>
-		<w:p w:rsidR="005E116B" w:rsidRDefault="005E116B" w:rsidP="002E7C7C">
-			<w:r>
-				<w:t xml:space="preserve">Generally, it is not possible to translate the exact positioning of images from a Word document to an ebook. That is because in Word, image positioning is specified in absolute units from the page boundaries.  There is no analogous technology in ebooks, so the conversion will usually end up placing the image either centered or floating close to the point in the text where it was </w:t>
-			</w:r>
-			<w:r w:rsidRPr="005E116B">
-				<w:rPr>
-					<w:rStyle w:val="SubtleEmphasis"/>
-				</w:rPr>
-				<w:t>inserted</w:t>
-			</w:r>
-			<w:r w:rsidR="00694FF1">
-				<w:t>, not necessarily where it appears on the page in Word.</w:t>
-			</w:r>
-		</w:p>
-	</w:body>
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math">
+  <w:body>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="empty"/>
+      </w:pPr>
+      <w:bookmarkStart w:name="p1" w:id="idp15792"/>
+      <w:bookmarkEnd w:id="idp15792"/>
+    </w:p>
+    <w:r>
+      <w:rPr/>
+      <w:drawing>
+        <wp:inline distT="0" distB="0" distL="0" distR="0">
+          <wp:extent cx="5715000" cy="4286250"/>
+          <wp:docPr id="1" name="Picture 0" descr="dot_green.png"/>
+          <a:graphic>
+            <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+              <pic:pic>
+                <pic:nvPicPr>
+                  <pic:cNvPr id="0" name="don't know what I should write here"/>
+                  <pic:cNvPicPr/>
+                </pic:nvPicPr>
+                <pic:blipFill>
+                  <a:blip r:embed="idp16592"/>
+                  <picturus id="idp16592" reference="media/image1.jpeg"/>
+                  <a:stretch>
+                    <a:fillRect/>
+                  </a:stretch>
+                </pic:blipFill>
+                <pic:spPr>
+                  <a:xfrm>
+                    <a:off x="0" y="0"/>
+                    <a:ext cx="5715000" cy="4286250"/>
+                  </a:xfrm>
+                  <a:prstGeom prst="rect">
+                    <a:avLst/>
+                  </a:prstGeom>
+                </pic:spPr>
+              </pic:pic>
+            </a:graphicData>
+          </a:graphic>
+        </wp:inline>
+      </w:drawing>
+    </w:r>
+  </w:body>
 </w:document>

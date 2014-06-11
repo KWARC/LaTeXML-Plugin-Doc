@@ -159,7 +159,7 @@
 </xsl:template>
 
 <xsl:template match="ltx:text[@class='ltx_bib_links']">
-  <xsl:apply-templates/>
+  <xsl:apply-templates/>	
 </xsl:template>
 
 <xsl:template match="ltx:text[@class='isbn ltx_bib_external']">
@@ -662,7 +662,7 @@
                   <pic:blipFill>
                   <xsl:variable name="foo" select="generate-id(.)"/>
                     <a:blip r:embed="{$foo}"/> <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
-                    <picturus id="{$foo}" reference="{@graphic}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@candidates}"/>
                     <a:stretch>
                       <a:fillRect/> <!-- This stuff tells Word to stretch the image to the frame size -->
                     </a:stretch>
