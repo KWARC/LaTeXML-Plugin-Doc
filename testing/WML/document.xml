@@ -1,70 +1,296 @@
 <?xml version="1.0"?>
 <w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 wp14">
   <w:body>
-    <w:p w:rsidR="00A44A72" w:rsidRDefault="00A44A72">
-      <w:pPr>
-        <w:pStyle w:val="DefaultStyle"/>
-      </w:pPr>
-      <w:bookmarkStart w:id="0" w:name=""/>
+    <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="377754922"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION met55 \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(greatest, 15555)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1518337528"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Als14 \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t xml:space="preserve"> (me, 141414)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:bookmarkStart w:id="0" w:name="_GoBack"/>
       <w:bookmarkEnd w:id="0"/>
     </w:p>
-    <w:p w:rsidR="00A44A72" w:rsidRDefault="00201199">
-      <w:pPr>
-        <w:pStyle w:val="DefaultStyle"/>
-      </w:pPr>
-      <w:bookmarkStart w:id="1" w:name="_GoBack"/>
-      <w:bookmarkEnd w:id="1"/>
+    <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC">
+      <w:proofErr w:type="spellStart"/>
       <w:r>
-        <w:rPr>
-          <w:noProof/>
-          <w:lang w:eastAsia="en-US"/>
-        </w:rPr>
-        <w:drawing>
-          <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
-            <wp:simplePos x="1847850" y="914400"/>
-            <wp:positionH relativeFrom="character">
-              <wp:align>left</wp:align>
-            </wp:positionH>
-            <wp:positionV relativeFrom="paragraph">
-              <wp:align>top</wp:align>
-            </wp:positionV>
-            <wp:extent cx="5715000" cy="4286250"/>
-            <wp:effectExtent l="0" t="0" r="0" b="0"/>
-            <wp:wrapSquare wrapText="bothSides"/>
-            <wp:docPr id="1" name="Picture 0" descr="Blue hills.jpg"/>
-            <wp:cNvGraphicFramePr>
-              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
-            </wp:cNvGraphicFramePr>
-            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                  <pic:nvPicPr>
-                    <pic:cNvPr id="0" name="don't know what I should write here"/>
-                    <pic:cNvPicPr/>
-                  </pic:nvPicPr>
-                  <pic:blipFill>
-                    <a:blip r:embed="rId6"/>
-                    <a:stretch>
-                      <a:fillRect/>
-                    </a:stretch>
-                  </pic:blipFill>
-                  <pic:spPr>
-                    <a:xfrm>
-                      <a:off x="0" y="0"/>
-                      <a:ext cx="5715000" cy="4286250"/>
-                    </a:xfrm>
-                    <a:prstGeom prst="rect">
-                      <a:avLst/>
-                    </a:prstGeom>
-                  </pic:spPr>
-                </pic:pic>
-              </a:graphicData>
-            </a:graphic>
-          </wp:anchor>
-        </w:drawing>
+        <w:t>Lorem</w:t>
+      </w:r>
+      <w:proofErr w:type="spellEnd"/>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:proofErr w:type="spellStart"/>
+      <w:r>
+        <w:t>ipsum</w:t>
+      </w:r>
+      <w:proofErr w:type="spellEnd"/>
+      <w:r>
+        <w:t xml:space="preserve"> dolor, etc. </w:t>
+      </w:r>
+      <w:proofErr w:type="spellStart"/>
+      <w:r>
+        <w:t>mehr</w:t>
+      </w:r>
+      <w:proofErr w:type="spellEnd"/>
+      <w:r>
+        <w:t xml:space="preserve"> Weiss </w:t>
+      </w:r>
+      <w:proofErr w:type="spellStart"/>
+      <w:r>
+        <w:t>ich</w:t>
+      </w:r>
+      <w:proofErr w:type="spellEnd"/>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:proofErr w:type="spellStart"/>
+      <w:proofErr w:type="gramStart"/>
+      <w:r>
+        <w:t>niht</w:t>
+      </w:r>
+      <w:proofErr w:type="spellEnd"/>
+      <w:r>
+        <w:t xml:space="preserve">  </w:t>
+      </w:r>
+      <w:proofErr w:type="spellStart"/>
+      <w:r>
+        <w:t>irh</w:t>
+      </w:r>
+      <w:proofErr w:type="spellEnd"/>
+      <w:proofErr w:type="gramEnd"/>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:proofErr w:type="spellStart"/>
+      <w:r>
+        <w:t>dumbos</w:t>
+      </w:r>
+      <w:proofErr w:type="spellEnd"/>
+      <w:r>
+        <w:t xml:space="preserve">. </w:t>
       </w:r>
     </w:p>
-    <w:sectPr w:rsidR="00A44A72">
+    <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="531922371"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION asddf \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(asdfasfsadfa, asdfsadf)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+    </w:p>
+    <w:sdt>
+      <w:sdtPr>
+        <w:id w:val="-917329507"/>
+        <w:docPartObj>
+          <w:docPartGallery w:val="Bibliographies"/>
+          <w:docPartUnique/>
+        </w:docPartObj>
+      </w:sdtPr>
+      <w:sdtEndPr>
+        <w:rPr>
+          <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsiaTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:cstheme="minorBidi"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:color w:val="auto"/>
+          <w:sz w:val="22"/>
+          <w:szCs w:val="22"/>
+          <w:lang w:eastAsia="en-US"/>
+        </w:rPr>
+      </w:sdtEndPr>
+      <w:sdtContent>
+        <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC">
+          <w:pPr>
+            <w:pStyle w:val="Heading1"/>
+          </w:pPr>
+          <w:r>
+            <w:t>Bibliography</w:t>
+          </w:r>
+        </w:p>
+        <w:sdt>
+          <w:sdtPr>
+            <w:id w:val="111145805"/>
+            <w:bibliography/>
+          </w:sdtPr>
+          <w:sdtContent>
+            <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC" w:rsidP="008A10FC">
+              <w:pPr>
+                <w:pStyle w:val="Bibliography"/>
+                <w:ind w:left="720" w:hanging="720"/>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+              </w:pPr>
+              <w:r>
+                <w:fldChar w:fldCharType="begin"/>
+              </w:r>
+              <w:r>
+                <w:instrText xml:space="preserve"> BIBLIOGRAPHY </w:instrText>
+              </w:r>
+              <w:r>
+                <w:fldChar w:fldCharType="separate"/>
+              </w:r>
+              <w:r>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t xml:space="preserve">asdfasfsadfa. (asdfsadf). </w:t>
+              </w:r>
+              <w:r>
+                <w:rPr>
+                  <w:i/>
+                  <w:iCs/>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t>asdfasdfasdfadfasdf.</w:t>
+              </w:r>
+              <w:r>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t xml:space="preserve"> asdfas: sdfasfsadfsadfsafd.</w:t>
+              </w:r>
+            </w:p>
+            <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC" w:rsidP="008A10FC">
+              <w:pPr>
+                <w:pStyle w:val="Bibliography"/>
+                <w:ind w:left="720" w:hanging="720"/>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+              </w:pPr>
+              <w:r>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t xml:space="preserve">greatest, m. t. (15555). </w:t>
+              </w:r>
+              <w:r>
+                <w:rPr>
+                  <w:i/>
+                  <w:iCs/>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t>I am great.</w:t>
+              </w:r>
+              <w:r>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t xml:space="preserve"> bremen: Me.</w:t>
+              </w:r>
+            </w:p>
+            <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC" w:rsidP="008A10FC">
+              <w:pPr>
+                <w:pStyle w:val="Bibliography"/>
+                <w:ind w:left="720" w:hanging="720"/>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+              </w:pPr>
+              <w:r>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t xml:space="preserve">me, A. (141414). </w:t>
+              </w:r>
+              <w:r>
+                <w:rPr>
+                  <w:i/>
+                  <w:iCs/>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t>asdfasdfsadfasdf.</w:t>
+              </w:r>
+              <w:r>
+                <w:rPr>
+                  <w:noProof/>
+                </w:rPr>
+                <w:t xml:space="preserve"> asdfasdfasdfasdf: 124661514511.</w:t>
+              </w:r>
+            </w:p>
+            <w:p w:rsidR="008A10FC" w:rsidRDefault="008A10FC" w:rsidP="008A10FC">
+              <w:r>
+                <w:rPr>
+                  <w:b/>
+                  <w:bCs/>
+                  <w:noProof/>
+                </w:rPr>
+                <w:fldChar w:fldCharType="end"/>
+              </w:r>
+            </w:p>
+          </w:sdtContent>
+        </w:sdt>
+      </w:sdtContent>
+    </w:sdt>
+    <w:p w:rsidR="005F4F87" w:rsidRDefault="005F4F87"/>
+    <w:sectPr w:rsidR="005F4F87">
       <w:pgSz w:w="12240" w:h="15840"/>
       <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
       <w:cols w:space="720"/>
