@@ -71,7 +71,7 @@
     </b:Author>
   </xsl:template>
 
-  <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='authors']" priority="0.5"> <!-- I had to set priority manually because it was being stupid --> 
+  <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='authors']" priority="0.5">
     <b:Author>
       <b:Author>
         <b:NameList>
