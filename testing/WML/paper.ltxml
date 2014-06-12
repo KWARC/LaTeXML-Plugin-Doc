@@ -927,7 +927,7 @@ corpus  <cite>[<ref href="#bib.bib7" idref="bib.bib7" title="The euses spreadsh
      %LocalWords: ̵ ̵includegraphics ̵leq ̵morekeywords ̵qvar ̵qvar ̵footnotesize ̵xmlns
      %LocalWords: ̵ ̵lstlisting ̵csymbol ̵spsht-arith ̵csymbol ̵compactenum ̵foo ̵vspace
      %LocalWords: ̵ ̵aboveskip ̵belowskip ̵trlb ̵cprodescu-->
-    </paragraph>
+    </paragraph>fullauthors
   </section>
   <section refnum="6" xml:id="S6" labels="LABEL:sec:concl" fragid="S6">
     <title><tag close=" ">6</tag>Conclusion</title>
@@ -1004,7 +1004,7 @@ the SiSsI group for discussions and insights on abstract spreadsheets.</p>
      %LocalWords: ̵ ̵concl.tex ̵concl ̵xlsearch ̵mws ̵spshp ̵mathml ̵ednote ̵todolist ̵Futher
      %LocalWords: ̵ ̵Nardi’s ̵Netspeak ̵netspeak ̵pagerank-like ̵emph ̵Bewig ̵iecnsss03
      %**** ̵paper.tex ̵Line ̵75 ̵****-->
-    </paragraph>
+    </paragraph>fullauthors
   </section>
   <bibliography files="local">
     <title>References</title>
@@ -1165,7 +1165,7 @@ the SiSsI group for discussions and insights on abstract spreadsheets.</p>
         <bibtag class="ltx_bib_number" role="number">10</bibtag>
         <bibtag class="ltx_bib_author" role="authors">Liguda</bibtag>
         <bibtag class="ltx_bib_year" role="year">2012</bibtag>
-        <bibtag class="ltx_bib_title" role="title">Modeling the structure of spreadsheets</bibtag>
+        <bibtag class="ltx_bib_title" role="title">Modeling the structure of spreadsheets</bibtag>fullauthors
         <bibtag open="[" close="]" class="ltx_bib_key" role="refnum">10</bibtag>
         <bibblock xml:space="preserve">
           <text class="ltx_bib_author">C. Liguda</text>

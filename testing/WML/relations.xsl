@@ -31,7 +31,7 @@
     </xsl:template>
     <xsl:template match="text()"/>
     <xsl:template match="external-link">
-    <Relationship Id="{./extra/@r:id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="{./*[@href]/@href}" TargetMode="External"/>
+    <Relationship Id="{./extra/@id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="{./*[@href]/@href}" TargetMode="External"/>
     </xsl:template>
     <xsl:template match="picturus">
      <Relationship Id="{./@id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="{./@reference}"/>
