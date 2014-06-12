@@ -12,16 +12,20 @@
 -->
 <xsl:stylesheet xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" version="1.0" exclude-result-prefixes="ltx">
   <xsl:output method="xml" indent="yes"/>
-
-<xsl:template match="*">
-<xsl:apply-templates/>
-</xsl:template>
+  <xsl:template match="*">
+    <xsl:apply-templates/>
+  </xsl:template>
   <xsl:template match="/">
     <b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" SelectedStyle="\APA.XSL" StyleName="APA">
       <xsl:apply-templates/>
     </b:Sources>
   </xsl:template>
   <xsl:template match="text()"/>
+  <xsl:template match="ltx:bibtag[@class='ltx_bib_year' and @role='year']">
+    <b:Year>
+      <xsl:value-of select="./text()"/>
+    </b:Year>
+  </xsl:template>
   <xsl:template match="ltx:bibitem">
     <b:source>
       <b:SourceType>
@@ -35,7 +39,13 @@
       <xsl:value-of select="./text()"/>
     </b:Tag>
   </xsl:template>
-  <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='authors' and not(../ltx:bibtag[@role='fullauthors']) and not(contains(./text(),' and '))]" priority="0.6"><!-- I had to set priority manually, since it was being stupid. --> 
+  <xsl:template match="ltx:bibtag[@class='ltx_bib_title' and @role='title']">
+    <b:Title>
+      <xsl:value-of select="./text()"/>
+    </b:Title>
+  </xsl:template>
+  <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='authors' and not(../ltx:bibtag[@role='fullauthors']) and not(contains(./text(),' and '))]" priority="0.6">
+    <!-- I had to set priority manually, since it was being stupid. -->
     <xsl:variable name="foo">
       <xsl:call-template name="last">
         <xsl:with-param name="list" select="./text()"/>
@@ -70,8 +80,8 @@
       </b:Author>
     </b:Author>
   </xsl:template>
-
   <xsl:template match="ltx:bibtag[@class='ltx_bib_author' and @role='authors']" priority="0.5">
+    <!-- I had to set priority manually because it was being stupid -->
     <b:Author>
       <b:Author>
         <b:NameList>
@@ -116,10 +126,13 @@
     <xsl:variable name="first" select="substring-before($list,', ')"/>
     <xsl:variable name="remaining" select="substring-after($list,', ')"/>
     <xsl:variable name="foo">
-    <ltx:bibtag class="ltx_bib_author" role="authors"><xsl:value-of select="$first"/></ltx:bibtag>
+      <ltx:bibtag class="ltx_bib_author" role="authors">
+        <xsl:value-of select="$first"/>
+      </ltx:bibtag>
     </xsl:variable>
     <xsl:copy-of select="$foo"/>
-   <!--  <xsl:apply-templates select="$foo"/> --> 
+    <!--  <xsl:apply-templates select="$foo"/> -->
+    <!-- If I ever work on this again, here is where I would pick up. -->
     <xsl:if test="$remaining">
       <xsl:call-template name="fullauthors">
         <xsl:with-param name="list" select="$remaining"/>
