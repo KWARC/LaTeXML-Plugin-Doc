@@ -14,6 +14,7 @@
     version     = "1.0"
     xmlns:ltx   = "http://dlmf.nist.gov/LaTeXML"
     xmlns:xsl   = "http://www.w3.org/1999/XSL/Transform"
+    xmlns:exsl="http://exslt.org/common"
     exclude-result-prefixes = "ltx">
     <xsl:output method="xml" indent="yes"/>
     <xsl:template match="*">
