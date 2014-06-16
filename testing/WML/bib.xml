@@ -1,41 +1,10 @@
 <?xml version="1.0"?>
-<<<<<<< HEAD
-<root>
-  <ltx:bibtag xmlns:ltx="http://dlmf.nist.gov/LaTeXML" class="ltx_bib_author" role="authors">asdfasdfasf</ltx:bibtag>
-</root>
-=======
 <b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" SelectedStyle="\APA.XSL" StyleName="APA">
   <b:source>
     <b:SourceType>report</b:SourceType>
     <b:Tag>1</b:Tag>
-    <b:Author>
-      <b:Author>
-        <b:NameList>
-          <id xmlns="">Ausbrooks,</id>
-          <id xmlns="">Buswell,</id>
-          <id xmlns="">Carlisle,</id>
-          <id xmlns="">Chavchanidze,</id>
-          <id xmlns="">Dalmas,</id>
-          <id xmlns="">Devitt,</id>
-          <id xmlns="">Diaz,</id>
-          <id xmlns="">Dooley,</id>
-          <id xmlns="">Hunter,</id>
-          <id xmlns="">Ion,</id>
-          <id xmlns="">Kohlhase,</id>
-          <id xmlns="">Lazrek,</id>
-          <id xmlns="">Libbrecht,</id>
-          <id xmlns="">Miller,</id>
-          <id xmlns="">Miner,</id>
-          <id xmlns="">Sargent,</id>
-          <id xmlns="">Smith,</id>
-          <id xmlns="">Soiffer,</id>
-          <id xmlns="">Sutor,</id>
-          <id xmlns=""/>
-          <id xmlns="">and</id>
-          <id xmlns="">Watt</id>
-        </b:NameList>
-      </b:Author>
-    </b:Author>
+    <b:Year>2010</b:Year>
+    <b:Title>Mathematical Markup Language (MathML) Version 3.0</b:Title>
   </b:source>
   <b:source>
     <b:SourceType>article</b:SourceType>
@@ -43,10 +12,220 @@
     <b:Author>
       <b:Author>
         <b:NameList>
-          <b:Person/>
+          <b:Person>
+            <b:Last>Bewig</b:Last>
+          </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
+    <b:Year>2003</b:Year>
+    <b:Title>In Excel, Cell Names Spell Speed, Safety</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>proceedings</b:SourceType>
+    <b:Tag>3</b:Tag>
+    <b:Year>2009</b:Year>
+    <b:Title>MKM/Calculemus Proceedings</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>proceedings</b:SourceType>
+    <b:Tag>4</b:Tag>
+    <b:Year>2012</b:Year>
+    <b:Title>Intelligent computer mathematics</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>5</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Fisher</b:First>
+            <b:Last>Rothermel</b:Last>
+            <b:Middle>and </b:Middle>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2005</b:Year>
+    <b:Title>The euses spreadsheet corpus: a shared resource for supporting experimentation with spreadsheet dependability mechanisms</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>6</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Kohlhase</b:First>
+            <b:Last>Kohlhase</b:Last>
+            <b:Middle>and </b:Middle>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2009</b:Year>
+    <b:Title>Compensating the computational bias of spreadsheets with MKM techniques</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>7</b:Tag>
+    <b:Year>2012</b:Year>
+    <b:Title>MathWebSearch 0.5 – Scaling an Open Formula Search Engine</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>report</b:SourceType>
+    <b:Tag>8</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Kohlhase</b:First>
+            <b:Last>Prodescu</b:Last>
+            <b:Middle>and </b:Middle>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>MathWebSearch manual</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>book</b:SourceType>
+    <b:Tag>9</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>Kohlhase</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2006</b:Year>
+    <b:Title> – an open markup format for mathematical documents [version 1.2]</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>10</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>Liguda</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2012</b:Year>
+    <b:Title>Modeling the structure of spreadsheets</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>unpublished</b:SourceType>
+    <b:Tag>11</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>Liguda</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2013</b:Year>
+    <b:Title>From spreadhsheet data to structured knowledge</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>report</b:SourceType>
+    <b:Tag>12</b:Tag>
+    <b:Year>2010</b:Year>
+    <b:Title>Mathematical Markup Language (MathML) Version 3.0</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>13</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Nixon</b:First>
+            <b:Last>O’Hara</b:Last>
+            <b:Middle>and </b:Middle>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2001</b:Year>
+    <b:Title>Spreadsheet auditing software</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>14</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>Panko</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2000</b:Year>
+    <b:Title>Spreadsheet errors: what we know. what we think we can do.</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>book</b:SourceType>
+    <b:Tag>15</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>Parr</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2013</b:Year>
+    <b:Title>The definitive antlr 4 reference</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>unpublished</b:SourceType>
+    <b:Tag>16</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Rabe</b:First>
+            <b:Last>Kohlhase</b:Last>
+            <b:Middle>and </b:Middle>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Year>2013</b:Year>
+    <b:Title>A scalable module system</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>article</b:SourceType>
+    <b:Tag>17</b:Tag>
+    <b:Year>2001</b:Year>
+    <b:Title>A methodology for testing spreadsheets</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>18</b:Tag>
+    <b:Year>2012</b:Year>
+    <b:Title>On slide-based contextual cues for presentation reuse</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>proceedings</b:SourceType>
+    <b:Tag>19</b:Tag>
+    <b:Year>2000</b:Year>
+    <b:Title>Symp. of the european spreadsheet risks interest group (eusprig 2000)</b:Title>
+  </b:source>
+  <b:source>
+    <b:SourceType>proceedings</b:SourceType>
+    <b:Tag>20</b:Tag>
+    <b:Year>2001</b:Year>
+    <b:Title>Symp. of the european spreadsheet risks interest group (eusprig 2001)</b:Title>
   </b:source>
 </b:Sources>
->>>>>>> b7491a989e1830b663cfa593a2158a5e6b977eaa
