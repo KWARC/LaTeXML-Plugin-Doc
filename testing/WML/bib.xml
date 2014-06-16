@@ -1,4 +1,52 @@
 <?xml version="1.0"?>
+<<<<<<< HEAD
 <root>
   <ltx:bibtag xmlns:ltx="http://dlmf.nist.gov/LaTeXML" class="ltx_bib_author" role="authors">asdfasdfasf</ltx:bibtag>
 </root>
+=======
+<b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" SelectedStyle="\APA.XSL" StyleName="APA">
+  <b:source>
+    <b:SourceType>report</b:SourceType>
+    <b:Tag>1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <id xmlns="">Ausbrooks,</id>
+          <id xmlns="">Buswell,</id>
+          <id xmlns="">Carlisle,</id>
+          <id xmlns="">Chavchanidze,</id>
+          <id xmlns="">Dalmas,</id>
+          <id xmlns="">Devitt,</id>
+          <id xmlns="">Diaz,</id>
+          <id xmlns="">Dooley,</id>
+          <id xmlns="">Hunter,</id>
+          <id xmlns="">Ion,</id>
+          <id xmlns="">Kohlhase,</id>
+          <id xmlns="">Lazrek,</id>
+          <id xmlns="">Libbrecht,</id>
+          <id xmlns="">Miller,</id>
+          <id xmlns="">Miner,</id>
+          <id xmlns="">Sargent,</id>
+          <id xmlns="">Smith,</id>
+          <id xmlns="">Soiffer,</id>
+          <id xmlns="">Sutor,</id>
+          <id xmlns=""/>
+          <id xmlns="">and</id>
+          <id xmlns="">Watt</id>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+  </b:source>
+  <b:source>
+    <b:SourceType>article</b:SourceType>
+    <b:Tag>2</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person/>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+  </b:source>
+</b:Sources>
+>>>>>>> b7491a989e1830b663cfa593a2158a5e6b977eaa

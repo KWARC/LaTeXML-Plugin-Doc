@@ -10,7 +10,8 @@
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
-<xsl:stylesheet xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" version="1.0" exclude-result-prefixes="ltx">
+<xsl:stylesheet xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" version="1.0" exclude-result-prefixes="ltx"
+xmlns:exsl="http://exslt.org/common">
   <xsl:output method="xml" indent="yes"/>
   <xsl:template match="*">
     <xsl:apply-templates/>
@@ -49,9 +50,10 @@
 
     <xsl:variable name="foo">
       <xsl:call-template name="last">
-        <xsl:with-param name="list" select="./text()"/>
+        <xsl:with-param name="list" select="'Kohlhase and Prodescu'"/>
       </xsl:call-template>
     </xsl:variable>
+<<<<<<< HEAD
     <xsl:variable name="bar">
       <xsl:call-template name="withoutlast">
         <xsl:with-param name="list" select="./text()"/>
@@ -76,6 +78,31 @@
             <b:Last>
               <xsl:value-of select="$foo"/>
             </b:Last>
+=======
+    <b:Author> 
+      <b:Author> 
+        <b:NameList> 
+          <b:Person> 
+	<xsl:variable name="bar">
+	   <xsl:for-each select="exsl:node-set($foo)/id">
+	   <xsl:if test="not(position()=last()) and not(position()=first())">
+	   	<xsl:value-of select="."/>
+	   </xsl:if>
+	   </xsl:for-each>
+	   </xsl:variable>
+	   <xsl:for-each select="exsl:node-set($foo)/id">
+	   <xsl:if test="position()=first() and not(position()=last())">
+	   <b:First><xsl:value-of select="./text()"/></b:First>
+	   </xsl:if>
+	   <xsl:if test="position()=last()">
+	   	<b:Last><xsl:value-of select="./text()"/></b:Last>
+	   </xsl:if>
+	   <xsl:if test="$bar">
+	   <b:Middle><xsl:value-of select="$bar"/></b:Middle>
+	   </xsl:if>
+	   </xsl:for-each>
+
+>>>>>>> b7491a989e1830b663cfa593a2158a5e6b977eaa
           </b:Person>
         </b:NameList>
       </b:Author>
@@ -86,9 +113,9 @@
     <b:Author>
       <b:Author>
         <b:NameList>
-          <xsl:call-template name="fullauthors">
-            <xsl:with-param name="list" select="../ltx:bibtag[@role='fullauthors']/text()"/>
-          </xsl:call-template>
+        <xsl:call-template name="last">
+        	<xsl:with-param name="list" select="../ltx:bibtag[@role='fullauthors']/text()"/>
+        </xsl:call-template>
         </b:NameList>
       </b:Author>
     </b:Author>
@@ -98,13 +125,17 @@
   <xsl:template name="last">
     <!-- this function gives the last word of a sentence that is separated by ' ' -->
     <xsl:param name="list"/>
-    <xsl:variable name="first" select="substring-before(concat($list,' '), ' ')"/>
-    <xsl:variable name="remaining" select="substring-after($list, ' ')"/>
+    <xsl:variable name="first" select="substring-before(concat($list,' '),' ')"/>
+    <xsl:variable name="remaining" select="substring-after($list,' ')"/>
+    <id>
+    	<xsl:value-of select="$first"/>
+    </id>
     <xsl:if test="$remaining">
       <xsl:call-template name="last">
         <xsl:with-param name="list" select="$remaining"/>
       </xsl:call-template>
     </xsl:if>
+<<<<<<< HEAD
     <xsl:if test="not($remaining)">
       <xsl:copy-of select="$first"/>
     </xsl:if>
@@ -141,4 +172,7 @@
       </xsl:call-template>
     </xsl:if>
   </xsl:template>
+=======
+  </xsl:template>	
+>>>>>>> b7491a989e1830b663cfa593a2158a5e6b977eaa
 </xsl:stylesheet>

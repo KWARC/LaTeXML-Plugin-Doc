@@ -4,7 +4,11 @@
     xmlns:ltx   = "http://dlmf.nist.gov/LaTeXML"
     xmlns:exsl="http://exslt.org/common"
     xmlns:xsl   = "http://www.w3.org/1999/XSL/Transform"
+<<<<<<< HEAD
     extension-element-prefixes="exsl"
+=======
+    xmlns:exsl  = "http://exslt.org/common"
+>>>>>>> b7491a989e1830b663cfa593a2158a5e6b977eaa
     exclude-result-prefixes = "ltx">
     <xsl:output method="xml" indent="yes"/>
 <xsl:template match="ltx:document">
