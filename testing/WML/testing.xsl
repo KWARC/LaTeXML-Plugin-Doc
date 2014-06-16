@@ -2,7 +2,9 @@
 <xsl:stylesheet
     version     = "1.0"
     xmlns:ltx   = "http://dlmf.nist.gov/LaTeXML"
+    xmlns:exsl="http://exslt.org/common"
     xmlns:xsl   = "http://www.w3.org/1999/XSL/Transform"
+    extension-element-prefixes="exsl"
     exclude-result-prefixes = "ltx">
     <xsl:output method="xml" indent="yes"/>
 <xsl:template match="ltx:document">
@@ -14,7 +16,7 @@
     <ltx:bibtag class="ltx_bib_author" role="authors">asdfasdfasf</ltx:bibtag>
     </xsl:variable>
     <xsl:template match="ltx:resource">
-    <xsl:apply-templates select="$foo"/>
+    <xsl:apply-templates select="exsl:node-set($foo)"/>
     </xsl:template>
     <xsl:template match="ltx:bibtag">
     <xsl:copy-of select="."/>
