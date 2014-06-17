@@ -138,4 +138,5 @@
   </xsl:template>
   <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]">
    <b:ConferenceName><xsl:value-of select="./text()"/></b:ConferenceName>
+   </xsl:template>
 </xsl:stylesheet>

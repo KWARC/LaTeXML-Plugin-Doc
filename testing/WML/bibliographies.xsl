@@ -110,7 +110,9 @@
     <xsl:template match="ltx:bib-data[@role='mont']">
   <b:Month><xsl:value-of select="./text()"/></b:Month>
   </xsl:template>
-  <xsl:template match="ltx:bib-data[@role='adress']"/>
+  <xsl:template match="ltx:bib-data[@role='address']">
+  	<b:City><xsl:value-of select="./text()"/></b:City>
+  </xsl:template>
   <xsl:template match="ltx:bib-part[@role='series']"/>
   <xsl:template match="ltx:bib-edition"/>
   <xsl:template match="ltx:bib-note[@role='publication']"/>
