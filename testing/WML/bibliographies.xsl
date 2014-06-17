@@ -13,7 +13,7 @@
 <xsl:stylesheet xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="ltx">
   <xsl:output method="xml" indent="yes"/>
   <xsl:template match="*">
-  <xsl:message>Cannot deal with Element <xsl:value-of select="name(.	)"/></xsl:message>
+    <xsl:message>Cannot deal with Element <xsl:value-of select="name(. )"/></xsl:message>
     <xsl:apply-templates/>
   </xsl:template>
   <xsl:template match="/">
@@ -22,45 +22,76 @@
     </b:Sources>
   </xsl:template>
   <xsl:template match="text()"/>
-<xsl:template match="ltx:document">
-	<xsl:apply-templates/>
-</xsl:template>	
-<xsl:template match="ltx:resource"/>
-<xsl:template match="ltx:bibliography">
-	<xsl:apply-templates/>
-</xsl:template>
-<xsl:template match="ltx:title"/>
-<xsl:template match="ltx:biblist">
-	<xsl:apply-templates/>
-</xsl:template>
-<xsl:template match="ltx:bibentry">
-	<b:source>
-	 <b:SourceType><xsl:value-of select="./@type"/></b:SourceType>
-	 <b:Tag><xsl:value-of select="./@key"/></b:Tag>
-	 <b:Author>
-      		<b:Author>
-        		<b:NameList>
-        		<xsl:for-each select="./ltx:bib-name[@role='author']">
-          			<b:Person>
-           				<xsl:if test="./ltx:givenname">
-           					<b:First><xsl:value-of select="./ltx:givenname/text()"/></b:First>
-           				</xsl:if>
-           					<b:Last><xsl:value-of select="./ltx:surname/text()"/></b:Last>
-          			</b:Person>
-          		</xsl:for-each>
-        		</b:NameList>
-      		</b:Author>
-    </b:Author>
-	<xsl:apply-templates/>
-	</b:source>
- </xsl:template>
-<xsl:template match="ltx:bib-name[@role='author']"/>
-<xsl:template match="ltx:bib-title">
-<b:Title><xsl:value-of select="./text()"/></b:Title>
-</xsl:template>
-<xsl:template match="ltx:bib-related[@role='host' and @type='journal']/ltx:bib-title">
-<b:JournalName><xsl:value-of select="./text()"/></b:JournalName>
-</xsl:template>
-<xsl:template match="ltx:bib-date[@role='publication']">
-</xsl:template>
+  <xsl:template match="ltx:document">
+    <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:resource"/>
+  <xsl:template match="ltx:bibliography">
+    <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:title"/>
+  <xsl:template match="ltx:biblist">
+    <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:bibentry">
+    <b:source>
+      <b:SourceType>
+        <xsl:value-of select="./@type"/>
+      </b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:source>
+  </xsl:template>
+  <xsl:template match="ltx:bib-name[@role='author']"/>
+  <xsl:template match="ltx:bib-title">
+    <b:Title>
+      <xsl:value-of select="./text()"/>
+    </b:Title>
+  </xsl:template>
+  <xsl:template match="ltx:bib-related[@role='host' and @type='journal']/ltx:bib-title">
+    <b:JournalName>
+      <xsl:value-of select="./text()"/>
+    </b:JournalName>
+  </xsl:template>
+  <xsl:template match="ltx:bib-date[@role='publication']">
+    <xsl:if test="contains(./text(),'-')">
+      <b:Year>
+        <xsl:value-of select="substring-before(./text(),'-')"/>
+      </b:Year>
+      <b:Month>
+        <xsl:value-of select="substring-after(./text(),'-')"/>
+      </b:Month>
+    </xsl:if>
+    <xsl:if test="not(contains(./text(),'-'))">
+      <b:Year>
+        <xsl:value-of select="substring-before(./text(),'-')"/>
+      </b:Year>
+    </xsl:if>
+  </xsl:template>
+  <xsl:template match="ltx:bib-date[@role='month']">
+  <b:Month><xsl:value-of select="./text()"/></b:Month>
+  </xsl:template>
+  <xsl:template match="ltx:bib-date[@role='mont']">
+  <b:Month><xsl:value-of select="./text()"/></b:Month>
+  </xsl:template>
 </xsl:stylesheet>
