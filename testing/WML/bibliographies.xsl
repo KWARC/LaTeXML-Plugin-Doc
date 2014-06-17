@@ -14,7 +14,7 @@
   <xsl:output method="xml" indent="yes"/>
   <xsl:template match="*">
     <xsl:message>Cannot deal with Element <xsl:value-of select="name(. )"/></xsl:message>
-    <xsl:apply-templates/>
+    <xsl:comment> <xsl:copy-of select="."/></xsl:comment>
   </xsl:template>
   <xsl:template match="/">
     <b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" SelectedStyle="\APA.XSL" StyleName="APA">
@@ -130,7 +130,13 @@
   <xsl:apply-templates/>
   </xsl:template>
   <xsl:template match="ltx:bib-name[@role='editor']"/>
-  <xsl:template match="ltx:bib-entry[@type='manual']/ltx:bib-organization">
+  <xsl:template match="ltx:bibentry[@type='manual']//ltx:bib-organization">
   <b:Publisher><xsl:value-of select="./text()"/></b:Publisher>
   </xsl:template>
+  <xsl:template match="ltx:bibentry[@type='thesis']//ltx:bib-organization">
+  <b:Publisher><xsl:value-of select="./text()"/></b:Publisher>
+  </xsl:template>
+  <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]">
+   <b:ConferenceName><xsl:value-of select="./text()"/></b:ConferenceName>
+   </xsl:template>
 </xsl:stylesheet>
