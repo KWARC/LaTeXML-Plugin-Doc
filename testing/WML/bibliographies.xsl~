@@ -84,18 +84,58 @@
     </xsl:if>
     <xsl:if test="not(contains(./text(),'-'))">
       <b:Year>
-        <xsl:value-of select="substring-before(./text(),'-')"/>
+        <xsl:value-of select="substring-before(./text(),'-')"/>l
       </b:Year>
     </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bib-date[@role='month']">
-    <b:Month>
-      <xsl:value-of select="./text()"/>
-    </b:Month>
+  <b:Month><xsl:value-of select="./text()"/></b:Month>
   </xsl:template>
   <xsl:template match="ltx:bib-date[@role='mont']">
-    <b:Month>
-      <xsl:value-of select="./text()"/>
-    </b:Month>
+  <b:Month><xsl:value-of select="./text()"/></b:Month>
+  </xsl:template>
+  <xsl:template match="ltx:bib-note[@role='annotation']"/>
+  <xsl:template match="ltx:bib-key"/>
+  <xsl:template match="ltx:bib-publisher">
+  <b:Publisher><xsl:value-of select="./text()"/></b:Publisher>
+  </xsl:template>
+  <xsl:template match="ltx:bib-place"/>
+  <xsl:template match="ltx:bib-data[@role='self' and @type='BibTeX']"/>
+  <xsl:template match="ltx:bib-related[@role='host' and @type='journal']">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:bib-part[@role='volume']"/>
+  <xsl:template match="ltx:bib-part[@role='number']"/>
+  <xsl:template match="ltx:bib-part[@role='pages']">
+   <b:Pages><xsl:value-of select="./text()"/></b:Pages>
+  </xsl:template>
+  <xsl:template match="ltx:bib-data[@role='month']">
+  <b:Month><xsl:value-of select="./text()"/></b:Month>
+  </xsl:template>
+    <xsl:template match="ltx:bib-data[@role='mont']">
+  <b:Month><xsl:value-of select="./text()"/></b:Month>
+  </xsl:template>
+  <xsl:template match="ltx:bib-data[@role='adress']"/>
+  <xsl:template match="ltx:bib-part[@role='series']"/>
+  <xsl:template match="ltx:bib-edition"/>
+  <xsl:template match="ltx:bib-note[@role='publication']"/>
+  <xsl:template match="ltx:bib-part[@role='chapter']"/>
+  <xsl:template match="ltx:bib-related[@role='host' and @type='book']">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:bib-related[@role='host' and @type='book']/ltx:bib-title">
+  <xsl:if test="ancestor::ltx:bib-entry[@type='book'] or ancestor::ltx:bib-entry[@type='inbook']">
+    <b:BookTitle><xsl:value-of select="./text()"/></b:BookTitle>
+  </xsl:if>
+  </xsl:template>
+
+   <xsl:template match="ltx:bib-related[@role='host' and @type='proceedings']/ltx:bib-title"/>       
+     <xsl:template match="ltx:bib-type"/>     
+  <xsl:template match="ltx:bib-related[@role='host' and @type='proceedings']">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:bib-name[@role='editor']"/>
+  <xsl:template match="ltx:bib-entry[@type='manual']/ltx:bib-organization">
+  <b:Publisher><xsl:value-of select="./text()"/></b:Publisher>
   </xsl:template>
 </xsl:stylesheet>
