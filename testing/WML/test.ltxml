@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" SelectedStyle="\APA.XSL" StyleName="APA">
+  <b:source>
+    <b:SourceType>book</b:SourceType>
+    <b:Tag>book1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Author</b:First>
+            <b:Last>of book1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of book1</b:Title>
+    <b:Year>l
+      </b:Year>
+    <b:Publisher>Publisher of book1</b:Publisher>
+  </b:source>
+  <b:source>
+    <b:SourceType>article</b:SourceType>
+    <b:Tag>article1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Author</b:First>
+            <b:Last>of article1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of article1</b:Title>
+    <b:JournalName>journal of article1</b:JournalName>
+    <b:Year>l
+      </b:Year>
+    <b:Pages>pages of article1</b:Pages>
+    <b:Month>month of article1</b:Month>
+  </b:source>
+  <b:source>
+    <b:SourceType>book</b:SourceType>
+    <b:Tag>book2</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>firstname1 Lastname1</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:Last>firstname2 lastname2</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of book2</b:Title>
+    <b:Publisher>publisher of book2</b:Publisher>
+    <b:Year>year of book2</b:Year>
+    <b:Month>month of book2</b:Month>
+    <!--adress of book2-->
+    <b:Month>month of book2</b:Month>
+  </b:source>
+  <b:source>
+    <b:SourceType>booklet</b:SourceType>
+    <b:Tag>booklet1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of booklet1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of booklet1</b:Title>
+    <!--adress of booklet1-->
+    <b:Month>month of booklet1</b:Month>
+    <b:Year>year of booklet1</b:Year>
+    <b:Month>month of booklet1</b:Month>
+  </b:source>
+  <b:source>
+    <b:SourceType>inbook</b:SourceType>
+    <b:Tag>inbook1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of inbook1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of inbook1</b:Title>
+    <b:Pages>pages of inbook1</b:Pages>
+    <b:Publisher>publisher of inbook1</b:Publisher>
+    <b:Year>year of inbook1</b:Year>
+    <b:Month>month of inbook1</b:Month>
+    <b:Month>month of inbook1</b:Month>
+  </b:source>
+  <b:source>
+    <b:SourceType>incollection</b:SourceType>
+    <b:Tag>incollection1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of incollection1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of incolleciton1</b:Title>
+    <b:Publisher>publisher of incollection1</b:Publisher>
+    <b:Year>l
+      </b:Year>
+  </b:source>
+  <b:ConferenceName>
+        </b:ConferenceName>
+  <b:source>
+    <b:SourceType>manual</b:SourceType>
+    <b:Tag>manual1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of manual1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of manual1</b:Title>
+    <b:Publisher>organization of manual1</b:Publisher>
+    <b:Month>month of manual1</b:Month>
+    <b:Year>year of manual1</b:Year>
+    <b:Month>month of manual1</b:Month>
+  </b:source>
+  <b:source>
+    <b:SourceType>thesis</b:SourceType>
+    <b:Tag>mastersthesis1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of mastersthesis1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of mastersthesis1</b:Title>
+    <b:Publisher>school of mastersthesis1</b:Publisher>
+    <b:Year>year of mastersthesis1</b:Year>
+    <b:Month>month of masterstheiss1</b:Month>
+    <b:Month>month of masterstheiss1</b:Month>
+  </b:source>
+  <b:source>
+    <b:SourceType>misc</b:SourceType>
+    <b:Tag>misc1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of misc1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of misc1</b:Title>
+    <b:Month>month of misc1</b:Month>
+    <b:Year>year of misc1</b:Year>
+    <b:Month>month of misc1</b:Month>
+  </b:source>
+  <b:source>
+    <b:SourceType>thesis</b:SourceType>
+    <b:Tag>phthesis1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of phdthesis1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of phdthesis1</b:Title>
+    <b:Publisher>schookl of phdthesis1</b:Publisher>
+    <b:Year>year of phdthesis1</b:Year>
+    <b:Month>month of phdthesis1</b:Month>
+    <b:Month>month of phdthesis1</b:Month>
+  </b:source>
+  <b:ConferenceName>
+        </b:ConferenceName>
+  <b:source>
+    <b:SourceType>unpublished</b:SourceType>
+    <b:Tag>unpublished1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of unpublished1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of unpulished1</b:Title>
+    <b:Month>month of unpublished 1</b:Month>
+    <b:Year>year of unpublished1</b:Year>
+    <b:Month>month of unpublished 1</b:Month>
+  </b:source>
+</b:Sources>

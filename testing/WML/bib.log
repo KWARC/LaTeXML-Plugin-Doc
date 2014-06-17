@@ -1,0 +1,108 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.5.23)  17 JUN 2014 14:25
+entering extended mode
+ %&-line parsing enabled.
+**bib.tex
+(./bib.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
+turkish, ukenglish, ukrainian, loaded.
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./bib.aux)
+\openout1 = `bib.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+
+
+LaTeX Warning: Citation `book1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `article1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `book2' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `booklet1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `inbook1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `incollection1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `inproceedings1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `manual1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `mastersthesis1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `misc1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `phthesis1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `proceedings1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `unpublished1' on page 1 undefined on input line 3.
+
+No file bib.bbl.
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./bib.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 217 strings out of 256216
+ 2242 string characters out of 1917072
+ 48804 words of memory out of 1500000
+ 3586 multiletter control sequences out of 10000+200000
+ 3948 words of font info for 15 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 23i,4n,21p,165b,107s stack positions out of 5000i,500n,6000p,200000b,15000s
+</usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb></usr/share/texmf/fonts/t
+ype1/bluesky/cm/cmr10.pfb>
+Output written on bib.pdf (1 page, 6016 bytes).
+PDF statistics:
+ 14 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
