@@ -1,0 +1,13 @@
+Current working order is: 
+get .tex file: file.tex
+Then: 
+latexmlc file.tex --destination=file.ltxml --post
+xsltproc --output=document.xml ltx2word.xsl file.ltxml 
+xsltproc --output=document.xml.rels relations.xsl document.xml
+Use stylesheet to transform document.xml into item1.xml (essentially just enter the data from the bibliography entries. ) then sort it into CustomXML. 
+Apply stylesheet to document.xml to get rid of stupid leftovers (also indent it nicely). 
+Move pictures (if present) into media folder (subfolder of word). 
+Then move into appropriate file system (Currently in testing ground) (document.xml into word, document.xml.rels into word/rels) and zip (not tar.gz) it into file.zip
+Then rename to file.docx. 
+If you want to print out a bibliography at the end, insert it manually with Editor of choice (don't have this working yet, will have to see if it works when it is done. ) 
+Voila! Done with that part 
