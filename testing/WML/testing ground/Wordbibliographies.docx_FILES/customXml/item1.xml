@@ -112,24 +112,22 @@
     <b:Month>month of inproceedings1</b:Month>
     <b:Pages>pages of inproceedings1</b:Pages>
   </b:Source>
+
   <b:Source>
-    <b:Tag>Autar6</b:Tag>
     <b:SourceType>Report</b:SourceType>
-    <b:Guid>{13643CCE-819D-4041-832A-A4A0D82700CE}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year </b:Year>
-    <b:City>City</b:City>
-    <b:Publisher>Publisher</b:Publisher>
+    <b:Tag>Autar6</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of manual1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:RefOrder>7</b:RefOrder>
+    <b:Title>Title of manual1</b:Title>
+    <b:Publisher>organization of manual1</b:Publisher>
+    <b:Year>year of manual1</b:Year>
   </b:Source>
   <b:Source>
     <b:Tag>Autar7</b:Tag>

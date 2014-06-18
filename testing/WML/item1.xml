@@ -130,7 +130,7 @@
     <b:Pages>pages of inproceedings1</b:Pages>
   </b:Source>
   <b:Source>
-    <b:SourceType>manual</b:SourceType>
+    <b:SourceType>Report</b:SourceType>
     <b:Tag>manual1</b:Tag>
     <b:Author>
       <b:Author>
@@ -144,7 +144,6 @@
     <b:Title>Title of manual1</b:Title>
     <b:Publisher>organization of manual1</b:Publisher>
     <b:Year>year of manual1</b:Year>
-    <b:Month>month of manual1</b:Month>
   </b:Source>
   <b:Source>
     <b:SourceType>thesis</b:SourceType>

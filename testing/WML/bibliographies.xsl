@@ -60,6 +60,33 @@
       <xsl:apply-templates/>
     </b:Source>
   </xsl:template>
+  <xsl:template match="ltx:bibentry[@type='manual']">
+    <b:Source>
+      <b:SourceType>Report</b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:Source>
+  </xsl:template>
   <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]">
     <b:Source>
       <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -211,9 +238,11 @@
       <b:Year>
         <xsl:value-of select="substring-before(./text(),'-')"/>
       </b:Year>
+      <xsl:if test="not(ancestor::ltx:bibentry[@type='manual'])">
       <b:Month>
         <xsl:value-of select="substring-after(./text(),'-')"/>
       </b:Month>
+      </xsl:if>
     </xsl:if>
     <xsl:if test="not(contains(./text(),'-'))">
       <b:Year>
@@ -270,4 +299,5 @@
   <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]//ltx:bib-organization">
    <b:ConferenceName><xsl:value-of select="./text()"/></b:ConferenceName>
    </xsl:template>
+   
 </xsl:stylesheet>
