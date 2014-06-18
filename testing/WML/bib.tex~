@@ -1,6 +1,0 @@
-\documentclass{article}
-\begin{document}
-\bibliographystyle{plain}
-\bibliography{test}
-\cite{book1,article1,book2,booklet1,inbook1,incollection1,inproceedings1,manual1,mastersthesis1,misc1,phthesis1,proceedings1,unpublished1}
-\end{document}
