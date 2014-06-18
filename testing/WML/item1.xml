@@ -146,7 +146,7 @@
     <b:Year>year of manual1</b:Year>
   </b:Source>
   <b:Source>
-    <b:SourceType>thesis</b:SourceType>
+    <b:SourceType>JournalArticle</b:SourceType>
     <b:Tag>mastersthesis1</b:Tag>
     <b:Author>
       <b:Author>
@@ -179,7 +179,7 @@
     <b:Month>month of misc1</b:Month>
   </b:Source>
   <b:Source>
-    <b:SourceType>thesis</b:SourceType>
+    <b:SourceType>JournalArticle</b:SourceType>
     <b:Tag>phthesis1</b:Tag>
     <b:Author>
       <b:Author>
