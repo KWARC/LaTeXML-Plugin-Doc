@@ -14,10 +14,11 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of book1</b:Title>
-    <b:Year>l
+    <b:Year>1993
       </b:Year>
     <b:Publisher>Publisher of book1</b:Publisher>
   </b:Source>
+  
   <b:Source>
     <b:Tag>Autar1</b:Tag>
     <b:SourceType>BookSection</b:SourceType>
@@ -48,23 +49,22 @@
     <b:RefOrder>2</b:RefOrder>
   </b:Source>
   <b:Source>
-    <b:Tag>Autar2</b:Tag>
     <b:SourceType>JournalArticle</b:SourceType>
-    <b:Guid>{39F4DA0C-8892-42FA-ABF4-D1268F3681E3}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:Pages>Pages</b:Pages>
+    <b:Tag>Autar2</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:First>Author</b:First>
+            <b:Last>of article1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:JournalName>Journal name</b:JournalName>
-    <b:RefOrder>3</b:RefOrder>
+    <b:Title>Title of article1</b:Title>
+    <b:JournalName>journal of article1</b:JournalName>
+    <b:Year>year of article1</b:Year>
+    <b:Pages>pages of article1</b:Pages>
   </b:Source>
   <b:Source>
     <b:Tag>Autar3</b:Tag>

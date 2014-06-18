@@ -41,7 +41,7 @@
         <bib-part role="volume">volume of article1</bib-part>
         <bib-part role="number">number of article1</bib-part>
         <bib-part role="pages">pages of article1</bib-part>
-        <bib-data role="mont">month of article1</bib-data>
+        <bib-data role="month">month of article1</bib-data>
         <bib-note role="annotation">note of article1</bib-note>
         <bib-key>key of article1</bib-key>
         <bib-data role="self" type="BibTeX">@article{article1,

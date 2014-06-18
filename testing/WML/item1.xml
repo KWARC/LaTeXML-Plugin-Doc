@@ -18,7 +18,7 @@
     <b:Publisher>Publisher of book1</b:Publisher>
   </b:Source>
   <b:Source>
-    <b:SourceType>article</b:SourceType>
+    <b:SourceType>JournalArticle</b:SourceType>
     <b:Tag>article1</b:Tag>
     <b:Author>
       <b:Author>
@@ -34,7 +34,6 @@
     <b:JournalName>journal of article1</b:JournalName>
     <b:Year>year of article1</b:Year>
     <b:Pages>pages of article1</b:Pages>
-    <b:Month>month of article1</b:Month>
   </b:Source>
   <b:Source>
     <b:SourceType>book</b:SourceType>
@@ -57,7 +56,6 @@
     <b:Publisher>publisher of book2</b:Publisher>
     <b:Year>year of book2</b:Year>
     <b:Month>month of book2</b:Month>
-    <b:Month>month of book2</b:Month>
   </b:Source>
   <b:Source>
     <b:SourceType>booklet</b:SourceType>
@@ -72,7 +70,6 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of booklet1</b:Title>
-    <b:Month>month of booklet1</b:Month>
     <b:Year>year of booklet1</b:Year>
     <b:Month>month of booklet1</b:Month>
   </b:Source>
@@ -93,7 +90,6 @@
     <b:Publisher>publisher of inbook1</b:Publisher>
     <b:Year>year of inbook1</b:Year>
     <b:Month>month of inbook1</b:Month>
-    <b:Month>month of inbook1</b:Month>
   </b:Source>
   <b:Source>
     <b:SourceType>incollection</b:SourceType>
@@ -112,7 +108,6 @@
     <b:Year>year of incollection1</b:Year>
     <b:Month>month of incollection1</b:Month>
     <b:Pages>pages of incollection1</b:Pages>
-    <b:Month>month of incollection1</b:Month>
   </b:Source>
   <b:ConferenceName>
         </b:ConferenceName>
@@ -130,7 +125,6 @@
     </b:Author>
     <b:Title>Title of manual1</b:Title>
     <b:Publisher>organization of manual1</b:Publisher>
-    <b:Month>month of manual1</b:Month>
     <b:Year>year of manual1</b:Year>
     <b:Month>month of manual1</b:Month>
   </b:Source>
@@ -150,7 +144,6 @@
     <b:Publisher>school of mastersthesis1</b:Publisher>
     <b:Year>year of mastersthesis1</b:Year>
     <b:Month>month of masterstheiss1</b:Month>
-    <b:Month>month of masterstheiss1</b:Month>
   </b:Source>
   <b:Source>
     <b:SourceType>misc</b:SourceType>
@@ -165,7 +158,6 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of misc1</b:Title>
-    <b:Month>month of misc1</b:Month>
     <b:Year>year of misc1</b:Year>
     <b:Month>month of misc1</b:Month>
   </b:Source>
@@ -185,7 +177,6 @@
     <b:Publisher>schookl of phdthesis1</b:Publisher>
     <b:Year>year of phdthesis1</b:Year>
     <b:Month>month of phdthesis1</b:Month>
-    <b:Month>month of phdthesis1</b:Month>
   </b:Source>
   <b:ConferenceName>
         </b:ConferenceName>
@@ -202,7 +193,6 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of unpulished1</b:Title>
-    <b:Month>month of unpublished 1</b:Month>
     <b:Year>year of unpublished1</b:Year>
     <b:Month>month of unpublished 1</b:Month>
   </b:Source>

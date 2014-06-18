@@ -62,6 +62,33 @@
       <xsl:apply-templates/>
     </b:Source>
   </xsl:template>
+  <xsl:template match="ltx:bibentry[@type='article']">
+    <b:Source>
+      <b:SourceType>JournalArticle</b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:Source>
+  </xsl:template>
   <xsl:template match="ltx:bib-name[@role='author']"/>
   <xsl:template match="ltx:bib-title">
     <b:Title>
@@ -101,15 +128,11 @@
   </xsl:template>
   <xsl:template match="ltx:bib-part[@role='volume']"/>
   <xsl:template match="ltx:bib-part[@role='number']"/>
-  <xsl:template match="ltx:bib-part[@role='pages']">
+  <xsl:template match="ltx:bib-part[@role='pages' and not(../ltx:bibentry[@type='article'])]">
    <b:Pages><xsl:value-of select="./text()"/></b:Pages>
   </xsl:template>
-  <xsl:template match="ltx:bib-data[@role='month']">
-  <b:Month><xsl:value-of select="./text()"/></b:Month>
-  </xsl:template>
-    <xsl:template match="ltx:bib-data[@role='mont']">
-  <b:Month><xsl:value-of select="./text()"/></b:Month>
-  </xsl:template>
+    <xsl:template match="ltx:bib-data[@role='month']"/>
+
   <xsl:template match="ltx:bib-data[@role='address']">
   	<b:City><xsl:value-of select="./text()"/></b:City>
   </xsl:template>
