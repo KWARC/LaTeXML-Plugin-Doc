@@ -343,28 +343,20 @@
     <b:Day>Day</b:Day>
     <b:RefOrder>17</b:RefOrder>
   </b:Source>
-  <b:Source>
-    <b:Tag>Autar10</b:Tag>
+<b:Source>
     <b:SourceType>Misc</b:SourceType>
-    <b:Guid>{BBB7BABF-820C-4E87-A3D7-177D5820DB96}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year </b:Year>
-    <b:Month>Month</b:Month>
-    <b:Day>Day</b:Day>
+    <b:Tag>Autar10</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of unpublished1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:PublicationTitle>Publication Title</b:PublicationTitle>
-    <b:City>city </b:City>
-    <b:StateProvince>State/Province</b:StateProvince>
-    <b:CountryRegion>Country/Region</b:CountryRegion>
-    <b:Publisher>Publisher</b:Publisher>
-    <b:RefOrder>18</b:RefOrder>
+    <b:Title>Title of unpulished1</b:Title>
+    <b:Year>year of unpublished1</b:Year>
+    <b:Month>month of unpublished 1</b:Month>
   </b:Source>
 </b:Sources>
