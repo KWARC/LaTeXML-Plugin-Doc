@@ -258,7 +258,7 @@
   <xsl:template match="ltx:cite">
     <w:sdt>
         <w:sdtPr>
-          <w:id w:val="{generate-id(.)}"/>
+          <w:id w:val="{count(preceding::ltx:cite)}"/>
           <w:citation/>
         </w:sdtPr>
         <w:sdtEndPr/>
@@ -272,12 +272,7 @@
           <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="separate"/>
           </w:r>
-          <w:r w:rsidR="00597C89">
-            <w:rPr>
-              <w:noProof/>
-            </w:rPr>
-            <w:t><xsl:apply-templates/></w:t>
-          </w:r>
+		<xsl:apply-templates select=".//text()"/>
           <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="end"/>
           </w:r>
