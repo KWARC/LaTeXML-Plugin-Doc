@@ -19,13 +19,13 @@
         <bib-title>Title of book1</bib-title>
         <bib-date role="publication">1993</bib-date>
         <bib-publisher>Publisher of book1</bib-publisher>
-        <bib-place>adress of publisher of book1</bib-place>
+        <bib-place>address of publisher of book1</bib-place>
         <bib-data role="self" type="BibTeX">@book{book1,
     author = {Author of book1},
      title = {title of book1},
       year = {1993},
  publisher = {Publisher of book1},
-   address = {adress of publisher of book1}}
+   address = {address of publisher of book1}}
 </bib-data>
       </bibentry>
       <bibentry key="article1" type="article" xml:id="bib.bib2">
@@ -71,7 +71,7 @@
         <bib-date role="publication">year of book2-month of book2</bib-date>
         <bib-part role="volume">volume of book2</bib-part>
         <bib-part role="series">series of book2</bib-part>
-        <bib-data role="adress">adress of book2</bib-data>
+        <bib-place>address of book2</bib-place>
         <bib-edition>edition of book2</bib-edition>
         <bib-data role="month">month of book2</bib-data>
         <bib-note role="annotation">note of book2</bib-note>
@@ -83,7 +83,7 @@
       year = {year of book2},
     volume = {volume of book2},
     series = {series of book2},
-    adress = {adress of book2},
+   address = {address of book2},
    edition = {edition of book2},
      month = {month of book2},
       note = {note of book2},
@@ -96,7 +96,7 @@
           <surname>author of booklet1</surname>
         </bib-name>
         <bib-note role="publication">howpublished of booklet1</bib-note>
-        <bib-data role="adress">adress of booklet1</bib-data>
+        <bib-place>address of booklet1</bib-place>
         <bib-data role="month">month of booklet1</bib-data>
         <bib-date role="publication">year of booklet1-month of booklet1</bib-date>
         <bib-key>key of booklet1</bib-key>
@@ -104,7 +104,7 @@
      title = {title of booklet1},
     author = {author of booklet1},
 howpublished = {howpublished of booklet1},
-    adress = {adress of booklet1},
+   address = {address of booklet1},
      month = {month of booklet1},
       year = {year of booklet1},
        key = {key of booklet1}}
@@ -155,10 +155,19 @@ howpublished = {howpublished of booklet1},
           <bib-title>booktitle of incollection1</bib-title>
           <bib-part role="series">series of incollection1</bib-part>
           <bib-publisher>publisher of incollection1</bib-publisher>
+          <bib-name role="editor">
+            <surname>editor of incollection1</surname>
+          </bib-name>
+          <bib-place>address of incollection1</bib-place>
+          <bib-edition>edition of incollection1</bib-edition>
         </bib-related>
         <bib-type>type of incollection1</bib-type>
         <bib-part role="chapter">chapter of incollection1</bib-part>
-        <bib-date role="publication">year</bib-date>
+        <bib-date role="publication">year of incollection1-month of incollection1</bib-date>
+        <bib-part role="pages">pages of incollection1</bib-part>
+        <bib-data role="month">month of incollection1</bib-data>
+        <bib-note role="annotation">note of incollection1</bib-note>
+        <bib-key>key of incollection1</bib-key>
         <bib-data role="self" type="BibTeX">@incollection{incollection1,
     author = {author of incollection1},
      title = {title of incolleciton1},
@@ -167,7 +176,14 @@ howpublished = {howpublished of booklet1},
       type = {type of incollection1},
    chapter = {chapter of incollection1},
  publisher = {publisher of incollection1},
-      year = {year}}
+      year = {year of incollection1},
+    editor = {editor of incollection1},
+     pages = {pages of incollection1},
+   address = {address of incollection1},
+   edition = {edition of incollection1},
+     month = {month of incollection1},
+      note = {note of incollection1},
+       key = {key of incollection1}}
 </bib-data>
       </bibentry>
       <bibentry key="inproceedings1" type="inproceedings" xml:id="bib.bib7">

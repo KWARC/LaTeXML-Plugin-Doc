@@ -34,7 +34,7 @@
     <xsl:apply-templates/>
   </xsl:template>
   <xsl:template match="ltx:bibentry">
-    <b:source>
+    <b:Source>
       <b:SourceType>
         <xsl:value-of select="./@type"/>
       </b:SourceType>
@@ -60,7 +60,7 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:source>
+    </b:Source>
   </xsl:template>
   <xsl:template match="ltx:bib-name[@role='author']"/>
   <xsl:template match="ltx:bib-title">
@@ -84,7 +84,7 @@
     </xsl:if>
     <xsl:if test="not(contains(./text(),'-'))">
       <b:Year>
-        <xsl:value-of select="substring-before(./text(),'-')"/>l
+        <xsl:value-of select="./text()"/>
       </b:Year>
     </xsl:if>
   </xsl:template>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" SelectedStyle="\APA.XSL" StyleName="APA">
-  <b:source>
+  <b:Source>
     <b:SourceType>book</b:SourceType>
     <b:Tag>book1</b:Tag>
     <b:Author>
@@ -14,11 +14,10 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of book1</b:Title>
-    <b:Year>l
-      </b:Year>
+    <b:Year>1993</b:Year>
     <b:Publisher>Publisher of book1</b:Publisher>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>article</b:SourceType>
     <b:Tag>article1</b:Tag>
     <b:Author>
@@ -33,12 +32,11 @@
     </b:Author>
     <b:Title>Title of article1</b:Title>
     <b:JournalName>journal of article1</b:JournalName>
-    <b:Year>l
-      </b:Year>
+    <b:Year>year of article1</b:Year>
     <b:Pages>pages of article1</b:Pages>
     <b:Month>month of article1</b:Month>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>book</b:SourceType>
     <b:Tag>book2</b:Tag>
     <b:Author>
@@ -59,10 +57,9 @@
     <b:Publisher>publisher of book2</b:Publisher>
     <b:Year>year of book2</b:Year>
     <b:Month>month of book2</b:Month>
-    <!--adress of book2-->
     <b:Month>month of book2</b:Month>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>booklet</b:SourceType>
     <b:Tag>booklet1</b:Tag>
     <b:Author>
@@ -75,12 +72,11 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of booklet1</b:Title>
-    <!--adress of booklet1-->
     <b:Month>month of booklet1</b:Month>
     <b:Year>year of booklet1</b:Year>
     <b:Month>month of booklet1</b:Month>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>inbook</b:SourceType>
     <b:Tag>inbook1</b:Tag>
     <b:Author>
@@ -98,8 +94,8 @@
     <b:Year>year of inbook1</b:Year>
     <b:Month>month of inbook1</b:Month>
     <b:Month>month of inbook1</b:Month>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>incollection</b:SourceType>
     <b:Tag>incollection1</b:Tag>
     <b:Author>
@@ -113,12 +109,14 @@
     </b:Author>
     <b:Title>Title of incolleciton1</b:Title>
     <b:Publisher>publisher of incollection1</b:Publisher>
-    <b:Year>l
-      </b:Year>
-  </b:source>
+    <b:Year>year of incollection1</b:Year>
+    <b:Month>month of incollection1</b:Month>
+    <b:Pages>pages of incollection1</b:Pages>
+    <b:Month>month of incollection1</b:Month>
+  </b:Source>
   <b:ConferenceName>
         </b:ConferenceName>
-  <b:source>
+  <b:Source>
     <b:SourceType>manual</b:SourceType>
     <b:Tag>manual1</b:Tag>
     <b:Author>
@@ -135,8 +133,8 @@
     <b:Month>month of manual1</b:Month>
     <b:Year>year of manual1</b:Year>
     <b:Month>month of manual1</b:Month>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>thesis</b:SourceType>
     <b:Tag>mastersthesis1</b:Tag>
     <b:Author>
@@ -153,8 +151,8 @@
     <b:Year>year of mastersthesis1</b:Year>
     <b:Month>month of masterstheiss1</b:Month>
     <b:Month>month of masterstheiss1</b:Month>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>misc</b:SourceType>
     <b:Tag>misc1</b:Tag>
     <b:Author>
@@ -170,8 +168,8 @@
     <b:Month>month of misc1</b:Month>
     <b:Year>year of misc1</b:Year>
     <b:Month>month of misc1</b:Month>
-  </b:source>
-  <b:source>
+  </b:Source>
+  <b:Source>
     <b:SourceType>thesis</b:SourceType>
     <b:Tag>phthesis1</b:Tag>
     <b:Author>
@@ -188,10 +186,10 @@
     <b:Year>year of phdthesis1</b:Year>
     <b:Month>month of phdthesis1</b:Month>
     <b:Month>month of phdthesis1</b:Month>
-  </b:source>
+  </b:Source>
   <b:ConferenceName>
         </b:ConferenceName>
-  <b:source>
+  <b:Source>
     <b:SourceType>unpublished</b:SourceType>
     <b:Tag>unpublished1</b:Tag>
     <b:Author>
@@ -207,5 +205,5 @@
     <b:Month>month of unpublished 1</b:Month>
     <b:Year>year of unpublished1</b:Year>
     <b:Month>month of unpublished 1</b:Month>
-  </b:source>
+  </b:Source>
 </b:Sources>
