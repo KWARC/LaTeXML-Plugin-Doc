@@ -54,23 +54,22 @@
     <b:Pages>pages of article1</b:Pages>
   </b:Source>
   <b:Source>
+    <b:SourceType>BookSection</b:SourceType>
     <b:Tag>Autar3</b:Tag>
-    <b:SourceType>JournalArticle</b:SourceType>
-    <b:Guid>{EE91EBDA-C43E-4DCA-A9B3-3A26BEDC9AF0}</b:Guid>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of inbook1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:Title>title</b:Title>
-    <b:JournalName>Journal name</b:JournalName>
-    <b:Year>Year</b:Year>
-    <b:Pages>pages</b:Pages>
-    <b:RefOrder>4</b:RefOrder>
+    <b:Title>Title of inbook1</b:Title>
+    <b:Pages>pages of inbook1</b:Pages>
+    <b:Publisher>publisher of inbook1</b:Publisher>
+    <b:Year>year of inbook1</b:Year>
+    <b:Month>month of inbook1</b:Month>
   </b:Source>
   <b:Source>
     <b:Tag>Autar4</b:Tag>

@@ -87,6 +87,33 @@
       <xsl:apply-templates/>
     </b:Source>
   </xsl:template>
+  <xsl:template match="ltx:bibentry[@type='inbook']">
+    <b:Source>
+      <b:SourceType>BookSection</b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:Source>
+  </xsl:template>
   <xsl:template match="ltx:bibentry[@type='article']">
     <b:Source>
       <b:SourceType>JournalArticle</b:SourceType>
