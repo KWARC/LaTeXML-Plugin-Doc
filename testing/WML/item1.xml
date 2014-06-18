@@ -92,7 +92,7 @@
     <b:Month>month of inbook1</b:Month>
   </b:Source>
   <b:Source>
-    <b:SourceType>incollection</b:SourceType>
+    <b:SourceType>BookSection</b:SourceType>
     <b:Tag>incollection1</b:Tag>
     <b:Author>
       <b:Author>
@@ -104,13 +104,31 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of incolleciton1</b:Title>
+    <b:BookTitle>booktitle of incollection1</b:BookTitle>
     <b:Publisher>publisher of incollection1</b:Publisher>
     <b:Year>year of incollection1</b:Year>
     <b:Month>month of incollection1</b:Month>
     <b:Pages>pages of incollection1</b:Pages>
   </b:Source>
-  <b:ConferenceName>
-        </b:ConferenceName>
+  <b:Source>
+    <b:SourceType>inproceedings</b:SourceType>
+    <b:Tag>inproceedings1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of inproceedings1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of inproceedings1</b:Title>
+    <b:ConferenceName>organization of inproceedings1</b:ConferenceName>
+    <b:Publisher>publisher of inproceedings 1</b:Publisher>
+    <b:Year>year of inproceedings1</b:Year>
+    <b:Month>month of inproceedings1</b:Month>
+    <b:Pages>pages of inproceedings1</b:Pages>
+  </b:Source>
   <b:Source>
     <b:SourceType>manual</b:SourceType>
     <b:Tag>manual1</b:Tag>
@@ -178,8 +196,20 @@
     <b:Year>year of phdthesis1</b:Year>
     <b:Month>month of phdthesis1</b:Month>
   </b:Source>
-  <b:ConferenceName>
-        </b:ConferenceName>
+  <b:Source>
+    <b:SourceType>proceedings</b:SourceType>
+    <b:Tag>proceedins1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList/>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of proceedings1</b:Title>
+    <b:Year>year of proceedings1</b:Year>
+    <b:Month>month of proceedings1</b:Month>
+    <b:Publisher>publisher of proceedings1</b:Publisher>
+    <b:ConferenceName>organization of proceedings1</b:ConferenceName>
+  </b:Source>
   <b:Source>
     <b:SourceType>unpublished</b:SourceType>
     <b:Tag>unpublished1</b:Tag>

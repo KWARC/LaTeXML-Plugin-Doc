@@ -60,6 +60,33 @@
       <xsl:apply-templates/>
     </b:Source>
   </xsl:template>
+   <xsl:template match="ltx:bibentry[@type='incollection']">
+    <b:Source>
+      <b:SourceType>BookSection</b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:Source>
+  </xsl:template>
   <xsl:template match="ltx:bibentry[@type='booklet']">
     <b:Source>
       <b:SourceType>Book</b:SourceType>
@@ -196,7 +223,7 @@
   <xsl:apply-templates/>
   </xsl:template>
   <xsl:template match="ltx:bib-related[@role='host' and @type='book']/ltx:bib-title">
-  <xsl:if test="ancestor::ltx:bib-entry[@type='book'] or ancestor::ltx:bib-entry[@type='inbook']">
+  <xsl:if test="not(ancestor::ltx:bibentry[@type='book'] or ancestor::ltx:bibentry[@type='inbook'])">
     <b:BookTitle><xsl:value-of select="./text()"/></b:BookTitle>
   </xsl:if>
   </xsl:template>
@@ -213,7 +240,7 @@
   <xsl:template match="ltx:bibentry[@type='thesis']//ltx:bib-organization">
   <b:Publisher><xsl:value-of select="./text()"/></b:Publisher>
   </xsl:template>
-  <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]">
+  <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]//ltx:bib-organization">
    <b:ConferenceName><xsl:value-of select="./text()"/></b:ConferenceName>
    </xsl:template>
 </xsl:stylesheet>

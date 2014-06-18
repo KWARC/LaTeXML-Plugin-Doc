@@ -53,23 +53,24 @@
     <b:Year>year of article1</b:Year>
     <b:Pages>pages of article1</b:Pages>
   </b:Source>
-  <b:Source>
+<b:Source>
     <b:SourceType>BookSection</b:SourceType>
     <b:Tag>Autar3</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>author of inbook1</b:Last>
+            <b:Last>author of incollection1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:Title>Title of inbook1</b:Title>
-    <b:Pages>pages of inbook1</b:Pages>
-    <b:Publisher>publisher of inbook1</b:Publisher>
-    <b:Year>year of inbook1</b:Year>
-    <b:Month>month of inbook1</b:Month>
+    <b:Title>Title of incolleciton1</b:Title>
+    <b:BookTitle>booktitle of incollection1</b:BookTitle>
+    <b:Publisher>publisher of incollection1</b:Publisher>
+    <b:Year>year of incollection1</b:Year>
+    <b:Month>month of incollection1</b:Month>
+    <b:Pages>pages of incollection1</b:Pages>
   </b:Source>
   <b:Source>
     <b:Tag>Autar4</b:Tag>
