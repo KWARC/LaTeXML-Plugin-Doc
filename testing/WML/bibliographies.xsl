@@ -34,6 +34,7 @@
     <xsl:apply-templates/>
   </xsl:template>
   <xsl:template match="ltx:bibentry">
+  <xsl:comment>
     <b:Source>
       <b:SourceType><xsl:value-of select="./@type"/></b:SourceType>
       <b:Tag>
@@ -59,6 +60,8 @@
       </b:Author>
       <xsl:apply-templates/>
     </b:Source>
+    </xsl:comment>
+    <xsl:message>Haven't dealt with this bibentry yet <xsl:copy-of select="./@type"/></xsl:message>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='unpublished']">
     <b:Source>

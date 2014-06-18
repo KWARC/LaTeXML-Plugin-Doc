@@ -1,6 +1,6 @@
 \documentclass{article}
 \begin{document}
-\cite{book1,article1,book2,booklet1,inbook1,incollection1,inproceedings1,manual1,mastersthesis1,misc1,phthesis1,proceedings1,unpublished1}
+\cite{book1} \cite{article1} \cite{book2} \cite{booklet1} \cite{inbook1} \cite{incollection1} \cite{inproceedings1} \cite{manual1} \cite{mastersthesis1} \cite{misc1} \cite{phthesis1} \cite{proceedings1} \cite{unpublished1}
 \bibliographystyle{plain}
 \bibliography{test}
 \end{document}
