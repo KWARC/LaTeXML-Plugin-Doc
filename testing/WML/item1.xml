@@ -45,10 +45,12 @@
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>firstname1 Lastname1</b:Last>
+            <b:First>Anal</b:First>
+            <b:Last>investigator of book2</b:Last>
           </b:Person>
           <b:Person>
-            <b:Last>firstname2 lastname2</b:Last>
+            <b:First>Author2</b:First>
+            <b:Last>of book2</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
@@ -57,7 +59,7 @@
     <b:Publisher>publisher of book2</b:Publisher>
     <b:Year>year of book2</b:Year>
     <b:Month>month of book2</b:Month>
-    <b:City>adress of book2</b:City>
+    <!--adress of book2-->
     <b:Month>month of book2</b:Month>
   </b:source>
   <b:source>
@@ -73,7 +75,7 @@
       </b:Author>
     </b:Author>
     <b:Title>Title of booklet1</b:Title>
-    <b:City>adress of booklet1</b:City>
+    <!--adress of booklet1-->
     <b:Month>month of booklet1</b:Month>
     <b:Year>year of booklet1</b:Year>
     <b:Month>month of booklet1</b:Month>

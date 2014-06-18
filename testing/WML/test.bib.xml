@@ -59,23 +59,25 @@
       </bibentry>
       <bibentry key="book2" type="book" xml:id="bib.bib3">
         <bib-name role="author">
-          <surname>firstname1 Lastname1</surname>
+          <surname>investigator of book2</surname>
+          <givenname>Anal</givenname>
         </bib-name>
         <bib-name role="author">
-          <surname>firstname2 lastname2</surname>
+          <surname>of book2</surname>
+          <givenname>Author2</givenname>
         </bib-name>
         <bib-title>Title of book2</bib-title>
         <bib-publisher>publisher of book2</bib-publisher>
         <bib-date role="publication">year of book2-month of book2</bib-date>
         <bib-part role="volume">volume of book2</bib-part>
         <bib-part role="series">series of book2</bib-part>
-        <bib-data role="address">adress of book2</bib-data>
+        <bib-data role="adress">adress of book2</bib-data>
         <bib-edition>edition of book2</bib-edition>
         <bib-data role="month">month of book2</bib-data>
         <bib-note role="annotation">note of book2</bib-note>
         <bib-key>key of book2</bib-key>
         <bib-data role="self" type="BibTeX">@book{book2,
-    author = {firstname1 Lastname1 and firstname2 lastname2},
+    author = {Anal investigator of book2 and Author2 of book2},
      title = {title of book2},
  publisher = {publisher of book2},
       year = {year of book2},
@@ -94,7 +96,7 @@
           <surname>author of booklet1</surname>
         </bib-name>
         <bib-note role="publication">howpublished of booklet1</bib-note>
-        <bib-data role="address">adress of booklet1</bib-data>
+        <bib-data role="adress">adress of booklet1</bib-data>
         <bib-data role="month">month of booklet1</bib-data>
         <bib-date role="publication">year of booklet1-month of booklet1</bib-date>
         <bib-key>key of booklet1</bib-key>
