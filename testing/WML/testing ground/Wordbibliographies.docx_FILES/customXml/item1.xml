@@ -19,34 +19,21 @@
     <b:Publisher>Publisher of book1</b:Publisher>
   </b:Source>
   
-  <b:Source>
-    <b:Tag>Autar1</b:Tag>
+ <b:Source>
     <b:SourceType>BookSection</b:SourceType>
-    <b:Guid>{423D0545-F391-418D-801B-B65C0E6E1EE5}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:City>City </b:City>
-    <b:Publisher>Publisher</b:Publisher>
+    <b:Tag>Autar1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of booklet1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
-      <b:BookAuthor>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Author</b:Last>
-            <b:First>Book</b:First>
-          </b:Person>
-        </b:NameList>
-      </b:BookAuthor>
     </b:Author>
-    <b:BookTitle>book title</b:BookTitle>
-    <b:Pages>Pages</b:Pages>
-    <b:RefOrder>2</b:RefOrder>
+    <b:Title>Title of booklet1</b:Title>
+    <b:Year>year of booklet1</b:Year>
+    <b:Month>month of booklet1</b:Month>
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>

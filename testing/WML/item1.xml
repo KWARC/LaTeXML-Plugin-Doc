@@ -58,7 +58,7 @@
     <b:Month>month of book2</b:Month>
   </b:Source>
   <b:Source>
-    <b:SourceType>booklet</b:SourceType>
+    <b:SourceType>BookSection</b:SourceType>
     <b:Tag>booklet1</b:Tag>
     <b:Author>
       <b:Author>
