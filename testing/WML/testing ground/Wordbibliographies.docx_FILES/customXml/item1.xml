@@ -19,8 +19,8 @@
     <b:Publisher>Publisher of book1</b:Publisher>
   </b:Source>
   
- <b:Source>
-    <b:SourceType>BookSection</b:SourceType>
+   <b:Source>
+    <b:SourceType>Book</b:SourceType>
     <b:Tag>Autar1</b:Tag>
     <b:Author>
       <b:Author>

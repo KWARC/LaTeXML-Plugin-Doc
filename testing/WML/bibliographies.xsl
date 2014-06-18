@@ -62,7 +62,7 @@
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='booklet']">
     <b:Source>
-      <b:SourceType>BookSection</b:SourceType>
+      <b:SourceType>Book</b:SourceType>
       <b:Tag>
         <xsl:value-of select="./@key"/>
       </b:Tag>
