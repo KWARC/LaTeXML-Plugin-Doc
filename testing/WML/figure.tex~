@@ -1,6 +1,0 @@
-\documentclass{article}
-\begin{document}
-\begin{figure}[h]
-\includegraphics{image1}
-\end{figure}
-\end{document}
