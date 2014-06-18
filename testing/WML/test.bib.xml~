@@ -183,7 +183,7 @@ howpublished = {howpublished of booklet1},
           <bib-organization>organization of inproceedings1</bib-organization>
           <bib-publisher>publisher of inproceedings 1</bib-publisher>
         </bib-related>
-        <bib-date role=" publication">year of inproceedings1-month of inproceedings1</bib-date>
+        <bib-date role="publication">year of inproceedings1-month of inproceedings1</bib-date>
         <bib-part role="pages">pages of inproceedings1</bib-part>
         <bib-place>address of inproceedings1</bib-place>
         <bib-data role="month">month of inproceedings1</bib-data>

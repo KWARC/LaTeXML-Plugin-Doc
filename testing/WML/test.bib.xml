@@ -69,7 +69,7 @@
         <bib-date role="publication">year of book2-month of book2</bib-date>
         <bib-part role="volume">volume of book2</bib-part>
         <bib-part role="series">series of book2</bib-part>
-        <bib-data role="adress">adress of book2</bib-data>
+        <bib-data role="address">adress of book2</bib-data>
         <bib-edition>edition of book2</bib-edition>
         <bib-data role="month">month of book2</bib-data>
         <bib-note role="annotation">note of book2</bib-note>
@@ -94,7 +94,7 @@
           <surname>author of booklet1</surname>
         </bib-name>
         <bib-note role="publication">howpublished of booklet1</bib-note>
-        <bib-data role="adress">adress of booklet1</bib-data>
+        <bib-data role="address">adress of booklet1</bib-data>
         <bib-data role="month">month of booklet1</bib-data>
         <bib-date role="publication">year of booklet1-month of booklet1</bib-date>
         <bib-key>key of booklet1</bib-key>

@@ -199,7 +199,7 @@
   </xsl:template> 
 
   <xsl:template match="ltx:bibliography">
-    <xsl:apply-templates/>
+ <!--    <xsl:apply-templates/>   -->
   </xsl:template> 
 
   <xsl:template match="ltx:bibliography/ltx:title">
@@ -256,18 +256,48 @@
   </xsl:template> 
 
   <xsl:template match="ltx:cite">
-    <xsl:apply-templates/>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> </w:t>
-    </w:r>
+    <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="{generate-id(.)}"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION <xsl:value-of select="//ltx:bibitem[@xml:id=./ltx:ref/@idref]/@key"/> \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t><xsl:apply-templates/></w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
   </xsl:template> 
-
+<xsl:template match="ltx:cite/ltx:ref">
+<xsl:apply-templates/>
+</xsl:template>
   <xsl:template match="ltx:text[@xml:id and @fragid]">
     <w:bookmarkStart w:id="{generate-id(.)}" w:name="@xml:id"/>
     <w:bookmarkEnd w:id="{generate-id(.)}"/>
   </xsl:template> 
+<xsl:template match="ltx:text[@class='ltx_bib_inbook']">
+<xsl:apply-templates/>
+</xsl:template>
 
+<xsl:template match="ltx:bibblock//ltx:bib-title">
+<xsl:apply-templates/>
+</xsl:template>
   <xsl:template match="ltx:document/ltx:title">
     <w:p>
       <w:pPr>
@@ -294,7 +324,33 @@
           <w:rFonts w:ascii="typewriter" w:cs="typewriter"/>
         </xsl:if>
         <xsl:if test="ancestor::*[contains(@font,'italic')] or ancestor::ltx:emph or ancestor::*[contains(@shape,'italic')]">
-          <w:i/>
+          <w:i/><w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1038088419"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar1 \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Title, Year)</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
         </xsl:if>
         <xsl:if test="ancestor::*[contains(@framed,'underline')]">
           <w:u w:val="single"/>
@@ -593,7 +649,7 @@
     </w:hyperlink>
     <external-link>
       <xsl:copy-of select="."/>
-      <extra r:id="{generate-id()}"/>
+      <extra id="{generate-id()}"/>
     </external-link>
   </xsl:template> 
 
