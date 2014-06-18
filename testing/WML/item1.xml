@@ -111,7 +111,7 @@
     <b:Pages>pages of incollection1</b:Pages>
   </b:Source>
   <b:Source>
-    <b:SourceType>inproceedings</b:SourceType>
+    <b:SourceType>ConferenceProceedings</b:SourceType>
     <b:Tag>inproceedings1</b:Tag>
     <b:Author>
       <b:Author>
@@ -197,7 +197,7 @@
     <b:Month>month of phdthesis1</b:Month>
   </b:Source>
   <b:Source>
-    <b:SourceType>proceedings</b:SourceType>
+    <b:SourceType>ConferenceProceedings</b:SourceType>
     <b:Tag>proceedins1</b:Tag>
     <b:Author>
       <b:Author>

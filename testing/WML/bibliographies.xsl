@@ -60,6 +60,33 @@
       <xsl:apply-templates/>
     </b:Source>
   </xsl:template>
+  <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]">
+    <b:Source>
+      <b:SourceType>ConferenceProceedings</b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:Source>
+  </xsl:template>
    <xsl:template match="ltx:bibentry[@type='incollection']">
     <b:Source>
       <b:SourceType>BookSection</b:SourceType>
@@ -207,7 +234,7 @@
   </xsl:template>
   <xsl:template match="ltx:bib-part[@role='volume']"/>
   <xsl:template match="ltx:bib-part[@role='number']"/>
-  <xsl:template match="ltx:bib-part[@role='pages' and not(../ltx:bibentry[@type='article'])]">
+  <xsl:template match="ltx:bib-part[@role='pages' and not(../ltx:bibentry[@type='article' or contains(@type,'proceedings')])]">
    <b:Pages><xsl:value-of select="./text()"/></b:Pages>
   </xsl:template>
     <xsl:template match="ltx:bib-data[@role='month']"/>

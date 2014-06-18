@@ -93,26 +93,24 @@
     <b:Day>Day </b:Day>
     <b:RefOrder>5</b:RefOrder>
   </b:Source>
-  <b:Source>
-    <b:Tag>Autar5</b:Tag>
+ <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
-    <b:Guid>{5D65BC03-BA0C-4DD0-9974-882C855D5DF4}</b:Guid>
-    <b:Title>title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:Pages>Pages</b:Pages>
+    <b:Tag>Autar5</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of inproceedings1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:ConferenceName>Conference Publiction Name</b:ConferenceName>
-    <b:City>City </b:City>
-    <b:Publisher>Publisher</b:Publisher>
-    <b:RefOrder>6</b:RefOrder>
+    <b:Title>Title of inproceedings1</b:Title>
+    <b:ConferenceName>organization of inproceedings1</b:ConferenceName>
+    <b:Publisher>publisher of inproceedings 1</b:Publisher>
+    <b:Year>year of inproceedings1</b:Year>
+    <b:Month>month of inproceedings1</b:Month>
+    <b:Pages>pages of inproceedings1</b:Pages>
   </b:Source>
   <b:Source>
     <b:Tag>Autar6</b:Tag>
