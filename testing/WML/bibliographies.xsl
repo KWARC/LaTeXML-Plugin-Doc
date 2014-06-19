@@ -13,7 +13,7 @@
 <xsl:stylesheet xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="ltx">
   <xsl:output method="xml" indent="yes"/>
   <xsl:template match="*">
-    <xsl:message>Cannot deal with Element <xsl:value-of select="name(. )"/></xsl:message>
+   <!--  <xsl:message>Cannot deal with Element <xsl:value-of select="name(. )"/></xsl:message> -->
     <xsl:comment> <xsl:copy-of select="."/></xsl:comment>
   </xsl:template>
   <xsl:template match="/">
@@ -34,7 +34,7 @@
     <xsl:apply-templates/>
   </xsl:template>
   <xsl:template match="ltx:bibentry">
-  <xsl:comment>
+
     <b:Source>
       <b:SourceType><xsl:value-of select="./@type"/></b:SourceType>
       <b:Tag>
@@ -60,8 +60,45 @@
       </b:Author>
       <xsl:apply-templates/>
     </b:Source>
-    </xsl:comment>
-    <xsl:message>Haven't dealt with this bibentry yet <xsl:copy-of select="./@type"/></xsl:message>
+    
+    
+
+    <!-- <xsl:message>Haven't dealt with this bibentry yet </xsl:message> -->
+  </xsl:template>
+    <xsl:template match="ltx:bibentry[@type='website']">
+    <b:Source>
+      <b:SourceType>InternetSite</b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:Source>
+  </xsl:template>
+  <xsl:template match="ltx:bibentry[@type='website']/ltx:bib-url">
+  <b:URL><xsl:value-of select="./@href"/></b:URL>
+  </xsl:template>
+  <xsl:template match="ltx:bib-data[@role='urldate']">
+      <b:YearAccessed><xsl:value-of select="substring-before(./text(),'-')"/></b:YearAccessed>
+    <b:MonthAccessed><xsl:value-of select="substring-before(substring-after(./text(),'-'),'-')"/></b:MonthAccessed>
+    <b:DayAccessed><xsl:value-of select="substring-after(substring-after(./text(),'-'),'-')"/></b:DayAccessed>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='unpublished']">
     <b:Source>
@@ -280,6 +317,7 @@
     </b:Source>
   </xsl:template>
   <xsl:template match="ltx:bib-name[@role='author']"/>
+  <xsl:template match="ltx:bibentry[@type='article']/ltx:bib-url"/>
   <xsl:template match="ltx:bib-title">
     <b:Title>
       <xsl:value-of select="./text()"/>
@@ -307,6 +345,8 @@
       </b:Year>
     </xsl:if>
   </xsl:template>
+  <xsl:template match="ltx:bib-data[@role='label']"/>
+  <xsl:template match="ltx:bib-data[@role='pubs']"/>
 
   <xsl:template match="ltx:bib-note[@role='annotation']"/>
   <xsl:template match="ltx:bib-key"/>
