@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 wp14">
+  <w:body>
+    <w:p w:rsidR="00F13113" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="15600"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Year)</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r w:rsidR="00597C89">
+        <w:t xml:space="preserve">   Book </w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00597C89" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1038088419"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar1 \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Title, Year)</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r w:rsidR="00597C89">
+        <w:t xml:space="preserve">     Book section</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00597C89" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-535886011"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar2 \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Title, Year)</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r w:rsidR="00597C89">
+        <w:t xml:space="preserve">     Journal</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00597C89" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-1320115032"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar3 \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, title, Year)</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r w:rsidR="00597C89">
+        <w:t xml:space="preserve">     Journal Article</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00597C89" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-116149176"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar4 \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, title, Year)</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r w:rsidR="00597C89">
+        <w:t xml:space="preserve">      Article in a periodical </w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00597C89" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1804891617"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar5 \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, title, Year)</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r w:rsidR="00597C89">
+        <w:t xml:space="preserve">      Conference Proceedings</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00597C89" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1720166923"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION Autar6 \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Title, Year )</w:t>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r w:rsidR="00597C89">
+        <w:t xml:space="preserve">     </w:t>
+      </w:r>
+      <w:r>
+        <w:t>Report</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-104664670"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Autar7 \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Name of Web Page , Year )</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve">   Website</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-1464887675"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Autar8 \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Name of Web Page, Year)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve">    Document from Website</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1169909191"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Autar9 \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Title, Year)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve">    Electronic Source</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-1259513200"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION it \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Artist)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:t xml:space="preserve">  </w:t>
+      </w:r>
+      <w:r>
+        <w:tab/>
+        <w:t>Art</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-716662888"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Comar \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Composer, Year )</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:tab/>
+        <w:t>Sound Recording</w:t>
+      </w:r>
+      <w:r>
+        <w:tab/>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-1822880334"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Art \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Artist, Title)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:tab/>
+      </w:r>
+      <w:r>
+        <w:tab/>
+        <w:t>Performance</w:t>
+      </w:r>
+      <w:r>
+        <w:tab/>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="736136264"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Dirar \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Director, Year)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:tab/>
+      </w:r>
+      <w:r>
+        <w:tab/>
+        <w:t>Film</w:t>
+      </w:r>
+      <w:r>
+        <w:tab/>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="-676572734"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Intar \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Interviewee, Year)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:tab/>
+        <w:t>Interview</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="460695124"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Invar \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Inventor, Year)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:tab/>
+      </w:r>
+      <w:r>
+        <w:tab/>
+        <w:t>Patent</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="752168837"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve">CITATION Tit \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Title, Year)</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:tab/>
+      </w:r>
+      <w:r>
+        <w:tab/>
+        <w:t>Case</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00372E73" w:rsidRDefault="00372E73">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="1540240500"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtContent>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> CITATION Autar10 \l 1033 </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:t>(Author, Title, Year )</w:t>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+      <w:r>
+        <w:tab/>
+        <w:t>Miscellaneous</w:t>
+      </w:r>
+      <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+      <w:bookmarkEnd w:id="0"/>
+    </w:p>
+    <w:sectPr w:rsidR="00372E73">
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+      <w:cols w:space="720"/>
+      <w:docGrid w:linePitch="360"/>
+    </w:sectPr>
+  </w:body>
+</w:document>
