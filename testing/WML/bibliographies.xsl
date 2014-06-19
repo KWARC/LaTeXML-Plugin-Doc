@@ -509,6 +509,18 @@
   <xsl:template match="ltx:bib-data[@role='postedat']"/>
   <xsl:template match="ltx:bib-data[@role='booktitle']"/>
   <xsl:template match="ltx:bib-data[@role='projects']"/>
+  <xsl:template match="ltx:bib-data[@role='noeditor']"/>
+  <xsl:template match="ltx:bib-data[@role='firstkey']"/>
+  <xsl:template match="ltx:bib-status"/>
+  <xsl:template match="ltx:book-subtitle"/>
+  <xsl:template match="ltx:bib-data[@role='bibtype']"/>
+  <xsl:template match="ltx:bib-data[@role='caddress']"/>
+  <xsl:template match="ltx:bib-data[@role='cmonth']"/>
+  <xsl:template match="ltx:bib-data[@role='booksubtitle']"/>
+  <xsl:template match="ltx:bib-data[@role='cyear']"/>
+  <xsl:template match="ltx:bib-data[@role='pyear']"/>
+  <xsl:template match="ltx:bib-data[@role='cnote']"/>
+  <xsl:template match="ltx:bib-data[@role='location']"/>
   <xsl:template match="ltx:bib-data[@role='notes']"/>
   <xsl:template match="ltx:bib-data[@role='page']"/>
   <xsl:template match="ltx:bib-language"/>

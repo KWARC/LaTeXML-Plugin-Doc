@@ -37158,7 +37158,6 @@ Mathematics, Special Issue on Management of Mathematical Knowledge</b:JournalNam
     </b:Author>
     <b:Title>Interactivity of exercises in activemath</b:Title>
     <b:Publisher>IOS Press</b:Publisher>
-    <!--Sharing Good Practices of Research, Experimentation and Innovation-->
     <b:Pages>109–115</b:Pages>
     <b:Year>2005</b:Year>
   </b:Source>
@@ -38452,7 +38451,6 @@ Applications of Semantic Web Technologies for E-Learning (SW-EL)q	</b:Conference
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--V{\"o}lkel et al.-->
     <b:Title>Wiki interchange format – ontoworld.org</b:Title>
   </b:Source>
   <b:Source>
@@ -38594,7 +38592,6 @@ Applications of Semantic Web Technologies for E-Learning (SW-EL)q	</b:Conference
     <b:Year>2008</b:Year>
     <b:ConferenceName>Reasoning Webq	</b:ConferenceName>
     <b:Publisher>Springer</b:Publisher>
-    <!--Tutorial Lectures-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -39486,7 +39483,6 @@ Applications of Semantic Web Technologies for E-Learning (SW-EL)q	</b:Conference
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Kr{\"o}tzsch, Vrande{\v c}i{\'c}, Page, et al.-->
     <b:Title>Semantic mediawiki development activities – ontoworld.org</b:Title>
   </b:Source>
   <b:Source>
@@ -39510,7 +39506,6 @@ Applications of Semantic Web Technologies for E-Learning (SW-EL)q	</b:Conference
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Haller, Kugel, \& V{\"o}lkel-->
     <b:Title>iMapping wikis – towards a graphical environment for semantic knowledge management</b:Title>
     <b:ConferenceName>1q	</b:ConferenceName>
     <b:Year>2006</b:Year>
@@ -39532,7 +39527,6 @@ Applications of Semantic Web Technologies for E-Learning (SW-EL)q	</b:Conference
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Eronen \& R{\"o}ning-->
     <b:Title>Graphingwiki – a semantic wiki extension for visualising and inferring protocol dependency</b:Title>
     <b:ConferenceName>1q	</b:ConferenceName>
     <b:Year>2006</b:Year>
@@ -39566,7 +39560,6 @@ Applications of Semantic Web Technologies for E-Learning (SW-EL)q	</b:Conference
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Popitsch, Schandl, Amiri, Leitich, \& Jochum-->
     <b:Title>Ylvi – multimedia-izing the semantic wiki</b:Title>
     <b:ConferenceName>1q	</b:ConferenceName>
     <b:Year>2006</b:Year>
@@ -46004,7 +45997,6 @@ Issue on Mechanized Theorem Proving for Technology</b:JournalName>
     <b:Year>2002</b:Year>
     <b:JournalName>Theoretical Computer Science</b:JournalName>
     <b:Pages>153–196</b:Pages>
-    <!--Reviewed-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -46023,7 +46015,6 @@ Issue on Mechanized Theorem Proving for Technology</b:JournalName>
     <b:Year>2002</b:Year>
     <b:BookTitle>Essays in Honor of Joerg H. Siekmann</b:BookTitle>
     <b:Publisher>Springer-Verlag; D-69121 Heidelberg, Germany</b:Publisher>
-    <!--Reviewed-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -46154,7 +46145,6 @@ Issue on Mechanized Theorem Proving for Technology</b:JournalName>
     <b:ConferenceName>Mathematics, Algorithms, Proofsq	</b:ConferenceName>
     <b:Publisher>Internationales Begegnungs- und Forschungszentrum fuer Informatik (IBFI), Schloss Dagstuhl, Germany</b:Publisher>
     <b:Year>2006</b:Year>
-    <!--Thierry Coquand and Henri Lombardi and Marie-Fran{\c c}oise Roy-->
     <b:City>Dagstuhl, Germany</b:City>
   </b:Source>
   <b:Source>
@@ -47206,14 +47196,8 @@ and Automated Reasoning LPAR’93q	</b:ConferenceName>
     <b:ConferenceName>Proceedings of Conditional and Typed Rewriting Systems (CTRS ’90)q	</b:ConferenceName>
     <b:Publisher>Springer</b:Publisher>
     <b:Pages>162–180</b:Pages>
-    <!--INPROCEEDINGS-->
-    <!--Montreal, CAN-->
-    <!--June-->
-    <!--1990-->
     <b:City>Fachbereichsbibliothek Informatik</b:City>
-    <!--1991-->
     <!--C 112 :2-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -48081,7 +48065,6 @@ Provers” 2006 (UITP’06)q	</b:ConferenceName>
     </b:Author>
     <b:Title>A blackboard architecture for guiding interactive proofs</b:Title>
     <b:Pages>102–114</b:Pages>
-    <!--INPROCEEDINGS-->
     <b:ConferenceName>Artificial Intelligence: Methodology, Systems and Applicationsq	</b:ConferenceName>
     <b:Publisher>Springer Verlag</b:Publisher>
     <b:Year>1998</b:Year>
@@ -48748,7 +48731,6 @@ KI’97q	</b:ConferenceName>
     </b:Author>
     <b:Title>Planning diagonalization proofs</b:Title>
     <b:Pages>167–180</b:Pages>
-    <!--INPROCEEDINGS-->
     <b:ConferenceName>Artificial Intelligence: Methodology, Systems and Applicationsq	</b:ConferenceName>
     <b:Publisher>Springer Verlag</b:Publisher>
     <b:Year>1998</b:Year>
@@ -49766,7 +49748,6 @@ and Presentationq	</b:ConferenceName>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Farmer, Guttman, \& Thayer-->
     <b:Title>Little theories</b:Title>
     <b:Pages>467–581</b:Pages>
     <b:ConferenceName>Proceedings of the 11q	</b:ConferenceName>
@@ -50271,11 +50252,9 @@ Toronto, Canadaq	</b:ConferenceName>
     <b:Month>08</b:Month>
     <b:Pages>923–925</b:Pages>
     <b:City>Karlsruhe, FRG</b:City>
-    <!--INPROCEEDINGS-->
     <b:City>MPI-ZB</b:City>
     <!--IJCAI83-2.proc-->
     <!--Proceedings: IJCAI83-2-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -50297,10 +50276,8 @@ Toronto, Canadaq	</b:ConferenceName>
     <b:Month>05</b:Month>
     <b:Pages>325–344</b:Pages>
     <b:City>Dijon, France</b:City>
-    <!--INPROCEEDINGS-->
     <b:City>Fachbereichsbibliothek Informatik</b:City>
     <!--C 53 :3-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -50319,8 +50296,6 @@ Toronto, Canadaq	</b:ConferenceName>
     <b:JournalName>Theoretical Computer Science</b:JournalName>
     <b:Year>1985</b:Year>
     <b:Pages>129–164</b:Pages>
-    <!--ARTICLE-->
-    <!--MPI-ZB-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -50618,14 +50593,8 @@ and Automated Reasoning LPAR’94q	</b:ConferenceName>
     <b:ConferenceName>Proceedings of the 2q	</b:ConferenceName>
     <b:Publisher>Springer</b:Publisher>
     <b:Pages>222–236</b:Pages>
-    <!--INPROCEEDINGS-->
-    <!--Barcelona, Spain-->
-    <!--March-->
-    <!--1995-->
     <b:City>Fachbereichsbibliothek Informatik</b:City>
-    <!--1995-->
     <!--C 0 36:1-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -50644,14 +50613,9 @@ and Automated Reasoning LPAR’94q	</b:ConferenceName>
     <b:ConferenceName>Proceedings of the 3q	</b:ConferenceName>
     <b:Publisher>Springer</b:Publisher>
     <b:Pages>513–529</b:Pages>
-    <!--INPROCEEDINGS-->
-    <!--Chapel Hill, NC, USA-->
-    <!--April 1989-->
     <b:City>MPI-ZB</b:City>
-    <!--1989-->
     <!--LNCS-->
     <!--Proceedings: LNCS 355-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -51579,9 +51543,7 @@ Computation (ISSAC’92)q	</b:ConferenceName>
     <b:JournalName>Journal of Symbolic Computation</b:JournalName>
     <b:Year>1988</b:Year>
     <b:Pages>19–36</b:Pages>
-    <!--ARTICLE-->
     <!--Z 117-->
-    <!--Fachbereichsbibliothek Informatik-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -51633,7 +51595,6 @@ Computation (ISSAC’92)q	</b:ConferenceName>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Kiesel-->
     <b:Title>Kaukolu: hub of the semantic corporate intranet</b:Title>
     <b:ConferenceName>DFKI</b:ConferenceName>
     <b:ConferenceName>1q	</b:ConferenceName>
@@ -52027,15 +51988,9 @@ Computation (ISSAC’92)q	</b:ConferenceName>
     <b:ConferenceName>Proceedings of the 14q	</b:ConferenceName>
     <b:Publisher>IEEE Computer Society Press</b:Publisher>
     <b:Pages>993–1000</b:Pages>
-    <!--INPROCEEDINGS-->
-    <!--Boston, MA, USA-->
-    <!--June-->
-    <!--1995-->
     <b:City>MPI-ZB</b:City>
-    <!--1995-->
     <!--INFOCOM95-3.proc-->
     <!--Proceedings: INFOCOM95-3-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -52254,7 +52209,6 @@ and Automated Reasoning LPAR’92q	</b:ConferenceName>
     </b:Author>
     <b:Title>Literate ontology development</b:Title>
     <b:Pages>753–757</b:Pages>
-    <!--Reviewed-->
     <b:ConferenceName>On the Move to Meaningful Internet Systems 2004: OTM 2004 Workshopsq	</b:ConferenceName>
     <b:Publisher>Springer Verlag</b:Publisher>
     <b:Year>2004</b:Year>
@@ -53515,7 +53469,6 @@ Applicationsq	</b:ConferenceName>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Oren, Delbru, M{\"o}ller, V{\"o}lkel, \& Handschuh-->
     <b:Title>Annotation and navigation in semantic wikis</b:Title>
     <b:ConferenceName>1q	</b:ConferenceName>
     <b:Year>2006</b:Year>
@@ -54031,14 +53984,8 @@ Systemsq	</b:ConferenceName>
     <b:ConferenceName>Proceedings of European Symposium on Programming (ESOP ’92)q	</b:ConferenceName>
     <b:Publisher>Springer</b:Publisher>
     <b:Pages>371–389</b:Pages>
-    <!--INPROCEEDINGS-->
-    <!--Rennes, FRA-->
-    <!--February-->
-    <!--1992-->
     <b:City>Fachbereichsbibliothek Informatik</b:City>
-    <!--1992-->
     <!--C 37 :4-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -54055,7 +54002,6 @@ Systemsq	</b:ConferenceName>
     </b:Author>
     <b:Title>Theorem-proving with resolution and superposition: an extension of the knuth and bendix procedure to a complete set of inference rules</b:Title>
     <b:Pages>524–531</b:Pages>
-    <!--INPROCEEDINGS-->
     <!--fgcs88-2-->
     <b:City>MPI-ZB</b:City>
   </b:Source>
@@ -54076,9 +54022,7 @@ Systemsq	</b:ConferenceName>
     <b:JournalName>Journal of Symbolic Computation</b:JournalName>
     <b:Year>1991</b:Year>
     <b:Pages>21–50</b:Pages>
-    <!--ARTICLE-->
     <!--Z 117-->
-    <!--Fachbereichsbibliothek Informatik-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -54116,9 +54060,7 @@ Systemsq	</b:ConferenceName>
     <b:JournalName>Journal of Symbolic Computation</b:JournalName>
     <b:Year>1991</b:Year>
     <b:Pages>205–212</b:Pages>
-    <!--ARTICLE-->
     <!--Z 117-->
-    <!--Fachbereichsbibliothek Informatik-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -54153,7 +54095,6 @@ Systemsq	</b:ConferenceName>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Schaffert, Bischof, B{\"u}rger, Gruber, Hilzensauer, \& S. Schaffert-->
     <b:Title>Learning with semantic wikis</b:Title>
     <b:ConferenceName>Salzburg Research Forschungsgesellschaft</b:ConferenceName>
     <b:ConferenceName>1q	</b:ConferenceName>
@@ -54274,14 +54215,9 @@ Manipulation EUROSAM+79q	</b:ConferenceName>
     <b:ConferenceName>Proceedings of the 7q	</b:ConferenceName>
     <b:Publisher>Morgan Kaufmann</b:Publisher>
     <b:Pages>97–104</b:Pages>
-    <!--INPROCEEDINGS-->
-    <!--East Lansing, MI, USA-->
-    <!--July 19–23 1997-->
     <b:City>MPI-ZB</b:City>
-    <!--1997-->
     <!--ICGA97.proc-->
     <!--Proceedings: ICGA97-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -54472,13 +54408,8 @@ q	</b:ConferenceName>
     <b:Publisher>Springer-Verlag</b:Publisher>
     <b:Pages>33–47</b:Pages>
     <b:City>New Brunswick, NJ, USA</b:City>
-    <!--INPROCEEDINGS-->
-    <!--July~27–30-->
-    <!--1996-->
     <b:City>Fachbereichsbibliothek Informatik</b:City>
-    <!--1996-->
     <!--C 53 :7-->
-    <!--available-->
     <b:Year>1996</b:Year>
   </b:Source>
   <b:Source>
@@ -54622,7 +54553,6 @@ Proceedings of the second International Conference; Selected Papersq	</b:Confere
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--Kr{\"o}tzsch \& Vrande{\v c}i{\'c}-->
     <b:Title>Reusing ontological background knowledge in semantic wikis</b:Title>
     <b:ConferenceName>1q	</b:ConferenceName>
     <b:Year>2006</b:Year>
@@ -54696,7 +54626,6 @@ Proceedings of the second International Conference; Selected Papersq	</b:Confere
         </b:NameList>
       </b:Author>
     </b:Author>
-    <!--V{\"o}lkel \& Oren-->
     <b:Title>Towards a Wiki Interchange Format (WIF)</b:Title>
     <b:ConferenceName>1q	</b:ConferenceName>
     <b:Year>2006</b:Year>
@@ -58498,7 +58427,6 @@ Verlag</b:JournalName>
     <b:Year>1991</b:Year>
     <b:Pages>162–180</b:Pages>
     <b:City>Berlin</b:City>
-    <!--INPROCEEDINGS-->
     <!--P-91-23-->
     <b:City>MPI-ZB</b:City>
   </b:Source>
@@ -58524,11 +58452,8 @@ Verlag</b:JournalName>
     <b:Publisher>Max-Planck-Institut für Informatik</b:Publisher>
     <b:Year>1997</b:Year>
     <b:City>Saarbrücken</b:City>
-    <!--TECHREPORT-->
     <!--MPI-I-TR-97-2-011-->
-    <!--MPI-ZB-->
     <!--Reports: MPI-I-TR-97-2-011-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -58551,11 +58476,8 @@ Verlag</b:JournalName>
     <b:Title>Associative-commutative superposition</b:Title>
     <b:Year>1993</b:Year>
     <b:City>Saarbruecken</b:City>
-    <!--TECHREPORT-->
     <!--R:S94-246-->
-    <!--DFKI Saarbr{\"u}cken-->
     <b:Publisher>Max-Planck-Institut fuer Informatik</b:Publisher>
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -58640,11 +58562,8 @@ Verlag</b:JournalName>
     <b:Title>Superposition with simplification as a decision procedure for the monadic class with equality</b:Title>
     <b:Year>1993</b:Year>
     <b:City>Saarbruecken</b:City>
-    <!--TECHREPORT-->
     <!--R:S94-220-->
-    <!--DFKI Saarbr{\"u}cken-->
     <b:Publisher>Max-Planck-Institut für Informatik</b:Publisher>
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -58940,7 +58859,6 @@ Verlag</b:JournalName>
     <b:JournalName>Acta Informatica</b:JournalName>
     <b:Year>1984</b:Year>
     <b:Pages>251–269</b:Pages>
-    <!--beschaffen-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -62690,7 +62608,6 @@ Semantics, Tilburgq	</b:ConferenceName>
     <b:Title>Extensional models for polymorphism</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -62993,7 +62910,6 @@ Semantics, Tilburgq	</b:ConferenceName>
     <b:Title>Model Generation for Applications – A Tableaux Method Complete for Finite Satisfiability</b:Title>
     <b:Publisher>LMU Institut für Informatik, München</b:Publisher>
     <b:Year>1997</b:Year>
-    <!--{\tt http://www.pms.informatik.uni-muenchen.de/publikationen/}-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -63016,7 +62932,6 @@ Semantics, Tilburgq	</b:ConferenceName>
     <b:Title>Positive Unit Hyper-Resolution Tableaux for Minimal Model Generation</b:Title>
     <b:Publisher>LMU Institut für Informatik, München</b:Publisher>
     <b:Year>1997</b:Year>
-    <!--{\tt http://www.pms.informatik.uni-muenchen.de/publikationen/}-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -64907,11 +64822,8 @@ and Industrial Applications (ACIDCA’2000)q	</b:ConferenceName>
     <b:Title>A calculus of simplification for superposition</b:Title>
     <b:Publisher>Universität des Saarlandes</b:Publisher>
     <b:Year>1997</b:Year>
-    <!--MASTERSTHESIS-->
     <!--D 12808-->
-    <!--Fachbereichsbibliothek Informatik-->
     <!--CHR m 97:1-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -65619,7 +65531,6 @@ Autonomous Agents in a Multi-Agent World</b:BookTitle>
     <b:Title>Solving symbolic ordering constraints</b:Title>
     <b:Publisher>CNRS</b:Publisher>
     <b:Year>1990</b:Year>
-    <!--miko, Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>Misc</b:SourceType>
@@ -65862,7 +65773,6 @@ Autonomous Agents in a Multi-Agent World</b:BookTitle>
     <b:Title>Domain theoretic models of polymorphism</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -65956,7 +65866,6 @@ Autonomous Agents in a Multi-Agent World</b:BookTitle>
     <b:Title>Decidable subcases of the equivalence problem for recursive program schemes</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1985</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -67034,11 +66943,8 @@ Intelligence</b:JournalName>
     <b:Publisher>A. K. Peters</b:Publisher>
     <b:Year>1997</b:Year>
     <b:City>Wellesley, MA</b:City>
-    <!--BOOK-->
     <!--MPI-I-B-6531-->
-    <!--MPI-ZB-->
     <!--Books: Dawson-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -69167,7 +69073,6 @@ Intelligenz—Workshop
     <b:Title>Implementing theorem provers in logic programming</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1987</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>Misc</b:SourceType>
@@ -69218,7 +69123,6 @@ Intelligenz—Workshop
     <b:Title>Explaining modal logic proofs</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -69265,7 +69169,6 @@ Intelligenz—Workshop
     <b:Title>Specifying theorem provers in a higher-order logic programming language</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -69288,7 +69191,6 @@ Intelligenz—Workshop
     <b:Title>Proof explanation and revision</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -70561,7 +70463,6 @@ with IJCAI-01 Proceedingsq	</b:ConferenceName>
     <b:Title>Theorem proving using equational matings and rigid </b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -72064,7 +71965,6 @@ Trumpington Street, Cambridge CB2 1RP, GB</b:City>
     <b:Publisher>Universitaet des Saarlandes</b:Publisher>
     <b:Year>1995</b:Year>
     <b:Month>07</b:Month>
-    <!--PHDTHESIS-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -73265,7 +73165,6 @@ Amsterdam</b:Publisher>
     <b:Title>Uses of higher-order unification for implementing program transformers</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -73288,7 +73187,6 @@ Amsterdam</b:Publisher>
     <b:Title>Enriching a meta-language with higher-order features</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -73568,7 +73466,6 @@ Controversies</b:BookTitle>
     <b:Title>Extensible records without subsumption</b:Title>
     <b:Publisher>Carnegie Mellon University</b:Publisher>
     <b:Year>1990</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -73675,8 +73572,6 @@ and Automated Reasoning LPAR’93q	</b:ConferenceName>
     <b:JournalName>Theoretical Computer Science</b:JournalName>
     <b:Year>1983</b:Year>
     <b:Pages>335–342</b:Pages>
-    <!--ARTICLE-->
-    <!--MPI-ZB-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -73695,8 +73590,6 @@ and Automated Reasoning LPAR’93q	</b:ConferenceName>
     <b:JournalName>Theoretical Computer Science</b:JournalName>
     <b:Year>1982</b:Year>
     <b:Pages>75–89</b:Pages>
-    <!--ARTICLE-->
-    <!--MPI-ZB-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -73906,11 +73799,8 @@ Schmidt</b:BookTitle>
     <b:Publisher>Harvard Univ. Press (facsimile: UMI Books Demand)</b:Publisher>
     <b:Year>1970</b:Year>
     <b:City>Cambridge, MA</b:City>
-    <!--BOOK-->
     <!--MPI-I-B-2448-->
-    <!--MPI-ZB-->
     <!--Books: van Heijenoort-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -75860,7 +75750,6 @@ Systems NLDB’2001q	</b:ConferenceName>
     <b:Title>Résolution d’Équations dans des langages d’ordre 1,2,…,w.</b:Title>
     <b:Publisher>Université de Paris VII</b:Publisher>
     <b:Year>1976</b:Year>
-    <!--Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -76304,7 +76193,6 @@ Intelligenceq	</b:ConferenceName>
     <b:Publisher>Oxford University Press</b:Publisher>
     <b:Year>1994</b:Year>
     <!--0-19-853989-4-->
-    <!--94DA22, 95A4987-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -77042,7 +76930,6 @@ the Gap between Theory and Practiceq	</b:ConferenceName>
     <b:Title>Mechanizing </b:Title>
     <b:Publisher>Department of Applied Analysis and Computation, University of Waterloo</b:Publisher>
     <b:Year>1973</b:Year>
-    <!--Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -77065,7 +76952,6 @@ the Gap between Theory and Practiceq	</b:ConferenceName>
     <b:Title>Mechanizing </b:Title>
     <b:Publisher>Department of Applied Analysis and Computation, University of Waterloo</b:Publisher>
     <b:Year>1973</b:Year>
-    <!--Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -77436,7 +77322,6 @@ of Pennsylvania</b:Publisher>
     <b:Title>Rewrite orderings for higher-order terms in </b:Title>
     <b:JournalName>Theoretical Computer Science</b:JournalName>
     <b:Year>1998</b:Year>
-    <!--ARTICLE-->
   </b:Source>
   <b:Source>
     <b:SourceType>Misc</b:SourceType>
@@ -78365,7 +78250,6 @@ of Pennsylvania</b:Publisher>
       </b:Author>
     </b:Author>
     <b:Title>From unification in combination of equational theories to a new ac-unification algorithm</b:Title>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>Misc</b:SourceType>
@@ -79372,7 +79256,6 @@ AISC’2000q	</b:ConferenceName>
     <b:Publisher>Springer-Verlag</b:Publisher>
     <b:Year>2004</b:Year>
     <b:Pages>271–282</b:Pages>
-    <!--Reviewed-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -81127,11 +81010,9 @@ and Telecommunicationsq	</b:ConferenceName>
     <b:Month>09</b:Month>
     <b:Pages>397–406</b:Pages>
     <b:City>Praha, Czechoslovakia</b:City>
-    <!--INPROCEEDINGS-->
     <b:City>MPI-ZB</b:City>
     <!--LNCS-->
     <!--Proceedings: LNCS 176-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -81357,7 +81238,6 @@ and Telecommunicationsq	</b:ConferenceName>
     </b:Author>
     <b:Title>Compilation of unification</b:Title>
     <b:Year>1990</b:Year>
-    <!--miko, Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -84462,7 +84342,6 @@ FRG, December 1989q	</b:ConferenceName>
     <b:Publisher>University of Edinburgh</b:Publisher>
     <b:Year>1988</b:Year>
     <!--PartialFuncs-->
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -84933,7 +84812,6 @@ FRG, December 1989q	</b:ConferenceName>
     <b:JournalName>Journal of Logic and Algebraic Programming</b:JournalName>
     <b:Year>2006</b:Year>
     <b:Pages>114–145</b:Pages>
-    <!--Reviewed-->
   </b:Source>
   <b:Source>
     <b:SourceType>BookSection</b:SourceType>
@@ -84990,11 +84868,8 @@ FRG, December 1989q	</b:ConferenceName>
     <b:Publisher>North-Holland Publ.</b:Publisher>
     <b:Year>1952</b:Year>
     <b:City>Amsterdam</b:City>
-    <!--BOOK-->
     <!--MPI-I-B-out-of-print-->
-    <!--MPI-ZB-->
     <!--Books: Mostowski-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -86178,7 +86053,6 @@ Practice of Constraint Programmingq	</b:ConferenceName>
     <b:Title>An overview over </b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1988</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -86465,9 +86339,6 @@ System and its Applicationsq	</b:ConferenceName>
     <b:Publisher>IEEE Computer Society Press</b:Publisher>
     <b:Year>1992</b:Year>
     <b:Pages>380–383</b:Pages>
-    <!--Davis, CA, USA-->
-    <!--August-->
-    <!--1991-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -86700,7 +86571,6 @@ Linguisticsq	</b:ConferenceName>
     <b:Title>Higher-order unification, polymorphism, and subsorts</b:Title>
     <b:Publisher>Cambridge University Computer Lab</b:Publisher>
     <b:Year>1990</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -86749,7 +86619,6 @@ Linguisticsq	</b:ConferenceName>
     <b:Publisher>University of Cambridge, Computer Laboratory</b:Publisher>
     <b:Year>1990</b:Year>
     <b:Month>08</b:Month>
-    <!--miko, Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -87062,7 +86931,6 @@ Linguisticsq	</b:ConferenceName>
     <b:Title>A simple semantics for ml polymorphism</b:Title>
     <b:Publisher>University of Pennsylvania</b:Publisher>
     <b:Year>1989</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -87310,11 +87178,9 @@ of California, San Diego</b:Publisher>
     <b:Month>07</b:Month>
     <b:Pages>280–285</b:Pages>
     <b:City>Amsterdam, The Netherlands</b:City>
-    <!--INPROCEEDINGS-->
     <b:City>MPI-ZB</b:City>
     <!--LICS91.proc-->
     <!--Proceedings: LICS91-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -87804,7 +87670,6 @@ of California, San Diego</b:Publisher>
     <b:Title>Scoping, inheritance, and frames</b:Title>
     <b:Publisher>Carnegie Mellon University</b:Publisher>
     <b:Year>1990</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -87984,7 +87849,6 @@ Programsq	</b:ConferenceName>
     <b:Title>Intersection types for a logical framework</b:Title>
     <b:Publisher>Carnegie Mellon University</b:Publisher>
     <b:Year>1992</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -88075,7 +87939,6 @@ Programsq	</b:ConferenceName>
     <b:Title>A taste of category theory for computer scientists</b:Title>
     <b:Publisher>Carnegie Mellon University</b:Publisher>
     <b:Year>1990</b:Year>
-    <!--miko-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -92489,16 +92352,13 @@ Intelligence Planning Systems</b:BookTitle>
     <b:Publisher>Cambridge University Press</b:Publisher>
     <b:Year>1994</b:Year>
     <b:City>New York, NY</b:City>
-    <!--BOOK-->
     <!--I.2.3 Computing Methodologies, ARTIFICIAL INTELLIGENCE, Deduction
     and Theorem Proving;F.4.1 Theory of Computation, MATHEMATICAL LOGIC
     AND FORMAL LANGUAGES, Mathematical Logic, Lambda calculus and related
     systems;F.4.1 Theory of Computation, MATHEMATICAL LOGIC AND FORMAL
     LANGUAGES, Mathematical Logic, Mechanical theorem proving-->
     <!--MPI-I-B-4200-->
-    <!--MPI-ZB-->
     <!--Books: Shankar-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -92517,14 +92377,11 @@ Intelligence Planning Systems</b:BookTitle>
     <b:Publisher>Oxford University Press</b:Publisher>
     <b:Year>1991</b:Year>
     <b:City>New York, NY</b:City>
-    <!--BOOK-->
     <!--I.2.3 Computing Methodologies, ARTIFICIAL INTELLIGENCE, Deduction
     and Theorem Proving;F.4.1 Theory of Computation, MATHEMATICAL LOGIC
     AND FORMAL LANGUAGES, Mathematical Logic, Lambda calculus and related
     systems;F.4.1 Theory of Computation, MATHEMATICAL LOGIC AND FORMAL
     LANGUAGES, Mathematical Logic, Mechanical theorem proving-->
-    <!--MPI-ZB-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -93151,11 +93008,8 @@ Intelligence Planning Systems</b:BookTitle>
     <b:Publisher>Oxford Univ. Press</b:Publisher>
     <b:Year>1992</b:Year>
     <b:City>Oxford</b:City>
-    <!--BOOK-->
     <!--MPI-I-B-2295-->
-    <!--MPI-ZB-->
     <!--Books: Smullyan-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -93294,7 +93148,6 @@ Intelligence Planning Systems</b:BookTitle>
     <b:JournalName>J. Symbolic Computation</b:JournalName>
     <b:Year>1989</b:Year>
     <b:Pages>101–140</b:Pages>
-    <!--Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -93317,7 +93170,6 @@ Intelligence Planning Systems</b:BookTitle>
     <b:JournalName>J. Symbolic Computation</b:JournalName>
     <b:Year>1989</b:Year>
     <b:Pages>101–140</b:Pages>
-    <!--Unif-bib-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -93337,11 +93189,8 @@ Intelligence Planning Systems</b:BookTitle>
     <b:Publisher>Max-Planck-Institut für Informatik</b:Publisher>
     <b:Year>1992</b:Year>
     <b:City>Saarbrücken</b:City>
-    <!--TECHREPORT-->
     <!--MPI-I-B-TR6268-->
-    <!--MPI-ZB-->
     <!--Reports: -TR6268-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Misc</b:SourceType>
@@ -93607,8 +93456,6 @@ Intelligence Planning Systems</b:BookTitle>
     <b:JournalName>Theoretical Computer Science</b:JournalName>
     <b:Year>1994</b:Year>
     <b:Pages>239–319</b:Pages>
-    <!--ARTICLE-->
-    <!--MPI-ZB-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -93733,11 +93580,8 @@ Intelligence Planning Systems</b:BookTitle>
     <b:Publisher>Springer</b:Publisher>
     <b:Year>1973</b:Year>
     <b:City>New York</b:City>
-    <!--BOOK-->
     <!--MPI-I-B-0257-->
-    <!--MPI-ZB-->
     <!--Books: Stegm{\"u}ller-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -94635,11 +94479,8 @@ Multi-Agent Systems</b:BookTitle>
     <b:Publisher>Hackett Pub.</b:Publisher>
     <b:Year>1983</b:Year>
     <b:City>Indianapolis, IN</b:City>
-    <!--BOOK-->
     <!--MPI-I-B-2367-->
-    <!--MPI-ZB-->
     <!--Books: Tarski-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -94658,14 +94499,11 @@ Multi-Agent Systems</b:BookTitle>
     <b:Publisher>Vandenhoeck &amp; Ruprecht</b:Publisher>
     <b:Year>1977</b:Year>
     <b:City>Goettingen</b:City>
-    <!--BOOK-->
     <!--F.4.1 Theory of Computation – Mathematical Logic and Formal Languages
     – Mathematical Logic; I.2.4 Computing Methodologies – Artificial
     Intelligence – Knowledge Representation Formalisms and Methods-->
     <!--M:S91-125-->
-    <!--DFKI Saarbr{\"u}cken-->
     <!--F-4010-20-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -94692,11 +94530,8 @@ Multi-Agent Systems</b:BookTitle>
     <b:Publisher>North-Holland</b:Publisher>
     <b:Year>1971</b:Year>
     <b:City>Amsterdam;New York;Oxford</b:City>
-    <!--BOOK-->
     <!--M 1895-->
-    <!--Fachbereichsbibliothek Informatik-->
     <!--TAR a 71:1-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -95700,11 +95535,8 @@ II’</b:Publisher>
     <b:Publisher>CRIN</b:Publisher>
     <b:Year>1994</b:Year>
     <b:City>Nancy</b:City>
-    <!--TECHREPORT-->
     <!--MPI-I-B-TR3333-->
-    <!--MPI-ZB-->
     <!--Reports: -TR3333-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -95782,11 +95614,8 @@ II’</b:Publisher>
     <b:Publisher>Carnegie Mellon Univ.</b:Publisher>
     <b:Year>1995</b:Year>
     <b:City>Pittsburgh, PA</b:City>
-    <!--TECHREPORT-->
     <!--MPI-I-B-TR3913-->
-    <!--MPI-ZB-->
     <!--Reports: -TR3913-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -98159,7 +97988,6 @@ Conference, TABLEAU 2002q	</b:ConferenceName>
     <b:Title>Generalized Query Answering in Disjunctive Databases Using Minimal Model Generation</b:Title>
     <b:Publisher>LMU Institut für Informatik, München</b:Publisher>
     <b:Year>1997</b:Year>
-    <!--{\tt http://www.pms.informatik.uni-muenchen.de/publikationen/}-->
   </b:Source>
   <b:Source>
     <b:SourceType>JournalArticle</b:SourceType>
@@ -100036,11 +99864,8 @@ Knowledge Management: MKM’2001q	</b:ConferenceName>
     <b:Publisher>Raven Press Hewlett</b:Publisher>
     <b:Year>1965</b:Year>
     <b:City>New York</b:City>
-    <!--BOOK-->
     <!--M 0694-->
-    <!--Fachbereichsbibliothek Informatik-->
     <!--DAV m2 65:1-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
@@ -100093,14 +99918,11 @@ Knowledge Management: MKM’2001q	</b:ConferenceName>
     <b:Publisher>Oxford Univ. Press</b:Publisher>
     <b:Year>1986</b:Year>
     <b:City>New York</b:City>
-    <!--BOOK-->
     <!--F.4.1 Theory of Computation, MATHEMATICAL LOGIC AND FORMAL LANGUAGES,
     Mathematical Logic;A.0 General Literature, GENERAL;A.0 General Literature,
     GENERAL, Biographies;autobiographies-->
     <!--MPI-I-B-4341-->
-    <!--MPI-ZB-->
     <!--Books: Feferman-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -101810,11 +101632,8 @@ Knowledge Management: MKM’2001q	</b:ConferenceName>
     <b:Publisher>Birkhäuser</b:Publisher>
     <b:Year>1995</b:Year>
     <b:City>Basel</b:City>
-    <!--BOOK-->
     <!--MPI-I-B-6416-->
-    <!--MPI-ZB-->
     <!--Books: Rodr{\'i}guez-Consuegra-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -111786,7 +111605,6 @@ CNL 2009. Revised Papersq	</b:ConferenceName>
     <!--2009-02-24T19:22:48.000+0100-->
     <!--2009-02-24T19:22:48.000+0100-->
     <!--2009-02-13 21:44:52-->
-    <!--Cambridge-->
     <!--http://www.bibsonomy.org/bibtex/284ac1b556b80dcc14eec180d4ec14fea/clachapelle-->
   </b:Source>
   <b:Source>
@@ -119584,7 +119402,6 @@ Logicsq	</b:ConferenceName>
         <b:NameList/>
       </b:Author>
     </b:Author>
-    <!--Intelligent Reuse of Web Resources-->
     <b:Title>Semantic mashups</b:Title>
     <b:Publisher>Springer</b:Publisher>
     <b:Year>2013</b:Year>
@@ -120414,7 +120231,6 @@ University</b:City>
     <!--CICM12-->
     <b:Year>2012</b:Year>
     <b:Publisher>Springer Verlag</b:Publisher>
-    <!--Berlin and Heidelberg-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -120453,7 +120269,6 @@ University</b:City>
     <b:Year>2010</b:Year>
     <b:Title>CALCULEMUS (emerging trends)</b:Title>
     <b:Publisher>Centre d’Étude et de Recherche en Informatique du CNAM (Cédric)</b:Publisher>
-    <!--Paris-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -120886,7 +120701,6 @@ University</b:City>
     <b:Month>10</b:Month>
     <b:City>Canberra, Australia</b:City>
     <b:Publisher>The Australian National University</b:Publisher>
-    <!--PROCEEDINGS-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -120942,7 +120756,6 @@ University</b:City>
     <b:Publisher>Harvard Univ. Press</b:Publisher>
     <b:Year>1967</b:Year>
     <b:City>Cambridge, MA</b:City>
-    <!--BOOK-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -121823,13 +121636,10 @@ and Automated Reasoning LPAR’94</b:Title>
     <b:Title>Grundprobleme der großen philosophen : philosophie der neuzeit. vol. 6. tarski, reichenbach, kraft, gödel, neurath</b:Title>
     <b:Publisher>UTB</b:Publisher>
     <b:Year>1992</b:Year>
-    <!--BOOK-->
     <!--A.m General Literature, MISCELLANEOUS-->
     <!--MPI-I-B-5237-->
-    <!--MPI-ZB-->
     <!--REFERENCE-->
     <!--Reference-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>ConferenceProceedings</b:SourceType>
@@ -121929,12 +121739,9 @@ and Automated Reasoning LPAR’94</b:Title>
     <b:Publisher>Birkhäuser</b:Publisher>
     <b:Year>1986</b:Year>
     <b:City>Basel</b:City>
-    <!--BOOK-->
     <!--G.2.0 Mathematics of Computing, DISCRETE MATHEMATICS, General-->
     <!--MPI-I-B-4852-->
-    <!--MPI-ZB-->
     <!--Books: Tarski-->
-    <!--available-->
   </b:Source>
   <b:Source>
     <b:SourceType>Book</b:SourceType>
@@ -123155,7 +122962,6 @@ Rewriting Systems, Pont-a-Mousson, France</b:Title>
     </b:Author>
     <b:Title>ICSE ’06: proceedings of the 28</b:Title>
     <b:Year>2006</b:Year>
-    <!--Shanghai, China-->
     <b:Publisher>ACM</b:Publisher>
     <b:City>New York, NY, USA</b:City>
   </b:Source>
@@ -123629,7 +123435,6 @@ Rewriting Systems, Pont-a-Mousson, France</b:Title>
       </b:Author>
     </b:Author>
     <b:Title>Semantics: from visions to applications</b:Title>
-    <!--Semantics – The New Paradigm Shift in {IT}-->
     <b:Year>2006</b:Year>
   </b:Source>
   <b:Source>
@@ -123885,7 +123690,6 @@ Rewriting Systems, Pont-a-Mousson, France</b:Title>
     </b:Author>
     <b:Title>Proceedings of the 28th acm international conference on design of communication</b:Title>
     <b:Year>2010</b:Year>
-    <!--S\~ao Carlos, S\~ao Paulo, Brazil-->
     <b:ConferenceName>ACM Special Interest Group for Design of Communication</b:ConferenceName>
     <b:Publisher>ACM Press</b:Publisher>
     <b:City>New York, NY, USA</b:City>
@@ -124269,7 +124073,6 @@ Rewriting Systems, Pont-a-Mousson, France</b:Title>
     </b:Author>
     <b:Title>Proceedings of the 10</b:Title>
     <b:Year>2010</b:Year>
-    <!--Manchester, United Kingdom-->
     <b:Publisher>ACM</b:Publisher>
     <b:City>New York, NY, USA</b:City>
   </b:Source>
@@ -124696,7 +124499,6 @@ Rewriting Systems, Pont-a-Mousson, France</b:Title>
     </b:Author>
     <b:Title>Human-computer interaction – interact 2013</b:Title>
     <b:Publisher>Springer</b:Publisher>
-    <!--Heidelberg-->
     <b:Year>2013</b:Year>
   </b:Source>
   <b:Source>
@@ -124709,7 +124511,6 @@ Rewriting Systems, Pont-a-Mousson, France</b:Title>
     </b:Author>
     <b:Title>Human-computer interaction – interact 2013</b:Title>
     <b:Publisher>Springer</b:Publisher>
-    <!--Heidelberg-->
     <b:Year>2013</b:Year>
   </b:Source>
   <b:Source>
