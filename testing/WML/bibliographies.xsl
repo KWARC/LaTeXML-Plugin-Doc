@@ -6,7 +6,7 @@
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
-| Michael Kohlhase http://kwarc.info/kohlhase                 #_#     |
+| Michael Kohlhase http://kwarc.info/kReportohlhase                 #_#     |
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
@@ -96,6 +96,40 @@
   <xsl:template match="ltx:bibentry[@type='website']/ltx:bib-url">
   <b:URL><xsl:value-of select="./@href"/></b:URL>
   </xsl:template>
+   <xsl:template match="ltx:bibentry[@type='report']">
+    <b:Source>
+      <b:SourceType>Report</b:SourceType>
+      <b:Tag>
+        <xsl:value-of select="./@key"/>
+      </b:Tag>
+      <b:Author>
+        <b:Author>
+          <b:NameList>
+            <xsl:for-each select="./ltx:bib-name[@role='author']">
+              <b:Person>
+                <xsl:if test="./ltx:givenname">
+                  <b:First>
+                    <xsl:value-of select="./ltx:givenname/text()"/>
+                  </b:First>
+                </xsl:if>
+                <b:Last>
+                  <xsl:value-of select="./ltx:surname/text()"/>
+                </b:Last>
+              </b:Person>
+            </xsl:for-each>
+          </b:NameList>
+        </b:Author>
+      </b:Author>
+      <xsl:apply-templates/>
+    </b:Source>
+  </xsl:template>
+  <xsl:template match="ltx:bibentry[@type='report' and not(./ltx:bib-publisher)]/ltx:bib-organization">
+  <b:Publisher><xsl:value-of select="./text()"/></b:Publisher>
+  </xsl:template>
+  <xsl:template match="ltx:bibentry[@type='website']/ltx:bib-url">
+  <b:URL><xsl:value-of select="./@href"/></b:URL>
+  </xsl:template>
+  <xsl:template match="ltx:bib-data[@role='version']"/>
   <xsl:template match="ltx:bib-data[@role='urldate']">
       <b:YearAccessed><xsl:value-of select="substring-before(./text(),'-')"/></b:YearAccessed>
     <b:MonthAccessed><xsl:value-of select="substring-before(substring-after(./text(),'-'),'-')"/></b:MonthAccessed>
@@ -344,13 +378,27 @@
       <xsl:apply-templates/>
     </b:Source>
   </xsl:template>
+  <xsl:template match="ltx:bib-data[@role='venue']"/>
+  <xsl:template match="ltx:bib-data[@role='eventdate']"/>
   <xsl:template match="ltx:bib-name[@role='author']"/>
+  <xsl:template match="ltx:bib-extract[@role='keywords']"/>
   <xsl:template match="ltx:bibentry[@type='article']/ltx:bib-url"/>
+  <xsl:template match="ltx:bibentry[@type='misc']/ltx:bib-url"/>
+  <xsl:template match="ltx:bib-data[@role='eventtitle']"/>
+  <xsl:template match="ltx:bib-data[@role='hyphenation']"/>
+  <xsl:template match="ltx:bibentry[contains(@type,'thesis')]/ltx:bib-url"/>
+  <xsl:template match="ltx:bibentry[@type='inbook']/ltx:bib-url"/>
+    <xsl:template match="ltx:bib-identifier[@scheme='isbn']"/>
+     <xsl:template match="ltx:bib-identifier[@scheme='issn']"/>
+  <xsl:template match="ltx:bib-data[@role='vgwortseiten']"/>
+  <xsl:template match="ltx:bibentry[@type='report']/ltx:bib-url"/>
+  <xsl:template match="ltx:bib-identifier[@scheme='doi']"/>
   <xsl:template match="ltx:bib-title">
     <b:Title>
-      <xsl:value-of select="./text()"/>
+      <xsl:value-of select="./text()"/><xsl:value-of select="../ltx:bib-subtitle./text()"/>
     </b:Title>
   </xsl:template>
+  <xsl:template match="ltx:bib-subtitle"/>
   <xsl:template match="ltx:bib-related[@role='host' and @type='journal']/ltx:bib-title">
     <b:JournalName>
       <xsl:value-of select="./text()"/>
