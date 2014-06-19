@@ -62,9 +62,10 @@
     </b:Source>
     
     
-
+    <xsl:comment> Haven't deal with this bibentry yet </xsl:comment>
     <!-- <xsl:message>Haven't dealt with this bibentry yet </xsl:message> -->
   </xsl:template>
+  <xsl:template match="ltx:bibentry[contains(./@type,'proceedings')]/ltx:bib-url"/>
     <xsl:template match="ltx:bibentry[@type='website']">
     <b:Source>
       <b:SourceType>InternetSite</b:SourceType>
@@ -98,7 +99,7 @@
   <xsl:template match="ltx:bib-data[@role='urldate']">
       <b:YearAccessed><xsl:value-of select="substring-before(./text(),'-')"/></b:YearAccessed>
     <b:MonthAccessed><xsl:value-of select="substring-before(substring-after(./text(),'-'),'-')"/></b:MonthAccessed>
-    <b:DayAccessed><xsl:value-of select="substring-after(substring-after,'-'),'-')"/></b:DayAccessed>
+    <b:DayAccessed><xsl:value-of select="substring-after(substring-after(./text(),'-'),'-')"/></b:DayAccessed>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='unpublished']">
     <b:Source>
@@ -380,8 +381,20 @@
     <b:BookTitle><xsl:value-of select="./text()"/></b:BookTitle>
   </xsl:if>
   </xsl:template>
-
-   <xsl:template match="ltx:bib-related[@role='host' and @type='proceedings']/ltx:bib-title"/>       
+  <xsl:template match="ltx:bib-related[@role='host']">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:bib-data[@role='laterpages']"/>
+  <xsl:template match="ltx:bib-data[@role='latermonth']"/>
+  <xsl:template match="ltx:bibentry[@type='unpublished']/ltx:bib-url"/>
+   <xsl:template match="ltx:bib-related[@role='host' and @type='proceedings']/ltx:bib-title"/>
+   <xsl:template match="ltx:bib-related[@role='host' and @type='proceedings' and not(../ltx:bib-organiation)]/ltx:bib-title">
+   <xsl:variable name="foo" select="."/>
+   <b:ConferenceName><xsl:value-of select="./text()"/>q	</b:ConferenceName>
+   </xsl:template>
+   <xsl:template match="ltx:sup">
+   <xsl:apply-templates/>
+   </xsl:template>
      <xsl:template match="ltx:bib-type"/>     
   <xsl:template match="ltx:bib-related[@role='host' and @type='proceedings']">
   <xsl:apply-templates/>
@@ -396,5 +409,7 @@
   <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]//ltx:bib-organization">
    <b:ConferenceName><xsl:value-of select="./text()"/></b:ConferenceName>
    </xsl:template>
-   
+   <xsl:template match="ltx:bib-links"/>
+   <xsl:template match="ltx:bib-data[@role='eprinttype']"/>
+   <xsl:template match="ltx:bib-data[@role='eprintclass']"/>
 </xsl:stylesheet>
