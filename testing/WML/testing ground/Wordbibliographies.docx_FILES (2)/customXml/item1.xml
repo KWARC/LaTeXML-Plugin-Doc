@@ -129,23 +129,38 @@
     <b:RefOrder>6</b:RefOrder>
   </b:Source>
   <b:Source>
-    <b:Tag>Autar6</b:Tag>
     <b:SourceType>Report</b:SourceType>
-    <b:Guid>{13643CCE-819D-4041-832A-A4A0D82700CE}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year </b:Year>
-    <b:City>City</b:City>
-    <b:Publisher>Publisher</b:Publisher>
+    <b:Tag>Autar6</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:First>Till</b:First>
+            <b:Last>Mossakowski</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Christian</b:First>
+            <b:Last>Maeder</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Mihai</b:First>
+            <b:Last>Codescu</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Eugen</b:First>
+            <b:Last>Kuksa</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Christoph</b:First>
+            <b:Last>Lange</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:RefOrder>7</b:RefOrder>
+    <b:Title>Hets for Common Logic users</b:Title>
+    <b:Publisher>DFKI GmbH, Bremen</b:Publisher>
+    <b:Year>2012</b:Year>
+    <b:Month>123</b:Month>
   </b:Source>
    <b:Source>
     <b:SourceType>InternetSite</b:SourceType>
