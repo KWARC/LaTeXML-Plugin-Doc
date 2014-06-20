@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/WML/testing ground,/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/WML/testing\ ground"?>
+<?latexml class="article" options="a4paper,11pt"?>
+<?latexml package="babel" options="english"?>
+<?latexml package="inputenc" options="latin1"?>
+<?latexml package="graphicx"?>
+<?latexml package="multicol"?>
+<?latexml package="graphics,epsfig"?>
+<?latexml package="amsmath,amsfonts,amssymb,amsthm"?>
+<?latexml package="dsfont"?>
+<?latexml package="geometry"?>
+<!-- %**** 14062.tex Line 25 **** -->
+<!-- %“title–“bf “large A GRADIENT FLOW STRUCTURE ON A CHEMOTAXIS MODEL : -->
+<!-- %SPEED OF CONVERGENCE TOWARD EQUILIBRIUM FOR SUBCRITICAL MASS˝ -->
+<?latexml RelaxNGSchema="LaTeXML"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" xmlns:m="http://www.w3.org/1998/Math/MathML" class="ltx_authors_1line" xml:id="Document">
+  <title fontsize="large" font="bold">Exponential speed of uniform convergence of the cell density toward equilibrium for subcritical mass in a Patlak-Keller-Segel model </title>
+  <creator role="author">
+    <personname>
+      <text font="bold">Alexandre MONTARU<break/><text fontsize="footnote">Université Paris 13, Sorbonne Paris Cité, <break/>LAGA, CNRS, UMR 7539,<break/>F-93430, Villetaneuse, France. <break/></text></text>
+      <text fontsize="small" font="italic">montaru@math.univ-paris13.fr<text font="bold upright"> </text></text>
+    </personname>
+  </creator>
+  <date role="creation"/>
+  <abstract name="Abstract">
+    <p>
+      <text fontsize="footnote">This paper is concerned with a chemotaxis aggregation model for cells, more precisely with a parabolic-elliptic semilinear Patlak-Keller-Segel system in a ball of <Math mode="inline" xml:id="m1a" text="R ^ N" fragid="m1a"><m:math display="inline"><m:msup><m:mi mathsize="normal" stretchy="false">ℝ</m:mi><m:mi mathsize="normal" stretchy="false">N</m:mi></m:msup></m:math></Math> for <Math mode="inline" xml:id="m2a" text="N &gt;= 2" fragid="m2a"><m:math display="inline"><m:mrow><m:mi mathsize="normal" stretchy="false">N</m:mi><m:mo mathsize="normal" stretchy="false">≥</m:mo><m:mn mathsize="normal" stretchy="false">2</m:mn></m:mrow></m:math></Math>. For <Math mode="inline" xml:id="m3a" text="N = 2" fragid="m3a"><m:math display="inline"><m:mrow><m:mi mathsize="normal" stretchy="false">N</m:mi><m:mo mathsize="normal" stretchy="false">=</m:mo><m:mn mathsize="normal" stretchy="false">2</m:mn></m:mrow></m:math></Math>, this system is well known for its critical mass <Math mode="inline" xml:id="m4a" text="8 * pi" fragid="m4a"><m:math display="inline"><m:mrow><m:mn mathsize="normal" stretchy="false">8</m:mn><m:mo mathsize="small" stretchy="false">⁢</m:mo><m:mi mathsize="normal" stretchy="false">π</m:mi></m:mrow></m:math></Math>. It has been proved in <cite>[]</cite> that it also exhibits a critical mass phenomenon for <Math mode="inline" xml:id="m5a" text="N &gt;= 3" fragid="m5a"><m:math display="inline"><m:mrow><m:mi mathsize="normal" stretchy="false">N</m:mi><m:mo mathsize="normal" stretchy="false">≥</m:mo><m:mn mathsize="normal" stretchy="false">3</m:mn></m:mrow></m:math></Math>. The main result of this paper is the exponential speed of uniform convergence of radial solutions toward the unique steady state in the subcritical case for <Math mode="inline" xml:id="m6a" text="N &gt;= 2" fragid="m6a"><m:math display="inline"><m:mrow><m:mi mathsize="normal" stretchy="false">N</m:mi><m:mo mathsize="normal" stretchy="false">≥</m:mo><m:mn mathsize="normal" stretchy="false">2</m:mn></m:mrow></m:math></Math>.
+We stress that this covers in particular the classical Keller-Segel system with <Math mode="inline" xml:id="m7a" text="N = 2" fragid="m7a"><m:math display="inline"><m:mrow><m:mi mathsize="normal" stretchy="false">N</m:mi><m:mo mathsize="normal" stretchy="false">=</m:mo><m:mn mathsize="normal" stretchy="false">2</m:mn></m:mrow></m:math></Math>, and that the result improves on the known results even for this most studied problem.
+A key tool is an associated
+one-dimensional degenerate parabolic problem <Math mode="inline" xml:id="m8a" text="P * D * E _ m" fragid="m8a"><m:math display="inline"><m:mrow><m:mo mathsize="small" stretchy="false">(</m:mo><m:mrow><m:mi mathsize="normal" stretchy="false">P</m:mi><m:mo mathsize="small" stretchy="false">⁢</m:mo><m:mi mathsize="normal" stretchy="false">D</m:mi><m:mo mathsize="small" stretchy="false">⁢</m:mo><m:msub><m:mi mathsize="normal" stretchy="false">E</m:mi><m:mi mathsize="normal" stretchy="false">m</m:mi></m:msub></m:mrow><m:mo mathsize="small" stretchy="false">)</m:mo></m:mrow></m:math></Math> where <Math mode="inline" xml:id="m9a" text="m" fragid="m9a"><m:math display="inline"><m:mi mathsize="normal" stretchy="false">m</m:mi></m:math></Math> is proportional to the total mass of cells. The proof exploits its formal gradient flow structure <Math mode="inline" xml:id="m10a" text="u _ t = - nabla@(F) * u * t" fragid="m10a"><m:math display="inline"><m:mrow><m:msub><m:mi mathsize="normal" stretchy="false">u</m:mi><m:mi mathsize="normal" stretchy="false">t</m:mi></m:msub><m:mo mathsize="normal" stretchy="false">=</m:mo><m:mrow><m:mo mathsize="normal" stretchy="false">-</m:mo><m:mrow><m:mrow><m:mo mathsize="normal" stretchy="false">∇</m:mo><m:mo mathsize="small" stretchy="false">⁡</m:mo><m:mi class="ltx_font_mathcaligraphic" mathsize="normal" stretchy="false">ℱ</m:mi></m:mrow><m:mo mathsize="small" stretchy="false">⁢</m:mo><m:mrow><m:mo mathsize="small" stretchy="false">[</m:mo><m:mrow><m:mi mathsize="normal" stretchy="false">u</m:mi><m:mo mathsize="small" stretchy="false">⁢</m:mo><m:mrow><m:mo mathsize="small" stretchy="false">(</m:mo><m:mi mathsize="normal" stretchy="false">t</m:mi><m:mo mathsize="small" stretchy="false">)</m:mo></m:mrow></m:mrow><m:mo mathsize="small" stretchy="false">]</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:math></Math> on an ”infinite
+dimensional Riemannian manifold”. In particular, we show a new Hardy type inequality, equivalent to the strict convexity of <Math mode="inline" xml:id="m11a" text="F" fragid="m11a"><m:math display="inline"><m:mi class="ltx_font_mathcaligraphic" mathsize="normal" stretchy="false">ℱ</m:mi></m:math></Math> at any steady state of subcritical mass, which heuristically explains the exponential speed of convergence.</text>
+    </p>
+  </abstract>
+  <ERROR class="undefined">\captionsenglish</ERROR>
+  <ERROR class="undefined">\dateenglish</ERROR>
+  <ERROR class="undefined">\extrasenglish</ERROR>
+</document>

@@ -1,0 +1,159 @@
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bishop(2006)]{Bishop2006}
+C.~M. Bishop.
+\newblock \emph{Pattern Recognition and Machine Learning}.
+\newblock Springer, 2006.
+
+\bibitem[Broderick et~al.(2013)Broderick, Boyd, Wibisono, Wilson, and
+  Jordan]{Broderick13}
+Tamara Broderick, Nicholas Boyd, Andre Wibisono, Ashia~C Wilson, and Michael
+  Jordan.
+\newblock Streaming variational {B}ayes.
+\newblock In \emph{Advances in Neural Information Processing Systems 26}, pages
+  1727--1735. Curran Associates, Inc., 2013.
+
+\bibitem[Brown et~al.(1998)Brown, Frank, Tang, Quirk, and Wilson]{Brown1998}
+Emery~N. Brown, Loren~M. Frank, Dengda Tang, Michael~C. Quirk, and Matthew~A.
+  Wilson.
+\newblock A statistical paradigm for neural spike train decoding applied to
+  position prediction from ensemble firing patterns of rat hippocampal place
+  cells.
+\newblock \emph{The Journal of Neuroscience}, 18\penalty0 (18):\penalty0
+  7411--7425, 1998.
+
+\bibitem[Damianou et~al.(2011)Damianou, Titsias, and Lawrence]{Damianou2011}
+Andreas~C. Damianou, Michalis Titsias, and Neil~D. Lawrence.
+\newblock Variational {G}aussian process dynamical systems.
+\newblock In \emph{Advances in Neural Information Processing Systems 24}, pages
+  2510--2518. 2011.
+
+\bibitem[Daunizeau et~al.(2009)Daunizeau, Friston, and Kiebel]{Daunizeau2009}
+J.~Daunizeau, K.J. Friston, and S.J. Kiebel.
+\newblock Variational {B}ayesian identification and prediction of stochastic
+  nonlinear dynamic causal models.
+\newblock \emph{Physica D: Nonlinear Phenomena}, 238\penalty0 (21):\penalty0
+  2089 -- 2118, 2009.
+
+\bibitem[Deisenroth and Mohamed(2012)]{DeisenrothMohamed2012}
+M.~P. Deisenroth and S.~Mohamed.
+\newblock Expectation {P}ropagation in {G}aussian process dynamical systems.
+\newblock In \emph{Advances in Neural Information Processing Systems ({NIPS})
+  25}, pages 2618--2626. 2012.
+
+\bibitem[Deisenroth et~al.(2012)Deisenroth, Turner, Huber, Hanebeck, and
+  Rasmussen]{DeisenrothTurner2011}
+M.~P. Deisenroth, R.~D. Turner, M.~F. Huber, U.~D. Hanebeck, and C.~E.
+  Rasmussen.
+\newblock Robust filtering and smoothing with {G}aussian processes.
+\newblock \emph{IEEE Transactions on Automatic Control}, 57\penalty0
+  (7):\penalty0 1865 --1871, 2012.
+
+\bibitem[Frigola et~al.(2013)Frigola, Lindsten, Sch\"{o}n, and
+  Rasmussen]{FriLinSchRas13}
+Roger Frigola, Fredrik Lindsten, Thomas~B. Sch\"{o}n, and Carl~E. Rasmussen.
+\newblock Bayesian inference and learning in {G}aussian process state-space
+  models with particle {MCMC}.
+\newblock In \emph{Advances in Neural Information Processing Systems ({NIPS})
+  26}. 2013.
+
+\bibitem[Ghahramani and Roweis(1999)]{Ghahramani1999}
+Z.~Ghahramani and S.~Roweis.
+\newblock Learning nonlinear dynamical systems using an {EM} algorithm.
+\newblock In \emph{Advances in Neural Information Processing Systems ({NIPS})
+  11}. MIT Press, 1999.
+
+\bibitem[Hoffman et~al.(2013)Hoffman, Blei, Wang, and
+  Paisley]{hoffman2013stochastic}
+Matthew~D Hoffman, David~M Blei, Chong Wang, and John Paisley.
+\newblock Stochastic variational inference.
+\newblock \emph{The Journal of Machine Learning Research}, 14\penalty0
+  (1):\penalty0 1303--1347, 2013.
+
+\bibitem[Izhikevich(2000)]{izhikevich2000neural}
+Eugene~M Izhikevich.
+\newblock Neural excitability, spiking and bursting.
+\newblock \emph{International Journal of Bifurcation and Chaos}, 10\penalty0
+  (06):\penalty0 1171--1266, 2000.
+
+\bibitem[Lawrence and Moore(2007)]{Lawrence2007}
+Neil~D. Lawrence and Andrew~J. Moore.
+\newblock The hierarchical {G}aussian process latent variable model.
+\newblock In Zoubin Ghahramani, editor, \emph{Proceedings of the 24th
+  International Conference on Machine Learning ({ICML})}, 2007.
+
+\bibitem[Lindsten and Sch\"{o}n(2013)]{Lindsten2013FAT}
+Fredrik Lindsten and Thomas~B. Sch\"{o}n.
+\newblock Backward simulation methods for {M}onte {C}arlo statistical
+  inference.
+\newblock \emph{Foundations and Trends in Machine Learning}, 6\penalty0
+  (1):\penalty0 1--143, 2013.
+
+\bibitem[Mizuseki et~al.(2013)Mizuseki, Sirota, Pastalkova, Diba, and
+  Buzsáki]{Mizuseki2013}
+K.~Mizuseki, A.~Sirota, E.~Pastalkova, K.~Diba, and G.~Buzsáki.
+\newblock Multiple single unit recordings from different rat hippocampal and
+  entorhinal regions while the animals were performing multiple behavioral
+  tasks.
+\newblock CRCNS.org. \url{http://dx.doi.org/10.6080/K09G5JRZ}, 2013.
+
+\bibitem[Opper(1998)]{Opper1998}
+Manfred Opper.
+\newblock A bayesian approach to on-line learning.
+\newblock In David Saad, editor, \emph{On-Line Learning in Neural Networks}.
+  Cambridge University Press, 1998.
+
+\bibitem[Qui{\~n}onero-Candela and Rasmussen(2005)]{QuiRas05}
+Joaquin Qui{\~n}onero-Candela and Carl~Edward Rasmussen.
+\newblock A unifying view of sparse approximate {G}aussian process regression.
+\newblock \emph{Journal of Machine Learning Research}, 6:\penalty0 1939--1959,
+  2005.
+
+\bibitem[Rasmussen and Williams(2006)]{RasWil06}
+C.~E. Rasmussen and C.~K.~I. Williams.
+\newblock \emph{Gaussian Processes for Machine Learning}.
+\newblock MIT Press, 2006.
+
+\bibitem[S\"{a}rkk\"{a}(2013)]{Sarkka2013}
+S.~S\"{a}rkk\"{a}.
+\newblock \emph{Bayesian Filtering and Smoothing}.
+\newblock Cambridge University Press, 2013.
+
+\bibitem[Shumway and Stoffer(2011)]{Shumway2011}
+R.~H. Shumway and D.~S. Stoffer.
+\newblock \emph{Time Series Analysis and Its Applications}.
+\newblock Springer, 3rd edition, 2011.
+
+\bibitem[Titsias(2009)]{Titsias2009}
+Michalis Titsias.
+\newblock Variational learning of inducing variables in sparse {G}aussian
+  processes.
+\newblock In \emph{Proceedings of the 12th International Conference on
+  Artificial Intelligence and Statistics (AISTATS)}, 2009.
+
+\bibitem[Turner et~al.(2010)Turner, Deisenroth, and Rasmussen]{TurDeiRas10}
+R.~Turner, M.~P. Deisenroth, and C.~E. Rasmussen.
+\newblock State-space inference and learning with {G}aussian processes.
+\newblock In Yee~Whye Teh and Mike Titterington, editors, \emph{13th
+  International Conference on Artificial Intelligence and Statistics}, volume~9
+  of \emph{W\&CP}, pages 868--875, Chia Laguna, Sardinia, Italy, 2010.
+
+\bibitem[Valpola and Karhunen(2002)]{ValKar02}
+Harri Valpola and Juha Karhunen.
+\newblock An unsupervised ensemble learning method for nonlinear dynamic
+  state-space models.
+\newblock \emph{Neural Computation}, 14\penalty0 (11):\penalty0 2647--2692,
+  2002.
+
+\bibitem[Wang et~al.(2006)Wang, Fleet, and Hertzmann]{Wang2006}
+J.M. Wang, D.J. Fleet, and A.~Hertzmann.
+\newblock Gaussian process dynamical models.
+\newblock In \emph{Advances in Neural Information Processing Systems ({NIPS})
+  18}, pages 1441--1448. MIT Press, Cambridge, MA, 2006.
+
+\end{thebibliography}

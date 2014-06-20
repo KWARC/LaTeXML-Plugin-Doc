@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math">
+  <w:body>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style35"/>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>Exponential speed of uniform convergence of the cell density toward equilibrium for subcritical mass in a Patlak-Keller-Segel model </w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style36"/>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>Alexandre MONTARU</w:t>
+      </w:r>
+      <w:r>
+        <w:br/>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>Université Paris 13, Sorbonne Paris Cité, </w:t>
+      </w:r>
+      <w:r>
+        <w:br/>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>LAGA, CNRS, UMR 7539,</w:t>
+      </w:r>
+      <w:r>
+        <w:br/>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>F-93430, Villetaneuse, France. </w:t>
+      </w:r>
+      <w:r>
+        <w:br/>
+      </w:r>
+      <!-- elided text formatting Université Paris 13, Sorbonne Paris Cité, LAGA, CNRS, UMR 7539,F-93430, Villetaneuse, France. -->
+      <w:r>
+        <w:rPr>
+          <w:i/>
+        </w:rPr>
+        <w:t>montaru@math.univ-paris13.fr</w:t>
+      </w:r>
+      <!-- elided text formatting -->
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style46"/>
+      </w:pPr>
+      <w:r>
+        <w:rPr/>
+        <w:t>This paper is concerned with a chemotaxis aggregation model for cells, more precisely with a parabolic-elliptic semilinear Patlak-Keller-Segel system in a ball of </w:t>
+      </w:r>
+      <omml:oMath>
+        <sSup xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <e>
+            <r>
+              <w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>ℝ</t>
+            </r>
+          </e>
+          <sup>
+            <r>
+              <w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>N</t>
+            </r>
+          </sup>
+        </sSup>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t> for </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>N≥2</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t>. For </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>N=2</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t>, this system is well known for its critical mass </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>8π</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t>. It has been proved in </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr/>
+        <w:t>[]</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr/>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr/>
+        <w:t> that it also exhibits a critical mass phenomenon for </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>N≥3</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t>. The main result of this paper is the exponential speed of uniform convergence of radial solutions toward the unique steady state in the subcritical case for </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>N≥2</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t>. We stress that this covers in particular the classical Keller-Segel system with </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>N=2</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t>, and that the result improves on the known results even for this most studied problem. A key tool is an associated one-dimensional degenerate parabolic problem </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>(</t>
+        </r>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>PD</t>
+        </r>
+        <sSub xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <e>
+            <r>
+              <w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>E</t>
+            </r>
+          </e>
+          <sub>
+            <r>
+              <w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>m</t>
+            </r>
+          </sub>
+        </sSub>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>)</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t> where </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>m</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t> is proportional to the total mass of cells. The proof exploits its formal gradient flow structure </w:t>
+      </w:r>
+      <omml:oMath>
+        <sSub xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <e>
+            <r>
+              <w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>u</t>
+            </r>
+          </e>
+          <sub>
+            <r>
+              <w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>t</t>
+            </r>
+          </sub>
+        </sSub>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>=</t>
+        </r>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>-</t>
+        </r>
+        <func xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <fName>
+            <r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>∇</t>
+            </r>
+          </fName>
+          <e>
+            <r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+              </w:rPr>
+              <t>ℱ</t>
+            </r>
+          </e>
+        </func>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t/>
+        </r>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>[</t>
+        </r>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>u</t>
+        </r>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>(t)</t>
+        </r>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>]</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t> on an ”infinite dimensional Riemannian manifold”. In particular, we show a new Hardy type inequality, equivalent to the strict convexity of </w:t>
+      </w:r>
+      <omml:oMath>
+        <r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/>
+          </w:rPr>
+          <t>ℱ</t>
+        </r>
+      </omml:oMath>
+      <w:r>
+        <w:rPr/>
+        <w:t> at any steady state of subcritical mass, which heuristically explains the exponential speed of convergence.</w:t>
+      </w:r>
+      <!-- elided text formatting This paper is concerned with a chemotaxis aggregation model for cells, more precisely with a parabolic-elliptic semilinear Patlak-Keller-Segel system in a ball of ℝN for N≥2. For N=2, this system is well known for its critical mass 8⁢π. It has been proved in [] that it also exhibits a critical mass phenomenon for N≥3. The main result of this paper is the exponential speed of uniform convergence of radial solutions toward the unique steady state in the subcritical case for N≥2.
+We stress that this covers in particular the classical Keller-Segel system with N=2, and that the result improves on the known results even for this most studied problem.
+A key tool is an associated
+one-dimensional degenerate parabolic problem (P⁢D⁢Em) where m is proportional to the total mass of cells. The proof exploits its formal gradient flow structure ut=-∇⁡ℱ⁢[u⁢(t)] on an ”infinite
+dimensional Riemannian manifold”. In particular, we show a new Hardy type inequality, equivalent to the strict convexity of ℱ at any steady state of subcritical mass, which heuristically explains the exponential speed of convergence.-->
+    </w:p>
+    <!--elided element ERROR-->
+    <!--elided element ERROR-->
+    <!--elided element ERROR-->
+  </w:body>
+</w:document>

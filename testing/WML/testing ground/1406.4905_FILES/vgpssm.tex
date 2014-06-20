@@ -1,0 +1,632 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips14submit_e,times}
+\usepackage{hyperref}
+\hypersetup{
+    %colorlinks=false,
+    pdfborder={0 0 0},
+}
+\usepackage{url}
+\usepackage{amsmath,amssymb}
+\usepackage[numbers]{natbib}
+\usepackage{defs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{algorithm,algorithmic}
+%\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
+
+
+\title{Variational Gaussian Process State-Space Models}
+
+
+\author{
+Roger Frigola, Yutian Chen and Carl E. Rasmussen \\
+Department of Engineering\\
+University of Cambridge \\
+\texttt{\{rf342,yc373,cer54\}@cam.ac.uk} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+% Roger's shortcuts
+\newcommand{\n}[1]{\mathbf{#1}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\btheta}{\boldsymbol\theta}
+\newcommand{\bSigma}{\boldsymbol\Sigma}
+%\newcommand{\bmu}{\boldsymbol\mu}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+
+State-space models have been successfully used for more than fifty years in different areas of science and engineering. We present a procedure for efficient variational Bayesian learning of nonlinear state-space models based on sparse Gaussian processes. The result of learning is a tractable posterior over nonlinear dynamical systems. In comparison to conventional parametric models, we offer the possibility to straightforwardly trade off model capacity and computational cost whilst avoiding overfitting. Our main algorithm uses a hybrid inference approach combining variational Bayes and sequential Monte Carlo. We also present extensions to stochastic variational inference and online learning.
+
+\end{abstract}
+
+
+
+
+\section{Introduction}
+
+State-space models (SSMs) are a widely used class of models that have found success in applications as diverse as robotics, ecology, finance and neuroscience (see, e.g., \citet{Brown1998}). State-space models generalize other popular time series models such as linear and nonlinear auto-regressive models: (N)ARX, (N)ARMA, (G)ARCH, etc. \citep{Shumway2011}.
+
+% Goal
+In this article we focus on Bayesian learning of nonparametric nonlinear state-space models. In particular, we use sparse Gaussian processes (GPs) \citep{RasWil06} as a convenient method to encode general assumptions about the dynamical system such as continuity or smoothness. In contrast to conventional parametric methods, we allow the user to easily trade off model capacity and computation time. Moreover, we present a variational training procedure that allows very complex models to be learned without risk of overfitting. %***** \fix this could be improved, it's more that we can do the trade-off whilst not overfitting. need to think good way to say it.
+
+% Contributions
+Our variational formulation leads to a tractable approximate \emph{posterior over nonlinear dynamical systems}. This approximate posterior can be used to compute fast probabilistic predictions of future trajectories of the dynamical system. 
+The computational complexity of our learning approach is linear in the length of the time series. This is possible thanks to the use of variational sparse GPs \citep{Titsias2009} which lead to a smoothing problem for the latent state trajectory in a simpler auxiliary dynamical system. Smoothing in this auxiliary system can be carried out with any conventional technique (e.g. sequential Monte Carlo). In addition, we present a stochastic variational inference procedure \citep{hoffman2013stochastic} to accelerate learning for long time series and we also present an online learning scheme.
+
+% Who should care?
+This work is useful in situations where: 1) it is important to know how uncertain future predictions are, 2) there is not enough knowledge about the underlying nonlinear dynamical system to create a principled parametric model, and 3) it is necessary to have an explicit model that can be used to simulate the dynamical system into the future. These conditions arise often in engineering and finance. For instance, consider an autonomous aircraft adapting its flight control when carrying a large external load of unknown weight and aerodynamic characteristics. A model of the nonlinear dynamics of the new system can be very useful in order to automatically adapt the control strategy. When few data points are available, there is high uncertainty about the dynamics. In this situation, a model that quantifies its uncertainty can be used to synthesize control laws that avoid the risks of overconfidence. % \citep{DeiRas11}. ***** cite adaptive control
+
+%as opposed to inference and learning in dynamical systems, nonlinear systems are very challenging, no clear state-of-the-art methods even for parametric models! while inference on nonlinear models is often treated in general books, learning is a much harder topic and not treated despite its practical importance...
+
+%we have benefited from the very sensible priors over smooth dynamical systems that the GP-SSM provides. we are resistant to overfitting due to the Bayesian treatment of the unknown state transition function.
+
+The problem of learning flexible models of nonlinear dynamical systems has been tackled from multiple perspectives. \citet{Ghahramani1999} presented a maximum likelihood approach to learn nonlinear SSMs based on radial basis functions. This work was later extended by using a parameterized Gaussian process point of view and developing tailored filtering algorithms \citep{DeisenrothMohamed2012,DeisenrothTurner2011,TurDeiRas10}. Approximate Bayesian learning has also been developed for parameterized nonlinear SSMs \citep{Daunizeau2009,ValKar02}.
+
+\citet{Wang2006} modeled the nonlinear functions in SSMs using Gaussian processes (GP-SSMs) and found a MAP estimate of the latent variables and hyperparameters. Their approach preserved the nonparametric properties of Gaussian processes. Despite using MAP learning over state trajectories, overfitting was not an issue since it was applied in a dimensionality reduction context where the latent space of the SSM was much smaller than the observation space. In a similar vein, \citep{Damianou2011,Lawrence2007} presented a hierarchical Gaussian process model that could model linear dynamics and nonlinear mappings from latent states to observations. More recently, Frigola et al. \citep{FriLinSchRas13} learned GP-SSMs in a fully Bayesian manner by employing particle MCMC methods to sample from the smoothing distribution. However, their approach led to predictions with a computational cost proportional to the length of the time series.
+
+In the rest of this article, we present an approach to variational Bayesian learning of flexible nonlinear state-space models which leads to a simple representation of the posterior over nonlinear dynamical systems and results in predictions having a low computational complexity.
+% Cite also ,FriLinSchRas14
+
+% \citet{McHRas14} unpublished.
+
+
+
+
+
+
+\section{Gaussian Process State-Space Models}
+\label{sec:gpssm}
+
+
+
+We consider discrete-time nonlinear state-space models built with deterministic functions and additive noise
+\vspace{-3mm}
+\begin{subequations}
+  \label{eq:ssmintro}
+  \begin{align}
+    \label{eq:ssmintroa}
+    \x_{t+1} &= f(\x_{t}) + \n{v}_{t}, \\%, \qquad  \n{v}_{t} \sim \mathcal{N}(\n{0},\n{Q}) 
+    \label{eq:ssmintrob}
+    \n{y}_{t} &= g(\x_{t}) + \n{e}_{t}.
+  \end{align}
+\end{subequations}
+The dynamics of the system are defined by the state transition function $f(\x_{t})$ and independent additive noise $\n{v}_{t}$ (process noise). The states $\x_t \in \mathbb{R}^D$ are latent variables such that all future variables are conditionally independent on the past given the present state.  Observations $\y_t \in \mathbb{R}^E$ are linked to the state via another deterministic function $g(\x_t)$ and independent additive noise $\n{e}_{t}$ (observation noise). State-space models are stochastic dynamical processes that are useful to model time series $\y \triangleq\{\y_1,...,\y_T\}$. The deterministic functions in \eqref{eq:ssmintro} can also take external known inputs (such as control signals) as an argument but, for conciseness, we will omit those in our notation.
+
+A traditional approach to learn $f$ and $g$ is to restrict them to a family of parametric functions. This is particularly appropriate when very good understanding about the dynamical system is available, e.g. orbital mechanics of a spacecraft. However, in many other applications, it is difficult to specify a class of parametric models that can provide the ability to model complex functions and, at the same time, resistance to overfitting through an easy to specify prior or regularizer. Gaussian processes do have these properties: they can represent functions of arbitrary complexity and provide a straightforward way to specify assumptions about those unknown functions, e.g. smoothness. In the light of this, it is natural to place Gaussian process priors over both $f$ and $g$ \citep{Wang2006}. However, the extreme flexibility of the two Gaussian processes leads to severe nonidentifiability and strong correlations between the posteriors of the two unknown functions. In the rest of this paper we will focus on a model with a GP prior over the transition function and a parametric likelihood. However, our variational formulation can also be applied to the double GP case (see supplementary material).
+
+A probabilistic state-space model with a Gaussian process prior over the transition function and a parametric likelihood is specified by
+\begin{subequations}
+\begin{align}
+f(\x_{}) &\sim \mathcal{GP}\big(m_{f}(\x), k_{f}(\x, \x^\prime)\big), \label{eq:gppriortrans}\\ 
+\x_{t} \mid \n{f}_{t} &\sim \mathcal{N}(\x_{t} \mid \n{f}_{t}, \n{Q}),  \\
+\x_0 &\sim p(\x_0) \\
+\y_t \mid \x_t &\sim p(\y_t \mid \x_t , \btheta_y), \label{eq:gpssmlike}
+\end{align}
+\end{subequations}
+where we have used $\n{f}_{t} \triangleq f(\x_{t-1})$. Since $f(\x_{}) \in \mathbb{R}^D$, we use the convention that the covariance function $k_{f}$ returns a $D \times D$ matrix. We group all hyperparameters into $\btheta \triangleq \{\btheta_f,\btheta_y,\n{Q}\}$. Note that we are not restricting the likelihood \eqref{eq:gpssmlike} to any particular form. The joint distribution of a GP-SSM is
+\begin{equation}
+\label{eq:joint}
+	p(\y,\x,\n{f}) = p(\x_0) \prod_{t=1}^T p(\y_t | \x_t)  p(\x_t | \n{f}_t) p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1}),
+\end{equation}
+where we use the convention $\n{f}_{1:0} = \emptyset$ and omit the conditioning on $\btheta$ in the notation. The GP on the transition function induces a distribution over the latent function values with the form of a GP predictive:
+\vspace{-2mm}
+\begin{align}
+	p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1}) = \mathcal{N}\big(& m_f(\x_{t-1}) + \n{K}_{t-1,0:t-2}  \n{K}_{0:t-2,0:t-2}^{-1}   \n{f}_{1:t-1} ,   \nonumber \\
+	 &  \ \n{K}_{t-1,t-1} -  \n{K}_{t-1,0:t-2}  \n{K}_{0:t-2,0:t-2}^{-1}  \n{K}_{t-1,0:t-2}^\top \big),
+\end{align}
+where the subindices of the kernel matrices indicate the arguments to the covariance function necessary to build each matrix, e.g. $\n{K}_{t-1,0:t-2}=[k_{f}(\x_{t-1}, \x_{0}) \ldots k_{f}(\x_{t-1}, \x_{t-2})]$. When $t=1$, the distribution is that of a GP marginal  $p(\n{f}_1|\x_0) = \mathcal{N}(m_f(\x_0),k_f(\x_0,\x_0))$.
+
+Equation~\eqref{eq:joint} provides a sequential procedure to sample state trajectories and observations. GP-SSMs are doubly stochastic models in the sense that one could, at least notionally, first sample a state transition dynamics function from eq.~\eqref{eq:gppriortrans} and then, conditioned on that function, sample the state trajectory and observations. 
+
+GP-SSMs are a very rich prior over nonlinear dynamical systems. In Fig. \ref{fig:samplegpssm} we illustrate this concept by showing state trajectories sampled from a GP-SSM with fixed hyperparameters. The dynamical systems associated with each of these trajectories are qualitatively very different from each other. For instance, the leftmost panel shows the dynamics of an almost linear non-oscillatory system whereas the rightmost panel corresponds to a limit cycle in a nonlinear system. Our goal in this paper is to use this prior over dynamical systems and obtain a tractable approximation to the posterior over dynamical systems given the data.
+
+% give a bit of background on how putting a GP prior over f results in a non-Markovian system even when the original model is Markovian
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=13cm]{generative2511t.pdf}
+\caption{State trajectories from  four 2-state nonlinear dynamical systems sampled from a \mbox{GP-SSM} prior with \emph{fixed} hyperparameters. The same prior generates systems with qualitatively different behaviors, e.g. the leftmost panel shows behavior similar to that of a non-oscillatory linear system whereas the rightmost panel appears to have arisen from a limit cycle in a nonlinear system.}% In this example, the GP mean function is a fixed linear system and, by construction, the green state is the derivative of the blue state.}
+\label{fig:samplegpssm}
+\vspace{-0.4cm}
+\end{figure}
+
+
+
+\section{Variational Inference in GP-SSMs}
+\label{sec:variational} 
+
+Since the GP-SSM is a nonparametric model, in order to define a posterior distribution over $f$ and make probabilistic predictions it is necessary to first find the smoothing distribution $p(\x_{0:T} | \y_{1:T})$. \citet{FriLinSchRas13} obtained a sample from the smoothing distribution that could be used to define a predictive density via Monte Carlo integration. This approach is expensive since it requires the usage of $L$ state trajectory samples of length $T$. In this section we present an alternative approach that aims to find a tractable distribution over the state transition function that is independent of the length of the time series. We achieve this by using variational sparse GP techniques \citep{Titsias2009}.
+
+
+
+
+\subsection{Augmenting the Model with Inducing Variables}
+\label{sec:inducing} 
+
+As a first step to perform variational inference in a GP-SSM, we augment the model with $M$ inducing points $\n{u} \triangleq \{\n{u}_i\}_{i=1}^M$. Those inducing points are jointly Gaussian with the latent function values. In the case of a GP-SSM, the joint probability density becomes
+\vspace{-1mm}
+\begin{equation}
+\label{eq:jointwithu}
+	p(\y,\x,\n{f},\n{u}) = p(\x,\n{f} | \n{u}) \, p(\n{u}) \prod_{t=1}^T p(\y_t | \x_t),
+\end{equation}
+where
+\begin{subequations}
+\begin{align}
+p(\n{u}) &= \mathcal{N}(\n{u} \mid \n{0}, \n{K}_{\n{u},\n{u}}) \\
+p(\x,\n{f} | \n{u}) &= p(\x_0) \prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u})  p(\x_t | \n{f}_t), \\ 
+\!\!\!\prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}) &= \mathcal{N}\big( \n{f}_{1:T} \mid  \n{K}_{0:T-1,\n{u}}  \n{K}_{\n{u},\n{u}}^{-1} \n{u} , \n{K}_{0:T-1} \!- \n{K}_{0:T-1,\n{u}}  \n{K}_{\n{u},\n{u}}^{-1} \n{K}_{0:T-1,\n{u}}^\top  \big).
+\end{align}
+\end{subequations}
+Kernel matrices relating to the inducing points depend on a set of inducing inputs $\{\n{z}_i\}_{i=1}^M$ in such a way that $\n{K}_{\n{u},\n{u}}$ is an $MD \times MD$ matrix formed with blocks $k_f(\n{z}_i, \n{z}_j)$ having size $D \times D$. For brevity, we use a zero mean function and we omit conditioning on the inducing inputs in the notation.
+
+
+
+
+\subsection{Evidence Lower Bound of an Augmented GP-SSM}
+\label{sec:elbo}
+
+Variational inference \citep{Bishop2006} is a popular method for approximate Bayesian inference based on making assumptions about the posterior over latent variables that lead to a tractable lower bound on the evidence of the model (sometimes referred to as ELBO). Maximizing this lower bound is equivalent to minimizing the Kullback-Leibler divergence between the approximate posterior and the exact one. Following standard variational inference methodology, \citep{Bishop2006} we obtain the evidence lower bound of a GP-SSM augmented with inducing points
+\begin{equation}
+	\log p(\by|\btheta) \geq \int_{\bx, \bff, \bu} \!\!\!\!\!\!\! q(\bx, \bff, \bu) \log \frac{p(\n{u}) p(\x_0) \prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}) p(\y_t | \x_t) p(\x_t | \n{f}_t)}{q(\bx, \bff, \bu)}. \label{eq:elboint} 
+\end{equation}
+In order to achieve tractability, we use a variational distribution that factorizes as
+\begin{equation}
+\label{eq:vardist}
+q(\x,\n{f},\n{u}) = q(\n{u}) q(\x) \prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}),
+\end{equation}
+where $q(\bu)$ and $q(\bx)$ can take any form but the terms relating to $\n{f}$ are taken to match those of the prior~\eqref{eq:joint}. As a consequence, the difficult $p(\n{f}_t |...)$ terms inside the log cancel out and lead to the following lower bound
+\begin{align}
+\mathcal{L}(q(\bu), q(\bx), &\bta) = -\KL(q(\bu) \| p(\bu)) + \cH(q(\bx)) + \int_{\bx} q(\bx) \log p(\bx_0) \nn\\
+& + \sum_{t=1}^T \bigg\{ \int_{\bx,\bu} q(\bx) q(\bu) \underbrace{\int_{\bff_t} p(\n{f}_t | \x_{t-1},\n{u}) \log p(\x_t | \n{f}_t)}_{\Phi(\bx_t, \bx_{t-1}, \bu)}
+ + \int_{\bx} q(\bx) \log p(\by_t | \x_t) \bigg\} \label{eq:elbo}
+\end{align}
+where $\KL$ denotes the Kullback-Leibler divergence and $\cH$ the entropy. The integral with respect to $\n{f}_t$ can be solved analytically:
+%\begin{equation*}
+$
+\Phi(\bx_t, \bx_{t-1}, \bu) = -\frac{1}{2}{\rm tr}(\n{Q}^{-1} \bB_{t-1}) + \log \cN(\x_t |\n{A}_{t-1} \bu, \n{Q})
+$
+%\end{equation*}
+where $\n{A}_{t-1} = \n{K}_{t-1,\n{u}} \n{K}_{\n{u},\n{u}}^{-1}$, and $\n{B}_{t-1} = \n{K}_{t-1,t-1} - \n{K}_{t-1,\n{u}} \n{K}_{\n{u},\n{u}}^{-1} \n{K}_{\n{u},t-1}$.
+%\begin{align*}
+%\n{A}_{t-1} &= \n{K}_{t-1,\n{u}} \n{K}_{\n{u},\n{u}}^{-1}, \\
+%\n{B}_{t-1} &= \n{K}_{t-1,t-1} - \n{K}_{t-1,\n{u}} \n{K}_{\n{u},\n{u}}^{-1} \n{K}_{\n{u},t-1}.
+%\end{align*}
+
+As in other variational sparse GP methods, the choice of variational distribution \eqref{eq:vardist} gives the ability to precisely learn the latent function at the locations of the inducing inputs. Away from those locations, the posterior takes the form of the prior conditioned on the inducing variables. By increasing the number of inducing variables, the ELBO can only become tighter \citep{Titsias2009}. This offers a straightforward trade off between model capacity and computation cost without increasing the risk of overfitting.
+
+
+
+
+\subsection{Optimal Variational Distribution for $\bu$}
+\label{sec:optqu}
+
+%In the following we will present the formulation for one-dimensional states in order to avoid using heavy matrix algebra and allow as much intuitive interpretation as possible. The results extend to multiple dimensions by using matrix-valued covariance functions and making straightforward adaptations to the formulation.
+
+The optimal distribution of $q(\bu)$ can be found by setting to zero the functional derivative of the evidence lower bound with respect to $q(\bu)$
+\begin{equation}
+q^{*}(\bu) \propto p(\bu) \prod_{t=1}^T \exp\{\langle \log \cN(\x_t |\n{A}_{t-1} \bu, \n{Q}) \rangle_{q(\bx)} \}, \label{eq:qstaru}
+\end{equation}
+%\intertext{test}
+%q^{*}(\bu)&\propto p(\bu) \exp\left\{-\ha Q^{-1} \sum_{t=1}^T \bu^T \langle\n{A}^T_{t-1}\n{A}_%{t-1} \rangle_{q(x_{t-1})} \bu \right. \nn\\
+%& \quad + \left. Q^{-1}\sum_{t=1}^T \langle\x_{t}^T \n{A}_{t-1} \rangle_{q(x_t,x_{t-1})} \bu %\right\}. 
+%\end{align}
+where $\langle \cdot \rangle_{q(\bx)}$ denotes an expectation with respect to $q(\x)$. The optimal variational distribution $q^{*}(\bu)$ is, conveniently, a multivariate Gaussian distribution. If, for simplicity of notation, we restrict ourselves to $D=1$ the natural parameters of the optimal distribution are
+%\begin{subequations}
+%\label{eq:qstarunatural}
+%\begin{align}
+%\boeta_1 &= Q^{-1}\sum_{t=1}^T\langle \n{A}_{t-1}^T x_{t}\rangle_{q(x_t,x_{t-1})}, \\
+%\boeta_2 &= -\ha \left( \bK_{\bu \bu}^{-1} + Q^{-1} \sum_{t=1}^T \langle\n{A}^T_{t-1} %\n{A}_{t-1}\rangle_{q(x_{t-1})}  \right). \label{eq:opt_mu_sig}
+%\end{align}
+%\end{subequations}
+\begin{equation}
+	\boeta_1 = Q^{-1}\sum_{t=1}^T\langle \n{A}_{t-1}^T x_{t}\rangle_{q(x_t,x_{t-1})}, \qquad
+\boeta_2 = -\ha \left( \bK_{\bu \bu}^{-1} + Q^{-1} \sum_{t=1}^T \langle\n{A}^T_{t-1} \n{A}_{t-1}\rangle_{q(x_{t-1})}  \right).  \label{eq:qstarunatural}
+\end{equation}
+The mean and covariance matrix of $q^*(\bu)$, denoted as $\bmu$ and $\bSigma$ respectively, can be computed as $\bmu = \bSigma \boeta_1$ and $\bSigma = (-2\boeta_2)^{-1}$. Note that the optimal $q(\bu)$ depends on the sufficient statistics $\boldsymbol\Psi_1=\sum_{t=1}^T \langle \bK_{t-1,\bu}^T x_t\rangle_{q(x_t,x_{t-1})}$ and $\boldsymbol\Psi_2=\sum_{t=1}^T \langle\bK_{t-1,\bu}^T \bK_{t-1,\bu}\rangle_{q(x_{t-1})}$. 
+
+
+
+
+\subsection{Optimal Variational Distribution for $\bx$}
+\label{sec:optqx}
+
+In an analogous way as for $q^*(\bu)$, we can obtain the optimal form of $q(\bx)$ 
+\begin{equation}
+\label{eq:optqx}
+%q^*(\bx) &\propto p(\bx_0)\prod_{t=1}^T p(\by_t\mid \bx_t) \exp \left\{ \langle \Phi(\bx_t, \bx_{t-1}, \bu) \rangle_{q(\bu)} \right\} \nn\\
+q^*(\bx)\propto p(\x_0) \prod_{t=1}^T p(\y_t | \x_t) \exp\{-\frac{1}{2}{\rm tr}\big( \n{Q}^{-1} ({\n{B}_{t-1}} + {\n{A}_{t-1}} \bSigma {\n{A}}^T_{t-1}) \big) \} \, \mathcal{N}(\x_t |\n{A}_{t-1} \bmu, \n{Q}),
+\end{equation}
+where, in the second equation, we have used $q(\bu) = \cN(\bu | \bmu, \bSigma)$.
+
+The optimal distribution $q^*(\bx)$ is equivalent to the smoothing distribution of an auxiliary parametric state-space model. The auxiliary model is simpler than the original one in~\eqref{eq:joint} since the latent states factorize with a Markovian structure. Equation~\eqref{eq:optqx} can be interpreted as a nonlinear state-space model with a Gaussian state transition density, $\mathcal{N}(\x_t |\n{A}_{t-1} \bmu, \n{Q})$, and a likelihood augmented with an additional term: $\exp\{-\frac{1}{2} {\rm tr}\big( \n{Q}^{-1} ({\n{B}}_{t-1} + {\n{A}_{t-1}} \bSigma {\n{A}}^T_{t-1}) \big)\}$.
+
+Smoothing in nonlinear Markovian state-space models is a standard problem in the context of time series modeling. There are various existing strategies to find the smoothing distribution which could be used depending on the characteristics of each particular problem \citep{Sarkka2013}. For instance, in a mildly nonlinear system with Gaussian noise, an extended Kalman smoother can have very good performance. On the other hand, problems with severe nonlinearities and/or non-Gaussian likelihoods can lead to heavily multimodal smoothing distributions that are better represented using particle methods. We note that the application of sequential Monte Carlo (SMC) is particularly straightforward in the present auxiliary model. 
+
+
+
+
+\subsection{Optimizing the Evidence Lower Bound}
+
+Algorithm \ref{algo} presents a procedure to maximize the evidence lower bound by alternatively sampling from the smoothing distribution and taking steps both in $\btheta$ and in the natural parameters of $q^*(\n{u})$. We propose a hybrid variational-sampling approach whereby approximate samples from $q^*(\x)$ are obtained with a sequential Monte Carlo smoother. However, as discussed in section \ref{sec:optqx}, depending on the characteristics of the dynamical system, other smoothing methods could be more appropriate \citep{Sarkka2013}. As an alternative to smoothing on the auxiliary dynamical system in \eqref{eq:optqx}, one could force a $q(\x)$ from a particular family of distributions and optimise the evidence lower bound with respect to its variational parameters. For instance, we could posit a Gaussian $q(\x)$ with a sparsity pattern in the covariance matrix assuming zero covariance between non-neighboring states and maximize the ELBO with respect to the variational parameters.
+
+\begin{algorithm}[t]
+\caption{Variational learning of GP-SSMs with particle smoothing. Batch mode (i.e. non-SVI) is the particular case where the mini-batch is the whole dataset.}
+\label{algo}
+\begin{algorithmic}
+\REQUIRE Observations $\y_{1:T}$. Initial values for $\btheta, \boeta_1$ and $\boeta_2$. Schedules for $\rho$ and $\lambda$. $i=1$.
+%\ENSURE $y = x^n$
+\REPEAT
+\STATE $\y_{\tau:\tau'} \leftarrow \textsc{SampleMiniBatch}(\y_{1:T})$
+\STATE $\{\x_{\tau:\tau'}\}_{l=1}^L \leftarrow \textsc{GetSamplesOptimalQX}(\y_{\tau:\tau'},\btheta, \boeta_1, \boeta_2)$ \hfill sample from eq.~\eqref{eq:optqx}
+\STATE $\nabla_{\btheta}\mathcal{L} \leftarrow \textsc{GetThetaGradient}(\{\x_{\tau:\tau'}\}_{l=1}^L,\btheta)$ \hfill supp. material
+\STATE $\boeta_1^*, \boeta_2^* \leftarrow \textsc{GetOptimalQU}(\{\x_{\tau:\tau'}\}_{l=1}^L,\btheta)$ \hfill eq.~\eqref{eq:qstarunatural} or \eqref{eq:sviqstarunatural}
+\STATE $\boeta_1 \leftarrow \boeta_1 + \rho_i (\boeta_1^* - \boeta_1)$
+\STATE $\boeta_2 \leftarrow \boeta_2 + \rho_i (\boeta_2^* - \boeta_2)$
+\STATE\hspace{0.9mm} $\btheta \leftarrow  \btheta \ + \lambda_i \nabla_{\btheta}\mathcal{L}$
+\STATE\hspace{1.9mm} $i \leftarrow i+1$
+\UNTIL{ELBO convergence}
+\end{algorithmic}
+\end{algorithm}
+%\end{minipage}
+
+We use stochastic gradient descent \citep{hoffman2013stochastic} to maximize the ELBO (where we have plugged in the optimal $q^*(\n{u})$ \citep{Titsias2009}) by using its gradient with respect to the hyperparameters. Both quantities are stochastic in our hybrid approach due to variance introduced by the sampling of $q^*(\x)$. In fact, vanilla sequential Monte Carlo methods will result in biased estimators of the gradient and the parameters of $q^*(\n{u})$. However, in our experiments this has not been an issue. Techniques such as particle MCMC would be a viable alternative to conventional sequential Monte Carlo \citep{Lindsten2013FAT}.
+
+%Inducing inputs can be treated as any other hyperparmeter. greedy selection. they can only make the bound tighter (the prior over trajectories is the same irrespective of where the inducing inputs are). see proposition in \citep{Titsias2009}.
+
+
+
+%in batch mode, isn't it better to insert qstar into the ELBO a la Titsias and then optimize wrt the hyperparameters. could this be done in SVI?
+
+
+
+
+%State-space models can have very different characteristics. In some applications, the dimensionality of the observation vector can be much larger than that of the state, e.g. when recording high-definition video of a quadrocopter in flight. However, in other applications, such as a low-cost flexible robot with a limited number of sensors, the dimensionality of the state can be larger than that of the observation.
+
+
+
+
+
+\section{Making Predictions}
+
+One of the most appealing properties of our variational approach to learning GP-SSMs is that the approximate predictive distribution of the state transition function can be cheaply computed
+\begin{align}
+p(\n{f}_* | \x_*, \y) &=  \int_{\x,\n{u}} \!\!\! p(\n{f}_* | \x_*, \x, \n{u}) \, p(\x | \n{u},\y) \, p(\n{u} | \y) \approx \int_{\x,\n{u}}  \!\!\! p(\n{f}_* | \x_*, \n{u}) \, p(\x | \n{u},\y) \, q(\n{u}) \nonumber \\
+&= \int_{\n{u}}  p(\n{f}_* | \x_*, \n{u}) \, q(\n{u}) = \mathcal{N}(\n{f}_* | \n{A}_* \bmu, \n{B}_* + \n{A}_* \bSigma \n{A}^\top_* ). \label{eq:predict}
+\end{align}
+The derivation in eq.~\eqref{eq:predict} contains two approximations: 1) predictions at new test points are considered to depend only on the inducing variables, and 2) the posterior distribution over $\n{u}$ is approximated by a variational distribution.
+
+After pre-computations, the cost of each prediction is $\mathcal{O}(M)$ for the mean and  $\mathcal{O}(M^2)$ for the variance. This contrasts with the $\mathcal{O}(T L)$ and $\mathcal{O}( T^2 L)$ complexity of approaches based on sampling from the smoothing distribution where
+$
+	p(\n{f}_* | \x_*, \y) = \int_{\x} p(\n{f}_* | \x_*, \x) \, p(\x | \y)
+$
+is approximated with $L$ samples from $p(\x | \y)$ \citep{FriLinSchRas13}. The variational approach condenses the learning of the latent function on the inducing points $\n{u}$ and does not explicitly need the smoothing distribution $p(\x | \y)$ to make predictions.
+
+
+
+%\begin{equation}
+%	p(\n{f}_* \mid \x_*, \y) = \int p(\n{f}_* | \x_*, \n{u}) \, p(\n{u} | \y) \, d\n{u} \approx \int p(\n{f}_* | \x_*, \n{u}) \, q(\n{u}) \, d\n{u} = \mathcal{N}(\n{f}_* | \n{A}_* \bmu, \n{B}_* + \n{A}_* \bSigma \n{A}^\top_* )
+%\end{equation}
+
+
+
+
+
+\vspace{-1mm}
+\section{Extensions}
+\vspace{-1mm}
+\subsection{Stochastic Variational Inference}
+
+Stochastic variational inference (SVI) \citep{hoffman2013stochastic} can be readily applied using our evidence lower bound. When the observed time series is long, it can be expensive to compute $q^*(\bu)$ or the gradient of $\mathcal{L}$ with respect to the hyperparameters and inducing inputs. Since both $q^*(\bu)$ and $\frac{\partial \mathcal{L}}{\partial \bta/\bz_{1:M}}$ depend linearly on $q(\bx)$ via sufficient statistics that contain a summation over all elements in the state trajectory, we can obtain unbiased estimates of these sufficient statistics by using one or multiple segments of the sequence that are sampled uniformly at random. However, obtaining $q(\bx)$ also requires a time complexity of $\mathcal{O}(T)$. Yet, in practice, $q(\x)$ can be approximated by running the smoothing algorithm locally around those segments. This can be justified by the fact that in a time series context, the smoothing distribution at a particular time is not largely affected by measurements that are far into the past or the future \citep{Sarkka2013}. The natural parameters of $q^*(\bu)$ can be estimated by using a portion of the time series of length $S$
+\vspace{-1mm}
+\begin{equation}
+\!\boeta_1 = Q^{-1} \frac{T}{S} \sum_{t=\tau}^{\tau'} \langle \n{A}_{t-1}^T x_{t} \rangle_{q(x_t,x_{t-1})}, \ 
+\boeta_2 = -\ha \left( \bK_{\bu \bu}^{-1} + Q^{-1} \frac{T}{S} \sum_{t=\tau}^{\tau'} \langle\n{A}^T_{t-1}\n{A}_{t-1}\rangle_{q(x_{t-1})}  \right). \label{eq:sviqstarunatural}
+\end{equation}
+%\begin{subequations}
+%\label{eq:sviqstarunatural}
+%\begin{align}
+%\boeta_1 &= Q^{-1} \frac{T}{\tau' - \tau + 1} \sum_{t=\tau}^{\tau'} \langle \n{A}_{t-1}^T x_{t} \rangle_{q(x_t,x_{t-1})}, \\
+%\boeta_2 &= -\ha \left( \bK_{\bu \bu}^{-1} + Q^{-1} \frac{T}{\tau' - \tau + 1} \sum_{t=\tau}^{\tau'} \langle\n{A}^T_{t-1}\n{A}_{t-1}\rangle_{q(x_{t-1})}  \right). 
+%\end{align}
+%\end{subequations}
+
+
+%complexity \fix
+
+
+
+\vspace{-2mm}
+\subsection{Online Learning}
+
+Our variational approach to learn GP-SSMs also leads naturally to an online learning implementation. This is of particular interest in the context of dynamical systems as it is often the case that data arrives in a sequential manner, e.g. a robot learning the dynamics of different objects by interacting with them. Online learning in a Bayesian setting consists in sequential application of Bayes rule whereby the posterior after observing data up to time $t$ becomes the prior at time $t+1$ \citep{Broderick13,Opper1998}. In our case, this involves replacing the prior $p(\n{u}) = \mathcal{N}(\n{u} | \n{0}, \n{K}_{\n{u},\n{u}})$ by the approximate posterior $\mathcal{N}(\n{u} | \bmu, \bSigma)$ obtained in the previous step. The expressions for the update of the natural parameters of $q^*(\n{u})$ with a new mini batch $\y_{\tau:\tau'}$ are
+\vspace{-2mm}
+\begin{equation}
+	\boeta_1^\prime = \boeta_1 +  Q^{-1}\sum_{t=\tau}^{\tau'} \langle \n{A}_{t-1}^T x_{t}\rangle_{q(x_t,x_{t-1})}, 
+	\quad\
+\boeta_2^\prime = \boeta_2 -\ha   Q^{-1} \sum_{t=\tau}^{\tau'} \langle\n{A}^T_{t-1} \n{A}_{t-1}\rangle_{q(x_{t-1})}  . \label{eq:qstarunaturalonline}
+\end{equation}
+%\begin{subequations}
+%\label{eq:qstarunaturalonline}
+%\begin{align}
+%\boeta_1^\prime &= \boeta_1 +  Q^{-1}\sum_{t=\tau}^{\tau'} \langle \n{A}_{t-1}^T x_{t}\rangle_{q(x_t,x_{t-1})}, \\
+%\boeta_2^\prime &= \boeta_2 -\ha   Q^{-1} \sum_{t=\tau}^{\tau'} \langle\n{A}^T_{t-1} \n{A}_{t-1}\rangle_{q(x_{t-1})}  . \label{eq:opt_mu_sig_online}
+%\end{align}
+%\end{subequations}
+
+
+%IS THIS A CONSEQUENCE OF USING  $q(\x,\n{u}) = q(\x) q(\n{u})$ IN \eqref{eq:elbo}?????
+
+  
+
+
+
+\vspace{-2mm}
+\section{Experiments}
+
+The goal of this section is to showcase the ability of variational GP-SSMs to perform approximate Bayesian learning of nonlinear dynamical systems. In particular, we want to demonstrate: 1) the ability to learn the inherent nonlinear dynamics of a system, 2) the application in cases where the latent states have higher dimensionality than the observations, and 3) the use of non-Gaussian likelihoods.
+
+\subsection{1D Nonlinear System}
+
+We apply a batch version of the learning procedure presented above to the one-dimensional nonlinear system described by $p(x_{t+1} | x_t) = \mathcal{N}(f(x_t), 1)$ and $p(y_t | x_t) = \mathcal{N}(x_t, 1)$ where the transition function is piecewise linear and has a pronounced kink which makes it challenging to learn (see green line in Fig. \ref{fig:1d}.a). Our goal is to find a posterior distribution over this function using a GP-SSM with Mat\'{e}rn covariance function. Figure \ref{fig:1d}.a shows the posterior obtained after learning from a time series with $T=1000$. The inducing points condensing all the learning of the function are represented by blue circles which are placed in the region where most of the data was present. Out of this range, the error bars increase showing the lack of certainty about the value of the state transition function in regions where no data is present. Figure \ref{fig:1d}.b shows the results of applying stochastic variational inference to a dataset of one thousand data points. The log predictive likelihood on a held out dataset is compared for the batch (non-SVI) inference and two SVI procedures with minibatches of 100 and 200 data points.
+
+
+
+
+%To solve the expectations with respect to the approximate smoothing distribution $q(\x)$ we use a bootstrap particle (fixed-lag) smoother with 1000 particles and a lag of 10.
+
+\begin{figure}[t]
+\begin{center}
+\begin{minipage}{0.54\textwidth}
+    \begin{center}
+    \hspace{-10mm}
+        \includegraphics[width=6.9cm]{1dpaper4.pdf} 
+        
+        \hspace{10mm} (a)
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+    \begin{center}
+        \includegraphics[width=4.5cm]{loglik.pdf}  
+        
+        \hspace{10mm} (b)
+    \end{center}
+\end{minipage}
+\end{center}
+\vspace{-3mm}
+\caption{(a) Posterior distribution over latent state transition function (green: ground truth, blue: posterior mean, red: mean $\pm 1$ standard deviation). (b) Log predictive likelihood evaluated on a held out dataset as a function of wall-clock time (blue: batch learning, red: SVI-200, green: SVI-100).}
+\label{fig:1d}
+\end{figure}
+
+%\subsection{Second Order Linear System}
+
+%For sanity check and to compare with standard linear systems methodology. show how it tends to use long lenghtscales. compare to subspace identification, EM approach using a kalman smoother (Barber code)
+
+
+
+
+\subsection{Neural Spike Train Recordings}
+
+We now turn to the use of SSMs to learn a simple model of neural activity in rat's hippocampus. We use data in neuron cluster 1 (the most active) from experiment ec013.717 in \citep{Mizuseki2013}. In some regions of the time series, the action potential spikes show a clear pattern where periods of rapid spiking are followed by periods of very little spiking. We wish to model this behaviour as an autonomous nonlinear dynamical system (i.e. one not driven by external inputs). Many parametric models of nonlinear neuron dynamics have been proposed \citep{izhikevich2000neural} but our goal here is to learn a model from data without using any biological insight. We use a GP-SSM with a structure such that it is the discrete-time analog of a second order nonlinear ordinary differential equation: two states one of which is the derivative of the other. Using the Euler method we transform to discrete time $\x_{t+1}^{(1)} = \x_t^{(1)} + \Delta t \ \x_t^{(2)}$. The observations are spike counts in temporal bins of 0.01 second width. We use a Poisson likelihood relating the spike counts to the second latent state
+$
+	y_t | \x_t \sim \mathrm{Poisson}(\exp({\alpha} \x_t^{(2)} + \beta))
+$. 
+
+We find a posterior distribution for the state transition function using our variational GP-SSM approach. Smoothing is done with a fixed-lag particle smoother and training until convergence takes approximately 50 iterations of Algorithm \ref{algo}. Figure \ref{fig:bursting} shows a part of the raw data together with an approximate sample from the smoothing distribution during the same time interval. In addition, we show the distribution over predictions made by chaining 1-step-ahead predictions. To make those predictions we have switched off process noise ($\n{Q}=\n{0}$) to show more clearly the effect of uncertainty in the state transition function. Note how the frequency of roughly 6 Hz present in the data is well captured. Figure \ref{fig:contourandtraj} shows how the limit cycle corresponding to a nonlinear dynamical system has been captured (see caption for details).
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=13cm]{bursting.pdf}
+\vspace{-0.2cm}
+\caption{From left to right: 1) part of the observed spike count data, 2) sample from the corresponding smoothing distribution, 3) predictive distribution of spike counts obtained by simulating the posterior dynamical from an initial state, and 4) corresponding latent states.}
+\label{fig:bursting}
+\end{figure}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=13cm]{contourandtrajh.pdf}
+\vspace{-0.3cm}
+\caption{Contour plots of the state transition function $\x_{t+1}^{(2)} = f(\x_{t}^{(1)},\x_{t}^{(2)})$, and trajectories in state space. Left: mean posterior function and trajectory from smoothing distribution. Other three panels: transition functions sampled from the posterior and trajectories simulated conditioned on the corresponding sample. Those simulated trajectories start inside the limit cycle and are naturally attracted towards it. Note how function samples are very similar in the region of the limit cycle.}
+\vspace{-0.3cm}
+\label{fig:contourandtraj}
+\end{figure}
+
+
+
+
+\section{Discussion and Future Work}
+
+% Short summary and concluding comments
+We have derived a tractable variational formulation to learn GP-SSMs: an important class of models of nonlinear dynamical systems that is particularly suited to applications where a principled parametric model of the dynamics is not available. Our approach makes it possible to learn very expressive models without risk of overfitting. In contrast to previous approaches \citep{Damianou2011,Lawrence2007,Wang2006}, we have demonstrated the ability to learn a nonlinear state transition function in a latent space of greater dimensionality than the observation space. More crucially, our approach yields a tractable posterior over nonlinear systems that, as opposed to those based on sampling from the smoothing distribution \citep{FriLinSchRas13}, results in a computation time for the predictions that does not depend on the length of the time series.
+
+Given the interesting capabilities of variational GP-SSMs, we believe that future work is warranted. In particular, we want to focus on structured variational distributions $q(\x)$ that could eliminate the need to solve the smoothing problem in the auxiliary dynamical system at the cost of having more variational parameters to optimize. On a more theoretical side, we would like to better characterize GP-SSM priors in terms of their dynamical system properties: stability, equilibria, limit cycles, etc.
+
+
+
+%prior knowledge useful practitioners but also black box!
+
+%other ways to compute $q^*(\x)$, by parameterising it instead of finding a particle approximation to it.
+
+%give insight on why: "In comparison to conventional parametric models we offer the possibility to straightforwardly trade off model capacity and computational cost whilst avoiding overfitting."
+
+
+
+
+
+
+
+
+
+
+
+%\subsubsection*{Acknowledgments}
+
+% Matt Hoffman, Andrew McHutchon and Mark van der Wilk for useful feedback.
+
+\newpage
+\subsubsection*{References}
+
+\begingroup
+%\linespread{.95}
+\renewcommand{\section}[2]{} % dirty hiding of section title
+\bibliographystyle{plainnat} %acm, apalike, IEEEtran
+\small
+\bibliography{variational_gpssms}
+\endgroup
+
+
+
+\newpage
+\appendix
+
+\begin{center}
+\Large \bf Supplementary Material
+\end{center}
+
+
+\section{Remark on $p(\n{f} | \x)$}
+Note that
+\begin{equation}
+\label{eq:cautionnote}
+	\prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}) \neq p(\n{f}_{1:T} | \x_{0:T-1},\n{u}).
+\end{equation}
+The right hand side is equivalent to Gaussian process regression where $\x_{0:T-1}$ are inputs and $\x_{1:T}$ are outputs
+\begin{align}
+	p(\n{f}_{1:T} | \x_{0:T-1},\n{u}) =& \mathcal{N}\big(\n{K}_{0:T-1,\{\n{u},0:T-1\}} (\n{K}_{\{\n{u},0:T-1\}}+\bSigma_{\n{Q}})^{-1} \begin{pmatrix} \n{u} \\ \x_{0:T-1} \end{pmatrix} , \nonumber \\ 
+	 & \n{K}_{0:T-1} - \n{K}_{0:T-1,\{\n{u},0:T-1\}} (\n{K}_{\{\n{u},0:T-1\}}+\bSigma_{\n{Q}})^{-1}  \n{K}_{0:T-1,\{\n{u},0:T-1\}}^\top \big)
+\end{align}
+where $\bSigma_{\n{Q}} = {\rm blockdiag}(\n{0},\n{I} \otimes \n{Q})$ captures process noise. 
+
+However, the left hand side of \eqref{eq:cautionnote} is the product of terms that are equivalent to Gaussian process prediction with noiseless observations
+\begin{align}
+	p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}) =& \mathcal{N}\big(\n{K}_{t-1,\{\n{u},0:t-2\}}  \n{K}_{\{\n{u},0:t-2\}}^{-1}  \begin{pmatrix} \n{u} \\ \n{f}_{1:t-1} \end{pmatrix}    , \nonumber \\ 
+	 & \n{K}_{t-1} -  \n{K}_{t-1,\{\n{u},0:t-2\}}  \n{K}_{\{\n{u},0:t-2\}}^{-1}  \n{K}_{t-1,\{\n{u},0:t-2\}}^\top \big).
+\end{align}
+The product of these terms can be succinctly represented by the following Gaussian
+\begin{align}
+	\prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}) =& \mathcal{N}\big( \n{f}_{1:T} \mid  \n{K}_{0:T-1,\n{u}}  \n{K}_{\n{u},\n{u}}^{-1}   \n{u}   ,  \nonumber \\ 
+	 & \n{K}_{0:T-1} - \n{K}_{0:T-1,\n{u}}  \n{K}_{\n{u},\n{u}}^{-1} \n{K}_{0:T-1,\n{u}}^\top  \big) .
+\end{align}
+Therefore
+\begin{align}
+	\int_{\n{f}_t} \prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}) =& \mathcal{N}\big( \n{f}_{t} \mid  \n{K}_{t-1,\n{u}}  \n{K}_{\n{u},\n{u}}^{-1}   \n{u}   ,  \nonumber \\ 
+	 & \n{K}_{t-1} - \n{K}_{t-1,\n{u}}  \n{K}_{\n{u},\n{u}}^{-1} \n{K}_{t-1,\n{u}}^\top  \big) .
+\end{align}
+
+
+\section{Relationship of Variational Approximation with Other Models}
+
+\subsection{Markovian Model with Heteroscedastic Noise}
+\label{sec:markovianmodel}
+
+Although not strictly a GP-SSM, it is also interesting to consider a model where the state transitions are independent of each other given the inducing variables
+\begin{equation}
+	 p(\n{f}_{1:T} ,\x_{0:T} |  \n{u})  = p(\x_0) \prod_{t=1}^T \mathcal{N}\big(\n{f}_t | \n{A}_{t-1} \n{u}, \n{B}_{t-1} \big) \,  p(\x_t | \n{f}_t) .
+\end{equation}
+This model can be interpreted as a parametric model where $\n{A}_{t-1} \n{u}$ is a deterministic transition function and $\n{B}_{t-1}$ provides the description of an heteroscedastic process noise. Note that this process noise is independent between any two time steps.
+
+If we look for an evidence lower bound with using an analogous procedure to that of section \ref{sec:variational} and the following variational distribution
+\begin{equation}
+q(\x,\n{f},\n{u}) = q(\n{u}) q(\x) \prod_{t=1}^T \mathcal{N}\big(\n{f}_t | \n{A}_{t-1} \n{u}, \n{B}_{t-1} \big),
+\end{equation}
+the lower bound becomes the same as the one in equation \eqref{eq:elbo}.
+
+
+\subsection{Bayesian RBF Model}
+
+The Radial Basis Function in this model uses a deterministic state transition function of the form $f(\x) =  \n{A}(\x) \,\n{u}$ which leads to
+\begin{equation}
+	 p(\n{f}_{1:T} ,\x_{0:T} |  \n{u})  = p(\x_0) \prod_{t=1}^T \mathcal{N}\big(\n{f}_t | \n{A}_{t-1} \, \n{u}, \n{0} \big) \,  p(\x_t | \n{f}_t) .
+\end{equation}
+As opposed to the model in \ref{sec:markovianmodel}, this transition dynamics is not heteroscedastic. It is fully deterministic and parameterized by $\n{u}$ and $\n{z}$. From a GP perspective, this model is analogous to the Subset of Regressors sparse GP \citep{QuiRas05}. This model has the undesirable characteristic that the predictive variance shrinks to zero away from the inducing inputs when exactly the opposite behaviour would be desirable. 
+
+\subsection{Double GP Model}
+
+A state space model having a Gaussian process prior over the state transition function \emph{and} the emission/observation function can be represented by
+\begin{subequations}
+\begin{align}
+f(\x_{}) &\sim \mathcal{GP}\big(m_{f}(\x), k_{f}(\x, \x^\prime)\big),\\ 
+g(\x_{}) &\sim \mathcal{GP}\big(m_{g}(\x), k_{g}(\x, \x^\prime)\big),\\ \x_0 &\sim p(\x_0) \\
+\x_{t} \mid \n{f}_{t} &\sim \mathcal{N}(\x_{t} \mid \n{f}_{t}, \n{Q}),  \\
+\y_{t} \mid \n{g}_{t} &\sim \mathcal{N}(\y_{t} \mid \n{g}_{t}, \n{R}),
+\end{align}
+\end{subequations}
+where we have used $\n{f}_{t} \triangleq f(\x_{t-1})$ and $\n{g}_{t} \triangleq g(\x_{t})$. If the transition GP is augmented with inducing variables $\n{u}$ and the emission GP is augmented with $\n{v}$, we obtain the following joint distribution of the model
+\begin{equation}
+	p(\y,\x,\n{f},\n{u},\n{g},\n{v}) = p(\n{g} |\x, \n{v}) \, p(\x,\n{f} | \n{u}) \, p(\n{u})\, p(\n{v}) \prod_{t=1}^T p(\y_t | \n{g}_t),
+\end{equation}
+where $p(\x,\n{f} | \n{u})$ is the same as in the model presented in the paper and $ p(\n{g} |\x, \n{v})$ is straightforward since it is conditioned on all the states.
+
+We use the following variational distribution over latent variables
+\begin{equation}
+q(\x,\n{f},\n{u},\n{g},\n{v}) = q(\n{u}) q(\n{v}) q(\x) p(\n{g} |\x, \n{v}) \prod_{t=1}^T p(\n{f}_t | \n{f}_{1:t-1},\x_{0:t-1},\n{u}).
+\end{equation}
+Terms with latent variables inside kernel matrices cancel inside the log
+\begin{align}
+\log p(\by|\btheta) &\geq \int_{\bx, \bff, \bu,\n{g},\n{v}} q(\bx, \bff, \bu,\n{g},\n{v}) \log \frac{p(\n{u}) p(\n{v}) p(\x_0) \prod_{t=1}^T  p(\y_t | \n{g}_t) p(\x_t | \n{f}_t)}{q(\n{u}) q(\n{v}) q(\x) } \nn\\
+&= -\KL(q(\bu) \| p(\bu)) -\KL(q(\n{v}) \| p(\n{v})) + \cH(q(\bx)) + \int_{\bx} q(\bx) \log p(\bx_0) \nn\\
+&+ \sum_{t=1}^T \bigg\{ \int_{\bx,\bu} q(\bx) q(\bu) \int_{\bff_t} p(\n{f}_t | \x_{t-1},\n{u}) \log p(\x_t | \n{f}_t)  \nn \\
+& + \int_{\bx,\n{v}} q(\bx) q(\n{v}) \int_{\n{g}_t} p(\n{g}_t | \x_{t},\n{v}) \log p(\by_t | \n{g}_t) \bigg\}.  \nn
+\end{align}
+%where $\mathcal{L}(q(\bu), q(\bx), \bta)$ is the lower bound of the single GP model in eq.~\eqref{eq:elbo}.
+
+The optimal distribution $q^*(\n{u})$ is the same as in eq.~\eqref{eq:qstaru} and the optimal variational distribution of the emission inducing variables is a Gaussian distribution
+\begin{equation}
+q^{*}(\n{v}) \propto p(\n{v}) \prod_{t=1}^T \exp\{\langle \log \cN(\y_t |\n{C}_t \, \n{v}, \n{R}) \rangle_{q(\bx_t)} \} 
+\end{equation}
+where
+\begin{align*}
+\n{C}_t &= \n{K}_{t,\n{v}} \n{K}_{\n{v},\n{v}}^{-1}, \\
+\n{D}_t &=  \n{K}_{t,t} - \n{K}_{t,\n{v}} \n{K}_{\n{v},\n{v}}^{-1} \n{K}_{\n{v},t}.
+\end{align*}
+The optimal variational distribution of the state trajectory is
+\begin{align}
+q^*(\bx) &\propto p(\x_0) \prod_{t=1}^T \exp\{-\frac{1}{2} {\rm tr} (\n{Q}^{-1} ({\n{B}_{t-1}} + {\n{A}_{t-1}} \bSigma {\n{A}_{t-1}}^T)) -\frac{1}{2} {\rm tr}( \n{R}^{-1} ({\n{D}_t} + {\n{C}_t} \boldsymbol\Lambda {\n{C}_t}^T))  \} \nn \\
+&\qquad\qquad\qquad\qquad\qquad  \mathcal{N}(\x_t |\n{A}_{t-1} \bmu, \n{Q}) \, \mathcal{N}(\y_t |\n{C}_t \boldsymbol\nu, \n{R}),
+\end{align}
+where we have used $q(\n{v}) = \mathcal{N}(\boldsymbol\nu,\boldsymbol\Lambda)$.
+
+
+
+
+
+%\section{Formulation for the Multidimensional State Case}
+
+%For clarity and interpretability we have presented the formulation in the main paper for the single dimensional state case. Here we show how to use matrix-valued covariance functions for the multidimensional case and show computational tricks over the na\"{i}ve implementation. \fix
+
+
+\section{Optimization of Hyperparameters}
+
+We optimize the hyperparameters and variational parameters ($\bz_{1:M}$) with gradient ascent. The gradient w.r.t. $\bta$ is computed as
+\begin{align}
+\frac{\partial \mathcal{L}}{\partial \bta} &= \left\langle\frac{\partial}{\partial \bta} \log p(\bu)\right\rangle_{q(\bu)} + \left\langle\frac{\partial}{\partial \bta} \log p(\bx_0)\right\rangle_{q(\bx_0)} \nn\\
+& + \sum_{t=1}^T \bigg\{\left\langle -\frac{1}{2}\frac{\partial}{\partial \bta} \tr(\n{Q}^{-1} ({\n{B}_{t-1}} + {\n{A}_{t-1}} \bSigma {\n{A}}^T_{t-1}) ) \right\rangle_{q(\bx_{t-1})}
++ \left\langle \frac{\partial}{\partial \bta} \log \mathcal{N}(\x_t |\n{A}_{t-1} \bmu, \n{Q})\right\rangle_{q(\bx_t,\bx_{t-1})} \nn\\
+&\qquad \qquad + \left. \left\langle \frac{\partial}{\partial \bta}\log p(\by_t | \x_t) \right\rangle_{q(\bx_t)} \right\}.
+\end{align}
+The gradient with respect to $\bz_{1:M}$ is similar with $\bta$ replaced by $\bz_{1:M}$. In this expression $\bmu$ and $\bSigma$ can be replaced by their optimal settings dependent on the sufficient statistics $\boldsymbol\Psi_1$ and $\boldsymbol\Psi_2$.
+
+
+%\section{Strategies for Inducing Input Optimization} 
+% 1) treat them as normal params, 2) greedy selection from smoothing states, 3) kmeans selection...
+
+
+
+\end{document}

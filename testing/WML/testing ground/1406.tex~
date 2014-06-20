@@ -1,0 +1,87 @@
+\def\CTeXPreproc{Created by ctex v0.2.12, don't edit!}
+\def\CTeXPreproc{Created by ctex v0.2.12, don't edit!}
+\documentclass[11pt]{article}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{color,xcolor}
+\usepackage{graphicx}
+\usepackage{manfnt}
+\usepackage{graphicx}
+\textwidth  165mm \textheight 225mm \topmargin  -15mm
+%\voffset  -65mm
+\oddsidemargin  0mm
+\renewcommand\baselinestretch{1.0}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+
+\begin{document}
+\title{\bf
+Existence of stochastic entropy solutions for stochastic scalar
+balance laws with Lipschitz vector fields\thanks{This work was
+partially supported by NNSF of China
+       (Grant No. 11171122)}}
+\author{Jinlong  Wei$^1$, Liang Ding$^2$, Bin Liu$^3$\thanks{Corresponding author, E-mail:
+\ binliu@mail.hust.edu.cn,  Fax: + 86 27 87543231} \\
+$^1$School of Statistics and Mathematics, Zhongnan University of
+Economics  \\ and Law, Wuhan 430073, Hubei, P.R.China
+\\ $^2$Department of Basis Education
+Dehong Vocational College \\ Dehong, Yunnan, 678400, P.R.China
+\\
+$^3$School of Mathematics and Statistics, Huazhong University of
+Science \\ and Technology, Wuhan 430074, Hubei, P.R.China}
+\begin{thebibliography}{00}
+ \bibitem{1} S.N. Kru\u{z}kov, First-order quasilinear equations in several
+independent variables, Sbornik: Mathematics 10 (1970) 217-243.
+
+ \bibitem{2} P.L. Lions, B. Perthame, P.E. Souganidis, Scalar conservation laws
+with rough (stochastic) fluxes, Stochastic partial differential
+equations: analysis and computations, 1(4) (2013) 664-686.
+
+ \bibitem{3} G.Q. Chen, Q. Ding, K.H. Karlsen, On nonlinear stochastic balance
+laws, Archive for Rational Mechanics and Analysis, 204(3) (2012)
+707-743.
+
+\bibitem{4}  J. Feng, D. Nualart, Stochastic scalar conservation laws, Journal
+of Functional Analysis, 255(2) (2008) 313-373.
+
+\bibitem{5} A. Debussche, J. Vovelle, Scalar conservation laws with stochastic
+forcing, Journal of Functional Analysis,  259(4) (2010) 1014-1042.
+
+\bibitem{6} M. Hofmanov\'{a}, A bhatnagar-gross-krook approximation to
+stochastic scalar conservation laws, arXiv:1305.6450, 2013.
+
+\bibitem{7} J.L. Wei, B. Liu,  Uniqueness of stochastic entropy solutions for stochastic balance
+laws with Lipschitz fluxes, arXiv:1405.2614, 2014.
+
+\bibitem{8} N.V. Krylov, On the It\^{o}-Wentzell formula for distribution-valued
+processes and related topics, Probability Theory and Related Fields,
+50 (2011) 295-319.
+
+\bibitem{9} B. Perthame, E. Tadmor, A kinetic equation with kinectic entropy
+functions for scalar conservation laws, Communications in
+Mathematical Physics, 136 (1991) 501-517.
+
+\bibitem{10} P. Catuogno, C. Olivera, $L^p$-solutions of the stochastic transport
+equation,  Random Operators and Stochastic Equations, 21(2) (2013)
+125-134.
+
+\bibitem{11} J.L. Wei, B. Liu, $L^p$-solutions of Fokker-Planck equations,
+Nonlinear Analysis 85 (2013) 110-124.
+
+\bibitem{12} F. Flandoli, M. Gubinelli, E. Priola,  Well-posedness of the transport
+equation by stochastic perturbation, Inventiones mathematicae,
+180(1) (2010) 1-53.
+
+\bibitem{13} C.M. Dafermas, Hyperbolic conservation laws in continuum physics,
+Grundlehren der mathematischen Wissenschaften 325,  Springer-Verlag,
+New York, 2010.
+\end{thebibliography}
+\end{document}

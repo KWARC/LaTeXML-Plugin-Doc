@@ -1,0 +1,423 @@
+\begin{thebibliography}{10}
+
+\bibitem{AC}
+M.~Agueh and G.~Carlier.
+\newblock {Barycenters in the Wasserstein space}.
+\newblock {\em SIAM J. Math. Anal.}, 43(2):904--924, 2011.
+
+\bibitem{AG13}
+L.~Ambroso and N.Gigli.
+\newblock A user’s guide to optimal transport.
+\newblock In {\em Modelling and Optimisation of Flows on Networks}, volume 2062
+  of {\em Lecture Notes in Mathematics}, pages 1--155. Springer, 2013.
+
+\bibitem{BeigGriess}
+M.~Beiglbock and C.~Griessler.
+\newblock An optimality principle with applications in optimal transport.
+
+\bibitem{bhlp}
+M.~Beiglbock, P.~Henry-Labordere, and F.~Penkner.
+\newblock Model independent bounds for option prices: a mass transport
+  approach.
+\newblock {\em Finance Stoch.}, 17:477–501, 2013.
+
+\bibitem{bj}
+M.~Beiglbock and N.~Juillet.
+\newblock On a problem of optimal transport under marginal martingale
+  constraints.
+\newblock Preprint available at http://arxiv.org/abs/1208.1509.
+
+\bibitem{BK}
+J.~Bigot and T.~Klein.
+\newblock Consistent estimation of a population barycenter in the {W}asserstein
+  space.
+\newblock {\em Proceedings of the International Conference Statistics and its
+  Interaction with Other Disciplines}, pages 153--157, 2013.
+
+\bibitem{bren}
+Y.~Brenier.
+\newblock Decomposition polaire et rearrangement monotone des champs de
+  vecteurs.
+\newblock {\em C.R. Acad. Sci. Pair. Ser. I Math.}, 305:805--808, 1987.
+
+\bibitem{bren2}
+Y.~Brenier.
+\newblock The dual least action problem for an ideal, incompressible fluid.
+\newblock {\em Arch. Rational Mech. Anal.}, 122(4):323--351, 1993.
+
+\bibitem{bdpgg}
+Giuseppe Buttazzo, Luigi De~Pascale, and Paola Gori-Giorgi.
+\newblock Optimal-transport formulation of electronic density-functional
+  theory.
+\newblock {\em Phys. Rev. A}, 85:062502, June 2012.
+
+\bibitem{Caf}
+L.~Caffarelli.
+\newblock Allocation maps with general cost functions.
+\newblock In {\em Partial Differential Equations and Applications}, volume 177
+  of {\em Lecture Notes in Pure and Applied Math}, pages 29--35. Dekker, New
+  York, 1996.
+
+\bibitem{CM10}
+Luis~A. Caffarelli and Robert~J. McCann.
+\newblock Free boundaries in optimal transport and {M}onge-{A}mp\`ere obstacle
+  problems.
+\newblock {\em Ann. of Math. (2)}, 171(2):673--730, 2010.
+
+\bibitem{C}
+G.~Carlier.
+\newblock On a class of multidimensional optimal transportation problems.
+\newblock {\em J. Convex Anal.}, 10(2):517--529, 2003.
+
+\bibitem{CE}
+G.~Carlier and I.~Ekeland.
+\newblock Matching for teams.
+\newblock {\em Econom. Theory}, 42(2):397--418, 2010.
+
+\bibitem{CN}
+G.~Carlier and B.~Nazaret.
+\newblock Optimal transportation for the determinant.
+\newblock {\em ESAIM Control Optim. Calc. Var.}, 14(4):678--698, 2008.
+
+\bibitem{coo}
+G.~Carlier, A.~Oberman, and E.~Oudet.
+\newblock {Numerical methods for matching for teams and Wasserstein
+  barycenters}.
+\newblock Preprint at
+  https://www.ceremade.dauphine.fr/~carlier/BaryCenterCOO8.pdf.
+
+\bibitem{cfm}
+H.~Chen, G.~Friesecke, and C.~Mendl.
+\newblock {Numerical methods for a Kohn-Sham density functional model based on
+  optimal transport}.
+\newblock Preprint at http://arxiv.org/abs/1405.7026.
+
+\bibitem{cgs}
+P.A. Chiappori, A.~Galichon, and B.~Salanie.
+\newblock The roommate problem is more stable than you think.
+\newblock Preprint.
+
+\bibitem{cmn}
+P-A. Chiapporri, R.~McCann, and L.~Nesheim.
+\newblock Hedonic price equilibria, stable matching and optimal transport;
+  equivalence, topology and uniqueness.
+\newblock {\em Econom. Theory.}, 42(2):317--354, 2010.
+
+\bibitem{cdm}
+M.~Colombo and S.~Di Marino.
+\newblock {Equality between Monge and Kantorovich multimarginal problems with
+  Coulomb cost }.
+\newblock To appear in \textit{Ann. Mat. Pura Appl}.
+
+\bibitem{cdpdm}
+M.~Colombo, L.~De Pascale, and S.~Di Marino.
+\newblock Multimarginal optimal transport maps for 1-dimensional repulsive
+  costs.
+\newblock To appear in \textit{Canad. J. Math.}
+
+\bibitem{CFK}
+C.~Cotar, G.~Friesecke, and C.~Kl\"{u}ppelber.
+\newblock Density functional theory and optimal transportation with coulomb
+  cost.
+\newblock {\em Communications on Pure and Applied Mathematics}, 66(4):548--599,
+  2013.
+
+\bibitem{cfk2}
+C.~Cotar, G.~Friesecke, and C.~Kl\"{u}ppelberg.
+\newblock {Smoothing of transport plans with fixed marginals and rigorous
+  semiclassical limit of the Hohenberg-Kohn functional}.
+\newblock Preprint.
+
+\bibitem{CFP}
+C.~Cotar, G.~Friesecke, and B.~Pass.
+\newblock Infinite body optimal transport with coulomb cost.
+\newblock Preprint athttp://arxiv.org/abs/1307.6540.
+
+\bibitem{Dahl}
+J.~Dahl.
+\newblock {A maximal principal for pointwise energies of quadratic Wasserstein
+  minimal networks}.
+\newblock Preprint available at arxiv:1011.0236v3.
+
+\bibitem{ds3}
+Y.~Dolinsky and M.~H. Soner.
+\newblock Robust hedging and martingale optimal transport in continuous time.
+\newblock To appear in \textit{Probab. Theory Relat. Fields}.
+
+\bibitem{ds2}
+Y.~Dolinsky and M.~H. Soner.
+\newblock Robust hedging with proportional transaction costs.
+\newblock To appear in \textit{Finance Stoch}.
+
+\bibitem{E}
+I.~Ekeland.
+\newblock An optimal matching problem.
+\newblock {\em ESAIM Control. Optim. Calc. Var.}, 11:57--71, 2005.
+
+\bibitem{eprwb}
+P.~Embrechts, G~Puccetti, L~Ruschendorf, R~Wang, and A~Beleraj.
+\newblock An academic response to basel 3.5.
+\newblock {\em Risks}, 2:25--48, 2014.
+
+\bibitem{Evans}
+L.C. Evans.
+\newblock { Partial differential equations and Monge-Kantorovich mass
+  transfer}.
+\newblock In {\em {Current Dev. Math.}}, volume~26, pages 65 -- 126. Int.
+  Press, 1997.
+
+\bibitem{Fig10a}
+Alessio Figalli.
+\newblock The optimal partial transport problem.
+\newblock {\em Arch. Ration. Mech. Anal.}, 195(2):533--560, 2010.
+
+\bibitem{FMPCK}
+G.~Friesecke, C.~Mendl, B.~Pass, C.~Cotar, and C.~Kl\"{u}ppelber.
+\newblock {N-density representability and the optimal transport limit of the
+  Hohenberg-Kohn functional}.
+\newblock {\em J. Chem. Phys}, 139, 2013, pages={164109}.
+
+\bibitem{GG}
+A.~Galichon and N.~Ghoussoub.
+\newblock {Variational representations for N-cyclically monotone vector
+  fields}.
+\newblock To appear in \textit{Pacific. J. Math.}
+
+\bibitem{ght}
+A.~Galichon, P.~Henry-Labordere, and N.~Touzi.
+\newblock {A stochastic control approach to non-arbitrage bounds given
+  marginals, with an application to Lookback options}.
+\newblock {\em The Annals of Applied Probability}, 24:312–336, 2014.
+
+\bibitem{G}
+W.~Gangbo.
+\newblock Habilitation thesis, Universite de Metz, available at
+  http://people.math.gatech.edu/~gangbo/publications/habilitation.pdf, 1995.
+
+\bibitem{GM}
+W.~Gangbo and R.~McCann.
+\newblock The geometry of optimal transportation.
+\newblock {\em Acta Math.}, 177:113--161, 1996.
+
+\bibitem{GS}
+W.~Gangbo and A.~\'Swi\c{e}ch.
+\newblock { Optimal maps for the multidimensional Monge-Kantorovich problem}.
+\newblock {\em Comm. Pure Appl. Math.}, 51(1):23--45, 1998.
+
+\bibitem{GhM}
+N.~Ghoussoub and A.~Moameni.
+\newblock {Symmetric Monge-Kantorovich problems and polar decompositions of
+  vector fields}.
+\newblock Preprint available at http://arxiv.org/abs/1302.2886.
+
+\bibitem{GhM2}
+N.~Ghoussoub and A.~Moameni.
+\newblock A self-dual polar factorization for vector fields.
+\newblock {\em Comm. Pure. Applied. Math}, 66:905--933, 2013.
+
+\bibitem{GhP1}
+N.~Ghoussoub and B.~Pass.
+\newblock {Decoupling of DeGiorgi-type systems via multi-marginal optimal
+  transport}.
+\newblock {\em Comm. Partial Differential Equations}, 6:1032--1047, 2014.
+
+\bibitem{GhMa}
+Nassif Ghoussoub and Bernard Maurey.
+\newblock Remarks on multi-marginal symmetric {M}onge-{K}antorovich problems.
+\newblock {\em Discrete Contin. Dyn. Syst.}, 34(4):1465--1480, 2014.
+
+\bibitem{H}
+H.~Heinich.
+\newblock { Probleme de Monge pour $n$ probabilities}.
+\newblock {\em C.R. Math. Acad. Sci. Paris}, 334(9):793--795, 2002.
+
+\bibitem{hltt}
+P.~Henry-Labordere, X.~Tan, and N.~Touzi.
+\newblock {An Explicit Martingale Version of the One-dimensional Brenier's
+  Theorem with Full Marginals Constraint}.
+\newblock Preprint available at
+  https://www.ceremade.dauphine.fr/~tan/MartingaleBrenierII.pdf.
+
+\bibitem{hpt}
+P.~Henry-Labordere and N.~Touzi.
+\newblock {An explicit martingale version of Brenier's theorem}.
+\newblock Preprint at
+  http://www.cmap.polytechnique.fr/~touzi/MartingaleBrenier-discret.pdf.
+
+\bibitem{K}
+H.G. Kellerer.
+\newblock Duality theorems for marginal problems.
+\newblock {\em Z. Wahrsch. Verw. Gebiete}, 67:399--432, 1984.
+
+\bibitem{KM}
+Y-H. Kim and R.~McCann.
+\newblock Continuity, curvature, and the general covariance of optimal
+  transportation.
+\newblock {\em J. Eur. Math. Soc.}, 12:1009--1040, 2010.
+
+\bibitem{KP}
+Y.-H. Kim and B.~Pass.
+\newblock {Multi-marginal optimal transport on a Riemannian manifold}.
+\newblock Preprint. Currently available at arXiv:1303.6251.
+
+\bibitem{KP2}
+Y.-H. Kim and B.~Pass.
+\newblock {A general condition for Monge solutions in the multi-marginal
+  optimal transport problem}.
+\newblock {\em SIAM J. Math. Anal}, 46:1538--1550, 2014.
+
+\bibitem{KitPass}
+J.~Kitagawa and B.~Pass.
+\newblock The multi-marginal optimal partial transport problem.
+\newblock Preprint at http://arxiv.org/abs/1401.7255.
+
+\bibitem{KS}
+M.~Knott and C.~Smith.
+\newblock On a generalization of cyclic monotonicity and distances among random
+  vectors.
+\newblock {\em Linear Algebra Appl.}, 199:363--371, 1994.
+
+\bibitem{lev}
+V.~Levin.
+\newblock {Abstract cyclical monotonicity and Monge solutions for the general
+  Monge-Kantorovich problem}.
+\newblock {\em Set-Valued Analysis}, 7(1):7--32, 1999.
+
+\bibitem{lorentz}
+G.G. Lorentz.
+\newblock An inequality for rearrangements.
+\newblock {\em Amer. Math. Monthly}, 60:176--179, 1953.
+
+\bibitem{mtw}
+X-N. Ma, N.~Trudinger, and X-J. Wang.
+\newblock Regularity of potential functions of the optimal transportation
+  problem.
+\newblock {\em Arch. Rational Mech. Anal.}, 177:151--183, 2005.
+
+\bibitem{m3}
+R.~McCann.
+\newblock { Polar factorization of maps on Riemannian manifolds}.
+\newblock {\em Geom. Funct. Anal.}, 11:589--608, 2001.
+
+\bibitem{Mc14}
+R.J. McCann.
+\newblock A glimpse into the differential topology and geometry of optimal
+  transport.
+\newblock {\em Discrete Contin. Dyn. Syst.}, 34:1605--1621, 2014.
+
+\bibitem{MPW}
+Robert~J. McCann, Brendan Pass, and Micah Warren.
+\newblock Rectifiability of optimal transportation plans.
+\newblock {\em Canad. J. Math.}, 64(4):924--934, 2012.
+
+\bibitem{ML}
+C.~Mendl and L.~Lin.
+\newblock {Towards the Kantorovich dual solution for strictly correlated
+  electrons in atoms and molecules}.
+\newblock {\em Physical Review B}, 87:125106, 2013.
+
+\bibitem{moameni}
+A.~Moameni.
+\newblock {Invariance properties of the Monge-Kantorovich mass transport
+  problem}.
+\newblock Preprint available at http://arxiv.org/abs/1311.7051.
+
+\bibitem{moameni2}
+A.~Moameni.
+\newblock Multi-marginal monge-kantorovich transport problems: A
+  characterization of solutions.
+\newblock Preprint available at http://arxiv.org/abs/1403.3389.
+
+\bibitem{OR}
+I.~Olkin and S.T. Rachev.
+\newblock Maximum submatrix traces for positive definite matrices.
+\newblock {\em SIAM J. Matrix Ana. Appl.}, 14:390--39, 1993.
+
+\bibitem{PY}
+R.G. Parr and W.~Yang.
+\newblock {\em Density functional theory of atoms and molecules}.
+\newblock Oxford University Press, Oxford, 1995.
+
+\bibitem{P4}
+B.~Pass.
+\newblock {\em Structural results on optimal transportation plans.}
+\newblock PhD thesis, University of Toronto, 2011.
+\newblock Available at http://www.ualberta.ca/~pass/thesis.pdf.
+
+\bibitem{P1}
+B.~Pass.
+\newblock Uniqueness and{ M}onge solutions in the multimarginal optimal
+  transportation problem.
+\newblock {\em SIAM Journal on Mathematical Analysis}, 43(6):2758--2775, 2011.
+
+\bibitem{P}
+B.~Pass.
+\newblock On the local structure of optimal measures in the multi-marginal
+  optimal transportation problem.
+\newblock {\em Calculus of Variations and Partial Differential Equations},
+  43:529--536, 2012.
+\newblock 10.1007/s00526-011-0421-z.
+
+\bibitem{P6}
+B.~Pass.
+\newblock On a class of optimal transportation problems with infinitely many
+  marginals.
+\newblock {\em SIAM J. Math. Anal.}, 45:2557--2575, 2013.
+
+\bibitem{P13b}
+B.~Pass.
+\newblock {Remarks on the semi-classical Hohenberg-Kohn functional}.
+\newblock {\em Nonlinearity}, 26:2731--2744, 2013.
+
+\bibitem{P13a}
+B.~Pass.
+\newblock Multi-marginal optimal transport and multi-agent matching problems:
+  uniqueness and structure of solutions.
+\newblock {\em Discrete Contin. Dyn. Syst.}, 34:1623--1639, 2014.
+
+\bibitem{P5}
+Brendan Pass.
+\newblock Optimal transportation with infinitely many marginals.
+\newblock {\em J. Funct. Anal.}, 264(4):947--963, 2013.
+
+\bibitem{pr}
+G.~Puccetti and L.~Ruschendorf.
+\newblock Sharp bounds for sums of dependent risks.
+\newblock {\em J. Appl. Probab}, 50:42--53, 2013.
+
+\bibitem{bdpr}
+J.~Rabin, G.~Peyre, J.~Delon, and M.~Bernot.
+\newblock {Wasserstein barycenter and its application to texture mixing}.
+\newblock In {\em Scale Space and Variational Methods in Computer Vision},
+  pages 435--446. 2012.
+
+\bibitem{RU}
+L.~R\"uschendorf and L.~Uckelmann.
+\newblock On optimal multivariate couplings.
+\newblock In {\em Proceedings of Prague 1996 conference on marginal problems},
+  pages 261--274. Kluwer Acad. Publ., 1997.
+
+\bibitem{seidl}
+Michael Seidl.
+\newblock Strong-interaction limit of density-functional theory.
+\newblock {\em Phys. Rev. A}, 60:4387--4395, Dec 1999.
+
+\bibitem{sggs}
+Michael Seidl, Paola Gori-Giorgi, and Andreas Savin.
+\newblock Strictly correlated electrons in density-functional theory: A general
+  formulation with applications to spherical densities.
+\newblock {\em Phys. Rev. A}, 75:042511, Apr 2007.
+
+\bibitem{V}
+C.~Villani.
+\newblock {\em Topics in optimal transportation}, volume~58 of {\em Graduate
+  Studies in Mathematics.}
+\newblock American Mathematical Society, Providence, 2003.
+
+\bibitem{V2}
+C.~Villani.
+\newblock {\em Optimal transport: old and new}, volume 338 of {\em Grundlehren
+  der mathematischen Wissenschaften.}
+\newblock Springer, New York, 2009.
+
+\end{thebibliography}
