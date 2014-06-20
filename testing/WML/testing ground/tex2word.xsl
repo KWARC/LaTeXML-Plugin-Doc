@@ -879,21 +879,13 @@
   </xsl:template> 
 <!-- ============================================================================================================================================ --> 
 <xsl:template match="ltx:theorem">
-    <w:p>
-      <w:pPr>
-        <w:pStyle w:val="theorem"/>
-      </w:pPr>
       <xsl:apply-templates/>
-    </w:p>
   </xsl:template> 
 
   <xsl:template match="ltx:theorem/ltx:title">
-  <w:r>
-  	<w:rPr>
-  		<w:b/>
-  	</w:rPr>
+<w:p>
   <xsl:apply-templates/>
-  </w:r>
+</w:p>
   </xsl:template> 
 
   <xsl:template match="ltx:equationgroup">
@@ -918,5 +910,77 @@
   </w:p>
   </xsl:template>
   <xsl:template match="ltx:note"/>
-    <xsl:template match="ltx:date"/>
+  <xsl:template match="ltx:date"/>
+  <xsl:template match="ltx:title/ltx:tag">
+  <xsl:apply-templates/>
+  </xsl:template>
+ 
+  <xsl:template match="ltx:table">
+  <w:p>
+  <xsl:apply-templates/>
+  </w:p>
+  </xsl:template>
+  <xsl:template match="ltx:text[@fontsize='footnote']">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:ref[not(@labelref) and not(@idref) and @href]">
+      <w:hyperlink r:id="{generate-id()}">
+      <xsl:apply-templates/>
+    </w:hyperlink>
+    <external-link>
+      <xsl:copy-of select="."/>
+      <extra id="{generate-id()}"/>
+    </external-link>
+    </xsl:template>
+    <xsl:template match="ltx:text[@fontsize='small']">
+    <xsl:apply-templates/>
+    </xsl:template>
+   <xsl:template match="ltx:appendix">
+  <xsl:if test="./@labels">
+  <w:p>
+  <w:pPr><w:pStyle w:val="empty"/></w:pPr>
+      <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
+    <w:bookmarkEnd w:id="{./@xml:id}"/>
+  </w:p>
+  </xsl:if>
+   <xsl:apply-templates/>
+   </xsl:template>
+   <xsl:template match="ltx:appendix/ltx:title">
+     <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style1"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+   </xsl:template>
+   <xsl:template match="ltx:titlepage">
+   <xsl:apply-templates/>
+   </xsl:template>
+   <xsl:template match="ltx:pagination[@role='newpage']">
+   <w:p>
+   <w:r>
+   <w:break type="page"/>
+   </w:r>
+   </w:p>
+   </xsl:template>
+  <xsl:template match="ltx:subsubsection"> 
+   <w:p>
+      <w:pPr>
+        <w:pStyle w:val="empty"/>
+      </w:pPr>
+      <w:bookmarkStart w:name="{@labels}" w:id="{generate-id(.)}"/>
+      <w:bookmarkEnd w:id="{generate-id(.)}"/>
+    </w:p>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:subsubsection/ltx:title">
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style3"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
+  <xsl:template match="ltx:break[not(parent::ltx:p)]"/>
 </xsl:stylesheet>

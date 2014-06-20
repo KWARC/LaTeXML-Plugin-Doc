@@ -1025,4 +1025,35 @@
       <xsl:apply-templates/>
     </w:p>
    </xsl:template>
+   <xsl:template match="ltx:titlepage">
+   <xsl:apply-templates/>
+   </xsl:template>
+   <xsl:template match="ltx:pagination[@role='newpage']">
+   <w:p>
+   <w:r>
+   <w:break type="page"/>
+   </w:r>
+   </w:p>
+   </xsl:template>
+  <xsl:template match="ltx:subsubsection"> 
+   <w:p>
+      <w:pPr>
+        <w:pStyle w:val="empty"/>
+      </w:pPr>
+      <w:bookmarkStart w:name="{@labels}" w:id="{generate-id(.)}"/>
+      <w:bookmarkEnd w:id="{generate-id(.)}"/>
+    </w:p>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:subsubsection/ltx:title">
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style3"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
+  <xsl:template match="ltx:break[not(parent::ltx:p)]"/>
+   
 </xsl:stylesheet>
