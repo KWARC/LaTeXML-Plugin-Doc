@@ -1,398 +1,237 @@
 <?xml version="1.0"?>
-<b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" SelectedStyle="\APA.XSL" StyleName="APA">
+<b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" SelectedStyle="\APA.XSL" StyleName="APA">
   <b:Source>
-    <b:Tag>Autar</b:Tag>
     <b:SourceType>Book</b:SourceType>
-    <b:Guid>{5DE4A1A6-30EF-45BE-8EC3-FF7073FAE486}</b:Guid>
-    <b:Title>title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:City>City</b:City>
-    <b:Publisher>Publisher</b:Publisher>
+    <b:Tag>book1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:First>Author</b:First>
+            <b:Last>of book1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:RefOrder>1</b:RefOrder>
+    <b:Title>Title of book1</b:Title>
+    <b:Year>1993</b:Year>
+    <b:Publisher>Publisher of book1</b:Publisher>
+    <b:City>address of publisher of book1</b:City>
   </b:Source>
   <b:Source>
-    <b:Tag>Autar1</b:Tag>
+    <b:SourceType>JournalArticle</b:SourceType>
+    <b:Tag>article1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Author</b:First>
+            <b:Last>of article1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of article1</b:Title>
+    <b:JournalName>journal of article1</b:JournalName>
+    <b:Year>year of article1</b:Year>
+    <b:Pages>pages of article1</b:Pages>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Book</b:SourceType>
+    <b:Tag>book2</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:First>Anal</b:First>
+            <b:Last>investigator of book2</b:Last>
+          </b:Person>
+          <b:Person>
+            <b:First>Author2</b:First>
+            <b:Last>of book2</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of book2</b:Title>
+    <b:Publisher>publisher of book2</b:Publisher>
+    <b:Year>year of book2</b:Year>
+    <b:Month>month of book2</b:Month>
+    <b:City>address of book2</b:City>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Book</b:SourceType>
+    <b:Tag>booklet1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of booklet1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of booklet1</b:Title>
+    <b:City>address of booklet1</b:City>
+    <b:Year>year of booklet1</b:Year>
+    <b:Month>month of booklet1</b:Month>
+  </b:Source>
+  <b:Source>
     <b:SourceType>BookSection</b:SourceType>
-    <b:Guid>{423D0545-F391-418D-801B-B65C0E6E1EE5}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:City>City </b:City>
-    <b:Publisher>Publisher</b:Publisher>
+    <b:Tag>inbook1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of inbook1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
-      <b:BookAuthor>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Author</b:Last>
-            <b:First>Book</b:First>
-          </b:Person>
-        </b:NameList>
-      </b:BookAuthor>
     </b:Author>
-    <b:BookTitle>book title</b:BookTitle>
-    <b:Pages>Pages</b:Pages>
-    <b:RefOrder>2</b:RefOrder>
+    <b:Title>Title of inbook1</b:Title>
+    <b:Pages>pages of inbook1</b:Pages>
+    <b:Publisher>publisher of inbook1</b:Publisher>
+    <b:City>address of inbook1</b:City>
+    <b:Year>year of inbook1</b:Year>
+    <b:Month>month of inbook1</b:Month>
   </b:Source>
   <b:Source>
-    <b:Tag>Autar2</b:Tag>
-    <b:SourceType>JournalArticle</b:SourceType>
-    <b:Guid>{39F4DA0C-8892-42FA-ABF4-D1268F3681E3}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:Pages>Pages</b:Pages>
+    <b:SourceType>BookSection</b:SourceType>
+    <b:Tag>incollection1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of incollection1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:JournalName>Journal name</b:JournalName>
-    <b:RefOrder>3</b:RefOrder>
+    <b:Title>Title of incolleciton1</b:Title>
+    <b:BookTitle>booktitle of incollection1</b:BookTitle>
+    <b:Publisher>publisher of incollection1</b:Publisher>
+    <b:City>address of incollection1</b:City>
+    <b:Year>year of incollection1</b:Year>
+    <b:Month>month of incollection1</b:Month>
+    <b:Pages>pages of incollection1</b:Pages>
   </b:Source>
   <b:Source>
-    <b:Tag>Autar3</b:Tag>
-    <b:SourceType>JournalArticle</b:SourceType>
-    <b:Guid>{EE91EBDA-C43E-4DCA-A9B3-3A26BEDC9AF0}</b:Guid>
-    <b:Author>
-      <b:Author>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Author</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Author>
-    </b:Author>
-    <b:Title>title</b:Title>
-    <b:JournalName>Journal name</b:JournalName>
-    <b:Year>Year</b:Year>
-    <b:Pages>pages</b:Pages>
-    <b:RefOrder>4</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Autar4</b:Tag>
-    <b:SourceType>ArticleInAPeriodical</b:SourceType>
-    <b:Guid>{1F2F86C0-535F-4C7C-9110-B2A9EF4ABC2C}</b:Guid>
-    <b:Title>title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:Pages>Pages</b:Pages>
-    <b:Author>
-      <b:Author>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Author</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Author>
-    </b:Author>
-    <b:PeriodicalTitle>Periodical title</b:PeriodicalTitle>
-    <b:Month>Month </b:Month>
-    <b:Day>Day </b:Day>
-    <b:RefOrder>5</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Autar5</b:Tag>
     <b:SourceType>ConferenceProceedings</b:SourceType>
-    <b:Guid>{5D65BC03-BA0C-4DD0-9974-882C855D5DF4}</b:Guid>
-    <b:Title>title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:Pages>Pages</b:Pages>
+    <b:Tag>inproceedings1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:Last>Author</b:Last>
+            <b:Last>author of inproceedings1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:ConferenceName>Conference Publiction Name</b:ConferenceName>
-    <b:City>City </b:City>
-    <b:Publisher>Publisher</b:Publisher>
-    <b:RefOrder>6</b:RefOrder>
+    <b:Title>Title of inproceedings1</b:Title>
+    <b:ConferenceName>booktitle of inproceedings1q	</b:ConferenceName>
+    <b:ConferenceName>organization of inproceedings1</b:ConferenceName>
+    <b:Publisher>publisher of inproceedings 1</b:Publisher>
+    <b:Year>year of inproceedings1</b:Year>
+    <b:Month>month of inproceedings1</b:Month>
+    <b:Pages>pages of inproceedings1</b:Pages>
+    <b:City>address of inproceedings1</b:City>
   </b:Source>
   <b:Source>
     <b:SourceType>Report</b:SourceType>
-    <b:Tag>Autar6</b:Tag>
+    <b:Tag>manual1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:First>Till</b:First>
-            <b:Last>Mossakowski</b:Last>
-          </b:Person>
-          <b:Person>
-            <b:First>Christian</b:First>
-            <b:Last>Maeder</b:Last>
-          </b:Person>
-          <b:Person>
-            <b:First>Mihai</b:First>
-            <b:Last>Codescu</b:Last>
-          </b:Person>
-          <b:Person>
-            <b:First>Eugen</b:First>
-            <b:Last>Kuksa</b:Last>
-          </b:Person>
-          <b:Person>
-            <b:First>Christoph</b:First>
-            <b:Last>Lange</b:Last>
+            <b:Last>author of manual1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:Title>Hets for Common Logic users</b:Title>
-    <b:Publisher>DFKI GmbH, Bremen</b:Publisher>
-    <b:Year>2012</b:Year>
-    <b:Month>123</b:Month>
+    <b:Title>Title of manual1</b:Title>
+    <b:Publisher>organization of manual1</b:Publisher>
+    <b:City>address of manual1</b:City>
+    <b:Year>year of manual1</b:Year>
   </b:Source>
-   <b:Source>
-    <b:SourceType>InternetSite</b:SourceType>
-    <b:Tag>Autar7</b:Tag>
+  <b:Source>
+    <b:SourceType>JournalArticle</b:SourceType>
+    <b:Tag>mastersthesis1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of mastersthesis1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of mastersthesis1</b:Title>
+    <b:Publisher>school of mastersthesis1</b:Publisher>
+    <b:Year>year of mastersthesis1</b:Year>
+    <b:Month>month of masterstheiss1</b:Month>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>Misc</b:SourceType>
+    <b:Tag>misc1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of misc1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of misc1</b:Title>
+    <b:Year>year of misc1</b:Year>
+    <b:Month>month of misc1</b:Month>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>JournalArticle</b:SourceType>
+    <b:Tag>phthesis1</b:Tag>
+    <b:Author>
+      <b:Author>
+        <b:NameList>
+          <b:Person>
+            <b:Last>author of phdthesis1</b:Last>
+          </b:Person>
+        </b:NameList>
+      </b:Author>
+    </b:Author>
+    <b:Title>Title of phdthesis1</b:Title>
+    <b:Publisher>schookl of phdthesis1</b:Publisher>
+    <b:Year>year of phdthesis1</b:Year>
+    <b:Month>month of phdthesis1</b:Month>
+  </b:Source>
+  <b:Source>
+    <b:SourceType>ConferenceProceedings</b:SourceType>
+    <b:Tag>proceedins1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList/>
       </b:Author>
     </b:Author>
-    <b:Title>CorTeX framework</b:Title>
-    <b:URL>http://cortex.mathweb.org</b:URL>
-    <b:YearAccessed>2014</b:YearAccessed>
-    <b:MonthAccessed>02</b:MonthAccessed>
-    <b:DayAccessed>14</b:DayAccessed>
+    <b:Title>Title of proceedings1</b:Title>
+    <b:Year>year of proceedings1</b:Year>
+    <b:Month>month of proceedings1</b:Month>
+    <b:City>address of proceedings1</b:City>
+    <b:Publisher>publisher of proceedings1</b:Publisher>
+    <b:ConferenceName>organization of proceedings1</b:ConferenceName>
   </b:Source>
   <b:Source>
-    <b:Tag>Autar8</b:Tag>
-    <b:SourceType>DocumentFromInternetSite</b:SourceType>
-    <b:Guid>{D7482150-2DC9-4B07-A50E-A569B132A552}</b:Guid>
-    <b:Title>Name of Web Page</b:Title>
-    <b:InternetSiteTitle>Name of Web Site</b:InternetSiteTitle>
-    <b:Year>Year</b:Year>
-    <b:Month>Month </b:Month>
-    <b:Day>Day </b:Day>
-    <b:YearAccessed>Year Accessed</b:YearAccessed>
-    <b:MonthAccessed>Month Accessed</b:MonthAccessed>
-    <b:DayAccessed>Day Accessed </b:DayAccessed>
-    <b:URL>URL </b:URL>
-    <b:Author>
-      <b:Author>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Author</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Author>
-    </b:Author>
-    <b:RefOrder>9</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Autar9</b:Tag>
-    <b:SourceType>ElectronicSource</b:SourceType>
-    <b:Guid>{42CAEBAA-9902-4962-B53B-7D5912118A94}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:Month>Month</b:Month>
-    <b:Day>Day</b:Day>
-    <b:Author>
-      <b:Author>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Author</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Author>
-    </b:Author>
-    <b:City>City </b:City>
-    <b:StateProvince>State/Provingce</b:StateProvince>
-    <b:CountryRegion>Country/Region</b:CountryRegion>
-    <b:RefOrder>10</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>it</b:Tag>
-    <b:SourceType>Art</b:SourceType>
-    <b:Guid>{662AFED8-ECE4-48E0-B9E4-8E19F54BFB55}</b:Guid>
-    <b:Title>Artist</b:Title>
-    <b:City>City</b:City>
-    <b:Author>
-      <b:Artist>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Artist</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Artist>
-    </b:Author>
-    <b:Institution>Institution</b:Institution>
-    <b:PublicationTitle>Publication Title</b:PublicationTitle>
-    <b:RefOrder>11</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Comar</b:Tag>
-    <b:SourceType>SoundRecording</b:SourceType>
-    <b:Guid>{6E607EFE-C2CC-404D-861A-4DDD294058A2}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:City>City</b:City>
-    <b:Author>
-      <b:Composer>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Composer</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Composer>
-      <b:Conductor>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Conducter</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Conductor>
-      <b:Performer>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Performer</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Performer>
-    </b:Author>
-    <b:Year>Year </b:Year>
-    <b:StateProvince>State/Province</b:StateProvince>
-    <b:CountryRegion>Country/Region</b:CountryRegion>
-    <b:RefOrder>12</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Art</b:Tag>
-    <b:SourceType>Art</b:SourceType>
-    <b:Guid>{7150D332-0C16-4C0D-B1EA-5ADC22DC737D}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:City>City</b:City>
-    <b:Author>
-      <b:Artist>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Artist</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Artist>
-    </b:Author>
-    <b:Institution>Institution</b:Institution>
-    <b:PublicationTitle>Publication Title</b:PublicationTitle>
-    <b:RefOrder>13</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Dirar</b:Tag>
-    <b:SourceType>Film</b:SourceType>
-    <b:Guid>{4E1A2582-7589-4425-BE79-819E0280F9B1}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Author>
-      <b:Director>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Director</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Director>
-    </b:Author>
-    <b:Year>Year</b:Year>
-    <b:RefOrder>14</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Intar</b:Tag>
-    <b:SourceType>Interview</b:SourceType>
-    <b:Guid>{1D30F212-BD5C-4179-A7DB-56BFA9C21593}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:Year>Year</b:Year>
-    <b:Author>
-      <b:Interviewee>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Interviewee</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Interviewee>
-      <b:Interviewer>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Interviewer</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Interviewer>
-    </b:Author>
-    <b:Month>Month </b:Month>
-    <b:Day>Day</b:Day>
-    <b:RefOrder>15</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Invar</b:Tag>
-    <b:SourceType>Patent</b:SourceType>
-    <b:Guid>{1E6A1ACE-9681-40AD-9124-D0597BFB2345}</b:Guid>
-    <b:Year>Year</b:Year>
-    <b:Author>
-      <b:Inventor>
-        <b:NameList>
-          <b:Person>
-            <b:Last>Inventor</b:Last>
-          </b:Person>
-        </b:NameList>
-      </b:Inventor>
-    </b:Author>
-    <b:CountryRegion>Country/Region</b:CountryRegion>
-    <b:PatentNumber>Patent Number</b:PatentNumber>
-    <b:RefOrder>16</b:RefOrder>
-  </b:Source>
-  <b:Source>
-    <b:Tag>Tit</b:Tag>
-    <b:SourceType>Case</b:SourceType>
-    <b:Guid>{34D24F57-5331-437D-89FD-89FA447E5395}</b:Guid>
-    <b:Title>Title</b:Title>
-    <b:CaseNumber>Case Number</b:CaseNumber>
-    <b:Court>Court</b:Court>
-    <b:Year>Year</b:Year>
-    <b:Month>Month</b:Month>
-    <b:Day>Day</b:Day>
-    <b:RefOrder>17</b:RefOrder>
-  </b:Source>
-    <b:Source>
     <b:SourceType>Misc</b:SourceType>
-    <b:Tag>Autar10</b:Tag>
+    <b:Tag>unpublished1</b:Tag>
     <b:Author>
       <b:Author>
         <b:NameList>
           <b:Person>
-            <b:First>Marco B.</b:First>
-            <b:Last>Caminati</b:Last>
-          </b:Person>
-          <b:Person>
-            <b:First>Manfred</b:First>
-            <b:Last>Kerber</b:Last>
-          </b:Person>
-          <b:Person>
-            <b:First>Christoph</b:First>
-            <b:Last>Lange</b:Last>
-          </b:Person>
-          <b:Person>
-            <b:First>Colin</b:First>
-            <b:Last>Rowat</b:Last>
+            <b:Last>author of unpublished1</b:Last>
           </b:Person>
         </b:NameList>
       </b:Author>
     </b:Author>
-    <b:Title>Proving soundness of combinatorial Vickrey auctions and generating verified executable code</b:Title>
-    <b:Year>2013</b:Year>
+    <b:Title>Title of unpulished1</b:Title>
+    <b:Year>year of unpublished1</b:Year>
+    <b:Month>month of unpublished 1</b:Month>
   </b:Source>
 </b:Sources>
