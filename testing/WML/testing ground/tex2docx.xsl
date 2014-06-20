@@ -147,6 +147,7 @@
   <xsl:template match="ltx:text">
   	<xsl:apply-templates/>
   	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+  	<xsl:comment> Text formatting error here </xsl:comment>
   </xsl:template>
 
   <xsl:template match="ltx:text[@class='ltx_bib_year']">
@@ -551,7 +552,7 @@
     </w:hyperlink>
     <external-link>
       <xsl:copy-of select="."/>
-      <extra r:id="{generate-id()}"/>
+      <extra id="{generate-id()}"/>
     </external-link>
   </xsl:template> 
 
@@ -569,7 +570,7 @@
     </w:hyperlink>
     <external-link>
       <xsl:copy-of select="."/>
-      <extra r:id="{generate-id()}"/>
+      <extra id="{generate-id()}"/>
     </external-link>
   </xsl:template> 
 
@@ -625,11 +626,12 @@
       <w:bookmarkStart w:name="{@labels}" w:id="{generate-id(.)}"/>
       <w:bookmarkEnd w:id="{generate-id(.)}"/>
     </w:p>
+    <w:p>
     <xsl:apply-templates/>
+    </w:p>
   </xsl:template> 
 
   <xsl:template match="ltx:graphics[ancestor::ltx:figure]">
-    <w:p>
       <w:r>
         <w:drawing>
           <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -710,7 +712,6 @@
           </wp:anchor>
         </w:drawing>
       </w:r>
-    </w:p>
   </xsl:template> 
 
   <xsl:template match="ltx:graphics[ancestor::ltx:p]">
@@ -1001,5 +1002,12 @@
   <xsl:apply-templates/>
   </xsl:template>
  
-  
+  <xsl:template match="ltx:table">
+  <w:p>
+  <xsl:apply-templates/>
+  </w:p>
+  </xsl:template>
+  <xsl:template match="ltx:text[@fontsize='footnote']">
+  <xsl:apply-templates/>
+  </xsl:template>
 </xsl:stylesheet>

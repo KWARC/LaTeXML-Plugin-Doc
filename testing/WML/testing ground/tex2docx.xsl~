@@ -146,7 +146,8 @@
   
   <xsl:template match="ltx:text">
   	<xsl:apply-templates/>
-  	<xsl:comment> elided text formatting <xsl:copy-of select="."/> </xsl:comment>
+  	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+  	<xsl:comment> Text formatting error here </xsl:comment>
   </xsl:template>
 
   <xsl:template match="ltx:text[@class='ltx_bib_year']">
@@ -551,7 +552,7 @@
     </w:hyperlink>
     <external-link>
       <xsl:copy-of select="."/>
-      <extra r:id="{generate-id()}"/>
+      <extra id="{generate-id()}"/>
     </external-link>
   </xsl:template> 
 
@@ -569,7 +570,7 @@
     </w:hyperlink>
     <external-link>
       <xsl:copy-of select="."/>
-      <extra r:id="{generate-id()}"/>
+      <extra id="{generate-id()}"/>
     </external-link>
   </xsl:template> 
 
@@ -1001,5 +1002,12 @@
   <xsl:apply-templates/>
   </xsl:template>
  
-  
+  <xsl:template match="ltx:table">
+  <w:p>
+  <xsl:apply-templates/>
+  </w:p>
+  </xsl:template>
+  <xsl:template match="ltx:text[@fontsize='footnote']">
+  <xsl:apply-templates/>
+  </xsl:template>
 </xsl:stylesheet>
