@@ -530,22 +530,7 @@
     </w:hyperlink>
   </xsl:template> 
 
-  <xsl:template match="ltx:note[@role='footnote']">
-    <w:hyperlink w:anchor="{generate-id(.)}">
-      <w:r>
-        <w:rPr>
-          <w:rStyle w:val="superscript"/>
-        </w:rPr>
-        <w:t> [<xsl:value-of select="./@mark"/>]</w:t>
-      </w:r>
-    </w:hyperlink>
-    <footnote>
-      <w:bookmarkStart w:name="{generate-id(.)}" w:id="{generate-id(./text()[1])}"/>
-      <w:bookmarkEnd w:id="{generate-id(./text()[1])}"/>
-      <xsl:apply-templates/>
-    </footnote>
-  </xsl:template> 
-
+  <xsl:template match="ltx:note[@role='footnote']"/>
   <xsl:template match="ltx:ref[@class='ltx_bib_external']">
     <w:hyperlink r:id="{generate-id()}">
       <xsl:apply-templates/>
@@ -1010,4 +995,34 @@
   <xsl:template match="ltx:text[@fontsize='footnote']">
   <xsl:apply-templates/>
   </xsl:template>
+  <xsl:template match="ltx:ref[not(@labelref) and not(@idref) and @href]">
+      <w:hyperlink r:id="{generate-id()}">
+      <xsl:apply-templates/>
+    </w:hyperlink>
+    <external-link>
+      <xsl:copy-of select="."/>
+      <extra id="{generate-id()}"/>
+    </external-link>
+    </xsl:template>
+    <xsl:template match="ltx:text[@fontsize='small']">
+    <xsl:apply-templates/>
+    </xsl:template>
+   <xsl:template match="ltx:appendix">
+  <xsl:if test="./@labels">
+  <w:p>
+  <w:pPr><w:pStyle w:val="empty"/></w:pPr>
+      <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
+    <w:bookmarkEnd w:id="{./@xml:id}"/>
+  </w:p>
+  </xsl:if>
+   <xsl:apply-templates/>
+   </xsl:template>
+   <xsl:template match="ltx:appendix/ltx:title">
+     <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style1"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+   </xsl:template>
 </xsl:stylesheet>

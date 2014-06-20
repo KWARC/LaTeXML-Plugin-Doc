@@ -16,11 +16,18 @@
   <xsl:strip-space elements="*"/>
    <xsl:template match="ltx:equation">
   <xsl:if test="./@labels">
-  <w:p>
-  <w:pPr><w:pStyle w:val="empty"/></w:pPr>
       <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
     <w:bookmarkEnd w:id="{./@xml:id}"/>
-  </w:p>
+  </xsl:if>
+    <omml:oMath>
+      <xsl:apply-templates mode="mml"/>
+    </omml:oMath>
+  </xsl:template> 
+
+  <xsl:template match="ltx:Math[@mode='inline']">
+    <xsl:if test="./@labels">
+      <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
+    <w:bookmarkEnd w:id="{./@xml:id}"/>
   </xsl:if>
     <omml:oMath>
       <xsl:apply-templates mode="mml"/>
@@ -28,12 +35,6 @@
   </xsl:template> 
 
   <xsl:template match="ltx:Math">
-    <omml:oMath>
-      <xsl:apply-templates mode="mml"/>
-    </omml:oMath>
-  </xsl:template> 
-
-  <xsl:template match="ltx:Math[not(ancestor::ltx:p)]">
    <xsl:if test="./@labels">
   <w:p>
   <w:pPr><w:pStyle w:val="empty"/></w:pPr>
@@ -62,7 +63,7 @@
       </omml:oMath>
     </w:p>
   </xsl:template> 
- 
+
 
   <!-- Variables -->
   <!--
