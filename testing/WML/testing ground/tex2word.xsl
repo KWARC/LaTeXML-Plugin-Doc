@@ -458,9 +458,6 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="ltx:enumerate">
-    <xsl:apply-templates/>
-  </xsl:template> 
 
   <xsl:template match="ltx:ref[@class='ltx_url']">
     <w:hyperlink r:id="{generate-id()}">
@@ -863,7 +860,7 @@
     </w:tc>
   </xsl:template> 
 <!-- ============================================================================================================================================ --> 
-<xsl:template match="ltx:theorem">
+ <xsl:template match="ltx:theorem">
       <xsl:apply-templates/>
   </xsl:template> 
 
@@ -968,4 +965,81 @@
     </w:p>
   </xsl:template> 
   <xsl:template match="ltx:break[not(parent::ltx:p)]"/>
+  <xsl:template match="ltx:text[@font='slanted']">
+  <xsl:apply-templates/>
+  </xsl:template>
+   <xsl:template match="ltx:proof">
+      <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:proof/ltx:title">
+<w:p>
+  <xsl:apply-templates/>
+</w:p>
+  </xsl:template> 
+  <!-- 
+  <xsl:template match="ltx:itemize">
+  <xsl:variable name="foo">
+  <xsl:for-each select=".//ltx:item">
+  <item> <xsl:copy-of select=".//ltx:p"/> </item>
+  </xsl:for-each>
+  </xsl:variable>
+  <xsl:copy-of select="exsl:node-set($foo)"/> 
+  </xsl:template> --> 
+  <xsl:template match="ltx:itemize">
+   <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:item">
+   <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="{count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate)-1}"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <xsl:apply-templates select="./ltx:para/ltx:p"/>
+    </w:p>
+    <xsl:apply-templates select=".//ltx:itemize"/>
+    <xsl:apply-templates select=".//ltx:enumerate"/>
+  </xsl:template>
+  <xsl:template match="ltx:item/ltx:para/ltx:p">
+  <xsl:apply-templates/>
+  </xsl:template>
+  
+    <xsl:template match="ltx:enumerate">
+   <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:item[(count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate))=1]">
+  <xsl:variable name="foo">
+  <xsl:for-each select="..//ltx:item">
+  <xsl:if test="position()=1">
+    <xsl:value-of select="count(preceding::ltx:item)"/>
+  </xsl:if>
+  </xsl:for-each>
+  </xsl:variable>
+   <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="{count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate)-1}"/>
+          <xsl:if test="$foo=0">
+          <w:numId w:val="1"/>
+          </xsl:if>
+          <xsl:if test="$foo>0">
+          <w:numId w:val="{$foo}"/>
+          </xsl:if>
+        </w:numPr>
+      </w:pPr>
+      <xsl:apply-templates select="./ltx:para/ltx:p"/>
+    </w:p>
+    <xsl:apply-templates select=".//ltx:itemize"/>
+    <xsl:apply-templates select=".//ltx:enumerate"/>
+  </xsl:template>
+  <xsl:template match="ltx:item/ltx:para/ltx:p">
+  <xsl:apply-templates/>
+  </xsl:template>
+ 
+ <xsl:template match="ltx:figure/ltx:p"/>
 </xsl:stylesheet>
