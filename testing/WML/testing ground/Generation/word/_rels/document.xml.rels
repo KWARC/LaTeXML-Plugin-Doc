@@ -4,4 +4,31 @@
   <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/customXml" Target="../customXml/item1.xml"/>
   <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
   <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
+  <Relationship Id="idp929408" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/compositiondictionarykm.ps"/>
+  <Relationship Id="idp935616" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/compositiondictionarymc.ps"/>
+  <Relationship Id="idp941792" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/compositiondictionaryms.ps"/>
+  <Relationship Id="idp948000" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/compositiondictionarygms.ps"/>
+  <Relationship Id="idp1949552" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/CombinationSelectionComparison.eps"/>
+  <Relationship Id="idp1986400" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1M64bits1NN.eps"/>
+  <Relationship Id="idp1990368" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1M64bits10NN.eps"/>
+  <Relationship Id="idp1994272" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1M64bits100NN.eps"/>
+  <Relationship Id="idp1999248" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1M128bits1NN.eps"/>
+  <Relationship Id="idp2005456" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1M128bits10NN.eps"/>
+  <Relationship Id="idp2011664" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1M128bits100NN.eps"/>
+  <Relationship Id="idp2055360" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1B64bits1NN.eps"/>
+  <Relationship Id="idp2059648" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1B64bits10NN.eps"/>
+  <Relationship Id="idp2063616" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1B64bits100NN.eps"/>
+  <Relationship Id="idp2068592" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1B128bits1NN.eps"/>
+  <Relationship Id="idp2074736" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1B128bits10NN.eps"/>
+  <Relationship Id="idp2081296" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/SIFT1B128bits100NN.eps"/>
+  <Relationship Id="idp2124816" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Classifier64bits1NN.eps"/>
+  <Relationship Id="idp2128624" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Classifier64bits10NN.eps"/>
+  <Relationship Id="idp2132592" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Classifier64bits100NN.eps"/>
+  <Relationship Id="idp2137536" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Classifier128bits1NN.eps"/>
+  <Relationship Id="idp2143712" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Classifier128bits10NN.eps"/>
+  <Relationship Id="idp2149936" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Classifier128bits100NN.eps"/>
+  <Relationship Id="idp2194496" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Netflix32bits50NN.eps"/>
+  <Relationship Id="idp2200800" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Netflix32bits100NN.eps"/>
+  <Relationship Id="idp2207008" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Netflix64bits50NN.eps"/>
+  <Relationship Id="idp2213264" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/figs/Netflix64bits100NN.eps"/>
 </Relationships>

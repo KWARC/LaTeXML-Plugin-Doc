@@ -1097,7 +1097,12 @@
         <w:pStyle w:val="ListParagraph"/>
         <w:numPr>
           <w:ilvl w:val="{count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate)-1}"/>
+          <xsl:if test="$foo=0">
+          <w:numId w:val="1"/>
+          </xsl:if>
+          <xsl:if test="$foo>0">
           <w:numId w:val="{$foo}"/>
+          </xsl:if>
         </w:numPr>
       </w:pPr>
       <xsl:apply-templates select="./ltx:para/ltx:p"/>
