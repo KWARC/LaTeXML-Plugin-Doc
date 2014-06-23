@@ -10,7 +10,7 @@
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
-<xsl:stylesheet xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math" version="1.0" exclude-result-prefixes="ltx">
+<xsl:stylesheet xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math" version="1.0" exclude-result-prefixes="ltx" xmlns:exsl="http://exslt.org/common">
   <xsl:import href="mml2omml.xsl"/>
   <xsl:output method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
@@ -157,7 +157,7 @@
         <xsl:if test="ancestor::ltx:text[contains(@font,'typewriter')]">
           <w:rFonts w:ascii="typewriter" w:cs="typewriter"/>
         </xsl:if>
-        <xsl:if test="ancestor::*[contains(@font,'italic')] or ancestor::ltx:emph or ancestor::*[contains(@shape,'italic')]">
+        <xsl:if test="ancestor::*[contains(@font,'italic') or contains(@font,'slanted')] or ancestor::ltx:emph or ancestor::*[contains(@shape,'italic')]">
           <w:i/><w:sdt>
         <w:sdtPr>
           <w:id w:val="1038088419"/>
@@ -376,21 +376,6 @@
   </xsl:template> 
 
   <xsl:template match="ltx:tag"/>
-  <xsl:template match="ltx:item/ltx:tag">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:item">
-    <w:p>
-      <w:pPr>
-        <w:ilvl w:val="{count(ancestor::ltx:enumerate)+1}"/>
-        <w:numId w:val="none"/>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-    </w:p>
-    <xsl:apply-templates/>
-  </xsl:template> 
-
   <xsl:template match="ltx:paragraph/ltx:title">
     <w:p>
       <w:pPr>

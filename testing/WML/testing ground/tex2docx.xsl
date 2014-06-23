@@ -10,7 +10,7 @@
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
-<xsl:stylesheet xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math" version="1.0" exclude-result-prefixes="ltx">
+<xsl:stylesheet xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math" version="1.0" exclude-result-prefixes="ltx" xmlns:exsl="http://exslt.org/common">
   <xsl:import href="mml2omml.xsl"/>
   <xsl:output method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
@@ -270,7 +270,7 @@
         <xsl:if test="ancestor::ltx:text[contains(@font,'typewriter')]">
           <w:rFonts w:ascii="typewriter" w:cs="typewriter"/>
         </xsl:if>
-        <xsl:if test="ancestor::*[contains(@font,'italic')] or ancestor::ltx:emph or ancestor::*[contains(@shape,'italic')]">
+        <xsl:if test="ancestor::*[contains(@font,'italic')] or ancestor::ltx:emph or ancestor::*[contains(@shape,'italic') or contains(@font,'slanted')]">
           <w:i/>
         </xsl:if>
         <xsl:if test="ancestor::*[contains(@framed,'underline')]">
@@ -449,20 +449,6 @@
   </xsl:template> 
 
   <xsl:template match="ltx:tag"/>
-  <xsl:template match="ltx:item/ltx:tag">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:item">
-    <w:p>
-      <w:pPr>
-        <w:ilvl w:val="{count(ancestor::ltx:enumerate)+1}"/>
-        <w:numId w:val="none"/>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-    </w:p>
-    <xsl:apply-templates/>
-  </xsl:template> 
 
   <xsl:template match="ltx:paragraph/ltx:title">
     <w:p>
@@ -545,9 +531,6 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="ltx:enumerate">
-    <xsl:apply-templates/>
-  </xsl:template> 
 
   <xsl:template match="ltx:ref[@class='ltx_url']">
     <w:hyperlink r:id="{generate-id()}">
@@ -1055,5 +1038,81 @@
     </w:p>
   </xsl:template> 
   <xsl:template match="ltx:break[not(parent::ltx:p)]"/>
+  <xsl:template match="ltx:text[@font='slanted']">
+  <xsl:apply-templates/>
+  </xsl:template>
+   <xsl:template match="ltx:proof">
+      <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:proof/ltx:title">
+<w:p>
+  <xsl:apply-templates/>
+</w:p>
+  </xsl:template> 
+  <!-- 
+  <xsl:template match="ltx:itemize">
+  <xsl:variable name="foo">
+  <xsl:for-each select=".//ltx:item">
+  <item> <xsl:copy-of select=".//ltx:p"/> </item>
+  </xsl:for-each>
+  </xsl:variable>
+  <xsl:copy-of select="exsl:node-set($foo)"/> 
+  </xsl:template> --> 
+  <xsl:template match="ltx:itemize">
+   <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:item">
+   <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="{count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate)-1}"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+      </w:pPr>
+      <xsl:apply-templates select="./ltx:para/ltx:p"/>
+    </w:p>
+    <xsl:apply-templates select=".//ltx:itemize"/>
+    <xsl:apply-templates select=".//ltx:enumerate"/>
+  </xsl:template>
+  <xsl:template match="ltx:item/ltx:para/ltx:p">
+  <xsl:apply-templates/>
+  </xsl:template>
+  
+    <xsl:template match="ltx:enumerate">
+   <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:item[(count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate))=1]">
+  <xsl:variable name="foo">
+  <xsl:for-each select="..//ltx:item">
+  <xsl:if test="position()=1">
+    <xsl:value-of select="count(preceding::ltx:item)"/>
+  </xsl:if>
+  </xsl:for-each>
+  </xsl:variable>
+   <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="{count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate)-1}"/>
+          <xsl:if test="$foo=0">
+          <w:numId w:val="1"/>
+          </xsl:if>
+          <xsl:if test="$foo>0">
+          <w:numId w:val="{$foo}"/>
+          </xsl:if>
+        </w:numPr>
+      </w:pPr>
+      <xsl:apply-templates select="./ltx:para/ltx:p"/>
+    </w:p>
+    <xsl:apply-templates select=".//ltx:itemize"/>
+    <xsl:apply-templates select=".//ltx:enumerate"/>
+  </xsl:template>
+  <xsl:template match="ltx:item/ltx:para/ltx:p">
+  <xsl:apply-templates/>
+  </xsl:template>
+ 
    
 </xsl:stylesheet>
