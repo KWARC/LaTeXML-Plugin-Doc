@@ -103,9 +103,10 @@
   </xsl:template> 
 
   <xsl:template match="ltx:cite">
+  <xsl:for-each select=".//ltx:ref">
     <w:sdt>
       <w:sdtPr>
-        <w:id w:val="{count(preceding::ltx:cite)}"/>
+        <w:id w:val="{count(preceding::ltx:ref)}"/>
         <w:citation/>
       </w:sdtPr>
       <w:sdtEndPr/>
@@ -125,6 +126,7 @@
         </w:r>
       </w:sdtContent>
     </w:sdt>
+    </xsl:for-each>
   </xsl:template> 
 
   <xsl:template match="ltx:text[@xml:id and @fragid]">
@@ -817,7 +819,7 @@
         <xsl:if test="not(@align='justify')">
           <w:vAlign w:val="{@align}"/>
         </xsl:if>
-        <xsl:if test="@align='justify']">
+        <xsl:if test="@align='justify'">
           <w:vAlign w:val="both"/>
         </xsl:if>
         </xsl:if>

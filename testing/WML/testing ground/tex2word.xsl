@@ -103,9 +103,10 @@
   </xsl:template> 
 
   <xsl:template match="ltx:cite">
+  <xsl:for-each select=".//ltx:ref">
     <w:sdt>
       <w:sdtPr>
-        <w:id w:val="{count(preceding::ltx:cite)}"/>
+        <w:id w:val="{count(preceding::ltx:ref)}"/>
         <w:citation/>
       </w:sdtPr>
       <w:sdtEndPr/>
@@ -114,7 +115,7 @@
           <w:fldChar w:fldCharType="begin"/>
         </w:r>
         <w:r w:rsidR="00597C89">
-          <w:instrText xml:space="preserve"> CITATION <xsl:value-of select="//ltx:bibitem[@xml:id=current()/ltx:ref/@idref]/@key"/> \l 1033 </w:instrText>
+          <w:instrText xml:space="preserve"> CITATION <xsl:value-of select="//ltx:bibitem[@xml:id=current()/@idref]/@key"/> \l 1033 </w:instrText>
         </w:r>
         <w:r w:rsidR="00597C89">
           <w:fldChar w:fldCharType="separate"/>
@@ -125,6 +126,7 @@
         </w:r>
       </w:sdtContent>
     </w:sdt>
+    </xsl:for-each>
   </xsl:template> 
 
   <xsl:template match="ltx:text[@xml:id and @fragid]">
