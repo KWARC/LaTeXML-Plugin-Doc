@@ -393,12 +393,29 @@
   </xsl:template> 
 
   <xsl:template match="ltx:p">
+  <xsl:if test="./ltx:tabular">
+      <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style46"/>
+      </w:pPr> 
+      <xsl:apply-templates select="/ltx:tabular/preceding-sibling::*"/>
+    </w:p>
+    <xsl:apply-templates select="ltx:tabular"/>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style46"/>
+      </w:pPr>
+      <xsl:apply-templates select="/ltx:tabular/following-sibling::*"/>
+    </w:p> 
+  </xsl:if>
+  <xsl:if test="not(./ltx:tabular)">
     <w:p>
       <w:pPr>
         <w:pStyle w:val="style0"/>
       </w:pPr>
       <xsl:apply-templates/>
     </w:p>
+  </xsl:if>
   </xsl:template> 
 
   <xsl:template match="ltx:resource"/>
