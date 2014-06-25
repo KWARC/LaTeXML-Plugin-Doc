@@ -2,11 +2,11 @@
 <!--
 /=====================================================================\ 
 |  ltx2word.xsl                                                       |
-|  Stylesheet for converting LaTeXML documents to OOXML          |
+|  Stylesheet for converting LaTeXML documents to OOXML               |
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
-| Michael Kohlhase http://kwarc.info/kReportohlhase                 #_#     |
+| Michael Kohlhase http://kwarc.info/kReportohlhase           #_#     |
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
@@ -18,6 +18,7 @@
       <xsl:copy-of select="."/>
     </xsl:comment>
   </xsl:template>
+  <xsl:variable name="document" select="document('paper.ltxml')//ltx:bibliography"/>
   <xsl:template match="/">
     <b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" SelectedStyle="\APA.XSL" StyleName="APA">
       <xsl:apply-templates/>
@@ -36,6 +37,8 @@
     <xsl:apply-templates/>
   </xsl:template>
   <xsl:template match="ltx:bibentry">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>
         <xsl:value-of select="./@type"/>
@@ -62,12 +65,15 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source>	 
+    </xsl:if>
     <xsl:comment> Haven't deal with this bibentry yet </xsl:comment>
     <!-- <xsl:message>Haven't dealt with this bibentry yet </xsl:message> -->
   </xsl:template>
   <xsl:template match="ltx:bibentry[contains(./@type,'proceedings')]/ltx:bib-url"/>
   <xsl:template match="ltx:bibentry[@type='website']">
+      <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>InternetSite</b:SourceType>
       <b:Tag>
@@ -92,9 +98,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='collection']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>InternetSite</b:SourceType>
       <b:Tag>
@@ -119,10 +127,13 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
+    
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='book']/ltx:bib-url"/>
   <xsl:template match="ltx:bibentry[@type='book']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>Book</b:SourceType>
       <b:Tag>
@@ -147,7 +158,7 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='website']/ltx:bib-url">
     <b:URL>
@@ -155,6 +166,8 @@
     </b:URL>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='report']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>Report</b:SourceType>
       <b:Tag>
@@ -179,7 +192,7 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bib-organization[not(../ltx:bib-publisher)]">
   <b:Publisher><xsl:value-of select="./text()"/></b:Publisher>
@@ -207,6 +220,8 @@
     </b:DayAccessed>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='unpublished']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>Misc</b:SourceType>
       <b:Tag>
@@ -231,9 +246,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='misc']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>Misc</b:SourceType>
       <b:Tag>
@@ -258,10 +275,12 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[contains(@type,'thesis')]">
     <!-- thesis are best modelled by articles in a journal. Only other options that fit are book and miscellaneous. However misc. doesn't contain the extra information we would want. -->
+    <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>JournalArticle</b:SourceType>
       <b:Tag>
@@ -286,9 +305,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='manual']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>Report</b:SourceType>
       <b:Tag>
@@ -313,9 +334,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[contains(@type,'proceedings')]">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>ConferenceProceedings</b:SourceType>
       <b:Tag>
@@ -340,9 +363,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='incollection']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>BookSection</b:SourceType>
       <b:Tag>
@@ -367,9 +392,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='booklet']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>Book</b:SourceType>
       <b:Tag>
@@ -394,9 +421,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='inbook']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>BookSection</b:SourceType>
       <b:Tag>
@@ -421,9 +450,11 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bibentry[@type='article']">
+  <xsl:variable name="foo" select="./@key"/>
+  <xsl:if test="$document//ltx:bibitem[@key=$foo]">
     <b:Source>
       <b:SourceType>JournalArticle</b:SourceType>
       <b:Tag>
@@ -448,7 +479,7 @@
         </b:Author>
       </b:Author>
       <xsl:apply-templates/>
-    </b:Source>
+    </b:Source> </xsl:if>
   </xsl:template>
   <xsl:template match="ltx:bib-data[@role='venue']"/>
   

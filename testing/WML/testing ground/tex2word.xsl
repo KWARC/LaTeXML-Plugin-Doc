@@ -814,7 +814,12 @@
           <!-- I can't deal with spanning rows yet. I will have to take a closer look at this later -->
         </xsl:if>
         <xsl:if test="@align">
+        <xsl:if test="not(@align='justify')">
           <w:vAlign w:val="{@align}"/>
+        </xsl:if>
+        <xsl:if test="@align='justify'">
+          <w:vAlign w:val="both"/>
+        </xsl:if>
         </xsl:if>
         <xsl:if test="thead='true'">
           <w:rStyle w:val="tablehead"/>
