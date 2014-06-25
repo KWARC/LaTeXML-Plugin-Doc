@@ -1114,5 +1114,5 @@
   <xsl:apply-templates/>
   </xsl:template>
  
-   
+ <xsl:template match="ltx:figure/ltx:p"/>
 </xsl:stylesheet>

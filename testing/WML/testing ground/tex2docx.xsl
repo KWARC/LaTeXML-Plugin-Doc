@@ -1115,4 +1115,9 @@
   </xsl:template>
  
  <xsl:template match="ltx:figure/ltx:p"/>
+ <xsl:template match="ltx:rule"/>
+ <xsl:template match="ltx:inline-block">
+ 	<xsl:apply-templates/>
+ </xsl:template>
+ <xsl:template match="ltx:XMHint"/>
 </xsl:stylesheet>
