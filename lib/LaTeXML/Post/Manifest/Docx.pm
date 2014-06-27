@@ -33,7 +33,7 @@ sub initialize {
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
   my $skeleton_directory = pathname_directory($content_types);
   if ($skeleton_directory) {
-    foreach my $subdirectory (qw/_rels word docProps/, catdir('word','_rels'), catdir('word','media')) { #create the file structure
+    foreach my $subdirectory (qw/_rels word docProps customXML/, catdir('word','_rels'),catdir('customXML','_rels') catdir('word','media')) { #create the file structure
       mkdir(catdir($directory, $subdirectory)); }
     # Annoying, but let's copy each of the 6 static files individually:
     my @static_files = (
@@ -42,14 +42,20 @@ sub initialize {
       [ catfile($skeleton_directory,'word','fontTable.xml'), catdir($directory,'word') ],
       [ catfile($skeleton_directory,'word','settings.xml'), catdir($directory,'word') ],
       [ catfile($skeleton_directory,'word','styles.xml'), catdir($directory,'word') ],
+      [ catfile($skeleton_directory,'word','footnotes.xml'), catdir($directory,'word') ],
+      [ catfile($skeleton_directory,'customXML','_rels','item1.xml.rels'), catdir($directory,'customXML','_rels') ],
+      [ catfile($skeleton_directory,'customXML','itemProps1.xml'), catdir($directory,'customXML') ],
       [ catfile($skeleton_directory,'[Content_Types].xml'), catdir($directory,'.')]);
     foreach my $static_file(@static_files) {
       pathname_copy($static_file->[0],  $static_file->[1]); } } #populate the file structure
   else {
     Error('I/O',$content_types,undef,"Couldn't find WML static resource: $content_types.xml"); }
   
+  my $document_footnotes =catfile($directory,'word','footnotes.xml');
+  my $footnotes_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet ==> 'footnotes.xsl', noresources=>1);
+  my $footnotes_document = $footnotes_stylesheet->process($doc); #We create footnotes.xml by applying footnotes.xsl to document1.xml 
   my $document_final =catfile($directory,'word','document.xml');
-  my $cleanup_stylesheet = LaTeXML::Post::XSLt->new (stylesheet ==> 'cleaner.xsl', noresources => 1); 
+  my $cleanup_stylesheet = LaTeXML::Post::XSLT->new (stylesheet ==> 'cleaner.xsl', noresources => 1); 
   my $final_document = $cleanup_stylesheet->process($doc); #We create document.xml by applying cleaner.xsl to document1.xml
   $final_document->{destination} =$document_final;
   my $document_rels = catfile($directory,'word','_rels','document.xml.rels');
@@ -62,7 +68,7 @@ sub initialize {
   my $writer = LaTeXML::Post::Writer->new(format=>'xml',omit_doctype=>0);
   $writer->process($rels_document,$rels_document->getDocumentElement);
   # TODO Sort pictures into media 
-  # TODO zip everything and rename it. 
+  # TODO zip everything and rename it. I think that is being done automatically though
   
   return; }
 
