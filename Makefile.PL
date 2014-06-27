@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
   NAME => 'LaTeXML::Plugin::Odt',
-  AUTHOR => 'Lukas Kohlahse <email>',
+  AUTHOR => 'Lukas Kohlhase <email>',
   ABSTRACT => "LaTeXML::Plugin::Doc - A LaTeXML post-processor for Word and OpenOffice",
   VERSION => '0.1',
   PREREQ_PM => {
