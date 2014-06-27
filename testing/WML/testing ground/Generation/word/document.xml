@@ -1,51 +1,42 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 wp14">
+<?xml version="1.0"?>
+<w:document xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:exsl="http://exslt.org/common">
   <w:body>
-    <w:p w:rsidR="0098193D" w:rsidRDefault="0098193D">
+    <w:p>
       <w:pPr>
-        <w:pStyle w:val="DefaultStyle"/>
+        <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:id="0" w:name="p1"/>
-      <w:bookmarkStart w:id="1" w:name="_GoBack"/>
-      <w:bookmarkEnd w:id="0"/>
-      <w:bookmarkEnd w:id="1"/>
+      <w:bookmarkStart w:name="p1" w:id="idp15552"/>
+      <w:bookmarkEnd w:id="idp15552"/>
     </w:p>
-    <w:p w:rsidR="0098193D" w:rsidRDefault="001B7D81">
+    <w:p>
       <w:pPr>
-        <w:pStyle w:val="DefaultStyle"/>
+        <w:pStyle w:val="style0"/>
       </w:pPr>
       <w:sdt>
         <w:sdtPr>
-          <w:id w:val="1138232860"/>
+          <w:id w:val="0"/>
           <w:citation/>
         </w:sdtPr>
         <w:sdtEndPr/>
         <w:sdtContent>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="begin"/>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:instrText xml:space="preserve"> CITATION book1 \l 1033 </w:instrText>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="separate"/>
           </w:r>
           <w:r>
-            <w:rPr>
-              <w:noProof/>
-            </w:rPr>
-            <w:t>[1]</w:t>
+            <w:rPr/>
+            <w:t>2</w:t>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="end"/>
           </w:r>
         </w:sdtContent>
       </w:sdt>
-      <w:proofErr w:type="gramStart"/>
-      <w:r>
-        <w:t>,</w:t>
-      </w:r>
-      <w:proofErr w:type="gramEnd"/>
       <w:sdt>
         <w:sdtPr>
           <w:id w:val="1"/>
@@ -53,29 +44,24 @@
         </w:sdtPr>
         <w:sdtEndPr/>
         <w:sdtContent>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="begin"/>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:instrText xml:space="preserve"> CITATION book2 \l 1033 </w:instrText>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="separate"/>
           </w:r>
           <w:r>
-            <w:rPr>
-              <w:noProof/>
-            </w:rPr>
-            <w:t xml:space="preserve"> [2]</w:t>
+            <w:rPr/>
+            <w:t>1</w:t>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="end"/>
           </w:r>
         </w:sdtContent>
       </w:sdt>
-      <w:r>
-        <w:t>,</w:t>
-      </w:r>
       <w:sdt>
         <w:sdtPr>
           <w:id w:val="2"/>
@@ -83,22 +69,20 @@
         </w:sdtPr>
         <w:sdtEndPr/>
         <w:sdtContent>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="begin"/>
           </w:r>
-          <w:r>
-            <w:instrText xml:space="preserve"> CITATION booklet1 \l 1033 </w:instrText>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION book1 \l 1033 </w:instrText>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="separate"/>
           </w:r>
           <w:r>
-            <w:rPr>
-              <w:noProof/>
-            </w:rPr>
-            <w:t xml:space="preserve"> [3]</w:t>
+            <w:rPr/>
+            <w:t>2</w:t>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="end"/>
           </w:r>
         </w:sdtContent>
@@ -110,32 +94,31 @@
         </w:sdtPr>
         <w:sdtEndPr/>
         <w:sdtContent>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="begin"/>
           </w:r>
-          <w:r>
-            <w:instrText xml:space="preserve"> CITATION inbook1 \l 1033 </w:instrText>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION book2 \l 1033 </w:instrText>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="separate"/>
           </w:r>
           <w:r>
-            <w:rPr>
-              <w:noProof/>
-            </w:rPr>
-            <w:t xml:space="preserve"> [4]</w:t>
+            <w:rPr/>
+            <w:t>1</w:t>
           </w:r>
-          <w:r>
+          <w:r w:rsidR="00597C89">
             <w:fldChar w:fldCharType="end"/>
           </w:r>
         </w:sdtContent>
       </w:sdt>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="FootnoteReference"/>
+        </w:rPr>
+        <w:footnoteReference w:id="0"/>
+        
+      </w:r>
     </w:p>
-    <w:sectPr w:rsidR="0098193D">
-      <w:pgSz w:w="12240" w:h="15840"/>
-      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
-      <w:cols w:space="720"/>
-      <w:docGrid w:linePitch="360"/>
-    </w:sectPr>
   </w:body>
 </w:document>

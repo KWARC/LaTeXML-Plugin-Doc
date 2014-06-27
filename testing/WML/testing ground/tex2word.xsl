@@ -444,7 +444,10 @@
         <w:rPr>
           <w:rStyle w:val="FootnoteReference"/>
         </w:rPr>
-        <w:footnoteReference w:id="12"/>
+        <w:footnoteReference w:id="{count(preceding::ltx:note[@role='footnote'])}"/>
+        <footnote w:id="{count(preceding::ltx:note[@role='footnote'])}">
+          <xsl:apply-templates/>
+        </footnote>
       </w:r>
   </xsl:template>
   <xsl:template match="ltx:ref[@class='ltx_bib_external']">
