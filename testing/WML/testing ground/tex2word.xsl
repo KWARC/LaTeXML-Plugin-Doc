@@ -439,7 +439,14 @@
     </w:hyperlink>
   </xsl:template> 
 
-  <xsl:template match="ltx:note[@role='footnote']"/>
+  <xsl:template match="ltx:note[@role='footnote']">
+        <w:r>
+        <w:rPr>
+          <w:rStyle w:val="FootnoteReference"/>
+        </w:rPr>
+        <w:footnoteReference w:id="12"/>
+      </w:r>
+  </xsl:template>
   <xsl:template match="ltx:ref[@class='ltx_bib_external']">
     <w:hyperlink id="{generate-id()}">
       <xsl:apply-templates/>
