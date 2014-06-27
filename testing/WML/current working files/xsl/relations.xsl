@@ -14,6 +14,7 @@
     version     = "1.0"
     xmlns:ltx   = "http://dlmf.nist.gov/LaTeXML"
     xmlns:xsl   = "http://www.w3.org/1999/XSL/Transform"
+    xmlns:exsl="http://exslt.org/common"
     exclude-result-prefixes = "ltx">
     <xsl:output method="xml" indent="yes"/>
     <xsl:template match="*">
@@ -25,13 +26,14 @@
       <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
       <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/customXml" Target="../customXml/item1.xml"/>
       <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
-      <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>    
+      <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
+      <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footnotes" Target="footnotes.xml"/>
       <xsl:apply-templates/>
     </Relationships>
     </xsl:template>
     <xsl:template match="text()"/>
     <xsl:template match="external-link">
-    <Relationship Id="{./extra/@r:id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="{./*[@href]/@href}" TargetMode="External"/>
+    <Relationship Id="{./extra/@id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="{./*[@href]/@href}" TargetMode="External"/>
     </xsl:template>
     <xsl:template match="picturus">
      <Relationship Id="{./@id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="{./@reference}"/>
