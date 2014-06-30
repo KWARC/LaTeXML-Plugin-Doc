@@ -34,7 +34,7 @@ sub initialize {
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
   my $skeleton_directory = pathname_directory($content_types);
   if ($skeleton_directory) {
-    foreach my $subdirectory (qw/_rels word docProps customXML/, catdir('word','_rels'),catdir('customXML','_rels') catdir('word','media')) { #create the file structure
+    foreach my $subdirectory (qw/_rels word docProps customXML/, catdir('word','_rels'),catdir('customXML','_rels'),catdir('word','media')) { #create the file structure
       mkdir(catdir($directory, $subdirectory)); }
     # Annoying, but let's copy each of the 6 static files individually:
     my @static_files = (
@@ -53,10 +53,10 @@ sub initialize {
     Error('I/O',$content_types,undef,"Couldn't find WML static resource: $content_types.xml"); }
   
   my $document_footnotes =catfile($directory,'word','footnotes.xml');
-  my $footnotes_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet ==> 'footnotes.xsl', noresources=>1);
+  my $footnotes_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'footnotes.xsl', noresources=>1);
   my $footnotes_document = $footnotes_stylesheet->process($doc); #We create footnotes.xml by applying footnotes.xsl to document1.xml 
   my $document_final =catfile($directory,'word','document.xml');
-  my $cleanup_stylesheet = LaTeXML::Post::XSLT->new (stylesheet ==> 'cleaner.xsl', noresources => 1); 
+  my $cleanup_stylesheet = LaTeXML::Post::XSLT->new (stylesheet => 'cleaner.xsl', noresources => 1); 
   my $final_document = $cleanup_stylesheet->process($doc); #We create document.xml by applying cleaner.xsl to document1.xml
   $final_document->{destination} =$document_final;
   my $document_rels = catfile($directory,'word','_rels','document.xml.rels');
