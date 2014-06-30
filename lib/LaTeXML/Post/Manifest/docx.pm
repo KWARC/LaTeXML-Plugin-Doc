@@ -53,16 +53,15 @@ sub initialize {
     Error('I/O',$content_types,undef,"Couldn't find WML static resource: $content_types.xml"); }
   
   my $document_footnotes =catfile($directory,'word','footnotes.xml');
-  my $footnotes_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'footnotes.xsl', noresources=>1);
+  my $footnotes_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'docx-footnotes.xsl', noresources=>1);
   my $footnotes_document = $footnotes_stylesheet->process($doc); #We create footnotes.xml by applying footnotes.xsl to document1.xml 
   my $document_final =catfile($directory,'word','document.xml');
-  my $cleanup_stylesheet = LaTeXML::Post::XSLT->new (stylesheet => 'cleaner.xsl', noresources => 1); 
+  my $cleanup_stylesheet = LaTeXML::Post::XSLT->new (stylesheet => 'docx-cleaner.xsl', noresources => 1); 
   my $final_document = $cleanup_stylesheet->process($doc); #We create document.xml by applying cleaner.xsl to document1.xml
   $final_document->{destination} =$document_final;
   my $document_rels = catfile($directory,'word','_rels','document.xml.rels');
-  my $rels_stylesheet = LaTeXML::Post::XSLT->new(stylesheet => 'relations.xsl', noresources => 1);
+  my $rels_stylesheet = LaTeXML::Post::XSLT->new(stylesheet => 'docx-relations.xsl', noresources => 1);
     # We need to create the document.xml.rels by applying a stylesheet to document1.xml:
-  # TODO Rename relations.xsl to docx-relations.xsl
   my $rels_document = $rels_stylesheet->process($doc);
   $rels_document->{destination} = $document_rels;
   # TODO: Think about whether just using LibXML won't be simpler
