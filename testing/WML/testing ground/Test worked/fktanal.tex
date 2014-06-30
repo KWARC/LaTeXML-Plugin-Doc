@@ -1,0 +1,60 @@
+\Para{SÑtze aus der Funktionalanalysis}{}
+\Satz {Rademacher}{\RADEMACHER}
+{\it Ist $U\subset \RR^n$ offen und $f\colon U\longrightarrow \RR$ 
+Lipschitz-stetig, so ist $f$ ${\cal H}^n$-fast Åberall differenzierbar
+in $U$.}
+\Beweis
+Siehe [SL] Seite 30.
+\Satz {Einbettungssatz von Sobolev}{\SOBOLEV}
+{\it Seien $m\geq 1$, $1\leq p < \infty$ und $0\leq \alpha \leq 1$ so, 
+daû $m-{n\over p}\geq k + \alpha$. Dann existiert eine stetige Einbettung
+$$J\colon \Hnull(\N M)\longrightarrow C^{k,\alpha}(\N M)$$
+FÅr $m-{n\over p} > k + \alpha$ ist diese Einbettung sogar kompakt.}
+\Beweis
+Siehe [A] p. 44.
+\medskip
+Aus den Schauderschranken und den $L^p$-AbschÑtzungen fÅr Gebiete in 
+$\RR^n$ folgen die entsprechenden AbschÑtzungen fÅr eine  kompakte 
+Mannigfaltigkeit $M$. Man betrachtet dazu die Differentialoperatoren in 
+lokalen  Koordinaten. Wegen der Kompaktheit reicht es, endlich viele 
+lokale Koordinatensysteme zu betrachten. Die Konstanten in den AbschÑtzungen 
+sind dann das Maximum der Konstanten in den lokalen Koordinaten.
+Man erhÑlt also die folgenden SÑtze.
+
+\Satz {Schauderschranken}{\SCHAUDERSCHRANKEN}
+{\it Sei $A$ linearer elliptischer Differentialoperator zweiter Ordnung,
+ dann gilt 
+$$|u|_{C^{2,\alpha}(M,\N M)} \leq C\bigl ( 
+          |A(u)|_{C^{0,\alpha}(M,\N M)} + |u|_{C^{0,\alpha}(M,\N M)} \bigl )$$
+}
+\Satz{$L^p$-Theorie}{\LPAB}
+{\it FÅr einen linearen elliptischen Differentialoperator   zweiter 
+Ordnung $A$ gilt
+$$|u|_{H^{2,p}(M,\N M)} 
+         \leq C \bigl ( |A(u)|_{L^p(M,\N M)} +|u|_{L^p(M,\N M)}\bigl )$$
+}
+\Satz{Maximumsprinzip}{\MAXPRINZ}
+{\it
+Sei $M$ eine kompakte Riemannsche Mannigfaltigkeit mit Rand.
+$A(u)=a\nabla\nabla u + b\nabla u + cu$ sei ein linearer gleichmÑûig 
+elliptischer Differentialoperator mit beschrÑnkten Koeffizienten und 
+$c\leq 0$. Eine $\C^2$-Lîsung der Gleichung $A(u)=0$ ist dann entweder 
+konstant oder sie nimmt ihr Maximum auf $\partial M$ an.}
+\Beweis
+FÅr jeden Punkt $p\in M^\circ$ gibt es lokale Koordinaten 
+$\phi \colon U\longrightarrow V$ mit $p\in U^\circ$. $A_\phi$ ist dann ein 
+linearer gleichmÑûig elliptischer Differentialoperator Åber $V$ mit 
+$c_\phi=c\leq0$.
+Nach dem Hopfschen Maximumsprinzip (siehe z. B. [GT])
+ist $u\circ\phi^{-1}$ konstant auf $V$ 
+oder nimmt das Maximum in $\partial U$, also nicht in $p$, an.\kasten
+\Satz{Spektralsatz fÅr selbstadjungierte Operatoren}{\SPEKSATZ}
+{\it Ist $X$ ein separabler Hilbertraum und $T\ne 0$ ein selbstadjungierter 
+Operator auf $X$, so hat
+$T$ die Gestalt
+$$T(x)=\sum_{k\in N}{\lambda_k<x,e_k>_Xe_k}$$
+mit $N\subset \NN$, einem Orthonormal-System $(e_k)_{k\in N}$ von $X$ und 
+$\lambda_k\in\RR$ fÅr alle $k\in N$.}
+\Bem{}{}
+Ist 0 kein Eigenwert von $T$, so ist $T$ invertierbar.
+

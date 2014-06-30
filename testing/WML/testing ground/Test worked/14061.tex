@@ -1,0 +1,1404 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsfonts}
+\usepackage{amssymb,latexsym}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\textwidth 15.00cm \textheight 20cm \topmargin 0.0cm \oddsidemargin
+0.5cm \evensidemargin 0.5cm \parskip 0.0cm \font\bbbld=msbm10
+scaled\magstephalf
+\newcommand{\R}{\mathbb R}
+\newtheorem{theorem}{Theorem}
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{Cor}[Thm]{Corollary}
+\newtheorem{Lem}[Thm]{Lemma}
+\newtheorem{Rem}[Thm]{Remark}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+\def\a{\alpha} \def\b{\beta} \def\t{\theta} \def\n{\nabla}
+\newcommand{\h}{(1+h_t^2)}
+
+\numberwithin{equation}{section}
+
+
+\begin{document}
+\setlength{\baselineskip}{1.2\baselineskip}
+\title[Gradient Estimates]{Gradient Estimates of Mean Curvature Equations with Neumann Boundary Condition}
+
+\author{Xi-Nan Ma}
+\address{Department of Mathematics\\
+         University of Science and Technology of China\\
+         Hefei Anhui 230026 CHINA}
+         \email{xinan@ustc.edu.cn}
+\author{Jinju Xu}
+\address{Department of Mathematics\\
+         University of Science and Technology of China\\
+         Hefei Anhui 230026 CHINA}
+         \email{july25@mail.ustc.edu.cn}
+
+\thanks{Research of the first author was supported by NSFC  No.11125105 and Wu Wen-Tsun Key Laboratory of Mathematics. }
+\thanks{2010 Mathematics Subject Classification: Primary 35B45; Secondary 35J92, 35B50}
+
+\maketitle
+
+\begin{abstract}
+In this paper, we use the maximum principle to get the gradient estimate for the solutions of the prescribed  mean curvature equation with Neumann boundary value problem, which gives a positive answer for the question raised by Lieberman \cite{Lieb13} in page 360.
+As a consequence, we obtain the corresponding existence theorem for a class of mean curvature equations. Moreover  we can get a new proof of the gradient estimates for the mean curvature equation with prescribed contact angle boundary value problem.
+\end{abstract}
+
+\section{Introduction}
+Gradient estimate for the prescribed mean curvature equation has been extensively studied. The interior gradient estimate, for the minimal surface equation was obtained in the case of two variables by Finn \cite{FN54}. Bombieri, De Giorgi and M.Miranda \cite{BGM69}  obtained the estimate for high dimension case. For the general mean curvature equation, such estimate had also been obtained by Ladyzhenskaya and Ural'tseva \cite{LU70}, Trudinger \cite{TR73} and Simon \cite{Sim76}. All their methods were test function argument and a resulting Sobolev inequality. In 1983, Korevaar \cite{Kor86} introduced the normal variation technique and got the maximum principle proof for the interior gradient estimate on the minimal surface equation. Wang \cite{Wang98} gave a new proof for the mean curvature equation via  standard Bernstein technique.  The Dirichlet problem for the prescribed mean curvature equation had  been  studied by Jenkins-Serrin \cite{JS68} and Serrin \cite{S69}. More detailed history could be found in Gilbarg and Trudinger \cite{GT01}.
+
+
+  For the  mean curvature equation with prescribed contact angle boundary value problem,  Ural'tseva \cite{Ur73} first got the boundary gradient estimates and the corresponding existence theorem. At the same time, Simon-Spruck \cite{SS76} and Gerhardt \cite{Ger76} also obtained existence theorem on the positive gravity case. For more general quasilinear divergence structure equation with conormal derivative boundary value problem, Lieberman \cite{Lie83}  gave the gradient estimate. They obtained these estimates also via test function technique.
+
+  Spruck \cite{Sp75} used the maximum principle to obtain boundary gradient estimate in two dimension for the positive gravity capillary problems.  Korevaar \cite{Kor88} generalized his normal variation technique and got the gradient estimates for the positive gravity case in high dimension case. In \cite{Lieb84, Lieb87}, Lieberman developed the maximum principle approach on the boundary gradient estimates to the quasilinear elliptic equation with oblique derivative boundary value problem, and in \cite{Lieb88} he got the maximum principle proof for the gradient estimates on the  general quasilinear elliptic equation with capillary boundary value problems.
+
+  In a recent book written by Lieberman (\cite{Lieb13}, in page 360), he posed the following question, how to get the gradient estimates for the mean curvature equation with Neumann boundary value problem. In this paper we use the technique developed by Spruck \cite{Sp75}, Lieberman \cite{Lieb88} and Wang \cite{Wang98} to get a positive answer. As a consequence, we obtain an existence theorem for a class of mean curvature equations with Neumann boundary value problem.
+
+We first consider the boundary gradient estimates for the mean curvature equation with Neumann boundary value problem.
+Now let's state our main gradient estimates.
+\begin{Thm}\label{Thm1.1}
+Suppose $u\in C^{2}(\overline\Omega)\bigcap C^{3}(\Omega)$ is a bounded  solution for the following boundary value problem
+\begin{align}
+ \texttt{div}(\frac{Du}{\sqrt{1+|Du|^2}}) =&f(x, u)   \quad\text{in}\quad \Omega, \label{1.1}\\
+              \frac{\partial u}{\partial \gamma} = &\psi(x, u)  \quad\text{on} \quad\partial \Omega,\label{1.2}
+\end{align}
+where $\Omega \subset \mathbb R^n $ is a bounded domain, $n\geq 2$, $\partial \Omega \in C^{3}$, $\gamma$ is the inward unit normal to $\partial\Omega $.
+
+We assume $f(x,z) \in C^{1}(\overline\Omega\times [-M_0, M_0])$ and $\psi(x,z) \in C^{1}(\partial\Omega\times [-M_0, M_0])$,
+and there exist positive constants $M_0, L_1, L_2$ such that
+\begin{align}
+|u|\leq& M_0\quad in\quad\overline\Omega,\label{1.3}\\
+f_z(x,z)\geq &0 \,\,\,\,\quad in\quad \overline\Omega\times[-M_0, M_0],\label{1.4}\\
+|f(x,z)|+\sum_{i=1}^n|f_{x_i}(x,z)|\leq & L_1 \quad in\quad \overline\Omega\times[-M_0, M_0],\label{1.5}\\
+|\psi(x,z)|+\sum_{i=1}^n|\psi_{x_i}(x,z)|+|\psi_z(x,z)|\leq&  L_2\quad on \quad  \partial\Omega\times[-M_0, M_0].\label{1.6}
+\end{align}
+Then there exists a small positive constant
+$\mu_0$ such that we have the following estimate
+$$\sup_{\overline\Omega_{\mu_0}}|Du|\leq \max\{M_1, M_2\},$$
+where $M_1$ is a positive constant depending only on $n, \mu_0, M_0, L_1$, which is from the interior gradient estimates;
+$M_2$ is  a positive constant depending only on $n, \Omega, \mu_0, M_0, L_1, L_2$, and $d(x) =\texttt{dist}(x, \partial\Omega), \Omega_{\mu_0} = \{x \in \Omega : d(x)<\mu_0\}.$
+\end{Thm}
+ As we stated before, there is a standard interior gradient estimates for the mean curvature equation.
+
+\begin{Rem}[\cite{GT01}]\label{Rem1.1}
+If $u\in C^{3}(\Omega)$ is a bounded solution for the equation \eqref{1.1}  with \eqref{1.3}, and if $f \in C^{1}(\overline\Omega \times [-M_0, M_0])$ satisfies the conditions \eqref{1.4}-\eqref{1.5}, then for any subdomain
+$\Omega'\subset\subset\Omega$, we have
+$$\sup_{\Omega'}|Du|\leq M_1,$$
+where $M_1$ is a positive constant depending only on $n,  M_0, \texttt{dist} (\Omega', \partial\Omega), L_1$.
+\end{Rem}
+
+From the standard bounded estimates for the prescribed mean curvature equation in Concus-Finn \cite{CF74} ( see also Spruck \cite{Sp75}), we can get the following existence theorem for the Neumann boundary value problem of mean curvature equation.
+
+\begin{Thm}\label{Thm1.2}
+Let $\Omega \subset\mathbb R^n $ be a bounded domain, $n\geq 2$, $\partial \Omega\in C^{3}$, $\gamma$ is the inward unit normal to $\partial\Omega $.
+If  $\psi \in C^{1,\alpha}(\partial\Omega)$, for $0<\alpha<1$,  is a given function, then the following boundary value problem
+\begin{align}
+ \texttt{div}(\frac{Du}{\sqrt{1+|Du|^2}}) =& u   \quad\text{in}\quad \Omega, \label{1.7}\\
+              \frac{\partial u}{\partial \gamma} = &\psi(x)  \quad\text{on} \quad\partial \Omega,\label{1.8}
+\end{align}
+ exists a unique solution $ u \in C^2(\overline\Omega)$.
+\end{Thm}
+
+  From our proof of  Theorem~\ref{Thm1.1}, we can get a new proof for the gradient estimates of the mean curvature equation with prescribed contact angle boundary value problem.\par
+The rest of the paper is organized as follows. In section 2, we first give the definitions and some notations. We prove the main Theorem~\ref{Thm1.1} in section 3 under the help of one lemma. This lemma  will be proved in section 4. In section 5, we give the proof of  Theorem~\ref{Thm1.2} and a new proof of the prescribed contact angle boundary value problem.
+
+
+\section{PRELIMINARIES}
+We denote by $\Omega$ a bounded  domain in $\mathbb{R}^n$, $n\geq 2$,  $\partial \Omega\in C^{3}$,   set
+\begin{align*}
+ d(x)=\texttt{dist}(x,\partial \Omega),
+ \end{align*}
+ and
+\begin{align*}
+ \Omega_\mu=&\{{x\in\Omega:d(x)<\mu}\}.
+ \end{align*}
+Then it is well known that there exists a positive constant $\mu_{1}>0$ such that $d(x) \in C^3(\overline \Omega_{\mu_{1}})$. As in Simon-Spruck \cite{SS76} or Lieberman \cite{Lieb13} in page 331,  we can take $\gamma= D d$ in $\Omega_{\mu_{1}}$ and note that  $\gamma$ is a $C^2(\overline \Omega_{\mu_{1}})$ vector field. As mentioned in \cite{Lieb88} and the book \cite{Lieb13}, we also have the following formulas
+
+\begin{align}\label{2.1}
+\begin{split}
+|D\gamma|+|D^2\gamma|\leq& C(n,\Omega) \quad\text{in}\quad \Omega_{\mu_{1}},\\
+ \sum_{1\leq i\leq n}\gamma^iD_j\gamma^i=0,  \sum_{1\leq i\leq n}\gamma^iD_i\gamma^j=&0, \,|\gamma|=1 \quad\text{in} \quad\Omega_{\mu_{1}}.
+\end{split}
+\end{align}
+As in \cite{Lieb13}, we define
+ \begin{align}\label{2.2}
+\begin{split}
+c^{ij}=&\delta_{ij}-\gamma^i\gamma^j  \quad \text{in} \quad \Omega_{\mu_{1}},
+\end{split}
+\end{align}
+ and for a vector $\zeta \in R^n$, we write $\zeta'$ for the vector with $i-$th component $ \sum_{1\leq j\leq n}c^{ij}\zeta_j$. So
+ \begin{align}\label{2.3}
+\begin{split}
+|D'u|^2=& \sum_{1\leq i,j\leq n}c^{ij}u_iu_j.
+\end{split}
+\end{align}
+Let
+\begin{align}\label{2.4}
+\begin{split}
+a^{ij}(D u)=v^2\delta_{ij}-u_iu_j, \quad
+v=(1+|D u|^2)^{\frac{1}{2}}.
+\end{split}
+\end{align}
+
+Then the equations \eqref{1.1}, \eqref{1.2} are equivalent to the following boundary value problem
+\begin{align}\label{2.5}
+\sum_{i,j=1}^n a^{ij}u_{ij}=&f(x,u)v^3 \quad \text{in}\,\Omega,\\
+u_{\gamma}=& \psi(x, u) \quad \text{on}\,\partial\Omega.\label{2.6}
+\end{align}
+
+
+\section{Proof of Theorem~\ref{Thm1.1} }
+
+Now we begin to prove Theorem~\ref{Thm1.1}, as  mentioned in introduction, using the technique developed by Spruck \cite{Sp75}, Lieberman \cite{Lieb88} and Wang \cite{Wang98}. We shall choose an auxiliary function which contains  $|D'u|^2$ and other lower order terms. Then we use the maximum principle for this auxiliary function in $\overline\Omega_{\mu_0}, 0<\mu_0<\mu_1$. At last,  we get our estimates.
+
+
+
+{\em Proof of  Theorem~\ref{Thm1.1}.}
+
+Let $$\Phi(x)=\log|D'u|^2e^{1+M_0+u}e^{\alpha_0 d}, \quad  x \in \overline \Omega_{\mu_{0}},$$ where $\alpha_0=2L_2+C_0+1 $, $C_0$ is  a positive constant depending only on $n,\Omega$.
+In order to unify the computation for the Neumann and capillary boundary value, let
+\begin{align}\label{3.1}
+ \varphi(x)= \log \Phi(x) =\log\log|D'u|^2+h(u)+g(d).
+ \end{align}
+In the Neumann boundary value, we choose
+\begin{align}\label{3.1a}
+ h(u)=1+M_0+u, \quad g(d)=\alpha_0 d.
+ \end{align}
+
+
+ We assume that
+$\varphi(x)$ attains its maximum at $x_0 \in \overline \Omega_{\mu_{0}}$, where $0<\mu_0<\mu_1$ is a sufficiently small number which we shall decide it  later.
+
+Now we divide three cases to complete the proof of  Theorem~\ref{Thm1.1}.
+
+Case I: If $\varphi(x)$ attains its maximum at $x_0 \in \partial\Omega$, then we shall use the Hopf Lemma to get the bound of $|D'u|(x_0)$.
+
+Case II: If $\varphi(x)$ attains its maximum at $x_0 \in\partial\Omega_{\mu_0}\bigcap\Omega$, then we shall get the estimates via the standard interior gradient bound \cite{GT01}.
+
+Case III:  If $\varphi(x)$ attains its maximum at $x_0 \in \Omega_{\mu_0}$, in this case for the sufficiently small constant $\mu_0>0$,  then we can use the maximum principle to get the bound of $|D'u|(x_0)$.
+
+Now  all computations work at the point $x_0$.
+
+
+{\bf Case1.} If  $\varphi(x)$ attains its maximum at $x_0\in \partial \Omega$, we shall get the bound of $|D'u|(x_0)$.
+
+
+We differentiate $\varphi$ along the normal direction.
+
+\begin{align}\label{3.2}
+\begin{split}
+\frac{\partial\varphi}{\partial\gamma}=&\frac{\sum_{1\leq i\leq n}(|D'u|^2)_i\gamma^i}{|D'u|^2\log|D'u|^2}+h'u_{\gamma}+g'.
+\end{split}
+\end{align}
+
+Applying \eqref{2.1} and \eqref{2.3}, it follows that
+\begin{align}\label{3.3}
+\sum_{1\leq i\leq n}(|D'u|^2)_i\gamma^i=\sum_{1\leq i\leq n}(\sum_{1\leq k,l\leq n}c^{kl}u_{k}u_l)_i\gamma^i
+=2\sum_{1\leq i,k,l\leq n}c^{kl}u_{ki}u_l\gamma^i.
+\end{align}
+
+Differentiating \eqref{2.6} with respect to tangential direction,   we have
+\begin{align}\label{3.4}
+\sum_{1\leq k\leq n}c^{kl}(u_{\gamma})_k=&\sum_{1\leq k\leq n}c^{kl}D_k\psi=\sum_{1\leq k\leq n}c^{kl}\psi_{x_k}+\psi_u\sum_{1\leq k\leq n}c^{kl}u_k,
+\end{align}
+it follows that
+\begin{align}\label{3.5}
+\sum_{1\leq i, k\leq n}c^{kl}u_{ik}\gamma^i=&-\sum_{1\leq i,k\leq n}c^{kl}u_i(\gamma^i)_k+\sum_{1\leq k\leq n}c^{kl}\psi_{x_k}+\psi_u\sum_{1\leq k\leq n}c^{kl}u_k.
+\end{align}
+Assume $|Du|(x_0)\ge \sqrt{20}$, otherwise we get the estimates. At $x_0$,  since
+$$|Du|^2=|D'u|^2+u_\gamma^2=|D'u|^2+|\psi|^2,$$ so we can assume
+$$|D'u|^2(x_0) \geq |\psi|^2_{C^0(\partial\Omega\times[-M_0,\, M_0])},$$
+then $$\max\{20,2|\psi|^2_{C^0(\partial\Omega\times[-M_0,\, M_0])}\}\leq|Du|^2(x_0)\leq2|D'u|^2(x_0),$$
+otherwise we get the estimates.
+Using \eqref{3.5}, \eqref{3.3} and \eqref{3.2}, we have
+\begin{align}\label{3.6}
+\begin{split}
+|D'u|^2\log |D'u|^2 \frac{\partial\varphi}{\partial\gamma}(x_0)
+=&(\alpha_0+\psi )|D'u|^2\log |D'u|^2-2\sum_{1\leq i,k,l\leq n}c^{kl}u_iu_l(\gamma^i)_k\\&+2\sum_{1\leq k,l\leq n}c^{kl}\psi_{x_k}u_l+2\psi_u|D'u|^2\\
+\geq &\big(\alpha_0-|\psi|-|\nabla_x\psi|-2|\psi_u|-C_0\big)|D'u|^2\log |D'u|^2\\
+\geq &\big(\alpha_0-2L_2-C_0\big)|D'u|^2\log |D'u|^2\\
+\geq &|D'u|^2\log |D'u|^2\\
+>& 0.
+\end{split}
+\end{align}
+On the other hand, from Hopf Lemma,
+$$\frac{\partial\varphi}{\partial\gamma}(x_0)\leq 0,$$
+it is a contradiction to ~\eqref{3.6}.
+
+Then we have
+\begin{align}\label{3.7}
+|D'u|(x_0)\leq\max\{\sqrt{10}, |\psi|_{C^0(\partial\Omega\times[-M_0,\, M_0])}\}.
+\end{align}
+
+{\bf Case2.} $ x_0\in \partial\Omega_{\mu_{0}}\bigcap\Omega$. This is due to interior gradient estimates. From Remark~\ref{Rem1.1}, we have
+ \begin{align}\label{3.8}
+\sup_{\partial\Omega_{\mu_0}\bigcap\Omega}|Du|\leq M_1.
+\end{align}
+where $M_1$ is a positive constant depending only on $n, M_0, \mu_0, L_1$.\par
+{\bf Case3.} $x_0\in\Omega_{\mu_{0}}$. \par
+
+In this case, $x_0$ is a critical point of $\varphi$. We choose the normal coordinate at $x_0$, by rotating the coordinate system
+suitably, we may assume that $u_i(x_0)=0,\,2\leq i\leq n$ and $u_1(x_0)=|Du|>0$. And we can further assume that the matrix $(u_{ij}(x_0))(2\leq i,j\leq n)$ is diagonal.
+
+ We can choose $0<\mu_0< \mu_1$ , and $\mu_0$ is sufficiently small. From the continuity of $u_\gamma$, we can take
+ $$u_\gamma^2(x_0)\leq 2|\psi|^2_{C^0(\partial\Omega\times[-M_0,\, M_0])}+1,$$
+and assume
+ \begin{align}\label{3.8c}
+ |Du|(x_0)\ge \sqrt{20},
+ \end{align}
+  otherwise we get the estimates.
+ Since at $x_0$,
+ $$u_1^2 = |Du|^2=|D'u|^2+u_\gamma^2= c^{11}u_1^2 + u_\gamma^2,$$
+ so we make the following assumption according to the dimensions.
+
+ When
+ \begin{align}\label{3.8a}
+n=2, 3, 4, \quad \text{
+ we take}\quad  c^{11}(x_0)\geq\frac{1}{2},\end{align}
+   otherwise  \begin{align}\label{3.8d}|Du|^2(x_0)=u_1^2\leq 2u_\gamma^2\leq 4|\psi|^2_{C^0(\partial\Omega\times[-M_0,\, M_0])}+2,
+   \end{align}
+   and we can get our estimates.
+ When
+ \begin{align}\label{3.8b}
+ n\geq 5,\quad \text{we can choose}\quad  c^{11}(x_0)\geq\frac{n-3}{n-2},
+\end{align}
+ otherwise $c^{11}(x_0)<\frac{n-3}{n-2}$, it follows that  \begin{align}\label{3.8e}|Du|^2(x_0)= u_1^2(x_0)< (n-2) u_\gamma^2 \leq (n-2)[2|\psi|^2_{C^0(\partial\Omega\times[-M_0,\, M_0])}+1].\end{align}
+
+
+From the above choice, we shall prove Theorem~\ref{Thm1.1} with three steps, as we mentioned before, all the calculations will be done at the fixed point $x_0$.
+
+
+{\bf Step1:} We first get the formula \eqref{3.32}.\par
+
+Taking the first  derivative of $\varphi$,
+\begin{align}\label{3.9}
+\varphi_i=&\frac{(|D'u|^2)_i}{|D'u|^2\log|D'u|^2}+h'u_i+g'\gamma^i.
+\end{align}
+From $\varphi_i(x_0)=0$,  we have
+\begin{align}\label{3.10}
+(|D'u|^2)_i=-|D'u|^2\log|D'u|^2(h'u_i+g'\gamma^i).
+\end{align}
+Take the derivative again for  $\varphi_i$,
+\begin{align}\label{3.11}
+\begin{split}
+\varphi_{ij}
+=&\frac{(|D'u|^2)_{ij}}{|D'u|^2\log|D'u|^2}-(1+\log|D'u|^2)\frac{(|D'u|^2)_i(|D'u|^2)_j}{(|D'u|^2\log|D'u|^2)^2}\\&
++h'u_{ij}
++h''u_iu_j+g''\gamma^i\gamma^j+g'(\gamma^i)_j.
+\end{split}
+\end{align}
+Using \eqref{3.10}, it follows that
+\begin{align}\label{3.12}
+\begin{split}
+\varphi_{ij}
+=&\frac{(|D'u|^2)_{ij}}{|D'u|^2\log|D'u|^2}+h'u_{ij}+\big[h''-(1+\log|D'u|^2)h'^2\big]u_iu_j\\&
++\big[g''-(1+\log|D'u|^2)g'^2\big]\gamma^i\gamma^j
+-(1+\log|D'u|^2)h'g'(\gamma^iu_j+\gamma^ju_i)+g'(\gamma^i)_j.
+\end{split}
+\end{align}
+Then we get
+\begin{align}\label{3.13}
+\begin{split}
+0\geq \sum_{1\leq i,j\leq n}a^{ij}\varphi_{ij}
+=:&I_1+I_2,
+\end{split}
+\end{align}
+where
+\begin{align}
+I_1=\frac{1}{|D'u|^2\log|D'u|^2}\sum_{1\leq i,j\leq n}a^{ij}(|D'u|^2)_{ij},\label{3.14}\end{align}
+and
+\begin{align}
+I_2=&\sum_{1\leq i,j\leq n}a^{ij}\bigg\{h' u_{ij}+\big[h''-(1+\log|D'u|^2)h'^2\big]u_iu_j+\big[g''-(1+\log|D'u|^2)g'^2\big]\gamma^i\gamma^j\notag\\
+&\qquad\qquad\quad-2(1+\log|D'u|^2)h'g'\gamma^iu_j+g'(\gamma^i)_j\bigg\}\label{3.15}.
+\end{align}
+From the choice of the coordinate, we have
+\begin{align}\label{3.16a}
+a^{11}=1,\, a^{ii}=v^2=1+u_1^2 \,\,(2\leq i\leq n ), a^{ij}=0\,\, (i\neq j,1\leq i,j\leq n).
+\end{align}
+and
+\begin{align}\label{3.17a}
+|D'u|^2=c^{11}u^2_1,\quad |D'u|^2\log|D'u|^2=2c^{11}u_1^2\log u_1+c^{11}(\log c^{11})u_1^2.
+\end{align}
+
+Now we first treat $I_2$.
+
+From the equations~\eqref{2.5}, \eqref{3.16a}  and \eqref{3.17a}, we have
+\begin{align}
+I_2
+=&h'f v^3-h'^2u_1^2\log|D'u|^2+(h''-h'^2)u_1^2+\big[g''-(1+\log|D'u|^2)g'^2\big]\sum_{1\leq i\leq n}a^{ii}(\gamma^i)^2\notag\\
+&-2(1+\log|D'u|^2)h'g'\gamma^1u_1+g'\sum_{1\leq i\leq n}a^{ii}(\gamma^i)_i,\notag\\
+=&h'f v^3-2(h'^2+c^{11}g'^2) u_1^2\log u_1+\big[h''-(1+\log c^{11})h'^2-c^{11}(1+\log c^{11})g'^2\notag\\
+&+c^{11}g''+g'\sum_{2\leq i\leq n}(\gamma^i)_i\big] u_1^2-4h'g'\gamma^1 u_1\log u_1-2(1+\log c^{11})h'g'\gamma^1 u_1\notag\\
+&-2g'^2 \log u_1+g''-(1+\log c^{11})g'^2
++g'\sum_{1\leq i\leq n}(\gamma^i)_i,\label{3.17b}
+\end{align}
+so we have
+\begin{align}
+I_2
+=&f v^3-2(1+c^{11}\alpha_0^2) u_1^2\log u_1+\big[-(1+\log c^{11})-c^{11}(1+\log c^{11})\alpha_0^2\notag\\
+&+\alpha_0\sum_{2\leq i\leq n}(\gamma^i)_i\big] u_1^2-4\alpha_0\gamma^1 u_1\log u_1-2(1+\log c^{11})\alpha_0\gamma^1 u_1\notag\\
+&-2\alpha_0^2 \log u_1-(1+\log c^{11})\alpha_0^2
++\alpha_0\sum_{1\leq i\leq n}(\gamma^i)_i\notag\\
+\geq&f v^3-2(1+c^{11}\alpha_0^2) u_1^2\log u_1-C_1u_1^2,\label{3.18}
+\end{align}
+here we use the expression for $h(u), g(d)$ in \eqref{3.1a}, and $C_1$  is a positive constant  depending  only on $n, \Omega, M_0, \mu_0, L_2$.\par
+
+Next, we calculate $I_1$ and get the formula \eqref{3.31}. \par
+
+From \eqref{2.3}, taking the first  derivative of $|D'u|^2$, we have
+
+\begin{align}\label{3.19}
+\begin{split}
+(|D'u|^2)_i=&\sum_{1\leq k, l\leq n}(c^{kl})_iu_ku_l+2\sum_{1\leq k, l\leq n}c^{kl}u_{ki}u_l,\\
+\end{split}
+\end{align}
+
+Taking the derivative of $|D'u|^2$ once more, we have
+
+\begin{align}\label{3.20}
+\begin{split}
+(|D'u|^2)_{ij}=&\sum_{1\leq k, l\leq n}(c^{kl})_{ij}u_ku_l+2\sum_{1\leq k, l\leq n}(c^{kl})_iu_{kj}u_l+2\sum_{1\leq k, l\leq n}(c^{kl})_ju_{ki}u_l\\
+&+2\sum_{1\leq k, l\leq n}c^{kl}u_{kij}u_l+2\sum_{1\leq k, l\leq n}c^{kl}u_{ki}u_{lj}.
+\end{split}
+\end{align}
+By \eqref{3.14} and \eqref{3.20}, we can rewrite $I_1$ as
+\begin{align}\label{3.20a}
+\begin{split}
+I_1
+=&\frac{1}{|D'u|^2\log|D'u|^2}\big[I_{11}+I_{12}+I_{13}+I_{14}\big],
+\end{split}
+\end{align}
+where
+\begin{align*}
+I_{11}=&u^2_1\sum_{1\leq i\leq n}a^{ii}(c^{11})_{ii} ,\quad
+I_{12}=4u_1\sum_{1\leq i,k\leq n}a^{ii}(c^{k1})_{i}u_{ki} ,\\
+I_{13}=&2u_1\sum_{1\leq i,j,k\leq n}c^{k1}a^{ij}u_{ijk},\quad
+I_{14}=2\sum_{1\leq i,k,l\leq n}c^{kl}a^{ii}u_{ki}u_{li}.
+\end{align*}
+
+In the following, we shall deal with $I_{11}, I_{12}, I_{13}$ and $I_{14}$ respectively. \par
+For the terms $I_{11}$ and $I_{12}$: from  \eqref{3.16a}, we have
+\begin{align}\label{3.21}
+I_{11}=&\sum_{2\leq i\leq n}(c^{11})_{ii}\cdot u^4_1+\sum_{1\leq i\leq n}(c^{11})_{ii}\cdot u^2_1,\\
+I_{12}
+=&4(c^{11})_{1} u_1u_{11}+4 u_1\sum_{2\leq i\leq n}[(c^{1i})_{1}+v^2(c^{11})_{i}]u_{1i}+4u_1v^2\sum_{2\leq i\leq n}(c^{1i})_{i}u_{ii}.\label{3.22}
+\end{align}
+
+For the term $I_{13}$:
+by the equation \eqref{2.5}, we have
+\begin{align}\label{3.23}
+\begin{split}
+u_{11}=&fv^3-v^2\sum_{2\leq i\leq n}u_{ii},
+\end{split}
+\end{align}
+and
+\begin{align}\label{3.24}
+\begin{split}
+\Delta u=&fv+\frac{u_1^2}{v^2}u_{11}.
+\end{split}
+\end{align}
+Differentiating \eqref{2.5}, we have
+\begin{align}\label{3.25}
+\begin{split}
+\sum_{1\leq i,j\leq n}a^{ij}u_{ijk}=&-\sum_{1\leq i,j,l\leq n}a^{ij}_{p_l}u_{lk}u_{ij}+v^3D_{k}f+3fv^2v_k.
+\end{split}
+\end{align}
+From \eqref{2.4}, we have
+\begin{align}\label{3.26}
+\begin{split}
+a^{ij}_{p_l}=&2u_l\delta_{ij}-\delta_{il}u_j-\delta_{jl}u_i.
+\end{split}
+\end{align}
+By the definition of $v$, we have
+\begin{align}\label{3.27}
+\begin{split}
+v v_k=&u_1u_{1k}.
+\end{split}
+\end{align}
+Hence, from\eqref{3.24}, we have
+\begin{align}\label{3.28}
+\begin{split}
+\sum_{1\leq i,j\leq n}a^{ij}u_{ijk}
+=&-2u_1u_{1k}\Delta u+2u_1\sum_{1\leq i\leq n}u_{1i}u_{ik}+v^3D_{k}f+3fvu_1u_{1k},\\
+=&\frac{2u_1}{v^2}u_{11}u_{1k}+2u_1\sum_{2\leq i\leq n}u_{1i}u_{ik}+v^3D_{k}f+fvu_1u_{1k}.
+\end{split}
+\end{align}
+By \eqref{3.28}, we get
+\begin{align}\label{3.29}
+\begin{split}
+I_{13}
+=&\frac{4 u_1^2}{v^2}\cdot u_{11}\sum_{1\leq k\leq n}c^{k1}u_{1k}
++4u_1^2\sum_{2\leq i\leq n}u_{1i}\sum_{1\leq k\leq n}c^{k1}u_{ki}+2fu_1^2v\sum_{1\leq k\leq n}c^{k1}u_{1k}\\&+2u_1v^3\sum_{1\leq k\leq n}c^{k1}D_{k}f.
+\end{split}
+\end{align}
+
+For the term $I_{14}$:
+\begin{align}\label{3.30}
+\begin{split}
+I_{14}
+=&2u_{11}\sum_{1\leq k\leq n}c^{k1}u_{k1}+2v^2\sum_{2\leq i\leq n}u_{1i}\sum_{1\leq k\leq n}c^{k1}u_{ki}+2v^2\sum_{2\leq i\leq n}c^{1i}u_{1i}u_{ii}
+\\
+&+2u_{11}\sum_{2\leq i\leq n}c^{1i}u_{1i}+2\sum_{2\leq i,j\leq n}c^{ij}u_{1i}u_{1j}+2v^2\sum_{2\leq i\leq n}c^{ii}u_{ii}^2.
+\end{split}
+\end{align}
+
+Combining  \eqref{3.21}, \eqref{3.22}, \eqref{3.29} and \eqref{3.30}, it follows that
+\begin{align}\label{3.31}
+\begin{split}
+I_1=&\frac{1}{|D'u|^2\log|D'u|^2}\bigg[(\frac{4 u_1^2}{v^2}+2)u_{11}\sum_{1\leq k\leq n}c^{k1}u_{k1}+(4u_1^2+2v^2)\sum_{2\leq i\leq n}u_{1i}\sum_{1\leq k\leq n}c^{k1}u_{ki}\\
+&+2v^2\sum_{2\leq i\leq n}c^{1i}u_{1i}u_{ii}
++2u_{11}\sum_{2\leq i\leq n}c^{1i}u_{1i}+2\sum_{2\leq i,j\leq n}c^{ij}u_{1i}u_{1j}
++2fvu_1^2\sum_{1\leq k\leq n}c^{k1}u_{1k}\\
+&+4(c^{11})_{1} u_1u_{11}+4 u_1\sum_{2\leq i\leq n}[(c^{1i})_{1}+v^2(c^{11})_{i}]u_{1i}+2v^2\sum_{2\leq i\leq n}c^{ii}u_{ii}^2+4u_1v^2\sum_{2\leq i\leq n}(c^{1i})_{i}u_{ii}\\
+&+2u_1v^3\sum_{1\leq k\leq n}c^{k1}D_{k}f+\sum_{2\leq i\leq n}(c^{11})_{ii}\cdot u^4_1+\sum_{1\leq i\leq n}(c^{11})_{ii}\cdot u^2_1\bigg].
+\end{split}
+\end{align}
+
+Inserting \eqref{3.17b} and \eqref{3.31} into \eqref{3.14}, we  can obtain the following formula
+\begin{align}\label{3.32}
+\begin{split}
+0\geq \sum_{1\leq i,j\leq n}a^{ij}\varphi_{ij}=: Q_1+Q_2+Q_3,
+\end{split}
+\end{align}
+where $Q_1$ contains all the quadratic terms of $u_{ij}$; $Q_2$  is the term which contains all linear terms of $u_{ij}$;  and   the remaining terms are denoted by $Q_3$.
+Then we have
+\begin{align}\label{3.33}
+Q_1=&\frac{1}{|D'u|^2\log|D'u|^2}\big[ (\frac{4 u_1^2}{v^2}+2)u_{11}\sum_{1\leq k\leq n}c^{k1}u_{k1}+(4u_1^2+2v^2)\sum_{2\leq i\leq n}u_{1i}\sum_{1\leq k\leq n}c^{k1}u_{ki}\notag\\
+&\qquad\qquad\qquad\qquad+2v^2\sum_{2\leq i\leq n}c^{1i}u_{1i}u_{ii}
++2u_{11}\sum_{2\leq i\leq n}c^{1i}u_{1i}\notag\\
+&\qquad\qquad\qquad\qquad+2\sum_{2\leq i,j\leq n}c^{ij}u_{1i}u_{1j}
++2v^2\sum_{2\leq i\leq n}c^{ii}u_{ii}^2\big].
+\end{align}
+The linear terms of $u_{ij}$ are
+\begin{align}\label{3.34}
+Q_2=&\frac{1}{|D'u|^2\log|D'u|^2}\big[
+2fvu_1^2\sum_{1\leq k\leq n}c^{k1}u_{1k}+4(c^{11})_{1} u_1u_{11}+4 u_1\sum_{2\leq i\leq n}(c^{1i})_{1}u_{1i}\notag\\
+&\qquad\qquad\qquad\quad\,\,+4 u_1v^2\sum_{2\leq i\leq n}(c^{11})_{i}u_{1i}
++4u_1v^2\sum_{2\leq i\leq n}(c^{1i})_{i}u_{ii}\big],
+\end{align}
+and  the
+remaining terms are
+\begin{align}
+Q_3=&I_2+\frac{1}{|D'u|^2\log|D'u|^2}\big[\sum_{2\leq i\leq n}(c^{11})_{ii} u^4_1+\sum_{1\leq i\leq n}(c^{11})_{ii} u^2_1+2u_1v^3\sum_{1\leq k\leq n}c^{k1}D_kf\big]\notag \\
+=&I_2+\frac{1}{|D'u|^2\log|D'u|^2}\big[\sum_{2\leq i\leq n}(c^{11})_{ii} u^4_1+\sum_{1\leq i\leq n}(c^{11})_{ii} u^2_1+2c^{11}f_uu_1^2v^3\notag \\&
+\hspace{120pt}+2u_1v^3\sum_{1\leq k\leq n}c^{k1}f_{x_k}\big].\label{3.34a}
+\end{align}
+From the estimate on $I_2$ in \eqref{3.18}, we have
+\begin{align}\label{3.35}
+Q_3\geq f v^3-2(1+c^{11}\alpha_0^2) u_1^2\log u_1-C_2u_1^2,
+\end{align}
+in the computation of $Q_3$, we use the relation $D_kf=f_u u_k+f_{x_k}$ and $f_u\geq 0$, where $C_2$ is a positive constant which depends only on $n, \Omega, M_0, \mu_0, L_1, L_2$.
+
+
+{\bf Step 2:} In this step we shall treat the terms $Q_1, Q_2$ using the first order derivative condition
+ $$\varphi_i(x_0)=0,$$
+  and let
+  \begin{align}\label{3.35a}
+A=|D'u|^2\log|D'u|^2.
+\end{align}
+
+By \eqref{3.10}  and  \eqref{3.19},  we have
+\begin{align}\label{3.36}
+\begin{split}
+\sum_{1\leq k\leq n}c^{k1}u_{ki}=&-\frac{h'}{2}\frac{u_i}{u_1}|D'u|^2\log|D'u|^2-\frac{g'\gamma^i}{2}\frac{|D'u|^2\log|D'u|^2}{u_1}-\frac{(c^{11})_i}{2} u_1\\
+=&-\frac{h'}{2}\frac{u_i}{u_1}A-\frac{g'\gamma^i}{2}\frac{A}{u_1}-\frac{(c^{11})_i}{2} u_1,\qquad i=1,2,\ldots,n.
+\end{split}
+\end{align}
+Using \eqref{3.36},  we get
+\begin{align}\label{3.37}
+\begin{split}
+\sum_{1\leq k\leq n} c^{k1}u_{k1}
+=-\frac{h'}{2} A-\frac{g'\gamma^1}{2}\frac{A}{u_1}-\frac{(c^{11})_1}{2} u_1,
+\end{split}
+\end{align}
+and
+\begin{align}\label{3.38}
+\begin{split}
+\sum_{1\leq k\leq n} c^{k1}u_{ki}
+=-\frac{g'\gamma^i}{2}\frac{A}{u_1}-\frac{(c^{11})_i}{2} u_1,
+ \qquad\qquad\quad i=2,3,\ldots,n.
+\end{split}
+\end{align}
+Through \eqref{3.38}  and the choice of the coordinate at $x_0$, we have
+\begin{align}\label{3.39}
+\begin{split}
+u_{1i}
+=-\frac{c^{1i}}{c^{11}}u_{ii}-\frac{g'\gamma^i}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_i}{2c^{11}} u_1,\quad\quad
+\ \qquad i=2,3,\ldots,n.
+\end{split}
+\end{align}
+Using \eqref{3.37}  and \eqref{3.39},  it follows that
+\begin{align}\label{3.40}
+\begin{split}
+u_{11}
+=&\sum_{2\leq i\leq n}\frac{(c^{1i})^2}{(c^{11})^2}u_{ii}-\frac{h'}{2c^{11}} A-\frac{g'\gamma^1}{c^{11}}\frac{A}{u_1}
++\frac{u_1}{2(c^{11})^2}\sum_{2\leq i\leq n}c^{1i}(c^{11})_i-\frac{(c^{11})_1}{2c^{11}}u_1\\
+=&\sum_{2\leq i\leq n}\frac{(c^{1i})^2}{(c^{11})^2}u_{ii}-\frac{h'}{2c^{11}} A-\frac{g'\gamma^1}{c^{11}}\frac{A}{u_1}+bu_1,
+\end{split}
+\end{align}
+ where we have let $$b=\frac{1}{2(c^{11})^2}\sum_{2\leq i\leq n}c^{1i}(c^{11})_i-\frac{(c^{11})_1}{2c^{11}}.$$
+By \eqref{3.23}  and \eqref{3.40},  we have
+\begin{align}\label{3.41}
+\begin{split}
+\sum_{2\leq i\leq n}\big[(c^{11})^2v^2+(c^{1i})^2\big]u_{ii}
+=(c^{11})^2f v^3+\frac{c^{11}h'}{2} A+c^{11}g'\gamma^1\frac{A}{u_1}-(c^{11})^2bu_1.
+\end{split}
+\end{align}
+
+Now we use the formulas \eqref{3.37}-\eqref{3.40}  to treat  each term in $Q_1, Q_2$.  At first, we treat  the first five terms of $Q_1$ in \eqref{3.33}, and get \eqref{3.42}-\eqref{3.46}.
+
+By \eqref{3.37} and  \eqref{3.40}, we have
+\begin{align}\label{3.42}
+\begin{split}
+&(\frac{4 u_1^2}{v^2}+2)u_{11}\sum_{1\leq k\leq n}c^{k1}u_{k1}\\
+=&(\frac{4 u_1^2}{v^2}+2)\big[\sum_{2\leq i\leq n}\frac{(c^{1i})^2}{(c^{11})^2}u_{ii}-\frac{h'}{2c^{11}} A-\frac{g'\gamma^1}{c^{11}}\frac{A}{u_1}+bu_1\big]
+\big[-\frac{h'}{2} A-\frac{g'\gamma^1}{2}\frac{A}{u_1}-\frac{(c^{11})_1}{2} u_1\big]\\
+=&-(\frac{2u_1^2}{v^2}+1)\big[h' A+g'\gamma^1\frac{A}{u_1}+(c^{11})_1 u_1\big]\sum_{2\leq i\leq n}\frac{(c^{1i})^2}{(c^{11})^2}u_{ii}
++(\frac{ u_1^2}{v^2}+\frac{1}{2})\frac{h'^2}{c^{11}} A^2\\&+(\frac{ u_1^2}{v^2}+\frac{1}{2})\frac{3h'g'\gamma^1}{c^{11}}\frac{A^2}{u_1}
++(\frac{ u_1^2}{v^2}+\frac{1}{2})[\frac{(c^{11})_1}{c^{11}}-2b]h'u_1A+(\frac{ 2u_1^2}{v^2}+1)\frac{g'^2(\gamma^1)^2}{c^{11}}\frac{A^2}{u_1^2}\\&
++(\frac{ 2u_1^2}{v^2}+1)g'\gamma^1[\frac{(c^{11})_1}{c^{11}}-b]A-(\frac{ 2u_1^2}{v^2}+1)(c^{11})_1bu_1^2.
+\end{split}
+\end{align}
+ From \eqref{3.38} and \eqref{3.39}, we get
+\begin{align}\label{3.43}
+\begin{split}
+&(4u_1^2+2v^2)\sum_{2\leq i\leq n}u_{1i}\sum_{1\leq k\leq n}c^{k1}u_{ki}\\
+=&(4u_1^2+2v^2)\sum_{2\leq i\leq n}\big[-\frac{c^{1i}}{c^{11}}u_{ii}-\frac{g'\gamma^i}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_i}{2c^{11}} u_1\big]
+\big[-\frac{g'\gamma^i}{2}\frac{A}{u_1}-\frac{(c^{11})_i}{2} u_1\big]\\
+=&(2u_1^2+v^2)\frac{A}{u_1}\frac{g'}{c^{11}}\sum_{2\leq i\leq n}c^{1i}\gamma^iu_{ii}+(2u_1^2+v^2)u_1\sum_{2\leq i\leq n}\frac{c^{1i}}{c^{11}}(c^{11})_i u_{ii}+\frac{3g'^2}{2}A^2\\
+&+\frac{g'}{c^{11}}\sum_{2\leq i\leq n}(c^{11})_i\gamma^i(2u_1^2+v^2)A+\frac{(2u_1^2+v^2)u_1^2}{2c^{11}}\sum_{2\leq i\leq n}((c^{11})_i)^2+\frac{g'^2}{2}\frac{A^2}{u_1^2}.
+\end{split}
+\end{align}
+From \eqref{3.39} , we have
+\begin{align}\label{3.44}
+\begin{split}
+&2v^2\sum_{2\leq i\leq n}c^{1i}u_{1i}u_{ii}\\
+=&2v^2\sum_{2\leq i\leq n}c^{1i}u_{ii}\big[-\frac{c^{1i}}{c^{11}}u_{ii}-\frac{g'\gamma^i}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_i}{2c^{11}} u_1\big]\\
+=&-\frac{2v^2}{c^{11}}\sum_{2\leq i\leq n}(c^{1i}u_{ii})^2-\frac{g'}{c^{11}}\frac{v^2A}{u_1}\sum_{2\leq i\leq n}c^{1i}\gamma^iu_{ii}-\frac{u_1v^2}{c^{11}}\sum_{2\leq i\leq n}c^{1i}(c^{11})_iu_{ii}.
+\end{split}
+\end{align}
+By \eqref{3.39}  and \eqref{3.40},  it follows that
+\begin{align}\label{3.45}
+\begin{split}
+&2u_{11}\sum_{2\leq i\leq n}c^{1i}u_{1i}\\=&2\big[\sum_{2\leq j\leq n}\frac{(c^{1j})^2}{(c^{11})^2}u_{jj}-\frac{h'}{2c^{11}} A-\frac{g'\gamma^1}{c^{11}}\frac{A}{u_1}+bu_1\big]\sum_{2\leq i\leq n}c^{1i}\big[-\frac{c^{1i}}{c^{11}}u_{ii}-\frac{g'\gamma^i}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_i}{2c^{11}} u_1\big]\\
+=&-\frac{2}{(c^{11})^3}[\sum_{2\leq i\leq n}(c^{1i})^2u_{ii}]^2+\big[h'A+3g'\gamma^1\frac{A}{u_1}-4c^{11}bu_1-(c^{11})_1u_1\big]\sum_{2\leq i\leq n}\frac{(c^{1i})^2}{(c^{11})^2}u_{ii}\\&-\frac{h'g'\gamma^1}{2c^{11}}\frac{A^2}{u_1}+\frac{h'}{2(c^{11})^2}\sum_{2\leq i\leq n}c^{1i}(c^{11})_i Au_1-\frac{g'^2(\gamma^1)^2}{c^{11}}\frac{A^2}{u_1^2}+g'\gamma^1\big[3b+\frac{(c^{11})_1}{c^{11}}\big]A\\&-b[2bc^{11}+(c^{11})_1]u^2_1.
+\end{split}
+\end{align}
+Again by \eqref{3.39}  and \eqref{2.2},  we get
+\begin{align}\label{3.46}
+\begin{split}
+&2\sum_{2\leq i,j\leq n}c^{ij}u_{1i}u_{1j}\\
+=&2\sum_{2\leq i,j\leq n}c^{ij}\big[-\frac{c^{1i}}{c^{11}}u_{ii}-\frac{g'\gamma^i}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_i}{2c^{11}} u_1\big]\big[-\frac{c^{1j}}{c^{11}}u_{jj}-\frac{g'\gamma^j}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_j}{2c^{11}} u_1\big]\\
+=&\frac{2}{(c^{11})^2}\sum_{2\leq i,j\leq n}c^{ij}c^{1i}c^{1j}u_{ii}u_{jj}-\big[\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{u_1}-\frac{2\gamma^1u_1}{(c^{11})^2}\sum_{2\leq j\leq n}\gamma^j(c^{11})_j\big]\sum_{2\leq i\leq n}(\gamma^i)^2u_{ii}\\&+\frac{2u_1}{(c^{11})^2}\sum_{2\leq i\leq n}c^{1i}(c^{11})_iu_{ii} +\frac{(1-c^{11})g'^2}{2c^{11}}\frac{A^2}{u_1^2}
++\frac{(1-c^{11})g'A}{(c^{11})^2 }\sum_{2\leq i\leq n}\gamma^i(c^{11})_i \\&+\frac{1}{2(c^{11})^2}\sum_{2\leq i,j\leq n}c^{ij}(c^{11})_i(c^{11})_j u_1^2.
+\end{split}
+\end{align}
+
+
+Now we  treat  the first four terms of $Q_2$ in \eqref{3.34}, and get \eqref{3.47}-\eqref{3.50}.
+
+From \eqref{3.37},  we have
+\begin{align}\label{3.47}
+2fvu_1^2\sum_{1\leq k\leq n}c^{k1}u_{1k}
+=&2fvu_1^2\big[-\frac{h'}{2} A-\frac{g'\gamma^1}{2}\frac{A}{u_1}-\frac{(c^{11})_1}{2} u_1\big]\notag\\
+=&-h'fAvu_1^2-fg'\gamma^1Avu_1-(c^{11})_1fvu_1^3.
+\end{align}
+By \eqref{3.40},   we obtain
+\begin{align}\label{3.48}
+\begin{split}
+4(c^{11})_{1} u_1u_{11}=&4(c^{11})_{1} u_1\big[\sum_{2\leq i\leq n}\frac{(c^{1i})^2}{(c^{11})^2}u_{ii}-\frac{h'}{2c^{11}} A-\frac{g'\gamma^1}{c^{11}}\frac{A}{u_1}+bu_1\big]\\
+=&4(c^{11})_{1} u_1\sum_{2\leq i\leq n}\frac{(c^{1i})^2}{(c^{11})^2}u_{ii}-\frac{2(c^{11})_{1}}{c^{11}}h' Au_1-\frac{4g'\gamma^1}{c^{11}}(c^{11})_{1}A+4(c^{11})_{1} bu_1^2.
+\end{split}
+\end{align}
+From \eqref{3.39}, we have
+\begin{align}\label{3.49}
+\begin{split}
+&4 u_1\sum_{2\leq i\leq n}(c^{1i})_{1}u_{1i}\\
+=&4 u_1\sum_{2\leq i\leq n}(c^{1i})_{1}\big[-\frac{c^{1i}}{c^{11}}u_{ii}-\frac{g'\gamma^i}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_i}{2c^{11}} u_1\big]\\
+=&-\frac{4u_1}{c^{11}}\sum_{2\leq i\leq n}(c^{1i})_{1}c^{1i}u_{ii}-\frac{2g'}{c^{11}}\sum_{2\leq i\leq n}(c^{1i})_{1}\gamma^iA-\frac{2}{c^{11}}\sum_{2\leq i\leq n}(c^{1i})_{1}(c^{11})_i u_1^2,
+\end{split}
+\end{align}
+and \begin{align}\label{3.50}
+\begin{split}
+&4 u_1v^2\sum_{2\leq i\leq n}(c^{11})_{i}u_{1i}\\
+=&4 u_1v^2\sum_{2\leq i\leq n}(c^{11})_{i}\big[-\frac{c^{1i}}{c^{11}}u_{ii}-\frac{g'\gamma^i}{2c^{11}}\frac{A}{u_1}-\frac{(c^{11})_i}{2c^{11}} u_1\big]\\
+=&-\frac{4 u_1v^2}{c^{11}}\sum_{2\leq i\leq n}(c^{11})_{i}c^{1i}u_{ii}-\frac{2g'}{c^{11}}\sum_{2\leq i\leq n}(c^{11})_{i}\gamma^iAv^2-\frac{2}{c^{11}} \sum_{2\leq i\leq n}((c^{11})_{i})^2u_1^2v^2.
+\end{split}
+\end{align}
+We treat the term $Q_1$ using the relations \eqref{3.42}-\eqref{3.46}, and  use the formulas \eqref{3.46}-\eqref{3.50}  to treat the term $Q_2$. By the formula on $Q_3$ in \eqref{3.34a},  we can get the following new formula of \eqref{3.32},
+\begin{align}\label{3.51}
+0\geq \sum_{1\leq i,j\leq n}a^{ij}\varphi_{ij}=: J_1+J_2,
+\end{align}
+where $J_1$  only contains the terms with $u_{ii}$ , the other terms belong to $J_2$. We can write
+\begin{align}\label{3.52}
+J_1=:\frac{1}{A}\big[J_{11}+J_{12}\big],
+\end{align}
+here $J_{11}$  contains the quadratic terms of $u_{ii}\,(i\geq2)$, and  $J_{12}$ is the term including linear terms of $u_{ii}\,(i\geq2)$. It follows that
+\begin{align}\label{3.54}
+\begin{split}
+J_{11}=&2v^2\sum_{2\leq i\leq n}c^{ii}u_{ii}^2-\frac{2v^2}{c^{11}}\sum_{2\leq i\leq n}(c^{1i}u_{ii})^2-\frac{2}{(c^{11})^3}[\sum_{2\leq i\leq n}(c^{1i})^2u_{ii}]^2\\&+\frac{2}{(c^{11})^2}\sum_{2\leq i,j\leq n}c^{ij}c^{1i}c^{1j}u_{ii}u_{jj}\\
+=&\frac{2}{(c^{11})^3}\big[\sum_{2\leq i\leq n}d_ie_iu_{ii}^2+2\sum_{2\leq i<j\leq n}c^{ij}c^{1i}c^{1j}u_{ii}u_{jj}\big],
+\end{split}
+\end{align}
+where
+\begin{align}
+d_i=&(c^{11})^2v^2+(c^{1i})^2=(c^{11})^2u_1^2+(c^{11})^2+(c^{1i})^2, \quad i=2,3,\ldots,n,\label{3.55}\\
+e_i=&c^{11}c^{ii}-(c^{1i})^2=1-(\gamma^1)^2-(\gamma^i)^2,\quad i=2,3,\ldots,n.\label{3.56}
+\end{align}
+And \begin{align}\label{3.57}
+\begin{split}
+J_{12}=&\big[-\frac{2g'\gamma^1}{c^{11}}Au_1-\frac{2(\gamma^1)^2h'}{(c^{11})^2}\frac{Au_1^2}{v^2}
+-\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{u_1}
++\frac{2\gamma^1}{(c^{11})^2}\sum_{2\leq j\leq n}c^{1j}(c^{11})_ju_1\\&\,\,\,-\frac{4b(\gamma^1)^2}{c^{11}}u_1+\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{v^2u_1}
++\frac{2(\gamma^1)^2(c^{11})_1}{(c^{11})^2}\frac{u_1}{v^2}\big]\sum_{2\leq i\leq n} (\gamma^i)^2u_{ii}\\&+4u_1v^2\sum_{2\leq i\leq n}(c^{1i})_{i}u_{ii}-\frac{4u_1}{c^{11}}\sum_{2\leq i\leq n}c^{1i}(c^{1i})_1u_{ii}\\&
+-\big[\frac{2u_1^3}{c^{11}}+\frac{4c^{11}-2}{(c^{11})^2}u_1\big]\sum_{2\leq i\leq n}c^{1i}(c^{11})_i u_{ii}.
+\end{split}
+\end{align}
+
+We write other terms as $J_2$, then
+\begin{align}
+J_2=&Q_3-h'fvu_1^2+(\frac{ u_1^2}{v^2}+\frac{1}{2})\frac{h'^2}{c^{11}}A+\frac{3g'^2}{2}A
+-fg'\gamma^1vu_1+\frac{g'}{c^{11}}\sum_{2\leq i\leq n}(c^{11})_i\gamma^i(u_1^2-1)\notag\\&
+-\frac{1}{c^{11}} \sum_{2\leq i\leq n}((c^{11})_{i})^2\frac{(v^2+2)u_1^2}{A}-(c^{11})_1f\frac{v u_1^3}{A}
++(\frac{ 3u_1^2}{v^2}+1)\frac{h'g'\gamma^1}{c^{11}}\frac{A}{u_1}-\frac{2(c^{11})_{1}}{c^{11}}h' u_1\notag\\&
++(\frac{ u_1^2}{v^2}+\frac{1}{2})[\frac{(c^{11})_1}{c^{11}}-2b]h'u_1
++\frac{h'}{2(c^{11})^2}\sum_{2\leq i\leq n}c^{1i}(c^{11})_i u_1+\frac{g'^2}{2}\frac{A}{u_1^2}-\frac{g'^2(\gamma^1)^2}{c^{11}}\frac{A}{u_1^2}\notag\\&
++(\frac{2u_1^2}{v^2}+1)\frac{g'^2(\gamma^1)^2}{c^{11}}\frac{A}{u_1^2}
++\frac{(1-c^{11})g'^2}{2c^{11}}\frac{A}{u_1^2}+g'\gamma^1\big[3b+\frac{(c^{11})_1}{c^{11}}\big]-\frac{2g'}{c^{11}}\sum_{2\leq i\leq n}(c^{1i})_{1}\gamma^i\notag\\&
++\frac{(1-c^{11})g'}{(c^{11})^2}\sum_{2\leq i\leq n}\gamma^i(c^{11})_i
++(\frac{ 2u_1^2}{v^2}+1)g'\gamma^1[\frac{(c^{11})_1}{c^{11}}-b]-(\frac{ 2u_1^2}{v^2}+1)(c^{11})_1b\frac{u_1^2}{A}\notag
+\\&-b[2bc^{11}+(c^{11})_1]\frac{u_1^2}{A}
++\frac{1}{2(c^{11})^2}\sum_{2\leq i,j\leq n}c^{ij}(c^{11})_i(c^{11})_j \frac{u_1^2}{A}
+-\frac{4g'\gamma^1}{c^{11}}(c^{11})_{1}\notag\\
+&+4(c^{11})_{1} b\frac{u_1^2}{A}-\frac{2}{c^{11}}\sum_{2\leq i\leq n}(c^{1i})_{1}(c^{11})_i \frac{u_1^2}{A}.\label{3.57a}
+\end{align}
+Using the formula on $Q_3$ in  \eqref{3.35} and $I_2$ in  \eqref{3.18}, we get the following estimate on $J_2$,
+\begin{align}
+J_2\geq&-2(h'^2+c^{11}g'^2) u_1^2\log u_1+h'fv+\frac{3}{2}\frac{h'^2}{c^{11}}A+\frac{3g'^2}{2}A-C_3u_1^2\notag\\
+\ge & [h'^2+c^{11}g'^2]u_1^2\log u_1-C_4u_1^2.\label{3.58}
+\end{align}
+So if we use $h(u), g(d)$ in \eqref{3.1a}, then we have
+ \begin{align}\label{3.58a}
+\begin{split}
+J_2 \geq (1+c^{11}\alpha_0^2) u_1^2\log u_1-C_4u_1^2,
+\end{split}
+\end{align}
+where  $ C_3, C_4 $  and the following $C_5, ..., C_{12}$ are  positive constants which only depend on $n, \Omega, \mu_0, M_0, L_1, L_2$.
+
+
+
+{\bf Step 3:}
+In this step, we concentrate on $J_1$. We first treat the terms $J_{11}$ and $J_{12}$  and obtain the formula ~\eqref{3.63}, then we complete the proof of  Theorem~\ref{Thm1.1} through  Lemma~\ref{Lem4.5}.\\
+ By \eqref{3.41}, we have
+\begin{align}\label{3.59}
+\begin{split}
+u_{22}=&-\frac{1}{d_2}\sum_{3\leq i\leq n}d_iu_{ii}
++\frac{1}{d_2}\big[(c^{11})^2f v^3+\frac{c^{11}h'}{2} A+c^{11}g'\gamma^1\frac{A}{u_1}
+-(c^{11})^2bu_1\big]\\
+=&:-\frac{1}{d_2}\sum_{3\leq i\leq n}d_iu_{ii}
++\frac{D}{d_2},
+\end{split}
+\end{align}
+where we have let
+\begin{align}\label{3.59a}
+D=(c^{11})^2f v^3+\frac{c^{11}h'}{2} A+c^{11}g'\gamma^1\frac{A}{u_1}
+-(c^{11})^2bu_1.
+\end{align}
+
+We first treat the term $J_{11}$:
+using \eqref{3.59} to simplify \eqref{3.54}, we get
+\begin{align}\label{3.60}
+\begin{split}
+J_{11}=&\frac{2}{(c^{11})^3d_2}\big[\sum_{3\leq i\leq n}b_{ii}u_{ii}^2+2\sum_{3\leq i< j\leq n}b_{ij}u_{ii}u_{jj}
+-2e_2D\sum_{3\leq i\leq n}d_{i}u_{ii}\\&\qquad\qquad\,\,-2(\gamma^2)^2D\sum_{3\leq i\leq n}(c^{1i})^2u_{ii}+e_2D^2\big],
+\end{split}
+\end{align}
+where
+\begin{align}\label{3.61a}
+\begin{split}
+b_{ii}=&e_2d_i^2+e_id_id_2-2c^{12}c^{2i}c^{1i}d_i
+=(c^{11})^4(e_2+e_i)v^4+A_{1i}v^2+A_{2i},\quad i\geq 3\\
+b_{ij}=&e_2d_id_j+d_2c^{ij}c^{1i}c^{1j}-c^{12}c^{1i}c^{2i}d_j-c^{12}c^{1j}c^{2j}d_i\\
+=&(c^{11})^4e_2v^4+G_{ij}v^2+\hat{G}_{ij},
+\qquad\qquad\qquad\qquad i\neq j,\,i,j\geq 3,
+\end{split}
+\end{align}
+and
+\begin{align}\label{3.61b}
+\begin{split}
+A_{1i}=&(c^{11})^2\big[(c^{1i})^2(e_2+e_i)+c^{11}\big((c^{1i})^2+(c^{12})^2\big)\big], \\
+A_{2i}=&c^{11}(c^{1i})^2\big[(c^{1i})^2+(c^{12})^2\big], \\
+G_{ij}=&c^{11}\big((c^{1i})^2+(c^{1j})^2\big)+c^{ij}c^{1i}c^{1j}, \\
+\hat{G}_{ij}=&c^{11}(c^{1i})^2(c^{1j})^2.
+\end{split}
+\end{align}
+Now we simplify the terms in $J_{12}$: by  ~\eqref{3.59},  we can rewrite ~\eqref{3.57} as
+\begin{align}\label{3.62}
+\begin{split}
+J_{12}=&\big[-\frac{2g'\gamma^1}{c^{11}}Au_1-\frac{2(\gamma^1)^2h'}{(c^{11})^2}\frac{Au_1^2}{v^2}
+-\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{u_1}
++\frac{2\gamma^1}{(c^{11})^2}\sum_{2\leq j\leq n}c^{1j}(c^{11})_ju_1\\&\,\,\,-\frac{4b(\gamma^1)^2}{c^{11}}u_1+\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{v^2u_1}
++\frac{2(\gamma^1)^2(c^{11})_1}{(c^{11})^2}\frac{u_1}{v^2}\big]\sum_{3\leq i\leq n}[(\gamma^i)^2-\frac{d_i}{d_2}(\gamma^2)^2]u_{ii}\\&+4u_1v^2\sum_{3\leq i\leq n}[(c^{1i})_{i}-\frac{d_i}{d_2}(c^{12})_{2}]u_{ii}-\frac{4u_1}{c^{11}}\sum_{3\leq i\leq n}[c^{1i}(c^{1i})_1-\frac{d_i}{d_2}c^{12}(c^{12})_1]u_{ii}\\&
+-\big[\frac{2u_1^3}{c^{11}}+\frac{4c^{11}-2}{(c^{11})^2}u_1\big]\sum_{3\leq i\leq n}[c^{1i}(c^{11})_i-\frac{d_i}{d_2}c^{12}(c^{11})_2]u_{ii}\\
+&+\big[-\frac{2g'\gamma^1}{c^{11}}Au_1-\frac{2(\gamma^1)^2h'}{(c^{11})^2}\frac{Au_1^2}{v^2}
+-\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{u_1}
++\frac{2\gamma^1}{(c^{11})^2}\sum_{2\leq j\leq n}c^{1j}(c^{11})_ju_1\\&\qquad-\frac{4b(\gamma^1)^2}{c^{11}}u_1+\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{v^2u_1}
++\frac{2(\gamma^1)^2(c^{11})_1}{(c^{11})^2}\frac{u_1}{v^2}\big]\frac{(\gamma^2)^2D}{d_2}\\&
++4(c^{12})_{2}\frac{u_1v^2D}{d_2}-4c^{12}(c^{12})_1\frac{u_1D}{c^{11}d_2}-\big[\frac{2u_1^3}{c^{11}}
++c^{12}(c^{11})_2\frac{4c^{11}-2}{(c^{11})^2}u_1\big]\frac{D}{d_2}.
+\end{split}
+\end{align}
+Using ~\eqref{3.60} and \eqref{3.62} to treat ~\eqref{3.52},  we have
+\begin{align}\label{3.63}
+\begin{split}
+J_{1}=&\frac{2}{Ad_2(c^{11})^3}\big[\sum_{3\leq i\leq n}b_{ii}u_{ii}^2+2\sum_{3\leq i< j\leq n}b_{ij}u_{ii}u_{jj}-u_1^5\log u_1\sum_{3\leq i\leq n}b_iu_{ii}\\&\qquad\qquad\quad+\sum_{3\leq i\leq n}K_iu_{ii}\big]+ R,
+\end{split}
+\end{align}
+where
+\begin{align}\label{3.64}
+b_i=&2(c^{11})^5g'\gamma^1(e_2-e_i),
+\end{align}
+ and
+\begin{align}\label{3.64a}
+K_i=&-2e_2Dd_{i}-2(\gamma^2)^2D(c^{1i})^2-(c^{11})^3(\log c^{11})g'\gamma^1u_1^5(e_2-e_i)-(c^{11})^4g'\gamma^1Au_1(e_2-e_i)\notag\\&
++\frac{(c^{11})^3}{2}d_2\big[-\frac{2(\gamma^1)^2h'}{(c^{11})^2}\frac{Au_1^2}{v^2}
+-\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{u_1}
++\frac{2\gamma^1}{(c^{11})^2}\sum_{2\leq j\leq n}c^{1j}(c^{11})_ju_1\notag
+\\&-\frac{4b(\gamma^1)^2}{c^{11}}u_1+\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{A}{v^2u_1}
++\frac{2(\gamma^1)^2(c^{11})_1}{(c^{11})^2}\frac{u_1}{v^2}\big][(\gamma^i)^2-\frac{d_i}{d_2}(\gamma^2)^2]\notag\\&+4u_1v^2\frac{(c^{11})^3}{2}d_2\sum_{3\leq i\leq n}[(c^{1i})_{i}-\frac{d_i}{d_2}(c^{12})_{2}]-\frac{4u_1}{c^{11}}\frac{(c^{11})^3}{2}d_2 [c^{1i}(c^{1i})_1-\frac{d_i}{d_2}c^{12}(c^{12})_1]\notag\\&
+-\frac{(c^{11})^3}{2}d_2\big[\frac{2u_1^3}{c^{11}}+\frac{4c^{11}-2}{(c^{11})^2}u_1\big][c^{1i}(c^{11})_i-\frac{d_i}{d_2}c^{12}(c^{11})_2]
+\end{align}
+we also have let
+\begin{align*}
+\begin{split}
+R=&\frac{2e_2D^2}{(c^{11})^3d_2A}+\big[-\frac{2g'\gamma^1}{c^{11}}u_1-\frac{2(\gamma^1)^2h'}{(c^{11})^2}\frac{u_1^2}{v^2}
+-\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{1}{u_1}
++\frac{2\gamma^1}{(c^{11})^2}\sum_{2\leq j\leq n}c^{1j}(c^{11})_j\frac{u_1}{A}\\&\,\,\,-\frac{4b(\gamma^1)^2}{c^{11}}\frac{u_1}{A}+\frac{2g'(\gamma^1)^3}{(c^{11})^2}\frac{1}{v^2u_1}
++\frac{2(\gamma^1)^2(c^{11})_1}{(c^{11})^2}\frac{u_1}{v^2A}\big]\frac{(\gamma^2)^2D}{d_2}\\&
++4(c^{12})_{2}\frac{u_1v^2D}{Ad_2}-4c^{12}(c^{12})_1\frac{u_1D}{c^{11}Ad_2}-\big[\frac{2u_1^3}{c^{11}}
++c^{12}(c^{11})_2\frac{4c^{11}-2}{(c^{11})^2}u_1\big]\frac{D}{Ad_2}.
+\end{split}
+\end{align*}
+
+For $K_i$ and $R$, using the formulas on $D$ in \eqref{3.59a}; the formula of $A$ in \eqref{3.35a}; $ e_i; d_i$  in \eqref{3.55}-\eqref{3.56}, and  $h(u), g(d)$ in \eqref{3.1a}, we have the following estimates
+\begin{align}
+K_i\leq& C_5u_1^5,\label{3.64b}\\
+R\leq &C_6u_1^2.\label{3.64c}
+\end{align}
+
+
+
+Now we use  Lemma~\ref{Lem4.5}, if there is a sufficiently large positive constant $C_7$ such that
+\begin{align}
+|Du|(x_0) \ge C_7,\label{3.64d}
+\end{align}
+ then we have
+\begin{align}\label{3.65}
+J_{1}
+\geq &\frac{2}{Ad_2(c^{11})^3}{[-(n-2)(c^{11})^7g'^2(\gamma^1)^2u_1^6\log^2 u_1-C_{8} u_1^6\log u_1]}-C_6u_1^2,\notag\\
+\ge & -(n-2)c^{11}(1-c^{11})g'^2u_1^2\log u_1-C_9u_1^2,
+\end{align}
+where we use the formulas  $(\gamma^1)^2= 1-c^{11}$, $d_2$ in ~\eqref{3.55} and $A$ in ~\eqref{3.35a}.
+
+
+Using the estimates on $J_1$ in ~\eqref{3.65} and  $J_2$ in ~\eqref{3.58}, from  ~\eqref{3.51} we obtain
+\begin{align}\label{3.66}
+0\geq &\sum_{1\leq i,j\leq n}a^{ij}\varphi_{ij}\notag\\
+\geq & \big\{h'^2+[(c^{11})^2(n-2)-c^{11}(n-3)]g'^2\big\}u_1^2\log u_1-C_4u_1^2-C_9u_1^2,
+\end{align}
+by the choice of $h(u), g(d)$ in \eqref{3.1a},
+it follows that
+\begin{align}\label{3.66a}
+\begin{split}
+0\geq &\sum_{1\leq i,j\leq n}a^{ij}\varphi_{ij}\\
+\ge & \big\{1+[(c^{11})^2(n-2)-c^{11}(n-3)]\alpha_0^2\big\}u_1^2\log u_1-C_{10}u_1^2\\
+\geq & u_1^2\log u_1-C_{10}u_1^2,
+\end{split}
+\end{align}
+where we also use the relation
+$$c^{11}\geq\frac{n-3}{n-2}(n\ge 5 ),\quad c^{11}\geq\frac{1}{2}(n=2,3,4).$$
+
+By \eqref{3.8c}, \eqref{3.8d}, \eqref{3.8e}, \eqref{3.64d} and \eqref{3.66a}, there exists a positive constant
+$C_{11}$ such that
+ \begin{align}\label{3.67}
+ |D'u|(x_0)\leq C_{11}.
+ \end{align}
+
+
+ So from  Case 1, Case 2,  and \eqref{3.67}, we have
+ $$|D'u|(x_0)\leq C_{12}, \quad \quad x_0\in\Omega_{\mu_0}\bigcup\partial\Omega.$$
+
+
+Since $\varphi(x)\leq\varphi(x_0),\quad \text{for} \quad x\in \Omega_{\mu_0}$, there exists $M_2$ such that
+\begin{align}\label{3.68}
+|Du|(x)\leq M_2, \quad in\quad\Omega_{\mu_0}\bigcup\partial\Omega,
+\end{align}
+where~$M_2$ depends only on ~$n, \Omega, \mu_0, M_0,  L_1, L_2$.
+
+
+So at last we get the following estimate
+$$\sup_{\overline\Omega_{\mu_0}}|Du|\leq \max\{M_1, M_2\},$$
+where the positive constant  ~$ M_1$ depends only on $n, \mu_0, M_0, L_1$; and $ M_2$ depends only on ~$n, \Omega, \mu_0, M_0, L_1, L_2$.
+
+ Now we  complete the proof of Theorem~\ref{Thm1.1}.\qed
+
+\section{ Some  Lemmas }
+In this section, we prove the main Lemma~\ref{Lem4.5} and get the main estimate \eqref{3.65}, which was used in last section to estimate  $J_1$ defined in  \eqref{3.63}.
+
+
+We first state a simple lemma on elementary symmetric function.
+\begin{Lem}\label{Lem4.1}
+Assume $e=(e_2, e_3,\ldots, e_n)$,  then for $i\geq 3$, we have
+\begin{align}\label{lem4.1}
+\sigma_{n-3}(e|i)(e_2-e_i)-\sum_{k\neq i, k\geq 3}\sigma_{n-3}(e|ik)(e_2-e_k)
+=(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e).
+\end{align}
+\end{Lem}
+{\bf Proof:}  When ~$i\geq 3$, we have,
+\begin{align*}
+\begin{split}
+&\sigma_{n-3}(e|i)(e_2-e_i)-\sum_{k\neq i, k\geq 3}\sigma_{n-3}(e|ik)(e_2-e_k)\\
+=&e_2\sigma_{n-3}(e|i)- e_i\sigma_{n-3}(e|i)-e_2\sum_{i\neq k, k\geq 3}\sigma_{n-3}(e|ik)+\sum_{k\neq i, k\geq 3}e_k\sigma_{n-3}(e|ik)\\
+=&(n-2)\sigma_{n-2}(e|i)-e_i\sigma_{n-3}(e|i)\\
+=&(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e).
+\end{split}
+\end{align*}
+\qed
+
+\begin{Lem}\label{Lem4.2} Let $a_i=(\gamma^i)^2, \gamma = (\gamma^1, \gamma^2, ...,\gamma^n) \quad \text{is  a unit vector in} \quad R^n, \quad a=(a_2, a_3, \ldots, a_n)$, and $e=(e_2, e_3, \ldots, e_n), \quad e_i=\sigma_1(a|i)$, ~$i\geq 2$. Then the matrix
+~$E=(E_{ij})_{3\leq i,j\leq n}$ is positive definite, where ~$ E_{ij}=e_2+e_i\delta_{ij}$.
+\end{Lem}
+{\bf Proof:} We only need to prove that the following determination is positive.
+\begin{align}\label{4.1}
+\begin{split}
+\det E=&\sigma_{n-2}(e)
+=\sigma_{n-2}\big(\sigma_1(a|2), \sigma_1(a|3), \ldots, \sigma_1(a|n)\big)\\
+=&\sum_{2\leq i_1<i_2<\cdots< i_{n-2}\leq n-2}\big(\sigma_1(a)-a_{i_1}\big)\big(\sigma_1(a)-a_{i_2}\big)\cdots \big(\sigma_1(a)-a_{i_{n-2}}\big)\\
+=&\sum_{0\leq k\leq n-2}(-1)^k(n-k-1)[\sigma_1(a)]^{n-2-k}\sigma_k(a)\\
+=&[\sigma_1(a)]^{n-2}+\sum_{2\leq k\leq n-2}(-1)^k(n-k-1)[\sigma_1(a)]^{n-2-k}\sigma_k(a),
+\end{split}
+\end{align}
+Now we divide the following two cases, using the  Newton-MacLaurin inequality, then we get our conclusion.
+
+Case 1:  if $ n=odd$
+\begin{align}\label{4.2}
+\begin{split}
+&\sum_{2\leq k\leq n-2}(-1)^k(n-1-k)[\sigma_1(a)]^{n-2-k}\sigma_k(a)\\
+=&\sum_{2\leq k\leq n-3,k=even}[k(\sigma_1(a))^{k-1}\sigma_{n-1-k}(a)-(k-1)(\sigma_1(a))^{k-2}\sigma_{n-k}(a)]\\
+=&\sum_{2\leq k\leq n-3,k=even}[\sigma_1(a)]^{k-2}[k \sigma_1(a)\sigma_{n-1-k}(a)-(k-1)\sigma_{n-k}(a)]\\
+\geq&\sum_{2\leq k\leq n-3,k=even}[\sigma_1(a)]^{k-2}[(n-1)(n-k)-(k-1)]\sigma_{n-k}(a)\\
+\geq& 0.
+\end{split}
+\end{align}
+Case 2: if $ n=even$
+\begin{align}\label{4.3}
+\begin{split}
+&\sum_{2\leq k\leq n-2}(-1)^k(n-1-k)[\sigma_1(a)]^{n-2-k}\sigma_k(a)\\
+=&\sum_{3\leq k\leq n-3,k=odd}[k(\sigma_1(a))^{k-1}\sigma_{n-1-k}(a)-(k-1)(\sigma_1(a))^{k-2}\sigma_{n-k}(a)]+\sigma_{n-2}(a)\\
+\geq&\sum_{3\leq k\leq n-3,k=odd}[\sigma_1(a)]^{k-2}[k\sigma_1(a)\sigma_{n-1-k}(a)-(k-1)\sigma_{n-k}(a)]+\sigma_{n-2}(a)\\
+\geq&\sum_{3\leq k\leq n-3,k=odd}[\sigma_1(a)]^{k-2}[(n-1)(n-k)-(k-1)]\sigma_{n-k}(a)+\sigma_{n-2}(a)\\
+\geq& 0.
+\end{split}
+\end{align}
+Since  $\sigma_1(a)=\sum_{2\leq i\leq n}a_i=c^{11}>0,$
+it follows that
+\begin{align}\label{4.4}
+\det E=\sigma_{n-2}(e)\geq[\sigma_1(a)]^{n-2}>0.
+\end{align}
+then the matrix ~$E$ is positive definite.\qed
+
+
+Now we prove  the main lemma.
+\begin{Lem}\label{Lem4.5}
+We define $(b_{ij})$  as in \eqref{3.61a}, $d_i,e_i$ defined as in \eqref{3.55}-\eqref{3.56}, $A_{1i}, A_{2i}, G_{ij}, \hat{G}_{ij}$ defined as in \eqref{3.61b}.
+And we define ~$b_i$  as in \eqref{3.64}, $v^2 = 1 + u_1^2$ and $c^{11}\ge \frac{1}{2}.$  We study the following quadratic form
+\begin{align}\label{4.6}
+\begin{split}
+Q(x_3,x_4,\ldots,x_n)=&\sum_{3\leq i\leq n}b_{ii}x_i^2
++2\sum_{3\leq i< j\leq n}b_{ij}x_i x_j
+-u_1^5\log u_1\sum_{3\leq i\leq n}b_{i} x_i\\
+&+\sum_{3\leq i\leq n}K_i x_i,
+\end{split}
+\end{align}
+where $K_i$ defined in  \eqref{3.64a} and we have the estimate  \eqref{3.64b} for $K_i$.
+Then there exists a sufficiently large positive constant $C_{13}$ which depends only on  $n, \Omega, \mu_0, M_0, L_1, L_2,$ such that if
+\begin{align}\label{4.6a}
+|Du|(x_0)=u_1(x_0) \ge C_{13},
+\end{align}
+then  the followings hold.
+
+(I): The matrix $(b_{ij})$ is positive definite if and only only if the matrix  ~$(b^1_{ij})=  (E_{ij})=[e_2+e_i\delta_{ij}]$ is positive definite.\par
+
+(II): We have
+\begin{align}\label{4.7}
+\begin{split}
+Q(x_3,x_4,\ldots,x_n)
+\geq &-(n-2)(c^{11})^7g'^2(\gamma^1)^2u_1^6\log^2 u_1-C_{14} u_1^6\log u_1,
+\end{split}
+\end{align}
+where positive constant $C_{14}$ also depends only on  $n, \Omega, \mu_0, M_0, L_1, L_2.$
+
+\end{Lem}
+{\bf Proof:} Let $$ B=(b_{ij})=B_1+B_2, B_1=((c^{11})^4u_1^4b^1_{ij}), B_2=(O(u^2_1)\delta_{ij}),$$
+We first  prove  (I):
+\begin{align}\label{4.8}
+\begin{split}
+\sigma_k(B)=&\sigma_k(B_1+B_2)\\
+=&\sigma_k(B_1)+\sigma_k(B_1, B_1, \ldots, B_1, B_2)\\&+\cdots+\sigma_k(B_1, B_2,\ldots, B_2, B_2)+\sigma_k(B_2)\\
+=&(c^{11})^{4k}u_1^{4k}\sigma_k(b^1_{ij})+O(u_1^{4k-2})
+\end{split}
+\end{align}
+so if $u_1$ is sufficiently large, then $\sigma_k(B)>0\Longleftrightarrow\sigma_k(b^1_{ij})>0$.
+
+Now we prove   (II):
+If  ~$B_1=((c^{11})^4u_1^4b^1_{ij})_{3\leq i,j\leq n}$  is positive definite, from the argument in (I), we get
+\begin{align}\label{4.9}
+B^{-1}=(B_1+B_2)^{-1}=B_1^{-1}(I+B_1^{-1}B_2)^{-1}=\frac{1}{(c^{11})^{4}u_1^{4}}(b^1_{ij})^{-1}\big(1+o(1)\big).
+\end{align}
+Then we have
+\begin{align}\label{4.10}
+\begin{split}
+(b^1_{ij})^{-1}=&\left(\begin{array}{cccc}e_2+e_3&e_2&\cdots &e_2\\
+e_2&e_2+e_4&\cdots &e_2\\
+\vdots & \vdots & \vdots &\vdots \\
+e_2&e_2&\cdots& e_2+e_n
+\end{array}\right)^{-1}\\
+=&\frac{1}{\sigma_{n-2}(e)}\left(\begin{array}{cccc}
+\sigma_{n-3}(e|3)&-\sigma_{n-3}(e|34)&\cdots & -\sigma_{n-3}(e|3n)\\
+-\sigma_{n-3}(e|43)&\sigma_{n-3}(e|4)&\cdots & -\sigma_{n-3}(e|4n)\\
+\vdots & \vdots & \vdots &\vdots \\
+-\sigma_{n-3}(e|n3)&-\sigma_{n-3}(e|n4)&\cdots & \sigma_{n-3}(e|n)
+\end{array}\right)\\
+=&:\frac{1}{\sigma_{n-2}(e)}\tilde{B}
+\end{split}
+\end{align}
+where  ~$e=(e_2,e_3,\ldots,e_n)$.\\
+Now we solve the following linear  algebra equation
+\begin{align}\label{4.11}
+\frac{\partial Q}{\partial x_k}=0,\quad k=3,4,\ldots,n.
+\end{align}
+ We assume $(\bar{x}_{3},\bar{x}_{4},\ldots,\bar{x}_{n})$ is the extreme point of the quadratic form $Q(x_3,x_4,\ldots,x_n)$.
+From the definition of $b_{ij}, b_{i}, K_i$ in ~\eqref{3.61a}, ~\eqref{3.64}, ~\eqref{3.64a}  and the estimate for $K_i$ in ~\eqref{3.64b}, using the formulas \eqref{4.9} and \eqref{4.10}, it follows that
+\begin{align}\label{4.12}
+\begin{split}
+\left(\begin{array}{c}
+\bar{x}_{3}\\
+\bar{x}_{4}\\
+\vdots  \\
+\bar{x}_{n}
+\end{array}\right)=&\frac{1}{2}u_1^5\log u_1B^{-1}
+\left(\begin{array}{c}
+b_{3}\\
+b_{4}\\
+\vdots\\
+b_{n}
+\end{array}\right)+ O(u_1^5)B^{-1}
+\left(\begin{array}{c}
+1\\
+1\\
+\vdots\\
+1
+\end{array}\right)\\
+=&\frac{1}{2}u_1^5\log u_1B_1^{-1}\left(\begin{array}{c}
+b_{3}\\
+b_{4}\\
+\vdots\\
+b_{n}
+\end{array}\right)+ O(u_1)
+\left(\begin{array}{c}
+1\\
+1\\
+\vdots\\
+1
+\end{array}\right)\\
+=&\frac{c^{11}g'\gamma^1u_1\log u_1}{\sigma_{n-2}(e)}\tilde{B}
+\left(\begin{array}{c}
+e_2-e_3\\
+e_2-e_4\\
+\vdots\\
+e_2-e_n
+\end{array}\right)+ O(u_1)
+\left(\begin{array}{c}
+1\\
+1\\
+\vdots\\
+1
+\end{array}\right).\\
+\end{split}
+\end{align}
+From Lemma \ref{Lem4.1}, we have for $i=3,4,\ldots,n,$
+\begin{align}\label{4.13}
+\begin{split}
+\bar{x}_{i}=&\frac{c^{11}g'\gamma^1u_1\log u_1}{\sigma_{n-2}(e)}\big[\sigma_{n-3}(e|i)(e_2-e_i)-\sum_{k\neq i, k\geq 3}\sigma_{n-3}(e|ik)(e_2-e_k)\big]+ O(u_1)\\
+=&\frac{c^{11}g'\gamma^1u_1\log u_1}{\sigma_{n-2}(e)}\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]+ O(u_1).
+\end{split}
+\end{align}
+It follows that we have the following minimum of the quadratic $Q$,
+\begin{align}\label{4.14}
+\begin{split}
+&Q(\bar{x}_3, \bar{x}_4,\ldots, \bar{x}_n)\\
+=&\frac{(c^{11})^6g'^2(\gamma^1)^2u_1^6\log^2 u_1}{\sigma^2_{n-2}(e)}\bigg\{\sum_{3\leq i\leq n}(e_2+e_i)\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]^2
+\\&+2e_2\sum_{3\leq i< j\leq n}\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big] \big[(n-1)\sigma_{n-2}(e|j)-\sigma_{n-2}(e)\big]\\&
+-2\sigma_{n-2}(e)\sum_{3\leq i\leq n}(e_2-e_i)\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]\bigg\}
++O(u_1^6\log u_1).
+\end{split}
+\end{align}
+By the elementary computation, we have
+\begin{align}\label{4.15}
+\begin{split}
+&\sum_{3\leq i\leq n}(e_2+e_i)\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]^2
+\\&+2e_2\sum_{3\leq i< j\leq n}\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big] \big[(n-1)\sigma_{n-2}(e|j)-\sigma_{n-2}(e)\big]\\&
+-2\sigma_{n-2}(e)\sum_{3\leq i\leq n}(e_2-e_i)\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]\\
+=&e_2\big\{\sum_{3\leq i\leq n}\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]\big\}^2\\&
+-2e_2\sigma_{n-2}(e)\sum_{3\leq i\leq n}\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]\\&
++\sum_{3\leq i\leq n}e_i\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]^2\\&
++2\sigma_{n-2}(e)\sum_{3\leq i\leq n}e_i\big[(n-1)\sigma_{n-2}(e|i)-\sigma_{n-2}(e)\big]\\
+=&-e_2\sigma_{n-2}^2(e)+(n-1)^2\sum_{3\leq i\leq n}e_i\sigma^2_{n-2}(e|i)-\sigma_{n-2}^2(e)\sigma_{1}(e|2)\\
+=&[(n-1)^2\sigma_{n-1}(e)-\sigma_{1}(e)\sigma_{n-2}(e)]\sigma_{n-2}(e)\\
+\geq &-\sigma_{1}(e)\sigma^2_{n-2}(e)\\
+=&-(n-2)c^{11}\sigma^2_{n-2}(e).
+\end{split}
+\end{align}
+Using \eqref{4.14} and \eqref{4.15},  we at last  get the following estimate
+\begin{align}\label{4.16}
+\begin{split}
+Q(x_3, x_4,\ldots, x_n)\geq&Q(\bar{x}_3, \bar{x}_4,\ldots, \bar{x}_n)\\
+\geq &-(n-2)(c^{11})^7g'^2(\gamma^1)^2u_1^6\log^2 u_1+O(u_1^6\log u_1).
+\end{split}
+\end{align}
+ In this computation, the bounds in the coefficient on $O(u_1^6\log u_1), O(u_1^5), O(u_1)$ depend only on $n, \Omega,  M_0, \mu_0,  L_1, L_2$. Thus we complete this proof.\qed
+
+
+
+
+
+
+\section{  Proof of Theorem~\ref{Thm1.2} and capillary-type problems }
+
+In this section we first prove  Theorem~\ref{Thm1.2}.  Then using the same technique in the proof of Theorem~\ref{Thm1.1}, we  give a new proof for the gradient estimates of the mean curvature equation with prescribed contact angle boundary value problem.
+
+
+
+  In the proof of the existence theorem for the Neumann boundary value problem, we need  a priori estimates. For the $C^0$ estimate, we use the methods introduced by ~Concus-Finn\cite{CF74} and ~Spruck\cite{Sp75}. As in  Simon-Spruck\cite{SS76}, we use the continuity method to complete the proof of Theorem~\ref{Thm1.2}.
+
+
+{\em Proof of  Theorem~\ref{Thm1.2}.}
+
+We consider the following family of the mean curvature equation with ~Neumann boundary value problem:
+\begin{align}
+\texttt{div}(\frac{Du}{\sqrt{1+|Du|^2}}) =&u   \quad\text{in}\quad\Omega,\label{5.1} \\
+              \frac{\partial u}{\partial \gamma} =&\tau\psi(x)  \quad\text{on}\quad \partial \Omega,\label{5.2}
+\end{align}
+where $\tau\in[0,1]$.
+
+For
+$\tau=0$, then  $u=0$ is the unique solution. And we need to find the solution for
+$\tau=1.$
+By the standard existence  theorem \cite{Ur73, LU68}, as in Simon-Spruck \cite{SS76}, if we can get the a priori estimates for the $C^2(\overline\Omega)$ solution of the equation  \eqref{5.1} and \eqref{5.2}
+\begin{align}
+\sup_{\Omega}|u|\leq& K_1,\label{5.3}\\
+\sup_{\Omega}|Du|\leq& K_2,\label{5.4}
+\end{align}
+where $K_1, K_2$  are independent of $\tau$.
+Then we can get the existence theorem. From the interior gradient estimates and our boundary gradient estimates, we only need to get the $C^0$ estimates for the solution $u$ of  \eqref{5.1} and \eqref{5.2}.
+
+In the paper by  Spruck\cite{Sp75}, he used the comparison theorem developed by Concus-Finn\cite{CF74} to get the $C^0$ estimates for the mean curvature equation with prescribed contact angle boundary value problem. In our case, his proof is still true,
+ so we complete the proof of Theorem ~\ref{Thm1.2}.\qed
+
+
+
+ We consider the following prescribed contact angle boundary value problem, and the following estimate was proved by Ural'tseva \cite{Ur73}, Simon-Spruck \cite{SS76} and Gerhardt \cite{Ger76}. Now we give a new proof of Theorem~\ref{Thm5.1}, which is similar to the proof of Theorem ~\ref{Thm1.1}. Certainly this maximum principle proof was  first given in Lieberman \cite{Lieb88} and Korevaar\cite{Kor88}.
+
+\begin{Thm}\label{Thm5.1}
+Suppose $u\in C^{2}(\overline\Omega)\bigcap C^{3}(\Omega)$ is a bounded  solution for the following boundary value problem
+\begin{align}
+ \texttt{div} (\frac{Du}{\sqrt{1+|Du|^2}}) =&f(x, u)   \quad\text{in}\quad \Omega, \label{5.5}\\
+             \frac{\partial u}{\partial \gamma}=&-\cos\theta(x) \sqrt{1+|Du|^2}  \qquad\text{on}\quad \partial \Omega,\label{5.6}
+\end{align}
+where $\Omega \subset \mathbb R^n $ is a bounded domain, $n\geq 2$, $\partial \Omega \in C^{3}$, $\gamma$ is the inward unit normal to $\partial\Omega $.We assume $f(x,z) \in C^{1}(\overline\Omega\times [-M_0, M_0])$ and $\theta(x)\in C^1(\partial\Omega), \theta(x)\in (0, \pi)$,
+and there exist positive constants $M_0, L_1$ such that
+\begin{align*}
+|u|\leq& M_0\quad in\quad\overline\Omega,\\
+f_z(x,z)\geq &0 \,\,\,\,\quad in\quad \overline\Omega\times[-M_0, M_0],\\
+|f(x,z)|+\sum_{i=1}^n|f_{x_i}(x,z)|\leq & L_1 \quad in\quad \overline\Omega\times[-M_0, M_0].
+\end{align*}
+Then there exists a small positive constant
+$\mu_0$ such that we have the following estimate
+$$\sup_{\overline\Omega_{\mu_0}}|Du|\leq \max\{M_1, M_2\},$$
+where $M_1$ is a positive constant which depends only on $n, \mu_0, M_0, L_1$, which is from the interior gradient estimates;
+$M_2$ is  a positive constant depending only on $n, \Omega, \mu_0, M_0, L_1$,
+$|\theta|_{C^1(\partial\Omega)}, \inf_{x\in\partial\Omega}\sin^2\theta$.
+\end{Thm}
+
+
+
+
+
+{\em Proof of  Theorem~\ref{Thm5.1}.}
+
+As in the proof Theorem~\ref{Thm1.1}, let
+$$P(x)=\log|D'u|^2e^{\sqrt{n}\beta_0(M_0+1+u)}e^{\beta_0d},$$ where we  have let
+$$\beta_0=4|\theta|_{C^1(\partial\Omega)}\frac{\sqrt{1+a_0}}{\inf_{\partial\Omega}\sin\theta}+2C_0+2, $$ which is a constant, and $$a_0=\max_{x\in\partial\Omega}\frac{2\cos^2\theta}{\sin^2\theta},$$ $C_0$ is also a positive constant depending only on ~$n,\Omega$.
+
+For the simplicity, we let
+$$\phi(x)=\log P(x)=\log\log|D'u|^2+h(u)+g(d),$$  where $h(u)=\sqrt{n}\beta_0(M_0+1+u)$, $g(d)=\beta_0 d.$
+
+
+Assume $\phi(x)$ attains its maximum at $x_0\in \Omega_{\mu_0}$, as in the proof of Theorem ~\ref{Thm1.1}, we divide three cases.
+
+
+{\bf Case I.}  If $\phi(x)$ attains its maximum at ~$x_0\in \partial \Omega$,  we shall get a bound on $|D'u|(x_0)$.
+
+We take the inward normal derivative for ~$\phi$,
+\begin{align}\label{5.7}
+\frac{\partial\phi}{\partial\gamma}=&\frac{\sum_{1\leq i\leq n}(|D'u|^2)_i\gamma^i}{|D'u|^2\log|D'u|^2}+h'u_{\gamma}+g'.
+\end{align}
+As in  \eqref{3.3},  we get
+\begin{align}\label{5.8}
+\begin{split}
+\sum_{1\leq i\leq n}(|D'u|^2)_i\gamma^i=2\sum_{1\leq i,k,l\leq n}c^{kl}u_{ki}u_l\gamma^i.
+\end{split}
+\end{align}
+Differentiating \eqref{5.6} with respect to tangential direction, we have
+\begin{align}\label{5.9}
+\sum_{1\leq k\leq n}c^{kl}(u_{\gamma})_k=&-\sum_{1\leq k\leq n}c^{kl}(v cos\theta)_k,
+\end{align}
+so from ~\eqref{2.1}, we obtain
+\begin{align}\label{5.10}
+\sum_{1\leq i,k\leq n}c^{kl}u_{ki}\gamma^i
+=&-\sum_{1\leq i,k\leq n}c^{kl}u_i(\gamma^i)_k
++vsin\theta \sum_{1\leq k\leq n}c^{kl}\theta_k -cos\theta \sum_{1\leq k\leq n}c^{kl}v_k.
+\end{align}
+
+Since
+\begin{align}\label{5.10}
+v^2=&1+|D'u|^2+u^2_\gamma,
+\end{align}
+take derivative with respect to $x_k$,
+\begin{align}\label{5.11}
+v_k=&\frac{(|D'u|^2)_k}{2v}-cos\theta\sum_{1\leq i\leq n}(u_{ik}\gamma^i+u_i(\gamma^i)_k).
+\end{align}
+From \eqref{5.11} and ~\eqref{5.9},  it follows that
+\begin{align}\label{5.12}
+\sum_{1\leq i,k\leq n}c^{kl}u_{ki}\gamma^i=&-\sum_{1\leq i,k\leq n}c^{kl}u_i(\gamma^i)_k
++\frac{v}{sin\theta}\sum_{1\leq k\leq n}c^{kl}\theta_k-\frac{cos\theta }{sin^2\theta}\cdot\frac{1}{2v}\sum_{1\leq k\leq n}c^{kl}(|D'u|^2)_k.
+\end{align}
+Using $\sum_{1\leq k\leq n}c^{kl}\phi_k(x_0)=0$, and  $\sum_{1\leq k\leq n}c^{kl}\gamma^k=0$, we have
+\begin{align}\label{5.13}
+\sum_{1\leq k\leq n}c^{kl}(|D'u|^2)_k=&-|D'u|^2\log|D'u|^2\sum_{1\leq k\leq n}c^{kl}(h'u_k+g'\gamma^k)\notag\\
+=&-h'|D'u|^2\log|D'u|^2\sum_{1\leq k\leq n}c^{kl}u_k ,
+\end{align}
+Since at ~$x_0$ , $$u_\gamma^2=\cos^2\theta(1+|Du|^2)=\cos^2\theta(1+|D'u|^2+u_\gamma^2), $$
+then ~
+\begin{align}\label{5.13a}
+\tan^2\theta u_\gamma^2=1+|D'u|^2.
+\end{align}
+If ~
+\begin{align}\label{5.13b}
+a_0|D'u|^2<u_\gamma^2, \quad a_0=\max_{x\in\partial\Omega}\frac{2\cos^2\theta}{\sin^2\theta},\end{align}
+then we get the estimates
+\begin{align}\label{5.13c}
+(a_0\tan^2\theta-1) |D'u|^2<1,
+\quad |D'u|^2<\frac{1}{a_0\tan^2\theta-1},
+\end{align}
+ and we complete this proof.
+
+So we can assume
+\begin{align}\label{5.13d}
+a_0|D'u|^2\geq u_\gamma^2,
+\end{align}
+ then from  $|Du|^2=|D'u|^2+u_\gamma^2$, we have
+ \begin{align}\label{5.13e}|Du|^2\leq (1+a_0)|D'u|^2.\end{align}
+Now we assume at $x_0$,  we have
+\begin{align}\label{5.13f}
+|Du|\geq \max\{10\sqrt{(1+a_0)}, 2\sqrt{n}\max_{x\in\partial\Omega}{\frac{|cos\theta|}{sin^2\theta}}\},
+ \end{align}
+ then we can get the the following estimates at $x_0$,
+ \begin{align}\label{5.13g} |D'u|\geq \max\{10, \frac{2\sqrt{n}}{\sqrt{1+a_0}}\max_{x\in\partial\Omega}{\frac{|cos\theta|}{sin^2\theta}}\}.\end{align}
+
+ Inserting \eqref{5.13} to ~\eqref{5.12}, and from ~\eqref{5.8}-\eqref{5.9}, by the choice of $h(u), g(d)$,  it follows that at $x_0$,
+\begin{align}\label{5.14}
+\begin{split}
+|D'u|^2\log|D'u|^2\frac{\partial\phi}{\partial\gamma}=&-2\sum_{1\leq i,k,l\leq n}c^{kl}u_i(\gamma^i)_ku_l+\frac{2v}{sin\theta}\sum_{1\leq k,l\leq n}c^{kl}\theta_ku_l\\&+\frac{h'cos\theta}{sin^2\theta}\cdot\frac{|D'u|^4\log|D'u|^2}{v}
+-h'cos\theta|D'u|^2\log|D'u|^2v\\& +g'(0)|D'u|^2\log|D'u|^2\\
+=&(\beta_0-h'\frac{cos\theta}{sin^2\theta}\frac{1}{v})|D'u|^2\log|D'u|^2-2\sum_{1\leq i,k,l\leq n}c^{kl}u_i(\gamma^i)_ku_l\\&+\frac{2v}{sin\theta}\sum_{1\leq k,l\leq n}c^{kl}\theta_ku_l\\
+\geq &\big[\beta_0-\frac{\sqrt{n}\beta_0}{v}\frac{|cos\theta|}{sin^2\theta}
+-2\sqrt{1+a_0}\frac{|\theta|_{C^1(\partial\Omega)}}{sin\theta}-C_0\big]|D'u|^2\log|D'u|^2\\
+\geq &|D'u|^2\log|D'u|^2.\\
+>&0,
+\end{split}
+\end{align}
+ On the other hand, by the Hopf Lemma, we have
+
+  $$\frac{\partial\phi}{\partial\gamma}(x_0)\leq 0,$$ it is a contradiction to \eqref{5.14}.
+Then we have
+$$|D'u|(x_0)\leq\max\{10, \max_{x\in\partial\Omega}{\frac{1}{\sqrt{a_0\tan^2\theta-1}}}, \frac{2\sqrt{n}}{\sqrt{1+a_0}}\max_{x\in\partial\Omega}{\frac{|cos\theta|}{sin^2\theta}}\}.$$
+
+{\bf Case II.}  If $ x_0\in \partial\Omega_{\mu_0}\bigcap\Omega$, then we use the interior gradient estimates, and
+we have  $$\sup_{\partial\Omega_{\mu_0}\bigcap\Omega}|Du|\leq M_1,$$
+where positive constant $M_1$ depends only on $n, M_0, \mu_0, L_1$.
+
+
+{\bf Case III.}  If ~$x_0\in\Omega_{\mu_0}$, we can get our estimates. \par
+As in the proof of the Case III in Theorem ~\ref{Thm1.1}, by the continuity of $Du$,   we can let $0<\mu_{0}<\mu_1$ be sufficiently small positive constant,  such at $x_0$, \eqref{5.13a} change to
+\begin{align}\label{5.14a}
+ u_\gamma^2\le ( a_0 + \frac{1}{2})(1+|D'u|^2).
+\end{align}
+Let $a_1= 1 + a_0,$ if at $x_0$ we have
+\begin{align}\label{5.14b}
+a_1|D'u|^2\le u_\gamma^2,
+\end{align}
+ then from
+ \begin{align}\label{5.14c}
+(a_1-a_0-\frac{1}{2}) |D'u|^2<a_0 + \frac{1}{2},
+\end{align}
+so we have
+ \begin{align}\label{5.14ca}
+|D'u|^2<2a_0+1,
+\end{align}
+ and we complete this estimates.
+  Otherwise,
+ at $x_0$ we have
+\begin{align}\label{5.14d}
+a_1|D'u|^2\ge u_\gamma^2,
+\end{align}
+since  $|Du|^2=|D'u|^2+u_\gamma^2$, we have
+ \begin{align}\label{5.14c}|Du|^2\leq (1+a_1)|D'u|^2.\end{align}
+Now we assume at $x_0$,  we have
+\begin{align}\label{5.14e}
+|Du|\geq 10\sqrt{(1+a_1)},
+ \end{align}
+ then we can get the the following estimates at $x_0$,
+ \begin{align}\label{5.14f} |D'u|\geq 10,
+ \quad \text{and at}\quad  x_0,\quad  c^{11} \ge \frac{1}{1+a_1}.\end{align}
+
+
+Now we use the same computation, and from \eqref{3.66}, if there is a sufficiently large positive constant $C_1$ such that
+\begin{align}
+|Du|(x_0) \ge C_1,\label{5.14g}
+\end{align}
+ then we  at last get the following inequality
+\begin{align}\label{5.15}
+\begin{split}
+0\geq &\sum_{1\leq i,j\leq n}a^{ij}\phi_{ij}\\
+\geq & \big\{h'^2+[(c^{11})^2(n-2)-c^{11}(n-3)]g'^2\big\}u_1^2\log u_1-C_2u_1^2\\
+=& \big\{n\beta_0^2+[(c^{11})^2(n-2)-c^{11}(n-3)]\beta_0^2\big\}u_1^2\log u_1-C_2u_1^2\\
+\geq & 3u_1^2\log u_1-C_2u_1^2.
+\end{split}
+\end{align}
+ So there exists  $C_{3}$ such that  $$|D'u|(x_0)\leq C_{3}.$$
+Where  the above positive constants $C_{1}, C_2, C_3$ are  depending only on $n, \Omega, \mu_0, M_0, L_1$, \\
+$ |\theta|_{C^1(\partial\Omega)}, \inf_{x\in\partial\Omega}\sin^2\theta$.\\
+As in the proof of Theorem~\ref{Thm1.1}, combining three cases, we finally get the following estimate
+$$\sup_{\overline\Omega_{\mu_0}}|Du|\leq \max\{M_1, M_2\},$$
+where positive constant $M_1$ depends only on $n, \mu_0, M_0, L_1$; $M_2$ depends only on $n, \Omega, \mu_0, M_0,$\\
+$ L_1, |\theta|_{C^1(\partial\Omega)}, \inf_{x\in\partial\Omega}\sin^2\theta$.\par
+So we complete the new proof of Theorem~\ref{Thm5.1}.\qed\\
+
+
+
+
+We give a remark to compare with the results in the book by Lieberman \cite{Lieb13}.
+\begin{Rem}\label{4Rem4}
+For the mean curvature equation with the following boundary condition
+\begin{align}\label{5.16}
+b(x,z,p)=v^{q-1}u_\gamma+\psi(x,z)=0\quad \text{on} \,\, \partial \Omega.
+\end{align}
+In ~Lieberman book ~\cite{Lieb13} (in page 360), he can get the gradient estimates when  ~$q>1$ or ~$q=0$, see also (~Lieberman \cite{Lieb13} page 356, (9.64g), (9.64h).
+
+ So for $q=0$, this is  prescribed contact angle boundary value problem, we give a new proof.
+
+For $q=1$, it is corresponding to ~Neumann  boundary value problem,  we have gotten the gradient estimates in Theorem~\ref{Thm1.1}.
+If we use the notation from the book \cite{Lieb13}, then
+$$b(x,z,p)=u_\gamma+\psi(x,z)\quad \text{ and}\quad  b_{p_i}=\gamma^i. $$
+So we have ~$$b_p\cdot\gamma=1, \quad \bar\delta b(x,z,p)=u_\gamma=-\psi,$$ where we define the operator $\bar\delta$ as  ~$\bar\delta f(x,z,p)=p\cdot f_p(x,z,p)$.
+
+In order to get the gradient estimates,  in Lieberman \cite{Lieb13} book, he need the following  condition which appears in  page 356, the formula (9.64h), i.e.
+ $$\bar\delta b \leq o(b_p\cdot\gamma).$$
+ But in the Neumann boundary value, it is impossible.
+ \qed
+\end{Rem}
+
+
+\begin{Rem}\label{4Rem2}
+In  X.N. Ma  and J.J. Xu \cite{MX14}, we generalized the boundary gradient estimates to higher order curvature equation with Neumann boundary value and the capillary boundary value problem.
+\end{Rem}
+
+
+
+\begin{thebibliography}{14}
+
+\bibitem {BGM69} Bombieri E., De Giorgi E. and Miranda M., {\em Una maggiorazione a priori relativa alle ipersuperfici minimali non parametriche}. Arch. Rational mech.Anal. 32(1969), 255-267.
+\bibitem {CF74} Concus P. and Finn, R., {\em On capillary free surfaces in a gravitational field}. Acta. Math. 132(1974), 207--223.
+
+\bibitem {FN54} Finn R., {\em On equations of minimal surface type}. Ann. of
+ Math. 60(1954) no. 2, 397-416.
+
+\bibitem{Ger76}Gerhardt C., {\em Global regularity of the solutions to the capillary problem}, Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4)3(1976), 151-176.
+
+
+\bibitem{GT01}Gilbarg D. and Trudinger N., {\em Elliptic partial differential equations of second order}, Reprint of the 1998 edition. Classics in Mathematics. Springer-Verlag, Berlin, 2001. xiv+517 pp.
+
+
+\bibitem{JS68}Jenkins H. and  Serrin J., {\em The Dirichlet problem for the minimal surface equation in higher dimensions.}
+J. Renie Angew. Math. 229(1968), 170-187.
+
+
+\bibitem{Kor86} Korevaar N.J., {\em An easy proof of the interior gradient bound for  solutions
+to the prescribed mean curvature equation}, Proc. Sympos. Pure Math. (45)1986,  Part 2: 81-89.
+
+\bibitem{Kor88}Korevaar N.J. , {\em Maximum principle gradient estimates for the capillary problem}, Comm. in Partial Differential Equations, 13(1)(1988), 1-32.
+
+\bibitem{LU68} Ladyzhenskaya O.A., Ural'tseva N., {\em Linear and quasi-linear  of  elliptic type.} Academic Press, (1968).
+
+\bibitem{LU70}Ladyzhenskaya O.A. and Ural'tseva N., {\em Local estimates for gradients of non-uniformly elliptic and parabolic equations}.Comm.
+Pure Appl.Math. 23(1970), 677-703.
+
+\bibitem{Lie83}Lieberman G., {\em The conormal derivative problem for elliptic equations of variational type}, J.Differential Equations, 49(1983), 218-257.
+\bibitem{Lieb84} Lieberman G., {\em The nonlinear oblique derivative problem for  quasilinear elliptic equations .}
+Nonlinear Analysis.Theory. Method \& Applications. 8(1984), 49-65.
+
+\bibitem{Lieb87} Lieberman G. {\em Gradient bounds for solutions of nonuniformly elliptic oblique  derivative problems.}
+Nonlinear Analysis.Theory. Method \& Applications. 11(1987) No.1, 49-61.
+
+\bibitem{Lieb88} Lieberman G. {\em Gradient estimates for capillary-type problems via the maximum principle.} Commun. in Partial Differential Equations, 13(1988), no 1, 33-59.
+
+\bibitem{Lieb96} Lieberman G. {\em Second order parabolic differential   equations.} World Scientific Publishing. (1996).
+
+\bibitem{Lieb13} Lieberman G. {\em Oblique boundary value problems for elliptic equations.} World Scientific Publishing. (2013).
+
+\bibitem{MX14} Ma X.N. and  Xu J.J., {\em Gradient estimates for the higher curvature  equations with Neumann and  capillary boundary condition.} (2014) Preprint.
+
+\bibitem{S69}Serrin J., {\em The problem of Dirichlet for quasilinear elliptic differential equations with many independent varibles}. Philos. Trans. Roy. Soc. London Ser. A  264(1969), 413-496.
+
+\bibitem{Sim76}Simon L., {\em Interior gradient bounds for non-uniformly elliptic equations}. Indiana Univ. Math.J. 25(1976), 821-855.
+
+\bibitem{SS76}Simon L. and Spruck J.,{\em Existence and regularity of a capillary surface with prescribed contact angle}, Arch. Rational Mech. Anal. 61(1976), 19-34.
+
+\bibitem{Sp75}Spruck J., {\em On the existence of a capillary surface with prescribed contact angle}, Comm. Pure Appl. Math. 28(1975), 189-200.
+
+\bibitem{TR73} Trudinger N.,{\em Gradient estimates and mean curvature. } Math. Z. 131(1973), 165-175.
+
+
+\bibitem{Ur73}Ural'tseva N., {\em Solvability of the capillary problem}, Vestnik Leningrad. Univ. No. 19(1973), 54-64, No. 1(1975), 143-149[Russian]. English Translation in vestnik Leningrad Univ.math. 6(1979), 363-375, 8(1980), 151-158.
+
+\bibitem{Wang98} Wang X.-J.,{\em Interior gradient estimates for mean curvature equations}, Math.Z. 228(1998), 73-81.
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+

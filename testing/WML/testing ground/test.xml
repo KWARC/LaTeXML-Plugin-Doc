@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/WML/testing ground"?>
+<?latexml class="article"?>
+<?latexml package="graphicx"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <para xml:id="p1">
+    <p><cite>[<bibref bibrefs="book1" separator="," show="Refnum" yyseparator=","/>]</cite> <cite>[<bibref bibrefs="book2" separator="," show="Refnum" yyseparator=","/>]</cite> <cite>[<bibref bibrefs="book1,book2" separator="," show="Refnum" yyseparator=","/>]</cite> <note mark="1" role="footnote">Kim ist doof</note>
+<graphics candidates="CalcOM2009.pdf" graphic="CalcOM2009.pdf" xml:id="p1.g1"/></p>
+  </para>
+  <bibliography citestyle="numbers" files="test" xml:id="bib">
+    <title>References</title>
+  </bibliography>
+</document>

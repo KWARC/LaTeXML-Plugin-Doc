@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/WML/testing ground,/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/WML/testing\ ground"?>
+<?latexml class="IEEEtran" options="journal"?>
+<?latexml package="courier"?>
+<?latexml package="soul"?>
+<?latexml package="color,url,xspace"?>
+<?latexml package="amssymb,amsmath"?>
+<?latexml package="graphicx"?>
+<?latexml package="colordvi"?>
+<?latexml package="epsfig"?>
+<?latexml package="endnotes"?>
+<?latexml package="verbatim"?>
+<?latexml package="subfigure"?>
+<?latexml package="epstopdf"?>
+<?latexml package="textcomp"?>
+<?latexml package="subfig"?>
+<?latexml package="setspace"?>
+<?latexml package="color"?>
+<?latexml package="soul"?>
+<!-- %**** ArXiv˙v1.tex Line 25 **** -->
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" xmlns:m="http://www.w3.org/1998/Math/MathML" class="ltx_authors_1line" xml:id="Document">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Max-Weight Scheduling and Quality-Aware Streaming for Device-to-Device Video Delivery</title>
+  <creator role="author">
+    <personname>Joongheon Kim, <ERROR class="undefined">\IEEEmembership</ERROR>Member, IEEE, Andreas F. Molisch, <ERROR class="undefined">\IEEEmembership</ERROR>Fellow, IEEE, Giuseppe Caire, <ERROR class="undefined">\IEEEmembership</ERROR>Fellow, IEEE</personname>
+    <contact role="thanks">J. Kim is with the Department of Computer Science, University of Southern California, Los Angeles, CA 90089, USA e-mail: joonghek@usc.edu.</contact>
+    <contact role="thanks">G. Caire and A.F. Molisch are with the Department of Electrical Engineering, University of Southern California, Los Angeles, CA 90089, USA e-mails: {caire, molisch}@usc.edu.</contact>
+  </creator>
+  <abstract name="Abstract">
+    <p>We propose and analyze centralized and distributed algorithms for device-to-device video scheduling and streaming.
+The proposed algorithms address jointly
+the problems of device-to-device link scheduling and
+video quality adaptation in streaming.
+Our simulations show that the proposed algorithms significantly outperform conventional separated approaches that treat these two problems independently.</p>
+  </abstract>
+  <!-- %¡-this % stops a space 
+     %¡-this % stops a space
+     %¡-this % stops a space
+     %¡-this % stops a space
+     %¡-this % stops a space
+     %“begin–keywords˝
+     %“,60“,GHz, Multi-Gbit/s HD Video Streaming, Wireless Video Quality Maximization, Routing
+     %“end–keywords˝-->
+  <section refnum="1" xml:id="S1" fragid="S1">
+    <title><tag close=" ">1</tag>Introduction</title>
+    <para xml:id="S1.p1" fragid="S1.p1">
+      <p>Due to the increased video traffic, efficient video-aware transmission schemes are of highest importance <cite>[<ref href="#bib.bib1" idref="bib.bib1">1</ref>]</cite>.
+<!-- %**** ArXiv˙v1.tex Line 50 **** -->In particular, video throughput of wireless networks can be enhanced by device-to-device (D2D) communications <cite>[<ref href="#bib.bib5" idref="bib.bib5">5</ref>]</cite>.</p>
+    </para>
+    <para xml:id="S1.p2" fragid="S1.p2">
+      <p>D2D video transmission needs to deal with two aspects: (i) link scheduling and (ii) adaptive video quality in streaming. Traditionally these aspects have been treated separately. In this paper we propose and analyze algorithms that take the interrelationship between those tasks into account.</p>
+    </para>
+    <para xml:id="S1.p3" fragid="S1.p3">
+      <p>For <text font="italic">centralized</text> scheduling, the scheduling decisions can be made by a base station, assuming it knows the channel states for all the possible D2D pairs.
+We can formulate the scheduling problem as a max-weight independent set (MWIS) problem which we solve (approximately) using a well-established message-passing algorithm <cite>[<ref href="#bib.bib3" idref="bib.bib3">3</ref>]</cite>.
+The weights for the MWIS problem arise from the streaming (quality control) part.</p>
+    </para>
+    <para xml:id="S1.p4" fragid="S1.p4">
+      <p>Currently, the most well-known <text font="italic">distributed</text> D2D scheduler is <text font="italic">FlashLinQ</text> <cite>[<ref href="#bib.bib2" idref="bib.bib2">2</ref>]</cite>.
+However, FlashLinQ does not incorporate naturally a video-quality-aware mechanism, and therefore its suitability for D2D video streaming remains open.
+We propose an improvement by incorporating weights.</p>
+    </para>
+    <para xml:id="S1.p5" fragid="S1.p5">
+      <p>Our <text font="italic">streaming</text> algorithm dynamically controls the quality mode of each chunk to maximize the total quality subject to
+all data being supportable. It does so via a stochastic formulation that can trade off queue stability with delay.</p>
+    </para>
+    <para xml:id="S1.p6" fragid="S1.p6">
+      <p>Obviously, higher video quality requires transmission of more bits, which increases the probability of playback stalls. The tradeoff between video quality and stall probability is a key measure for any transmission scheme, and we use it to assess the performance of the algorithms in this paper. Our simulations show that algorithms that exploit the interconnection between scheduling and streaming provide a significantly better performance, i.e., better tradeoff between stall probability and video quality.</p>
+    </para>
+    <!-- %From the fundamental concept of video streaming, a video consists of a sequence of chunks. Then a transmitter (TX) sequentially sends the chunks when its receiver (RX) requires the video. The RX can play received chunks while it receives later chunks from it TX. Whenever the RX finishes playing chunk $i$, all bits of chunk $i+1$ should have arrived. Otherwise, a pause (–“em stall˝) occurs which introduces user dissatisfaction. To avoid stalls, “textit–pre-buffering˝ can be used. However, a long pre-buffering time leads to user dissatisfaction, i.e., a tradeoff exists. 
+     %Our simulation shows that our proposed algorithms provide desired performance in terms of (i) required pre-buffering time and (ii) average quality vs. expected number of stalls.
+     %“vspace–-1.5mm˝-->
+  </section>
+  <section refnum="2" xml:id="S2" fragid="S2">
+    <title><tag close=" ">2</tag>The Proposed Algorithms</title>
+    <!-- %**** ArXiv˙v1.tex Line 75 **** -->
+    <para xml:id="S2.p1" fragid="S2.p1">
+      <p>Each D2D TX has a queue whose length evolves as:</p>
+      <equation frefnum="(1)" refnum="1" xml:id="S2.E1" labels="LABEL:eq:q" fragid="S2.E1">
+        <Math mode="display" xml:id="S2.E1.m1" tex="Q_{i}(t+1)=\max\left[0,Q_{i}(t)-\mu_{i}(t)\right]+\lambda_{i}(t),l_{i}\in%&#10;\mathcal{L}" text="formulae@(Q _ i * (t + 1) = maximum@(closed-interval@(0, Q _ i * t - mu _ i * t)) + lambda _ i * t, l _ i element-of L)" fragid="S2.E1.m1">
+          <m:math alttext="Q_{i}(t+1)=\max\left[0,Q_{i}(t)-\mu_{i}(t)\right]+\lambda_{i}(t),l_{i}\in%&#10;\mathcal{L}" display="block">
+            <m:mrow>
+              <m:mrow>
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>Q</m:mi>
+                    <m:mi>i</m:mi>
+                  </m:msub>
+                  <m:mo>⁢</m:mo>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mrow>
+                      <m:mi>t</m:mi>
+                      <m:mo>+</m:mo>
+                      <m:mn>1</m:mn>
+                    </m:mrow>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:mrow>
+                <m:mo>=</m:mo>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mo movablelimits="false">max</m:mo>
+                    <m:mo>⁡</m:mo>
+                    <m:mrow>
+                      <m:mo>[</m:mo>
+                      <m:mrow>
+                        <m:mn>0</m:mn>
+                        <m:mo>,</m:mo>
+                        <m:mrow>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>Q</m:mi>
+                              <m:mi>i</m:mi>
+                            </m:msub>
+                            <m:mo>⁢</m:mo>
+                            <m:mrow>
+                              <m:mo>(</m:mo>
+                              <m:mi>t</m:mi>
+                              <m:mo>)</m:mo>
+                            </m:mrow>
+                          </m:mrow>
+                          <m:mo>-</m:mo>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>μ</m:mi>
+                              <m:mi>i</m:mi>
+                            </m:msub>
+                            <m:mo>⁢</m:mo>
+                            <m:mrow>
+                              <m:mo>(</m:mo>
+                              <m:mi>t</m:mi>
+                              <m:mo>)</m:mo>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                      <m:mo>]</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mo>+</m:mo>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>λ</m:mi>
+                      <m:mi>i</m:mi>
+                    </m:msub>
+                    <m:mo>⁢</m:mo>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>t</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mrow>
+                <m:msub>
+                  <m:mi>l</m:mi>
+                  <m:mi>i</m:mi>
+                </m:msub>
+                <m:mo>∈</m:mo>
+                <m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </Math>
+      </equation>
+      <p>where <Math mode="inline" xml:id="S2.p1.m1" tex="Q_{i}(t)" text="Q _ i * t" fragid="S2.p1.m1"><m:math alttext="Q_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>Q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math>, <Math mode="inline" xml:id="S2.p1.m2" tex="\mu_{i}(t)" text="mu _ i * t" fragid="S2.p1.m2"><m:math alttext="\mu_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>μ</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math>, and <Math mode="inline" xml:id="S2.p1.m3" tex="\lambda_{i}(t)" text="lambda _ i * t" fragid="S2.p1.m3"><m:math alttext="\lambda_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>λ</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> stand for
+the queue backlog size at the TX of the <Math mode="inline" xml:id="S2.p1.m4" tex="i" text="i" fragid="S2.p1.m4"><m:math alttext="i" display="inline"><m:mi>i</m:mi></m:math></Math>-th D2D link <Math mode="inline" xml:id="S2.p1.m5" tex="l_{i}" text="l _ i" fragid="S2.p1.m5"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> at time <Math mode="inline" xml:id="S2.p1.m6" tex="t" text="t" fragid="S2.p1.m6"><m:math alttext="t" display="inline"><m:mi>t</m:mi></m:math></Math>,
+the number of bits leaving the queue of the TX of <Math mode="inline" xml:id="S2.p1.m7" tex="l_{i}" text="l _ i" fragid="S2.p1.m7"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math>,
+and the number of bits added to the queue of the TX of <Math mode="inline" xml:id="S2.p1.m8" tex="l_{i}" text="l _ i" fragid="S2.p1.m8"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> (associated with the placement of chunks), respectively.</p>
+    </para>
+    <para xml:id="S2.p2" fragid="S2.p2">
+      <p>Suppose that a chunk (the basic transmission unit, about 0.5 sec. of video) contains <Math mode="inline" xml:id="S2.p2.m1" tex="\mathcal{N}" text="N" fragid="S2.p2.m1"><m:math alttext="\mathcal{N}" display="inline"><m:mi class="ltx_font_mathcaligraphic">𝒩</m:mi></m:math></Math> pixels and each chunk of each file <Math mode="inline" xml:id="S2.p2.m2" tex="f" text="f" fragid="S2.p2.m2"><m:math alttext="f" display="inline"><m:mi>f</m:mi></m:math></Math> is encoded at a number of different quality modes <Math mode="inline" xml:id="S2.p2.m3" tex="q\in M=\left\{q_{1}\cdots q_{M}\right\}" text="q element-of M = set@(q _ 1 * cdots * q _ M)" fragid="S2.p2.m3"><m:math alttext="q\in M=\left\{q_{1}\cdots q_{M}\right\}" display="inline"><m:mrow><m:mi>q</m:mi><m:mo>∈</m:mo><m:mi>M</m:mi><m:mo>=</m:mo><m:mrow><m:mo>{</m:mo><m:mrow><m:msub><m:mi>q</m:mi><m:mn>1</m:mn></m:msub><m:mo>⁢</m:mo><m:mi mathvariant="normal">⋯</m:mi><m:mo>⁢</m:mo><m:msub><m:mi>q</m:mi><m:mi>M</m:mi></m:msub></m:mrow><m:mo>}</m:mo></m:mrow></m:mrow></m:math></Math>.
+Let <Math mode="inline" xml:id="S2.p2.m4" tex="\mathbb{P}_{f}(q,\tau)" text="P _ f * open-interval@(q, tau)" fragid="S2.p2.m4"><m:math alttext="\mathbb{P}_{f}(q,\tau)" display="inline"><m:mrow><m:msub><m:mi>ℙ</m:mi><m:mi>f</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>q</m:mi><m:mo>,</m:mo><m:mi>τ</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> and <Math mode="inline" xml:id="S2.p2.m5" tex="\mathcal{N}\mathbb{B}_{f}(q,\tau)" text="N * B _ f * open-interval@(q, tau)" fragid="S2.p2.m5"><m:math alttext="\mathcal{N}\mathbb{B}_{f}(q,\tau)" display="inline"><m:mrow><m:mi class="ltx_font_mathcaligraphic">𝒩</m:mi><m:mo>⁢</m:mo><m:msub><m:mi>𝔹</m:mi><m:mi>f</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>q</m:mi><m:mo>,</m:mo><m:mi>τ</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> denote
+the video quality measure (e.g., peak-signal-to-noise-ratio (PSNR))
+and the number of bits for <Math mode="inline" xml:id="S2.p2.m6" tex="f" text="f" fragid="S2.p2.m6"><m:math alttext="f" display="inline"><m:mi>f</m:mi></m:math></Math> at chunk time <Math mode="inline" xml:id="S2.p2.m7" tex="\tau" text="tau" fragid="S2.p2.m7"><m:math alttext="\tau" display="inline"><m:mi>τ</m:mi></m:math></Math> with <Math mode="inline" xml:id="S2.p2.m8" tex="q" text="q" fragid="S2.p2.m8"><m:math alttext="q" display="inline"><m:mi>q</m:mi></m:math></Math>, respectively.
+A network controller
+chooses <Math mode="inline" xml:id="S2.p2.m9" tex="q_{i}(\tau)" text="q _ i * tau" fragid="S2.p2.m9"><m:math alttext="q_{i}(\tau)" display="inline"><m:mrow><m:msub><m:mi>q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>τ</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> for each <Math mode="inline" xml:id="S2.p2.m10" tex="\tau" text="tau" fragid="S2.p2.m10"><m:math alttext="\tau" display="inline"><m:mi>τ</m:mi></m:math></Math> for all requesting RXs <Math mode="inline" xml:id="S2.p2.m11" tex="i" text="i" fragid="S2.p2.m11"><m:math alttext="i" display="inline"><m:mi>i</m:mi></m:math></Math>,
+allocates the source coding rate <Math mode="inline" xml:id="S2.p2.m12" tex="\mathbb{B}_{f_{i}}(q_{i}(\tau),\tau)" text="B _ f _ i * open-interval@(q _ i * tau, tau)" fragid="S2.p2.m12"><m:math alttext="\mathbb{B}_{f_{i}}(q_{i}(\tau),\tau)" display="inline"><m:mrow><m:msub><m:mi>𝔹</m:mi><m:msub><m:mi>f</m:mi><m:mi>i</m:mi></m:msub></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mrow><m:msub><m:mi>q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>τ</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>,</m:mo><m:mi>τ</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math>.
+The TX of <Math mode="inline" xml:id="S2.p2.m13" tex="l_{i}" text="l _ i" fragid="S2.p2.m13"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> places the <Math mode="inline" xml:id="S2.p2.m14" tex="\mathcal{N}\mathbb{B}_{f_{i}}(q_{i}(\tau),\tau)" text="N * B _ f _ i * open-interval@(q _ i * tau, tau)" fragid="S2.p2.m14"><m:math alttext="\mathcal{N}\mathbb{B}_{f_{i}}(q_{i}(\tau),\tau)" display="inline"><m:mrow><m:mi class="ltx_font_mathcaligraphic">𝒩</m:mi><m:mo>⁢</m:mo><m:msub><m:mi>𝔹</m:mi><m:msub><m:mi>f</m:mi><m:mi>i</m:mi></m:msub></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mrow><m:msub><m:mi>q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>τ</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>,</m:mo><m:mi>τ</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> bits in its TX queue <Math mode="inline" xml:id="S2.p2.m15" tex="Q_{i}(\tau)" text="Q _ i * tau" fragid="S2.p2.m15"><m:math alttext="Q_{i}(\tau)" display="inline"><m:mrow><m:msub><m:mi>Q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>τ</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math>.</p>
+    </para>
+    <subsection refnum="2.1" xml:id="S2.SS1" fragid="S2.SS1">
+      <title><tag close=" ">2.1</tag>Max-Weight Scheduling</title>
+      <para xml:id="S2.SS1.p1" fragid="S2.SS1.p1">
+        <p><text font="bold">Centralized scheduling with MWIS formulation:</text>
+The scheduling is based on a link conflict graph such that the links scheduled to be active simultaneously in any time slot must form an independent set. In the conflict graph where the D2D links constitute the nodes, i.e., <Math mode="inline" xml:id="S2.SS1.p1.m1" tex="l_{i}\in\mathcal{L},\forall i\in\{1,\cdots,|\mathcal{L}|\}" text="formulae@(l _ i element-of L, for-all@(i) element-of set@(1, cdots, absolute-value@(L)))" fragid="S2.SS1.p1.m1"><m:math alttext="l_{i}\in\mathcal{L},\forall i\in\{1,\cdots,|\mathcal{L}|\}" display="inline"><m:mrow><m:mrow><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub><m:mo>∈</m:mo><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi></m:mrow><m:mo>,</m:mo><m:mrow><m:mrow><m:mo>∀</m:mo><m:mi>i</m:mi></m:mrow><m:mo>∈</m:mo><m:mrow><m:mo>{</m:mo><m:mrow><m:mn>1</m:mn><m:mo>,</m:mo><m:mi mathvariant="normal">⋯</m:mi><m:mo>,</m:mo><m:mrow><m:mo fence="true">|</m:mo><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi><m:mo fence="true">|</m:mo></m:mrow></m:mrow><m:mo>}</m:mo></m:mrow></m:mrow></m:mrow></m:math></Math> where <Math mode="inline" xml:id="S2.SS1.p1.m2" tex="\mathcal{L}" text="L" fragid="S2.SS1.p1.m2"><m:math alttext="\mathcal{L}" display="inline"><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi></m:math></Math> stands for the set of D2D links.
+<!-- %**** ArXiv˙v1.tex Line 100 **** -->Thus, edge in the conflict graph between <Math mode="inline" xml:id="S2.SS1.p1.m3" tex="l_{j}" text="l _ j" fragid="S2.SS1.p1.m3"><m:math alttext="l_{j}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>j</m:mi></m:msub></m:math></Math> and <Math mode="inline" xml:id="S2.SS1.p1.m4" tex="l_{k}" text="l _ k" fragid="S2.SS1.p1.m4"><m:math alttext="l_{k}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>k</m:mi></m:msub></m:math></Math> is denoted as <Math mode="inline" xml:id="S2.SS1.p1.m5" tex="\mathcal{E}_{(j,k)}" text="E _ (open-interval@(j, k))" fragid="S2.SS1.p1.m5"><m:math alttext="\mathcal{E}_{(j,k)}" display="inline"><m:msub><m:mi class="ltx_font_mathcaligraphic">ℰ</m:mi><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:msub></m:math></Math>, and <Math mode="inline" xml:id="S2.SS1.p1.m6" tex="\mathcal{E}_{(j,k)}=1" text="E _ (open-interval@(j, k)) = 1" fragid="S2.SS1.p1.m6"><m:math alttext="\mathcal{E}_{(j,k)}=1" display="inline"><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">ℰ</m:mi><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:msub><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math></Math> if <Math mode="inline" xml:id="S2.SS1.p1.m7" tex="l_{j}" text="l _ j" fragid="S2.SS1.p1.m7"><m:math alttext="l_{j}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>j</m:mi></m:msub></m:math></Math> interferes with <Math mode="inline" xml:id="S2.SS1.p1.m8" tex="l_{k}" text="l _ k" fragid="S2.SS1.p1.m8"><m:math alttext="l_{k}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>k</m:mi></m:msub></m:math></Math>; otherwise, <Math mode="inline" xml:id="S2.SS1.p1.m9" tex="\mathcal{E}_{(j,k)}=0" text="E _ (open-interval@(j, k)) = 0" fragid="S2.SS1.p1.m9"><m:math alttext="\mathcal{E}_{(j,k)}=0" display="inline"><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">ℰ</m:mi><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:msub><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></Math>.
+Now, the objective is to find the set of links that can maximize the sum of the weights <Math mode="inline" xml:id="S2.SS1.p1.m10" tex="w_{i}" text="w _ i" fragid="S2.SS1.p1.m10"><m:math alttext="w_{i}" display="inline"><m:msub><m:mi>w</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> of each <Math mode="inline" xml:id="S2.SS1.p1.m11" tex="l_{i}" text="l _ i" fragid="S2.SS1.p1.m11"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math>.
+This problem is a MWIS, and can be mathematically expressed as: maximizing <Math mode="inline" xml:id="S2.SS1.p1.m12" tex="\sum_{\forall l_{i}\in\mathcal{L}}\nolimits w_{i}\mathcal{I}_{i}" text="(sum _ (for-all@(l _ i) element-of L))@(w _ i * I _ i)" fragid="S2.SS1.p1.m12"><m:math alttext="\sum_{\forall l_{i}\in\mathcal{L}}\nolimits w_{i}\mathcal{I}_{i}" display="inline"><m:mrow><m:msub><m:mo largeop="true" symmetric="true">∑</m:mo><m:mrow><m:mrow><m:mo>∀</m:mo><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:mrow><m:mo>∈</m:mo><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi></m:mrow></m:msub><m:mrow><m:msub><m:mi>w</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:msub><m:mi class="ltx_font_mathcaligraphic">ℐ</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:mrow></m:math></Math> subject to <Math mode="inline" xml:id="S2.SS1.p1.m13" tex="\mathcal{I}_{j}+\mathcal{I}_{k}\leq 1" text="I _ j + I _ k less= 1" fragid="S2.SS1.p1.m13"><m:math alttext="\mathcal{I}_{j}+\mathcal{I}_{k}\leq 1" display="inline"><m:mrow><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">ℐ</m:mi><m:mi>j</m:mi></m:msub><m:mo>+</m:mo><m:msub><m:mi class="ltx_font_mathcaligraphic">ℐ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:mo>≤</m:mo><m:mn>1</m:mn></m:mrow></m:math></Math>, if <Math mode="inline" xml:id="S2.SS1.p1.m14" tex="\mathcal{E}_{(j,k)}=1,\forall l_{j}\in\mathcal{L},\forall l_{k}\in\mathcal{L}" text="formulae@(E _ (open-interval@(j, k)) = 1, formulae@(for-all@(l _ j) element-of L, for-all@(l _ k) element-of L))" fragid="S2.SS1.p1.m14"><m:math alttext="\mathcal{E}_{(j,k)}=1,\forall l_{j}\in\mathcal{L},\forall l_{k}\in\mathcal{L}" display="inline"><m:mrow><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">ℰ</m:mi><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:msub><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow><m:mo>,</m:mo><m:mrow><m:mrow><m:mrow><m:mo>∀</m:mo><m:msub><m:mi>l</m:mi><m:mi>j</m:mi></m:msub></m:mrow><m:mo>∈</m:mo><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi></m:mrow><m:mo>,</m:mo><m:mrow><m:mrow><m:mo>∀</m:mo><m:msub><m:mi>l</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:mo>∈</m:mo><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi></m:mrow></m:mrow></m:mrow></m:math></Math>
+where <Math mode="inline" xml:id="S2.SS1.p1.m15" tex="\mathcal{I}_{i}" text="I _ i" fragid="S2.SS1.p1.m15"><m:math alttext="\mathcal{I}_{i}" display="inline"><m:msub><m:mi class="ltx_font_mathcaligraphic">ℐ</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> is a boolean index of <Math mode="inline" xml:id="S2.SS1.p1.m16" tex="l_{i}" text="l _ i" fragid="S2.SS1.p1.m16"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> which is <Math mode="inline" xml:id="S2.SS1.p1.m17" tex="1" text="1" fragid="S2.SS1.p1.m17"><m:math alttext="1" display="inline"><m:mn>1</m:mn></m:math></Math> if <Math mode="inline" xml:id="S2.SS1.p1.m18" tex="l_{i}" text="l _ i" fragid="S2.SS1.p1.m18"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> is scheduled (otherwise, <Math mode="inline" xml:id="S2.SS1.p1.m19" tex="\mathcal{I}_{i}=0" text="I _ i = 0" fragid="S2.SS1.p1.m19"><m:math alttext="\mathcal{I}_{i}=0" display="inline"><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">ℐ</m:mi><m:mi>i</m:mi></m:msub><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></Math>). In our case, the weights are updated at each <Math mode="inline" xml:id="S2.SS1.p1.m20" tex="t" text="t" fragid="S2.SS1.p1.m20"><m:math alttext="t" display="inline"><m:mi>t</m:mi></m:math></Math>, such that <Math mode="inline" xml:id="S2.SS1.p1.m21" tex="w_{i}=Q_{i}(t)r_{i}(t)" text="w _ i = Q _ i * t * r _ i * t" fragid="S2.SS1.p1.m21"><m:math alttext="w_{i}=Q_{i}(t)r_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>w</m:mi><m:mi>i</m:mi></m:msub><m:mo>=</m:mo><m:mrow><m:msub><m:mi>Q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>⁢</m:mo><m:msub><m:mi>r</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:mrow></m:math></Math>, where <Math mode="inline" xml:id="S2.SS1.p1.m22" tex="r_{i}(t)" text="r _ i * t" fragid="S2.SS1.p1.m22"><m:math alttext="r_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>r</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> indicates the rate supported by link <Math mode="inline" xml:id="S2.SS1.p1.m23" tex="\mathcal{l}_{i}" text="l _ i" fragid="S2.SS1.p1.m23"><m:math alttext="\mathcal{l}_{i}" display="inline"><m:msub><m:mi class="ltx_font_mathcaligraphic">𝓁</m:mi><m:mi>i</m:mi></m:msub></m:math></Math>
+at <Math mode="inline" xml:id="S2.SS1.p1.m24" tex="t" text="t" fragid="S2.SS1.p1.m24"><m:math alttext="t" display="inline"><m:mi>t</m:mi></m:math></Math>. In fact, it is well-known that such max-weight policy achieves strong stability of the transmission queues, whenever the arrival rates are stabilizable, i.e., they fall inside the ergodic achievable rate region of the system <cite>[<ref href="#bib.bib4" idref="bib.bib4">4</ref>]</cite>.
+The exact value of <Math mode="inline" xml:id="S2.SS1.p1.m25" tex="r_{i}(t)" text="r _ i * t" fragid="S2.SS1.p1.m25"><m:math alttext="r_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>r</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> of D2D link <Math mode="inline" xml:id="S2.SS1.p1.m26" tex="l_{i}" text="l _ i" fragid="S2.SS1.p1.m26"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> cannot be obtained before a scheduling decision is made because the interference is unknown.
+To circumvent this problem, <Math mode="inline" xml:id="S2.SS1.p1.m27" tex="r_{i}(t)" text="r _ i * t" fragid="S2.SS1.p1.m27"><m:math alttext="r_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>r</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> can be approximated as follows <cite>[<ref href="#bib.bib6" idref="bib.bib6">6</ref>]</cite>:
+<Math mode="inline" xml:id="S2.SS1.p1.m28" tex="r_{i}(t)=\log_{2}\left(1+\frac{\mathcal{P}_{s_{i}\rightarrow d_{i}}(t)\left\|h%&#10;_{i\rightarrow i}\right\|^{2}}{\sigma^{2}+\gamma}\right)" text="r _ i * t = (logarithm _ 2)@(1 + (P _ (s _ i rightarrow d _ i) * t * (norm@(h _ (i rightarrow i))) ^ 2) / (sigma ^ 2 + gamma))" fragid="S2.SS1.p1.m28"><m:math alttext="r_{i}(t)=\log_{2}\left(1+\frac{\mathcal{P}_{s_{i}\rightarrow d_{i}}(t)\left\|h%&#10;_{i\rightarrow i}\right\|^{2}}{\sigma^{2}+\gamma}\right)" display="inline"><m:mrow><m:mrow><m:msub><m:mi>r</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>=</m:mo><m:mrow><m:msub><m:mi>log</m:mi><m:mn>2</m:mn></m:msub><m:mo>⁡</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mn>1</m:mn><m:mo>+</m:mo><m:mfrac><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">𝒫</m:mi><m:mrow><m:msub><m:mi>s</m:mi><m:mi>i</m:mi></m:msub><m:mo>→</m:mo><m:msub><m:mi>d</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>⁢</m:mo><m:msup><m:mrow><m:mo fence="true">∥</m:mo><m:msub><m:mi>h</m:mi><m:mrow><m:mi>i</m:mi><m:mo>→</m:mo><m:mi>i</m:mi></m:mrow></m:msub><m:mo fence="true">∥</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow><m:mrow><m:msup><m:mi>σ</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:mi>γ</m:mi></m:mrow></m:mfrac></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:mrow></m:math></Math>
+where
+<Math mode="inline" xml:id="S2.SS1.p1.m29" tex="\mathcal{P}_{s_{i}\rightarrow d_{i}}(t)" text="P _ (s _ i rightarrow d _ i) * t" fragid="S2.SS1.p1.m29"><m:math alttext="\mathcal{P}_{s_{i}\rightarrow d_{i}}(t)" display="inline"><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">𝒫</m:mi><m:mrow><m:msub><m:mi>s</m:mi><m:mi>i</m:mi></m:msub><m:mo>→</m:mo><m:msub><m:mi>d</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> is the TX power from <Math mode="inline" xml:id="S2.SS1.p1.m30" tex="s_{i}" text="s _ i" fragid="S2.SS1.p1.m30"><m:math alttext="s_{i}" display="inline"><m:msub><m:mi>s</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> intended for <Math mode="inline" xml:id="S2.SS1.p1.m31" tex="d_{i}" text="d _ i" fragid="S2.SS1.p1.m31"><m:math alttext="d_{i}" display="inline"><m:msub><m:mi>d</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> at <Math mode="inline" xml:id="S2.SS1.p1.m32" tex="t" text="t" fragid="S2.SS1.p1.m32"><m:math alttext="t" display="inline"><m:mi>t</m:mi></m:math></Math>,
+<Math mode="inline" xml:id="S2.SS1.p1.m33" tex="h_{i\rightarrow i}" text="h _ (i rightarrow i)" fragid="S2.SS1.p1.m33"><m:math alttext="h_{i\rightarrow i}" display="inline"><m:msub><m:mi>h</m:mi><m:mrow><m:mi>i</m:mi><m:mo>→</m:mo><m:mi>i</m:mi></m:mrow></m:msub></m:math></Math> is the (complex amplitude) channel gain from <Math mode="inline" xml:id="S2.SS1.p1.m34" tex="s_{i}" text="s _ i" fragid="S2.SS1.p1.m34"><m:math alttext="s_{i}" display="inline"><m:msub><m:mi>s</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> to <Math mode="inline" xml:id="S2.SS1.p1.m35" tex="d_{i}" text="d _ i" fragid="S2.SS1.p1.m35"><m:math alttext="d_{i}" display="inline"><m:msub><m:mi>d</m:mi><m:mi>i</m:mi></m:msub></m:math></Math>,
+<Math mode="inline" xml:id="S2.SS1.p1.m36" tex="\sigma" text="sigma" fragid="S2.SS1.p1.m36"><m:math alttext="\sigma" display="inline"><m:mi>σ</m:mi></m:math></Math> is the standard deviation of the (Gaussian) background noise,
+<Math mode="inline" xml:id="S2.SS1.p1.m37" tex="\gamma" text="gamma" fragid="S2.SS1.p1.m37"><m:math alttext="\gamma" display="inline"><m:mi>γ</m:mi></m:math></Math> is the interference thresholds, i.e., the maximum admissible interference <Math mode="inline" xml:id="S2.SS1.p1.m38" tex="\gamma" text="gamma" fragid="S2.SS1.p1.m38"><m:math alttext="\gamma" display="inline"><m:mi>γ</m:mi></m:math></Math> from a single interferer scheduled at the same time.
+For solving MWIS problem, various approximation algorithms have been proposed because MWIS is NP-hard. Among them, we use well-established <text font="italic">message-passing</text> that shows an excellent tradeoff between performance and complexity <cite>[<ref href="#bib.bib3" idref="bib.bib3">3</ref>]</cite>.</p>
+      </para>
+      <para xml:id="S2.SS1.p2" fragid="S2.SS1.p2">
+        <p><text font="bold">Distributed max-weight scheduling:</text>
+In FlashLinQ, lower-priority D2D links can transmit only if they do not create significant interference to the higher-priority D2D links <cite>[<ref href="#bib.bib2" idref="bib.bib2">2</ref>]</cite>.
+With the concept of max-weight scheduling, we set the priorities of D2D links as
+<Math mode="inline" xml:id="S2.SS1.p2.m1" tex="U_{i}(t)\triangleq\left\{r_{i}(t)\cdot Q_{i}(t)\right\}^{-1}" text="U _ i * t triangleq (set@(((r _ i * t) cdot Q _ i) * t)) ^ (- 1)" fragid="S2.SS1.p2.m1"><m:math alttext="U_{i}(t)\triangleq\left\{r_{i}(t)\cdot Q_{i}(t)\right\}^{-1}" display="inline"><m:mrow><m:mrow><m:msub><m:mi>U</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>≜</m:mo><m:msup><m:mrow><m:mo>{</m:mo><m:mrow><m:mrow><m:mrow><m:msub><m:mi>r</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>⋅</m:mo><m:msub><m:mi>Q</m:mi><m:mi>i</m:mi></m:msub></m:mrow><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>}</m:mo></m:mrow><m:mrow><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow></m:msup></m:mrow></m:math></Math>
+<!-- %**** ArXiv˙v1.tex Line 125 **** -->which let each link wait <Math mode="inline" xml:id="S2.SS1.p2.m2" tex="U_{i}(t)" text="U _ i * t" fragid="S2.SS1.p2.m2"><m:math alttext="U_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>U</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> before transmission.
+<!-- %This means, if the queue backlog size of the transmitter of a D2D link is long, $U˙–i˝$ becomes short and the link accesses the channel faster than the others. Similarly, if a D2D link has high $r˙–i˝(t)$, it can access the channel faster, thus it has higher priority. --></p>
+      </para>
+      <table frefnum="Table 1" placement="t!" refnum="1" xml:id="S2.T1" labels="LABEL:tbl-prebuffering2" fragid="S2.T1">
+        <!-- %“begin–table˝[t!]% -->
+        <toccaption class="ltx_centering">
+          <tag close=" ">
+            <text fontsize="footnote">1</text>
+          </tag>
+          <text fontsize="footnote">Expected Num. of Stalls (</text>
+          <Math mode="inline" xml:id="S2.T1.m1" tex="\alpha=2" text="alpha = 2" fragid="S2.T1.m1">
+            <m:math alttext="\alpha=2" display="inline">
+              <m:mrow>
+                <m:mi>α</m:mi>
+                <m:mo>=</m:mo>
+                <m:mn>2</m:mn>
+              </m:mrow>
+            </m:math>
+          </Math>
+          <text fontsize="footnote">, </text>
+          <Math mode="inline" xml:id="S2.T1.m2" tex="\gamma=5" text="gamma = 5" fragid="S2.T1.m2">
+            <m:math alttext="\gamma=5" display="inline">
+              <m:mrow>
+                <m:mi>γ</m:mi>
+                <m:mo>=</m:mo>
+                <m:mn>5</m:mn>
+              </m:mrow>
+            </m:math>
+          </Math>
+          <text fontsize="footnote"> dB)</text>
+        </toccaption>
+        <caption class="ltx_centering" fontsize="footnote"><tag close=": ">Table 1</tag>Expected Num. of Stalls (<Math mode="inline" xml:id="S2.T1.m3" tex="\alpha=2" text="alpha = 2" fragid="S2.T1.m3"><m:math alttext="\alpha=2" display="inline"><m:mrow><m:mi mathsize="normal" stretchy="false">α</m:mi><m:mo mathsize="normal" stretchy="false">=</m:mo><m:mn mathsize="normal" stretchy="false">2</m:mn></m:mrow></m:math></Math>, <Math mode="inline" xml:id="S2.T1.m4" tex="\gamma=5" text="gamma = 5" fragid="S2.T1.m4"><m:math alttext="\gamma=5" display="inline"><m:mrow><m:mi mathsize="normal" stretchy="false">γ</m:mi><m:mo mathsize="normal" stretchy="false">=</m:mo><m:mn mathsize="normal" stretchy="false">5</m:mn></m:mrow></m:math></Math> dB)</caption>
+        <tabular vattach="middle" class="ltx_centering">
+          <thead>
+            <tr>
+              <td align="right" border="rr tt" thead="true">
+                <text fontsize="footnote">PBT</text>
+              </td>
+              <td align="right" border="r tt" thead="true">
+                <text fontsize="footnote">mpMWIS-QP:</text>
+              </td>
+              <td align="right" border="r tt" thead="true">
+                <text fontsize="footnote">FlashLinQ-Q:</text>
+              </td>
+              <td align="right" border="tt" thead="true">
+                <text fontsize="footnote">FlashLinQ-QP:</text>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right" border="rr t" thead="true">
+                <text fontsize="footnote">7 sec.</text>
+              </td>
+              <td align="right" border="r t">
+                <text fontsize="footnote">0.7</text>
+              </td>
+              <td align="right" border="r t">
+                <text fontsize="footnote">2.4</text>
+              </td>
+              <td align="right" border="t">
+                <text fontsize="footnote">0.8</text>
+              </td>
+            </tr>
+            <tr>
+              <td align="right" border="rr" thead="true">
+                <text fontsize="footnote">8 sec.</text>
+              </td>
+              <td align="right" border="r">
+                <text fontsize="footnote" font="bold">0</text>
+                <text fontsize="footnote"> [No Stalls]</text>
+              </td>
+              <td align="right" border="r">
+                <text fontsize="footnote">1.9</text>
+              </td>
+              <td align="right">
+                <text fontsize="footnote">0.3</text>
+              </td>
+            </tr>
+            <tr>
+              <td align="right" border="rr" thead="true">
+                <text fontsize="footnote">9 sec.</text>
+              </td>
+              <td align="right" border="r">
+                <text fontsize="footnote" font="bold">0</text>
+                <text fontsize="footnote"> [No Stalls]</text>
+              </td>
+              <td align="right" border="r">
+                <text fontsize="footnote">1.1</text>
+              </td>
+              <td align="right">
+                <text fontsize="footnote" font="bold">0</text>
+                <text fontsize="footnote"> [No Stalls]</text>
+              </td>
+            </tr>
+            <tr>
+              <td align="right" border="bb rr" thead="true">
+                <text fontsize="footnote">10 sec.</text>
+              </td>
+              <td align="right" border="bb r">
+                <text fontsize="footnote" font="bold">0</text>
+                <text fontsize="footnote"> [No Stalls]</text>
+              </td>
+              <td align="right" border="bb r">
+                <text fontsize="footnote">0.3</text>
+              </td>
+              <td align="right" border="bb">
+                <text fontsize="footnote" font="bold">0</text>
+                <text fontsize="footnote"> [No Stalls]</text>
+              </td>
+            </tr>
+          </tbody>
+        </tabular>
+        <!-- %“end–table˝ 
+     %“vspace–-5mm˝
+     %**** ArXiv˙v1.tex Line 150 ****-->
+      </table>
+    </subsection>
+    <subsection refnum="2.2" xml:id="S2.SS2" labels="LABEL:eq:dept LABEL:sec:streaming" fragid="S2.SS2">
+      <title><tag close=" ">2.2</tag>Quality-Aware Streaming</title>
+      <para xml:id="S2.SS2.p1" fragid="S2.SS2.p1">
+        <p><text font="bold">Arrival process (placement of chunks):</text>
+In each chunk time <Math mode="inline" xml:id="S2.SS2.p1.m1" tex="\tau\in\{0,1,\cdots\}" text="tau element-of set@(0, 1, cdots)" fragid="S2.SS2.p1.m1"><m:math alttext="\tau\in\{0,1,\cdots\}" display="inline"><m:mrow><m:mi>τ</m:mi><m:mo>∈</m:mo><m:mrow><m:mo>{</m:mo><m:mrow><m:mn>0</m:mn><m:mo>,</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mi mathvariant="normal">⋯</m:mi></m:mrow><m:mo>}</m:mo></m:mrow></m:mrow></m:math></Math>, the TX of every link should place chunks within its queue. Different quality modes are available in each chunk, where a higher mode requires more bits.
+We aim to maximize the total quality over all scheduled links subject to stability of the scheduled TX queues.
+Let <Math mode="inline" xml:id="S2.SS2.p1.m2" tex="\mathbb{P}(t)=\sum_{l_{i}\in\mathcal{L}}\mathbb{P}_{f_{i}}\left(q_{i}(t),t\right)" text="P * t = (sum _ (l _ i element-of L))@(P _ f _ i * open-interval@(q _ i * t, t))" fragid="S2.SS2.p1.m2"><m:math alttext="\mathbb{P}(t)=\sum_{l_{i}\in\mathcal{L}}\mathbb{P}_{f_{i}}\left(q_{i}(t),t\right)" display="inline"><m:mrow><m:mrow><m:mi>ℙ</m:mi><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>=</m:mo><m:mrow><m:msub><m:mo largeop="true" symmetric="true">∑</m:mo><m:mrow><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub><m:mo>∈</m:mo><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi></m:mrow></m:msub><m:mrow><m:msub><m:mi>ℙ</m:mi><m:msub><m:mi>f</m:mi><m:mi>i</m:mi></m:msub></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mrow><m:msub><m:mi>q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>,</m:mo><m:mi>t</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:math></Math>.
+Then the following formulation is our objective function where (<ref labelref="LABEL:eq:meanratestable" href="#S2.E3" title="(3) ‣ 2.2 Quality-Aware Streaming ‣ 2 The Proposed Algorithms ‣ Max-Weight Scheduling and Quality-Aware Streaming for Device-to-Device Video Delivery"><text class="ltx_ref_tag">3</text></ref>) means all queues should fulfill rate stability <cite>[<ref href="#bib.bib4" idref="bib.bib4">4</ref>]</cite>:</p>
+        <equationgroup class="ltx_eqn_eqnarray" xml:id="A0.EGx1" fragid="A0.EGx1">
+          <equation xml:id="S2.E2" refnum="2" frefnum="(2)" fragid="S2.E2">
+            <MathFork>
+              <Math xml:id="S2.E2.m4" tex="\displaystyle\max\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{t=0}^{\tau-1}%&#10;\nolimits\mathbb{E}\left[\mathbb{P}(t)\right]" text="maximum@((limit _ (tau rightarrow infinity))@((1 / tau) * ((sum _ (t = 0)) ^ (tau - 1))@(E * P * t)))" fragid="S2.E2.m4">
+                <m:math alttext="\displaystyle\max\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{t=0}^{\tau-1}%&#10;\nolimits\mathbb{E}\left[\mathbb{P}(t)\right]" display="inline">
+                  <m:mrow>
+                    <m:mo movablelimits="false">max</m:mo>
+                    <m:mo>⁡</m:mo>
+                    <m:mrow>
+                      <m:munder>
+                        <m:mo movablelimits="false">lim</m:mo>
+                        <m:mrow>
+                          <m:mi>τ</m:mi>
+                          <m:mo>→</m:mo>
+                          <m:mi mathvariant="normal">∞</m:mi>
+                        </m:mrow>
+                      </m:munder>
+                      <m:mo>⁡</m:mo>
+                      <m:mrow>
+                        <m:mstyle displaystyle="true">
+                          <m:mfrac>
+                            <m:mn>1</m:mn>
+                            <m:mi>τ</m:mi>
+                          </m:mfrac>
+                        </m:mstyle>
+                        <m:mo>⁢</m:mo>
+                        <m:mrow>
+                          <m:mstyle displaystyle="true">
+                            <m:munderover>
+                              <m:mo largeop="true" movablelimits="false" symmetric="true">∑</m:mo>
+                              <m:mrow>
+                                <m:mi>t</m:mi>
+                                <m:mo>=</m:mo>
+                                <m:mn>0</m:mn>
+                              </m:mrow>
+                              <m:mrow>
+                                <m:mi>τ</m:mi>
+                                <m:mo>-</m:mo>
+                                <m:mn>1</m:mn>
+                              </m:mrow>
+                            </m:munderover>
+                          </m:mstyle>
+                          <m:mrow>
+                            <m:mi>𝔼</m:mi>
+                            <m:mo>⁢</m:mo>
+                            <m:mrow>
+                              <m:mo>[</m:mo>
+                              <m:mrow>
+                                <m:mi>ℙ</m:mi>
+                                <m:mo>⁢</m:mo>
+                                <m:mrow>
+                                  <m:mo>(</m:mo>
+                                  <m:mi>t</m:mi>
+                                  <m:mo>)</m:mo>
+                                </m:mrow>
+                              </m:mrow>
+                              <m:mo>]</m:mo>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </Math>
+              <MathBranch>
+                <tr>
+                  <td align="right">
+                    <Math mode="inline" xml:id="S2.E2.m1" tex="\displaystyle\max" text="maximum" fragid="S2.E2.m1">
+                      <m:math alttext="\displaystyle\max" display="inline">
+                        <m:mo movablelimits="false">max</m:mo>
+                      </m:math>
+                    </Math>
+                  </td>
+                  <td align="center"/>
+                  <td align="left">
+                    <Math mode="inline" xml:id="S2.E2.m3" tex="\displaystyle\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{t=0}^{\tau-1}%&#10;\nolimits\mathbb{E}\left[\mathbb{P}(t)\right]" text="(limit _ (tau rightarrow infinity))@((1 / tau) * ((sum _ (t = 0)) ^ (tau - 1))@(E * P * t))" fragid="S2.E2.m3">
+                      <m:math alttext="\displaystyle\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{t=0}^{\tau-1}%&#10;\nolimits\mathbb{E}\left[\mathbb{P}(t)\right]" display="inline">
+                        <m:mrow>
+                          <m:munder>
+                            <m:mo movablelimits="false">lim</m:mo>
+                            <m:mrow>
+                              <m:mi>τ</m:mi>
+                              <m:mo>→</m:mo>
+                              <m:mi mathvariant="normal">∞</m:mi>
+                            </m:mrow>
+                          </m:munder>
+                          <m:mo>⁡</m:mo>
+                          <m:mrow>
+                            <m:mstyle displaystyle="true">
+                              <m:mfrac>
+                                <m:mn>1</m:mn>
+                                <m:mi>τ</m:mi>
+                              </m:mfrac>
+                            </m:mstyle>
+                            <m:mo>⁢</m:mo>
+                            <m:mrow>
+                              <m:mstyle displaystyle="true">
+                                <m:munderover>
+                                  <m:mo largeop="true" movablelimits="false" symmetric="true">∑</m:mo>
+                                  <m:mrow>
+                                    <m:mi>t</m:mi>
+                                    <m:mo>=</m:mo>
+                                    <m:mn>0</m:mn>
+                                  </m:mrow>
+                                  <m:mrow>
+                                    <m:mi>τ</m:mi>
+                                    <m:mo>-</m:mo>
+                                    <m:mn>1</m:mn>
+                                  </m:mrow>
+                                </m:munderover>
+                              </m:mstyle>
+                              <m:mrow>
+                                <m:mi>𝔼</m:mi>
+                                <m:mo>⁢</m:mo>
+                                <m:mrow>
+                                  <m:mo>[</m:mo>
+                                  <m:mrow>
+                                    <m:mi>ℙ</m:mi>
+                                    <m:mo>⁢</m:mo>
+                                    <m:mrow>
+                                      <m:mo>(</m:mo>
+                                      <m:mi>t</m:mi>
+                                      <m:mo>)</m:mo>
+                                    </m:mrow>
+                                  </m:mrow>
+                                  <m:mo>]</m:mo>
+                                </m:mrow>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:math>
+                    </Math>
+                  </td>
+                </tr>
+              </MathBranch>
+            </MathFork>
+          </equation>
+          <equation labels="LABEL:eq:meanratestable" xml:id="S2.E3" refnum="3" frefnum="(3)" fragid="S2.E3">
+            <MathFork>
+              <Math xml:id="S2.E3.m4" tex="\displaystyle\text{subject to}\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{%&#10;t=0}^{\tau-1}\nolimits\mathbb{E}\left[Q_{i}(t)\right]&lt;\infty,\forall l_{i}\in%&#10;\mathcal{L}." text="formulae@([subject to] * (limit _ (tau rightarrow infinity))@((1 / tau) * ((sum _ (t = 0)) ^ (tau - 1))@(E * Q _ i * t)) less infinity, for-all@(l _ i) element-of L)" fragid="S2.E3.m4">
+                <m:math alttext="\displaystyle\text{subject to}\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{%&#10;t=0}^{\tau-1}\nolimits\mathbb{E}\left[Q_{i}(t)\right]&lt;\infty,\forall l_{i}\in%&#10;\mathcal{L}." display="inline">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mtext>subject to</m:mtext>
+                          <m:mo>⁢</m:mo>
+                          <m:mrow>
+                            <m:munder>
+                              <m:mo movablelimits="false">lim</m:mo>
+                              <m:mrow>
+                                <m:mi>τ</m:mi>
+                                <m:mo>→</m:mo>
+                                <m:mi mathvariant="normal">∞</m:mi>
+                              </m:mrow>
+                            </m:munder>
+                            <m:mo>⁡</m:mo>
+                            <m:mrow>
+                              <m:mstyle displaystyle="true">
+                                <m:mfrac>
+                                  <m:mn>1</m:mn>
+                                  <m:mi>τ</m:mi>
+                                </m:mfrac>
+                              </m:mstyle>
+                              <m:mo>⁢</m:mo>
+                              <m:mrow>
+                                <m:mstyle displaystyle="true">
+                                  <m:munderover>
+                                    <m:mo largeop="true" movablelimits="false" symmetric="true">∑</m:mo>
+                                    <m:mrow>
+                                      <m:mi>t</m:mi>
+                                      <m:mo>=</m:mo>
+                                      <m:mn>0</m:mn>
+                                    </m:mrow>
+                                    <m:mrow>
+                                      <m:mi>τ</m:mi>
+                                      <m:mo>-</m:mo>
+                                      <m:mn>1</m:mn>
+                                    </m:mrow>
+                                  </m:munderover>
+                                </m:mstyle>
+                                <m:mrow>
+                                  <m:mi>𝔼</m:mi>
+                                  <m:mo>⁢</m:mo>
+                                  <m:mrow>
+                                    <m:mo>[</m:mo>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>Q</m:mi>
+                                        <m:mi>i</m:mi>
+                                      </m:msub>
+                                      <m:mo>⁢</m:mo>
+                                      <m:mrow>
+                                        <m:mo>(</m:mo>
+                                        <m:mi>t</m:mi>
+                                        <m:mo>)</m:mo>
+                                      </m:mrow>
+                                    </m:mrow>
+                                    <m:mo>]</m:mo>
+                                  </m:mrow>
+                                </m:mrow>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                        <m:mo>&lt;</m:mo>
+                        <m:mi mathvariant="normal">∞</m:mi>
+                      </m:mrow>
+                      <m:mo>,</m:mo>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mo>∀</m:mo>
+                          <m:msub>
+                            <m:mi>l</m:mi>
+                            <m:mi>i</m:mi>
+                          </m:msub>
+                        </m:mrow>
+                        <m:mo>∈</m:mo>
+                        <m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo>.</m:mo>
+                  </m:mrow>
+                </m:math>
+              </Math>
+              <MathBranch>
+                <tr>
+                  <td align="right">
+                    <text class="ltx_markedasmath">subject to</text>
+                  </td>
+                  <td align="center"/>
+                  <td align="left">
+                    <Math mode="inline" xml:id="S2.E3.m3" tex="\displaystyle\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{t=0}^{\tau-1}%&#10;\nolimits\mathbb{E}\left[Q_{i}(t)\right]&lt;\infty,\forall l_{i}\in\mathcal{L}." text="formulae@((limit _ (tau rightarrow infinity))@((1 / tau) * ((sum _ (t = 0)) ^ (tau - 1))@(E * Q _ i * t)) less infinity, for-all@(l _ i) element-of L)" fragid="S2.E3.m3">
+                      <m:math alttext="\displaystyle\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\sum_{t=0}^{\tau-1}%&#10;\nolimits\mathbb{E}\left[Q_{i}(t)\right]&lt;\infty,\forall l_{i}\in\mathcal{L}." display="inline">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mrow>
+                                <m:munder>
+                                  <m:mo movablelimits="false">lim</m:mo>
+                                  <m:mrow>
+                                    <m:mi>τ</m:mi>
+                                    <m:mo>→</m:mo>
+                                    <m:mi mathvariant="normal">∞</m:mi>
+                                  </m:mrow>
+                                </m:munder>
+                                <m:mo>⁡</m:mo>
+                                <m:mrow>
+                                  <m:mstyle displaystyle="true">
+                                    <m:mfrac>
+                                      <m:mn>1</m:mn>
+                                      <m:mi>τ</m:mi>
+                                    </m:mfrac>
+                                  </m:mstyle>
+                                  <m:mo>⁢</m:mo>
+                                  <m:mrow>
+                                    <m:mstyle displaystyle="true">
+                                      <m:munderover>
+                                        <m:mo largeop="true" movablelimits="false" symmetric="true">∑</m:mo>
+                                        <m:mrow>
+                                          <m:mi>t</m:mi>
+                                          <m:mo>=</m:mo>
+                                          <m:mn>0</m:mn>
+                                        </m:mrow>
+                                        <m:mrow>
+                                          <m:mi>τ</m:mi>
+                                          <m:mo>-</m:mo>
+                                          <m:mn>1</m:mn>
+                                        </m:mrow>
+                                      </m:munderover>
+                                    </m:mstyle>
+                                    <m:mrow>
+                                      <m:mi>𝔼</m:mi>
+                                      <m:mo>⁢</m:mo>
+                                      <m:mrow>
+                                        <m:mo>[</m:mo>
+                                        <m:mrow>
+                                          <m:msub>
+                                            <m:mi>Q</m:mi>
+                                            <m:mi>i</m:mi>
+                                          </m:msub>
+                                          <m:mo>⁢</m:mo>
+                                          <m:mrow>
+                                            <m:mo>(</m:mo>
+                                            <m:mi>t</m:mi>
+                                            <m:mo>)</m:mo>
+                                          </m:mrow>
+                                        </m:mrow>
+                                        <m:mo>]</m:mo>
+                                      </m:mrow>
+                                    </m:mrow>
+                                  </m:mrow>
+                                </m:mrow>
+                              </m:mrow>
+                              <m:mo>&lt;</m:mo>
+                              <m:mi mathvariant="normal">∞</m:mi>
+                            </m:mrow>
+                            <m:mo>,</m:mo>
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mo>∀</m:mo>
+                                <m:msub>
+                                  <m:mi>l</m:mi>
+                                  <m:mi>i</m:mi>
+                                </m:msub>
+                              </m:mrow>
+                              <m:mo>∈</m:mo>
+                              <m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi>
+                            </m:mrow>
+                          </m:mrow>
+                          <m:mo>.</m:mo>
+                        </m:mrow>
+                      </m:math>
+                    </Math>
+                  </td>
+                </tr>
+              </MathBranch>
+            </MathFork>
+          </equation>
+        </equationgroup>
+      </para>
+      <para xml:id="S2.SS2.p2" fragid="S2.SS2.p2">
+        <p>Now, the quality control involves choosing <Math mode="inline" xml:id="S2.SS2.p2.m1" tex="q_{i}(t)" text="q _ i * t" fragid="S2.SS2.p2.m1"><m:math alttext="q_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math>, the quality mode at chunk time <Math mode="inline" xml:id="S2.SS2.p2.m2" tex="t" text="t" fragid="S2.SS2.p2.m2"><m:math alttext="t" display="inline"><m:mi>t</m:mi></m:math></Math>; as follows <cite>[<ref href="#bib.bib4" idref="bib.bib4">4</ref>]</cite>:
+<!-- %“vspace–-0.5mm˝ --></p>
+        <equation frefnum="(4)" refnum="4" xml:id="S2.E4" labels="LABEL:eq:final2" fragid="S2.E4">
+          <Math mode="display" xml:id="S2.E4.m1" tex="\arg\max_{q_{i}(t)\in M}\left[\mathbb{P}_{f_{i}}\left(q_{i}(t),t\right)-\alpha%&#10;\left\{\mathcal{N}\mathbb{B}_{f_{i}}(q_{i}(t),t)\right\}Q_{i}(t)\right]." text="argument * (maximum _ (q _ i * t element-of M))@(P _ f _ i * open-interval@(q _ i * t, t) - alpha * set@(N * B _ f _ i * open-interval@(q _ i * t, t)) * Q _ i * t)" fragid="S2.E4.m1">
+            <m:math alttext="\arg\max_{q_{i}(t)\in M}\left[\mathbb{P}_{f_{i}}\left(q_{i}(t),t\right)-\alpha%&#10;\left\{\mathcal{N}\mathbb{B}_{f_{i}}(q_{i}(t),t)\right\}Q_{i}(t)\right]." display="block">
+              <m:mrow>
+                <m:mrow>
+                  <m:mi>arg</m:mi>
+                  <m:mo>⁢</m:mo>
+                  <m:mrow>
+                    <m:munder>
+                      <m:mo movablelimits="false">max</m:mo>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>q</m:mi>
+                            <m:mi>i</m:mi>
+                          </m:msub>
+                          <m:mo>⁢</m:mo>
+                          <m:mrow>
+                            <m:mo>(</m:mo>
+                            <m:mi>t</m:mi>
+                            <m:mo>)</m:mo>
+                          </m:mrow>
+                        </m:mrow>
+                        <m:mo>∈</m:mo>
+                        <m:mi>M</m:mi>
+                      </m:mrow>
+                    </m:munder>
+                    <m:mo>⁡</m:mo>
+                    <m:mrow>
+                      <m:mo>[</m:mo>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>ℙ</m:mi>
+                            <m:msub>
+                              <m:mi>f</m:mi>
+                              <m:mi>i</m:mi>
+                            </m:msub>
+                          </m:msub>
+                          <m:mo>⁢</m:mo>
+                          <m:mrow>
+                            <m:mo>(</m:mo>
+                            <m:mrow>
+                              <m:mrow>
+                                <m:msub>
+                                  <m:mi>q</m:mi>
+                                  <m:mi>i</m:mi>
+                                </m:msub>
+                                <m:mo>⁢</m:mo>
+                                <m:mrow>
+                                  <m:mo>(</m:mo>
+                                  <m:mi>t</m:mi>
+                                  <m:mo>)</m:mo>
+                                </m:mrow>
+                              </m:mrow>
+                              <m:mo>,</m:mo>
+                              <m:mi>t</m:mi>
+                            </m:mrow>
+                            <m:mo>)</m:mo>
+                          </m:mrow>
+                        </m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mrow>
+                          <m:mi>α</m:mi>
+                          <m:mo>⁢</m:mo>
+                          <m:mrow>
+                            <m:mo>{</m:mo>
+                            <m:mrow>
+                              <m:mi class="ltx_font_mathcaligraphic">𝒩</m:mi>
+                              <m:mo>⁢</m:mo>
+                              <m:msub>
+                                <m:mi>𝔹</m:mi>
+                                <m:msub>
+                                  <m:mi>f</m:mi>
+                                  <m:mi>i</m:mi>
+                                </m:msub>
+                              </m:msub>
+                              <m:mo>⁢</m:mo>
+                              <m:mrow>
+                                <m:mo>(</m:mo>
+                                <m:mrow>
+                                  <m:mrow>
+                                    <m:msub>
+                                      <m:mi>q</m:mi>
+                                      <m:mi>i</m:mi>
+                                    </m:msub>
+                                    <m:mo>⁢</m:mo>
+                                    <m:mrow>
+                                      <m:mo>(</m:mo>
+                                      <m:mi>t</m:mi>
+                                      <m:mo>)</m:mo>
+                                    </m:mrow>
+                                  </m:mrow>
+                                  <m:mo>,</m:mo>
+                                  <m:mi>t</m:mi>
+                                </m:mrow>
+                                <m:mo>)</m:mo>
+                              </m:mrow>
+                            </m:mrow>
+                            <m:mo>}</m:mo>
+                          </m:mrow>
+                          <m:mo>⁢</m:mo>
+                          <m:msub>
+                            <m:mi>Q</m:mi>
+                            <m:mi>i</m:mi>
+                          </m:msub>
+                          <m:mo>⁢</m:mo>
+                          <m:mrow>
+                            <m:mo>(</m:mo>
+                            <m:mi>t</m:mi>
+                            <m:mo>)</m:mo>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                      <m:mo>]</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+                <m:mo>.</m:mo>
+              </m:mrow>
+            </m:math>
+          </Math>
+        </equation>
+        <!-- %**** ArXiv˙v1.tex Line 175 **** -->
+      </para>
+      <para xml:id="S2.SS2.p3" fragid="S2.SS2.p3">
+        <p>Thus,
+<Math mode="inline" xml:id="S2.SS2.p3.m1" tex="\lambda_{i}(t)" text="lambda _ i * t" fragid="S2.SS2.p3.m1"><m:math alttext="\lambda_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>λ</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> can be <Math mode="inline" xml:id="S2.SS2.p3.m2" tex="\mathcal{N}\mathbb{B}_{f_{i}}(q_{i}(t),t)" text="N * B _ f _ i * open-interval@(q _ i * t, t)" fragid="S2.SS2.p3.m2"><m:math alttext="\mathcal{N}\mathbb{B}_{f_{i}}(q_{i}(t),t)" display="inline"><m:mrow><m:mi class="ltx_font_mathcaligraphic">𝒩</m:mi><m:mo>⁢</m:mo><m:msub><m:mi>𝔹</m:mi><m:msub><m:mi>f</m:mi><m:mi>i</m:mi></m:msub></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mrow><m:msub><m:mi>q</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>,</m:mo><m:mi>t</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> (if <Math mode="inline" xml:id="S2.SS2.p3.m3" tex="\tau\text{ mod }t=0" text="tau * [ mod ] * t = 0" fragid="S2.SS2.p3.m3"><m:math alttext="\tau\text{ mod }t=0" display="inline"><m:mrow><m:mrow><m:mi>τ</m:mi><m:mo>⁢</m:mo><m:mtext> mod </m:mtext><m:mo>⁢</m:mo><m:mi>t</m:mi></m:mrow><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></Math>, otherwise, <Math mode="inline" xml:id="S2.SS2.p3.m4" tex="\lambda_{i}(t)=0" text="lambda _ i * t = 0" fragid="S2.SS2.p3.m4"><m:math alttext="\lambda_{i}(t)=0" display="inline"><m:mrow><m:mrow><m:msub><m:mi>λ</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></Math>) when the optimal <Math mode="inline" xml:id="S2.SS2.p3.m5" tex="q" text="q" fragid="S2.SS2.p3.m5"><m:math alttext="q" display="inline"><m:mi>q</m:mi></m:math></Math> is determined <Math mode="inline" xml:id="S2.SS2.p3.m6" tex="\forall l_{i}" text="for-all@(l _ i)" fragid="S2.SS2.p3.m6"><m:math alttext="\forall l_{i}" display="inline"><m:mrow><m:mo>∀</m:mo><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:math></Math>.</p>
+      </para>
+      <para xml:id="S2.SS2.p4" fragid="S2.SS2.p4">
+        <p><text font="bold">Departure process (TX of bits):</text>
+According to Shannon’s capacity equation, <Math mode="inline" xml:id="S2.SS2.p4.m1" tex="\mu_{i}(t)" text="mu _ i * t" fragid="S2.SS2.p4.m1"><m:math alttext="\mu_{i}(t)" display="inline"><m:mrow><m:msub><m:mi>μ</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> can be computed as:
+<Math mode="inline" xml:id="S2.SS2.p4.m2" tex="\mu_{i}(t)=\mathcal{B}\cdot\log_{2}\left[1+\frac{\mathcal{P}_{s_{i}\rightarrow&#10;d%&#10;_{i}}(t)\left\|h_{i\rightarrow i}\right\|^{2}}{\sigma^{2}+\sum_{j\neq i}%&#10;\mathcal{P}_{s_{j}\rightarrow d_{i}}(t)\left\|h_{j\rightarrow i}\right\|^{2}}\right]" text="mu _ i * t = B cdot (logarithm _ 2)@(1 + (P _ (s _ i rightarrow d _ i) * t * (norm@(h _ (i rightarrow i))) ^ 2) / (sigma ^ 2 + (sum _ (j not-equals i))@(P _ (s _ j rightarrow d _ i) * t * (norm@(h _ (j rightarrow i))) ^ 2)))" fragid="S2.SS2.p4.m2"><m:math alttext="\mu_{i}(t)=\mathcal{B}\cdot\log_{2}\left[1+\frac{\mathcal{P}_{s_{i}\rightarrow&#10;d%&#10;_{i}}(t)\left\|h_{i\rightarrow i}\right\|^{2}}{\sigma^{2}+\sum_{j\neq i}%&#10;\mathcal{P}_{s_{j}\rightarrow d_{i}}(t)\left\|h_{j\rightarrow i}\right\|^{2}}\right]" display="inline"><m:mrow><m:mrow><m:msub><m:mi>μ</m:mi><m:mi>i</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>=</m:mo><m:mrow><m:mi class="ltx_font_mathcaligraphic">ℬ</m:mi><m:mo>⋅</m:mo><m:mrow><m:msub><m:mi>log</m:mi><m:mn>2</m:mn></m:msub><m:mo>⁡</m:mo><m:mrow><m:mo>[</m:mo><m:mrow><m:mn>1</m:mn><m:mo>+</m:mo><m:mfrac><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">𝒫</m:mi><m:mrow><m:msub><m:mi>s</m:mi><m:mi>i</m:mi></m:msub><m:mo>→</m:mo><m:msub><m:mi>d</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>⁢</m:mo><m:msup><m:mrow><m:mo fence="true">∥</m:mo><m:msub><m:mi>h</m:mi><m:mrow><m:mi>i</m:mi><m:mo>→</m:mo><m:mi>i</m:mi></m:mrow></m:msub><m:mo fence="true">∥</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow><m:mrow><m:msup><m:mi>σ</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:mrow><m:msub><m:mo largeop="true" symmetric="true">∑</m:mo><m:mrow><m:mi>j</m:mi><m:mo>≠</m:mo><m:mi>i</m:mi></m:mrow></m:msub><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">𝒫</m:mi><m:mrow><m:msub><m:mi>s</m:mi><m:mi>j</m:mi></m:msub><m:mo>→</m:mo><m:msub><m:mi>d</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>⁢</m:mo><m:msup><m:mrow><m:mo fence="true">∥</m:mo><m:msub><m:mi>h</m:mi><m:mrow><m:mi>j</m:mi><m:mo>→</m:mo><m:mi>i</m:mi></m:mrow></m:msub><m:mo fence="true">∥</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:mrow></m:mrow></m:mfrac></m:mrow><m:mo>]</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:math></Math>
+where <Math mode="inline" xml:id="S2.SS2.p4.m3" tex="\forall l_{i},\forall l_{j}\in\mathcal{L}^{*}" text="list@(for-all@(l _ i), for-all@(l _ j)) element-of L ^ *" fragid="S2.SS2.p4.m3"><m:math alttext="\forall l_{i},\forall l_{j}\in\mathcal{L}^{*}" display="inline"><m:mrow><m:mrow><m:mrow><m:mo>∀</m:mo><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:mrow><m:mo>,</m:mo><m:mrow><m:mo>∀</m:mo><m:msub><m:mi>l</m:mi><m:mi>j</m:mi></m:msub></m:mrow></m:mrow><m:mo>∈</m:mo><m:msup><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi><m:mo>*</m:mo></m:msup></m:mrow></m:math></Math> where <Math mode="inline" xml:id="S2.SS2.p4.m4" tex="\mathcal{L}^{*}" text="L ^ *" fragid="S2.SS2.p4.m4"><m:math alttext="\mathcal{L}^{*}" display="inline"><m:msup><m:mi class="ltx_font_mathcaligraphic">ℒ</m:mi><m:mo>*</m:mo></m:msup></m:math></Math> is the set of simultaneously scheduled links, <Math mode="inline" xml:id="S2.SS2.p4.m5" tex="i\neq j" text="i not-equals j" fragid="S2.SS2.p4.m5"><m:math alttext="i\neq j" display="inline"><m:mrow><m:mi>i</m:mi><m:mo>≠</m:mo><m:mi>j</m:mi></m:mrow></m:math></Math>,
+<Math mode="inline" xml:id="S2.SS2.p4.m6" tex="\mathcal{P}_{s_{a}\rightarrow d_{b}}(t)" text="P _ (s _ a rightarrow d _ b) * t" fragid="S2.SS2.p4.m6"><m:math alttext="\mathcal{P}_{s_{a}\rightarrow d_{b}}(t)" display="inline"><m:mrow><m:msub><m:mi class="ltx_font_mathcaligraphic">𝒫</m:mi><m:mrow><m:msub><m:mi>s</m:mi><m:mi>a</m:mi></m:msub><m:mo>→</m:mo><m:msub><m:mi>d</m:mi><m:mi>b</m:mi></m:msub></m:mrow></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></Math> is the power transmitted by <Math mode="inline" xml:id="S2.SS2.p4.m7" tex="s_{a}" text="s _ a" fragid="S2.SS2.p4.m7"><m:math alttext="s_{a}" display="inline"><m:msub><m:mi>s</m:mi><m:mi>a</m:mi></m:msub></m:math></Math> intended for <Math mode="inline" xml:id="S2.SS2.p4.m8" tex="d_{b}" text="d _ b" fragid="S2.SS2.p4.m8"><m:math alttext="d_{b}" display="inline"><m:msub><m:mi>d</m:mi><m:mi>b</m:mi></m:msub></m:math></Math>, and <Math mode="inline" xml:id="S2.SS2.p4.m9" tex="h_{j\rightarrow i}" text="h _ (j rightarrow i)" fragid="S2.SS2.p4.m9"><m:math alttext="h_{j\rightarrow i}" display="inline"><m:msub><m:mi>h</m:mi><m:mrow><m:mi>j</m:mi><m:mo>→</m:mo><m:mi>i</m:mi></m:mrow></m:msub></m:math></Math> is the channel gain from the TX of <Math mode="inline" xml:id="S2.SS2.p4.m10" tex="l_{j}" text="l _ j" fragid="S2.SS2.p4.m10"><m:math alttext="l_{j}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>j</m:mi></m:msub></m:math></Math> to the RX of <Math mode="inline" xml:id="S2.SS2.p4.m11" tex="l_{i}" text="l _ i" fragid="S2.SS2.p4.m11"><m:math alttext="l_{i}" display="inline"><m:msub><m:mi>l</m:mi><m:mi>i</m:mi></m:msub></m:math></Math> at <Math mode="inline" xml:id="S2.SS2.p4.m12" tex="t" text="t" fragid="S2.SS2.p4.m12"><m:math alttext="t" display="inline"><m:mi>t</m:mi></m:math></Math>,
+<Math mode="inline" xml:id="S2.SS2.p4.m13" tex="\mathcal{B}" text="B" fragid="S2.SS2.p4.m13"><m:math alttext="\mathcal{B}" display="inline"><m:mi class="ltx_font_mathcaligraphic">ℬ</m:mi></m:math></Math> is a bandwidth.
+Depending on the distribution of used chunk sizes, the time scale of departure process is set independent to the time scale of arrival process.</p>
+      </para>
+    </subsection>
+  </section>
+  <section refnum="3" xml:id="S3" labels="LABEL:sec:simulation" fragid="S3">
+    <title><tag close=" ">3</tag>Performance Evaluation</title>
+    <para xml:id="S3.p1" fragid="S3.p1">
+      <p>In our simulations, we used 2-hour 4 video traces with realistic D2D layout and pathloss models <cite>[<ref href="#bib.bib5" idref="bib.bib5">5</ref>]</cite>.
+Our proposed centralized and distributed algorithms are denoted as mpMWIS-QP and FlashLinQ-QP.
+They are compared with the FlashLinQ variant which controls the quality as in §<ref labelref="LABEL:sec:streaming" href="#S2.SS2" title="2.2 Quality-Aware Streaming ‣ 2 The Proposed Algorithms ‣ Max-Weight Scheduling and Quality-Aware Streaming for Device-to-Device Video Delivery"><text class="ltx_ref_tag">2.2</text></ref>, but the scheduling is randomized (named FlashLinQ-Q).</p>
+    </para>
+    <para xml:id="S3.p2" fragid="S3.p2">
+      <p><text font="bold">Pre-Buffering Time (PBT):</text>
+Table <ref labelref="LABEL:tbl-prebuffering2" href="#S2.T1" title="Table 1 ‣ 2.1 Max-Weight Scheduling ‣ 2 The Proposed Algorithms ‣ Max-Weight Scheduling and Quality-Aware Streaming for Device-to-Device Video Delivery"><text class="ltx_ref_tag">1</text></ref> shows results when the PBT is from 7 to 10 (unit: sec).
+<!-- %**** ArXiv˙v1.tex Line 200 **** 
+     %Note $“alpha=2$ and $“gamma=5$“,dB.-->We can see that mpMWIS-QP and FlashLinQ-QP present no stalls when PBTs=8 and PBT=9, i.e., mpMWIS-QP shows the best performance.
+But, FlashLinQ-Q has stalls even if PBT=10.</p>
+    </para>
+    <figure frefnum="Figure 1" placement="t!" refnum="1" xml:id="S3.F1" labels="LABEL:fig:stall2" fragid="S3.F1">
+      <graphics candidates="avgPNSR_pb8_2.png" graphic="avgPNSR_pb8_2.png" options="scale=0.4" xml:id="S3.F1.g1" class="ltx_centering" fragid="S3.F1.g1" imagesrc="avgPNSR_pb8_2.png" imagewidth="240" imageheight="112"/>
+      <!-- %“vspace–-2mm˝ -->
+      <toccaption><tag close=" ">1</tag>Avg. Quality vs. Expected Num. of Stalls</toccaption>
+      <caption><tag close=": ">Figure 1</tag>Avg. Quality vs. Expected Num. of Stalls</caption>
+      <!-- %“vspace–-5mm˝ -->
+    </figure>
+    <para xml:id="S3.p3" fragid="S3.p3">
+      <p><text font="bold">Average Quality vs. Num. of Stalls:</text>
+Changing <Math mode="inline" xml:id="S3.p3.m1" tex="\alpha" text="alpha" fragid="S3.p3.m1"><m:math alttext="\alpha" display="inline"><m:mi>α</m:mi></m:math></Math> allows to trade off quality with the number of stalls. For a given acceptable number of stalls,
+Fig. <ref labelref="LABEL:fig:stall2" href="#S3.F1" title="Figure 1 ‣ 3 Performance Evaluation ‣ Max-Weight Scheduling and Quality-Aware Streaming for Device-to-Device Video Delivery"><text class="ltx_ref_tag">1</text></ref> shows mpMWIS-QP provides the highest PSNR; and the performance of FlashLinQ-QP is around <Math mode="inline" xml:id="S3.p3.m2" tex="0.4" text="0.4" fragid="S3.p3.m2"><m:math alttext="0.4" display="inline"><m:mn>0.4</m:mn></m:math></Math> dB lower than the one of mpMWIS-QP; FlashLinQ-Q shows around <Math mode="inline" xml:id="S3.p3.m3" tex="1.6" text="1.6" fragid="S3.p3.m3"><m:math alttext="1.6" display="inline"><m:mn>1.6</m:mn></m:math></Math> dB lower PSNR.</p>
+    </para>
+  </section>
+  <section refnum="4" xml:id="S4" labels="LABEL:sec:conclusion" fragid="S4">
+    <title><tag close=" ">4</tag>Concluding Remarks</title>
+    <para xml:id="S4.p1" fragid="S4.p1">
+      <p>This paper proposed centralized quality-aware adaptive streaming and scheduling algorithms which can be used for D2D video delivery applications.
+For basestation-aided centralized scheduling, a message-passing algorithm is used to obtain the solutions of the MWIS link scheduling problem..
+<!-- %**** ArXiv˙v1.tex Line 225 **** -->For distributed scheduling, we improved a FlashLinQ scheduler with the principle of max-weight scheduling.
+For streaming, a quality-aware stochastic algorithm is introduced.</p>
+    </para>
+  </section>
+  <section xml:id="Sx1" labels="LABEL:sec:conclusion" fragid="Sx1">
+    <title>Acknowledgement</title>
+    <para xml:id="Sx1.p1" fragid="Sx1.p1">
+      <p>Full extended version of this abstract is under review to be published in IEEE/ACM Transactions on Networking; and the title of the manuscript is “Quality-Aware Streaming and Scheduling for Device-to-Device Video Delivery”.</p>
+    </para>
+    <!-- %============================ -->
+  </section>
+  <bibliography xml:id="bib" fragid="bib">
+    <title>References</title>
+    <biblist>
+      <!-- %“vspace–0.5mm˝ -->
+      <bibitem key="cm2013golrezaei" xml:id="bib.bib1" fragid="bib.bib1">
+        <bibtag role="refnum">1</bibtag>
+        <bibblock> N. Golrezaei, A.F. Molisch, A.G. Dimakis, and G. Caire, “Femtocaching and Device-to-Device Collaboration: A New Architecture for Wireless Video Distribution,” <text font="italic">IEEE Communications Magazine</text>, 51(4):142-149, April 2013.
+</bibblock>
+      </bibitem>
+      <bibitem key="ton2013wu" xml:id="bib.bib2" fragid="bib.bib2">
+        <bibtag role="refnum">2</bibtag>
+        <bibblock> X. Wu, S. Tavildar, S. Shakkottai, T. Richardson, J. Li, R. Laroia, and A. Jovicic, “FlashLinQ: A Synchronous Distributed Scheduler for Peer-to-Peer Ad Hoc Networks,” <text font="italic">IEEE/ACM Transactions on Networking</text>, 21(4):1215-1228, August 2013.
+</bibblock>
+      </bibitem>
+      <bibitem key="tit2009sanghavi" xml:id="bib.bib3" fragid="bib.bib3">
+        <bibtag role="refnum">3</bibtag>
+        <bibblock> S. Sanghavi, D. Shah, and A.S. Willsky, “Message Passing for Maximum Weight Independent Set,” <text font="italic">IEEE Transactions on Information Theory</text>, 55(11):4822-4834, November 2009.
+</bibblock>
+      </bibitem>
+      <bibitem key="asilomar2012bethanabhotla" xml:id="bib.bib4" fragid="bib.bib4">
+        <bibtag role="refnum">4</bibtag>
+        <bibblock> D. Bethanabhotla, G. Caire, and M.J. Neely, “Joint Transmission Scheduling and Congestion Control for Adaptive Streaming in Wireless Device-to-Device Networks” in <text font="italic">Proc. of Asilomar Conference on Signals, Systems, and Computers</text>, CA, USA, November 2012.
+</bibblock>
+      </bibitem>
+      <bibitem key="jsac2014ji" xml:id="bib.bib5" fragid="bib.bib5">
+        <bibtag role="refnum">5</bibtag>
+        <bibblock> M. Ji, G. Caire, and A.F. Molisch, “Wireless Device-to-Device Caching Networks: Basic Principles and System Performance,” Available on ArXiv: <ref class="ltx_url" href="http://arxiv.org/abs/1305.5216"><text font="typewriter">http://arxiv.org/abs/1305.5216</text></ref>, April 2014.
+</bibblock>
+      </bibitem>
+      <bibitem key="jsac2011win" xml:id="bib.bib6" fragid="bib.bib6">
+        <bibtag role="refnum">6</bibtag>
+        <bibblock> M.Z. Win, P.C. Pinto, and L.A. Shepp, “A Mathematical Theory of Network Interference and Its Applications,” <text font="italic">Proceedings of the IEEE</text>, 97(2):205-230, February 2009.
+</bibblock>
+      </bibitem>
+    </biblist>
+  </bibliography>
+  <!-- %**** ArXiv˙v1.tex Line 250 **** -->
+</document>

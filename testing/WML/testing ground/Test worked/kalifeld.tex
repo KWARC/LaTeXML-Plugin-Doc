@@ -1,0 +1,121 @@
+\Para{Felder von MinimalflÑchen}{}
+\Def {}{}
+Sei $\widetilde M$ eine Riemannsche Mannigfaltigkeit, 
+$M$ eine $n$-dimen\-sio\-na\-le 
+orientierte Untermannigfaltigkeit.
+Eine geschlossene $n$-Form $\phi$ auf $\widetilde M$ heiût eine {\bf Ka\-li\-brie\-rung 
+von $M$ in $\widetilde M$} wenn fÅr alle $p\in \widetilde M$ und fÅr alle orthonormalen 
+$v_1,\ldots,v_n \in \T _p\widetilde M$ gilt:
+$$\phi_p (v_1,\ldots,v_n) \leq 1$$
+und 
+$$\phi_p(x_1,\ldots,x_n)=1$$
+falls $(x_1,\ldots,x_n)$ positiv orientiert. 
+\Satz {Fundamentalsatz fÅr Kalibrierungen}{\KALIFUN}
+{\it Sei $\widetilde M$ eine vollstÑndige Riemannsche Mannigfaltig\-keit, 
+$M$ eine kompakte, orientierbare, n-dimensionale 
+Unter\-man\-nig\-fal\-tig\-keit von $\widetilde M$
+und $\phi $ ein Ka\-li\-brie\-rung von $M$ in $\widetilde M$. 
+Dann ist $M$ homologisch minimierend in $\widetilde M$ zu eigenen Randwerten,
+das heiût, fÅr alle zu $M$ homologen Untermannig\-fal\-tig\-kei\-ten $N$
+ mit $\partial M = \partial N$ gilt ${\cal H}^n(N) \geq {\cal H}^n(M)$.}
+\Beweis
+(Federers Differentialformenargument)
+$${\cal H}^n(N) =    \int _N {1\, d{\cal H}^n} 
+                \geq \int _N {\phi}
+                =    \int _M {\phi} 
+                =    \int _M {1\, d{\cal H}^n}
+                =    {\cal H}^n(M)$$\kasten
+\Bem {}{}
+Hat $\widetilde M$ triviale $n$-te Homologie, so ist $M$ minimierend zu eigenem 
+Rand.
+\Bem {}{\RANDMIN} 
+Ist fÅr alle Untermannigfaltigkeiten
+$N\subset \widetilde M$ die orientierte Vereinigung $N\cup(-M)$ Rand eines 
+Kompaktums, so ist $M$ ein Minimum in $\widetilde M$ zu
+eigenen Randwerten.
+\Satz {Solomon}{\SOLOMON}
+{\it Sei $U\subset \RR^{n+1}$ offen. Dann ist das Einheitsnormalenfeld
+$\nu$ an eine $\C^0$-BlÑtterung von $U$ in minimale HyperflÑchen sogar
+Lipschitz-stetig.}
+\Kor {}{\FELDDIFF}
+{\it Ist $\Phi$ ein Feld zu $M$ in $\widetilde M$, 
+so ist das Einheitsnormalenfeld
+an $\Phi$ fast Åberall differenzierbar.}
+\Beweis 
+mit dem Satz von Rademacher {\RADEMACHER}.\kasten
+\Satz {}{\MINIFELD}
+{\it Ist $M$ eine kompakte, orientierbare MinimalflÑche mit Rand 
+$\partial M\ne \emptyset$, und 
+ist $\Phi$ ein $\C^0$-Feld zu $M$ in $\widetilde M$, so daû $\widetilde M$ eine 
+Tubenumgebung von $M$ enthÑlt,
+so ist $M$ ein starkes homologisches
+ Minimum des FlÑ\-chen\-in\-halts.}
+\Beweis
+Wir konstruieren eine Kalibrierung von $M$ in  $\widetilde M$.
+\par Sei $\nu$ das Einheitsnormalenfeld an $\Phi$ und seien
+in einer Umgebung von $p\in \widetilde M$ die orthonormalen Vektorfelder
+$\{ e_0,\ldots ,e_n \}$ gegeben. Es gibt dann Koeffizientenfunktionen 
+$\alpha_i$, so daû $\nu = \sum _{i=0}^n{\alpha_ie_i}$ auf $V$.
+Mit 
+$$\omega \colon = de_0 \wedge\ldots\wedge de_n $$
+ist dann fÅr jede positiv orientierte Orthonormalbasis $ \{v_0,\ldots,v_n\} $
+von $\T _pS$ ist $$\omega (v_0,\ldots,v_n) = 1. $$
+Definiere nun  auf $\widetilde M$ die $n$-Form $\omega _\nu$ durch
+$$\eqalign{\omega_\nu (w_1,\ldots ,w_n)\colon = 
+                & \omega (\nu,w_1,\ldots,w_n)                            \cr
+             =  & \sum^n_{i=0}{\alpha_i\omega (e_i,w_1,\ldots,w_n)}      \cr
+             =  & \sum^n_{i=0}{(-1)^i\alpha_i
+                                   de_0 \wedge\ldots\wedge \widehat {de_i}
+                                        \wedge\ldots\wedge de_n  
+                                   (w_1,\ldots,w_n)} \;.                 \cr
+     }$$
+Also ist
+$$\eqalign{\omega_\nu & = \sum^n_{i=0}{(-1)^i\alpha_i
+                           de_0 \wedge\ldots\wedge \widehat {de_i}
+                                \wedge\ldots\wedge de_n}       \cr
+          d\omega_\nu & = \sum^n_{i=0}
+                           {{\partial\alpha_i\over\partial x_i}
+                            de_0\wedge\ldots\wedge de_n}           \cr
+                      & = \div (\nu)\omega       \;.               \cr
+                    }$$
+Um zu zeigen, daû $\omega_\nu$ geschlossen ist, zeigen wir daû $\div(\nu)=0$.
+In einer Umgebung um $q=f_s(p)$ kann man ohne EinschrÑnkung annehmen, 
+daû $f_s$ ein Graph in $\RR^{n+1}$ ist, das heiût,
+$f_s(x)=(x,F(x))$. Dann ist die Normale in $x$
+$$\nu={1\over\sqrt{1+|\nabla F|^2}}(\nabla F,-1)\;.$$
+Die MinimalflÑchengleichung fÅr die minimale Immersion $f_s$ hat dann die
+Form
+$$\div_n\left({\nabla F\over\sqrt{1+|\nabla F|^2}}\right)=0\;.$$
+Wir haben also
+$$\div_{n+1}(\nu)=\div_n\left({\nabla F\over\sqrt{1+|\nabla F|^2}}\right)
+                 +{\partial\over\partial x_{n+1}}
+                   \left({-1\over\sqrt{1+|\nabla F|^2}}\right)=0\;,$$
+
+denn der rechte Term hÑngt nicht von $x_{n+1}$ ab.\par
+FÅr eine positiv orientierte Orthonormalbasis $\{x_1,\ldots,x_n\} $ von 
+$\T M$ ist $$\omega_\nu (x_1,\ldots,x_n)=1,$$
+denn $\{\nu,x_1,\ldots,x_n\}$ ist eine positiv orientierte Orthonormalbasis 
+von $\T _p\widetilde M$.
+\par FÅr alle orthonormalen $\{v_1,\ldots,v_n\}$ gibt es genau
+ ein $v_0$, so daû $\{v_0,\ldots,v_n\}$ eine positiv orientierte 
+Orthonormalbasis bildet.
+Dann ist $\omega (v_0,\ldots,v_n)=1$.
+\par $\nu$ lÑût sich Åberall so aufspalten, daû $\nu = v + \sigma v_1$ wobei 
+$v\in \hbox{span}(v_0,\ldots,v_n)$ und $\sigma \leq 1$. Also gilt
+$$\eqalign{ \omega_\nu (v_1,\ldots,v_n) 
+                       & = \omega (\nu ,v_1,\ldots,v_n)           \cr
+                       & = \omega (v,v_1,\ldots,v_n)
+                         + \omega (\sigma v_0,v_1,\ldots,v_n)
+                         = \sigma \leq 1\;.                       \cr
+                }$$
+$\omega_\nu$ kalibriert also $M$ in $\widetilde M$.
+Die Behauptung folgt jetzt aus dem Fundamentalsatz fÅr Kalibrierungen.
+\kasten
+\Bem {}{\MINIBEM}
+Wenn sich eine MinimalflÑche $M\subset\RR^{n+1}$ als Graph schreiben lÑût, 
+ist sie ein starkes Minimum des FlÑcheninhalts zu eigenen Randwerten.
+\Beweis
+Sei $M_0=\{(x,f(x))\}$. Dann erfÅllt 
+$\Phi\colon =\{M_s \colon  s\in \RR\}$ mit $M_s = \{ (x,f(x)+s) \} $ die 
+Voraussetzungen von Satz {\MINIFELD}.\kasten
+

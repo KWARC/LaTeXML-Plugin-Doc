@@ -1,0 +1,315 @@
+<CD xmlns="http://www.openmath.org/OpenMathCD">
+
+<CDComment>
+
+     This document is distributed in the hope that it will be useful, 
+     but WITHOUT ANY WARRANTY; without even the implied warranty of 
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+     The copyright holder grants you permission to redistribute this 
+     document freely as a verbatim copy. Furthermore, the copyright
+     holder permits you to develop any derived work from this document
+     provided that the following conditions are met.
+       a) The derived work acknowledges the fact that it is derived from
+          this document, and maintains a prominent reference in the 
+          work to the original source.
+       b) The fact that the derived work is not the original OpenMath 
+          document is stated prominently in the derived work.  Moreover if
+          both this document and the derived work are Content Dictionaries
+          then the derived work must include a different CDName element,
+          chosen so that it cannot be confused with any works adopted by
+          the OpenMath Society.  In particular, if there is a Content 
+          Dictionary Group whose name is, for example, `math' containing
+          Content Dictionaries named `math1', `math2' etc., then you should 
+          not name a derived Content Dictionary `mathN' where N is an integer.
+          However you are free to name it `private_mathN' or some such.  This
+          is because the names `mathN' may be used by the OpenMath Society
+          for future extensions.
+       c) The derived work is distributed under terms that allow the
+          compilation of derived works, but keep paragraphs a) and b)
+          intact.  The simplest way to do this is to distribute the derived
+          work under the OpenMath license, but this is not a requirement.
+     If you have questions about this license please contact the OpenMath
+     society at http://www.openmath.org.
+</CDComment>
+
+<CDName> quant3 </CDName>
+<CDBase>http://www.openmath.org/cd</CDBase>
+<CDURL>http://www.openmath.org/cd/quant3.ocd</CDURL>
+<CDReviewDate>2011-03-30</CDReviewDate>
+<CDDate>2009-05-11</CDDate>
+<CDVersion>1</CDVersion>
+<CDRevision>0</CDRevision>
+<CDStatus> experimental </CDStatus>
+<Description>
+    This CD holds the definitions of the restricted universal ("for all in")
+    quantifier and existential ("there exists in") quantifier. It is
+    intended to be 'compatible' with MathML elements using "condition" to
+    represent these features of the quantifiers. 
+    It also has "there exists uniquely in".
+</Description>
+
+<CDDefinition>
+<Name> forallin </Name>
+<Role>binder</Role>
+<Description> 
+This symbol represents the universal ("for all" ... "in" ...) quantifier.
+This takes a single set as the argument, and YIELDS a binder which takes two
+arguments, which must be placed within an OMBIND element. The first argument
+to this is the bound variables (placed within an OMBVAR element), and the
+second is an expression. 
+</Description>
+<Example>
+An example to represent the statement for all real x, |sin(x)| &lt;= 1
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd">
+  <OMBIND>
+    <OMA>
+      <OMS cd="quant3" name="forallin"/>
+      <OMS name="R" cd="setname1"/>
+    </OMA>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMS cd="relation1" name="leq"/>
+      <OMA>
+        <OMS cd="arith1" name="abs"/>
+        <OMA>
+          <OMS cd="transc1" name="sin"/>
+          <OMV name="x"/>
+        </OMA>
+      </OMA>
+      <OMF dec="1.0"/>
+    </OMA>
+  </OMBIND>
+</OMOBJ>
+</Example>
+<FMP>
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd">
+<OMA>
+  <OMS name="equivalent" cd="logic1"/>
+  <OMBIND>
+    <OMA>
+      <OMS name="forallin" cd="quant3"/>
+      <OMV name="S"/>
+    </OMA>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMV name="P"/>
+      <OMV name="x"/>
+    </OMA>
+  </OMBIND>
+  <OMBIND>
+    <OMS name="forall" cd="quant1"/>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMS name="implies" cd="logic1"/>
+      <OMA>
+        <OMS name="in" cd="set1"/>
+        <OMV name="x"/>
+        <OMV name="S"/>
+      </OMA>
+      <OMA>
+        <OMV name="P"/>
+        <OMV name="x"/>
+      </OMA>
+    </OMA>
+  </OMBIND>
+</OMA>
+</OMOBJ>
+</FMP>
+</CDDefinition>
+
+<CDDefinition>
+<Name> existsin </Name>
+<Role>binder</Role>
+<Description> 
+This symbol represents the existential ("there exists" ... "in" ,,,) quantifier.
+This takes a single set as the argument, and YIELDS a binder which takes two
+arguments, which must be placed within an OMBIND element. The first argument
+to this is the bound variables (placed within an OMBVAR element), and the
+second is an expression. 
+</Description>
+<Example>
+There is no REAL number x with sin(x)=2
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd">
+<OMA>
+  <OMS name="not" cd="logic1"/>
+  <OMBIND>
+    <OMA>
+      <OMS name="existsin" cd="quant3"/>
+      <OMS name="R" cd="setname1"/>
+    </OMA>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMS name="eq" cd="relation1"/>
+      <OMA>
+        <OMS name="sin" cd="transc1"/>
+        <OMV name="x"/>
+      </OMA>
+      <OMI> 2 </OMI>
+    </OMA>
+  </OMBIND>
+</OMA>
+</OMOBJ>
+</Example>
+<FMP>
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd">
+<OMA>
+  <OMS name="equivalent" cd="logic1"/>
+  <OMBIND>
+    <OMA>
+      <OMS name="existsin" cd="quant3"/>
+      <OMV name="S"/>
+    </OMA>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMV name="P"/>
+      <OMV name="x"/>
+    </OMA>
+  </OMBIND>
+  <OMBIND>
+    <OMS name="exists" cd="quant1"/>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMS name="and" cd="logic1"/>
+      <OMA>
+        <OMS name="in" cd="set1"/>
+        <OMV name="x"/>
+        <OMV name="S"/>
+      </OMA>
+      <OMA>
+        <OMV name="P"/>
+        <OMV name="x"/>
+      </OMA>
+    </OMA>
+  </OMBIND>
+</OMA>
+</OMOBJ>
+</FMP>
+</CDDefinition>
+
+
+<CDDefinition>
+<Name> existsuniquelyin </Name>
+<Role>binder</Role>
+<Description> 
+This symbol represents the unique existential ("there exists a unique" ... 
+"in" ,,,) quantifier.
+This takes a single set as the argument, and YIELDS a binder which takes two
+arguments, which must be placed within an OMBIND element. The first argument
+to this is the bound variables (placed within an OMBVAR element), and the
+second is an expression. 
+</Description>
+<Example>
+There is a unique even prime
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd">
+  <OMBIND>
+    <OMA>
+      <OMS name="existsuniquelyin" cd="quant2"/>
+      <OMS name="P" cd="setname1"/>
+    </OMA>
+    <OMBVAR>
+      <OMV name="p"/>
+    </OMBVAR>
+    <OMA>
+      <OMS name="eq" cd="relation1"/>
+      <OMS name="zero" cd="alg1"/>
+      <OMA>
+        <OMS name="remainder" cd="integer1"/>
+        <OMV name="p"/>
+        <OMI> 2 </OMI>
+      </OMA>
+    </OMA>
+  </OMBIND>
+</OMOBJ>
+</Example>
+
+<CMP>
+exists! x in S P(x) is exists! x in S P(x) and there are not two different 
+values WITHIN S with this property.
+</CMP>
+
+<FMP>
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd">
+<OMA>
+  <OMS name="equivalent" cd="logic1"/>
+  <OMBIND>
+    <OMA>
+      <OMS name="existsuniquelyin" cd="quant3"/>
+      <OMV name="S"/>
+    </OMA>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMV name="P"/>
+      <OMV name="x"/>
+    </OMA>
+  </OMBIND>
+  <OMA>
+    <OMS name="and" cd="logic1"/>
+    <OMBIND>
+      <OMS name="exists" cd="quant1"/>
+      <OMBVAR>
+        <OMV name="x"/>
+      </OMBVAR>
+      <OMA>
+        <OMS name="and" cd="logic1"/>
+        <OMA>
+          <OMS name="in" cd="set1"/>
+          <OMV name="x"/>
+          <OMV name="S"/>
+        </OMA>
+        <OMA>
+          <OMV name="P"/>
+          <OMV name="x"/>
+        </OMA>
+      </OMA>
+    </OMBIND>
+    <OMA>
+      <OMS name="implies" cd="logic1"/>
+      <OMA>
+        <OMS name="and" cd="logic1"/>
+        <OMA>
+          <OMV name="P"/>
+          <OMV name="x"/>
+        </OMA>
+        <OMA>
+          <OMS name="in" cd="set1"/>
+          <OMV name="x"/>
+          <OMV name="S"/>
+        </OMA>
+        <OMA>
+          <OMV name="P"/>
+          <OMV name="y"/>
+        </OMA>
+        <OMA>
+          <OMS name="in" cd="set1"/>
+          <OMV name="y"/>
+          <OMV name="S"/>
+        </OMA>
+      </OMA>
+      <OMA>
+        <OMS name="eq" cd="relation1"/>
+        <OMV name="x"/>
+        <OMV name="y"/>
+      </OMA>
+    </OMA>
+  </OMA>
+</OMA> 
+</OMOBJ>
+</FMP>
+</CDDefinition>
+
+</CD>

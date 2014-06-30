@@ -1,0 +1,144 @@
+
+\usepackage{hyperref}
+\usepackage[all]{xy}
+
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{autofe}
+\usepackage{proof}
+\usepackage{framed}
+
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{soul}
+
+\DeclareMathAlphabet{\mathkw}{OT1}{cmss}{bx}{n} %math keywords
+
+
+\numberwithin{equation}{section}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{ifthen}
+\newboolean{ExtendedVersion}
+\setboolean{ExtendedVersion}{false}     % *** EXTENDED VERSION? ***
+
+\newcommand{\extended}[2][{}]{\ifthenelse{\boolean{ExtendedVersion}}{#2}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\myproof{\noindent{\em Proof\/}}
+
+\def\squareforqed{\hbox{\rlap{$\sqcap$}$\sqcup$}}
+
+\def\qed{\ifmmode\squareforqed\else{\unskip\nobreak\hfil
+\penalty50\hskip1em\null\nobreak\hfil\squareforqed
+\parfillskip=0pt\finalhyphendemerits=0\endgraf}\fi}
+
+\newcommand{\myqed}{\qed\vspace*{5pt}}
+
+\newenvironment{mproof}{\myproof}{\myqed}
+
+%\allowdisplaybreaks
+\newlength{\nl}
+\setlength{\nl}{-3pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{mproof}{Proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{mtheorem}{Theorem}[section]
+\newtheorem{mprop}[mtheorem]{Proposition}
+\newtheorem{mdefinition}[mtheorem]{Definition}
+\newtheorem{mlemma}[mtheorem]{Lemma}
+\newtheorem{mexample}[mtheorem]{Example}
+\newtheorem{mremark}[mtheorem]{Remark}
+
+\newcommand{\FN}{\ensuremath\mathsf} % Fixed names
+
+\newcommand{\Naturals}{\mathbb{N}}  % Natural numbers
+\newcommand{\Set}{\mathbf{\mathsf{Set}}} % The category Set
+\newcommand{\cat}[1]{\mathcal{#1}} %formatting of categories
+\newcommand{\A}{\cat{A}}  %the category A
+\newcommand{\C}{\cat{C}}  %the category C
+\newcommand{\D}{\cat{D}}  %the category D
+\newcommand{\E}{\cat{E}}  %the category E
+
+
+\newcommand{\op}{\FN{op}}
+\newcommand{\End}{\left[\C, \C\right]}
+\newcommand{\ProfSet}{\left[\Set^{\op} \times \Set, \Set\right]}
+\newcommand{\SProfSet}{\left[\Set^{\op} \times \Set, \Set\right]_s}
+\newcommand{\EndD}{\FN{End_{\dayt}}}
+\newcommand{\EndDop}{\FN{End_{{\dayt}^{\op}}}}
+\newcommand{\EndC}{\FN{End_{\circ}}}
+\newcommand{\dayt}{\mathrel{\star}}
+\newcommand{\unphi}{{\phi^{-1}}}
+\newcommand{\hask}[1]{{\tt #1}}
+
+\newcommand{\X}{\times}%binary product
+\newcommand{\fst}{\FN{fst}} %first projection from product
+\newcommand{\snd}{\FN{snd}} %second projection from product
+\newcommand{\id}{\FN{id}} %identity function
+\newcommand{\Id}{\FN{Id}}%Identity functor
+\newcommand{\inl}{\FN{inl}} %left injection into coproduct
+\newcommand{\inr}{\FN{inr}} %right injection into coproduct
+\newcommand{\oX}{\mathrel{\otimes}}%tensor product
+\newcommand{\oI}{I}%tensor unit
+\newcommand{\oP}{\mathrel{\oplus}}%tensor product
+\newcommand{\oJ}{J}%tensor unit
+\newcommand{\Monoid}[1]{\mathsf{Mon({#1})}} %Category of monoids in the argument category
+
+\newcommand{\rep}{\FN{rep}}
+\newcommand{\abs}{\FN{abs}}
+
+%\newcommand{\free}[1]{\bar{#1}} % universal arrow from the free monoid
+\newcommand{\free}[1]{\FN{free}\ {#1}} % universal arrow from the free monoid
+\newcommand{\ins}{\FN{ins}} % insertion of generators into the free monoid
+
+\newcommand{\Lan}[1]{\ensuremath{\mathsf{Lan}_{#1}}} %Left Kan extension
+\newcommand{\Ran}[1]{\ensuremath{\mathsf{Ran}_{#1}}} %Right Kan extension
+\newcommand{\Rexp}[2]{{#2}^{#1}}%right-exponential
+\newcommand{\Lexp}[2]{{}^{#1}{#2}}%left-exponential
+
+\newcommand{\ladj}[1]{\lfloor {#1} \rfloor} %left adjunct
+\newcommand{\radj}[1]{\lceil {#1} \rceil} %right adjunct
+\newcommand{\ev}{\mathsf{ev}} % evaluation morphism (counit)
+
+\newcommand{\Prof}[2]{\mathsf{Prof}({#1}, {#2})}
+\newcommand{\Pro}{\mathsf{Pro}}
+\newcommand{\SPro}{\mathsf{SPro}}
+\newcommand{\Mnd}{\mathsf{Mnd}} % category of monads and monad morphisms
+\newcommand{\Endo}{{\mathsf{End}_\circ}} %monoidal category of endofunctors and composition
+\newcommand{\Hom}{\FN{Hom}}
+\newcommand{\Arr}{\mathsf{Arr}}
+\newcommand{\WArr}{\mathsf{PreArr}}
+\newcommand{\App}{\mathsf{App}}
+
+\newcommand{\swap}{\mathsf{swap}}
+\newcommand{\curry}{\mathsf{curry}}
+%\newcommand{\profunctor}{\nrightarrow}
+\newcommand{\profunctor}{\mathrel{\longrightarrow\!\!\!\!\!\!\!\!\!\!\!\!+\,\,\,\,}}
+
+\newcommand{\Dinat}[2]{\FN{Dinat}({#1},{#2})}
+\newcommand{\Nat}[2]{\FN{Nat}({#1},{#2})}
+
+\setlength{\FrameSep}{3mm}
+
+\newenvironment{coder}{\begin{framed}}{\end{framed}}
+
+
+
+
+\newcommand{\exponentiable}{an exponent}
+\newcommand{\verylongrightarrow}{\xrightarrow{\hspace*{1cm}}}
+
+\newcommand{\comment}[1]{\quad\{ \text{ #1 } \}}
+\newcommand{\banana}[1]{\llparenthesis {#1}\rrparenthesis}
+\newcommand{\str}{\FN{str}}
+\newcommand{\sst}{\FN{st}}
+\newcommand{\funst}{\FN{st}}

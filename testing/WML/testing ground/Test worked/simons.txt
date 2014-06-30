@@ -1,0 +1,35 @@
+Mandy Simons: "Presuppositions without Common Ground":
+
+p.8: "I have argued that there is a strong case to be made that presuppositionality ... is the result of conversational inferences ... inferences about what?"
+
+p.9: "But the standard view on presupposition is that presupposition
+triggers provide the interpreter not just with information about the
+speaker things, but with information what the speaker thinks the
+*common ground* is like." 
+
+"Stalnaker ... defines presuppositionality directly in terms of
+constraints on speaker beliefs." 
+
+p.10: Problem of the common ground view with "I want to call my
+sister" if hearer doesn't know about the existence of the sister.
+p.11: Put common ground constraint as part of the conventional content
+of the utterance: it cannot be inferred.
+
+p.14: Presupposition without common ground:
+cooperation in communication: cooperative speaker + cooperative hearer
+
+p.16: "Required background assumptions, like presuppositions, must be
+non-controverial; a controversial background implicature may induce a
+``presupposition denail'' response." ... "presuppositions may be
+either old or new information; but if it is new information, then, if
+the conversation is to proceed entirely smoothly, it should be
+uncontroversial."
+
+p.19: "Utterance presupposition:
+p is a presupposition of an utterance U iff:
+ (i)  It is not part of the speaker's primary communicative intention 
+      to convey p and
+ (ii) the interpreter of U must take the speaker of U to accept p in order
+      to make sense of U."
+
+ 

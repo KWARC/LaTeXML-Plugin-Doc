@@ -1,0 +1,505 @@
+Dear Sophie Rességuier Faro,
+
+Because of different reasons it took us some time to revise our paper
+and follow your suggestion to re-submit a revised version. We have
+improved the paper in several ways - in particular the calculus is
+written up in a way which is much more modular and better to
+understand - so that we think the paper is now much better,
+language-wise and technically. We hope that it will find the approval
+of the reviewers.
+
+Kind regards
+Manfred Kerber and Michael Kohlhase
+
+
+In detail to the suggestions by the reviewers (the original reviews
+are at the end of the email):
+--------------------------------------------------------------------------------
+Reviewer 1:
+
+* We have improved the standard of writing by rewriting and breaking
+  up sentences which were difficult to read.
+
+1. We have introduced the examples earlier, motivating the many-valued
+   aspect of the logic by the example of section 5 and clarifying the
+   semantics of universal quantification in the light of restriction
+   constraints by the example of section 4. We left the section 4 and
+   5 in the text, however, since a reader may gain much understanding
+   from the examples and understand the calculus much better. The
+   examples also demonstrate that the reasoning in this calculus is in
+   typical linguistic situations not significantly more difficult than
+   reasoning in standard 1st order logic would be.
+
+2. We have clarified the relevance of this example. The example in
+   section 4 is indeed not an example for the need of a many-valued
+   approach (the example in section 5 is), but an example for the
+   value of restricted quantification. The translation from natural
+   language to formal logic is relatively simple in our logic: John's
+   children are sleeping => forall x_{child(x,John)} sleeps(x). No
+   explicit statement has to be made that the set {x | child(x,John)}
+   is non-empty. The translation into classical logic would have to
+   be: (1) forall x. child(x,John) -> sleeps(x)
+       (2) exists x. child(x,John)
+   Of course, this is a valid translation and shows that there is a
+   way around (unlike the situation of existantial quantification,
+   where no way around exists). Still the translation into our logic is
+   more elegant and reflects the linguistic description much more
+   adequately.
+
+   We have made remarks at the end of section 3 and in the conclusion
+   to clarify that the two main phenomena we want to model, quantifier
+   presuppositions and existential presuppositions are modeled by two
+   different aspects of the logic, namely, restricted quantifiers and
+   the many-valued logic, respectively.
+
+3. A fair comment. We have deleted this part as suggested.
+
+4. Many thanks for the many thorough hints about the English. All
+   points mentioned are valid and have been taken care of.
+
+5. We have dealt with these points and changed them accordingly.
+
+6. The examples have been replaced and make use of Sherlock
+   Holmes/Conan Doyle domain now.
+
+--------------------------------------------------------------------------------
+Reviewer 2:
+
+* "However, I have some doubts about their significance: The paper has
+   only four theorems, mainly referring to the soundness and
+   completeness of a resolution calculus for handling partial
+   information.  The results on resolution for the 5-valued logic and
+   for reasoning about partiality do not seem to be very surprising"
+
+Answer: Yes, but handling partial information is only one aspect of
+   what we did. Indeed we wouldn't think that the four theorems are
+   the main contribution. Building a logic (incl. calculus) which can
+   deal with presuppositions and partial information was the main
+   aspect of our work. We consider it as our main achievement to build
+   a logic which deals with restricted quantification to model
+   quantification presuppositions and additional truth values to model
+   secure/insecure terms. Partial information is a further aspect, but
+   not the main aspect of our work.
+
+* "Moreover, nearly no comparisons are made with other approaches for
+   modeling and reasoning about partiality. Therefore, the advantage
+   of the approach the authors propose as compared to other approaches
+   is not clear. Also missing (except for the examples in the last
+   section) is a convincing motivation of the usefulness of the method
+   for handling partiality in practical applications."
+
+Answer: We have taken up some of the suggested work and compared
+   it. However, since dealing with partiality is only one aspect of
+   the paper, we do not want to go too deeply in the large body of
+   literature and discuss all different possibilities how to model it.
+
+To the detailed comments:
+
+page 5, Section 1.3. 
+Answer: Many thanks for these suggestions. We cite now [Bur86] and [GSW06]. 
+
+page 7, Section 2, Definition 2.
+Answer: Definition changed as suggested.
+
+
+page 13, Section 3.  
+Answer: We have added a discussion about the relationship to [GSW06]
+        and the different approach to partiality in our work.
+
+pages 14-16, Definition 15:
+Answer: done.
+
+page 16, Theorem 18: 
+Answer: changed as requested.
+
+page 17, Theorem 23.
+Answer: We quote [GS00] and [Weidenbach96]. We remark that this should
+        allow to apply classical supperposition methods. However, we have
+        not changed the proofs in the paper. This would result in
+        major changes throughout. We see this more as potential
+        further work.
+
+pages 23- 24: References.  
+Answer: We have updated the references, which include now seven from
+        the last 10 years.
+
+--------------------------------------------------------------------------------
+Original email
+--------------------------------------------------------------------------------
+Date: Mon, 18 May 2009 16:30:58 +0200
+From: Sophie Resseguier <sophie.resseguier@irit.fr>
+Reply-To: sophie.resseguier@irit.fr
+
+Dear Manfred Kerber,
+Dear Michael Kohlhase,
+
+ 
+We regret to inform you that your paper entitled:
+
+ 
+*Reasoning without Believing: On the Mechanization of Presuppositions 
+and Partiality*
+
+ 
+cannot be accepted as it is for publication in the Journal of Applied
+Non-Classical Logics (http://www.irit.fr/JANCL). Nevertheless, we
+believe that its content is promising and we invite you to submit
+later to the journal an improved version of your paper. We attach
+the reviewer's comments, we hope they are helpful for your work.
+ 
+   Best regards
+ 
+ Sophie Rességuier Faro
+ (on behalf of the JANCL Editorial Board)
+--------------080608020608060304060704
+Reviewer 1:
+Content-Type: text/plain;
+ name="kk-review.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename="kk-review.txt"
+
+Review of paper: Reasoning without believing: on the mechanization 
+   of presuppositions and partiality.
+
+Summary:
+
+This paper presents a 5 valued logic for handling non-existent
+objects, failure of presupposition and undefinedness. The five truth
+values are t^+, t^-, f^+, f^- and u. Here, t and f correspond roughly
+to the standard notions of truth and falsity, while the superscripts
+indicate the `security'-value (for example, non-existent objects may
+satisfy certain predicates `insecurely'); the final truth value is
+reserved for complete nonsense. It is not explained how to map natural
+languages into formulas of this language, or how to assign
+truth-values in particular cases; however, several examples are given
+to motivate the semantics. Technically, the main contribution of the
+paper is a sound and complete resolution system for this logic. The
+existence of such a system is not surprising, and the proofs represent
+a relatively straightforward extension of completeness proofs for
+resolution in the ordinary predicate calculus. Nevertheless, given the
+independent motivation of the logic, they seem to me to be worth
+knowing and recording. 
+
+Evaluation
+
+In general, I was fairly happy with this paper and what it achieves;
+and I certainly think that, with modifications, it deserves to be
+published. However, I belive it needs to be improved in various
+respects before it can finally be accepted. Most salient among these
+is the standard of writing, which falls well below the minimum level
+that can be considered for an academic journal. However, would I
+encourage the authors to resubmit.
+
+Specific comments:
+
+1. I agree that the examples in sections 4 and 5 are important in
+   motivating the logic. But why do we need to actually see the
+   *resolution proofs*?  This is just silly: the authors have gone to
+   the trouble of proving soundness and completeness; so why not give
+   a semantic argument for the entailments (surely, much more
+   perspicuous), and rely on the theorems just proved to assure us of
+   the existence of such proofs?  A great advantage of this strategy
+   would be that sections 4 and 5, which are motivationally important,
+   could then be brough forward in the paper. 
+
+2. I found the example in Section 4 unconvincing: does it really show
+   the need for fancy truth-values and an account of quantificational
+   presupposition? It seems to me that the desired inference can be
+   more easily secured by treating the critical quantificational
+   presupposition as an additional formula, and working in classical
+   logic. If this is wrong, or bad, or sub-optimal, why? If it stops
+   us from doing something important, what? We don't seem to be
+   told. If this is the best the authors can do for justifying a logic
+   which distinguishes quantificational presuppositions, then it's a
+   pretty weak argument.  Can this example could be strengthened?  The
+   example in in Section 5 seemed better in this respect: it is much
+   less clear that existence questions can be properly posed in
+   classical terms. Even so, I would have welcomed a more in-depth and
+   thoughtful account of the philosophical issues here.
+
+3. Some of the paper is a bit elementary for the likely audience. I
+   really think that the first two paragraphs of section 1.4 can be
+   deleted. A brief reference to relevant textbook material is okay,
+   but not this level of blurb.
+
+4. The English is extremely unidiomatic---in many places, to the point
+   of complete incomprehensibility. The paper cannot possibly be
+   published unless it is completely rewritten in a variety of English
+   that will not grind down any reader after about three
+   pages. Herewith a random selection of problems (certainly not
+   exhaustive):
+
+ a) The punctuation is incorrect throughout. The authors seem to
+    understand no punctuation marks other than full stop and the
+    comma---the latter being often confusingly mis-used.
+
+ b) p 2 l 1: "In this paper we address two important ones/ The first
+    is about so-called presuppositions". You just can't use "ones"
+    anaphorically like this in English: it sounds stupid. And anyway,
+    tracing back the (assumed) anaphora, I take it that "ones" refers
+    to "discrepancies". So what does it mean for a "discrepancy" to be
+    "*about* so-called presuppositions"? You can's say that in English
+    either: "discrepancy about presuppositions" is nonsense.
+
+c) "Dynamified" (p. 3) is not a word, I think.
+
+d) First sentence of 1.2 (and following): bad anaphorical use of
+   "ones" again. Yet again, even if the grammar were fixed, the
+   writing would be nonsense. The authors should, as an exercise (or
+   as a form of self-flagellation) write out the anaphoric target in
+   every case in this paper. Look at what happens in this sentence:
+
+     "...: the quantificational presuppositions [=`ones']presuppose
+     that the domain..."
+
+   Do presuppositions presuppose? I think not. Moral: if you could not
+   even be bothered to work through the micro-logic of what you write
+   yourself, why should anyone else have to?
+
+e) Same paragraph: "always must" ===> "must always"
+
+f) Next paragraph "This has always been..." This what? It's unclear to
+   me.
+
+g) p 4 "and 0 else" ===> " and 0 otherwise"
+
+h) p 4 l -16: "[Noun-phrase] allows [Infinitive verb-phrase]" is 
+    ungrammatical. Allows generally requires a noun-phrase object in English.
+
+i) p 5 l2 "Here the semantics..." This sentence is really funny: not
+   sure what is means.
+
+j) First sentence of 1.3 "go for": inappropriate register
+
+k) Same paragraph: "obsolete" is not really the right word, is it?
+
+l) Next paragraph "in presence of" ==> "in the presence of"
+
+m) Next paragraph "advocate for" ==> "advocate"
+
+n) Next paragraph (last on p 5). I couldn't work out what point you 
+   were trying to make in this paragraph
+
+o) p 6 "In the sequel" is misused.
+
+p) p 7 "adapted, so that" ===> "adapted so that". (This kind of misuse of the
+   comma is very distracting, because it changes the way the sentences
+   is parsed.)
+
+q) p 7 l -12 "From this set of basic material" sounds terribly strange
+   to me.  Also: a "rather standard matter" sounds a bit odd.
+
+r) p 8 l 6 "as it can be found in sorted logics" (not English syntax,
+   I'm afraid.)
+
+s) p 8 -10 "else" ==> "otherwise". Anyway, you can't do this. Otherwise 
+   than what?
+
+t) p 9 l 2 for at least one i
+
+u) same page "definedness knowledge" is nonsense
+
+v) I would write out iff in ordinary text (also in definitions etc.)
+
+w) p 13. Footnote 5 contains a double relative clause! I simply don't
+   believe anyone could think this sentence is okay. Are the   
+   authors deliberately wasting the reader's (and reviewer's) time?
+
+x) p. 15: The sentence beginning "The second quantifier rule" is
+   simply all over the place. You neeed to do much better than this.
+   And how about some proper puntuation in the next paragraph? ("The
+   clause normal form..."
+
+y) p 6 l 2 "as quantification over empty sets are vacuously true":
+   "are" or "is"? And what does "quantification is true" (vacuously
+   or otherwise) mean?
+
+z) p. 20 "the company has a social touch". Sorry: not English.
+
+   Okay, look, I've run out of letters at this point, and out of
+   patience too. I have not run out of the mistakes I found in the
+   English. I hope it's clear the writing is nowhere near good enough.
+   (Actually, I think the worst ones were near the end.) 
+
+5. Technical terms are sometimes used in a peculiar way. 
+
+   -What (2nd paragraph of 1.3) is an "undefined object"?  An undefined
+    term or constant or expression makes sense. But an undefined
+    object?
+
+  - Conversely, what is meant (last paragraph on page 4) by
+    "(existence of constants)"? Constants exist
+    unproblematically---their denotations are another matter.
+ 
+  -Defintition 19 doesn't seem to be a definition---at least syntactically.
+
+  - p. 4 "On any reasonable axiomatization "The king of France is
+    wise" would be insecure." What has this got to do with
+    *axiomatizations*. Axiomatization of what?  
+
+6. On a more light-hearted note, I wondered about the problem of
+   cultural specificity. Sherlock Holmes is not so bad (and makes
+   sense in the present context). But is the reference to Jane Austen
+   necessary, and what does it add? It's not as if Emma Woodhouse was
+   a detective. I do not think that anyone outside German-speaking
+   countries has heard of Jerry Cotton: Winnetou examples would be
+   only marginally sillier. Flush it.
+
+
+
+
+
+Decision:
+
+   Major revisions: but encourage re-submission following a complete
+   re-write.
+
+
+--------------080608020608060304060704
+Reviewer 2:
+ name="Referee-report-jancl-09-for-authors.doc" inserted as txt.
+--------------080608020608060304060704--
+
+Title:   Reasoning without believing: 
+         On the Mechanization of Presuppositions and Partiality
+
+Authors: Manfred Kerber and Michael Kohlhase
+
+
+Referee report
+==============
+
+Overview
+--------
+The paper addresses the problem of reasoning in the presence of partial 
+information. The main contributions of the paper are: 
+(1) Defining a so-called ``Presupposition logic'' PL with a 5-valued semantics.
+(2) Giving a resolution calculus for PL; proving that it is sound and complete.
+
+Evaluation
+----------
+The paper is in the scope of the journal. It is clearly written, and the 
+results appear to be sound. However, I have some doubts about their 
+significance: The paper has only four theorems, mainly referring to the 
+soundness and completeness of a resolution calculus for handling partial 
+information. The results on resolution for the 5-valued logic and for 
+reasoning about partiality do not seem to be very surprising (especially 
+in the light of work on deduction in finitely-valued logic from 1990-2000, 
+which showed that signed clauses over any finitely valued logic can be 
+naturally expressed in classical first order logic, and that most signed 
+resolution calculi for finitely valued logics can be obtained in a natural 
+way from specializations of superposition). 
+
+Moreover, nearly no comparisons are made with other approaches for modeling 
+and reasoning about partiality. Therefore, the advantage of the approach the 
+authors propose as compared to other approaches is not clear. Also missing 
+(except for the examples in the last section) is a convincing motivation of 
+the usefulness of the method for handling partiality in practical applications.
+
+Given these problems with the paper, I cannot recommend its acceptance 
+(at least not in the present form). 
+
+
+Detailed comments
+-----------------
+page 5, Section 1.3. 
+   There are many approaches to handling undefined functions. 
+   A survey on various semantics for partial functions (including various 
+   ways of defining truth w.r.t.\ partial algebras) is given in [Bur86].
+
+   [Bur86] Peter Burmeister, 
+           A Model Theoretic Oriented Approach to Partial Algebras 
+           (Akademie-Verlag, Berlin, 1986)
+           http://www.mathematik.tu-darmstadt.de/~burmeister/
+
+   cf. also the list of references to papers in which methods for 
+   formalizing undefinedness and reasoning in and about partial functions. 
+   available online on Cliff Jones' website: 
+
+   http://homepages.cs.ncl.ac.uk/cliff.jones/ftp-stuff/lpf-refns.pdf
+
+   The authors mention a previous paper in which they used a 3-valued Kleene 
+   like logic for modeling undefinedness. A many-valued logic is used also in 
+   [GSW06] for giving a semantics for ``Evans'' type validity in partial 
+   models. Are there relationships with these methods?
+
+   [GSW06] Harald Ganzinger, Viorica Sofronie-Stokkermans, and Uwe Waldmann, 
+          "Modular Proof Systems for Partial Functions with Evans Equality" 
+           Information and Computation 204 (10): 1453-1492, 2006.
+
+page 7, Section 2, Definition 2.
+   In this definition (the way it is given) syntactic and semantical 
+   explanations are mixed. I suggest to end the definition after the point 
+   at which formulae are defined, and include the semantical considerations 
+   on the intended meaning of restricted quantification in a remark that 
+   follows after the definition. 
+
+Page 13, Section 3.  
+   At the beginning of this section, the authors mention existing resolution 
+   calculi for: 
+      - partial functions (Kerber et al, 1994)
+      - Bergmann's logic (Kerber et al, 1996a)
+      - sorted logic  
+   It may be good to also mention other approaches to resolution for 
+   partial functions (e.g.\ those presented in [GSW06] (see above))
+   and explain the similarities and differences.
+
+pages 14-16, Definition 15:
+   A method for translating formulae to a clause normal form, where the 
+   clauses consist of labelled atoms (atoms labelled with truth valued) 
+   is presented. It is mentioned that this transformation to clause normal 
+   form is not complete in general (problems may appear in the presence of 
+   degenerate quantifications with possibly empty restrictions). 
+   In order to avoid this, the authors assume that degenerate quantifications 
+   are forbidden, i.e. that in all formulae the bound variables of 
+   quantification occur in the scope. It would be useful if the authors 
+   would point out how difficult it is to check, for a given formula, 
+   whether this condition holds.
+
+page 16, Theorem 18: 
+   Please add the condition on $\Psi$ mentioned before 
+   in the premise of the theorem.
+
+page 17, Theorem 23.
+   The soundness and completeness of the resolution calculus you define 
+   appears natural, given the link between translations to signed 
+   clause form and the translations to classical logic [BH99, GS00]. 
+
+   In [GS00] for instance it is shown that the signed CNF translation 
+   is a translation to classical logic and that superposition specializes 
+   to a refined version of the many-valued resolution rules introduced 
+   by Baaz and Fermueller, and that ordered chaining can be specialized 
+   to a refutationally complete inference system for regular clauses.
+
+   The use of this argument in the present paper might allow a better 
+   explanation of the restriction constraints, and would allow to 
+   directly apply a classical supperposition principle with sorts 
+   as given e.g. in [Wei93,96] for this type of clauses. 
+
+
+   [BHF99] Bernhard Beckert, Reiner Hähnle, Felip Manya
+           Transformations between Signed and Classical Clause Logic
+           Proc. 29th ISMVL (International Symposium on Multiple-valued 
+           Logic), pages 248-255,  IEEE Computer Society Press, 1999.
+   
+   [GS00] Harald Ganzinger and Viorica Sofronie-Stokkermans 
+         ``Chaining techniques for automated theorem proving in 
+          finitely-valued logics'',
+          Proc. 30th ISMVL, pages 337-344, IEEE Computer Society Press, 2000.
+        
+   [Wei93] Christoph Weidenbach
+           Extending the Resolution Method with Sorts. 
+           Proc. IJCAI 1993: pages 60-65.
+
+   [Wei96] Christoph Weidenbach
+           Unification in Sort Theories and its Applications
+           Annals of Mathematics and Artificial Intelligence 18 (2/4): 
+           261-293, 1996
+
+pages 23- 24: References.
+   Most of the references (with the exception of two system descriptions) 
+   are more than 10 years old; the authors do not refer to any result 
+   in the field which is newer than 10 years.
+
+--------------------------------------------------------------------------------

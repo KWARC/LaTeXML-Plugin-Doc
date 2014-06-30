@@ -1,0 +1,2853 @@
+% \fullfalse generates the paper for the journal, without tables, but with
+% cross-references to the full paper
+% \fulltrue generates the full paper
+% Note the bibliography file uses this, to decide whether to generate an entry
+% for the full paper (\fullfalse). This is the last entry, to prevent the
+% numbers changing between versions
+\newif\iffull\fulltrue
+%\newif\iffull\fullfalse
+\iffull
+\else 
+\fi
+\def\myfig#1{(Figure \ref{#1}\iffull\else{} of \cite{Full}\fi)}
+\def\mylst#1{(Listing \ref{#1}\iffull\else{} of \cite{Full}\fi)}
+\def\I{{\cal I}}
+\def\N{{\bf N}}
+\def\Z{{\bf Z}}
+\def\Q{{\bf Q}}
+\def\C{{\bf C}}
+\def\R{{\bf R}}
+\def\CL{\mathop{\rm CL}}
+\def\IDA{{}_{\rm DA}\int}
+\def\DDA{D_{\rm DA}}
+\def\cDA{constant${}_{\rm DA}$}
+\def\fracDDA#1#2{\frac{{\rm d}#1}{{\rm d}_{\rm DA}#2}}
+\def\Ied{{}_{\epsilon\delta}\int}
+\def\Ded{D_{\epsilon\delta}}
+\def\fracDed#1#2{\frac{{\rm d}#1}{{\rm d}_{\epsilon\delta}#2}}
+%\documentclass{article}   % Without notes
+\documentclass{llncs}
+\usepackage{verbatim}
+\usepackage[show]{ed}
+\usepackage{url}
+\usepackage{lstom}
+\usepackage[eso-foot,today]{svninfo}
+%\usepackage[final]{svninfo}
+\svnInfo $Id: MKM2009-abstract.tex 494 2009-03-08 05:49:10Z kohlhase $
+\svnKeyword $HeadURL: https://svn.kwarc.info/repos/kohlhase/tex/papers/mkm/mmlstrict/MKM2009-abstract.tex $
+\bibliographystyle{alpha}
+
+\newtheorem{Rule}{Rule}
+
+% MK had "Meta" here: JHD thinks we're really talking about the math itself
+\title{Unifying Math Ontologies: A tale of two standards}
+\author{James H.~Davenport\inst{1} \and Michael Kohlhase\inst{2}}
+\institute{Department of Computer Science\\
+  University of Bath, Bath BA2 7AY, United Kingdom\\
+  {\tt J.H.Davenport@bath.ac.uk}
+  \and
+  School of Engineering \& Science, Jacobs University Bremen\\
+  Campus Ring 12,
+  D-28759 Bremen, Germany\\
+  {\tt m.kohlhase@jacobs-university.de}} 
+
+\begin{document}
+\maketitle
+\begin{abstract}\noindent
+  One of the fundamental and seemingly simple aims of mathematical knowledge management
+  (MKM) is to develop and standardize formats that allow to ``represent the meaning of the
+  objects of mathematics''. The open formats OpenMath and MathML address this from a
+  content markup perspective, but subtly differ in syntax, rigor, and structural
+  viewpoints (notably over calculus). To avoid fragmentation and smooth out interoperability obstacles effort is
+  under way to align them into a joint format OpenMath/MathML3. We illustrate the
+  conceptual and practical issues that come up in such an alignment by looking at three
+  main areas: conditions, calculus (which also relates to the previous) and ``lifted'' $n$-ary
+  operators.
+\end{abstract}
+\end{document}
+\begin{quotation}\noindent\em
+  Whenever anyone says ``you know what I mean'', you can be pretty sure that {\emph{he}}
+  does not know what he means, for if he did, he would tell you.  \hfill{\rm{--- Anon.}}
+\end{quotation}
+
+\section{Introduction}
+
+One of the fundamental and seemingly simple aims of mathematical knowledge management
+(MKM) is to develop and standardize formats that allow to ``represent the meaning of the
+objects of mathematics''.
+
+ The open formats OpenMath and MathML address this from a content
+markup perspective, but subtly differ in syntax, rigor, and structural
+viewpoints (notably over calculus). To
+avoid fragmentation and smooth out interoperability obstacles effort is under way to align
+them into a joint format OpenMath/MathML3. We illustrate the conceptual and practical
+issues that come up in such an alignment by looking at three main areas: conditions,
+calculus (which relates to the previous) and ``lifted'' $n$-ary operators.
+
+\begin{newpart}{we have to say something about the history probably, but maybe not here}
+  The specification of version 1.01 of the MathML format was released in July 1999 and version
+  2.0 appeared in February 2001. In October 2003, the second edition of MathML Version 2.0
+  was published as the final release by the W3C math working group. In June 2006 the W3C
+  has rechartered the MathML Working Group to produce a MathML 3 Recommendation until
+  February 2008 and in November 2008 extended the charter to April 2010.
+
+  OpenMath has been developed in a long series of workshops and (mostly European) research
+  projects that began in 1993 and continues through today. The OpenMath 1.0 Standard was
+  released in February 2000, and revised as OpenMath 1.1 in October 2002. Two years later,
+  the OpenMath 2.0 Standard was released in June 2004. OpenMath 1 fixed the basic language
+  architecture, while OpenMath2 brought better XML integration, structure sharing and
+  liberalized the notion of OpenMath Content dictionaries.
+\end{newpart}
+
+MathML's Content markup has ambitious goals.
+\begin{quotation}\noindent\em
+  The intent of the content markup in the Mathematical Markup Language is to provide an
+  explicit encoding of the {\it underlying mathematical structure\/} of an expression,
+  rather than any particular rendering for the expression.  \hfill{\hbox{\rm\cite[section
+      4.1.1]{WorldWideWebConsortium2003b}}}
+\end{quotation}
+On the face of it, OpenMath has very similar goals.
+\begin{quotation}\noindent\em
+  {\emph{OpenMath}} allows the {\emph{meaning}} of an object to be encoded rather than
+  just a visual representation. It is designed to allow the free exchange of mathematical
+  objects between software systems and human beings. On the worldwide web it is designed
+  to allow mathematical expressions embedded in web pages to be manipulated and computed
+  with in a meaningful and correct way. It is designed to be machine-generatable and
+  machine-readable, rather than written by
+  hand.\hfill\hbox{\rm\cite[Abstract]{OpenMath2004a}}
+\end{quotation}
+Given the apparent similarity, it is not surprising that attempts are being
+made to merge them in MathML 3.0.
+\begin{quotation}\noindent\em
+  The text of this chapter is generated by filtered extraction from XML Content
+  Dictionaries written in accordance with OpenMath. The details of the Content Dictionary
+  format have been further specified and the generation procedure improved. It is expected
+  that the Content Dictionaries will become a separate joint publication of the W3C and
+  OpenMath referenced by the MathML3 specification.
+  \hfill\hbox{\rm\cite[Status]{WorldWideWebConsortium2008a}}
+\end{quotation}
+Nevertheless, this task proves to be harder than might initially be expected.
+In this paper, we explain why, motivated by a study of three areas (which in
+fact turn out to be inter-related): 
+\begin{enumerate}
+\item the \verb+<condition>+ element of MathML;
+\item the different handling of calculus-related operations in the two;
+\item the ``lifting'' of $n$-ary operators, such as $+$ to $\sum$.
+\end{enumerate}
+\section{MathML}
+MathML, starting from version 1.0, had a split into ``presentation'', describing what
+mathematics ``looked like''\footnote{Which could include ``sounded like'' (for aural
+  rendering) or ``felt like'' (e.g. for Braille), and MathML included a range of symbols
+  such as {\texttt{\&InvisibleTimes;}} to help with this task.}, and ``content'',
+describing what it ``meant''. MathML version 1 had a fairly limited vision of what might
+be in ``content''.
+\begin{quotation}\noindent\em
+  % It would be an enormous job to systematically codify most of mathematics --- a task
+  % which can never be complete. Instead, MathML makes explicit a relatively small number
+  % of commonplace mathematical constructs, chosen carefully to be sufficient in a large
+  % number of applications. In addition, it provides a mechanism for associating semantics
+  % with new notational constructs. In this way, mathematical concepts that are not in the
+  % base collection of tags can still be encoded (see section 4.2.6).
+  The base set of content elements are chosen to be adequate for simple coding of most of
+  the formulas used from kindergarten to the end of high school in the United States, and
+  probably beyond through the first two years of college, that is up to A-Level or
+  Baccalaureate level in
+  Europe.\hfill{\hbox{\rm\cite[4.1.2]{WorldWideWebConsortium1999}\footnote{Repeated in
+        \cite[4.1.2]{WorldWideWebConsortium2003b}, save that ``are'' becomes ``is''.}}}
+\end{quotation}
+\section{Conditions in MathML}
+Having said the above, generally known as the ``K--12'' definition, MathML found that it
+needed more sophisticated concepts, such as bound variables, to express the concepts that
+are manipulated {\it informally\/} at that level.  Having introduced \verb+bvar+ with
+\verb+lambda+ and \verb+int+ elements, \cite[4.2.1.8]{WorldWideWebConsortium1999} goes on
+to say the following.
+\begin{quotation}\noindent\em 
+  The \verb+bvar+ qualifier element is also used in another important MathML
+  construction. The \verb+condition+ element is used to place conditions on bound
+  variables in other expressions. This allows MathML to define sets by rule, rather than
+  enumeration, for example. The following markup, for instance, encodes the set $\{x | x <
+  1\}$:
+\end{quotation}
+\begin{lstlisting}[language=MathML2]
+    <set>
+      <bvar><ci> x </ci></bvar>
+      <condition>
+        <reln><lt/>
+          <ci> x </ci>
+          <cn> 1 </cn>
+        </reln>
+      </condition>
+    </set>
+\end{lstlisting}
+\par\noindent
+Here (with the benefit of a great deal of hindsight, it should be pointed out) we can see
+the start of the problem. What would we have meant if we had changed the
+second\footnote{Changing both of them would have essentially been an $\alpha$-conversion
+  \cite[Definition 2.1.11]{Barendregt1984}, though MathML does not analyse the concept.}
+\verb+x+ to \verb+y+? We would, of course, have written the MathML equivalent of $\{x | y
+< 1\}$, and the MathML would be as meaningless as that set of symbols.
+%In other words, the variable in \verb+bvar+ is meant to bind the variable in the condition as well as the variables in the rest of the construction.
+We therefore deduce the following (undocumented) rule.
+\begin{Rule}[MathML 1]
+  Variables in \verb+bvar+ constructions bind the corresponding variable occurrences in
+  the scope of the parent of the \verb+bvar+.
+\end{Rule}
+\par
+\cite[4.2.5]{WorldWideWebConsortium1999} tries to be more detailed about the meaning of
+\verb+condition+.
+\begin{quotation}\noindent\em
+  The \verb+condition+ element is used to define the ``such that'' construct in
+  mathematical expressions. Condition elements are used in a number of contexts in
+  MathML. They are used to construct objects like sets and lists by rule instead of by
+  enumeration. They can be used with the \verb+forall+ and \verb+exists+ operators to form
+  logical expressions. And finally, they can be used in various ways in conjunction with
+  certain operators. For example, they can be used with and \verb+int+ element to specify
+  domains of integration, or to specify argument lists for operators like \verb+min+ and
+  \verb+max+.
+
+  The \verb+condition+ element is almost always used together with one or more \verb+bva+r
+  elements. The only exception is a special usage with the \verb+min+ and \verb+max+
+  operators, where the bound variable may be implied. See section 4.4.3.5 for an example
+  of this usage.
+
+  The exact interpretation depends on the context, but generally speaking, the
+  \verb+condition+ element is used to restrict the permissible values of a bound variable
+  appearing in another expression to those which satisfy the relations contained in the
+  \verb+condition+. Similarly, when the \verb+condition+ element contains a \verb+set+,
+  the values of the bound variables are restricted to that set.
+  % \par
+  % A condition element contains a single child which is typically a reln element, but may
+  % also be an apply or a set element. The apply element is allowed so that several
+  % relations can be combined by applying logical operators.
+\end{quotation}
+\par\noindent
+Various examples are given:
+``there exists $x$ such that $x^5 < 3$'' \mylst{ex:exists};
+``for all $x$,$y$ such that $x^y < 1$ and $y^x < x + y$, $x < Q(y)$''
+\mylst{ex:forall};
+and %third example shows the use of quantifiers with condition. The following
+%JHD: I don't see why this one is about quantifiers when the first already is
+%markup encodes
+``there exists $x < 3$ such that $x^2 = 4$'' \mylst{ex:exists2}.
+
+The clause referred to \cite[4.4.3.5]{WorldWideWebConsortium1999} states the
+following.
+\begin{quotation}\noindent
+  The elements to be compared may also be described using bound variables with a condition
+  element and an expression to be maximised, as in: $\min_{x\notin B} x^2$
+  \mylst{ex:connotin}. Note that the bound variable may be implicit:
+  (Listing~\ref{lst:max}).
+\end{quotation}
+
+\begin{lstlisting}[language=MathML2,label=lst:max,
+  caption=The ``implicit'' {\texttt{bvar}} of {\texttt{max}}]
+    <apply><max/>
+      <condition>
+        <apply><and/>
+          <reln><in/><ci>x</ci><ci type="set">B</ci></reln>
+          <reln><notin/><ci>x</ci><ci type="set">C</ci></reln>
+        </apply>
+      </condition>
+    </apply>
+\end{lstlisting}
+\subsection{A special case}\ednote{JHD to MK: we might minimise this, as it
+was clearly a bug, and is now deprecated.}
+This usage is described in \cite[4.2.3.4, {\texttt{min,max}}]{WorldWideWebConsortium1999}
+as follows.
+\begin{quotation}\noindent\em
+  The \verb+min+ and \verb+max+ functions are unique in that they provide the only context
+  in which the \verb+bvar+ element is optional when using a \verb+condition+; if a
+  \verb+condition+ element containing a single variable is given by itself following a
+  \verb+min+ or \verb+max+ operator, the variable is implicitly assumed to be bound, and
+  the expression to be maximized or minimized is assumed to be the identity.
+\end{quotation}
+The example in Listing~\ref{lst:max} does not actually fit this prescription, since it
+contains three variables, \verb+B+, \verb+C+, and \verb+x+. Of course, \verb+x+ is the
+only ``genuine'' variable, but formal languages should not do this, even though
+mathematicians often do. It could be argued that, since \verb+x+ has no \verb+type+
+qualifier, it is scalar, and therefore the only one suitable for a \verb+max+ operator,
+but this argument falls foul of the fact that \cite[4.4.1.2]{WorldWideWebConsortium1999}
+the default type is {\it complex\/} scalar, and thus again not suitable for a \verb+max+
+operator.
+\begin{quotation}\noindent\em
+  To motivate the $\lambda$-notation, consider the everyday mathematical epxression
+  `$x-y$'. This can be thought of as defining either a function $f$ of $x$ or $g$ of $y$
+  \dots{} And there is need for a notation that gives $f$ and $g$ different names in some
+  systematic way. In practice mathematicians usually avoid this need by various `ad hoc'
+  special notations, but these can get very clumsy when higher-order functions are
+  involved.\hfill\hbox{\rm\cite[p. 1]{HindleySeldin2008}}
+\end{quotation}
+It could be argued that the ``K--12'' brief of MathML--1 rules out higher-order functions,
+but we can see here the need, in a purely first-order case, to resort to ``well, you know
+what I mean''. This usage is deprecated in MathML 2 \cite[4.2.3.3 and
+4.4.3.4.2]{WorldWideWebConsortium2003b}, stating ``{\emph{Note that the bound variable
+    must be stated even if it might be implicit in conventional notation}}'' --- the
+conventional notation given is
+\begin{equation}
+\max\{x\in B \land x\notin C\},
+\end{equation}
+which some, including the first author\ednote{So JHD is committed. What about MK?}, would argue is poor notation in the
+first place.
+\subsection{Condition in MathML 2}
+While not changing the description of \verb+condition+, MathML 2 introduced
+23 examples of its usage, described in Table \ref{table4}, and a further 31
+in Appendix C, described in Table \ref{Ctable}. These can be
+roughly categorised as follows (where $a+b$ means ``$a$ in Chaper 4 and $b$ in
+Appendix C'').
+\begin{description}
+\item[5+14]are used to encode $\exists n\in \N$ or $\forall n\in \N$ (or
+equivalents). Strictly speaking, these usages are not necessary, because of
+the equivalences below.
+\begin{eqnarray}
+\exists v\in S\quad p(v)&\Leftrightarrow \exists v\quad (v\in S)\land p(v)\\
+\forall v\in S\quad p(v)&\Leftrightarrow \forall v\quad (v\in S)\Rightarrow p(v)
+\end{eqnarray}
+However, in practice, it would be better to have a convenient shorthand for
+these, hence the proposal in \cite{DavenportKohlhase2009c} for OpenMath
+symbols \verb+existsrestricted+ and \verb+forallrestricted+.
+\item[6+4]can be replaced by the OpenMath \verb+suchthat+ construct: the
+difference being that OpenMath requires a larger set to be specified (to avoid
+Russell's paradox) so that MathML's $\{x|x<1\}$ has to be encoded as
+$\{x\in\R|x<1\}$. See section \ref{4218}\iffull\else{} of \cite{Full}\fi.
+\item[2+2]are solved by the use of \verb+map+ in OpenMath.
+\end{description}
+\section{Calculus Issues}
+MathML and OpenMath have rather different views of calculus, which goes back
+to a fundamental confusion in mathematics. These can, simplistically, be
+regarded as:
+\begin{itemize}
+\item what one learned in calculus, which {\it we\/} will write as $\Ded$: the
+``differentiation of $\epsilon$--$\delta$ analysis''. Also $\fracDed{}{x}$,
+and its inverse $\Ied$;
+\item what is taught in differential algebra, which {\it we\/} will write as
+$\DDA$: the ``differentiation of differential algebra''. Also $\fracDDA{}{x}$,
+and its inverse $\IDA$.
+\end{itemize}
+{\it Roughly speaking\/}, the MathML encoding corresponds more closely to
+$\Ded$ and the OpenMath one to $\DDA$. If we were to look at the derivative of
+$x^2$ as in Listing \ref{lst:deriv}, we might be tempted to see only trivial
+syntactic differences.
+\begin{lstlisting}[label=lst:deriv,caption= MathML and OpenMath differentiation compared]
+<apply>                     <OMA>
+  <diff/>                     <OMS cd="calculus1" "name="diff"/>
+                              <OMBIND>
+                                <OMS cd="fns1" name="lambda"/>
+  <bvar><ci>x</ci></bvar>       <OMBVAR><OMV name="x"/></OMBVAR>
+  <apply>                       <OMA>
+    <power/>                      <OMS cd="arith1" name="power"/>
+    <ci>x</ci>                    <OMV name="x"/>
+    <cn>2</cn>                    <OMI>2</OMI>
+  </apply>                      </OMA>
+                              </OMBIND>
+</apply>                    </OMA>
+\end{lstlisting}
+The difference, though, is that OpenMath can encode $\sin'=\cos$, as
+\begin{lstlisting}
+<OMA>
+  <OMS cd="relation1" "name="eq"/>
+  <OMA>
+    <OMS cd="calculus1" "name="diff"/>
+    <OMS cd="transc1" name="sin"/>
+  </OMA>
+  <OMS cd="transc1" name="cos"/>
+</OMA>
+\end{lstlisting}
+whereas it is generally thought that MathML (1 and 2) can only directly encode
+$(\sin x)'=\cos x$. However
+\cite[4.4.5.2]{WorldWideWebConsortium2003b}\footnote{This text is new since
+\cite{WorldWideWebConsortium1999}.} states
+\begin{quotation}\noindent
+[\verb+diff+] \em may be applied directly to an actual function such as sine or
+cosine, thereby denoting a function which is the derivative of the original
+function, or it can be applied to an expression involving a single variable
+such as $\sin(x)$, or $\cos(x)$. or a polynomial in $x$.
+\end{quotation}
+Given the history\ednote{Do we want to put this here?} of the two standards,
+this difference of encoding is not surprising, since $\DDA$
+is what computer algebra systems do (and what humans do, most of the time,
+even while interpreting the symbols as $\Ded$), whereas human beings generally
+think they are doing $\Ded$.
+\par
+Partial differentiation sees the two drift further apart. For
+$\frac{d^{m+n}}{dx^m dy^n}f(x,y)$, MathML would use
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <partialdiff/>
+    <bvar><ci>x</ci><degree><ci>m</ci></degree></bvar>
+    <bvar><ci>y</ci><degree><ci>n</ci></degree></bvar>
+    <degree><apply><plus/><ci>m</ci><ci>n</ci></apply></degree>
+    <apply><ci type="function">f</ci><ci>x</ci><ci>y</ci></apply>
+</apply>
+\end{lstlisting}
+whereas OpenMath uses 
+\begin{lstlisting}[language=OpenMath]
+<OMA>
+  <OMS cd="calculus1" name="partialdiff"/>
+  <OMA><OMS cd="list1" name="list"><OMV name="m"/><OMV name="m"/></OMA>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR><OMV name="x"/><OMV name="y"/></OMBVAR>
+    <OMA><OMV name="f"><OMV name="x"/><OMV name="y"/></OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+(For the problems caused by wishing to represent $\frac{d^k}{dx^m
+dy^n}f(x,y)$, see \cite{Kohlhase2008}, and the proposed solution in
+\cite{DavenportKohlhase2009d}.)
+\par
+Integration is more problematic. MathML interprets integration as an operator on
+expressions in one bound variable and presents as paradigmatic examples the 
+three expressions in Table \ref{tab:MMLint}, which differ in which ways the
+bound variables are handled.
+\begin{table}
+\caption{Various MathML2 integrals}\label{tab:MMLint}
+\begin{center}\lstset{frame=none,numbers=none,lineskip=-.7ex,aboveskip=-.5em,belowskip=-1em,language=MathML2}
+% JHD first was 5.9, others 4.4
+\begin{tabular}{|p{5.6cm}|p{4.3cm}|p{4.3cm}|}\hline
+  a: $\int_0^af(x) dx$ & b: $\int_{x\in D}f(x) dx$ & c: $\int_Df(x)dx$\\\hline
+\begin{lstlisting}
+<apply>
+  <int/>
+  <bvar><ci>x</ci></bvar>
+  <lowlimit><cn>0</cn></lowlimit>
+  <uplimit><ci>a</ci></uplimit>
+  <apply><ci>f</ci>
+    <ci>x</ci>
+  </apply>
+</apply>
+\end{lstlisting}
+&
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><in/>
+      <ci>x</ci>
+      <ci>D</ci>
+    </apply>
+  </condition>
+  <apply><ci>f</ci>
+    <ci>x</ci>
+  </apply>
+</apply>
+\end{lstlisting}
+&
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci>x</ci></bvar>
+  <domainofapplication>
+    <ci>D</ci>
+  </domainofapplication>
+  <apply><ci>f</ci>
+    <ci>x</ci>
+  </apply>
+</apply>
+\end{lstlisting}
+\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+OpenMath can model usages (a) and (c) easily enough, via its \verb+defint+
+operator: in fact usage (a) is modeled on the lines of (c), as
+$\int_{[0,a]}f(x) dx$, which means that we need to give an
+eccentric\footnote{Along the lines of ``the set $[b,a]$ is the same as $[a,b]$
+except that, where it appears as a range of integration, we should negate the
+value of the integral''! \cite{Kohlhase2008}. It is possible to regard
+`backwards integration' as an ``idiom'' in the sense of
+\cite{LuoCallaghan1999} and (\ref{eq:backint}) as the explanation of that
+idiom, but this seems circular.} meaning to `backwards'
+intervals in order to encode the traditional mathematical statement
+\begin{equation}\label{eq:backint}
+\int_a^bf(x) dx=-\int_b^af(x) dx.
+\end{equation}
+A more logical view is to regard the two notations as different, and define
+$\Ied_{[a,b]}$ (via limits of Riemann sums, or whatever other definition is
+appropriate), and then
+\begin{equation}\label{eq:backinted}
+\Ied_a^bf=%\begin{cases}
+\left\{
+\begin{array}{lr}
+\Ied_{[a,b]}f & a\le b\\
+-\Ied_{[b,a]}f & a>b\\
+\end{array}\right.,
+%\end{cases} 
+\end{equation}
+whereas 
+\begin{equation}\label{eq:backintda} 
+\IDA_a^bf = \left(\IDA f\right)(b)-\left(\IDA f\right)(a)
+\end{equation}
+by definition.
+\par
+Usage (b) might not worry us too much at first, since it is apparently only a
+variant of (c). The challenge comes when we move to multidimensional
+integration (in the $\Ied$ sense). 
+\cite[p. 189]{BorweinErdelyi1995}
+has a real integral over a curve in the complex plane, 
+\begin{equation}\label{eq:bounds2} 
+\frac1{2\pi}\int_{|t|=R}\left|\frac{f(t)}{t^{n+1}}\right| |dt|
+\end{equation}
+whereas 
+\cite[p. 413, exercise 4, slightly reformulated]{Apostol1967}
+has an integral where we clearly want to connect the variables in the
+integrand to the variables defining the set:
+\begin{equation}\label{eq:bounds1} 
+\mathop{\int\int\int}_{\{\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}\le1\}}
+\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}\right)dxdydz
+\end{equation}
+[the original formulation was ``$\displaystyle\mathop{\int\int\int}_S\ldots$ where
+$S=\cdots$'', which brings in the (important) issue of connecting bindings
+betwen different formula, which is one that neither OpenMath nor MathML have
+attempted to solve].\ednote{JHD to MK: do you want an OMDoc reference here?}
+\section{Lifting Associative Operators}
+\section{Conclusion}
+We have listed three areas where MathML (1--2) and OpenMath have taken
+different routes to the expressivity of mathematical meaning. In the case of
+the calculus operations, this reflected a genuine split in the approaches to
+the calculus operations, whether one viewed them as algebraic or analytic
+operations. Since neither is `wrong', but the two {\it are\/} different (for
+example the ``Fundamental Theorem of Calculus'' is a theorem from the anaytic
+point of view, but a definition in the algebraic view), a converged view at
+MathML/OpenMath 3 should incorporate both.
+\iffull
+\begin{lstlisting}[label=ex:exists,language=MathML2,
+  caption={MathML-1 for ``there exists $x$ such that $x^5 < 3$''}]
+    <apply><exists/>
+      <bvar><ci> x </ci></bvar>
+      <condition>
+        <reln><lt/>
+          <apply><power/>
+            <ci>x</ci>
+            <cn>5</cn>
+          </apply>
+          <cn>3</cn>
+        </reln>
+      </condition>
+    </apply>
+\end{lstlisting}
+
+\begin{lstlisting}[label=ex:forall,language=MathML2, 
+  caption={MathML-1 for ``for all $x$,$y$ such that $x^y < 1$ and $y^x < x + y$,$x < Q(y)$''}]
+    <apply><forall/>
+      <bvar><ci>x</ci></bvar>
+      <bvar><ci>y</ci></bvar>
+      <condition>
+        <apply><and/>
+          <reln>
+            <lt/>
+            <apply><power/>
+              <ci>x</ci>
+              <ci>y</ci>
+            </apply>
+            <cn>1</cn>
+          </reln>
+          <reln>
+            <lt/>
+            <apply><power/>
+              <ci>y</ci>
+              <ci>x</ci>
+            </apply>
+            <apply><plus/>
+              <ci>y</ci>
+              <ci>x</ci>
+            </apply>
+          </reln>
+        </apply>
+      </condition>
+      <reln><lt/>
+         <ci> x </ci>
+         <apply>
+           <fn><ci> x </ci></fn>
+           <ci> y </ci>
+         </apply>
+      </reln>
+    </apply>
+\end{lstlisting}
+
+\begin{lstlisting}[label=ex:exists2,language=MathML2,
+  caption={MathML-1 for ``there exists $x < 3$ such that $x^2=4$''}]
+    <apply>
+      <exists/>
+      <bvar><ci> x </ci></bvar>
+      <condition>
+        <reln><lt/><ci>x</ci><cn>3</cn></reln>
+      </condition>
+      <reln>
+        <eq/>
+        <apply>
+          <power/><ci>x</ci><cn>2</cn>
+        </apply>
+        <cn>4</cn>
+      </reln>
+    </apply>
+\end{lstlisting}
+\fi
+\iffull
+
+\begin{lstlisting}[label=ex:connotin,language=MathML2,
+  caption={MathML-1 for ``there exists $x$ such that $x^5 < 3$''}]
+    <apply><min/>
+      <bvar><ci>x</ci></bvar>
+      <condition>
+        <reln><notin/><ci> x </ci><ci type="set"> B </ci></reln>
+      </condition>
+      <apply>
+        <power/>
+        <ci> x </ci>
+        <cn> 2 </cn>
+      </apply>
+    </apply>
+\end{lstlisting}
+\fi
+
+\begin{table}[h]
+\caption{{\tt condition} in Chapter  4\label{table4}}
+\begin{tabular}{llll}
+MathML 2&heading&\iffull This\else\cite{Full}\fi&resolution\\
+Chapter 4&&\iffull document\fi&\\
+4.2.1.8&qualifiers&\ref{42181}&{\tt suchthat}\\
+&&\ref{42182}&{\tt map}\\
+4.2.3.2&operators with&\ref{42321}&A calculus issue\\
+       &qualifiers&\ref{42322}&{\tt suchthat}\\
+       &          &\ref{42323}&no solution\\
+       &          &\ref{42324}&{\tt forallrestricted}${}^1$\\
+4.2.5  &Conditions&\ref{4251}&none needed\\
+       &          &\ref{4252}&{\tt forall/existsrestricted}\\
+       &          &\ref{4253}&{\tt existsrestricted}${}^1$\\
+4.4.2.7.2&Conditions&\ref{442723}&{\tt suchthat}\\
+4.4.3.4&Maximum&\ref{44341}&{\tt map}?${}^2$\\
+&&\ref{44342}&{\tt suchthat}\\
+4.4.3.17&{\tt forall}&\ref{443171}&{\tt forallrestricted}${}^3$\\
+        &            &\ref{443172}&{\tt forallrestricted}${}^3$\\
+4.4.5.1&{\tt int}&\ref{4451}&Needs work\\
+4.4.5.6.1&{\tt bvar}&\ref{44561}&{\tt suchthat}\\
+4.4.5.6.2&{\tt bvar}&\ref{44562}&Needs work\\
+4.4.6.1.2&{\tt set}&\ref{44612}&{\tt suchthat}\\
+4.4.6.2.2&{\tt list}&\ref{44622}&{\tt integer\_interval}\\
+4.4.6.7&Subset&\ref{4467}&loose\\
+4.4.7.1&Sum&\ref{4471}&None needed\\
+4.4.7.2&Product&\ref{4472}&None needed\\
+4.4.7.3&Limit&\ref{4473}&Use {\tt limit1} CD\\
+\end{tabular}
+\begin{center}
+Notes
+\end{center}
+\begin{enumerate}\itemsep=0pt
+\setlength\itemsep{0pt}
+\item or nothing special.
+\item the query is caused by the fact that this fragment is
+close to meaningless.
+\item but {\tt forallrestricted} doesn't do a perfect job.
+\end{enumerate}
+\end{table}
+\begin{table}[h]
+\caption{{\tt condition} in Appendix C\label{Ctable}}
+\begin{tabular}{llll}
+MathML 2&heading&\iffull This\else\cite{Full}\fi&resolution\\
+Appendix C&&\iffull document\fi&\\
+C.2.2.4&{\tt interval}&section \ref{C224}&{\tt suchthat}; ??\\
+C.2.2.5&{\tt inverse}&section \ref{C225}&{\tt forallrestricted}\\
+C.2.2.7&{\tt condition}&section \ref{C2271}&{\tt suchthat}\\
+C.2.2.7&{\tt condition}&section \ref{C2272}&Needs work\\
+C.2.2.14&{\tt image}&section \ref{C2214}&{\tt forallrestricted}${}^1$\\
+C.2.2.15&{\tt domainofapplication}&section \ref{C2215}&none needed\\
+C.2.3.1&{\tt quotient}&section \ref{C231}&{\tt forallrestricted}${}^1$\\
+C.2.3.2&{\tt factorial}&section \ref{C232}&{\tt forallrestricted}${}^1$\\
+C.2.3.3&{\tt divide}&section \ref{C233}&{\tt forallrestricted}${}^1$\\
+C.2.3.4&{\tt max}&section \ref{C234}&{\tt map}\\
+C.2.3.5&{\tt min}&section \ref{C235}&{\tt map}\\
+C.2.3.7&{\tt plus}&section \ref{C237}&{\tt forallrestricted}${}^1$\\
+C.2.3.8&{\tt power}&section \ref{C238}&{\tt forallrestricted}${}^1$\\
+C.2.3.9&{\tt quotient}&section \ref{C239}&As section \ref{C231}\\
+C.2.3.10&{\tt times}&section \ref{C2310}&No formal MathML;\\
+&&&As section \ref{C237}\\
+C.2.3.18&{\tt times}&section \ref{C2318}&Apparently meaningless\\
+C.2.3.23&{\tt real}&section \ref{C2323}&{\tt forallrestricted}${}^1$\\
+C.2.5.1&{\tt int}&section \ref{C251}&As section \ref{C2272}\\
+C.2.5.6&{\tt bvar}&section \ref{C256}&{\tt forallrestricted}${}^1$\\
+C.2.5.8&{\tt divergence}&section \ref{C258}&Use {\tt limit1} CD\\
+C.2.6.1&{\tt set}&section \ref{C261}&{\tt suchthat}\\
+C.2.6.2&{\tt list}&section \ref{C262}&{\tt suchthat/list1}\\
+C.2.6.7&{\tt subset}&section \ref{C267}&Apparently meaningless\\
+C.2.7.1&{\tt sum}&section \ref{C271}&{\tt sum}\\
+C.2.7.2&{\tt product}&section \ref{C272}&{\tt product}\\
+C.2.7.3&{\tt limit}&section \ref{C273}&{\tt limit}\\
+C.2.10.2&{\tt matrix}&section \ref{C2102}&No equivalent\\
+C.2.11.3&{\tt rational}&section \ref{C2113}&{\tt forallrestricted}\\
+C.2.11.6&{\tt primes}&section \ref{C2116}&{\tt forallrestricted}${}^1$\\
+C.2.11.15&{\tt infinity}&section \ref{C211151}&{\tt forallrestricted}${}^1$\\
+C.2.11.15&{\tt infinity}&section \ref{C211152}&Use {\tt limit1} CD\\
+\end{tabular}
+\begin{center}
+${}^1$ or nothing special
+\end{center}
+\end{table}
+
+\bibliography{jhd}
+\vfill
+\pagebreak
+\iffull
+\centerline{--- Old version from here ---}
+%\begin{abstract}\noindent
+%JHD's attempt to look at the uses of \verb+condition+ in the MathML2
+%specification. Chapter 4 and Appendix C are now complete, in the sense that
+%every use of \verb+condition+ in them has been analysed. The conclusion is
+%that almost all of the can be represented in terms of current OpenMath, or
+%(better but not strictly necessary) current OpenMath with two additional
+%symbols: \verb+forallrestricted+ and \verb+existsrestricted+. 
+%\par
+%This version updated following the flashmeeting
+%(\url{http://fm.ea-tel.eu/fm/flashmeeting.php?pwd=356a23-15076}) on 6 November
+%2008.
+%\end{abstract}
+%\section{Introduction}
+%This note follows from the OpenMath tele-conference at 15:00
+%GMT\footnote{16:00 BST, 17:00 CET.} on 10/10\discretionary{/}{/}{/}2008. See
+%Michael Kohlhase (\url{m.kohlhase@jacobs-university.de})'s mail
+%\url{48F05077.7010004@jacobs-university.de}.
+%%Date: Sat, 11 Oct 2008 09:06:31 +0200
+%\par
+%The summary reads as follows.
+%\begin{quotation}\noindent
+%James was tasked to make sense of the integration/differentiation
+%examples from the MathML2 spec and make concrete suggestions for the
+%expression-based calculus CD.
+%\end{quotation}
+%The detailed record shows that it should be a wider look at {\it all\/} uses
+%of condition, and this version is an attempt to look at all occurrences of
+%\verb+condition+ in the MathML2 specification.
+\section{The proposal}
+This proposal comes out of the flashmeeting
+(\url{http://fm.ea-tel.eu/fm/flashmeeting.php?pwd=356a23-15076}) on 6 November
+2008.
+As JHD understands it, the proposal is to remove \verb+condition+ elements
+during the pragmatic$\rightarrow$strict conversion, in the following way.
+Consider the pragmatic MathML in table \ref{pragmatic} (here \verb+X+ stands
+for any number of variables in the \verb+bvar+ construct).
+\begin{table}[h]
+\caption{Pragmatic MathML\label{pragmatic}}
+\begin{lstlisting}[language=MathML2,mathescape]
+<apply>
+  $W$
+  <bvar> $X$ </bvar>
+  <condition>$Y$</condition>
+  $Z$
+<apply>
+\end{lstlisting}
+\end{table}
+Let us first assume that \verb+W+ is a normal MathML symbol, say \verb+vvv+.
+Then the strict equivalent of this becomes\footnote{In the FlashMeeting, JHD
+used {\tt mark2} as the suffix. {\tt withcond} seems more appropriate.} the
+following.
+\begin{table}[h]
+\caption{Strict MathML\label{strict}}
+\begin{lstlisting}
+<apply>
+  $vvvwithcond$
+  <bvar>$X$ </bvar>
+  <apply>
+    <vvvcond/>
+    $Y$
+    $Z$
+  </apply>
+<apply>
+\end{lstlisting}
+\end{table}
+\subsection{A worked example --- {\tt forall}}
+Section \ref{42324} below gives an exampe of pragmatic MathML that would
+become the following.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <forallwithcond/>
+  <bvar><ci> x </ci></bvar>
+  <apply>
+    <forallcond>
+    <apply><lt/>
+      <ci> x </ci><cn> 9 </cn>
+    </apply>
+    <apply><lt/>
+      <ci> x </ci><cn> 10 </cn>
+    </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+It is then {\it always\/} legitimate to replace \verb+forallcond+ by
+\verb+implies+, which could be done by the translator, or via an OpenMath
+Formal Mathematical Property (FMP). We should note, though, that this a
+property of \verb+forall+: \verb+existscond+ should be replaced by
+\verb+and+. Note also that it is not strictly necessary to have separate symbols
+\verb+forallcond+ and \verb+existscond+: there could\footnote{As DPC argued at
+the FlashMeeting.} just be one symbol
+\verb+cond+, but then the replacement rules for simple cases would become much
+more complicated, and could not be a simple replacement rule.
+\subsection{Ongoing work}
+The following cases still need resolving.
+\begin{enumerate}
+\item When the first child of \verb+apply+ is a \verb+csymbol+
+\item When the first child of \verb+apply+ is a \verb+ci+
+\item When the first child of \verb+apply+ is a more complex expression.
+\item Uses such as \verb+set+ (see section \ref{42181}) where there is no
+\verb+apply+.
+\end{enumerate}
+I suggest that cases 1--3 are resolved uniformly, generating the strict MathML
+in table \ref{strict2}.
+\begin{table}[h]
+\caption{Strict MathML for hard cases\label{strict2}}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <apply>
+    <genericwithcond>
+    $W$
+  </apply>
+  <bvar>$X$</bvar>
+  <apply>
+    <genericcond>
+    $Y$
+    $Z$
+  </apply>
+<apply>
+\end{lstlisting}
+\end{table}
+\section{The current state of MathML2}
+From table \ref{table4} (page \pageref{table4}) we see that the first dubious
+case in the body of the standard is described in our section \ref{42321},
+where the alternative in MK's note \cite{Kohlhase2008} seems not to conform to OpenMath
+in practice. This example also appears in sections \ref{4451} and \ref{44562}.
+%\par
+From table \ref{Ctable} (page \pageref{Ctable}) we see that the only dubious
+case in Appendix C is in our section \ref{C2272}, which is essentially the same
+example.
+\par
+Our section \ref{42323} illustrates a problem with multivariate definite
+integrals that OpenMath cannot represent directly, and that MathML requires a
+non-intuitive correspondence of order of variables to express.
+\par
+We note that our section \ref{4252} is an excellent tribute to the power of the
+proposed new symbols \verb+forallrestricted+ and \verb+existsrestricted+. JHD
+has been trying to find the origin of these symbols, but it seems not to be in
+his archive. Memory is that MK suggested \verb+forallrestricted+. The point is
+that the head of an \verb+OMBIND+ need for be a symbol, but can be a compound
+expression, so using 
+\begin{lstlisting}
+<OMA>
+  <OMS name="forallrestricted" cd="quant2"/>
+  <OMV name="S"/>
+</OMA>
+\end{lstlisting}
+as the head is the same as using \verb+<OMS name="forall" cd="quant1"/>+
+except that the variable(s) bound are restricted to range over $S$. Note that
+the bound variables do {\it not\/} explicitly appear in the restriction, so
+this does not fall foul of OpenMath's requirement highlighed on page
+\pageref{OMbound}.
+We should note what \verb+forallrestricted+ does, and does not, encode.
+\begin{description}
+\item[does]$\forall n\in\N$, $\forall m,n\in\N$, $\forall x\in[0,1]$, $\forall
+x\in(0,\infty)$ (but not the equivalent $\forall x>0$).
+\item[does not]$\forall n\in\N,x \in\R$ (this needs two nested
+\verb+forallrestricted+s), $\forall n>2$, $\forall m<n\in\N$.
+\end{description}
+It is a legitimate argument that this \verb+forallrestricted+ symbol is
+privileging the use of $\in$ in what MathML called \verb+condition+s.
+\fi
+\iffull
+\section{Chapter 4}
+This chapter is the substantive specification of MathML (Content).
+\subsection{4.2.1.8 The use of qualifier elements}\label{4218}
+This section introduces the {\tt condition} element, in what might be called a
+``proof by example'' style.
+\subsubsection{4.2.1.8(1) The use of qualifier elements}\label{42181}
+This section contains the following quotation.
+\begin{quotation}\noindent
+A {\tt condition} element can be used to place restrictions directly on the
+bound variable. This allows MathML to define sets by rule, rather than
+enumeration. The following markup, for instance, encodes the set $\{x | x <
+1\}$: 
+\end{quotation}
+\begin{lstlisting}[language=MathML2]
+<set>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply>
+      <lt/>
+      <ci> x </ci>
+      <cn> 1 </cn>
+    </apply>
+  </condition>
+  <ci> x </ci>
+</set>
+\end{lstlisting}
+This can be converted into OpenMath by means of \verb+suchthat+: here is an
+OpenMath example from \verb+set1+ reworked to encode the same mathematics.
+\begin{lstlisting}
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0"
+       cdbase="http://www.openmath.org/cd">
+  <OMA>
+    <OMS cd="set1" name="suchthat"/>
+    <OMS cd="setname1" name="R"/>
+    <OMBIND>
+      <OMS cd="fns1" name="lambda"/>
+      <OMBVAR> <OMV name="x"/> </OMBVAR>
+      <OMA>
+        <OMS cd="relation1" name="lt"/>
+        <OMV name="x"/>
+        <OMI> 1 </OMI>
+      </OMA>
+    </OMBIND>
+  </OMA>
+</OMOBJ>
+\end{lstlisting}
+We note that the OpenMath makes it explicit that it is $(-\infty,1)$ that is
+meant, not, say, $[0,1)$, and equally that it is $\R$, not $\Z$ or some other
+set, that is the base type.
+\subsubsection{4.2.1.8(2) The use of qualifier elements}\label{42182}
+This section contains the following quotation.
+\begin{quotation}\noindent
+Another typical use is the "lifting" of $n$-ary operators to "big operators",
+for instance the $n$-ary {\tt union} operator to the {\tt union} operator over
+sets, as the union of the $U$-complements over a family $F$ of sets in this
+construction.
+\end{quotation} 
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <union/>
+  <bvar><ci>S</ci></bvar>
+  <condition>
+    <apply><in/><ci>S</ci><ci>F</ci></apply>
+  </condition>
+  <apply><setdiff/><ci>U</ci><ci>S</ci></apply>
+</apply>
+\end{lstlisting}
+This falls foul of the ambiguity in MathML's \verb+union+
+constructor\footnote{At the end of section 4.2.3 of the MathML specification,
+we read
+\begin{quotation}\noindent
+If qualifiers are used, they should be followed by a single child element
+representing a function or an expression in the bound variables specified in
+the {\tt bvar} qualifiers.
+Mathematically the operation is then taken to be over the arguments generated
+by this function ranging over the specified domain of application, rather than
+over an explicit list of arguments as is the case when qualifier schemata are
+not used. 
+\end{quotation}
+A purist might objection that the presence of the qualifier is changing the
+fundamental semantics of the $n$-ary operator.}
+highlighted in \cite[especially slide 14]{JHD-JEM}. The best OpenMath
+translation would seem to be on the following lines.
+\begin{lstlisting}
+<OMA>
+  <OMS name="big_union" cd="set3"/>
+  <OMA>
+    <OMS name="map" cd="set1"/>
+    <OMBIND>
+      <OMS cd="fns1" name="lambda"/>
+      <OMBVAR> <OMV name="S"/> </OMBVAR>
+      <OMA>
+        <OMS name="setdiff" cd="set1"/>
+        <OMV name="U"/>
+        <OMV name="S"/>
+      </OMA>
+    </OMBIND>
+    <OMV name="F"/>
+  </OMA>
+</OMA>
+\end{lstlisting}
+\subsection{4.2.2.2 Constructors}\label{4222}
+This contains the sentence
+\begin{quotation}\noindent
+For example, a {\tt bvar} and a {\tt condition} element can be used to define
+lists where membership depends on satisfying certain conditions. 
+\end{quotation}
+No example is given here, but the example in 4.2.1.8 (our section \ref{42181})
+could be regarded as typical.
+\subsection{4.2.3.2 Operators taking Qualifiers}\label{4232}
+This section lists {\tt condition} among the qualifiers, and the operators
+taking qualifiers (not necessarily {\tt condition}) as follows (* indicates
+that section 4.2.3 of the MathML specification states that they do not take
+{\tt condition} as a qualifier).
+\begin{description}
+\item[operators]{\tt int}\footnote{Sections \ref{42321}, \ref{C2272},
+\ref{C2215}, \ref{C251}.}, {\tt sum}\footnote{Sections \ref{4471} and \ref{C271}.}, {\tt
+product}\footnote{Section \ref{C272}.}, {\tt root, diff}*, {\tt partialdiff}*,
+{\tt limit}\footnote{Sections \ref{4473}, \ref{C258}, \ref{C273}, \ref{C211152}.}, {\tt log}*,
+{\tt moment}*, {\tt forall}\footnote{Sections
+\ref{C225}, \ref{C2214}, \ref{C231}, \ref{C232}, \ref{C233}, \ref{C237},
+\ref{C238}, \ref{C2310}, \ref{C2318}, \ref{C2323}. \ref{C256}, \ref{C2113},
+\ref{C2116}, \ref{C211151}.}, {\tt exists}.
+\item[$n$-ary operators]{\tt plus, times, max}\footnote{Sections \ref{442723},
+\ref{C234}.},
+{\tt min}\footnote{Sections \ref{44341}, \ref{C235}.}, {\tt gcd, lcm, mean, sdev,
+variance, median, mode, and, or, xor, union}\footnote{Section \ref{42182}.},
+{\tt intersect, cartesianproduct, compose, eq, leq, lt, geq, gt}.
+\item[user defined operators]{\tt csymbol, ci}.
+\item[missing](or not regarded as operators in MathML) {\tt
+set}\footnote{Sections \ref{42181}, \ref{C261}.}, {\tt
+list}\footnote{Section \ref{C262}.}, {\tt interval}\footnote{Section
+\ref{C224}} {\tt matrix}\footnote{Section \ref{C2102}.}.
+\item[spuriously absent]{\tt subset}\footnote{Sections \ref{4467} and
+\ref{C267} --- note that we can make no sense of this last example.} and in
+theory all other $n$-ary relations --- see section \ref{4467}.
+\end{description}
+\begin{quotation}\noindent
+The ({\tt lowlimit},{\tt uplimit}) pair, the {\tt interval} and the {\tt
+condition} are all shorthand notations specifying a particular domain of
+application and should not be used if {\tt domainofapplication} is used.
+\end{quotation}
+It is not clear to the current author how the example in section \ref{C224}
+can be cast in this mould, though.
+\subsubsection{4.2.3.2 Operators taking Qualifiers (1)}\label{42321}
+{\tt condition} has the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><in/><ci>x</ci><ci type="set">C</ci></apply>
+  </condition>
+  <apply><sin/><ci>x</ci></apply>
+</apply>
+\end{lstlisting}
+This is a special case of the example discussed in section \ref{C2272}
+\subsubsection{4.2.3.2 Operators taking Qualifiers (2)}\label{42322}
+It is also stated that
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci>x</ci></bvar>
+  <lowlimit><cn>0</cn></lowlimit>
+  <uplimit><cn>1</cn></uplimit>
+  <apply><power/><ci>x</ci><cn>2</cn></apply>
+</apply>
+\end{lstlisting}
+(whose OpenMath equivalent in terms of {\tt calculus1} is
+\begin{lstlisting}
+<OMA>
+  <OMS cd="calculus1" name="defint"/>
+  <OMA>
+    <OMS name="interval_cc" cd="interval1"/>
+    <OMI> 0 </OMI>
+    <OMI> 1 </OMI>
+  </OMA>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR> <OMV name="x"/> </OMBVAR>
+    <OMA>
+      <OMS cd="arith1" name="power"/>
+      <OMV name="x"/>
+      <OMI> 2 </OMI>
+    </OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+) can be written as
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci>x</ci></bvar>
+  <domainofapplication>
+    <set>
+      <bvar><ci>t</ci></bvar>
+      <condition>
+        <apply>
+          <and/>
+          <apply><leq/><cn>0</cn><ci>t</ci></apply>
+          <apply><leq/><ci>t</ci><cn>1</cn></apply>
+        </apply>
+      </condition>
+      <ci>t</ci>
+    </set>
+  </domainofapplication>
+  <apply><power/><ci>x</ci><cn>2</cn></apply>
+</apply>
+\end{lstlisting} 
+The OpenMath equivalent of this would probably be the following.
+\begin{lstlisting}
+<OMA>
+  <OMS cd="calculus1" name="defint"/>
+  <OMA>
+    <OMS cd="set1" name="suchthat"/>
+    <OMS name="R" cd="setname1"/>
+    <OMBIND>
+      <OMS cd="fns1" name="lambda"/>
+      <OMBVAR> <OMV name="t"/> </OMBVAR>
+      <OMA>
+        <OMS name="and" cd="logic1"/>
+        <OMA>
+          <OMS cd="relation1" name="gt"/>
+          <OMV name="t"/>
+          <OMI> 0 </OMI>
+        </OMA>
+        <OMA>
+          <OMS cd="relation1" name="lt"/>
+          <OMV name="t"/>
+          <OMI> 1 </OMI>
+        </OMA>
+      </OMA>
+    </OMBIND>
+  </OMA>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR> <OMV name="x"/> </OMBVAR>
+    <OMA>
+      <OMS cd="arith1" name="power"/>
+      <OMV name="x"/>
+      <OMI> 2 </OMI>
+    </OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+\subsubsection{4.2.3.2 Operators taking Qualifiers (3)}\label{42323}
+The example continues as follows.
+\begin{quotation}\noindent
+This use extends to multivariate domains by using extra bound variables and a
+domain corresponding to a cartesian product as in:
+\end{quotation}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci>x</ci></bvar>
+  <bvar><ci>y</ci></bvar>
+  <domainofapplication>
+    <set>
+      <bvar><ci>t</ci></bvar>
+      <bvar><ci>u</ci></bvar>
+      <condition>
+        <apply>
+          <and/>
+          <apply><leq/><cn>0</cn><ci>t</ci></apply>
+          <apply><leq/><ci>t</ci><cn>1</cn></apply>
+          <apply><leq/><cn>0</cn><ci>u</ci></apply>
+          <apply><leq/><ci>u</ci><cn>1</cn></apply>
+        </apply>
+      </condition>
+      <list><ci>t</ci><ci>u</ci></list>
+    </set>
+  </domainofapplication>
+  <apply>
+    <times/>
+    <apply><power/><ci>x</ci><cn>2</cn></apply>
+    <apply><power/><ci>y</ci><cn>3</cn></apply>
+  </apply>
+</apply>
+\end{lstlisting}
+\begin{quotation}\noindent
+Note that the order of bound variables of the integral must correspond to the
+order in the {\tt list} used by the {\tt set} constructor in the {\tt
+domainofapplication}. 
+\end{quotation}
+OpenMath 2 as it (and its CDs) exists has no immediate answer to this, since
+{\tt defint} from {\tt calculus1} explicitly only integrates unary functions.
+Obviously one could replace it by two nested unary integrations. Trying to
+represent it directly would fall foul of the potential ambiguity referred to
+in the quotation immediately above. It seems to the author that one really
+wants some way of representing the following expression:
+\begin{equation}
+\int_{x=0}^1\int_{y=0}^1x^2y^3{\rm d}x{\rm d}y,
+\end{equation}
+i.e. explicitly linking the variables to the bounds.
+\subsubsection{4.2.3.2 Operators taking Qualifiers (4)}\label{42324}
+The text on \verb+forall+ gives the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <forall/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><lt/>
+      <ci> x </ci><cn> 9 </cn>
+    </apply>
+  </condition>
+  <apply><lt/>
+    <ci> x </ci><cn> 10 </cn>
+  </apply>
+</apply>
+\end{lstlisting}
+This could be solved with the forall/implies encoding, as in
+\begin{lstlisting}
+<OMBIND>
+  <OMS name="forall" cd="quant1"/>
+  <OMBVAR> <OMV name="x"/> </OMBVAR>
+  <OMA>
+    <OMS name="implies" cd="logic1"/>
+    <OMA>
+      <OMS name="lt" cd="relation1"/>
+      <OMV name="x"/> 
+      <OMI> 9 </OMI>
+    </OMA>
+    <OMA>
+      <OMS name="lt" cd="relation1"/>
+      <OMV name="x"/> 
+      <OMI> 10 </OMI>
+    </OMA>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+Alternatively, we could use a new symbol \verb+forallrestricted+,  as in the
+following.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallrestricted" cd="quant2"/>
+    <OMA>
+      <OMS name="suchthat" cd="set1"/>
+      <OMS cd="setname1" name="R"/>
+      <OMBIND>
+        <OMS cd="fns1" name="lambda"/>
+        <OMBVAR> <OMV name="x"/> </OMBVAR>
+        <OMA>
+          <OMS name="lt" cd="relation1"/>
+          <OMV name="x"/> 
+          <OMI> 9 </OMI>
+        </OMA>
+      </OMBIND>
+    </OMA>
+  </OMA>
+  <OMA>
+    <OMS name="lt" cd="relation1"/>
+    <OMV name="x"/> 
+    <OMI> 10 </OMI>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\subsection{4.2.5 Conditions}\label{425}
+\subsubsection{First example}\label{4251}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <exists/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><lt/>
+      <apply>
+        <power/>
+        <ci>x</ci>
+        <cn>5</cn>
+      </apply>
+      <cn>3</cn>
+    </apply>
+    </condition>
+    <true/>
+</apply>
+\end{lstlisting}
+The author's first reaction was ``why a condition: isn't this MathML equivalent
+(and shorter)?''
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <exists/>
+  <bvar><ci> x </ci></bvar>
+  <apply><lt/>
+    <apply>
+      <power/>
+      <ci>x</ci>
+      <cn>5</cn>
+    </apply>
+    <cn>3</cn>
+  </apply>
+</apply>
+\end{lstlisting}
+Certainly this would be the obvious OpenMath encoding.
+\begin{lstlisting}
+<OMBIND>
+  <OMS name="exists" cd="quant1"/>
+  <OMBVAR> <OMV name="x"/> </OMBVAR>
+  <OMA>
+    <OMS name="lt" cd="relation1"/>
+    <OMA>
+      <OMS name="power" cd="arith1"/>
+      <OMV name="x"/>
+      <OMI> 5 </OMI>
+    </OMA>
+    <OMI> 3 </OMI>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\subsubsection{Second example}\label{4252}
+Moved to OM2009 paper.
+\subsubsection{Third example}\label{4253}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <exists/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><lt/><ci>x</ci><cn>3</cn></apply>
+  </condition>
+  <apply>
+    <eq/>
+    <apply>
+      <power/><ci>x</ci><cn>2</cn>
+    </apply>
+    <cn>4</cn>
+  </apply>
+</apply>
+\end{lstlisting}
+This works well with \verb+existsrestricted+.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="existsrestricted" cd="quant2"/>
+    <OMA>
+      <OMS name="suchthat" cd="set1"/>
+      <OMS cd="setname1" name="R"/>
+      <OMBIND>
+        <OMS cd="fns1" name="lambda"/>
+        <OMBVAR> <OMV name="x"/> </OMBVAR>
+        <OMA>
+          <OMS name="lt" cd="relation1"/>
+          <OMV name="x"/> 
+          <OMI> 3 </OMI>
+        </OMA>
+      <OMBIND>
+    </OMA>
+  </OMA>
+  <OMA>
+    <OMS name="eq" cd="relation1"/>
+    <OMA>
+      <OMS name="power" cd="arith1"/>
+      <OMV name="x"/>
+      <OMI> 2 </OMI>
+    </OMA>
+    <OMI> 4 </OMI>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\subsection{4.4.2.7.2 Examples (of condition)}\label{44272}
+\subsubsection{First example}\label{442721}
+\begin{lstlisting}[language=MathML2]
+<condition>
+  <apply><in/><ci> x </ci><ci type="set"> A </ci></apply>
+</condition>
+\end{lstlisting}
+As a free-standing piece of code, it is hard to see what this means.
+\subsubsection{Second example}\label{442722}
+\begin{lstlisting}[language=MathML2]
+<condition>
+  <apply>
+    <and/>
+    <apply><gt/><ci> x </ci><cn> 0 </cn></apply>
+    <apply><lt/><ci> x </ci><cn> 1 </cn></apply>
+  </apply>
+</condition>
+\end{lstlisting}
+As a free-standing piece of code, it is hard to see what this means, but it
+crops up as a fragment of the next example.
+\subsubsection{Third example}\label{442723}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <max/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply> <and/>
+      <apply><gt/><ci> x </ci><cn> 0 </cn></apply>
+      <apply><lt/><ci> x </ci><cn> 1 </cn></apply>
+    </apply>
+  </condition>
+  <apply>
+    <minus/>
+    <ci> x </ci>
+    <apply>
+      <sin/>
+      <ci> x </ci>
+    </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+As OpenMath does not have a \verb+max+ operator acting on functions,
+the nearest translation would seem to be the following.
+\begin{lstlisting} 
+<OMA>
+  <OMS name="max" cd="minmax1"/>
+  <OMA>
+    <OMS name="map" cd="set1"/>
+    <OMBIND>
+      <OMS name="lambda" cd="fns1"/>
+      <OMBVAR> <OMV name="x"/> </OMBVAR>
+      <OMA>
+        <OMS name="minus" cd="arith1"/>
+        <OMV name="x"/>
+        <OMA>
+          <OMS name="sin" cd="transc1"/>
+          <OMV name="x"/>
+        </OMA>
+      </OMA>
+    </OMBIND>
+    <OMA>
+      <OMS name="interval_oo" cd="interval1"/>
+      <OMI> 0 </OMI>
+      <OMI> 1 </OMI>
+    </OMA>
+  </OMA>
+</OMA>
+\end{lstlisting}
+\subsection{4.4.3.4 Maximum and minimum ({\tt max}, {\tt min})}\label{4434}
+This contains the following examples.
+\subsubsection{4.4.3.4 {\tt max}, {\tt min} (1)}\label{44341}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <min/>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><notin/><ci> x </ci><ci type="set"> B </ci></apply>
+  </condition>
+  <apply>
+      <power/>
+    <ci> x </ci>
+    <cn> 2 </cn>
+  </apply>
+</apply>
+\end{lstlisting}
+This is somewhat hard to interpret: if $x\notin B$, what {\it can\/} we say
+about $x$? In general terms, though, a solution such as in our section
+\ref{C234} seems appropriate.
+\subsubsection{4.4.3.4 {\tt max}, {\tt min} (2)}\label{44342}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <max/>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><and/>
+      <apply><in/><ci>x</ci><ci type="set">B</ci></apply>
+      <apply><notin/><ci>x</ci><ci type="set">C</ci></apply>
+    </apply>
+  </condition>
+  <ci>x</ci>
+</apply>
+\end{lstlisting}
+This is a clear case of \verb}suchthat}.
+\begin{lstlisting}
+<OMA>
+  <OMS name="max" cd="minmax1"/>
+  <OMA>
+    <OMS name="suchthat" cd="set1"/>
+    <OMV name="B"/>
+    <OMBIND>
+      <OMS cd="fns1" name="lambda"/>
+      <OMBVAR> <OMV name="x"/> </OMBVAR>
+      <OMA>
+        <OMS name="notin" cd="set1"/>
+        <OMV name="x"/>
+        <OMV name="C"/>
+      </OMA>
+    </OMBIND>
+  </OMA>
+</OMA>
+\end{lstlisting}
+\subsection{4.4.3.17 Universal quantifier ({\tt forall})}\label{44317}
+This contains the following examples.
+\subsubsection{4.4.3.17 {\tt forall} (1)}\label{443171}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <forall/>
+  <bvar><ci> p </ci></bvar>
+  <bvar><ci> q </ci></bvar>
+  <condition>
+    <apply><and/>
+      <apply><in/><ci> p </ci><rationals/></apply>
+      <apply><in/><ci> q </ci><rationals/></apply>
+      <apply><lt/><ci> p </ci><ci> q </ci></apply>
+    </apply>
+  </condition>
+  <apply><lt/>
+      <ci> p </ci>
+      <apply>
+          <power/>
+        <ci> q </ci>
+        <cn> 2 </cn>
+      </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+This will clearly succumb to the forall/implies encoding.
+\verb+forallrestricted+ will cope with the
+\verb+<apply><in/><ci> p </ci><rationals/></apply>+ clauses, but not, as
+currently suggested, with the $p<q$ clause. This would give the following.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallrestricted" cd="quant2"/>
+    <OMS name="Q" cd="setname1"/>
+  </OMA>
+  <OMBVAR> <OMV name="p"/> <OMV name="q"/> </OMBVAR>
+  <OMA>
+    <OMS name="implies" cd="logic1"/>
+    <OMA>
+      <OMS name="lt" cd="logic1"/>
+      <OMV name="p"/>
+      <OMV name="q"/> 
+    </OMA>
+    <OMA>
+      <OMS name="lt" cd="logic1"/>
+      <OMV name="p"/>
+      <OMA>
+        <OMS name="power" cd="arith1"/>
+        <OMV name="q"/> 
+        <OMI> 2 </OMI>
+      </OMA>
+    </OMA>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\subsubsection{4.4.3.17 {\tt forall} (2)}\label{443172}
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <forall/>
+  <bvar><ci> n </ci></bvar>
+  <condition>
+    <apply><and/>
+      <apply><gt/><ci> n </ci><cn> 0 </cn></apply>
+      <apply><in/><ci> n </ci><integers/></apply>
+    </apply>
+  </condition>
+  <apply>
+    <exists/>
+    <bvar><ci> x </ci></bvar>
+    <bvar><ci> y </ci></bvar>
+    <bvar><ci> z </ci></bvar>
+    <condition>
+      <apply><and/>
+        <apply><in/><ci> x </ci><integers/></apply>
+        <apply><in/><ci> y </ci><integers/></apply>
+        <apply><in/><ci> z </ci><integers/></apply>
+      </apply>
+    </condition>
+    <apply>
+      <eq/>
+      <apply>
+        <plus/>
+        <apply><power/><ci> x </ci><ci> n </ci></apply>
+        <apply><power/><ci> y </ci><ci> n </ci></apply>
+      </apply>
+      <apply><power/><ci> z </ci><ci> n </ci></apply>
+    </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+Again, the restricted quantifiers help a great deal. but not perfectly.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallrestricted" cd="quant2"/>
+    <OMS name="Z" cd="setname1"/>
+  </OMA>
+  <OMBVAR> <OMV name="n"/> </OMBVAR>
+  <OMA>
+  <OMS name="implies" cd="logic1"/>
+    <OMA>
+      <OMS name="gt" cd="relation1"/>
+      <OMV name="n"/>
+      <OMI> 0 </OMI>
+    </OMA>
+    <OMBIND>
+      <OMA>
+        <OMS name="existsrestricted" cd="quant2"/>
+        <OMS name="Z" cd="setname1"/>
+      </OMA>
+      <OMBVAR> <OMV name="x"/> <OMV name="y"/> <OMV name="z"/> </OMBVAR>
+      <OMA>
+        <OMS name="eq" cd="relation1"/>
+        <OMA>
+          <OMS name="plus" cd="arith1"/>
+          <OMA>
+            <OMS name="power" cd="arith1"/>
+            <OMV name="x"/>
+            <OMV name="n"/>
+          </OMA>
+          <OMA>
+            <OMS name="power" cd="arith1"/>
+            <OMV name="y"/>
+            <OMV name="n"/>
+          </OMA>
+        </OMA>
+        <OMA>
+          <OMS name="power" cd="arith1"/>
+          <OMV name="z"/>
+          <OMV name="n"/>
+        </OMA>
+      </OMA>
+    </OMBIND>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\subsection{4.4.5.1 Integral ({\tt int})}\label{4451}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><in/>
+      <ci> x </ci>
+      <ci type="set"> D </ci>
+    </apply>
+  </condition>
+  <apply><ci type="function"> f </ci>
+    <ci> x </ci>
+  </apply>
+</apply>
+\end{lstlisting}
+Up to renaming, this is identical to the example in section \ref{C2272}, and
+the same comments apply.
+\subsection{4.4.5.6.1 Bound variable ({\tt bvar})}\label{44561}
+This contains the following example, which is mainly meant to illustrate the
+use of the \verb+id=+ construct.
+\begin{lstlisting}[language=MathML2]
+<set>
+  <bvar><ci id="var-x"> x </ci></bvar>
+  <condition>
+    <apply>
+      <lt/>
+      <ci definitionURL="#var-x"> x </ci>
+      <cn> 1 </cn>
+    </apply>
+  </condition>
+</set>
+\end{lstlisting}
+From our point of view, this looks like a \verb+suchthat+, except that the
+universe is unspecified in the MathML. Taking a guess for this, we end up with
+the following OpenMath.
+\begin{lstlisting}
+<OMA>
+  <OMS cd="set1" name="suchthat"/>
+  <OMS cd="setname1" name="R"/>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR> <OMV name="x"/> </OMBVAR>
+    <OMA>
+      <OMS cd="relation1" name="lt"/>
+      <OMV name="x"/>
+      <OMI> 1 </OMI>
+    </OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+XML \verb+id=+ tags could probably be used here.\ednote{Anyone wish to do so?}
+This might also be an occasion for {\tt OMR}.
+\subsection{4.4.5.6.2 Bound variable ({\tt bvar})}\label{44562}
+Up to renaming, this is identical to the example in section \ref{C2272}, and
+the same comments apply.  
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <int/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><in/><ci> x </ci><ci> D </ci></apply>
+  </condition>
+  <apply><ci type="function"> f </ci>
+    <ci> x </ci>
+  </apply>
+</apply>
+\end{lstlisting}
+\subsection{4.4.6.1.2 Set ({\tt set})}\label{44612}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<set>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><and/>
+      <apply><lt/>
+        <ci> x </ci>
+        <cn> 5 </cn>
+      </apply>
+      <apply><in/>
+        <ci> x </ci>
+        <naturalnumbers/>
+      </apply>
+    </apply>
+  </condition>
+  <ci> x </ci>
+</set>
+\end{lstlisting}
+Again, this fits very naturally as a \verb+suchthat+, indeed probably more
+naturally than the original MathML.
+\begin{lstlisting}
+<OMA>
+  <OMS cd="set1" name="suchthat"/>
+  <OMS cd="setname1" name="N"/>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR> <OMV name="x"/> </OMBVAR>
+    <OMA>
+      <OMS cd="relation1" name="lt"/>
+      <OMV name="x"/>
+      <OMI> 5 </OMI>
+    </OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+\subsection{4.4.6.2.2 List ({\tt list})}\label{44622}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<list order="numeric">
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><lt/>
+      <ci> x </ci>
+      <cn> 5 </cn>
+    </apply>
+  </condition>
+  <ci> x </ci>
+</list>
+\end{lstlisting}
+This has no direct equivalent in OpenMath, not least because there is no
+equivalent of \verb+order="numeric"+, but also because one has to assume that
+the list is being selected from $\N$, because if it were selected from $\Z$ or
+$\R$ is would have no infimum.
+\par
+The best translation is probably the following.
+\begin{lstlisting}
+<OMA>
+  <OMS name="integer_interval" cd="interval1"/>
+  <OMI> 0 </OMI>
+  <OMI> 4 </OMI>
+</OMA>
+\end{lstlisting}
+The reader may protest that \verb+integer_interval+ is ``special'', but surely
+no more so than implicitly assuming selection from $\N$.
+\subsection{4.4.6.7 Subset ({\tt subset})}\label{4467}
+This contains the following sentence.
+\begin{quotation}\noindent
+The subset element is an $n$-ary set relation (see Section 4.2.4 Relations).
+As an $n$-ary operator, its operands may also be generated as described in
+[$n$-ary operators] Therefore it may take qualifiers.
+\end{quotation} 
+This appears to justify the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <subset/>
+  <bvar><ci type="set">S</ci></bvar>
+  <condition>
+    <apply><in/>
+      <ci>S</ci>
+      <ci type="list">T</ci>
+    </apply>
+  </condition>
+  <ci>S</ci>
+</apply>
+\end{lstlisting}
+As far as the present author can see, this states that the list $T$ is
+linearly ordered by $\subseteq$. OpenMath does not, and seems to have decided
+that it will not\footnote{MK posed this question in e-mail of 21/9/2008,
+tracked as {\tt http://wiki.openmath.org/?title=cd\%3Arelation1}.}, have
+$n$-ary relations of this form.
+\par
+Any translation has therefore to be loose: we propose the
+following\footnote{Which is conditional on assuming that this is the right way
+to select elements from a {\tt list} --- a debate which we have had, but I
+cannot remember the resolution.}.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallrestricted" cd="quant2"/>
+    <OMS name="N" cd="setname1"/>
+  </OMA>
+  <OMBVAR> <OMV name="i"/> <OMV name="j"/> </OMBVAR>
+  <OMS name="implies" cd="logic1"/>
+    <OMA>
+      <OMS name="lt" cd="relation1"/>
+      <OMV name="i"/>
+      <OMV name="j"/>
+    <OMA>
+      <OMS name="subset" cd="set1"/>
+      <OMA>
+        <OMV name="T"/>
+        <OMV name="i"/>
+      </OMA>
+      <OMA>
+        <OMV name="T"/>
+        <OMV name="j"/>
+      </OMA>
+    </OMA>
+    </OMA>
+</OMBIND> 
+\end{lstlisting}
+\subsection{4.4.7.1 Sum ({\tt sum}) }\label{4471}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <sum/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply> <in/>
+      <ci> x </ci>
+      <ci type="set"> B </ci>
+    </apply>
+  </condition>
+  <apply><ci type="function"> f </ci>
+    <ci> x </ci>
+  </apply>
+</apply>
+\end{lstlisting}
+This has an obvious translation into OpenMath, in which $x$ isn't even needed.
+It could, of course, be supplied by replaced $f$ by $\lambda x.f(x)$.
+\begin{lstlisting}
+<OMA>
+  <OMS name="sum" cd="arith1"/>
+  <OMV name="B"/>
+  <OMV name="f"/>
+</OMA>
+\end{lstlisting}
+\subsection{4.4.7.2 Product ({\tt product}) }\label{4472}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <product/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply> <in/>
+      <ci> x </ci>
+      <ci type="set"> B </ci>
+    </apply>
+  </condition>
+  <apply><ci type="function"> f </ci>
+    <ci> x </ci>
+  </apply>
+</apply>
+\end{lstlisting}
+The same remarks as in the previous section apply.
+\subsection{4.4.7.3 Limit ({\tt limit}) }\label{4473}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <limit/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply>
+      <tendsto type="above"/>
+      <ci> x </ci>
+      <ci> a </ci>
+    </apply>
+  </condition>
+  <apply><sin/>
+     <ci> x </ci>
+  </apply>
+</apply>
+\end{lstlisting}
+This can be translated into OpenMath as follows.
+\begin{lstlisting}
+<OMA>
+  <OMS cd="limit1" name="limit"/>
+  <OMV name="a"/>
+  <OMS cd="limit1" name="above"/>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR> <OMV name="x"/> </OMBVAR>
+    <OMA>
+      <OMS name="sin" cd="transc1"/>
+      <OMV name="x"/>
+    </OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+\section{Appendix C}
+\subsection{C.2.2.4 MMLdefinition: {\tt interval}}\label{C224}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<interval>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><lt/><cn>0</cn><ci>x</ci></apply>
+    </condition>
+</interval>
+\end{lstlisting}
+Presumably this represents $(0,\infty)$. Equally, this is presumably intended
+to close over \verb+<interval>+, i.e. $x$ is bound in this expression, and
+freely $\alpha$-convertible. However, it seems to JHD to be purely ``luck''
+that this defines an interval. What about the following?
+\begin{lstlisting}[language=MathML2]
+<interval>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><lt/><cn>1</cn>
+       <apply> <power/>
+         <ci>x</ci>
+         <cn>2</cn>
+         </apply>
+      </apply>
+    </condition>
+</interval>
+\end{lstlisting}
+By the same logic, this is $(-\infty,-1)\cup(1,\infty)$.  As far as JHD can
+see, this use of \verb+interval+ is basically a declaration of a set, coupled
+with an assertion that that set is in fact an interval, which assertion is, in
+fact, true in the first case, but not the second.
+\par
+The declaration of the set can be done with \verb+suchthat+, the assertion is
+a problem OpenMath has not really addressed.
+\par
+It is also not clear that this fragment is in fact legal. The specification
+says elsewhere [4.4.2.4.1] that
+\begin{quotation}\noindent
+The interval element expects two child elements that evaluate to real numbers. 
+\end{quotation} 
+\subsection{C.2.2.5 MMLdefinition: {\tt inverse}}\label{C225}
+This contains the following example (our formatting).
+\begin{lstlisting}[language=MathML2]
+<apply><forall/>
+  <bvar><ci>y</ci></bvar>
+  <bvar><ci type="function">f</ci></bvar>
+  <condition>
+    <apply><in/>
+      <ci>y</ci>
+      <apply>
+        <csymbol definitionURL="domain">
+          <mtext>Domain</mtext></csymbol>
+        <apply><inverse/><ci type="function">f</ci></apply>
+      </apply>
+    </apply>
+  </condition>
+  <apply><eq/>
+    <apply><ci type="function">f</ci>
+      <apply><apply><inverse/><ci type="function">f</ci></apply>
+        <ci>y</ci>
+      </apply>
+    </apply>
+    <ci>y</ci>
+  </apply>
+</apply>
+\end{lstlisting}
+The associated textual description is 
+\begin{lstlisting}
+ForAll( y, such y in domain( f^(-1) ), f( f^(-1)(y) ) = y
+\end{lstlisting}
+which does not include the fact that $f$ is in the scope of $\forall$.
+\par
+This usage seems to be basically a ``typed quantifier'', and as such could
+look like the following.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallrestricted" cd="quant2"/>
+    <OMA>
+      <OMS name="domain" cd="fns1"/>
+      <OMA>
+        <OMS name="inverse" cd="fns1"/>
+        <OMV name="f"/>
+      </OMA>
+    </OMA>
+  </OMA>
+  <OMBVAR> <OMV name="y"/> </OMBVAR>
+  <OMA>
+    <OMS name="eq" cd="relation1"/>
+    <OMA>
+      <OMV name= "f"/>
+      <OMA>
+        <OMA>
+          <OMS name="inverse" cd="fns1"/>
+          <OMV name= "f"/>
+        </OMA>
+        <OMV name= "y"/>
+      </OMA>
+    </OMA>
+    <OMV name= "y"/>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+This resembles the ``vernacular'', and does not bind $f$. If we wanted to do
+so, along the lines of the MathML, we would have to wrap the whole thing in
+another \verb+forall+. The two cannot be combined, as we want to be able to
+$\alpha$-convert $f$ in the argument of \verb+forallrestricted+, and, as MK's
+note of the tele-conference reads:
+\begin{quotation}\noindent
+In particular, we do not
+      want to accept the occurrence of the bound variable in the
+      (complex) binding operator. In particular, the OpenMath2 standard
+      restricts alpha-conversion to the second and third children of the
+      OMBIND, which is consistent with this view.
+\end{quotation} 
+See section \ref{sec:defintcond} below for an example of where this rule
+bites.
+\subsection{C.2.2.7 MMLdefinition: {\tt condition}}
+This section contains two examples.
+\subsubsection{C.2.2.7(1) MMLdefinition: {\tt condition}}\label{C2271}
+\begin{lstlisting}[language=MathML2]
+<condition>
+  <apply><lt/>
+    <apply><power/><ci>x</ci><cn>5</cn></apply>
+    <cn>3</cn>
+  </apply>
+</condition>
+\end{lstlisting}
+It is hard to understand the meaning of this fragment in isolation (and
+presumably the reader was not intended to do so). If it was intended to be
+part of an encoding of a set (mathematically, representing the interval
+$(-\infty,3^{1/5})$, or possibly $[0,3^{1/5})$), then \verb+suchthat+ from
+\verb+set1+ is appropriate. Here is the example from \verb+set1+ reworked to
+match the MathML example (as $(-\infty,3^{1/5})$: if one wanted $[0,3^{1/5})$
+one would have to add $x\ge0$, or change from $\bf R$ as the base set).
+\begin{lstlisting}
+<OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0"
+       cdbase="http://www.openmath.org/cd">
+  <OMA>
+    <OMS cd="set1" name="suchthat"/>
+    <OMS cd="setname1" name="R"/>
+    <OMBIND>
+      <OMS cd="fns1" name="lambda"/>
+      <OMBVAR> <OMV name="x"/> </OMBVAR>
+      <OMA>
+        <OMS cd="relation1" name="lt"/>
+        <OMA>
+          <OMS cd="arith1" name="power"/>
+          <OMV name="x"/>
+          <OMI> 5 </OMI>
+        </OMA>
+        <OMI> 3 </OMI>
+      </OMA>
+    </OMBIND>
+  </OMA>
+</OMOBJ>
+\end{lstlisting}
+We should note that the OpenMath makes it clear that $x$ is bound by the
+(\verb+OMBIND+ whose first child is the)
+\verb+lambda+, whereas the MathML, being only a fragment, does not state the
+scope.
+\subsubsection{C.2.2.7(2) MMLdefinition: {\tt
+condition}}\label{sec:defintcond}\label{C2272}
+(Our formatting.)
+\begin{lstlisting}[language=MathML2]
+<apply><int/>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><in/><ci>x</ci><ci type="set">C</ci></apply>
+  </condition>
+  <apply><ci type="function">f</ci><ci>x</ci></apply>
+</apply>
+\end{lstlisting}
+This seems, to JHD, to be typical of the confusion that can arise over
+\verb+condition+s. Let us look at this expression in the vernacular: 
+\begin{equation}\label{defintcond}
+\int_{x\in C}f(x){\rm d} x,
+\end{equation}
+and observe that this is probably equivalent to $\int_{C}f(x){\rm d} x$.
+\par
+In terms of \verb+calculus1+ (calculus with functions \cite{JHD})
+this can be expressed as 
+\begin{lstlisting}
+<OMA>
+  <OMS cd="calculus1" name="defint"/>
+  <OMV name="C"/>
+  <OMV name="f"/>
+</OMA>
+\end{lstlisting}
+and $x$ doesn't appear at all. If one wants it to, then one writes
+\begin{lstlisting}
+<OMA>
+  <OMS cd="calculus1" name="defint"/>
+  <OMV name="C"/>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMV name="f"/>
+      <OMV name="x"/>
+    </OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+as in the example in \verb+calculus1+.
+\par
+MK's note \cite{Kohlhase2008} on \verb+calculus3+ (calculus with expressions
+\cite{JHD}), suggests (in MathML syntax)
+\begin{lstlisting}[language=MathML2]
+<bind>
+  <apply>
+    <csymbol cd="calculus3">defintset</csymbol>
+    <ci>C</ci>
+  </apply>
+  <bvar><ci>x</ci></bvar>
+  <apply><ci>f</ci><ci>x</ci></apply>
+</bind>
+\end{lstlisting}
+which is a precise translation of the previous one from the language of
+functions to expressions.
+In OpenMath syntax it would be the following\footnote{In the circulated
+version of {\tt calculus3}, there appear to be two symbols called {\tt
+defint}. The second should presumably be {\tt defintset}.}.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS cd="calculus3" name="defintset"/>
+    <OMV name="C"/>
+  </OMA>
+  <OMBVAR>
+    <OMV name="x"/>
+  </OMBVAR>
+  <OMA>
+    <OMV name="f"/>
+    <OMV name="x"/>
+  </OMA>
+</bind>
+\end{lstlisting}
+MK's note also suggests an alternative way of expressing (\ref{defintcond}),
+which in MathML syntax would be the following.
+\begin{lstlisting}[language=MathML2]
+<bind>
+  <apply>
+    <csymbol cd="calciulus3">defintcond</csymbol>
+    <apply><in/>
+      <ci>x</ci>
+      <ci>C</ci>
+    </apply>
+  </apply>
+  <bvar><ci>x</ci></bvar>
+  <apply><ci>f</ci><ci>x</ci></apply>
+</bind> 
+\end{lstlisting}
+In OpenMath syntax it would be the following.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS cd="calculus3" name="defintcond"/>
+    <OMA>
+      <OMS name="in" cd="set1"/>
+      <OMV name="x"/>
+      <OMV name="C"/>
+    </OMA>
+  </OMA>
+  <OMBVAR>
+    <OMV name="x"/>
+  </OMBVAR>
+  <OMA>
+    <OMV name="f"/>
+    <OMV name="x"/>
+  </OMA>
+</bind>
+\end{lstlisting}
+This, however, falls foul of %OpenMath's rule that 
+\begin{quotation}\noindent\label{OMbound}
+the OpenMath2 standard restricts alpha-conversion to the second and third
+children of the OMBIND
+\end{quotation}
+and hence JHD does not see how \verb+defintcond+ as postulated can make its
+way into OpenMath.
+\subsection{C.2.2.14 MMLdefinition: {\tt image}\label{C2214}}
+This section contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply><forall/>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><in/>
+      <ci>x</ci>
+      <apply><image/><ci>f</ci></apply>
+    </apply>
+  </condition>
+  <apply><in/>
+    <ci>x</ci>
+    <apply><codomain/><ci>f</ci></apply>
+  </apply>
+</apply>
+\end{lstlisting}
+The following remarks could be made.
+\begin{enumerate}
+\item This cries out for \verb"forallrestricted".
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallrestricted" cd="quant2"/>
+    <OMA>
+      <OMS name="image" cd="fns1"/>
+      <OMV name="f"/>
+    </OMA>
+  </OMA>
+  <OMBVAR> <OMV name="x"/> </OMBVAR>
+  <OMA>
+    <OMS name="in" cd="set1"/>
+    <OMV name="x"/> 
+    <OMA>
+      <OMS name="codomain" cd="fns1"/>
+      <OMV name= "f"/>
+    </OMA>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\item It is a pretty good case for the ``forall with implies'' trick.
+\begin{lstlisting}
+<OMBIND>
+  <OMS name="forall" cd="quant1"/>
+  <OMBVAR> <OMV name="x"/> </OMBVAR>
+  <OMA>
+    <OMS name="implies" cd="logic1"/>
+    <OMA>
+      <OMS name="in" cd="set1"/>
+      <OMV name="x"/> 
+      <OMA>
+        <OMS name="image" cd="fns1"/>
+        <OMV name= "f"/>
+      </OMA>
+    </OMA>
+    <OMA>
+      <OMS name="in" cd="set1"/>
+      <OMV name="x"/> 
+      <OMA>
+        <OMS name="codomain" cd="fns1"/>
+        <OMV name= "f"/>
+      </OMA>
+    </OMA>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\item Why use quantifiers at all?
+\begin{lstlisting}
+<OMA>
+  <OMS name="subset" cd="set1"/>
+  <OMA>
+    <OMS name="image" cd="fns1"/>
+    <OMV name= "f"/>
+  </OMA>
+  <OMA>
+    <OMS name="codomain" cd="fns1"/>
+    <OMV name= "f"/>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+Indeed there could be (possibly even ought to be, since in ZF it is the
+{\it definition\/} of $\subset$) a FMP of \verb+subset+ that made this
+equivalent to expression 2.
+\end{enumerate}
+\subsection{C.2.2.15 MMLdefinition: {\tt domainofapplication}}\label{C2215}
+This contains the interesting statement
+\begin{quotation}\noindent
+Special cases of this qualifier can be abbreviated using one of interval
+{\tt condition} or an ({\tt lowlimit},{\tt uplimit}) pair.
+\end{quotation}
+The examples given are
+\begin{lstlisting}[language=MathML2]
+<apply><int/>
+  <domainofapplication><ci>C</ci></domainofapplication>
+  <ci>f </ci>
+</apply>
+\end{lstlisting}
+(which is a fairly straight-forward definite integral) and
+\begin{lstlisting}[language=MathML2]
+<apply><int/>
+      <domainofapplication>
+        <set>
+          <bvar><ci>t</ci></bvar>
+          <condition>
+            <apply><in/>
+              <ci>t</ci>
+              <ci type="set">C</ci>
+            </apply>
+          </condition>
+        </set>
+      </domainofapplication>
+      <ci>f</ci>
+</apply>
+\end{lstlisting}
+which seems to this author to be a redundant variant. 
+\subsection{C.2.3.1 MMLdefinition: {\tt quotient}}\label{C231}
+This has the following property (presumably meant to be the equivalent of
+OpenMath's FMP\footnote{OpenMath's FMP for {\tt quotient} in {\tt integer1} is
+currently missing the proviso $b\ne0$.}).
+\begin{lstlisting}[language=MathML2]
+ForAll( [a,b], b != 0, a = b*quotient(a,b) + rem(a,b) )
+
+<apply><forall/>
+  <bvar><ci>a</ci></bvar>
+  <bvar><ci>b</ci></bvar>
+  <condition><apply><neq/><ci>b</ci><cn>0</cn></apply></condition>
+  <apply><eq/>
+    <ci>a</ci>
+    <apply><plus/>
+      <apply><times/>
+          <ci>b</ci>
+          <apply><quotient/><ci>a</ci><ci>b</ci></apply>
+      </apply>
+  <apply><rem/><ci>a</ci><ci>b</ci></apply>
+    </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+Again, this seems to be a pretty good case for the ``forall with implies''
+trick, though \verb+forallrestricted+ could be used.
+\begin{lstlisting}
+<OMBIND>
+  <OMS name="forall" cd="quant1"/>
+  <OMBVAR> <OMV name="a"/> <OMV name="b"/> </OMBVAR>
+  <OMA>
+    <OMS name="implies" cd="logic1"/>
+    <OMA>
+      <OMS name="neq" cd="relation1"/>
+      <OMV name="b"/> 
+      <OMS name="zero" cd="arith1"/>
+    </OMA>
+    <OMA>
+      <OMS name="eq" cd="relation1"/>
+      <OMV name="a"/> 
+      <OMA>
+        <OMS name="plus" cd="arith1"/>
+        <OMA>
+          <OMS name="times" cd="arith1"/>
+          <OMV name="b"/> 
+          <OMA>
+            <OMS name="quotient" cd="integer1"/>
+            <OMV name="a"/> 
+            <OMV name="b"/> 
+          </OMA>
+        </OMA>
+        <OMA>
+          <OMS name="remainder" cd="integer1"/>
+          <OMV name="a"/> 
+          <OMV name="b"/> 
+        </OMA>
+      </OMA>
+    </OMA>
+  </OMA>
+</OMBIND>
+\end{lstlisting}
+\subsection{C.2.3.2 MMLdefinition: {\tt factorial}}\label{C232}
+This has the following property (presumably meant to be the equivalent of
+OpenMath's FMP).
+\begin{lstlisting}[language=MathML2]
+ForAll( n, n \gt 0, n! = n*(n-1)! )
+
+              
+<apply><forall/>
+  <bvar><ci>n</ci></bvar>
+  <condition><apply><gt/><ci>n</ci><cn>0</cn></apply></condition>
+  <apply><eq/>
+    <apply><factorial/><ci>n</ci></apply>
+    <apply><times/>
+      <ci>n</ci>
+      <apply><factorial/>
+        <apply><minus/><ci>n</ci><cn>1</cn></apply>
+      </apply>
+    </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+Again, this seems to be a pretty good case for the ``forall with implies''
+trick, though \verb+forallrestricted+ could be used.
+\subsection{C.2.3.3 MMLdefinition: {\tt divide}}\label{C233}
+This has the following property (presumably meant to be the equivalent of
+OpenMath's FMP).
+\begin{lstlisting}[language=MathML2]
+ForAll( a, a!= 0, a/a = 1 ) 
+          
+<apply><forall/>
+  <bvar><ci>a</ci></bvar>
+  <condition><apply><neq/><ci>a</ci><cn>0</cn></apply></condition>
+  <apply><eq/>
+    <apply><divide/><ci>a</ci><ci>a</ci></apply>
+    <cn>1</cn>
+  </apply>
+</apply>
+\end{lstlisting}
+Again, this seems to be a pretty good case for the ``forall with implies''
+trick, though \verb+forallrestricted+ could be used.
+\subsection{C.2.3.4 MMLdefinition: {\tt max}}\label{C234}
+This contains the interesting statement
+\begin{quotation}\noindent
+The elements may be listed explicitly or they may be described by a {\tt
+domainofapplication}, for example, the maximum over all $x$ in the set $A$.
+The {\tt domainofapplication} is often abbreviated by placing a {\tt
+condition} directly on a bound variable. 
+\end{quotation}
+The example given is the following (our layout).
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <max/>
+  <bvar><ci>y</ci></bvar>
+  <condition>
+    <apply>
+      <in/>
+      <ci>y</ci>
+      <interval><cn>0</cn><cn>1</cn></interval>
+    </apply>
+  </condition>
+  <apply><power/><ci> y</ci><cn>3</cn></apply>
+</apply>
+\end{lstlisting}
+As OpenMath does not have a \verb+max+ operator acting on functions,
+the nearest translation would seem to be the following.
+\begin{lstlisting} 
+<OMA>
+  <OMS name="max" cd="minmax1"/>
+  <OMA>
+    <OMS name="map" cd="set1"/>
+    <OMBIND>
+      <OMS name="lambda" cd="fns1"/>
+      <OMBVAR> <OMV name="y"/> </OMBVAR>
+      <OMA>
+        <OMS name="power" cd="arith1"/>
+        <OMV name="y"/>
+        <OMI> 3 </OMI>
+      </OMA>
+    </OMBIND>
+    <OMA>
+      <OMS name="interval_cc" cd="interval1"/>
+      <OMI> 0 </OMI>
+      <OMI> 1 </OMI>
+    </OMA>
+  </OMA>
+</OMA>
+\end{lstlisting}
+We note that OpenMath seems to require us to be precise about the species of
+interval we want to use.
+\subsection{C.2.3.5 MMLdefinition: {\tt min}}\label{C235}
+Nothing new need be said here.
+\subsection{C.2.3.7 MMLdefinition: {\tt plus}}\label{C237}
+The property here is the following.
+\begin{lstlisting}[language=MathML2]
+    Commutativity 
+    <apply><forall/>
+      <bvar><ci>a</ci></bvar>
+      <bvar><ci>b</ci></bvar>
+      <condition>
+        <apply><and/>
+          <apply><in/><ci>a</ci><reals/></apply>
+          <apply><in/><ci>b</ci><reals/></apply>
+        </apply>
+      </condition>
+      <apply><eq/>
+        <apply><plus/><ci>a</ci><ci>b</ci></apply>
+        <apply><plus/><ci>b</ci><ci>a</ci></apply>
+      </apply>
+    </apply>
+\end{lstlisting}
+Again, this seems to be a pretty good case for the ``forall with implies''
+trick, though \verb+forallrestricted+ could be used.
+\subsection{C.2.3.8 MMLdefinition: {\tt power}}\label{C238}
+The property here is the following.
+\begin{lstlisting}[language=MathML2]
+ForAll( a, a!=0, a^0=1 ) 
+<apply><forall/>
+  <bvar><ci>a</ci></bvar>
+  <condition><apply><neq/><ci>a</ci><cn>0</cn></apply></condition>
+  <apply><eq/>
+    <apply><power/><ci>a</ci><cn>0</cn></apply>
+    <cn>1</cn>
+  </apply>
+</apply>
+\end{lstlisting}
+Again, this seems to be a pretty good case for the ``forall with implies''
+trick, though \verb+forallrestricted+ could be used.
+\subsection{C.2.3.9 MMLdefinition: {\tt rem}}\label{C239}
+This has the same property, and solution, as {\tt quotient} (section
+\ref{C231}).
+\subsection{C.2.3.10 MMLdefinition: {\tt times}}\label{C2310}
+The property here is the following.
+\begin{lstlisting} 
+ForAll( [a,b], condition(in({a,b}, Commutative)), a*b=b*a )
+\end{lstlisting}
+However, no formal translation is given, and it is not clear what one would
+be.
+\par
+Later on we see the following property, to which the same remark applies as in
+section \ref{C237}.
+\begin{lstlisting}[language=MathML2]
+<apply><forall/>
+  <bvar><ci>a</ci></bvar>
+  <bvar><ci>b</ci></bvar>
+  <condition>
+    <apply><and/>
+      <apply><in/><ci>a</ci><reals/></apply>
+      <apply><in/><ci>b</ci><reals/></apply>
+    </apply>
+  </condition>
+  <apply><eq/>
+    <apply><times/><ci>a</ci><ci>b</ci></apply>
+    <apply><times/><ci>b</ci><ci>a</ci></apply>
+  </apply>
+</apply> 
+\end{lstlisting}
+\subsection{C.2.3.18 MMLdefinition: {\tt forall}}\label{C2318}
+This contains the following example (our formatting).
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <forall/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><lt/><ci> x </ci><cn> 0 </cn></apply>
+  </condition>
+  <ci> x </ci>
+</apply>
+\end{lstlisting}
+This seems to be $\forall x:x<0 x$. Since this last $x$ is not a Boolean, the
+author respectfully submits that this example is ill-typed. In any case
+\verb+forallrestricted+ would solve the issue. 
+\subsection{C.2.3.23 MMLdefinition: {\tt real}}\label{C2323}
+This contains the following property,
+\begin{lstlisting}[language=MathML2]
+<apply><forall/>
+  <bvar><ci>x</ci></bvar>
+  <bvar><ci>y</ci></bvar>
+  <condition>
+    <apply><and/>
+      <apply><in/><ci>x</ci><reals/></apply>
+      <apply><in/><ci>y</ci><reals/></apply>
+    </apply>
+  </condition>
+  <apply><eq/>
+    <apply><real/>
+      <apply><plus/>
+        <ci> x </ci>
+        <apply><times/><imaginaryi/><ci>y</ci></apply>
+      </apply>
+    </apply>
+    <ci> x </ci>
+  </apply>
+</apply>
+\end{lstlisting}
+Again, this seems to be a pretty good case for the ``forall with implies''
+trick, though \verb+forallrestricted+ could be used.
+\subsection{C.2.5.1 MMLdefinition: {\tt int}}\label{C251}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply><int/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><in/><ci> x </ci><ci type="set"> D </ci></apply>
+  </condition>
+  <apply><ci type="function"> f </ci><ci> x </ci></apply>
+</apply>
+\end{lstlisting}
+The discussion in section \ref{C2272} is appropriate here.
+\subsection{C.2.5.6 MMLdefinition: {\tt bvar}}\label{C256}
+This contains the following example (our formatting).
+\begin{lstlisting}[language=MathML2]
+<apply><forall/><bvar><ci>x</ci></bvar>
+  <condition><apply><in/><ci>x</ci><reals/></apply></condition>
+  <apply>
+    <eq/>
+    <apply><minus/><ci>x</ci><ci>x</ci></apply>
+    <cn>0</cn>
+  </apply>
+</apply>
+\end{lstlisting}
+Again, this seems to be a pretty good case for the ``forall with implies''
+trick, though c\verb+forallrestricted+ ould be used.
+\subsection{C.2.5.8 MMLdefinition: {\tt divergence}}\label{C258}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <eq/>
+  <apply><divergence/><ci type="vectorfield">a</ci></apply>
+  <apply>
+    <limit/>
+    <bvar><ci> V </ci></bvar>
+    <condition>
+      <apply>
+        <tendsto/>
+        <ci> V </ci>
+        <cn> 0 </cn>
+      </apply>
+    </condition>
+    <apply>
+      <divide/>
+      <apply>
+        <int encoding="text" definitionURL="SurfaceIntegrals.htm"/>
+        <bvar><ci> S</ci></bvar>
+        <ci> a </ci>
+      </apply>
+      <ci> V </ci>
+    </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+Here the relevant part is the limit, which could be expressed (as it is in the
+\verb+limit1+ CD) as the following.
+\begin{lstlisting}
+<OMA>
+  <OMS cd="limit1" name="limit"/>
+  <OMI> 0 </OMI>
+  <OMS cd="limit1" name="both_sides"/>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+      <OMBVAR>
+      <OMV name="V"/>
+      </OMBVAR>
+      ...
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+\subsection{C.2.6.1 MMLdefinition: {\tt set}}\label{C261}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<set>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><lt/>
+      <ci> x </ci>
+      <cn> 5 </cn>
+    </apply>
+  </condition>
+  <ci>x</ci>
+</set>
+\end{lstlisting}
+It is not clear what this means, but a plausible stab would seem to be the
+following.
+\begin{lstlisting}
+<OMA>
+  <OMS cd="set1" name="suchthat"/>
+  <OMS cd="setname1" name="N"/>
+  <OMBIND>
+    <OMS cd="fns1" name="lambda"/>
+    <OMBVAR>
+      <OMV name="x"/>
+    </OMBVAR>
+    <OMA>
+      <OMS cd="relation1" name="lt"/>
+    <OMV name="x"/>
+      <OMI> 5 </OMI>
+    </OMA>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+\subsection{C.2.6.2 MMLdefinition: {\tt list}}\label{C262}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<list order="numeric">
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply><lt/>
+      <ci> x </ci>
+      <cn> 5 </cn>
+    </apply>
+  </condition>
+</list>
+\end{lstlisting}
+There is no direct translation into OpenMath for reasons other than
+\verb+condition+, but \verb+sucthat+ in \verb+list1+ seems an obvious tool to
+use.
+\subsection{C.2.6.7 MMLdefinition: {\tt subset}}\label{C267}
+This contains the following example.
+\begin{lstlisting}[language=MathML2]
+<apply>
+  <subset/>
+  <subset/>
+  <bvar><ci type="set">S</ci></bvar>
+  <condition>
+    <apply><in/>
+      <ci>S</ci>
+      <ci type="list">T</ci>
+    </apply>
+  </condition>
+  <ci>S</ci>
+</apply>
+\end{lstlisting}
+Even assuming the second \verb+<subset/>+ to be a mistake, the present author
+can make no sense of this.
+\subsection{C.2.7.1 MMLdefinition: {\tt sum}}\label{C271}
+This contains the following example (our formatting).
+\begin{lstlisting}[language=MathML2]
+<apply><sum/>
+  <bvar><ci> x </ci></bvar>
+  <condition>
+    <apply> <in/><ci> x </ci><ci type="set">B</ci></apply>
+  </condition>
+  <apply><ci type="function"> f </ci><ci> x </ci></apply>
+</apply>
+\end{lstlisting}
+This translates straightforwardly.
+\begin{lstlisting}
+<OMA>
+  <OMS name="sum" cd="arith1"/>
+  <OMV name="S"/>
+  <OMV name="f"/>
+</OMA>
+\end{lstlisting}
+We note that there is no need to name the dummy variable at all.
+\subsection{C.2.7.2 MMLdefinition: {\tt product}}\label{C272}
+The example, and its OpenMath translation, are essentially identicalto the
+previous section.
+\subsection{C.2.7.3 MMLdefinition: {\tt limit}}\label{C273}
+This contains the following example (our formatting).
+\begin{lstlisting}[language=MathML2]
+<apply><limit/>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><tendsto/><ci>x</ci><cn>0</cn></apply>
+  </condition>
+  <apply><sin/><ci>x</ci></apply>
+</apply>
+\end{lstlisting}
+The equivalent OpenMath would be the following.
+\begin{lstlisting}
+<OMA>
+  <OMS cd="limit1" name="limit"/>
+  <OMI> 0 </OMI>
+  <OMS cd="limit1" name="both_sides"/>
+  <OMS cd="transc1" name="sin"/>
+  </OMBIND>
+</OMA>
+\end{lstlisting}
+We again note that there is no need to name the dummy variable at all.
+\subsection{C.2.10.2 MMLdefinition: {\tt matrix}}\label{C2102}
+This contains the following example (our formatting).
+\begin{lstlisting}[language=MathML2]
+<matrix>
+  <bvar><ci type="integer">i</ci></bvar>
+  <bvar><ci type="integer">j</ci></bvar>
+  <condition>
+    <apply><and/>
+      <apply><in/>
+        <ci>i</ci>
+        <interval><ci>1</ci><ci>5</ci></interval>
+      </apply>
+      <apply><in/>
+        <ci>j</ci>
+        <interval><ci>5</ci><ci>9</ci></interval>
+      </apply>
+    </apply>
+  </condition>
+  <apply><power/>
+    <ci>i</ci>
+    <ci>j</ci>
+  </apply>
+</vector>
+\end{lstlisting}
+We can assume that this should end \verb+</matrix>+ instead of
+\verb+</vector>+, but this has no equivalent in OpenMath.
+\subsection{C.2.11.3 MMLdefinition: {\tt rational}}\label{C2113}
+This contains the following property (our formatting).
+\begin{lstlisting}[language=MathML2]
+    for all z where z is a rational, there exists 
+      integers p and q with p/q = z
+<apply><forall/>
+  <bvar><ci>z</ci></bvar>
+  <condition>
+    <apply><in/><ci>z</ci><rationals/></apply>
+    </condition>
+  <apply><exists/>
+    <bvar><ci>p</ci></bvar>
+    <bvar><ci>q</ci></bvar>
+    <apply><and/>
+      <apply><in/><ci>p</ci><integers/></apply>
+      <apply><in/><ci>q</ci><integers/></apply>
+      <apply><eq/>
+        <apply><divide/><ci>p</ci><ci>q</ci></apply>
+        <ci>z</ci>
+      </apply>
+    </apply>
+  </apply> 
+\end{lstlisting}
+\verb+forallrestricted+ seems the obvious solution, though the implies trick
+could also be used.
+\subsection{C.2.11.6 MMLdefinition: {\tt primes}}\label{C2116}
+This contains the following property (our formatting).
+\begin{lstlisting}[language=MathML2]
+ForAll( [d,p], p is prime, Implies( d | p , d=1 or d=p ) ) 
+<apply><forall/>
+  <bvar><ci>d</ci></bvar>
+  <bvar><ci>p</ci></bvar>
+  <condition>
+    <apply><and/>
+    <apply><in/><ci>p</ci><primes/></apply>
+    <apply><in/><ci>d</ci><naturalnumbers/></apply>
+    </apply>
+  </condition>
+  <apply><implies/>
+    <apply><factorof/><ci>d</ci><ci>p</ci></apply>
+    <apply><or/>
+      <apply><eq/><ci>d</ci><cn>1</cn></apply>
+      <apply><eq/><ci>d</ci><ci>p</ci></apply>
+    </apply>
+  </apply>
+</apply>
+\end{lstlisting}
+This could be encoded with the forall/implies trick, except that the result
+would have two implication signs --- perfectly correct, but possibly harder to
+read. We would need to nest \verb+forallrestricted+, as in the following.
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallrestricted" cd="quant2"/>
+    <OMS name="N" cd="setname1"/>
+  </OMA>
+  <OMBVAR> <OMV name="d"/> </OMBVAR>
+  <OMBIND>
+    <OMA>
+      <OMS name="forallrestricted" cd="quant2"/>
+      <OMS name="P" cd="setname1"/>
+    </OMA>
+    <OMBVAR> <OMV name="p"/> </OMBVAR>
+    ...
+  </OMBIND>
+</OMBIND> 
+\end{lstlisting}
+\subsection{C.2.11.15 MMLdefinition: {\tt infinity}}\label{C21115}
+This contains the following property and example (our formatting).
+\subsubsection{C.2.11.15(1) MMLdefinition: {\tt infinity}}\label{C211151}
+\begin{lstlisting}[language=MathML2] 
+    for all reals x, x \lt infinity
+<apply><forall/>
+  <bvar><ci>n</ci></bvar>
+  <condition><apply><in/><ci>n</ci><reals/></apply></condition>
+  <apply><lt/><ci>n</ci><infinity/></apply>
+</apply>
+\end{lstlisting}
+\verb+forallrestricted+ seems the obvious solution, though the implies trick
+could also be used.
+\subsubsection{C.2.11.15(2) MMLdefinition: {\tt infinity}}\label{C211152}
+\begin{lstlisting}[language=MathML2]
+<apply><eq/>
+  <apply><limit/>
+    <bvar><ci>x</ci></bvar>
+    <condition>
+      <apply><tendsto/><ci>x</ci><infinity/></apply>
+      </condition>
+    <apply><divide/><cn>1</cn><ci>x</ci></apply>
+  </apply>
+  <cn>0</cn>
+</apply>
+\end{lstlisting}
+From OpenMath's point of view, this is a straightforward limit.
+\begin{lstlisting} 
+<OMA>
+  <OMA>
+    <OMS cd="limit1" name="limit"/>
+    <OMS name="infinity" cd="nums1"/>
+    <OMS cd="limit1" name="below"/>
+    <OMBIND>
+      <OMS cd="fns1" name="lambda"/>
+      <OMBVAR> <OMV name="x"/> </OMBVAR>
+      <OMA>
+        <OMS name="divide" cd="arith1"/>
+        <OMI> 1 </OMI>
+        <OMV name="x"/>
+      </OMA>
+    </OMBIND>
+  </OMA>
+  <OMS cd="alg1" name="zero"/>
+</OMA>
+\end{lstlisting}
+\begin{thebibliography}{9}
+\bibitem{JHD-JEM}
+Davenport,J.H.,
+OpenMath in a (Semantic) Web. 
+Presentation at third Joining Educational Mathematics Workshop
+\url{http://www.jem-thematic.net/files_private/Barcelona.pdf},
+February 1, 2008.
+\bibitem{JHD}
+Davenport,J.H.,
+OpenMath and MathML:
+Differentiating between analysis and algebra.
+\url{http://staff.bath.ac.uk/masjhd/differentiate.html},
+October 4, 2008.
+%\bibitem{MK}
+%Kohlhase,M.,
+%OpenMath3 without conditions: A Proposal for a
+%MathML3/OM3 Calculus Content Dictionary.
+%\url{http://svn.openmath.org/OpenMath3/doc/blue/noconds/note.tex},
+%September 6, 2008.
+\end{thebibliography}
+\fi
+\end{document}
+$$
+2\pi\phi=\left\{\int_\delta^{2\pi-\delta}+\int_{-\delta}^0+\int_0^\delta\right\}
+\frac{a^2-r^2}{a^2-2ar\cos \vartheta+r^2}f(\theta+\vartheta)d\vartheta
+$$
+\cite[(8) p.~435]{JeffreysJeffreys1956}
+\par
+\begin{quotation}
+If $Q=[0,1]\times[0,\pi/2]$, evaluate
+${\int\int}_midsub Q (x\sin y -ye^x)dxdy$. \cite[p. 360, Example
+1]{Apostol1967}
+\pause
+\begin{itemize}
+\end{itemize}
+\begin{lstlisting}
+<OMA>
+</OMA>
+\end{lstlisting}
+\begin{enumerate}
+\end{enumerate}

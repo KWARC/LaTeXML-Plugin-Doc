@@ -1,0 +1,425 @@
+James' comments preceded by JHD>
+Michael's by MK>
+Lines not so beginning are in the original
+James has removed a bunch of duplicates
+Our last message had an unfortunate typographical error.  
+
+The camera ready papers are due on April 20, as stated on the conference web page (*not* April 10, as mistakenly stated in the first-email). 
+
+---------------------------------------------
+
+Paper: 15
+Title: Unifying Math Ontologies: A tale of two standards
+
+-------------------- review 1 --------------------
+ 
+OVERALL RATING: 0 (borderline paper) 
+REVIEWER'S CONFIDENCE: 3 (high)  
+----------------------- REVIEW --------------------
+
+This paper presents issues in the parallelization of the OpenMath and MathML markups. These are clearly an issue 
+relevant to the community. The treatment is relatively systematic with proposals how to best approach the meaning by the 
+proposed knowledge representation.
+
+I feel this paper is at the edge of a markup debate document, as has been flowing on OpenMath3 mailing-list. It is almost 
+fully lacking a vision of the implications and motivations of the markups.
+
+E.g. it barely informs about the practice at computer-algebra-system (I could mistake but I believe they do both of the systems).
+JHD> I don't understand the comment above.
+E.g. it fully misses "how much loss" there would be relying on a weaker markup in some scenarion of exchange where the semantic aspects become interoperability possibilities.
+JHD> We could say something here, but in fact I can't see a system that
+So: less markup, less technique (maybe even one topic less?), more applications and motivations! 
+JHD> I think we have to disagree here: the point IS the markup, since only this specifies the information we want to exchange.
+
+-------------------- review 2 --------------------
+
+PAPER: 15
+TITLE: Unifying Math Ontologies: A tale of two standards
+ 
+OVERALL RATING: 1 (weak accept) 
+REVIEWER'S CONFIDENCE: 4 (expert)  
+----------------------- REVIEW --------------------
+
+SUMMARY
+
+This paper discusses issues related to the upcoming (and
+then hopefully unified) MathML3 and OpenMath3 standards.
+
+JUDGMENT
+
+I am not fully decided what to recommend for this paper.
+
+On the one hand the subject of the paper is extremely
+important (one really would like the MathML and OpenMath
+standards to eventually converge to something meaningful)
+and the issues raised in this paper are very much worth
+of being discussed in the literature.  On the other hand
+the paper leaves me unsatisfied, and even irritated.  It is
+frustrating to know that the MathML3 and OpenMath3 standards
+_still_ will be meaningless from a semantical point of view.
+
+However, all in all I think the importance of the paper
+outweighs the fact that the paper did not manage to finally
+turn these standards into something meaningful, and hence
+I give it a weak accept.
+
+Maybe, given backward compatibility issues and the needs of
+the target communities, my desire for meaningful mathematical
+expressions is not an option, really.  However, I would like
+the paper to make _explicit_ that this is the case: i.e.,
+that this work will _not_ lead to a standard for mathematical
+expressions where those expressions have a proper semantics.
+
+SPECIFICS
+
+When first reading this paper, I wondered about the
+possibility to give all terms that are presented a proper
+semantics.  (The talk on page 4 of a "free algebra" semantics
+is nonsense: it amounts to saying that "the meaning of a
+term is its syntax".  That is _not_ what a mathematical
+semantics is.)
+JHD> I see you've added some (good) text here, but I've added a further
+JHD> paragraph, immediately before the start of 2.3.
+Then, after some reflection, I decided that what I want
+those expressions to have is a _compositional_ semantics.
+Each subexpression should "mean" something, and when
+combining subexpressions one should combine the meanings.
+This is the way that expressions are given a meaning in
+all existing systems that _do_ support a proper semantics
+for their expressions: the proof assistants.  Now the
+existing MathML/OpenMath standards do _not_ allow (as far
+as I can see) for a semantics like this.  Hence I think
+they are defective.  And the paper fails to convince me
+that the new MathML/OpenMath standards will be much better
+from that point of view.
+
+Take for instance the example at the bottom of page
+6: There the XML term for {x in R | x < 1} contains a
+subexpression \x. x < 1.  Now it is not clear to me at
+all what the "meaning" of this subexpression should be,
+because _in that subterm_ the type of the variable "x"
+is clearly not decided.  If I would write {x in N | x < 1}
+I would have the same subexpression.  Therefore the "meaning"
+of the subexpression should be useful for _both_ expressions,
+and it is not clear to me at all how to have this.
+
+Of course one could talk for this example about type
+inference, claiming that _the context_ of the subexpression
+for \x. x < 1 gives _extra_ information about what its
+meaning, but (a) the paper does not address this issue at
+all and (b) it is not clear to me how this would work.
+
+Exactly the same criticism applies to the example at the
+bottom of page 8.  There the expression \x y. f(x,y) does
+_not_ contain information of what the variables x and y
+range over, nor about the type of the values of f.  And this
+time this last information is not available at all, not even
+when taking the whole term into account.  Should I read this
+term polymorphically in the output type of f in some way?
+Again the issues are not discussed nor is it apparent to
+me what is a reasonable semantics for this subterm.
+
+Much worse (because not only without a good semantics, but
+just plain wrong) is the issue hidden in "Rule 1" on page 6,
+where it reads that "d/dx" "does not bind" the variable x.
+That clearly is nonsense.  _Of course_ the d/dx binds the
+variable.  Else it would be meaningful in an equation like
+
+        d/dx x^2 = 2x
+
+to substitute for x and get something like
+
+        d/d1 1 = 2
+
+which clearly is meaningless.  The "correct" analysis of
+"d/dx f(x)" is that it should be read as
+
+        d/dx f(x) = (\x. f(x))'(x)
+
+i.e., there is _both_ a bound and a free variable in this
+expression, but for convenience the same name is used
+for both.  I think that only a term that has the structure
+of the right hand side of this equation can be given a
+meaningful semantics.
+JHD> The referee has clearly misunderstood here, but we probably haven't 
+JHD> helped him, or any potential reader.
+JHD> I've added quite a bit of text on page 2, which I hope helps.
+One point in this paper that I feel quite strongly about
+is the proposal in Section 5 to allow multiple bodies to
+a binder.  To me that is very wrong.  The OpenMath standard
+is hardly more than the XML standard (XML is about having
+generic "terms" and OpenMath is about generic "terms
+with binders") and that is _nice_ semantically speaking,
+exactly _because_ it allows one to speak of a compositional
+semantics.  Even if the current CDs don't allow for such a
+semantics _potentially_ they could be changed to CDs that
+_do_ allow for this.  However, by breaking the model of
+what an OpenMath term is, does one also break the notion
+of having a notion of compositionality.  I think that is bad.
+JHD> I don't actually see how our proposal breaks compositionality.
+Admittedly the paper gives an alternative approach in which
+this generalization of the OpenMath model is not needed,
+but I find it regrettable that the paper presents the option
+that needs multiple bodies to a binder as the preferred one.
+JHD> OK, but there's nothing wrong with our preference.
+Some more minor points:
+
+p.3, "the role of presentation MathML as the high-level
+presentation format for Math on the Web is (largely)
+uncontested":  I never have seen MathML been seriously used,
+as no browser that I used ever supported it.  I always
+consider MathML to be a _failed_ attempt at something
+more intelligent than pictures.  The Math on the web that
+I see for myself is pdf (papers) or gifs/pngs (Wikipedia,
+MathWorld, etc.)  So I would certainly contest the role of
+presentation MathML!
+JHD> Really!
+JHD> When I look a J. Number Theory, for example, I am offered MathML everywhere
+JHD> Admittedly via some clunky Javascript to deal with such browsers
+p.3, "MathML2 supplies about 90 elements for mathematical
+operators".  At this point I thought "yes, _plus_ csymbol,
+which adds another infinite family".  This point is discussed
+on page 5 below, and maybe this extra symbol is not seriously
+used beyond academics (however, _I_ know someone who claims
+it is the _only_ MathML symbol that can be seriously used,
+because only that way can one have a reasonable semantics),
+but I already had this thought at this point, and I might
+like it if already would say here "about 90 "plus 1"."
+JHD> Noted: text added.
+p.3, "K-14 fragment":  I guess "K-14" refers to some school
+system in some country (the US? the UK?), but it would
+be nice if this would be made more explicit in the paper.
+Googling did not tell me what this "K-14" referred to.
+JHD> Well, we merely use it as a name, and Lewis Carroll should rule here.
+JHD> Googlin DOES answer K-12. However, some text added.
+p.4, "hence the (inferred) Rule 1": at this point it is
+totally unclear what this refers to.
+JHD> There is only Rule 1.
+p.4, ""binary encoding" ... at the cost of being less
+human-readable":  At this point I wanted a reference about
+this specific issue, and then discovered that the paper does
+not seem to give a reference to the OpenMath standard in
+JHD> Good point. Added
+the bibliography.  Also, I hardly would call an XML encoding
+"human-readable" either.
+
+p.5, "MathML 3" and "MathML2" in the same paragraph:  It
+would be nice to make these notations (with or without a
+space) consistent.
+JHD> Good point - fixed (space always)
+
+p.6, "{x | x < 1}": The "|" is badly spaced (it is too close
+JHD> Typography fixed.
+JHD> But the text is quoted from MathML. Agreed that it does
+JHD> not specify, but that's not our fault. See note 6 on the next
+JHD> page. This fuzziness is precisely NOT in OpenMath.
+to the x's), but more importantly it is not clear what the
+"x" ranges over.  This is another example of a term that
+does not have a semantics.  Is this "{x in N | x < 1} or
+"{x in R | x < 1}".  Or is it a polymorphic "{x | x < 1}"
+where the set that "x" ranges over is an argument to the
+meaning of this expression.  Or maybe the expression should
+be interpreted like in a system where one has type classes?
+So this term feels very fuzzy to me, and it is exactly
+this fuzziness that always irritates me when I look at the
+MathML/OpenMath standards.  I had hoped that this paper
+would get rid of this fuzziness, but clearly it does not.
+
+p.6, "{x | y < 1} ... as meaningless as that set of symbols":
+This I do not understand.  Isn't "A_y := {x in R | y < 1}"
+a perfectly reasonable definition?  (Then A_y = R when y < 1
+and A_y = {} when y >= 1.)
+JHD> Good point. That's probably not how most people would interpret it,
+JHD> but it's valid. "meaningless" -> "eccentric"
+
+p.7: the distinction between the epsilon-delta and "DA"
+versions of the differential/integral operators can use more
+explanation.  An example where these two variants clearly
+differ would really be helpful, and certainly there should
+be a reference.  Also maybe it would help to stress that
+in the one case the operators apply to (I guess: partial)
+continuous functions, while in the other case they apply to
+elements of a differential algebra.  (Did I get that right?
+If not, _clearly_ there need to be more explanation here :-))
+So it is not only that there are two different definitions
+for the differential operators, but these two variants do not
+even operate on the same objects.
+JHD> Good point. There isn't really a good write up, but
+JHD> I've added some text, on the lines suggested.
+p.8: the bottom XML example on this page has "<OMV name="m">"
+twice.  Shouldn't one of those "m"s be an "n"?
+JHD> Good point - fixed.
+p.9: I found the notation "{x^2/a^2 + y^2/b^2 + z^2/c^2 <= 1}"
+very strange.  I would write this set as
+"{(x,y,z) | x^2/a^2 + y^2/b^2 + z^2/c^2 <= 1}".
+JHD> So might I. But the point is that this is mathematics AS IT IS WRITTEN
+JHD> (in a pretty reputable source) not as we would like it to be.
+p.11, "the expression on the right":  It was not clear to
+me what this referred to.  Maybe alternative 5?  But that's
+not too the right, but to the bottom.  Or alternative 4?
+JHD> Good point - fixed.
+p.12, "Strictly speaking these usages are not necessary":
+Using the same argument one could say that logical negation
+is not necessary either as one might write "not p" as "p
+implies false".  I do not find this a good argument.
+JHD> I think the referee has misread the paper. We say "striuctly speaking,
+JHD> these are not necessary. However ..." , so in fact we agree.
+p.13: Two more "big" operators might be "forall" and "exists".
+"forall i in {1,2,3} p_i" is "p_1 and p_2 and p_3", and
+"exists i in {1,2,3} p_i" is "p_1 or p_3 or p_3", so
+"forall" is "big and" and "exists" is "big or".
+JHD> True, but the paper is long enough!
+p.14, "... or some kind of infinite object otherwise".
+I think that I would rather take the expression to be
+_undefined_ otherwise.  For instance, consider
+"sum(i = 0, infinity, (-1)^i)".  To me that is a
+non-converging series, and therefore undefined, and does
+_not_ have an "infinite object" as its value.
+JHD> The referee might wish to, but OpenMath would contradict users whatever
+JHD> it specified. Again, this is a "mathematics as it is" issue.
+p.14, "but the two _are_ different":  Here, just like on
+page 7, I longed for an example where these are different.
+JHD> Example - Fundamental Theorem of Calculus - given.
+
+Finally, a few more points from another person that I asked
+about this paper:
+- (this reiterates a point I already made:)  I think the
+  choice of derivative notation is unfortunate because
+  it's actually more complicated than they seem to suggest:
+  really d(x^2)/dx has both a free and  bound instance of
+  x in the lambda-calculus sense, i.e. it's "derivative of
+  (\x. x^2) evaluated at x". To me, that's how it should
+  be analyzed. But if you shy away from "higher order"
+  representations as they seem to, then you can't really
+  analyze it in the "right" way.
+JHD> Agree totally, but the designers of OM/MathML CAN'T tell people how to
+JHD> write mathematics.
+- When you write a triple integral sign or whatever
+  you really need to make explicit whether this is truly
+  an iterated one-dimensional integral or is directly an
+  integral in n-dimensional space, since in general they
+  are not equivalent.
+JHD> Same point
+- The question of lifting associative operators seems
+  essentially trivial if you take a higher-order view; each
+  "big" operator is the result of applying a higher-order
+  iterating function to the corresponding "little" operator.
+JHD> Agreed IF ...
+- I did find the paper interesting as a survey of what
+  is going on in this world and an example of things that
+  are not easy.  But I just think it indicates that unless
+  the process is driven by people who really want to _use_
+  the semantics seriously and therefore really care about
+  how precise and economical it is, the net result is not
+  going to be very satisfying for us. 
+
+
+-------------------- review 3 --------------------
+
+PAPER: 15
+TITLE: Unifying Math Ontologies: A tale of two standards
+ 
+OVERALL RATING: 1 (weak accept) 
+REVIEWER'S CONFIDENCE: 4 (expert)  
+----------------------- REVIEW --------------------
+
+This paper addresses an important issue, and does so very
+convincingly.  The below detailed comments were written as I read the
+paper page by page, and indicate that some changes in the writing style
+are warranted:
+- most importantly, do not write as if either MathML or OpenMath were
+  sacrosanct in their current form. Make it clear from the start and
+  throughout the paper that both are subject to change as necessary.
+  To be perfectly honest, I found it quite exasperating to read 
+  "but this is not possible" when I knew perfectly well that it was,
+  and in fact the paper's main result shows it is possible after all.
+- just as importantly, do not leave out the most important result of
+  the paper - do summarize the proposed change to OpenMath binding
+  constructors, since it's simple and easy to grasp and the paper 
+  simply does not make sense without it.
+[Comments in (** **) were added below after writing this summary.]
+Being co-designer of some of the features in question in MathML, 
+I'd like to add a couple of comments here, even though they would
+induce only minor changes to the drift of this particular paper.
+The idea I had in mind when debugging and offering the advice which
+went into streamlining MML-Cv.2 in the run-up to rev. 2 was that <domainofapplication> is the 
+primitive for restrictions, and 
+not <condition>. I still think <doa> should be the *main* primitive, and 
+that OpenMath needs to adapt to it properly and "strict" MML-C needs to 
+include it, but your paper convinced me that <condition> should be a 
+primitive, too. (This probably wouldn't affect this paper much, but 
+would require fixing MML3-C-strict as well as OM3.)
+The idea was also that the other qualifiers would just be simple syntactic 
+variants; condition would become domainofapplication with the bound
+variables repeated in an embedded set constructor, for example.
+Some MathML qualifiers were completely left out of those considerations,
+however, especially degrees, modes, and moments.
+These assumptions were translated into the methodology of Strotmann, MKM04,
+in order to systematically debug MML-C for version 2 revision 2, to make
+sure that all potential variants were consistent with this idea, especially
+for the lifted operators which we defined based on this intuition - see below for an example.
+[As an aside, it violates this spirit to insist that 'big' and 'small'
+operators be different symbols. OpenMath should scrap this requirement,
+and MathML should not add it unnecessarily.]
+
+Details:
+ p.3,bottom para: this neglects to mention that the Content MathML part
+    was in fact developed largely by members of the OpenMath group. This
+    is particularly true for the parts dealt with in this paper.
+ p.8: "human beings" actually "do" non-standard analysis.  eps/delta is
+    extremely hard to teach for that reason.
+ p.9 (3): this is a bit misleading - the correct transformation is that
+    to limits; the substitution transformation shown here is only
+    admissible under strict convergence criteria.
+ p.10/11: never once do the authors appear to take into consideration 
+    (** see above for prevarications **) that it is
+    OpenMath that may need to be fixed.
+    How about the following fixes, just for argument's sake:
+    - allow multiple arguments to binders, the second optional one 
+      by definition being the equivalent of a MathML condition:
+      bind(int,bvar(x,y,z),integrand,range)
+      arguably a simple and elegant solution. (** why didn't
+      you say this was yours, too, earlier? **)
+    - the functional analysis approach, where linear operators are
+      restricted to/classified by the sets that are integrated over:
+        bind(restrict(int,bind(set,bvar(x,y,z),...)),bvar(x,y,z),...)
+      which requires compound binders which are allowed in MathML
+      Content and in OM1, but for some reason not in OM2.
+ p. 10, bottom, point 1: I agree that the variables in a binding 
+    expression should not govern the binder; however, alternative 2 in the
+    above shows a way around this.
+ p. 10, bottom, point 2: no, it is not impossible - all that is required
+    is to fix OpenMath instead of breaking MathML. (** see above**)
+ p. 10, footnote 11: not true - the WebALT project shows clearly that
+    this type of "formula" can be well within the realm of MathML/OM,
+    so that this example needs to be taken seriously. It is actually
+    quite easy, too: 
+    apply(bind(lambda,bvar(S),bind(defint,...,S)),...)
+ p. 11, top, point 4: so why not dump alpha equivalence in OM? This has
+    been suggested before, and this is a perfect example why you might
+    want to do so. Instead, use a type system that handles binders and
+    bindings properly, as e.g. the one proposed in Strotmann, MKM04,
+    to define semantic equivalence in the semantic rather than the 
+    syntactic structure.
+ p. 13, bottom: being one of the designers in question, this was left
+    deliberately unsaid, with the intention that generally anything
+    that can be determined to make sense here is allowed here.
+ p. 14, middle: I believe that the original design intention for
+    MathML Content in this case was that 
+    <apply><exists/><domainofapplication>F</doa></identity></apply>
+    would work, too. However, you are correct in that a body is
+    required, although this can be done without introducing
+    a bound variable. Note, though, that the domainofapplication
+    qualifier was meant to be available even without bvars, 
+    the missing bvar signaling a functional body to which the 
+    domainofapplication applied. (** this is an example of how we
+    tried to make sure all variants were consistent **).
+    (** come to think of it, as you are actually making use of an
+    implicit duality between a set and its characteristic function,
+    a better variant of this in MathML-Content could be
+    <apply><exists/><apply><csym-characteristic-function/>F</a></a>.
+    Missing bvars again signal functional (or rather, propositional)
+    body here, just as with <int/>. **) 
+
+
+

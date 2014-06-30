@@ -1,0 +1,261 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tikz-defs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% version: 6
+% last edited: 02.10.2013
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% necessary includes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{etoolbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
+\usetikzlibrary{scopes}
+\usetikzlibrary{backgrounds,fit}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% text commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\tikzArrowToText}[1]{%
+\mathop{\begin{tikzpicture}[baseline={([yshift=-0.5ex]current 
+bounding box.south)}]%
+\draw[#1] (0,0) -- (1.1em,0);%
+\end{tikzpicture}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% format definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{nodelabel/.style={font=\footnotesize}}
+\tikzset{edgelabel/.style={font=\footnotesize}}
+\tikzset{henodenumber/.style={font=\footnotesize}}
+\tikzset{undiredge/.style={shorten >=0pt, shorten <=0pt}}
+\tikzset{partialedge/.style={-left to, thick}}
+\tikzset{dotline/.style={dotted, shorten <=5pt, shorten >=5pt}}
+
+\tikzset{graphedge/.style={->, >=latex}}
+\tikzset{bigraphedge/.style={<->, >=latex}}
+\tikzset{invgraphedge/.style={<-, >=latex}}
+\tikzset{henode/.style={draw, rectangle, rounded corners=2.5pt}}
+\tikzset{stdnode/.style={draw, circle}}
+\tikzset{mapedge/.style={->, >=stealth', dashed, color=orange}}
+
+\tikzset{ruleappedge/.style={double, ->}}
+\tikzset{mor-tot-inj/.style={catt-catt}}
+\tikzset{mor-tot/.style={-catt}}
+\tikzset{mor-parr/.style={-catpr}}
+\tikzset{mor-parl/.style={-catpl}}
+\tikzset{mor-minor/.style={|-catt}}
+\tikzset{mor-subgraph/.style={)-catt}}
+\tikzset{mor-indsubgraph/.style={open triangle 45 reversed-catt}}
+\tikzset{mor-genorder/.style={]-catt}}
+\tikzset{noedge/.style={decoration={markings,mark=at position 0.5 with 
+{\arrow[scale=1.6,color=red]{|}}}, postaction={decorate}}}
+\tikzset{closure/.style={postaction={decorate, decoration={raise=4pt, 
+markings, mark=at position 1 with {\node[scale=0.65]{\textbf{*}};}}}}}
+
+\tikzset{backstepedge/.style={-open triangle 45, shorten <=0pt, shorten >=0pt}}
+
+\tikzset{graphbox/.style={draw, dashed, rounded corners=2mm, outer sep=5pt, on 
+background layer}}
+\tikzset{graphboxgrey/.style={draw, dashed, black!50, rounded corners=2mm, 
+outer sep=5pt, on background layer}}
+
+%%%%% definition of arrow tips for total category edges %%%%%
+
+\newdimen\arrowsize
+\pgfarrowsdeclare{recatt}{catt}
+{
+%\pgfsetlinewidth{0.4pt}
+\arrowsize=1pt
+\advance\arrowsize by .5\pgflinewidth
+\pgfarrowsleftextend{-2.5\arrowsize-.5\pgflinewidth}
+\pgfarrowsrightextend{.5\pgflinewidth}
+}
+{
+\pgfsetlinewidth{0.4pt}
+\arrowsize=0.8pt
+\advance\arrowsize by .5\pgflinewidth
+\pgfsetdash{}{0pt} % do not dash
+\pgfsetroundjoin % fix join
+\pgfsetroundcap % fix cap
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpatharc{270}{190}{2.8\arrowsize}
+\pgfusepathqstroke
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpatharc{90}{170}{2.8\arrowsize}
+\pgfusepathqstroke
+}
+
+\pgfarrowsdeclarereversed{catt}{recatt}{recatt}{catt}
+\pgfarrowsdeclaredouble{recatcatt}{catcatt}{recatt}{catt}
+\pgfarrowsdeclaredouble{catcatt}{recatcatt}{catt}{recatt}
+
+%%%%% definition of arrow tips for partial category edges %%%%%
+
+\pgfarrowsdeclare{helperpr}{helperpr}
+%\pgfarrowsdeclare{recatpr}{catpr}
+{
+%\pgfsetlinewidth{0.4pt}
+\arrowsize=1pt
+\advance\arrowsize by .5\pgflinewidth
+\pgfarrowsleftextend{-2.5\arrowsize-.5\pgflinewidth}
+\pgfarrowsrightextend{.5\pgflinewidth}
+}
+{
+\pgfsetlinewidth{0.55pt}
+\arrowsize=0.8pt
+\advance\arrowsize by .5\pgflinewidth
+\pgfsetdash{}{0pt} % do not dash
+\pgfsetroundjoin % fix join
+\pgfsetroundcap % fix cap
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpatharc{90}{170}{3\arrowsize}
+\pgfusepathqstroke
+}
+
+\pgfarrowsdeclare{helperpl}{helperpl}
+%\pgfarrowsdeclare{recatpl}{catpl}
+{
+%\pgfsetlinewidth{0.4pt}
+\arrowsize=1pt
+\advance\arrowsize by .5\pgflinewidth
+\pgfarrowsleftextend{-2.5\arrowsize-.5\pgflinewidth}
+\pgfarrowsrightextend{.5\pgflinewidth}
+}
+{
+\pgfsetlinewidth{0.55pt}
+\arrowsize=0.8pt
+\advance\arrowsize by .5\pgflinewidth
+\pgfsetdash{}{0pt} % do not dash
+\pgfsetroundjoin % fix join
+\pgfsetroundcap % fix cap
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpatharc{270}{190}{3\arrowsize}
+\pgfusepathqstroke
+}
+
+\pgfarrowsdeclarereversed{rehelperpr}{rehelperpr}{helperpr}{helperpr}
+\pgfarrowsdeclarereversed{rehelperpl}{rehelperpl}{helperpl}{helperpl}
+\pgfarrowsdeclarealias{catpl}{catpl}{helperpl}{helperpl}
+\pgfarrowsdeclarealias{catpr}{catpr}{helperpr}{helperpr}
+%\pgfarrowsdeclarereversed{catpr}{recatpl}{recatpl}{catpl}
+%\pgfarrowsdeclarereversed{catpl}{recatpr}{recatpr}{catpr}
+%\pgfarrowsdeclarereversed{catpr}{recatpl}{recatpl}{catpl}
+%\pgfarrowsdeclaredouble{recatcatpr}{catcatpr}{recatpr}{catpr}
+%\pgfarrowsdeclaredouble{catcatpr}{recatcatpr}{catpr}{recatpr}
+%\pgfarrowsdeclaredouble{recatcatpl}{catcatpl}{recatpl}{catpl}
+%\pgfarrowsdeclaredouble{catcatpl}{recatcatpl}{catpl}{recatpl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% box definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% places a dashed box around a center with using the specified height and width
+% usage: \DynamicGraphbox[name of box]{center of box}{half of boxwidth}{half 
+%of boxheight}
+\newcommand\DynamicGraphbox[4][grbox]{%
+	\begin{pgfonlayer}{background}%
+	\node[circle, above left= #4 and #3 of #2] (top_left) {};%
+	\node[circle, below right= #4 and #3 of #2] (bottom_right) {};%
+	\node[fit=(top_left) (bottom_right), outer sep=5pt] (#1) {};%
+	\draw[dashed, black!50,rounded corners=2mm] 
+		($(#1.north west) + (5pt,-5pt)$) -- ($(#1.north east) + (-5pt,-5pt)$) --
+		($(#1.south east) + (-5pt,5pt)$) -- ($(#1.south west) + (5pt,5pt)$) -- 
+		cycle;%
+	\end{pgfonlayer}%
+}%
+
+% places a dashed box around a collection of nodes with the specified height 
+% and width as minimum size
+% usage: \BoundedGraphbox[name of box]{collection of nodes}{width}{height}
+\newcommand\BoundedGraphbox[4][grbox]{%
+	\begin{pgfonlayer}{background}%
+	  \node[graphboxgrey, fit=#2, minimum height=#4, minimum width=#3] (#1) {};%
+	\end{pgfonlayer}%
+}%
+
+% places a dashed box around a list of nodes
+% usage: \Interfacebox[name of box]{list of names or coordinates of nodes (if 
+%necessary in brackets)}
+\newcommand\Interfacebox[2][ifbox]{%
+  \begin{pgfonlayer}{background}%
+    \node[fit=#2] (#1) {};%
+    \draw[dashed,black,rounded corners=2mm] 
+          (#1.north west) -- (#1.north east) --
+          (#1.south east) -- (#1.south west) -- cycle;%
+  \end{pgfonlayer}%
+}%
+
+% places a normal lined box around a list of nodes
+% usage: \Boldbox[name of box]{list of names or coordinates of nodes (if 
+%necessary in brackets)}
+\newcommand\Boldbox[2][boldbox]{%
+  \begin{pgfonlayer}{background}%
+    \node[fit=#2] (#1) {};%
+    \draw[black,rounded corners=2mm] 
+          (#1.north west) -- (#1.north east) --
+          (#1.south east) -- (#1.south west) -- cycle;%
+  \end{pgfonlayer}%
+}%
+
+% places a dashed box around a center with a specified heigth and width
+% usage: \StaticGraphbox[name of box]{center node position}{width of 
+%box}{height of box}{alignment and displayed name (komma seperated)}
+\makeatletter
+\@ifclassloaded{beamer}{%
+\newcommand<>{\StaticGraphbox}[5][grbox]{%
+\def\hAlignCJS{right}%
+\def\vAlignCJS{top}%
+\def\nameCJS{}%
+\renewcommand{\do}[1]{%
+  \ifthenelse{\equal{##1}{top}}{\def\vAlignCJS{top}}{%
+  \ifthenelse{\equal{##1}{bottom}}{\def\vAlignCJS{bottom}}{%
+  \ifthenelse{\equal{##1}{right}}{\def\hAlignCJS{right}}{%
+  \ifthenelse{\equal{##1}{left}}{\def\hAlignCJS{left}}{\def\nameCJS{##1}}}}}}%
+  \docsvlist{#5}%
+  \begin{pgfonlayer}{background}
+    \node[circle, above left= #4 and #3 of #2] (top_left) {};
+    \node[circle, above right= #4 and #3 of #2] (top_right) {};
+    \node[circle, below left= #4 and #3 of #2] (bottom_left) {};
+    \node[circle, below right= #4 and #3 of #2] (bottom_right) {};
+    \node[fit=(top_left) (bottom_right), outer sep=5pt] (#1) {} ;
+    \draw#6[dashed, black!50,rounded corners=2mm] 
+    ($(#1.north west) + (5pt,-5pt)$) -- ($(#1.north east) + (-5pt,-5pt)$) --
+    ($(#1.south east) + (-5pt,5pt)$) -- ($(#1.south west) + (5pt,5pt)$) -- 
+    cycle ;
+    \node#6[left] (boxname) at (\vAlignCJS_\hAlignCJS.east) {\nameCJS};
+  \end{pgfonlayer}
+}}{%
+\newcommand{\StaticGraphbox}[5][grbox]{%
+\def\hAlignCJS{right}%
+\def\vAlignCJS{top}%
+\def\nameCJS{}%
+\renewcommand{\do}[1]{%
+  \ifthenelse{\equal{##1}{top}}{\def\vAlignCJS{top}}{%
+  \ifthenelse{\equal{##1}{bottom}}{\def\vAlignCJS{bottom}}{%
+  \ifthenelse{\equal{##1}{right}}{\def\hAlignCJS{right}}{%
+  \ifthenelse{\equal{##1}{left}}{\def\hAlignCJS{left}}{\def\nameCJS{##1}}}}}}%
+  \docsvlist{#5}%
+  \begin{pgfonlayer}{background}
+    \node[circle, above left= #4 and #3 of #2] (top_left) {};
+    \node[circle, above right= #4 and #3 of #2] (top_right) {};
+    \node[circle, below left= #4 and #3 of #2] (bottom_left) {};
+    \node[circle, below right= #4 and #3 of #2] (bottom_right) {};
+    \node[fit=(top_left) (bottom_right), outer sep=5pt] (#1) {} ;
+    \draw[dashed, black!50,rounded corners=2mm] 
+    ($(#1.north west) + (5pt,-5pt)$) -- ($(#1.north east) + (-5pt,-5pt)$) --
+    ($(#1.south east) + (-5pt,5pt)$) -- ($(#1.south west) + (5pt,5pt)$) -- 
+    cycle ;
+    \node[left] (boxname) at (\vAlignCJS_\hAlignCJS.east) {\nameCJS};
+  \end{pgfonlayer}
+}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% commands for dots %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% places the dots in a vertical line at the specified position
+% usage: \verticaldots{position of the middle dot}{width and height of a dot}
+\providecommand{\verticaldots[2]}{
+	\path (#1) node[fill=black, circle, minimum width=#2, minimum height=#2,inner sep=0] {}
+	+(0,3*#2) node[fill=black, circle, minimum width=#2, minimum height=#2,inner sep=0] {}
+	+(0,-3*#2) node[fill=black, circle, minimum width=#2, minimum 
+	height=#2,inner sep=0] {};}

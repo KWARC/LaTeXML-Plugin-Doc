@@ -1,0 +1,403 @@
+\newif\ifshort\shorttrue
+\documentclass{llncs}
+\usepackage{local}
+\usepackage{verbatim}
+\usepackage[show]{ed}
+\usepackage{url}
+%\usepackage[eso-foot,today]{svninfo}
+\usepackage{svninfo}
+\usepackage{lstom}
+%\usepackage[final]{svninfo}
+\svnInfo $Id: OM2009.tex 592 2009-07-14 21:34:38Z jhd $
+\svnKeyword $HeadURL: https://svn.kwarc.info/repos/kohlhase/tex/papers/mkm/mmlstrict/OM2009.tex $
+
+\bibliographystyle{alpha}
+
+\def\forallin{\forall_{\kern-.25em i}}
+\def\forallcond{\forall_{\kern-.25em c}}
+\def\forallincond{\forall_{\kern-.25em ic}}
+\def\existsin{\exists_{\kern-.01em i}}
+\def\existscond{\exists_{\kern-.01em c}}
+\def\existsincond{\exists_{\kern-.01em ic}}
+ 
+\title{Quantifiers and Big Operators in OpenMath}
+\author{James H.~Davenport\inst{1} \and Michael Kohlhase\inst{2}}
+\institute{Department of Computer Science\\
+University of Bath, Bath BA2 7AY, United Kingdom\\
+{\texttt{J.H.Davenport@bath.ac.uk}}
+\and
+ School of Engineering \& Science, Jacobs University Bremen\\
+Campus Ring 12,
+ D-28759 Bremen, Germany\\
+{\texttt{m.kohlhase@jacobs-university.de}}} 
+\begin{document}
+\maketitle
+\begin{abstract}\noindent
+  The effort to align MathML 3 and OpenMath has led to a realisation that (pragmatic)
+  MathML's {\element{condition}} and {\element{domainofapplication}} elements, when used
+  with quantifiers, do not have a {\emph{neat}} expression in OpenMath.
+
+  This paper analyzes the situation focusing on quantifiers and proposes a solution, via
+  six new symbols.
+Two of them fit completely within the existing OpenMath structure, and we 
+place them in the associated {\symbol{quant3}} CD. The others require a
+generalization of {\symbol{OMBIND}}.
+\par We also
+  propose, logically separately but in the same area, a {\symbol{quant2}} CD with
+  {\symbol{existsuniquely}}, commonly written $\exists!$, and the `fusion'
+symbol {\symbol{existsuniquelyin}}.
+
+  In a second step we generalize the solution to the phenomenon of big operators that
+  MathML 2 implicitly provides but which do not have a direct counterpart in the OpenMath
+  CDs.
+\end{abstract}
+
+\section{Introduction}
+The effort to align MathML 3 \cite{WorldWideWebConsortium2008a} and OpenMath
+\cite{OpenMath2004a} has led to a realisation that (pragmatic) MathML 3's
+{\element{condition}} and {\element{domainofapplication}} elements, when used with
+quantifiers, does not have a {\emph{neat}} expression in OpenMath. We have described the
+MathML 3/OpenMath 3 and the general representational issues
+in~\cite{DavenportKohlhase2009a}, which we will assume as background reference. But a
+central part of the alignment effort remains unsolved there: the provisioning of the
+OpenMath content dictionaries that supply the necessary symbols. We will describe what
+needs to be done on this front in this paper, which should be seen as a companion paper
+to~\cite{DavenportKohlhase2009a}.
+
+We start out by analyzing the situation focusing on quantifiers and then generalizing the
+solution to the phenomenon of big operators that MathML 2 implicitly provides but which do
+not have a direct counterpart in the OpenMath CDs.
+
+\section{Existential and Universal Quantifiers}
+
+``$\forall n\in\N\ldots$'' is a very natural piece of mathematical notation, even though it
+tends not to be formally defined. MathML (Content) can represent this via the
+{\element{condition}} element, but OpenMath\footnote{If restricted only to the content
+  dictionaries the authors know about.} has hitherto had no {\emph{direct}} way of doing
+so, relying on the following equivalences:
+\begin{eqnarray}
+\label{eq:forall}
+\forall  v\in S. p(v)&\Leftrightarrow \forall v.(v\in S)\Rightarrow p(v)\\
+\label{eq:exists}
+\exists  v\in S. p(v)&\Leftrightarrow \exists v.(v\in S)\land p(v)
+\end{eqnarray}
+However, in practice\footnote{A referee objected to \cite{DavenportKohlhase2009a} on the
+  grounds that it had stated that such shorthand was not necessary, writing `one might [as well]
+  write ``not $p$'' as``$p$ implies false'''.}, it would be better to have a convenient
+shorthand for these, hence this proposal.
+
+The challenge is the syntax of OpenMath. One represents $\forall n.p(n)$ as
+\begin{lstlisting}
+<OMBIND>
+  <OMS name="forall" cd="quant1"/>
+  <OMBVAR><OMV name="n"/></OMBVAR>
+  <OMA><OMV name="p"/><OMV name="n"/></OMA> 
+</OMBIND>
+\end{lstlisting}
+
+Where is the ``$\in\N$'' going to fit in this syntax? In \cite{DavenportKohlhase2009a} we
+have argued that there are actually two representation styles that need to be supported:
+Figure~\ref{fig:ex1} gives both styles the {\emph{first-order}} style on the left makes
+use of expressions with bound variables whereas the {\emph{higher-order}} style directly
+uses sets.
+\begin{figure}[ht]
+\lstset{frame=none,numbers=none,aboveskip=-.7em,belowskip=-1.2em,mathescape}
+\begin{tabular}{|p{5.9cm}|p{5.9cm}|}\hline
+\begin{lstlisting}
+<OMBIND>
+  <OMS name="forallcond" cd="quant3"/>
+  <OMBVAR>
+    <OMV name="n"/>
+  </OMBVAR>
+  <OMA>
+    <OMS name="in" cd="set1"/>
+    <OMV name="n"/>
+    <OMS name="N" cd="setname1"/>
+  </OMA>
+  $\psom{p(n)}$
+</OMBIND>
+\end{lstlisting}
+&
+\begin{lstlisting}
+<OMBIND>
+  <OMA>
+    <OMS name="forallin" cd="quant3"/>
+    <OMS name="N" cd="setname1"/>
+  </OMA> 
+  <OMBVAR>
+    <OMV name="n"/>
+  </OMBVAR>
+  $\psom{p(n)}$
+</OMBIND>
+\end{lstlisting}
+\\\hline
+\multicolumn{2}{|p{11.8cm}|}{here and in the following we use boxed mathematical notation to
+  represent the obvious {\openmath} counterparts}\\\hline
+\end{tabular}
+\caption{Two representations of quantifiers with domains}\label{fig:ex1}
+\end{figure}
+The latter is nearer to our example, and we propose to use the fact that the first child
+of an {\element{OMBIND}} need not be an atom and propose a symbol {\symbol{forallin}}
+which acts as a binding constructor, i.e. an operator that takes a set as an argument and
+returns a binding operator, which can then be used in the {\element{OMBIND}}. The
+first-order style of representation could be glossed in Mathematics as $\forallcond
+n:n\in\N.p(n)$; it makes the bound variable that was implicit in the higher-order
+construction explicit in a condition expression. So we would contend that the higher-order
+style is closer to our original example. But the first-order style is more in other
+situations, e.g. $\forall x:(1/x\;\mbox{is irrational}).p(x)$, which can be represented as
+$\psom{\forall x:(\forall n,d.n/d\ne x).p(x)}$.
+
+\begin{lstlisting}[caption=A natural case for a quantifier with a condition,label=fig:irrational,mathescape]
+<OMBIND>
+  <OMS name="forallcond" cd="quant3"/>
+  <OMBVAR><OMV name="x"/></OMBVAR>
+  <OMBIND>
+    <OMS name="forall" cd="quant1"/>
+    <OMBVAR><OMV name="n"/><OMV name="d"/></OMBVAR>
+    <OMA><OMS cd="relation1" name="ne"/>
+      <OMA><OMS cd="arith1" name="divide">
+        <OMV name="n"/>
+        <OMV name="d"/>
+      </OMA>
+      <OMV name="x"/>
+    </OMA>
+  </OMBIND>
+  $\psom{p(x)}$
+</OMBIND>
+\end{lstlisting}
+Note that for the first-order representations on the left of Figure~\ref{fig:ex1} and in
+Listing~\ref{fig:irrational} we need the extension of binding objects to allow multiple
+scopes proposed in~\cite{DavenportKohlhase2009a}. We consider the examples in this paper
+and representation possibilities they enable to be a good reason for this extension.
+
+The symbols {\texttt{forallin}} and {\texttt{forallcond}} are defined in the proposed
+{\cdname{quant3}} CD, with Formal Mathematical Properties corresponding to equations
+(\ref{eq:forall}) and (\ref{eq:exists}), at least in the single-variable case. They are
+related by the following FMPs:
+\[\begin{array}{rlcl}
+  \forall P,Q.&[\forallcond x.Q(x) P(x)] &\Leftrightarrow& [\forallin(\lambda{z}.P(z))]x.Q(x)\\
+  \forall Q,S.&[\forallin(S)]x.Q(x) & \Leftrightarrow & \forall x. (x\in
+S)\Rightarrow Q(x) 
+\end{array}\]
+where we use $\forallcond$ for
+{\symbol{forallcond}} and $\forallin$ for $\symbol{forallin}$. We should note what {\symbol{forallin}} does, and does not, encode.
+\begin{description}
+\item[does]$\forall n\in\N$, $\forall m,n\in\N$, $\forall x\in[0,1]$, $\forall
+  x\in(0,\infty)$ (but not the equivalent $\forall x>0$).
+\item[does not]$\forall n\in\N,x \in\R$ (this needs two nested bindings of
+  {\symbol{forallin}}\footnote{At first sight it seems that this could be represented as
+    $\forallin{\N\times\R}.$ but we contend that these are different. We can encode
+    $\forall z\in(\N\times\R)$, and {\emph{later}} destructure $z$, but 
+{\openmath} doesn't have a
+    destructuring bind.}), $\forall n>2$ (though we {\emph{can}} encode $\forall n \in
+  (2,\infty)$), $\forall m<n\in\N$ (though we {\emph{can}} encode $\forall
+  n\in(-\infty,n)$ and use {\symbol{integer\_interval}}).
+\end{description}
+
+\cite[section 4.2.5.1]{WorldWideWebConsortium2003b} gives an example for the formula
+\[\forall{x\in\N}.\exists{p,q\in\P}.p+q=2x\]
+where $\P$ stands for the set of prime numbers. While this would succumb to forall/implies
+and exists/and encodings, it is a better tribute to the power of our extended quantifiers
+to use the following encoding:
+\begin{lstlisting}[mathescape]
+<OMBIND>
+  <OMA>
+    <OMS name="forallin" cd="quant3"/>
+    <OMS name="N" cd="setname1"/>
+  </OMA>
+  <OMBVAR> <OMV name="x"/> </OMBVAR>
+  <OMBIND>
+    <OMA>
+      <OMS name="existsin" cd="quant3"/>
+      <OMS name="P" cd="setname1"/>
+   </OMA>
+    <OMBVAR><OMV name="p"/><OMV name="q"/></OMBVAR>
+    $\psom{p+q=2x}$
+ </OMBIND>
+</OMBIND>
+\end{lstlisting}
+
+Note that in some cases, we naturally combine these two: We often see something like the
+following $\forall x,y\in\R:x-y\ne0.{\frac{1}{x-y}\in\R}$. This would be 
+suitably encoded as
+\begin{lstlisting}[mathescape]
+<OMBIND>
+  <OMA>
+    <OMS name="forallincond" cd="quant3"/>
+    $\psom{\R}$
+  </OMA> 
+  <OMBVAR><OMV name="x"/><OMV name="y"/></OMBVAR>
+  $\psom{\frac{1}{x-y}\in\R}$
+  $\psom{x-y\ne0}$
+</OMBIND>
+\end{lstlisting}
+using the a symbol {\texttt{forallincond}} that we propose to add to {\texttt{quant3}}
+content dictionary together with the {\texttt{FMP}}
+\[\forallincond{(S)}x:{C(x)}.D \Leftrightarrow\forallin(S).C(x)\Rightarrow D\]
+The existential variants {\texttt{existin}}, {\texttt{existscond}}, and
+{\texttt{existsincond}} of all three have analogous FMPs in the {\texttt{quant3}} content
+dictionary.
+
+\section{Unique Existence}
+
+Although the notation $\exists!$ is relatively new\footnote{It was not in use when the
+  first author was a student, and the earliest we can trace it to is
+  \cite[p. xiii]{Barendregt1984}.}, it is convenient. It would be easy enough to introduce
+into OpenMath, as a symbol, say {\symbol{existsuniquely}} in the {\symbol{quant2}} CD,
+with one property, which could be held to define it.
+\begin{equation}\label{eq:eu}
+\exists! x.p(x) \Leftrightarrow (\exists x.p(x))\land
+\left((p(x)\land p(y))\Rightarrow x=y\right).
+\end{equation}
+
+
+One might naturally ask: ``what about $\exists!x\in \N:\ldots$, and similar
+constructs''. There is obviously no difficulty (other than the length of the
+name!) in adding {\symbol{existsuniquelyin}} to the {\symbol{quant3}}
+CD. The real challenge is what semantics does one want. There are two options.
+\begin{description}
+\item[``It's unique {\it and\/} it's in $\N$'']
+\begin{equation}\label{eq:eu-broad}
+\exists! x\in\N.p(x) \Leftrightarrow (\exists x.(x\in\N\land p(x))\land 
+\left((p(x)\land p(y))\Rightarrow x=y\right).
+\end{equation}
+This is what one would get by applying equation (\ref{eq:exists}) to the
+$\exists$ on the right-hand side of equation (\ref{eq:eu}).
+\item[``It's unique {\it within\/} $\N$'']
+\begin{equation}\label{eq:eu-narrow}
+\exists! x\in\N.p(x)\Leftrightarrow (\exists x.(x\in\N\land p(x)))\land
+\left(((p(x)\land x\in\N)\land (p(y)\land y\in\N))\Rightarrow x=y\right).
+\end{equation}
+This is what one would get by applying equation (\ref{eq:eu}) to equation
+(\ref{eq:exists}).
+\end{description}
+While both have their part to play, it appears that (\ref{eq:eu-narrow}) is
+the one more commonly met, and we propose to add this meaning to
+{\symbol{quant3}}.
+
+\section{Other Similar cases: Big Operators}
+
+Note that in the analysis above, the fact that we are dealing with quantifiers is
+secondary, the interesting part is the fact that, the ``operators take qualifiers''
+{\element{condition}} and {\element{domainofapplication}} in MathML 2. The full list of
+these operators can be grouped into three parts: the special operators {\element{int}},
+{\element{sum}}, {\element{product}}, {\element{root}}, {\element{diff}},
+{\element{partialdiff}}, {\element{limit}}, {\element{log}}, {\element{moment}},
+{\element{forall}}, {\element{exists}}, the binary/$n$ary operators {\element{plus}},
+{\element{times}}, {\element{max}}, {\element{min}}, {\element{gcd}}, {\element{lcm}},
+{\element{mean}}, {\element{sdev}}, {\element{variance}}, {\element{median}},
+{\element{mode}}, {\element{and}}, {\element{or}}, {\element{xor}}, {\element{union}},
+{\element{intersect}}, {\element{cartesianproduct}}, {\element{compose}}, as well as the
+relational operators {\element{eq}}, {\element{leq}}, {\element{lt}}, {\element{geq}},
+{\element{gt}}. The use of qualifiers with relational operators is being deprecated in
+MathML 3, so we will not concern ourselves with these.
+
+The reason binary operators can take qualifiers is that they can be ``lifted'' to their
+respective ``big operator form'', for instance $\bigcup$ for $\cup$. Note that if we look
+at the special operators in the first group, then we can see that {\element{sum}},
+{\element{product}}, {\element{forall}}, and {\element{exists}} are the conventionalized
+``big operators'' for {\element{plus}}, {\element{times}}, {\element{and}}, and
+{\element{or}}. We have covered the quantifiers above, so let us look whether
+{\element{sum}} and {\element{product}} show the same behavior. If they do, the
+quantifiers may give a good model for the other ``big operators''. Here we can directly
+see that all cases occur, witnessed e.g. by the Lagrange base polynomial $\displaystyle
+L(x)\colon=\Pi_{i=0,i\ne j}^k\frac{x-x_i}{x_j-x_i}$, which would need a symbol
+{\symbol{productincond}} in {\texttt{arith2}}.
+
+\section{Other Operators that take Qualifiers}
+There are other operators that take qualifiers in MathML; these are amenable to the same
+treatment: Consider the naive set $\{x^2|x<1\}$, which could be represented in MathML 2 as
+\begin{lstlisting}[language=MathML2]
+<set>
+  <bvar><ci>x</ci></bvar>
+  <condition>
+    <apply><lt/><ci>x</ci><cn>1</cn></apply>
+  </condition>
+  <apply><power/><ci>x</ci><cn>2</cn></apply>
+</set>
+\end{lstlisting}
+We propose a {\texttt{suchthatcond}} binding constructor that would allow us to write
+\begin{lstlisting}
+<OMBIND>
+  <OMS cd="set4" name="suchthatcond"/>
+  <OMBVAR><OMV name="x"/></OMBVAR>
+  <OMA>
+    <OMS cd="relation1" name="lt"/>
+    <OMV name="x"/>
+    <OMI>1</OMI>
+  </OMA>
+  <OMA>
+    <OMS cd="arith1" name="power"/>
+    <OMV name="x"/>
+    <OMI>2</OMI>
+  </OMA>  
+</OMBIND>
+\end{lstlisting}
+
+% \section{Remaining Special Operators}
+
+% We have dealt with the ``big operators'' above, for {\element{int}}, {\element{diff}}, and
+% {\element{partialdiff}}, see~\cite{DavenportKohlhase2009d}, so we only have to 
+% \begin{todo}{think about this: JHD: What's the citation to?}
+%   deal with the operators{\element{root}}, {\element{limit}}, {\element{log}},
+%   {\element{moment}}.
+% \end{todo}
+
+\section{Conclusion}\label{sec:concl}
+
+We have studied the representation of extended quantifiers like $\forall x\in S.$ or
+$\forall x: p(x).$ commonly found in informal mathematical texts. While it is possible to
+encode these in principle with the quantifiers and connectives provided by the
+{\texttt{quant1}} and {\texttt{logic1}} content dictionaries from the MathML CD group. The
+encoding loses the surface structure of the original mathematical expressions and does not
+support the same intuitive modes of reasoning. Therefore we propose to augment the
+{\openmath} society's set of standard CDs with a new content dictionary {\texttt{quant3}}
+with six new symbols and {\texttt{FMP}}s that relate them to the classical quantifiers.
+
+By the same concerns for structural adequacy we propose to introduce a symbol for unique
+existence to the existing {\texttt{quant2}} content dictionary and various operators for
+``lifted operators'' that MathML 2 implicitly supports by allowing them to ``take
+qualifiers''.
+
+We feel that the proposed symbols will make the use of {\openmath} more intuitive and thus
+make {\openmath} more attractive as a whole for the working mathematician. At the same
+time, people who prefer the classical quantifiers can refrain from using the new symbols.
+
+It should be noted $\exists!$, $\existsin$ and $\forallin$ do {\emph{not}} require any
+changes to {\openmath}: the rest require an extension of the concept of binding, or the
+acceptance of mathematically meaningless `gluing' operators to allow for the fact that
+bding should take place over both the body and the predicate.
+
+Hence our proposals, in increasing order of scope, are as follows.
+\begin{enumerate}
+\item Adopt {\symbol{existsuniquelyin}}, i.e. $\exists!$.
+\item Adopt {\symbol{existsin}}, i.e. $\existsin$, and{\symbol{forallin}},
+  i.e. $\forallin$.
+\item Accept that {\symbol{OMBIND}} should be able to bind over more than one
+  child.\label{contro}
+\item Adopt {\symbol{forallcond}} etc.
+\item Adopt {\symbol{suchthatcond}}, and other related symbols.
+\end{enumerate}
+Should \ref{contro} prove a bridge too far, the subsequent proposals {\emph{could}} be
+adopted with a mathematically meaningless gluing operator, as
+in~\cite{DavenportKohlhase2009a}.
+\bibliography{../../../../jhd}
+\ifshort
+\end{document}
+\fi
+\newpage
+\begin{appendix}
+  \section{The Proposed Quant2 Content Dictionary}
+  \lstinputlisting[language=omCD]{quant2.ocd}
+\newpage
+  \section{The Proposed Quant3 Content Dictionary}
+  \lstinputlisting[language=omCD]{quant3.ocd}
+\end{appendix}
+\end{document}
+
+% LocalWords:  domainofapplication quant existsuniquely OMBIND forall cd OMBVAR
+% LocalWords:  OMV OMA forallin forallcond setname FMPs rlcl forallincond arith
+% LocalWords:  productincond bvar ci csymbol definitionURL eq cn existscond OMI
+% LocalWords:  existsin existsuniquelyin lt suchthatcond jhd ne destructure FMP
+% LocalWords:  destructuring existin existsincond partialdiff gcd lcm sdev leq
+% LocalWords:  cartesianproduct geq

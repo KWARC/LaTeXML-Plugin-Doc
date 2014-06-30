@@ -1,0 +1,1952 @@
+\newcommand{\filespath}{Jancl_style_V2.1.3/Styles/}
+\documentclass{\filespath jancl}
+%\documentclass[a4paper]{llncs}
+%Version 19.9.1997 10:15
+%Send off 24.6.1998
+%Last Changed 1.10.1998 10:52
+%Last Changed 25.9.2008 by Manfred
+%\usepackage{rotating}
+%\usepackage{epsfig}
+%\pagestyle{plain}
+
+\journal{??}{??}{??}{-}
+\title[Reasoning with Presuppositions]{Reasoning without Believing: On the Mechanization of Presuppositions and Partiality}
+\author{Manfred Kerber$^1$ and Michael Kohlhase$^2$}
+\address{\begin{minipage}[t]{0.45\textwidth}\begin{center}$^1$School of Computer Science\\
+University of Birmingham\\
+%Birmingham B15 2TT, England\\
+{\tt \sperrklein{http://www.cs.bham.ac.uk}/\~{}\sperrklein{mmk}}\end{center}\end{minipage}
+\qquad \begin{minipage}[t]{0.45\textwidth}\begin{center}$^2$Computer Science\\
+Jacobs University Bremen\\
+%66041 Saarbr\"ucken, Germany\\
+{\tt
+  \sperrklein{http://kwarc.info}/\sperrklein{kohlhase}}\end{center}\end{minipage}}
+\abstract{ It is well-known that many relevant aspects of everyday
+  reasoning based on natural language cannot be adequately expressed
+  in classical first-order logic.  In this paper we address two of the
+  problems, firstly that of so-called {\em presuppositions\/},
+  expressions from which it is possible to draw implicit conclusions,
+  which classical logic normally does not warrant, and secondly the
+  problem of {\em partiality\/} and the adequate treatment of
+  undefined expressions.  In natural language, presuppositions are
+  quite common, they can, however, only insufficiently be modeled in
+  classical first-order logic.  For instance, in the case of universal
+  restricted quantification in natural language it is typically
+  presupposed that these restrictions are non-empty, whereas in
+  classical logic it is only assumed that the whole universe is
+  non-empty.  Conversely, all constants mentioned in classical
+  logic are presupposed to denote something, while it makes no problems to speak
+  about hypothetical objects in everyday language.  Similarly,
+  undefined expressions can be handled in natural language discourses
+  and utterances are not only classified into the two categories
+  `true' and `false'.  This has led to the development of various
+  better-suited many-valued logics.
+  
+  By combining different approaches we can now give a {\em static\/}
+  description of presuppositions and undefinedness within the same
+  framework. Additionally, we have developed an efficient
+  mechanization of the induced consequence relation by combining
+  methods from many-valued truth-functional logics and sort techniques
+  developed for search control in automated theorem proving.  }
+
+\keywords{presuppositions, many-valued logics, undefinedness, resolution calculus}
+
+\newcommand\COMP{{\sf TheCompany}}
+\usepackage{amssymb}
+\def\sperr#1{\def\sperrdist{0.3ex}\SperrRest#1\endlistxxx}
+\def\sperrklein#1{\def\sperrdist{-0.12ex}\SperrRest#1\endlistxxx}
+\def\endlistxxx{\endlistxxx}
+\def\SperrRest{\afterassignment\SperrZeichen\let\next= }
+\def\SperrZeichen{\ifx\next\endlistxxx \let\next\relax\kern-\sperrdist
+                  \else\next\kern\sperrdist\let\next\SperrRest\fi\next}
+\mathchardef\Gamma="7000 \mathchardef\Delta="7001 \mathchardef\Theta="7002
+\mathchardef\Lambda="7003 \mathchardef\Xi="7004   \mathchardef\Pi="7005
+\mathchardef\Sigma="7006  \mathchardef\Upsilon="7007 \mathchardef\Phi="7008
+\mathchardef\Psi="7009 \mathchardef\Omega="700A
+
+\def\Sorts{{\cS}}                     %set of sort symbols
+\def\Vars{{\cV}}                      %set of variables
+\def\Signat{{\Sigma}}                 %Signature
+\def\Signats{{\Sigma_\Sorts}}         %sorted Signature
+\def\Cnf{\hbox{\bf CNF}}               %clause normal form
+\def\cwst{{\bf wsT}}
+\def\Funcs{{\mbox{$\cF$}}}
+\def\PFuncs{{\mbox{$\cF_{\kern -0.4ex p}$}}}
+\def\Box{\hbox{\vrule\vbox{\hrule width 1.3ex\vskip 1.3ex\hrule}\vrule}}
+
+\def\Var{\hbox{\bf Var}}
+\def\free{\hbox{\bf Free}}
+\def\Dom{\hbox{\bf Dom}}
+\def\Rel{\hbox{\bf Rel}}
+\def\Rels{\Rel^{\Sorts}}
+\def\Reld{\Rel^{\Defined}}
+\def\restrict#1#2{{#1\bigr|_{#2}}}
+\def\to{\longrightarrow}
+\def\hat{\widehat}
+\def\setdivider{\;\bigl|\;}
+\def\setminus{\,\raisebox{0.4ex}{$\scriptscriptstyle\backslash$}\,}
+\def\deq{{\;\colon\kern-.2em=\;}}
+\def\eqd{{\;=\kern-.1em\colon\;}}
+
+\def\phi{\varphi}
+\def\cA{{\cal A}}\def\cB{{\cal B}}\def\cC{{\cal C}}
+\def\cD{{\cal D}}\def\cE{{\cal E}}\def\cF{{\cal F}}
+\def\cG{{\cal G}}\def\cH{{\cal H}}\def\cI{{\cal I}}
+\def\cJ{{\cal J}}\def\cK{{\cal K}}\def\cL{{\cal L}}
+\def\cM{{\cal M}}\def\cN{{\cal N}}\def\cO{{\cal O}}
+\def\cP{{\cal P}}\def\cQ{{\cal Q}}\def\cR{{\cal R}}
+\def\cS{{\cal S}}\def\cT{{\cal T}}\def\cU{{\cal U}}
+\def\cV{{\cal V}}\def\cW{{\cal W}}\def\cX{{\cal X}}
+\def\cY{{\cal Y}}\def\cZ{{\cal Z}}
+
+%first retain the original versions of \S and \P
+\def\A{{\bf A}}\def\B{{\bf B}}\def\C{{\bf C}}\def\D{{\bf D}}
+\def\E{{\bf E}}\def\F{{\bf F}}\def\G{{\bf G}}\def\H{{\bf H}}
+\def\I{{\bf I}}\def\J{{\bf J}}\def\K{{\bf K}}\def\L{{\bf L}}
+\def\M{{\bf M}}\def\N{{\bf N}}\def\O{{\bf O}}\def\P{{\bf P}}
+\def\Q{{\bf Q}}\def\R{{\bf R}}\def\S{{\bf S}}\def\T{{\bf T}}
+\def\U{{\bf U}}\def\V{{\bf V}}\def\W{{\bf W}}\def\X{{\bf X}}
+\def\Y{{\bf Y}}\def\Z{{\bf Z}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some stuff related to the syntax of Logic
+
+\def\skolem#1{{\cal E}_{{#1}(o{#1})}}
+\def\Sortpred{\cP}                  
+\def\AH{\cQ}                        % Andrews-Henkin formulation of simple TT
+
+\def\sdot{\rule{.3ex}{.3ex}\hspace{-0.4ex}\;} %%%% was \hskip.1ex\;
+\def\lnot{\neg}
+\def\fol{\Rightarrow}                % Logische Folgerung
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The symbols and their positioning rules for the end of proofs in the proof environment
+
+
+\renewenvironment{proof}{{\bf Proof: }}{\kasten}
+\newenvironment{sketch}{{\bf Proof sketch: }}{\kasten}
+
+\def\kasten{\hfil\null\nobreak\hfill
+            \hbox{\vrule\vbox{\hrule width 6 pt\vskip 6pt\hrule}\vrule}
+            \par\smallskip}
+\def\nocubekasten{\hfil\null\nobreak\hfill
+            \nocubechar
+            \par\smallskip}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typesetting Deductions (obtained from F. Pfenning)
+%
+% There are two basic constructors of proof trees \ian and \ibn
+% for aplications of unary and binary inference rules.
+% There are versions \ianc and \ibnc that center the names of the rules.
+% For representing subtrees we have a macro \subtree that has 2 lines 
+% and a name for the subtre as of yet is only supports linear subtrees.
+
+
+\def\ian#1#2#3{{\lineskip 4pt\inrulean{#1}{#2}{{\it #3}}}} %premise, conc, name
+\def\ibn#1#2#3#4{{\lineskip 4pt\inrulebn{#1}{#2}{#3}{{\it #4}}}}  %prem1, prem2, conc, name
+\def\ianc#1#2#3{{\lineskip 4pt\lowerhalf{\inruleanhelp{#1}{#2}{{\it #3}}%
+                   \box\tempb\hskip\wd\tempd}}}
+\def\ibnc#1#2#3#4{{\lineskip 4pt\ianc{#1\quad\qquad #2}{#3}{#4}}}
+\def\subtree#1#2#3{{\lineskip 4pt\doubleinrulean{#1}{#2}{#3}}} %prem, conc, name
+
+\def\lowerhalf#1{\hbox{\raise -0.8\baselineskip\hbox{#1}}}
+
+
+\newbox\tempa
+\newbox\tempb
+\newdimen\tempc
+\newbox\tempd
+
+\def\mud#1{\hfil $\displaystyle{#1}$\hfil}
+\def\rig#1{\hfil $\displaystyle{#1}$}
+
+\def\inruleanhelp#1#2#3{\setbox\tempa=\hbox{$\displaystyle{\mathstrut #2}$}%
+                        \setbox\tempd=\hbox{$\; #3$}%
+                        \setbox\tempb=\vbox{\halign{##\cr
+        \mud{#1}\cr
+        \noalign{\vskip\the\lineskip}%
+        \noalign{\hrule height 0pt}%
+        \rig{\vbox to 0pt{\vss\hbox to 0pt{\copy\tempd \hss}\vss}}\cr
+        \noalign{\hrule}%
+        \noalign{\vskip\the\lineskip}%
+        \mud{\copy\tempa}\cr}}%
+                      \tempc=\wd\tempb
+                      \advance\tempc by \wd\tempa
+                      \divide\tempc by 2 }
+
+\def\inrulean#1#2#3{{\inruleanhelp{#1}{#2}{#3}%
+                     \hbox to \wd\tempa{\hss \box\tempb \hss}}}
+\def\inrulebn#1#2#3#4{\inrulean{#1\quad\qquad #2}{#3}{#4}}
+
+
+\def\rulespacing{\renewcommand{\arraystretch}{3} \arraycolsep 0em}
+\def\Rulespacing{\renewcommand{\arraystretch}{4} \arraycolsep 0em}
+
+\def\doubleinruleanhelp#1#2#3{\setbox\tempa=\hbox{$\displaystyle{\mathstrut #2}$}%
+                        \setbox\tempd=\hbox{$\; #3$}%
+                        \setbox\tempb=\vbox{\halign{##\cr
+        \mud{#1}\cr
+        \noalign{\vskip\the\lineskip}%
+        \noalign{\hrule height 0pt}%
+        \rig{\vbox to 0pt{\vss\hbox to 0pt{\copy\tempd \hss}\vss}}\cr
+        \noalign{\hrule}%
+        \noalign{\vskip\the\lineskip}%
+        \noalign{\hrule}%
+        \noalign{\vskip\the\lineskip}%
+        \mud{\copy\tempa}\cr}}%
+                      \tempc=\wd\tempb
+                      \advance\tempc by \wd\tempa
+                      \divide\tempc by 2 }
+
+\def\doubleinrulean#1#2#3{{\doubleinruleanhelp{#1}{#2}{#3}%
+                     \hbox to \wd\tempa{\hss \box\tempb \hss}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Editorials
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\long\def\ednote#1{\marginpar{EDNOTE}\footnote{\it #1}\message{ednote!}}
+%\long\def\ednote#1{}
+\newenvironment{newpart}[1]{\begin{quote}\marginpar{BNP}\footnote{\it #1}\message{note!}\it}{\end{quote}\marginpar{ENP}}
+\long\def\ignore#1{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Judgments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\vd{\null\mathrel{\vdash}}
+\def\gvd{\Gamma \vd}
+
+\def\th{\null\mathrel{\vdash\!\!\!\vdash}}
+\def\gth{\Gamma \th}
+
+\let\phi\varphi
+\newcommand{\allin}[2]{\forall #1_#2\,\,}
+\newcommand{\exin}[2]{\exists #1_#2\,\,}
+\newcommand{\Defined}{{\mathfrak D}}
+\newcommand{\Secure}{{\mathfrak S}}
+\newcommand{\Undefined}{{\mathfrak U}}
+\newcommand{\true}{{\sf t}}
+\newcommand{\undefined}{{\sf u}}
+\newcommand{\false}{{\sf f}}
+\newcommand{\twts}{{{\sf t}^+}}
+\newcommand{\twfs}{{{\sf f}^+}}
+\newcommand{\twti}{{{\sf t}^-}}
+\newcommand{\twfi}{{{\sf f}^-}}
+\newcommand{\twu}{{\sf u}}
+\newcommand{\Tval}{{\cal B}}
+
+\newcommand{\sortpair}[2]{\lambda{#1}{#2}}
+\newcommand{\sortel}{\mbox{$<\kern-1.0em -$}}
+\newcommand{\notsortel}{\mbox{$\not<\kern-1.0em -$}}
+\newcommand{\set}[1]{\left\{#1\right\}}
+%\newcommand{\case}[1]{\left\{\begin{array}{l@{\hspace{2ex}}l}#1\end{array}\right.}
+\newcommand{\Real}{{\mathfrak R}}
+
+\newcommand{\cond}{{\bf COND}}
+
+\renewcommand{\Real}{{\mathchoice{\displaystyle\rm I\hskip-0.22em R}%
+{\textstyle\rm I\hskip-0.22em R}%
+{\scriptstyle\rm I\hskip-0.15em R}%
+{\scriptscriptstyle\rm I\hskip-0.15em R}}}
+\newcommand{\Realnull}{{\Real^*}}
+
+\headheight15pt
+\newcommand{\comment}[1]{}
+
+\def\restconst{{\cal R\kern-.4ex C}}
+\def\scapply#1#2{{\left.#1\right\downarrow(#2)}}
+%\def\cond{\sortconst}
+\def\presuppl{{\cal P\kern-.4ex L}}
+\def\presuppres{{\cal R\kern-.3ex P\kern-.4ex L}}
+\def\Preds{{\cal P}}
+%\def\tf{!}
+\def\tf{{\bf D}}
+\def\holds{{\bf T}}
+\def\deft{{\bf S}}
+\def\Cnfh{\Cnf_H}
+\def\Herbrandbase{{\cH}}
+\def\TermDecs{\cal T\kern-.3ex D}
+\setcounter{secnumdepth}{2}
+
+\def\True{{\sf T}}
+\def\updiv{{\bigl|\kern-1pt\bigl|}}  %unification problem divider
+
+\newcommand{\all}[3]{\forall {#1}_{#2}\sdot #3}
+\newcommand{\ex}[3]{\exists {#1}_{#2}\sdot #3}
+\newcommand{\und}{\vee}\def\implies{\rightarrow}
+
+\def\sf{\tt}
+
+\newcommand{\bd}{\begin{tabular}{l@{$\;\;$}l}}
+\newcommand{\ed}{\end{tabular}}
+\def\impl{\implies}\def\non{\neg}
+
+
+
+%\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Classical first-order logic (FOL) has often been used as a basis for
+natural language semantics. But there are considerable discrepancies
+between the meaning of everyday language and the formal semantics of
+its naive translation into FOL.  In this paper we address two
+important aspects, the first is about so-called
+{\em presuppositions\/}\footnote{For instance, albeit in FOL typically there is the
+  assumption that the universe of discourse is non-empty, it is not
+  assumed that restrictions as usually expressed by implications are
+  non-empty.  A direct translation of ``All humans are mortal'' into
+  FOL does not presuppose that there are any humans at all but only that the
+  universe of discourse is non-empty.}, that is,
+implicit assumptions in everyday reasoning about what exists and what
+not, the second is about the treatment of {\em undefined expressions}.
+
+These phenomena have been widely studied in the philosophy of language from a semantic
+point of view, see~\cite{Beaver:p97,BeaZee:a07} for surveys. An
+important view is that presuppositions form a common ground of
+knowledge between the sender and the receiver of an utterance. This
+view has been refined to a description that the speaker and the hearer
+are both cooperative. Presuppositions capture in this model
+uncontroversial knowledge, which is not necessarily already known to
+the hearer, see~\cite{Simons06}. 
+
+One of the more logic-oriented ways to model presuppositions
+is to use a four-valued logic~\cite{Bergmann:patdl81}. We
+take this logic as a starting point, extend it to a five-valued
+version that is capable of capturing undefinedness as well, and
+mechanize this logic by a resolution calculus.
+
+
+We will use the remainder of the introduction to pinpoint the
+contributions of this paper, review the problem and some related work
+which is most relevant to our work, that is, presupposition
+logics\footnote{Since we are mainly interested in the inference aspect
+  of presuppositions, we will not go into the large body of linguistic
+  literature on presuppositions.}, the logical treatment of
+undefinedness, and automated theorem in many-valued and sorted
+logics. This provides the background information for the formal
+development of our logical system, presented in
+Section~\ref{sec:presuppl}. Then we will present a resolution calculus
+and briefly sketch the soundness and completeness results
+(Section~\ref{sec:presupplres}). We will also discuss which aspect of
+natural language (presupposition, undefinedness) is captured by which
+aspect of the formalism. Finally, we explain the method by two simple
+examples (Section~\ref{sec:example}) before we conclude with a
+discussion of further work.
+
+
+\subsection{Contribution of this paper}
+\label{sec:contrib}
+
+We present a five-valued logic for the formalization of everyday reasoning with
+presuppositions. This system enhances the four-valued system proposed by Berg\-mann
+in~\cite{Bergmann:patdl81} and mechanized by the authors in
+\cite{KeKo:arcfp96} by providing a fifth truth value for syntactical
+undefinedness
+(for instance, application of functions to objects outside their domain). It adds a
+further degree of partiality to the system and is treated in a Kleene way as described
+in~\cite{KeKo94,KeKo:atcfpf96}. Furthermore we present a sound and complete
+resolution calculus for our system which uses a sort mechanism to capture
+Bergmann's restricted quantifications.
+
+This paper is {\em not\/} intended as a linguistic account of the semantics of
+natural language sentences involving presuppositions. Such accounts -- see for
+instance~\cite{Sandt:ppaar92,Krahmer:dap95,Beaver:p97,BeaZee:a07} -- have
+nowadays mostly turned away from multi-valued logics towards so-called dynamic
+approaches such as discourse representation theories (DRT), see
+e.g.~\cite{KamRey:fdtl93} or~\cite{EijckUnger07}, where
+presuppositions are described via
+public announcement updates and common knowledge in a multimodal
+epistemic logic. Rather than a linguistic account, our work is an
+investigation of the underlying logical principles and the status of
+partiality, which also plays a major role in the linguistic theories.
+See cf.~\cite{Krahmer:dap95} for a discussion. In particular, this paper does
+not make any claim about the process of constructing logical representations
+from natural language utterances.
+
+Since the discourse representation theories used in the linguistic accounts are
+essentially dynamic versions of FOL, we are convinced that the methods and principles
+presented in this paper can be transported to the linguistic theories to give them more
+leverage.  Our logic $\presuppl$ is a generalization of FOL in a direction that is
+orthogonal to dynamic aspects so that the ideas from both systems can be combined into a
+joint logical system. In fact Krahmer's work already takes a step in that direction: it
+uses a version of discourse representation theory that models partiality using ideas from
+Kleene's weak three-valued logic, which has well-known disadvantages for modeling
+presuppositions. Since direct inferences in dynamic discourse logics seem to be a
+difficult problem, the present paper studies the static case in isolation.
+
+\subsection{Presuppositions}\label{subsec:presupp}
+There are two different kinds of presuppositions: the {\em
+  quantificational} presuppositions which mean that the domain of quantifications
+is non-empty and the {\em existential} presuppositions which entail the existence of
+denotations of constants.  In natural language, the first ones are mandatory, whereas
+the second kind is defeasible (it is possible to talk about
+non-existing entities in natural language).  Surprisingly enough, the
+standard semantics of FOL treats the two kinds almost the
+opposite way: constants must always have denotations, that is, just
+speaking about an object means that it must exist (for instance,
+speaking about a dragon, means that there is one), while
+quantifications are unrestricted and therefore range always over the
+whole (albeit non-empty) universe.  In classical logic the standard way to
+restrict a quantification is the use of an implication, which may,
+however, have an antecedent with empty domain.
+
+This problem has been recognized quite early in the field of philosophical logics and
+different kinds of utterances are distinguished.  For
+instance Strawson~\cite[p.203 ff]{Strawson73} analyses the sentence ``The king of
+France is wise.'' and relates his view to that of
+Russell. Russell~\cite{Russell05} says:\vspace{-0.5ex}
+\begin{quote}
+\sl  Firstly the sentence is significant, that is, its meaning can be understood.
+  Secondly it is true only if there existed in fact one and only one king of France,
+  and if he were wise.
+\end{quote}\vspace{-0.5ex}
+Strawson argues that -- in contrast to Russell's view -- the sentence is not
+necessarily true or false.  He underpins this view as follows:\vspace{-0.5ex}
+\begin{quote}
+  {\sl Now suppose someone were in fact to say to you with a
+    perfectly serious air: `The king of France is wise.'  Would you
+    say, `That's untrue' ...  suppose he went on to\sperr{ ask }you
+    whether you thought that what he had just said was true, or was
+    false ... You might ... say something like: `I'm afraid you must
+    be under a misapprehension.  France is not a monarchy. There is no
+    king of France.'}
+\end{quote}
+Later on Strawson explains, why the sentence is significant, namely, since
+\begin{quote}
+  {\sl the sentence\sperr{ could }be used, in certain circumstances, to say
+    something true or false, that the expression\sperr{ could }be used, in certain
+    circumstances, to mention a particular person\ldots}
+\end{quote}\vspace{-0.5ex}
+
+In order to cope with such kinds of phenomena, many different logics
+have been developed.  They can be roughly categorized according to the
+truth values they use. There is classical two-valued logic, which is
+not particularly well-suited according to the discussion of Strawson.
+In order to overcome such problems three-valued approaches and
+approaches with truth-value gaps have been adapted and been developed,
+these are in particular the logics developed by Kleene~\cite{Kleene52}
+and van Fraassen~\cite{Fraassen66}.  These logics are quite
+well-suited to indicate that something is wrong with a certain kind of
+statement (like ``The king of France is wise'') and assign to it
+either the truth value {\sf undefined} or no truth value at
+all. Partiality has been studied in different contexts and there is a
+significant body of work. Burmeister~\cite{Burmeister86} gives a very
+detailed account of the semantics of partiality by
+corresponding partial algebras. They are of particular
+interest in order to model the semantics of non-termination in
+programming languages. Our approach differs insofar that the logical
+conjunction ``false'' and ``undefined'' evaluates to ``false'', but in
+a programming language without lazy evaluation would evaluate to
+``undefined''.
+
+Logics for reasoning in the presence of partiality do not
+enable any kind of hypothetical reasoning (like ``The king of France
+is wise.'', ``If somebody is wise he is gracious'', hence ``The king
+of France is gracious.'')  In order to cope with corresponding
+phenomena Herzberger~\cite{Herzberger73} developed a two-dimensional
+approach, in which essentially the truth values consist of pairs of
+values, the first value is a traditional truth value, that is, either
+{\sf true} or {\sf false} and the second is a kind of presupposition
+value, this value is {\sf 1} if all presuppositions are fulfilled and
+{\sf 0} otherwise.  This approach was modified and further developed
+by Bergmann~\cite{Bergmann:patdl81}, who kept the two-dimensional
+approach, but interpreted the values slightly differently so that she
+got different truth tables.  While the first component in Bergmann's
+approach represents the classical two values, the second expresses
+whether the sentence is secure or insecure.  For instance, in an
+interpretation ``The king of France is wise'' would be insecure, but
+may be true or false.
+
+The presupposition that all mentioned objects exist is adequate unless
+the opposite is explicitly said.  However, in everyday language it is
+possible to explicitly disable certain presuppositions. This aspect
+makes everyday language well-suited, for instance, for a discussion
+between a theist and an atheist about the properties of God, {\em
+  assuming he exists}.  Classical logic, however, is not well-suited
+as basis for formalizing such a dispute, since the fact that all
+constants denote something, means if the atheist only used the word
+``God'', he would admit the existence of God. In the formal system we
+are going to present, however, the status of statements about
+constants can be insecure and in particular no existence is assumed,
+unless otherwise specified. In Section~\ref{sec:expres} we will look
+at a simplified version of Leibniz's argument that God cannot be
+almighty, an argument that can be agreed upon by theists and atheists
+since it is agnostic with respect to the existence of God. The status
+secure/insecure is left open in the argument, that is, the
+corresponding formulae will be labelled with truth values
+`true-secure/true-insecure'.
+
+While this kind of presuppositions (existence of denotations of constants) is reasonable for most cases,
+quantificational presuppositions of everyday languages fundamentally differ from those in
+classical logic.  For instance, an everyday sentence like ``All children of John are
+sleeping'' presupposes that John really has children. Therefore the representation in FOL
+$\all{x}{}{{\sf\!  child\_of}(x,{\sf John}) \implies {\sf sleeps}(x)}$ is not adequate,
+since this sentence is true even when John has no children at all.
+
+To overcome this problem Bergmann proposes a restricted quantification
+operator of the syntactic form $\all{x}{{\sf child\_of}(x,{\sf
+    John})}{{\sf sleeps}(x)}$, as is used in generalized quantifier
+theory~\cite{BarCoo:gqnl81,Mostowski57}.  In Section~\ref{sec:presuppl}, the
+semantics of a quantified expression will be defined so that the restriction
+expression, that is, ${\sf child\_of}(x,{\sf John})$ in the example, is always
+non-empty.
+
+\subsection{Undefinedness}
+The richer semantics, like those developed by Herzberger and Bergmann,
+allow for hypothetical reasoning. However, they do not -- at least
+when they are compared to the Kleene approach -- deal appropriately
+with utterances that do not make any sense at all. Utterances may
+be not understandable, e.g.\ since certain things are not defined, or
+because the speech is not serious at all.  Sentences like ``The
+present king of France is wise'' or ``God is almighty'' should be
+distinguished from sentences like ``Madagascar is east of the
+equator'' or even ``Kraba bla shle''.  For the first category,
+Strawson's criterion that it could be true (or false) in certain
+circumstances holds, while sentences of the second category do not
+make any sense.  So we would like to assign to those a fifth truth
+value, marking them as {\sf undefined}. 
+
+Again, if we consider the semantics of a quantification in the presence of
+undefined values we have to be precise what an expression like
+$\forall x\sdot P(x)$ should mean.  In general we do not want this
+sentence to tell us anything about undefined terms (since there
+is nothing to tell about them, except that they are undefined), so we
+would like to interpret this formula as ``for all defined expressions
+$x$, $P(x)$ holds.''  In order to be precise about this, here again,
+we use only restricted quantifications, that is, expressions of the
+kind $\all{x}{{\sf human}(x)} {\sf mortal}(x)$.  If we do not want to
+make any restriction on $x$, that is, to quantify over the whole
+universe, we write $\all{x}{\Defined(x)} \ldots$, where $\Defined$
+stands for ``defined''.  In the same spirit we will use a predicate
+$\Secure$ that stands for ``secure''.
+
+For modeling undefinedness, we have to choose among various
+approaches.  We advocate here Kleene's approach, in which
+undefinedness is contagious for all terms and atomic formulae. That
+is, whenever a term contains an undefined expression (e.g., the form
+``North of east of the equator'' contains the undefined expression
+``east of the equator'') then it is undefined too (and in particular
+never covered by a quantification).  Any atomic formula containing
+such a term (e.g., ``Madagascar is east of the equator'') is mapped to
+a fifth truth value $\undefined$, the truth value ``undefined''.
+
+Whereas atomic formulae containing undefined expressions always
+evaluate to ``undefined'', this is not the case for formulae in
+general. They may evaluate to true even if they do contain an
+undefined expression.  For instance, ``Madagascar is east of the
+equator {\em or\/} south of the equator'' is true.  The first part
+evaluates to ``undefined'', the second to ``true'' (more precisely to
+``true and secure''), hence the disjunction evaluates to true too
+(actually to ``true and insecure'' to indicate that something is
+strange about the sentence). This is in line with Strawson's argument
+that when we speak about the king of France that then we would
+constructively react with `France has no king, but a president as head
+of state'. Likewise here we might say `east of the equator does not
+make sense.' and not only say `yes'.
+
+
+\subsection{Mechanization} %% was "Automated Theorem Proving"
+\label{sec:atp}
+
+% One of the cornerstones in the development of logic in the twentieth century is the
+% development of sound and complete calculi, that is, of calculi which exactly correspond to
+% a given semantics.  This introduces a fully syntactical notion of proof which represents,
+% but does not have to refer to the semantics. By this, a mechanical treatment of the
+% semantical consequence relation and in particular of theorem-hood becomes possible at
+% least in principle.  The simplest calculi are Hilbert calculi, which derive true
+% statements from axiom schemata by sound calculus rules.  While this is quite convenient
+% for proving theoretical results about the calculus, it does not correspond to usual
+% mathematical practice.  Therefore, Gentzen~\cite{Gentzen:uudlsiii35} developed the calculi
+% of Natural Deduction, which also allow to make temporary assumptions.  Variants of this
+% calculus are much better suited for practical theorem proving than Hilbert calculi and are
+% very popular in advanced {\em interactive\/} proof development environments.
+
+% The most important breakthrough in the development of {\em automated\/} theorem proving
+% was Robinson's invention of the resolution principle in 1965~\cite{Robinson:amolbo65}.
+% Its three important features compared to the calculi above are: It works with formulae in
+% a conjunctive normal form (clause normal form CNF), which simplifies the calculus. It is a
+% refutation calculus, which tries to prove a theorem by refuting its negation; this is the
+% basis for automating the theorem process as goal-oriented search for the (unsatisfiable)
+% empty clause. Finally, but most importantly, it uses a procedure called unification, which
+% essentially computes for terms the most general substitution that makes formulae equal;
+% this makes it possible to avoid instantiation of universal quantifiers and thus make the
+% search space finitely branching.
+
+% In the sequel the idea of unification was transferred to other calculi, furthermore the
+% basic calculi were very much refined in order to get very efficient implementations, with
+% theorem provers such as Otter~\cite{McCune:otter90}, its successor
+% Prover9~\cite{McCune:p9manual06}, Vampire~\cite{RiaVor:Vampire01} and
+% Spass~\cite{WeiSchHil:Spass07}.
+
+The mechanization we are going to present in this paper builts up on
+the one hand on the mechanization of \textit{sorted logics} by which
+the universe of discourse can be structured.  For instance, in a
+sorted logic it is possible to say $\all{x}{{\sf human}}{\sf
+  mortal}(x)$, instead of $\forall x\sdot {\sf human}(x) \implies {\sf
+  mortal}(x)$. This results in a significant improvement of the search
+complexity in many cases.  For certain problem classes the
+refutation/unification-based framework provides a very powerful tool
+for automated theorem proving and in fact it has even been possible to
+prove mechanically several mathematical theorems that had been open
+previously.  See~\cite{WeGaRo:sfv96} for the developments important to
+this paper. On the other hand the mechanization builts up on the
+operationalization of \textit{many-valued} first-order logics as
+developed by Carnielli~\cite{Carnielli87}, H\"ahnle
+\cite{Haehnle:adimvl94}, Baaz and Ferm\"uller~\cite{BaFe92}.
+
+We do not give a full comparison to other work on the mechanization of
+partiality since it is only one aspect of the work presented here. We
+compare it to the mechanization investigated
+in~\cite{GaSoWa06}. Ganzinger et al.\ firstly use a modular
+superposition calculus (we a resolution calulus) and secondly build
+their work on a different semantic treatment of partiality. In
+particular they extend the concept of ``undefinedness'' to that of
+``irrelevance'' so that expressions involving undefined terms such
+`east of the equator' would be considered as irrelevant rather than
+meaningless. In a quantification meaningless terms do
+not change the semantic status of the formulae.  In contrast we use
+restricted quantification, which firstly allows to exclude undefined
+expressions and secondly is well suited to deal with quantification
+presuppositions.  We think that the approach in~\cite{GaSoWa06} is
+very elegant for the specification of programs but less well suited
+for modelling linguistic phenomena.
+
+% In this
+% paper we will advocate a many-valued logic that is much better suited to describe
+% certain phenomena of presuppositions and undefinedness than classical logic is.
+Our operationalization is different from all above-mentioned
+operationalizations since these quantifications are unrestricted, that
+is, quantified formulae obtain their truth values from those of {\em
+  all\/} instances of the scope, whereas we use a restricted form of
+quantification.  This is reflected in the use of restriction
+constraints in the calculus presented in Section~\ref{sec:presupplres}.
+
+Once the problem of restricted quantification is mastered, it is
+relatively straightforward to build a suitable resolution calculus by
+employing standard techniques from multi-valued theorem proving: Only
+the standard first-order translation from formulae to a clause normal
+form has to be adapted so that it respects the many-valued semantics
+of the connectives and quantifiers. In order to master the restriction
+problem, we employ a sorted version of the multi-valued logic.  For
+our purpose the method developed by
+Weidenbach~\cite{Weidenbach91,Weidenbach:cafols96} is most
+appropriate, since it allows arbitrary sort expressions that may occur
+anywhere in formulae.
+
+\section{Presupposition Logic}
+\label{sec:presuppl}
+
+In this section, we develop a logic system $\presuppl$ by combining ideas from the
+presupposition logic of Bergmann~\cite{Bergmann:patdl81} with methods from our
+mechanization of partial functions~\cite{KeKo94} by a sorted variant of three-valued
+Kleene logic.
+
+The main problem is to give a proper treatment of restricted
+quantification and their presuppositions. But let us first fix the notation
+for the logical language. 
+
+\begin{definition}[Signature]
+  A {\bf signature} $\Sigma\colon=(\Vars,\Funcs,\Preds)$ consists of the
+  following disjoint sets: $\Vars$ is a countably infinite set of {\bf
+    variable symbols}, $\Funcs$ is a set of {\bf function symbols}, and
+  $\Preds$ is a set of {\bf predicate symbols} that contains special predicates
+  $\Defined$ and $\Secure$, called the {\bf definedness} and {\bf security}
+  predicates.
+  
+  The sets $\Funcs$ and $\Preds$ are subdivided into the sets $\Funcs^k$ of
+  {\bf function symbols of arity $k$} and $\Preds^k$ of {\bf predicate symbols
+    of arity $k$}. Note that individual constants are just nullary functions.
+\end{definition}
+
+{}From this signature the terms and formulae are built up in the
+usual way with the following two exceptions. Firstly quantification is
+generalized to {\em restricted\/} quantification, where the quantifier involves
+not only a variable binding, but also a formula $S$ for restricting the domain
+of quantification. Secondly, in addition to negation there are three further unary connectives.
+
+\begin{definition}[Terms and Formulae]
+  We define the set of {\bf terms} to be the set of variables together
+  with {\bf compound terms} $f(t^1,\ldots,t^k)$ for terms
+  $t^1,\ldots,t^k$ and $f\in\Funcs^k$. The set of\/ {\bf formulae}
+  consists of\/ {\bf atoms} ($P(t^1,\ldots,t^k)$, where
+  $P\in\Preds^k$) and of\/ {\bf compound formulae} $A\land B$, $A\lor
+  B$, $A\implies B$, $\lnot A$, $\deft A$, $\holds A$, $\tf A$,
+  $\forall x_S\sdot A$, and $\exists x_S\sdot A$ ({\bf restricted
+    quantification}), where $A$, $B$, and $S$ are formulae.
+\end{definition}
+
+  The intended meaning of the restricted quantification $\forall
+  x_S\sdot A$ is that $A$ holds for the set of all $x$ for which $S$
+  holds, and that furthermore this set is nonempty. The meaning of
+  $\deft A$ is that $A$ is secure, the meaning of $\holds A$ that $A$ holds,
+  but may be insecure, and the meaning of $\tf A$ that $A$ is defined.
+
+Note that the concept of restricted quantification is a generalization of
+quantification in sorted logics, where variables are restricted by so-called sorts, i.e., unary
+predicates: For any unary predicate $P\in\Preds$ the restricted quantification
+$\forall x_{P(x)}\sdot A$ is equivalent to the sorted quantification $\forall
+x_P\sdot A$, which is generally used in the field of sorted logics.
+
+Now we will define the five-valued, two-dimensional semantics for $\presuppl$.
+The main feature of Bergmann's logic for presuppositions is a two-dimensional
+set of truth values, where the classical two are replaced by four truth-values
+which are represented by pairs, where the first component consists of the
+values true and false, and the second of the values secure and insecure.
+Intuitively, the truth values are augmented by decorating the truth value of a
+formula with a ``security value''. Thus the set of truth values contains
+$\twts$ and $\twfs$ for secure truth and falsity and $\twti,\twfi$ for the
+insecure ones.  Furthermore, we add a value $\undefined$ well-known from the
+Kleene-type logics.  In the following we denote the set of {\bf truth values}
+by $\Tval=\{\twts,\twfs,\twti,\twfi,\undefined\}$. 
+This set serves as the semantical domain for formulae. The meaning of terms
+can best be formalized with a more algebraic notion for the universe of
+individuals, which we define now.
+
+In defining the semantics we have different options. First we assume
+strictness for all function and predicate symbols, that is, we assume
+that undefinedness is infectious in the sense that an undefined
+subterm of a term makes the whole term undefined.  Whereas strictness
+with respect to undefinedness makes sense in almost all cases, the
+strictness assumption for security may be too strong for some
+applications. For instance, we might want to model the fans of
+Sherlock Holmes as secure even if the detective is purely fictional.
+Although we assume strictness for security too in the following, this
+assumption can be lifted by simply skipping part~\ref{alg:strict} of
+the following definition.  In such a case the burden of specifying
+where strictness is wanted would be put on the user who has to make
+corresponding term declarations (cf.
+Definition~\ref{Def:termdec}). Obviously, the change in the semantics
+would be reflected in the calculus as well: the second strictness rule
+would have to be dropped from the resolution calculus (see
+Definition~\ref{def:res}).
+
+
+\begin{definition}[Strict $\Sigma$-Algebra]
+  Let $\Signat$ be a signature, then a pair $(\cA,\cI)$ is called a {\bf strict
+    $\Sigma$-algebra} iff\vspace{-1.5ex}
+   \begin{enumerate}
+     \item the {\bf carrier set} $\cA$ is an arbitrary set that contains a
+       special element $\bot$,
+     \item\label{alg:int} the {\bf interpretation function $\cI$} obeys the following
+       restrictions: 
+        \begin{enumerate}
+           \item $\cI(\Defined)(\bot)=\twfs$ and  $\cI(\Defined)(a)=\twts$
+             in all other cases. Furthermore $\cI(\Secure)(a)\in\{\twfs\!,\twts\}$, but
+             $\cI(\Secure)(\bot)=\undefined$. 
+             
+             We call elements $a\in\cA$ {\bf secure} if $\cI(\Secure)(a)=\twts$
+             and {\bf insecure} if $\cI(\Secure)(a)=\twfs$, and {\bf
+             undefined} in all other cases. Thus we can partition $\cA$ into subsets $\cA^+$ of
+             secure, $\cA^-$ of insecure elements, and $\{\bot\}$. In
+             particular, we have
+             $\cA=\cA^+\cup\cA^-\cup\{\bot\}$ and $\cA^+\cap\cA^-=\emptyset$.
+
+           \item For all function symbols $f$, the function
+             $\cI(f)\colon\cA^k\to\cA$ is strict for $\bot$, that is,
+             $\cI(f)(a_1,\ldots,a_k)=\bot$ if $a_i=\bot$ for at least one
+             $i$.
+           \item If $p\ne\Defined$ is a predicate symbol then the five-valued
+             relation $\cI(p)$ is a mapping from $\cA^k$ into $\cB$, the set of
+             truth values (see also Example~\ref{ex:literature}).  It is strict for
+             $\bot$, that is, $\cI(p)(a_1,\ldots,a_k)=\undefined$ if $a_i=\bot$
+             for at least one $i$.
+           \item\label{alg:strict} All predicates and functions are strict for $\Secure$,
+             i.e., $\cI(f)(a_1,\ldots,a_k)\in\cA^-\cup\{\bot\}$ if $a_{i}\in\cA^{-}$ and 
+              $\cI(p)(a_1,\ldots,a_k)\notin\{\twts,\twfs\}$ if
+             $a_{i}\in\cA^{-}$ for at least one $i$.\footnote{Note that
+             $\cI(p)(a_1,\ldots,a_k)$ may be $\undefined$.  This is in particular
+             the case when one of the arguments evaluates to $\bot$.
+             If, however, an argument of an expression is insecure the whole
+             expression cannot be secure.  For instance, the expression ``mother of
+             Sherlock Holmes'' would not be evaluated in $\cA^+$. We do not
+             require an ``if and only if'' in the definition, that
+             is, for a real person like ``Conan Doyle'', the
+             term ``guardian angel of Conan Doyle'' can be
+             interpreted in $\cA^-$.}
+        \end{enumerate}
+  \end{enumerate}
+\end{definition}
+  
+  Note that this treatment differs from the Kleene approach taken
+  in~\cite{KeKo94}, where all undefined elements are identified
+  with the semantic object $\bot$, since here we distinguish between
+  secure, insecure, and undefined terms.  In consequence we are able
+  to reason about insecure terms, but not about undefined ones.
+
+The meaning of material from the signature $\Sigma$ is given by the
+interpretation function of a strict $\Sigma$-algebra, that of the variables is
+locally given by an assignment function $\phi$. It can be combined to
+a value function $\cI_{\phi}$, which gives the value of a term or formula
+(where the variables are evaluated as defined by $\phi$). 
+
+\begin{definition}[Value of Terms and $\!$Atoms]
+  Let $(\cA,\cI)$ be a $\Sigma$-algebra, then we call a total mapping
+  $\phi\colon\Vars\to\cA$ a {\bf $\Sigma$-assignment}. We denote the
+  $\Sigma$-as\-sign\-ment that coincides with $\phi$ away from $x$ and
+  maps $x$ to $a$ with $\phi[a/x]$.
+  Now we can inductively define the {\bf value function} $\cI_\phi$ for terms
+  and atoms to be
+    \begin{enumerate}
+  \item $\cI_\phi(f)\deq\cI(f)$ if $f$ is a function symbol or a predicate symbol;
+  \item $\cI_\phi(x)\deq\phi(x)$ if $x$ is a variable;
+  \item
+    $\cI_\phi(f(t^1,\ldots,t^k))\deq\cI(f)(\cI_\phi(t^1),\ldots,\cI_\phi(t^k))\in\cA$,
+    for $f\in\Funcs^k$;
+  \item
+    $\cI_\phi(p(t^1,\ldots,t^k))\deq\cI(p)(\cI_\phi(t^1),\ldots,\cI_\phi(t^k))\in\Tval$
+    if $p\in\Preds^k$.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{example}\label{ex:literature}
+  As a simple example let us look at some atomic formulae with the predicate
+  symbol `male'. The set of term declarations
+  \[\begin{array}{l}male(arthur\_conan\_doyle)^{\twts},male(sherlock\_holmes)^{\twti},\\
+                    male(louisa\_hawkins)^{\twfs},male(mrs\_hudson)^{\twfi},male(baker\_street)^{\undefined}
+  \end{array}\]
+  tells us about our belief about famous fictional personalities, the
+  author who invented them and his wife. In particular these tell us that the
+  name ``Arthur Conan Doyle'' stands for a real person
+  and that the predicate $\textit{male}$ does not make sense for a street, irrespective
+  of whether it exists or not. This shows
+  us that five-valued predicates subdivide the universe of individuals into
+  five regions: one for every defined truth value (we have given examples for
+  each of them) and the undefined region, which only contains the value $\bot$.
+\end{example}
+
+In the next definition we define the semantics of the connectives in
+such a way that for the classical connectives, $\land, \lor, \non,
+\impl$, the behavior in the true-false part is as usual, but
+insecureness is infectious. The treatment of undefinedness is
+analogous to the case of three-valued Kleene logic. Note, however,
+that an expressions involving undefinedness never results in a secure
+truth value (e.g., $\twfs\land\twu$ evaluates to $\twfi$ and not to
+$\twfs$). $\lor$ and $\impl$ can be defined in $\land$ and $\non$ in
+the usual way. The semantics of $\lor$ is of a kind that an expression
+in which one of the disjuncts is undefined and the other true and
+secure or insecure, the whole formula is true, but insecure (to
+indicate that something is odd with the expression). For instance,
+``Madagascar is east of the equator or is south of the equator'' will
+get the truth value $\twti$, with ``Madagascar is east of the
+equator'' as $\twu$ and ``Madagascar is south of the equator'' as
+$\twts$. The semantics of the connectives $\holds$, $\deft$, and $\tf$
+is defined so that they single out the truth values which are true
+(i.e., $\twts$ or $\twti$), secure (i.e., $\twts$ or $\twfs$), and
+defined (i.e., not $\undefined$), respectively.
+
+\begin{definition}\label{Def:truth-tables}    
+  The value of a formula dominated by a connective is obtained from the
+  value(s) of the subformula(e) in a truth-functional way. Therefore it
+  suffices to define the truth tables for the connectives:
+
+\[\begin{array}{c@{\;}|@{\;\;}c@{\;\;}c@{\;\;}c@{\;\;}c@{\;\;}c}
+\land & \twts & \twfs & \twti & \twfi & \twu\\ \hline\\[-1.9ex]
+\twts & \twts & \twfs & \twti & \twfi & \twu\\
+\twfs & \twfs & \twfs & \twfi & \twfi & \twfi\\
+\twti & \twti & \twfi & \twti & \twfi & \twu\\
+\twfi & \twfi & \twfi & \twfi & \twfi & \twfi\\
+\twu  & \twu  & \twfi & \twu  & \twfi & \twu
+\end{array}\qquad
+\begin{array}{c@{\;}|@{\;\;}c@{\;\;}c@{\;\;}c@{\;\;}c@{\;\;}c}
+\lor  & \twts & \twfs & \twti & \twfi & \twu\\ \hline\\[-1.9ex]
+\twts & \twts & \twts & \twti & \twti & \twti\\
+\twfs & \twts & \twfs & \twti & \twfi & \twu\\
+\twti & \twti & \twti & \twti & \twti & \twti\\
+\twfi & \twti & \twfi & \twti & \twfi & \twu\\
+\twu  & \twti & \twu  & \twti & \twu  & \twu
+\end{array}\qquad
+\begin{array}{c@{\;}|@{\;}c}
+\neg  & \\ \hline\\[-1.9ex]
+\twts & \twfs   \\
+\twfs & \twts  \\
+\twti & \twfi \\
+\twfi & \twti \\
+\twu  & \twu
+\end{array}\]\vspace{0ex}
+
+\[\begin{array}{c@{\;}|@{\;\;}c@{\;\;}c@{\;\;}c@{\;\;}c@{\;\;}c}
+\implies & \twts & \twfs & \twti & \twfi & \twu\\ \hline\\[-1.9ex]
+\twts    & \twts & \twfs & \twti & \twfi & \twu\\
+\twfs    & \twts & \twts & \twti & \twti & \twti\\
+\twti    & \twti & \twfi & \twti & \twfi & \twu\\
+\twfi    & \twti & \twti & \twti & \twti & \twti\\
+\twu     & \twti & \twu  & \twti & \twu  & \twu
+\end{array}\qquad
+\begin{array}{c@{\;}|@{\;}c}
+\holds & \\ \hline\\[-1.9ex]
+\twts & \twts   \\
+\twfs & \twfs  \\
+\twti & \twts \\
+\twfi & \twfs \\
+\twu  & \twfs \\
+\end{array}\qquad
+\begin{array}{c@{\;}|@{\;}c}
+\deft & \\ \hline\\[-1.9ex]
+\twts  & \twts \\
+\twfs  & \twts \\
+\twti  & \twfs \\
+\twfi  & \twfs \\
+\twu   & \twfs 
+\end{array}\qquad
+\begin{array}{c@{\;}|@{\;}c}
+\tf    & \\ \hline\\[-1.9ex]
+\twts  & \twts \\
+\twfs  & \twts \\
+\twti  & \twts \\
+\twfi  & \twts \\
+\twu   & \twfs 
+\end{array}\]\\[1ex]
+\end{definition}
+
+The semantics of the universal quantifier is defined such that an
+expression is true only if it evaluates to true under all
+instantiations, true and secure only if in addition it evaluates to
+secure values under secure instantiations and these are non-empty.  It
+evaluates to false if there is one false instance, secure in addition
+if all secure instantiations result in secure truth values. In the
+other cases, that is, involving undefined instantiations and possibly
+true instantiations, the truth value is the fifth truth value,
+undefined. For conciseness we present only the universal
+quantifier. As usual $\exists x_S\sdot A$ can be considered as an
+abbreviation for $\non\forall x_S\sdot\non A$.
+\begin{definition}\label{Def:quantifiers}    
+For each formula $S$ and each variable $x$ (we call the pair $(x,S)$ a {\bf
+  restriction}) let
+\begin{eqnarray*}
+\cA^+_\phi(S,x)   & = & \{a\in\cA\setdivider\cI_{\phi[a/x]}S=\twts\}\\
+\cA^-_\phi(S,x)   & = & \{a\in\cA\setdivider\cI_{\phi[a/x]}S=\twti\}{\rm\ and}\\
+\cA^\pm_\phi(S,x) & = & \cA^+_\phi(S,x)\cup\cA^-_\phi(S,x)
+\end{eqnarray*}
+
+We call a restriction $(x,S)$ {\bf empty} under $\phi$, if
+$\cA^\pm_\phi(S,x)$ is the empty set.  With this we can define the
+semantics of the universal quantifier and give a complete case
+analysis we distinguish four axioms, \textit{(t)}, \textit{(f)}, \textit{(+)}, and \textit{(--)}.
+
+\begin{tabular}{cccll}
+$\cI_\phi(\forall x_S\sdot A)$ & \raisebox{-2ex}[0ex][-4ex]{iff} & $\cI_{\phi[a/x]}$\\
+$\in$                        &     & $\in$\\\hline
+$\set{\twts,\twti}$ &  &$\set{\twts,\twti}$ & for all
+   $a\in\cA^\pm_\phi(S,x)$ & (t)\\
+
+$\set{\twfs,\twfi}$ & & $\set{\twfs,\twfi}$ & for
+  some $a\in\cA^\pm_\phi(S,x)$ & (f)\\
+
+$\set{\twts,\twfs}$ &  & $\set{\twts,\twfs}$ & for all
+   $a\in\cA^+_\phi(S,x)\not=\emptyset$ & (+)\\
+ $\set{\twti,\twfi}$ &  & $\set{\twti,\twfi}$ & for some
+   $a\in\cA^+_\phi(S,x)$ or $\cA^+_\phi(S,x)=\emptyset$ & (--)
+ \end{tabular}
+
+A universally quantified formula is interpreted as $\twts$, $\twti$,
+$\twfs$, and $\twfi$ if and only
+if the two corresponding cases hold as
+specified in the following table:\\
+\begin{tabular}{l|ll}
+$\cI_\phi(A)$ & (+) & (--) \\\hline
+(t)         & $\twts$ & $\twti$\\
+(f)         & $\twfs$ & $\twfi$
+\end{tabular}
+
+In all other cases $\cI_\phi(A) = \twu$.
+\end{definition}
+
+\begin{example}\label{ex:literature-quantifiers}
+  Let us take up example~\ref{ex:literature} to get an intuition on the formal
+  definition of quantifiers.
+  \begin{description}
+  \item[\phantom{--} $\twts$] ``All detectives are mortal'' is true and secure, since the
+    assertion holds for all detectives (all existing ones and also Sherlock
+    Holmes) and there is at least one existing detective (look him up in your
+    local telephone directory).
+  \item[\phantom{--} $\twfs$] ``All detectives are rich'' is false and secure, since there
+    are poor ones, 
+  \item[\phantom{--} $\twti$] ``All detectives have a guardian angel'' is
+    true and insecure if we assume guardian angels to be fictional and
+    everybody to have a guardian angel. ``All female catholic
+    priests are mortal'' is true and insecure, since there are none.
+  \item[\phantom{--} $\twfi$] ``All detectives go to heaven'', is
+    false and insecure assumed that at least one bad detective goes to
+    hell and that the existence of heaven is insecure.
+  \item[\phantom{--} $\undefined$] ``All numbers are larger than $1/0$.'' or ``All
+    islands are west of the equator'' are undefined since ``$1/0$'' and ``west of the
+    equator'' are nonsensical.
+  \end{description}
+\end{example}
+
+\begin{example}\label{ex-John}
+  Let us assume the following information. There is a company {\COMP}
+  which wants to fire people, but for social reasons they do not
+  fire any person with children. We are worried whether John will be
+  fired, but then we hear that his children are sleeping. Implicitly
+  we can conclude from this information that John has children,
+  because if all his children are sleeping then John must have
+  children and hence will not be fired. The semantic definition of
+  universal quantification means that a restriction constraint ${\sf
+    child}(x,{\sf John})$ will not be empty. This is mirrored in the
+  calculus given in the next section, and discussed in more detail in
+  Section~\ref{sec:example}.
+\end{example}
+
+With the specification of the behaviors of the connectives and quantifiers we have
+completed the definition of the semantics of formulae. Let us now come back to the
+presuppositions of a formula $A$, which we can now determine from its semantics.
+\begin{remark}[Presuppositions and Preimplications]
+  Following Bergmann~\cite{Bergmann:patdl81}, we will determine presuppositions in terms
+  of semantic anomaly (insecurity) rather than truth; we will use the logical
+  concept of {\bf preimplication} as a formalization of the intuitive concept of
+  presuppositions. Let us say that formula $A$ {\bf preimplies} formula $B$ (under
+  an assignment $\phi$) if and only if $\cI_\phi(A)\in\{\twts,\twfs\}$ entails that
+  $\cI_\phi(B)\in\{\twts,\twti\}$, in other words, if the security of $A$ entails
+  the truth of $B$. With this we can see that the sentence ``The present king of
+  France is wise'' (which is insecure) preimplies the existence of a king of
+  France irrespective of the truth value, i.e., it is irrelevant of whether we generally
+  think that kings of France are wise or not. Furthermore, we can see that
+  preimplication passes the classical linguistic test for presuppositions: The set
+  of presuppositions must be invariant under negation. This condition is trivially
+  met by preimplication, since negation does not change the security value of a
+  formula.
+\end{remark}
+
+Bergmann uses a different negation connective $\sim$ that is identical to ours, except that
+$\cI(\sim)(\twfi)=\twfi$.  This is motivated by a slightly different understanding
+of presuppositions, cf.~\cite{Bergmann:patdl81}. Our choice of negation, which is more
+pleasing to a logician, and indeed more suited to hypothetical reasoning is not a
+restriction in principle, since we could have both connectives in our system.  Moreover, the
+two connectives are interdefinable; therefore, we only need to treat one of them
+here: It is an easy exercise to see that $\neg A=\sim A\lor((\sim\holds
+A)\land \tf A)$ and $\sim A=\neg A\land(\deft A\lor \neg\tf A)$.
+
+In the next definition we introduce labeled formulae. Although
+redundant for expressiveness we shall need them in the generation of the
+clause normal form from labeled formulae as well as in the resolution
+calculus in form of labeled clauses.
+
+\begin{definition}[$\Sigma$-Model]\label{Def:model}
+  Let $A$ be a formula, then we call $A^\alpha$ (the formula $A$ indexed with
+  the intended truth value $\alpha\in\Tval$), a {\bf labeled formula}. 
+  
+  Let $A$ be a formula, then we call a $\Sigma$-algebra $\cM\deq(\cA,\cI)$ a
+  {\bf $\Sigma$-model for $A$} (written $\cM\models A$) iff
+  $\cI_\phi(A)=\twts$ for all $\Sigma$-assignments $\phi$. Analogously,
+  $\cM\models A^{\alpha}$ if and only if $\cI_{\phi}(A)=\alpha$ for all assignments
+  $\phi$. With this notion we can define the notions of {\bf validity}, {\bf
+    (un)-satisfiability}, and {\bf entailment} in the usual way.
+\end{definition}
+
+
+We are normally only interested in classes of models that satisfy some common
+background knowledge about definedness of concepts (corresponding to
+questions whether Pegasus exists, whether he is a horse, or about the nature
+and existence of his left front hoof). For this we restrict our class of
+models and variable assignments to those that satisfy a set of so-called term
+declarations that can be supplied by the user to specify just this background
+knowledge.
+
+\begin{definition}[Term Declarations]\label{Def:termdec}
+  In the following, we will assume a set $\TermDecs$ of labeled
+  formulae that we will call {\bf term declarations} and restrict our
+  attention to $\TermDecs$-models, i.e., models that satisfy all labeled
+  formulae in $\TermDecs$.
+\end{definition}
+
+{}From a purely theoretical point of view, term declarations do not yield more
+expressiveness, since they can be axiomatized (any intended truth value can be
+characterized by combinations of the connectives $\non$, $\deft$,
+$\holds$, and $\tf$).  However, from a practical point of view, the term
+declarations provide a convenient means of specifying the belief about
+existence and sortality in the world. Furthermore, the term declarations can
+be used for optimizations of the calculus by sorted unification as
+in~\cite{KeKo:atcfpf96}.
+
+  
+\begin{remark}
+  Now we can further study the relationship of restricted quantification
+  to sorted logics. Those usually define the {\bf carrier}
+  $\cA_P\subseteq\cA$ for any sort (unary predicate $P\in\Preds$) as
+  $\cA_P\deq\{a\in\cA\setdivider\cI(P)(a)$ $=\true\}$ and use that to
+  define sorted quantification as $\cI_\phi(\forall x_P\sdot A)$ to be
+  true if and only if $\cI_{\phi[a/x]}(A)$ is true for all $a\in\cA_P$. Note
+  that sorted logics usually assume that the $\cA_S$ are
+  non-empty\footnote{The logics of Cohn and
+    Weidenbach~\cite{Cohn87,Weidenbach91} did away with this
+    restriction that has always been considered as a technical anomaly. Originally
+    non-emptiness was used only to alleviate the need for special treatments in the
+    transformation to clause normal form and for instantiations in the
+    resolution calculus. A unifier that contains variables of sorts
+    that are empty does not -- in general --  lead to a correct refutation.} and
+  therefore lead to the same presuppositions as $\presuppl$ on the
+  sorted fragment.
+
+  We exploit this similarity in this paper by generalizing sort techniques for
+  the mechanization of $\presuppl$. 
+\end{remark}
+
+\begin{remark}
+  Bergmann's generalization of the restrictions to formulae adds practical
+  expressiveness to the logical system. For instance, the domain of
+  quantification in the formula $A=\forall x_{{\sf son}(x,y)}.B$  will be sensitive
+  to the assignment to the variable $y$. In particular, $\cI_{[a/y]}(A)$ will
+  make an assertion about the sons of $a$, while $\cI_{[b/y]}(A)$ one about the
+  sons of $b$. The negative side of this generalization is that the property
+  of well-sortedness (and thus presupposition failure) becomes undecidable;
+  this further illustrates the need for inference calculi for the entailment
+  relation of presupposition logics.
+\end{remark}
+
+\begin{remark}
+  The ``tertium non datur'' principle of FOL is no longer valid, since formulae
+  can indeed be evaluated to five different truth values.  We do however have a
+  ``sextum non datur'' principle, that is, formulae cannot get a truth value
+  different from the five in $\cB$.  This allows us to derive the validity of a
+  formula (i.e., that it is true and secure in all models) by refuting that it is
+  $\twti$, $\twfs$, $\twfi$, or $\undefined$.  (In the same line, if we are not
+  interested in security we can show the truth of a formula by refuting that it
+  is $\twfs$, $\twfi$, or $\undefined$.)  We will use this observation in our
+  resolution calculus, introduced in the next section.
+\end{remark}
+
+
+%\input{middle}
+\section{Resolution Calculus ($\presuppres$)}\label{sec:presupplres} 
+
+In this section we present a resolution calculus $\presuppres$ that is a generalization of
+the resolution calculi for partial functions~\cite{KeKo94}, and that for Bergmann's
+logic~\cite{KeKo:arcfp96}, which are in turn joint generalizations of Weidenbach's logics
+with dynamic sorts~\cite{Weidenbach91} with ideas from~\cite{BaFe92,Haehnle:adimvl94}. At
+first, we present the transformation to clause normal form as in a traditional resolution
+calculus. To this end we give for each possible combination of a label and a top level
+connective/quantifier one transformation rule. This translation is directly derived from
+the semantics. For instance, the first rule is a combination of the label $\twts$ and the
+connective $\land$. A set of labeled formulae $\cF$ containing a labeled formula
+$C,(A\land B)^\twts$ is satisfiable if and only if the labeled formula set generated from
+$\cF$ by replacing the labeled formula $C,(A\land B)^\twts$ by the two labeled formulae
+$C,A^\twts$ and $C,B^\twts$ is satisfiable.
+
+\begin{definition}[Clause Normal Form]\label{Def:cnf}
+  We will call a labeled atom $L^\alpha$ a {\bf literal} and a set of
+  literals $\{L_1^{\alpha_1},\ldots,L_n^{\alpha_n}\}$ a {\bf clause}. In
+  order to enhance legibility, we employ the ``,'' as the operator for the
+  disjoint union of sets so that $C,L^\alpha$ means $C\cup\{L^\alpha\}$ and
+  $L^\alpha$ is not a member of $C$. Furthermore we adopt
+  H\"ahnle's~\cite{Haehnle:adimvl94} notion of multi-labels in the form
+  $C,A^{\alpha\beta}$ to mean $C,A^\alpha,A^\beta$.
+  The clause normal form of a labeled formula set is generated by the application 
+  of the following rules.\vspace{1ex}
+
+\noindent\underline{$\land$-rules}
+\[\rulespacing%\small
+\begin{array}{c}
+\ianc{C,(A\land B)^\twts}
+     {C,A^\twts\quad C,B^\twts}
+     {}  \hspace{2em}
+\ianc{C,(A\land B)^\twfs}
+     {C,\holds A^\twfs,\holds B^\twfs\quad C,\deft A^\twts\quad C,\deft B^\twts}
+     {} 
+\end{array}\]
+\[\rulespacing
+\begin{array}{c}
+\ianc{C,(A\land B)^\twti}
+     {C,\holds A^\twts\quad C,\holds B^\twts\quad C,\deft A^\twfs,\deft B^\twfs}
+     {} \hspace{2em}
+\ianc{C,(A\land B)^\twu}
+     {C,A^{\twu\twts\twti}\quad C,B^{\twu\twts\twti}\quad C,A^\undefined,B^\undefined}
+     {}  \\
+\ianc{C,(A\land B)^\twfi}
+     {C,\holds A^\twfs,\holds B^\twfs\quad C,\deft A^\twfs,\deft B^\twfs
+      \quad C,\tf A^\twts,\tf B^\twts}
+     {} 
+\end{array}\]
+\noindent\underline{unary connective-rules}
+\[\rulespacing
+\begin{array}{c}
+\ianc{C,(\neg A)^\twts}
+     {C,A^\twfs}
+     {}  \hspace{1.6em}
+\ianc{C,(\neg A)^\twfs}
+     {C,A^\twts}
+     {}  \hspace{1.6em}
+\ianc{C,(\neg A)^\twti}
+     {C,A^\twfi}
+     {}  \hspace{1.6em}
+\ianc{C,(\neg A)^\twfi}
+     {C,A^{\twti}}
+     {}  \hspace{1.6em}
+\ianc{C,(\neg A)^\twu}
+     {C,A^{\twu}}
+     {}  \end{array}\]
+\[\rulespacing
+\begin{array}{c}
+\ianc{C,(\deft A)^\twts}
+     {C,A^{\twts\twfs}}
+     {}   \hspace{2em}
+\ianc{C,(\deft A)^\twfs}
+     {C,A^{\twti\twfi\twu}}
+     {}   \hspace{2em}
+\ianc{C,(\deft A)^\twti}
+     {C}
+     {}   \hspace{2em}
+\ianc{C,(\deft A)^\twfi}
+     {C}
+     {}   \hspace{2em}
+\ianc{C,(\deft A)^\twu}
+     {C}
+     {}   \end{array}\]
+\[\rulespacing
+\begin{array}{c}
+\ianc{C,(\holds A)^\twts}
+     {C,A^{\twts\twti}}
+     {} \hspace{1em}
+\ianc{C,(\holds A)^\twfs}
+     {C,A^{\twfs\twfi\twu}}
+     {} \hspace{1em}
+\ianc{C,(\holds A)^\twti}
+     {C}
+     {}   \hspace{1em}
+\ianc{C,(\holds A)^\twfi}
+     {C}
+     {}  \hspace{1em}
+\ianc{C,(\holds A)^\twu}
+     {C}
+     {} 
+\end{array}\]
+\[\rulespacing
+\begin{array}{c}
+\ianc{C,(\tf A)^\twts}
+     {C,A^{\twts\twti\twfs\twfi}}
+     {} \hspace{1em}
+\ianc{C,(\tf A)^\twfs}
+     {C,A^\twu}
+     {} \hspace{1em}
+\ianc{C,(\tf A)^\twti}
+     {C}
+     {}   \hspace{1em}
+\ianc{C,(\tf A)^\twfi}
+     {C}
+     {}   \hspace{1em}
+\ianc{C,(\tf A)^\twu}
+     {C}
+     {} 
+\end{array}\]
+
+\noindent\underline{$\forall$-rules}
+In order to model these rules we decompose formulae in their
+true/false and their secure/insecure components (unless they are
+undefined) and state rules as (note that in our clauseset `,' stands
+implicitly for `or' and `;' for `and'.)
+
+\def\Q{\textbf{Q}}
+\[\rulespacing
+ \begin{array}{c}
+ \ianc{C,(\forall x_S\sdot A[x_S])^{\alpha^\beta}}
+      {\Q^\alpha(C,A,S) \quad \Q^\beta(C,A,S)}
+      {}
+\end{array}\]
+
+for $\alpha\in\set{\true,\false}$ and $\beta\in\set{\texttt{+},\texttt{-}}$ where the normalization function \Q\ is defined as:
+
+\(
+\begin{array}{ll}
+\Q^+(C,A,S) = & C, A[x_S^+]^{\twts\twfs};\\
+             &  C, [g(z^1,\ldots,z^m)/x]S^\twts\\
+\Q^-(C,A,S) = & C, [f(y^1,\ldots,y^n)/x]S^\twts, [z^+/x]S^\twfs; \\
+              & C, [f(y^1,\ldots,y^n)/x]A^{\twti\twfi}, [z^+/x]S^\twfs\\
+\Q^\true(C,A,S) = & C, A[x_S^\pm]^{\twts\twti}\\
+\Q^\false(C,A,S) = & C, [f(y^1,\ldots,y^n)/x]A^{\twfs\twfi}; \\
+                  & C, [f(y^1,\ldots,y^n)/x]S^{\twts\twti}
+\end{array}
+\)
+
+\noindent where $\{x_S,y^1,\ldots,y^n\}=\free(A)$ (the set of free
+variables in $A$), $\{x_S,z^1,\ldots,z^m\}=\free(S)$ and $f$ is a new
+function symbol of arity $n$, and $g$ one of arity $m$.
+
+In order to define the rule for undefinedness we define four rules for
+the complements of the above four rules: 
+
+\(
+\begin{array}{ll}
+\Q^{\non +}(C,A,S) = & C, [f(y^1,\ldots,y^n)/x]A^{\twti\twfi\twu}, [z^+/x]S^\twfs;\\
+                    &C, [f(y^1,\ldots,y^n)/x]S^{\twts}, [z^+/x]S^\twfs \\
+
+\Q^{\non -}(C,A,S) = & C, A[x_S^+]^{\twts\twfs\twu};\\
+                   & C, [g(z^1,\ldots,z^m)/x]S^\twts\\
+
+\Q^{\non\true}(C,A,S) = & C, [f(y^1,\ldots,y^n)/x]A^{\twfs,\twfi,\twu};\\
+                      &  C, [f(y^1,\ldots,y^n)/x]S^{\twts,\twti}\\
+\Q^{\non\false}(C,A,S) = & C, A[x_S^\pm]^{\twts,\twti,\twu}\\
+
+\end{array}
+\)
+
+% \[\rulespacing
+% \begin{array}{c}
+% \ianc{C,(\forall x_S\sdot A[x_S])^\twts}
+%      {C,A[x_S^+]^\twts\quad C,[f(y^1,\ldots,y^n)/x]S^\twts\quad
+%        C,A[x_S^-]^\twti\quad C,\Secure(f(y^1,\ldots,y^n))^\twts}
+%      {}\\
+% \ianc{C,(\forall x_S\sdot A[x_S])^\twfs}
+%      {{C,A[f(y^1,\ldots,y^n)]^\twfs\quad 
+%       C,([f(y^1,\ldots,y^n)/x]S)^{\twts}}\atop {C,A[x_S^+]^{\twts\twfs}
+%       \quad C,\Secure(f(y^1,\ldots,y^n))^\twts}}
+%      {} \\[2ex]
+% \ianc{C,(\forall x_S\sdot A[x_S])^\twti}
+%      {{C,A[x_S^\pm]^{\twts\twti}\quad 
+%       C,[f(y^1,\ldots,y^n)/x]S^{\twts},[z^+/x]S^\twfs \atop
+%       {C,\Secure(f(y^1,\ldots,y^n))^\twts,[z^+/x]S^\twfs}\quad C,A[f(y^1,\ldots,y^n)]^\twti,[z^+/x]S^\twfs}}
+%      {}\\[2ex]
+% \ianc{C,(\forall x_S\sdot A[x_S])^\twfi}
+%      {C,A[f(y^1,\ldots,y^n)]^\twfi\quad
+%       C,([f(y^1,\ldots,y^n)/x]S)^{\twts\twti}}
+%      {}  \\
+% \ianc{C,(\forall x_S\sdot A[x_S])^\twu}
+%      {C,A[f(y^1,\ldots,y^n)]^\twu\quad
+%        C,A[x_S^\pm]^{\twu\twts\twti}\quad 
+%        C,([f(y^1,\ldots,y^n)/x]S)^{\twts\twti}}
+%      {}  \\
+% \end{array}\]
+
+The rule for undefinedness follows from the semantics of undefinedness
+of a universal quantification that it can be neither true nor false
+and neither secure nor insecure, that is,
+
+\[
+ \begin{array}{c}
+ C,(\forall x_S\sdot A[x_S])^\twu\\[1ex]\hline
+     \rule{0ex}{3ex}\Q^{\non\true}(C,A,S)\qquad\Q^{\non\false}(C,A,S)\qquad
+       \Q^{\non+}(C,A,S)\qquad\Q^{\non-}(C,A,S)
+  \end{array}\]
+\end{definition}
+
+Note that the transformations for the universal quantifier introduce new free
+variables $x^*_S$, consisting of a variable $x$, a mode specifier $\in\{+,-,\pm\}$
+(see Definition~\ref{Def:restconst}) and a restriction $S$.
+
+Note furthermore that this set of transformations is confluent,
+therefore any total reduction of a set $\Phi$ of labeled sentences
+results in a unique set of clauses. We will denote this set with
+$\Cnf(\Phi)$.
+
+The quantifier rules read that the true/false part and the
+secure/insecure parts of the rules are separated. For instance in
+order to have the truth value $\twts$, universally quantified formulae
+must be secure for all secure instantiations and the restriction must
+be non-empty on the one hand, and must be true (secure or insecure)
+for all instantiations in the restriction. Likewise for $\twfi$ there
+must be an instance in the restriction (secure or not) which make the
+formula false (secure or not) and there must be a secure instance in
+the restriction which makes the formula insecure.
+
+% The second quantifier rule, ($\forall$, $\twfs$), reads, for instance,
+% a universal quantification is false and secure for a restriction $S$ iff
+% there is a secure witness in $S$ that demonstrates the falsity and all
+% secure instances are secure. 
+% The third quantifier rule reads, a universal quantifier is true and
+% insecure iff any defined instantiation makes the body of the
+% quantification true and furthermore the restriction $S$ does either
+% not contain any secure elements or it does contain a secure element
+% which makes the body of the quantification insecure.
+% The last rule reads, a universal
+% quantification gets the value undefined iff there is witness for
+% undefinedness in the restriction of the quantification and all
+% instantiations result in either undefined or true (i.e., $\undefined$,
+% $\twts$, or $\twti$).
+
+The clause normal form transformations as presented above are not complete, that
+is, they do not transform every given labeled formula into clause form, since the
+rules for quantified formulae insist that the bound variable occurs in the scope.
+In fact the handling of degenerate quantifications poses some problems in the
+presence of possibly empty restrictions, as quantification over empty sets should
+semantically be true. In this situation we have the possibilities, either to forbid
+degenerate quantifications, or empty restrictions, or treat degenerate
+quantifications in the clause normal form transformations. For this paper we chose
+the first, since degenerate quantifications do not make much sense and normally do not
+appear in everyday language. This choice has the additional advantage that it can be very easily checked, each quantification variable must occur in the body of the quantification.   See~\cite{KeKo:atcfpf96} for the other possibilities.
+Thus we will assume that in all formulae in this paper the bound variables of
+quantifications occur in the scopes. Note that this assumption is not about the
+restrictions. In particular, $\forall x_{S}.A$ is allowed, even if
+$x\notin\free(S)$. Intuitively, this means that $x$ is unrestricted in a context
+that makes $S$ true and the whole formula carries the presupposition that $S$ is
+indeed true there.
+
+\begin{remark}\label{Rem:combine}
+  As in many regular multi-valued logics like Kleene logic it is possible to define
+  combined transformation rules for truth value sets.  For instance, the
+  transformation for $\forall$ with the set $\{\twts,\twti\}$ has the following form:
+\[\rulespacing
+\ianc{C,(\forall x_S\sdot A[x_S])^{\twts\twti}}
+     {C,A[x_S^\pm]^{\twts\twti}}
+     {}
+\]
+Using such transformations can result in a much shorter clause normal
+form\footnote{A computation using only the rules from Definition~\ref{Def:cnf}
+  would have yielded 4 clauses in the succedent of the rule shown above.}, which
+in turn is a much better starting point for any refutation. Moreover, in some
+regular multi-valued logics, cf.~\cite{Haehnle:adimvl94}, a careful analysis using sets
+of signs can result in a calculus that can be realized as a restriction strategy
+to existing theorem provers such as Spass~\cite{WeiSchHil:Spass07}. We have
+executed this for three-valued Kleene-logic in~\cite{KeKo:mpwri97}, obtaining a
+simple path to a highly efficient implementation. Since $\presuppl$ is very
+similar to Kleene logic, it seems plausible that a similar reduction is possible
+for $\presuppres$ as well, but we leave this to further research.
+\end{remark}
+
+\begin{definition}
+  Let $\cM=(\cA,\cI)$ be a $\Sigma$-model, then we will call a variable assignment
+  $\phi$ {\bf well-sorted} if and only if $\phi(x^*_S)\in\cA^*_\phi(S,x)$ for all
+  $x\in\Dom(\phi)$ and say that $\phi$ {\bf satisfies} a clause $C$ in $\cM$,
+  if and only if it satisfies one of its literals $L^\alpha\in C$, that is,
+  $\cI_\phi(L^\alpha)=\alpha$. $\phi$ satisfies a set of clauses in
+  $\cM$ if and only if it satisfies
+  each clause.
+\end{definition}
+
+\begin{theorem}\label{Thm:cnf-theorem}
+  Let $\Phi$ be a set of labeled sentences, then the clause normal
+  form $\Cnf(\Phi)$ is satisfiable if and only if $\Phi$ is (under the
+  assumption that all quantifications are not degenerated).
+\end{theorem}
+\begin{sketch}
+  The assertion critically depends on the fact that the notion of
+  satisfiability employed here takes the restrictions into account: A clause
+  is valid in a $\Signat$-model $\cM$ if and only if for one literal $L^\alpha$ we have
+  $\cI_\phi(L)=\alpha$ for all well-sorted assignments $\phi$ into $\cM$. With
+  this notion, the assertion can be reduced to the standard argumentation
+  about Skolemization and a tedious calculation with the truth tables
+  from Definition~\ref{Def:truth-tables}.
+\end{sketch}
+
+Now we proceed to give a simple resolution calculus, which utilizes standard
+(unsorted) unification.  In~\cite{KeKo:atcfpf96}, we have further improved a similar
+calculus by using a sorted unification algorithm, which delegates parts of the
+search into the unification algorithm.  For unsorted substitutions a naive
+resolution rule is unsound.  Therefore we have to add a residual (the
+restriction constraint) that ensures the soundness (with respect to the
+restrictions on the variables) of the unifier.
+
+\begin{definition}[Restriction Constraints]\label{Def:restconst}$\phantom{a}$\\
+  The {\bf restriction constraint} of a substitution $[t/x^*_S]$, depends on the
+  mode $*$ and is defined as follows:
+  \[\begin{array}{l}
+  \restconst([t/x^+_S])\deq\{([t/x]S)^{\twti\twfs\twfi\undefined},\Secure(t)^{\twfs}\},\\
+  \restconst([t/x^-_S])\deq\{([t/x]S)^{\twts\twfs\twfi\undefined},\Secure(t)^{\twts}\},
+  \\
+  \restconst([t/x^\pm_S])\deq\{([t/x]S)^{\twfs\twfi\undefined}\}, {\rm\ and}\\
+
+  \restconst([t/x^+])\deq\{\Secure(t)^{\twfs}\}.\end{array}\] 
+  For a substitution $\sigma=\sigma',[t/x^*_S]$ we have
+  $\restconst(\sigma)\deq\restconst(\sigma')\cup\restconst{[t/x^*_S]}$.
+\end{definition}
+
+These clauses are residuated in the $\presuppres$ rules and have to be refuted in
+order to guarantee that the restriction $\cA^*_\phi(S,t)$ holds
+(cf.~Definition~\ref{Def:truth-tables}) for every instance $t$ instantiated for a
+free variable $x^*_S$.
+
+\begin{definition}[Resolution Inference Rules
+  ($\presuppres$)]\label{def:res}$\phantom{a}$
+The inference rules of the resolution calculus are
+\begin{center}
+\(\rulespacing\begin{array}{c}
+\ianc{L^\alpha,C\qquad M^\beta,D}
+     {\sigma(C),\sigma(D),\restconst(\sigma)}
+     {Res}\hspace{3em}
+\ianc{L^\alpha,M^\alpha,C}
+     {\sigma(L^\alpha),\sigma(C),\restconst(\sigma)}
+     {Fac} \\
+\ianc{\Defined(t)^\twfs,C\qquad L^{\gamma},D}
+     {\rho(C),\rho(D),\restconst(\rho)}
+     {\mbox{$\it Strict^\Defined$}} \hspace{3em}
+\ianc{\Secure(t)^\twfs,C\qquad L^{\delta},D}
+     {\rho(C),\rho(D),\restconst(\rho)}
+     {\mbox{$\it Strict^\Secure$}}
+\end{array}\)
+\end{center}
+\noindent where $\alpha\neq\beta$ and $\gamma\ne\undefined$, and
+$\delta\in\{\twts,\twfs\}$. For ${\it Res}$ and ${\it Fac}$, the substitution
+$\sigma$ is the most general unifier of $L$ and $M$; and for $\it
+Strict^\Defined$ and $\it Strict^\Secure$ there
+exists a subterm $s$ of $L$, such that $\rho$ is a most general unifier of $t$
+and $s$.
+\end{definition}
+
+Here we have assumed $\alpha,\beta,\gamma,\delta$ to be single truth values,
+naturally the rules can be easily extended to sets of truth values. For instance,
+the resolution of $L^\alpha,C$ and $M^\beta,D$ would lead to the clause
+$\sigma(L)^{\alpha\cap\beta},\sigma(C),\sigma(D),\restconst(\sigma)$.
+
+\begin{remark}
+Note that clauses containing $A^{\twts\twfs\twti\twfi\undefined}$ are
+tautological and can therefore be deleted in the generation of the
+clause normal form as well as in the deduction process. The calculus
+can be extended by the usual subsumption rule, allowing the deletion
+clauses that are subsumed (super-sets).
+\end{remark}
+
+\begin{definition}
+  Let $A$ be a sentence and $\Phi$ be the clause normal form of the set
+  $\{\{A^{\twfs\twti\twfi\undefined}\}\}$ then we say that $A$ can be
+  {\bf proved in} $\presuppres$ ($\vdash A$) if and only if there is a derivation of
+  the empty clause $\Box$ from $\Phi$ with the inference rules
+  above.
+\end{definition}
+
+\begin{theorem}[Soundness]\label{Thm:sound}
+$\presuppres$ is sound.
+\end{theorem}
+\begin{sketch}
+  The soundness of the resolution and factoring rules is established in the usual
+  way taking into account that the restriction constraints make the substitutions
+  ``well-sorted'' and thus compatible with the semantics: The restriction
+  constraints add literals $([t/x^*]S)^{\alpha}$ and $\Secure(t)^\beta$ (with
+  truth value sets $\alpha$ and $\beta=\beta(*)$) per component of the
+  substitution, which only can be refuted if indeed $([t/x]S)^\gamma$ with
+  $\alpha\cap\gamma=\emptyset$ and $t$ has the right security characteristic $*$.
+  
+  The soundness of the rules {\mbox{$\it Strict^\Secure$}} and {\mbox{$\it
+      Strict^\Defined$}} hinges on the fact that an atom must be insecure
+  (undefined) if and only if  it has an insecure (undefined) subterm, since we have assumed
+  strictness of functions and predicates.
+\end{sketch}
+
+\begin{definition}
+ Let $C\deq\{L_1^{\alpha_1},\ldots,L_n^{\alpha_n}\}$ be a clause, then
+  the {\bf conditional instantiation $\scapply\sigma{C}$ of $\sigma$
+  to $C$} is defined by
+\[\scapply\sigma{C}\deq\{\sigma(L_1^{\alpha_1}),\ldots,\sigma(L_n^{\alpha_n})\}\cup\restconst({\restrict\sigma{\free(C)}})\]
+\end{definition}
+
+The following result from~\cite{Weidenbach91} is independent of the number of
+truth values.
+
+\begin{lemma}
+  Conditional instantiation is sound: for any clause $C$, substitution
+    $\sigma$ and $\Sigma$-model $\cM$ we have that
+    $\cM\models\scapply\sigma{C}$, whenever $\cM\models C$.
+\end{lemma}
+
+\begin{definition}[Herbrand Model]
+  Let $A$ be a sentence and $\Cnf(A)$ be the clause normal form of $A$, then we
+  define the {\bf Herbrand set of clauses $\Cnfh(A)$ for $A$} as
+  \(\{\scapply\sigma{C}\setdivider C\in\Cnf(A), \sigma\ \mbox{\rm ground},
+  \Dom(\sigma)=\free(C)\}\)
+  
+  Let $\Phi$ be a set of clauses, then the {\bf Herbrand base
+    $\Herbrandbase(\Phi)$ of $\Phi$} is defined to be the set of all ground
+  atoms containing only function symbols that appear in the clauses of $\Phi$. If
+  there is no individual constant in $\Phi$, we add a new constant $c$. A {\bf
+    valuation} $\nu$ is a function $\Herbrandbase(\Phi)\to\Tval$.  The {\bf
+    $\Sigma$-Herbrand model $\cH$ for $\Phi$ and $\nu$} is the set
+  $\cH\deq\{L^\alpha\setdivider\alpha=\nu(L), L\in\Herbrandbase(\Phi)\}$. Note
+  that $\cH$ cannot contain {\bf complementary} literals (i.e., two literals
+  $L^\alpha$ and $L^\beta$, where $\alpha\ne\beta$) since $\nu$ is a function.
+  
+  We say that a $\Sigma$-Herbrand model $\cH$ {\bf satisfies a clause set $\Phi$}
+  if and only if for all ground substitutions $\sigma$ and clauses $C\in\Phi$ we have
+  $\scapply{\sigma}{C}\cap \cH\ne\emptyset$. A clause set is called {\bf
+    $\Sigma$-Herbrand-unsatisfiable} if and only if there is no $\Sigma$-Herbrand-model for
+  $\Phi$.
+\end{definition}
+The following theorem which links Herbrand satisfiability to satisfiability in
+$\Sigma$-models is a key ingredient to the completeness proof in $\presuppl$,
+therefore we will give the proof in detail.
+
+\def\leqc{[\kern-0.18em[} 
+\def\reqc{]\kern-0.18em]} 
+\def\eqc#1{{\leqc{#1}\reqc}}
+
+
+\begin{theorem}[Herbrand\hspace{-0.16pt} Theorem]\label{Thm:Herbrand-theorem}
+Let $A$ be a formula, then the clause normal form $\Cnf(A)$ has 
+a $\Sigma$-model if and only if $\Cnfh(A)$ has a $\Sigma$-Herbrand-model.
+\end{theorem}
+\begin{proof}
+  Let $\cM=(\cA,\cI)$ be a $\Sigma$-model for $\Phi\deq\Cnf(A)$ and
+  $\Psi\deq\Cnfh(A)$. We will show that the set $\cH\deq\{L^\alpha\setdivider
+  L\in\Herbrandbase(\Phi),\alpha=\cI_\emptyset(L)\}$ is a $\Sigma$-Herbrand model
+  for $\Psi$. For this we assume the opposite, that is, there is a clause
+  $C\in\Psi$, such that $\cH\cap C=\emptyset$. This is sufficient, since $C$ is
+  ground and therefore $\scapply\sigma{C}=C$. Since $C\in\Psi$ there is a ground
+  substitution $\sigma=[t^i/x^{*_i}_{S_i}]$ and a clause $D\in\Phi$, such that
+  $C=\scapply\sigma{D}=\sigma(D)\cup\restconst(\sigma)$ by definition.
+  
+  Without loss of generality we can assume that the assignment
+  $\psi\!\deq[\cI_\emptyset(t^i)/x^i]$ is well-sorted, i.e.
+  $\psi(x^*_S)\in\cA^*_\phi(S,x)=\{a\in\cA\setdivider\cI_{\psi,[a/x]}(S)=*\}$ or
+  equivalently $\cI_\psi(S)=*$, since otherwise $\cI_\psi(S)\in\Tval\setminus\{*\}$,
+  and therefore $([t^i/x_i]S^i)^\gamma\in\cH$ for some $\gamma\in\Tval\setminus\{*\}$,
+  which contradicts the assumption that  $\cH\cap C=\emptyset$, since
+  $([t^i/x_i]S^i)^\gamma\in\restconst(\sigma)$ by construction.
+  
+  Note that since $\cM$ is a model of $\Phi$, we have that $\cM\models D$ and
+  therefore there is a literal $L^\alpha\in D$, such that
+  $\alpha=\cI_\psi(L)=\cI_\phi(\sigma(L))$, hence $\sigma(L)\in\cH$, which
+  contradicts the assumption.
+
+  \vspace{2ex}
+  
+  For the converse direction let $\cH$ be a $\Sigma$-Herbrand model for $\Psi$ and
+  $\cH\cB$ the Herbrand base for $\cH$ together with $\bot$. In order to construct
+  the carrier $\cA$ of the intended model, we have to identify all elements in
+  $\cH\cB$ that are undefined, $(\Defined(t))^\twfs\in\cH$, and identify them
+  with $\bot$. We continue the traditional construction of the model by defining the meanings
+  $\cI(f^n)$ and $\cI(P^n)$ of functions and predicates, such that
+  \begin{eqnarray*}
+      \cI(f^n)(t^1,\ldots,t^n)\deq f^n(t^1,\ldots,t^n) &\qquad {\rm iff}\qquad &
+         f^n(t^1,\ldots,t^n)\in\cA \\
+      \cI(P^n)(t^1,\ldots,t^n)\deq \alpha &\qquad {\rm iff}\qquad &
+         (P^n(t^1,\ldots,t^n))^\alpha\in\cH
+  \end{eqnarray*}
+  
+  However, this definition does not make $\cI(f)$ strict for $\Defined$, since
+  $\cI(f)(\bot)=f(\bot)\ne\bot$. To repair this defect we take the carrier $\cA$
+  to be the quotient of $\cT_\bot$ with respect to the equality theory $=_\bot$
+  induced by the set
+  \[E_\bot=\{t=_\bot\bot\setdivider(\Defined(t))^\twfs\in\cH\}\cup
+           \{f^k(x_1,\ldots,\bot,\ldots,x_k)=_\bot\bot\setdivider f^k\in\Sigma^k\}\]
+  of equations. Thus $\cA$ is the set of equivalence classes 
+  $\eqc{t}_\bot=\{s\setdivider E_\bot\models s=_\bot t\}$. The
+  function $f_\bot\colon(\eqc{t_1}_\bot,\ldots,\eqc{t_1}_\bot)\mapsto\eqc{f(t_1,\ldots,t_n)}_\bot$ is a
+  well-defined function, since $=_\bot$ is a congruence relation. We define
+  $\cI(f):=f_\bot$ and note that the special construction of $E_\bot$ 
+  entails the strictness of $f_\bot$ for $\Defined$. Strictness for $\Secure$ is
+  not a problem in this construction, since terms are not identified
+  to a single element as in the case of undefinedness.
+    
+  For $P\in\Preds^n$ let
+  $P_\cH(\eqc{t^1}_\bot,\ldots,\eqc{t^n}_\bot)=\alpha$ iff
+  $P(t^1,\ldots,t^n)^\alpha\in\cH$. Clearly $P_\cH$ is well-defined, since the
+  definition only depends on $=_\bot$-equivalence classes, furthermore it is
+  strict for $\Defined$ and $\Secure$ by construction.
+
+  Note that any assignment into $\cM\deq(\cA,\cI)$ has the form $[\eqc{t_i}_\bot/x_i]$, where the
+  $t_i$ are ground terms, so the set of substitutions and the set of assignments are
+  isomorphic (we will neglect to make this isomorphism explicit in the
+  following). Moreover, a simple structural induction shows that
+  $\cI_\phi(t)=\eqc{\phi(t)}_\bot$. In fact, the argument can be extended to show that
+  the isomorphism respects well-sortedness. 
+  
+  Finally we convince ourselves that $\cM\models\Phi$. Let $C\in\Phi$ and
+  $\phi\!\deq[t^i/x^{*_i}_{S_i}]$ be an arbitrary well-sorted $\Sigma$-assignment.
+  So we have $\phi(S_i)^\gamma\in\cH$ for some $\gamma\in\{*_i\}$. $\cH$ is a
+  $\Sigma$-Herbrand model for $\Psi$ and thus
+  $\scapply\phi{C}\cap\cH=(\phi(C)\cup\restconst(\phi))\cap\cH\ne\emptyset$.
+  Because $\cH$ cannot contain complementary literals we must already have a
+  literal $\phi(L^\alpha)\in\phi(C)\cap\cH$. Now let $\nu$ be the valuation
+  associated with $\cH$. Since $\phi(L^\alpha)\in\cH$ we have
+  $\alpha=\nu(\phi(L))=\cI_\phi(L)$, which implies $\cM\models_\phi L^\alpha$. We
+  have taken $C$ and $\phi$ arbitrary, so we get the assertion.
+\end{proof}
+
+\begin{theorem}[Refutation Completeness]\label{Lemma:unsat}
+  $\presuppres$ is refutation complete, i.e., if $\Phi$ is an unsatisfiable set of
+  ground clauses then there exists a $\presuppres$ derivation of the empty clause
+  from $\Phi$.
+\end{theorem}
+\begin{sketch}
+  The proof of completeness for unification-based refutation calculi is usually in
+  two parts. First completeness for ground clauses is established, and then the
+  result is generalized with a lifting argument. It turns out that the lifting
+  property can be established by methods from~\cite{Weidenbach91}, since they are
+  independent of the number of truth values. 
+  
+  Thus we only have to establish ground completeness. We do this using the
+  so-called $k$-parameter induction method. For a clause set $\Phi$ let $k(\Phi)$
+  be the number of literals minus the number of clauses in $\Phi$. If $k=0$ then
+  all clauses in $\Phi$ are units. Since $\Phi$ is unsatisfiable there
+  must be two complementary literals (otherwise a model can be
+  constructed from $\Phi$). The empty clause can be deduced with a
+  resolution step in the calculus. If $k>0$ then there is a non-unit clause
+  $C\in\Phi$, which we can divide into two subclauses $D$ and $E$. By inductive
+  hypothesis there is an $\presuppres$-refutation $\cD_D$ of $\Phi_D=\Phi\setminus
+  C\cup\{D\}$. The refutation of $\Phi_E$ can be used to construct an
+  $\presuppres$-derivation $\cD_D^E$ of the clause $E$ out of $\Phi$ (the
+  rest $E$ of $D$ in $C$ is conserved during the proof). Again by inductive
+  hypothesis, there is an $\presuppres$ derivation $\cD_E$ of $\Phi_E$. Thus
+  the combined derivation $\cD_D^E,\cD_E$ is a refutation of $\Phi$ and we have
+  completed the proof for the ground case.
+\end{sketch}
+
+\begin{corollary}[Completeness]
+Any valid $\presuppl$ formula can be proved by $\presuppres$.
+\end{corollary}
+\begin{sketch}
+  Let $A$ be a valid formula, then the labeled formula
+  $A^{\twfs\twti\twfi\undefined}$ must be unsatisfiable.  By
+  Theorem~\ref{Thm:cnf-theorem}, $\Phi\deq\Cnf(\{\{A^{\twfs\twti\twfi\undefined}\}\})$
+  must be unsatisfiable as well, so by the refutation completeness result above,
+  there is a refutation of $\Phi$, which is a proof of $A$ by definition.
+\end{sketch}
+
+Note that alternative soundness and completeness proofs can be built
+using techniques from~\cite{GS00}, in which it has been shown that the
+signed CNF translation is a translation to classical logic and that
+superposition specializes to a refined version of the many-valued
+resolution rules introduced by Baaz and Ferm\"uller. The use of this
+argument would allow to directly apply a classical supperposition
+principle with sorts~\cite{Weidenbach96}.
+
+In the next two sections we will give two examples to examplify the two different main
+phenoma we set out to model, firstly qantificational presuppositions, and secondly
+existential presuppositions. These are two separate phenomena and modeled by two
+independent extensions of standard first-order logic. The first is modeled by a restriction
+system which assumes that restrictions are non-empty, the second is modeled by Bergmann's truth
+values which distinguish between secure and insecure formulae.
+ 
+\section{Example: Quantificational Presuppositions }
+\label{sec:example}
+
+In this section we want to see how the calculus deals with
+Example~\ref{ex-John}. Remember, the company {\COMP} wants to fire
+people, but they do not fire persons with children. We are worried
+whether John will be fired, but then we hear that his children are
+sleeping. Implicitly we can conclude from this information that John
+has children, because if all his children are sleeping then John must
+have children and hence will not be fired. The presupposition will be
+derived from $\all{x}{{\sf child}(x,{\sf John})}{{\sf sleeps}(x)}$,
+which in clause C2 guarantees the existence of a child of
+John. Technically the existence follows from the restriction
+constraint ${\sf child}(x,{\sf John})$, which must be non-empty. The
+presupposition is not modeled by the many-valued aspect of the
+logic~\presuppl.
+
+
+
+\def\somespace{0.9ex}
+This can be encoded in $\presuppl$ by the following statements:\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.7\textwidth}
+\bd
+A & $\all{x}{\Defined(x)}{{\sf fires}(\COMP,x)\impl \non {\sf parent}(x)}$\\
+B & $\all{x}{\Defined(x)}{\ex{y}{{\Defined(y)}} {\sf child}(y,x)\impl{\sf parent}(x)}$\\
+C & $\all{x}{{\sf child}(x,{\sf John})}{{\sf sleeps}(x)}$\\[1ex]
+
+T & $\non {\sf fires}{(\COMP,{\sf John})}$
+\ed
+\end{minipage}\\[\somespace]
+with the term declarations $(\Defined(\COMP))^\twts\!\!$,
+$(\Defined({\sf John}))^\twts\!\!$, $(\Secure(\COMP))^\twts\!\!$, and
+$(\Secure({\sf John}))^\twts$.
+In order to prove the theorem T, the following generalized clause set
+has to be refuted:\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.7\textwidth}
+\bd
+A & $(\all{x}{\Defined(x)}{{\sf fires}(\COMP,x)\impl \non {\sf parent}(x)})^\twts$\\
+B & $(\all{x}{\Defined(x)}{\ex{y}{{\Defined(y)}} {\sf child}(y,x)}\impl{\sf parent}(x))^\twts$\\
+C & $(\all{x}{{\sf child}(x,{\sf John})}{{\sf sleeps}(x)})^\twts$\\[1ex]
+
+T & $(\non {\sf fires}{(\COMP,{\sf John})})^{\twti\twfs\twfi\undefined}$
+\ed
+\end{minipage}\\[\somespace]
+By the rules for forming a clause normal form we get the clauses:\\[\somespace]
+\hspace*{2ex}
+\begin{tabular}{l@{$\;\;$}ll@{$\;\;$}l}
+A1 & $({\sf fires}(\COMP,x_{\Defined}^+))^\twfs,({\sf parent}(x^+_{\Defined}))^\twfs$\\
+A2 & ${\Defined}(c_1)^\twts$ &
+A3 & ${\Secure}(c_1)^\twts$\\
+
+B1 & \multicolumn{3}{l}{$({\sf child}(y^+_{\Defined},x^+_{\Defined}))^\twfs,({\sf parent}(x^+_{\Defined}))^\twts$}\\
+B2 & ${\Defined}(c_2)^\twts$ &
+B3 & ${\Secure}(c_2)^\twts$\\
+B4 & ${\Defined}(c_3)^\twts$ &
+B5 & ${\Secure}(c_3)^\twts$\\
+
+C1 & $({\sf sleeps}(x^+_{{\sf child}(x,{\sf John})}))^\twts$\\
+C2 & $({\sf child}(c_4,{\sf John}))^\twts$\\
+C3 & ${\Defined}(c_4)^\twts$ &
+C4 & ${\Secure}(c_4)^\twts$\\
+
+T  & \multicolumn{3}{l}{$({\sf fires}(\COMP,{\sf John}))^\twfi,({\sf fires}(\COMP,{\sf John}))^{\twts},$}\\
+   & \multicolumn{3}{l}{$({\sf fires}(\COMP,{\sf John}))^{\twti}$,$({\sf fires}(\COMP,{\sf John}))^{\undefined}$}\\
+\ed\\[\somespace]
+By resolution we get from Res(B1,C2):\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.7\textwidth}\bd
+R1 & $({\sf parent}({\sf John}))^\twts, (\Defined({\sf
+  John}))^{\twti\twfs\twfi\undefined},(\Secure({\sf John}))^\twfs,$\\
+   & $\phantom{({\sf parent}({\sf John}))^\twts, }(\Defined(c_4))^{\twti\twfs\twfi\undefined},(\Secure(c_4))^\twfs$\\
+\ed\end{minipage}\\[\somespace]
+Two-times resolving with clauses from the term declarations and resolving with C3 and C4 results in:\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.7\textwidth}\bd
+R2 & $({\sf parent}({\sf John}))^\twts$\\
+\ed\end{minipage}\\[\somespace]
+which in turn can be resolved with A1:\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.9\textwidth}\bd
+R3 & $({\sf fires}(\COMP,{\sf John}))^\twfs,(\Defined({\sf John}))^{\twti\twfs\twfi\undefined},(\Secure({\sf John}))^\twfs$
+\ed
+\end{minipage}\vspace{\somespace}
+
+The last two literals can again be resolved away using the term
+declarations. T can be resolved four times with the resulting unit
+$({\sf fires}(\COMP,{\sf John}))^\twfs$, whereby finally the empty
+clause is derived.
+
+Please note that in a direct translation of the above text into FOL, the essential information in C2 that John
+has a child cannot be derived and hence no proof can be found.
+
+
+\section{Example: Existential Presupposition}
+\label{sec:expres}
+
+
+In this example we show how we can {\em avoid\/} the presupposition in
+classical logic that all constants exist just because of mentioning
+them. For instance, classical logic is not
+a good tool for a dispute of a theist and an atheist about the properties of God,
+supposed he existed, since if the atheist only mentioned God he would admit the
+existence of God. In $\presuppl$, however, the status of statements about
+constants can be insecure and in particular no existence is assumed unless
+otherwise specified by term declarations.
+
+Let us look at a simplified version of Leibniz's argument that God cannot be
+almighty, since if he were then there could not be any evil in the world.  The
+argument is as follows: {\sl Assume God existed (1) and God were good (2).
+  Furthermore we assume that everything that is created by an almighty and good
+  being must be good (3). Since God has created the world (4) and the world is not
+  good at all (5), God cannot be almighty (T).}
+
+In our logic this can be formalized in a way that can be accepted by a theist and an
+atheist alike:\\
+\newcommand{\God}{{\sf God}}
+\newcommand{\good}{{\sf good}}
+\newcommand{\World}{{\sf World}}
+\newcommand{\almighty}{{\sf almty}}
+\newcommand{\created}{{\sf crtd}}
+Term declarations:\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.9\textwidth}
+\bd
+(1)     & $\Secure(\God)^{\twts\twfs}\qquad
+           \Defined(\God)^{\twts}\qquad
+           \Secure(\World)^{\twts}\qquad
+           \Defined(\World)^{\twts}$
+\ed
+\end{minipage}\\[\somespace]
+Propositions:\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.9\textwidth}
+\bd
+(2)     & $\holds(\good(\God))$\\
+(3)     & $\holds(\all{x}{\Defined(x)}{\all{y}{\Defined(y)}{
+            \almighty(x)\land\good(x)\land\created(x,y) \implies
+            \good(y)}})$\\
+(4)     & $\holds(\created(\God,\World))$\\
+(5)     & $\neg(\good(\World))$
+
+\ed
+\end{minipage}\\[\somespace]
+Theorem:\\[\somespace]
+\hspace*{2ex}\begin{minipage}[t]{0.9\textwidth}
+\bd
+(T)     & $\holds\neg\almighty(\God)$
+\ed
+\end{minipage}\vspace{\somespace}
+
+Note that most of the statements are prefixed by the $\holds$
+connective, which essentially says that the security value is of no
+concern. The clause normal form of the assumptions and the negated
+theorem looks like (using combined transformations as discussed
+in Remark~\ref{Rem:combine}):\\[\somespace]
+\hspace*{2ex}
+\begin{minipage}[t]{0.965\textwidth} 
+\bd 
+     (2) &  $(\good(\God))^{\twts\twti}$\\ 
+     (3) &  $(\almighty(x^\pm_\Defined))^{\twfs\twfi}\!,(\good(x^\pm_\Defined))^{\twfs\twfi}\!,
+             (\created(x^\pm_\Defined,y^\pm_\Defined))^{\twfs\twfi}\!,(\good(y^\pm_\Defined))^{\twts\twti}$\\ 
+     (4) & $(\created(\God,\World))^{\twts\twti}$\\
+     (5) & $(\good(\World))^\twfs$\\ 
+($\neg$T)& $(\almighty(\God))^{\twts\twti}$ 
+\ed
+\end{minipage}
+
+It is now possible to resolve clause
+(3) with the unit clauses (2), (4), (5), and ($\neg$T).  Because of the term
+declarations $\Defined(\God)^{\twts}$ and $\Defined(\World)^{\twts}$, the
+generated restriction constraints for the variables $x^\pm_\Defined$
+and $y^\pm_\Defined$ can be resolved
+away too so that we can derive the empty clause.
+
+\section{Conclusion}
+\label{sec:concl}
+
+We have developed a five-valued logic for the formalization of
+everyday reasoning with presuppositions and undefinedness. Our logic
+is a common generalization of the system proposed by Bergmann
+in~\cite{Bergmann:patdl81} for dealing with presuppositions and the one
+proposed by Kleene~\cite{Kleene52} for dealing with undefinedness. We were able to show that they
+together deal with two different  phenomena  of presuppositions, firstly qantificational presuppositions, and secondly
+existential presuppositions. These are two separate phenomena and modeled by two
+independent extensions of standard first-order logic. The first is modeled by a restriction system (which is comparable to a sort system)
+which assumes that restrictions are non-empty, the second is modeled by Bergmann's truth
+values which distinguish between secure and insecure formulae.
+
+Furthermore we have presented a sound and complete resolution calculus
+for our system, which uses the restriction mechanism to capture bounded
+quantifications. Our calculus can be seen as an extension of classical logic that combines
+methods from many-valued logics, cf.~\cite{BaFe92,Haehnle:adimvl94}, for a correct
+treatment of the secure and insecure or undefinedness information on the one
+hand and
+order-sorted logics, see~\cite{Weidenbach91}, for an adequate treatment of
+restricted domains, on the other hand.  In contrast to the mere partial function calculi
+in~\cite{KeKo94,KeKo:atcfpf96}, from which we have drawn most of the technical
+ideas, in this paper we strictly distinguish between undefined terms which
+are all identified (with a special ``undefined object'' in each model), and insecure terms, which can be different from
+each other.  However, just like in the mere Kleene case, most definedness
+preconditions can be taken care of in the unification, making inferences
+quite efficient. 
+
+Although certainly the phenomenon of presuppositions cannot be fully captured
+by a static analysis and in fact research on presuppositions in linguistics
+has nowadays turned mostly to dynamic and more pragmatically driven analyses, and
+away from the multi-valued treatment, this is not a counter-argument to our
+system. In contrast to FOL our system $\presuppl$ makes it possible to
+specify (and reason with) presuppositions and undefinedness.
+First steps for developping dynamic versions of logics have been taken
+in~\cite{Saurer:andsfd93,ReyGab:ddcodrs94,MonRij:arcfds98}. Work by the
+second author that links dynamic features and inference in DRT to the dynamic
+introduction of witnesses in tableau-based model generation~\cite{Kohlhase:mgfdrt00}
+provides a promising setting  for developping a
+dynamic version of $\presuppl$. This would alleviate one central
+methodological weakness of the linguistic analyses, which use (intuitive) reasoning on
+the meta-level to argue about presupposition and definedness in the presence of world
+knowledge without being able to make this formal and thus part of the analysis.
+
+\newif\ifgerman\germanfalse\newif\iffrench\frenchfalse
+\newcommand{\CADE}{{CADE}}
+\newcommand{\IJCAI}{{IJCAI}}
+\newcommand{\LPAR}{{LPAR}}
+\newcommand{\JACM}{Journal of the ACM}
+\newcommand{\JAR}{Journal of Automated Reasoning}
+\newcommand{\JSL}{The Journal of Symbolic Logic}
+\newcommand{\LNAI}{LNAI}
+\newcommand{\PROC}{{Proceedings}}
+\def\UdS{Universit\"at des Saarlandes}
+\def\AddressUdS{Im Stadtwald, \Saarbruecken\Germany}
+\def\UdSAddress{\AddressUdS}
+\def\Saarbruecken{\ifgerman{Saar\-br\"ucken}\else{\iffrench{Sarrebruck}\else{Saar\-br\"ucken}\fi}\fi}
+\def\FRANCE{\ifgerman{Frankreich}\else{France}\fi}
+\def\GERMANY{\ifgerman{}\else{\iffrench{, Allemagne}\else{, Germany}\fi}\fi}\def\Germany{\GERMANY}
+\def\NETHERLANDS{\ifgerman{Niederlande}\else{\iffrench{Pays Bas}\else{The Netherlands}\fi}\fi}
+\def\RUSSIA{\ifgerman{Ru{\ss}land}\else{\iffrench{Russie}\else{Russia}\fi}\fi}
+
+
+
+\bibliography{kwarc}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

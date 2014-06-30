@@ -1,0 +1,68 @@
+\Para{Felder von Extremalen}{}
+Sei im Folgenden $\Phi=\{f_s:M\longrightarrow \widetilde M\}$ ein Feld zu 
+$f_0$.
+\Def{}{}
+Wir definieren das Differential von  $\Phi$ an der Stelle $q\in\widetilde M$ 
+durch 
+$$P(q):=\partial f_s\bigl|_p\hbox{ \quad\quad falls }f_s(p)=q.$$
+\Def{}{}
+Wir definieren ein neues Funktional
+$$F^*(p,g(p),A\bigl|_p)
+     :=F_{q_{i,\alpha}}(p,g(p),P(g(p)))
+          \cdot(A_{i,\alpha}\bigl|_p-P(g(p)))
+       + F(p,g(p),P(g(p)))$$
+und 
+$$\F^*(g):=\int_M{F^*(p,g(p),\partial g\bigl|_p)dvol}$$
+\Lemma{}{}
+{\it $\partial\F^*(g,\phi)=0$ fr alle $\phi\in\C^\infty_0(M,\N M)$.}
+\Beweis
+Offensichtlich gilt $F^*_{p^\alpha_i}=F_{p^\alpha_i}$.
+Die Bl„tter $f_s\in\Phi$ sind Extremale zu $F$, sie sind schwache
+L”sungen der Eulergleichungen von $\F$, das heit
+$$\eqalign{0=
+  &F_{y^\alpha}(p,f_s(p),\partial f_s\bigl|_p)
+   -{\partial\over\partial x_i}F_{p^\alpha_i}(p,f(p),\partial f_s\bigl|_p)\cr
+ =&F_{y^\alpha}(p,f_s(p),P(f(p)))
+   -{\partial\over\partial x_i}F_{p^\alpha_i}(p,f(p),P(f(p)))             \cr
+ =&F_{y^\alpha}(p,f_s(p),P(f(p)))
+   -F_{p^\alpha_ix_i}(p,f(p),P(f(p)))                                     \cr
+  &-F_{p^\alpha_iy_\beta}(p,f(p),P(f(p)))
+    \cdot{\partial f_a\over\partial x_i}                                  \cr
+  &-F_{p^\alpha_ip^\beta_j}(p,f(p),P(f(p)))                               
+    \cdot(P^\beta_{x_i}-P^j_{y_\alpha}P^i)\;.                             \cr
+            }$$
+
+\Lemma{}{\INVARIANT}
+{$\F^*(f)=\F^*(g)$ fr alle Immersionen $f$ und $g$ mit 
+$\partial f(M)=\partial g(M)$ und $f(M),g(M)\subset \O$.}
+\Bem{}{}
+Wegen der Eigenschaft {\INVARIANT} heit $\F^*$ {\bf Hilbert invariantes
+Integral}.                    
+\Def{}{}
+Wir definieren die {\bf Weierstra-Funktion} zu $F$
+$$\E:M\times\widetilde M\times \Hom(\T M,\T \widetilde M)
+         \times\Hom(\T M,\T \widetilde M)\longrightarrow \RR$$
+durch
+$$\E(p,z,A,B):=F(x,z,B)-F(p,z,A)-(B-A)F_P(p,z,A).$$
+\Satz{}{\EXTREFELD}
+{\it $f:M\longrightarrow \widetilde M$ sei kompakte orientierte 
+immersierte Extremale zu $\F$ und 
+$\Phi$ ein $\C^2$-Feld zu $M$ in $\widetilde M$, so da $\widetilde M$
+eine Tubenumgebung ${\cal T}_\epsilon(f)$ von $M$ enth„lt.\par
+Ist dann weiterhin $\E(p,z,A,B)>0$ fr alle $p\in M$, $z\in {\cal T}_\epsilon(f)$
+und $A\ne B\in \Hom(\T M,\T \widetilde M)$, 
+so ist $f$ starkes homologisches Minimum von $\F$ zu 
+eigenen Randwerten.}
+\Beweis
+Wir betrachten eine andere Immersion $g:M\longrightarrow \widetilde M$ mit
+$\partial f(M)=\partial g(M)$.  
+$$\eqalign{\F(g)-\F(f)=&\F(g)-\F^*(f)=\F(g)-\F^*(g)                       \cr
+    \int_M&{F(p,g(p),\partial g\bigl|_p)
+            -F(p,g(p),\partial f\bigl|_{f^{-1}(g(p))})}                   \cr
+          &-F_p(p,g(p),\partial f\bigl|_{f^{-1}(g(p))})
+            \cdot(\partial g\bigl|_p-\partial f\bigl|_{f^{-1}(g(p))})dvol \cr
+          =\int_M&{\underbrace{
+            \E(p,g(p),\partial f\bigl|_{f^{-1}(g(p))},\partial g\bigl|_p)
+                            }_{\geq 0}}   \;.                             \cr
+           }$$
+Damit ist dann $\F(g)\geq\F(f)$.\kasten

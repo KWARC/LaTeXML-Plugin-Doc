@@ -1,0 +1,86 @@
+Wir konstruieren in diesem Kapitel ein $\C^{2,\alpha}$-Immersion
+$$g:M\times [-\rho,\rho]\longrightarrow \widetilde M,$$
+so daž die Niveaufl„chen $M_s:=g(M\times\{s\})$ in $\widetilde M$ 
+Minimalfl„chen sind, und daž gilt
+$g(x,s)=\tau(s\nu(x))$ auf $\partial M$ und $g(x,0)=f(x)$ auf $M$.\par
+Dazu konstuieren wir eine $\C^{2,\alpha}$-Injektion
+$$u:M\times[-\rho,\rho]\longrightarrow\widetilde M,$$
+so daž 
+$$g(x,s):=\tau(su(x,s))=\exp_{f(x)}(su(s,x))\;.$$
+Offensichtlich ist dann $g(0,x)=f(x)$, und wir mssen fr alle
+$s\in [-\rho,\rho]$ erreichen, daž
+$$u(x,s)=\nu \hbox{ auf }\partial M.$$
+Sei $s\in [-\rho,\rho]$ fest. Dann ist 
+$$h(x,t):=\tau(tsu(x,s))$$
+eine glatte Variation von $f$, und es gilt
+$$\eqalign{h_0(x)&:=h(x,0)=\tau(0)=f(x)                   \cr
+           h_1(x)&:=h(x,1)=\tau(su(x,s))=g(x,s)   \;.     \cr
+        }$$
+$f$ ist nach Voraussetzung minimal, deswegen muž man das Problem
+$$H(h_1)-H(h_0)=\int_0^1{{{d\over dt}H(h_t)\bigr|}_{t=\tau}d\tau}=0
+\leqno(\Num{\HMINH})$$
+l”sen. Nun ist aber 
+$${d\over dt}H(h_t)\bigr|_{t=\tau}=L_{h_t}(su_s),$$
+dabei ist $L_{h_t}$ der Jacobioperator von $h_t$.
+Mit den Bezeichnungen $\L_t:=L_{h_t}$ und $\L:=\L_0$ schreibt sich
+{\HMINH} als
+$$s\int_0^1{\L_tu_s dt}=0\;.$$
+Damit erhalten wir
+$$ \eqalign{ \L u_s
+      &=\int^1_0{(\L_0-\L_t)u_s dt}                                      \cr
+      &=-\int^1_0{\int_0^t{{d\over d\sigma}\L_\sigma u_sd\sigma dt}} \;. \cr
+         }$$
+\Lemma{}{}
+{\it Es gibt eine glatte Funktion $G$, so daž 
+$$     -\int^1_0{\int_0^t{{d\over d\sigma}\L_\sigma u_sd\sigma dt}} 
+            =sG(x,s,u,\nabla u,\nabla^2u).$$}
+\Beweis
+kommt noch\par
+Nun ist aber der kleinste Eigenwert $\lambda$ des Jacobi-Operators $\L=L_f$
+positiv, deswegen ist $\L$ nach {\LUMKEHR} invertierbar. Es gibt also genau
+eine L”sung $v\in \C^{2,\alpha}(M,NM)$ der Randwertaufgabe
+$$\left.\eqalign{\L(v)&=0 \hbox{ auf }M             \cr 
+                     v&=\nu  \hbox{ auf }\partial M \cr}\right\}\;.$$
+Setzen wir $$\tilde u:=u-v$$ und 
+$$H(x,s,\tilde u,\nabla \tilde u,\nabla^2\tilde u)
+        :=g(x,s,u+v,\nabla(u+v),\nabla^2(u+v)),$$
+so k”nnen wir {\HMINH} in der folgenden Form schreiben
+$$\left.
+\eqalign{\L \tilde u&=\sigma\cdot 
+          H(x,s,\tilde u,\nabla \tilde u,\nabla^2\tilde u)\hbox{ auf }M \cr
+         \tilde u   &=0 \hbox{ auf } M                                  \cr}
+  \right \}\Num{\HMINHH}$$
+oder wegen der Invertierbarkeit von $\L$ als
+$$\tilde u(x,s)=s\cdot \L^{-1}H(x,s,\tilde u(x),
+       \nabla \tilde u(x),\nabla^2\tilde u(x))\;.$$                                 
+Durch 
+$$\T U(x,s):=s\cdot \L^{-1}H(x,s, U(x),\nabla U(x),\nabla^2U(x))$$  
+definieren wir einen stetigen Operator                              
+$$\T:\C^{2,\alpha}_0(M\times[-\rho,\rho],NM)\longrightarrow
+\C^{2,\alpha}_0(M\times[-\rho,\rho],NM).$$
+Es gilt dann
+$$\eqalign{&|TU-TV|_{\C^{2,\alpha}(M\times[-\rho,\rho],NM)}           \cr
+     &\leq s|\L^{-1}\bigl(H(\cdot,\cdot,U,\nabla U,\nabla^2U)
+                        - H(\cdot,\cdot,V,\nabla V,\nabla^2V)\bigl)
+                            |_{\C^{2,\alpha}(M\times[-\rho,\rho],NM)} \cr
+     &\leq \rho \|\L^{-1}\|  
+                        |H(\cdot,\cdot,U,\nabla U,\nabla^2U)
+                         - H(\cdot,\cdot,V,\nabla V,\nabla^2V)
+                 |_{\C^{0,\alpha}(M\times[-\rho,\rho],NM)}            \cr
+     &\leq \rho \|\L^{-1}\|\omega
+                 |U-V|_{\C^{2,\alpha}(M\times[-\rho,\rho],NM)}        \cr
+              }$$
+Dabei ist $\omega$ der Stetigkeitsmodul von $H$.
+Fr hinreichend kleine $\rho>0$ ist 
+der Operator $\T$ in der $\C^{2,\alpha}$-Norm eine Kontraktion.
+Nach dem Banachschen Fixpunktsatz gibt es einen eindeutigen Fixpunkt
+$\tilde u\in \C^{2,\alpha}(M\times[-\rho,\rho],NM)$.
+$u(x,s):=\tilde u(x,s)+v(x)$ l”st dann das Problem und ist von der Klasse 
+$\C^{2,\alpha}(M\times[-\rho,\rho],NM)$.
+Wir haben also mit $g(x,s):=\tau(su(x,s))$ eine Funktion 
+$g\in\C^{2,\alpha}(M\times[-\rho,\rho],NM)$ konstruiert, deren Niveaufl„chen
+$g(\{s=\const\})$ Minimalfl„chen sind. Analog zu der Argumentation in
+{\BLAETTERUNG} erhalten wir, daž die Niveaufl„chen von $g$ eine 
+$\C^{2,\alpha}$-Bl„tterung ergeben.
+
+

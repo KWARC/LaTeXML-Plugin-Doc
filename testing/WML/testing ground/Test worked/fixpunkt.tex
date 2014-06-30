@@ -1,0 +1,121 @@
+\Para{Konstruktion der Fixpunkte}{}
+Zur L”sung des Fixpunktproblems fr $T_s$ betrachte die folgenden Mengen.
+$${\cal K}(s,\sigma)
+            \colon =\bigl \{u\in \C_0^{2,\alpha}(\MM,\N \MM)\colon 
+                    |u|_{\C^{2,\alpha}} \leq s ^{1-\sigma},
+                    |u|_{H^{2,p}}      \leq s ^{1-\sigma} \bigr \}\;.$$
+\Bem{}{}
+Fr alle $s,\sigma$ ist ${\cal K}(s,\sigma)$ abgeschlossen in 
+$\C^{2,\alpha}_0(M,\N M)$.
+\Satz {} \ENTHALTEN                               
+{\it Es gibt $\sigma >0$ und $s_3>0$ so, da fr alle $s<s_3$ gilt
+$$T_s \bigl ({\cal K}(s ,\sigma) \bigr ) \subset {\cal K}(s ,\sigma) \;.$$}
+\Beweis
+Sei $U \in {\cal K} (s ,\sigma)$. 
+Zerlege $T_sU=V+W$ so, da V und W den linearen Gleichungen
+$$\eqalign{L_sV &=-H_s \cr
+           L_sW &=-E_s(U) \cr}$$
+gehorchen. Es gengt dann zu zeigen, da V und W den folgenden Absch„tzungen
+gengen:
+$$\leqalignno{&|V|_{C^{2,\alpha}} \leq K_1s  & (V1) \cr
+              &|V|_{H^{2,p}}      \leq K_2s  & (V2) \cr
+              &|W|_{C^{2,\alpha}} \leq K_3s  & (W1) \cr
+              &|W|_{H^{2,p}}      \leq K_4s  & (W2) \cr
+        }$$
+Setze $K\colon =K_1 + K_2 + K_3 + K_4$ und $s_3= K ^{-1/\sigma} $.
+Fr alle $s <s _3$ gilt dann $sK < s^{1-\sigma}$ und 
+$V+W=T_sU \in {\cal K}(s,\sigma)$
+\Bem {}{}
+Es gilt also 
+$$|u|_{\C^1(M,\N M)}\leq |u|_{\C^{2,\alpha}(M,\N M)}\leq Ks,$$ 
+deswegen kann man ohne Einschr„nkung annehmen, da
+$${\cal K}(s,\sigma)\subset \C.$$
+$T_s$ ist also auf ${\cal K}(s,\sigma)$ definiert.
+\bigskip
+\par \noindent{\gross Absch„tzungen fr V}
+\medskip
+\par Wegen {\LPABSCH}  und {\HCNULL} ist 
+$|V|_{L^p} \leq C_1\lpnorm {H_s} \leq C_2s$,
+und wegen {\LPAB} ist
+$$\eqalign{|V|_{H^{2,p}} &\leq C_3 (|L_sV|_{L^p}+|V|_{L^p})  \cr
+                         &=    C_3 (|H_s|_{L^p}+|V|_{L^p}) \cr
+                         &\leq C_4s \hfill (V2)  \cr
+        } $$
+\par 
+W„hle $p=2n$, dann ist  $2-n/p=3/2>1$ und man hat man nach 
+dem Sobolevschen Einbettungssatz {\SOBOLEV} $|V|_{\C^1} \leq C_5s $ 
+und damit $|V|_{\C^{0,\alpha}}\leq C_5s $.
+$H_s$ ist beschr„nkt in $\C^{0,\alpha}(\MM,\N \MM)$ und deswegen gilt nach
+ Lemma \SCHAUDERSCHRANKEN
+$$\eqalign{|V|_{\C^{2,\alpha}} 
+            & \leq C_6(|H_s|_{\C^{0,\alpha}}+|V|_{\C^{0,\alpha}}) \cr
+            & \leq C_7s \hfill(V1)                         \cr
+         } $$
+\Bem {}{\VUNABH}
+Offensichtlich sind diese Absch„tzungen fr $V$ nur von $H_s$ abh„ngig, 
+insbesondere sind sie unabh„ngig von $U$.
+\bigskip
+\par {\gross Absch„tzungen fr W}
+\medskip
+\Satz {} {\EABSCH}
+{\it Sei $|u|_{\C^1} \leq r \leq 1$ und $|u|_{\C^2}\leq r \leq 1$ dann gilt
+$$|E_s(u)| \leq K \bigl ( |\nabla u|^2 + |\nabla u| |\nabla ^2 u| \bigr )$$
+$$\lpnorm{E_s(u)-E_s(v)} \leq Kr(
+                  \lpnorm {\nabla (u-v)} + \lpnorm{\nabla^2(u-v)})$$}
+\Beweis Siehe Kapitel 5\par
+Damit ergibt sich fr $W$
+$$\eqalign{|W|_{L^p} 
+             &\leq C_1|E_s(U)|_{L^p} = C_1(\int {|E_s(U)|^p})^{1/p } \cr
+             &\leq C_1 \Bigl \{ (\int {|\nabla u|^{2p}}
+               \int {|\nabla U|^p|\nabla ^2U|^p})^{1/p}   \Bigr \}   \cr
+             &\leq C_1 \bigl \{|\nabla U|_{\C^0}|\nabla U|_{L^p}
+                              +|\nabla U|_{\C^0} |\nabla ^2U|_{L^p}\bigr\}\cr
+             &\leq C_1 \bigl \{|U|_{\C^1} |U|_{H^{1,p}}
+                              + |U|_{\C^1} |U|_{H^{2,p}}\bigr\}           \cr
+             &\leq C_1 \bigl \{s ^{2-2\sigma}
+                   +s ^{2-2\sigma}\bigl \}                                \cr
+             &\leq C_1 s ^{2-2\sigma} \leq C_1s   \;.                     \cr
+       }$$
+\medskip
+\par Damit beweist man $(W1)$ und $(W2)$ wie oben.
+\Satz {} {\KONTRAK}
+{\it Es gibt ein $s _4>0$ ,so da fr alle 
+$s<s_4$ gilt, $T_s$ ist auf 
+${\cal K} (s ,\sigma)$ kontrahierend in der $H^{2,p}$-Norm.}
+\Beweis
+Seien $u,v \in {\cal K}(s ,\sigma)$, dann ist fr 
+$s_4<1$ auch
+$|u|_{\C^2} \leq |u|_{\C^{2,\alpha}} \leq s^{1-\sigma} <1$ und 
+$|v|_{\C^2} \leq s^{1-\sigma} <1$.
+$$\eqalign{ |T_su-T_sv|_{H^{2,p}} 
+             & =    |L_s^{1-}(H_s)  + L_s^{-1}E_s(v) 
+                     - L_s^{-1}(H_s) - L_s^{-1}E_s(u)|_{H^{2,p}}        \cr
+             & \leq |E_s(v)-E_s(u)|_{H^{2,p}}                           \cr
+             & \leq |E_s(v)-E_s(u)|_{L^p} 
+                    + |L_s^{-1}E_s(v) - L_s^{-1}E_s(u)|_{L^p}           \cr
+             & \leq |E_s(v)-E_s(u)|_{L^p} 
+                    + {1\over \lambda_s}|E_s(v) - E_s(u)|_{L^p}         \cr
+             & \leq (1+{2\over \lambda_0})|E_s(v)-E_s(u)|_{L^p}         \cr
+             & \leq s^{1-\sigma} K (|\nabla v - \nabla u|_{L^p}    
+                    + |\nabla^2 v - \nabla^2 u|_{L^p})                  \cr
+             & \leq s^{1-\sigma}K |v - u|_{H^{2,p}} \;.                 \cr
+     }$$
+$s _4\colon =\min \bigl \{K^{-1/{1-\sigma}},1\bigl \}$ 
+erfllt die Behauptung.        
+Nach dem Banachschen Fixpunktsatz gibt es also einen eindeutigen 
+Fixpunkt $u_s=\lim_{n\to\infty}T^n(0)$ in  ${\cal K} (s ,\sigma)$. Man hat 
+also folgenden
+\Satz {}{\FPUNKT}
+{\it Fr alle $|s|<s_5=\min \{s_1,\ldots,s_4\}$ gibt es einen Schnitt 
+$u_s\in \C^{2,\alpha}(\MM,\N \MM)$ mit 
+$$H^\bot (s\nu + u_s)=0, 
+        \quad |u_s|_{\C^{2,\alpha}(\MM,\N \MM)} \leq s K_s,
+        \quad |u_s|_{H^{2,p}     (\MM,\N \MM)} \leq s K_s \;.$$}
+W„hle nun $p=2n$. Dann ist  $2-n/p=3/2>1$, und man hat man nach 
+dem Sobolevschen Einbettungssatz {\SOBOLEV} $|u_s|_{\C^1} \leq Cs$. Verkleinert
+man $s_5$ n”tigenfalls so, da $Cs_5\leq\epsilon_0$, so ist nach 
+Lemma {\NORMPRO} auch $H_s(u_s)=0$.
+\par $\MM _s\colon =\MM_{u_s}$ ist nach der Konstruktion also eine Minimalfl„che.
+Insgesamt erh„lt man so eine Schar von Minimalfl„chen
+$F=\{ \MM_s \bigl | |s|< s_5 \}$.
+

@@ -1,0 +1,505 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{faust}[2011/05/30 v0.3 (C. Beetle)]
+
+%
+%%% PACKAGE OPTIONS
+%
+
+\newif\iffaust@bbm
+\newif\iffaust@hge
+\newif\iffaust@rsfs
+
+\DeclareOption{bbm}{\faust@bbmtrue}
+\DeclareOption{hge}{\faust@hgetrue}
+\DeclareOption{rsfs}{\faust@rsfstrue}
+\DeclareOption{fonts}{\faust@bbmtrue\faust@hgetrue\faust@rsfstrue}
+\DeclareOption{nofonts}{\faust@bbmfalse\faust@hgefalse\faust@rsfsfalse}
+
+\DeclareOption{acvec}{\AtEndOfPackage{\AccentVectors}}
+\DeclareOption{sfvec}{\AtEndOfPackage{\SansSerifVectors}}
+\DeclareOption{rmvec}{\AtEndOfPackage{\RomanVectors}}
+
+\ExecuteOptions{nofonts,sfvec}
+\ProcessOptions
+
+\RequirePackage{amsmath}
+
+
+
+% Extra Fonts [Options (fonts|nofonts) and (bbm), (hge) and (rsfs) for individual fonts]
+%
+% This mode provides access to certain extra fonts which must be installed separately.
+
+\newcommand{\mbb}[1]{\mathbf{#1}}										% Define default command as backup
+\iffaust@bbm
+	\DeclareFontFamily{U}{bbm}{}											% Load Blackboard Bold
+	\DeclareFontShape{U}{bbm}{m}{n}{<5><6><7><8><9><10> gen * bbm 
+		<10.95> bbm10 <12><14.4> bbm12 <17.28><20.74><24.88> bbm17}{}
+	\DeclareMathAlphabet{\mathbb}{U}{bbm}{m}{n}
+	\renewcommand{\mbb}[1]{\mathbb{#1}}
+\fi
+
+\newcommand{\mhg}[1]{\mathbox[bold]{#1}}									% Define default command as backup
+\iffaust@hge
+	\DeclareFontFamily{U}{hge}{}											% Load Gothic
+	\DeclareFontShape{U}{hge}{m}{n}{<-> hge}{}
+	\DeclareMathAlphabet{\mathhg}{U}{hge}{m}{n}
+	\renewcommand{\mhg}[1]{\mathhg {#1}}
+\fi
+
+\newcommand{\mfs}[1]{\mathcal{#1}}										% Define default command as backup
+\iffaust@rsfs
+	\DeclareFontFamily{U}{rsfs}{}											% Load Formal Script
+	\DeclareFontShape{U}{rsfs}{m}{n}{<5> rsfs5 <6><7> rsfs7 
+		<8><9><10><10.95><12><14.4><17.28><20.74><24.88> rsfs10}{}
+	\DeclareMathAlphabet{\mathfs}{U}{rsfs}{m}{n}
+	\renewcommand{\mfs}[1]{\mathfs {#1}}
+\fi
+
+\DeclareFontShape{OT1}{cmss}{bx}{sl}{<-> cmssbxo10}{}
+
+\newcommand{\mathbox}[2][normal]{\begingroup\ensuremath
+	\let\@nomath\@gobble\mathversion{#1}%
+	\mathchoice
+		{\hbox{$\m@th\displaystyle #2$}}%
+		{\hbox{$\m@th\textstyle #2$}}%
+		{\hbox{$\m@th\scriptstyle #2$}}%
+		{\hbox{$\m@th\scriptscriptstyle #2$}}%
+	\endgroup}
+
+
+
+\DeclareMathVersion{boldoblique}
+\SetSymbolFont{operators}{boldoblique}{OT1}{cmr}{bx}{sl}
+\SetSymbolFont{letters}{boldoblique}{OML}{cmm}{b}{it}
+\SetSymbolFont{symbols}{boldoblique}{OMS}{cmsy}{b}{n}
+\SetMathAlphabet\mathsf{boldoblique}{OT1}{cmss}{bx}{sl}
+\SetMathAlphabet\mathit{boldoblique}{OT1}{cmr}{bx}{it}
+
+\newcommand\acvec[1]{}\let\acvec\vec
+\newcommand\acihat{\hat{\imath}}
+\newcommand\acjhat{\hat{\jmath}}
+\newcommand\ackhat{\hat{k}}
+
+\newcommand\sfvec[1]{\mathbox[bold]{\mathsf{#1}}}
+\newcommand\sfihat{\mathbox[bold]{\mathsf{\hat{\mathchar"7110}}}}
+\newcommand\sfjhat{\mathbox[bold]{\mathsf{\hat{\mathchar"7111}}}}
+\newcommand\sfkhat{\mathbox[bold]{\mathsf{\hat{k}}}}
+
+\newcommand\rmvec[1]{\mathbox[bold]{\mathbf{#1}}}
+\newcommand\rmihat{\mathbox[bold]{\mathbf{\hat{\mathchar"7110}}}}
+\newcommand\rmjhat{\mathbox[bold]{\mathbf{\hat{\mathchar"7111}}}}
+\newcommand\rmkhat{\mathbox[bold]{\mathbf{\hat{k}}}}
+
+%%% The dyad accent "<--->" does not exist, so we mock it up based on the rule (#12 on p. 443 of the TeXBook) for setting accents.
+\newcommand\acdyad[1]{\mathpalette\faust@acdyad{#1}}
+\def\faust@acdyad#1#2{{\ensuremath%										#1 = mathsize (from\mathpalette), #2 = nucleus character
+	\setbox0=\hbox{$#1 x$}%
+	\setbox1=\hbox{$#1#2\mathchar"017F$}\dimen1=\wd1%
+	\setbox1=\hbox{$#1\mathchar"017F$}\advance\dimen1 by -\wd1%
+	\setbox1=\hbox{$#1#2$}\advance\dimen1 by -\wd 1%						box x = \box1, u = \wd1, s = \dimen1
+	\ifdim\ht1<\ht0  \dimen2=\ht1  \else  \dimen2=\ht0  \fi%						delta = \dimen2
+	\setbox2=\hbox{$#1\mathchar"017E\/$}%									box y = \box2
+	\dimen3=\dimen1\advance\dimen3 by 0.5\wd1\advance\dimen3 by -0.5\wd2%	s + (u - w(y)) = \dimen3
+	\setbox3=\vbox{%
+		\kern-\ht2
+		\ifdim\dimen3 < 0.25\ht0
+			\moveright0.25\ht0\hbox{\rotatebox{180}{\copy2}}\nointerlineskip
+		\else
+			\moveright\dimen3\hbox{\rotatebox{180}{\copy2}}\nointerlineskip
+		\fi
+		\kern-\ht2
+		\kern1.2\ht0
+		\moveright\dimen3\copy2\nointerlineskip
+		\kern-\dimen2
+		\copy1}%														box z = \box3
+	\ifdim\ht2 < \ht0  \setbox3\vbox{\kern\ht0\kern-\ht2\unvbox\box3}\ht2=\ht0  \fi
+	\wd2=\wd0%
+	\box3}}
+
+\newcommand\sfdyad[1]{\mathbox[boldoblique]{\mathsf{#1}}}
+\newcommand\rmdyad[1]{\mathbox[boldoblique]{\mathbf{#1}}}
+
+\newcommand\AccentVectors{%
+	\let\vec=\acvec
+	\let\ihat=\acihat
+	\let\jhat=\acjhat
+	\let\khat=\ackhat
+	\let\dyad=\acdyad}
+\newcommand\SansSerifVectors{%
+	\let\vec=\sfvec
+	\let\ihat=\sfihat
+	\let\jhat=\sfjhat
+	\let\khat=\sfkhat
+	\let\dyad=\sfdyad}
+\newcommand\RomanVectors{%
+	\let\vec=\rmvec
+	\let\ihat=\rmihat
+	\let\jhat=\rmjhat
+	\let\khat=\rmkhat
+	\let\dyad=\rmdyad}
+
+\newcommand\AccentDyads{\let\dyad=\acdyad}
+\newcommand\SansSerifDyads{\let\dyad=\sfdyad}
+\newcommand\RomanDyads{\let\dyad=\rmdyad}
+
+
+
+
+
+\newcommand\grad{\nabla}
+\newcommand\fie{\varphi}
+\newcommand\del{\partial}
+\newcommand\weq{\approx}
+\newcommand\inter{\bigcap\limits}
+\newcommand\union{\bigcup\limits}
+\newcommand\hateq{\mathbin{\widehat{\mathord{=}}}}
+
+\newcommand\ed{\mathrm{d}}												% exterior derivative operator (upright d)
+\newcommand\ee{\mathrm{e}}												% base of the natural logarithm (upright e)
+\newcommand\ii{\mathrm{i}}												% imaginary unit (upright i)
+
+\newcommand\hook{\mathbin{\raisebox{-0.5ex}{$\urcorner$}}}						% left vector insertion operator (_|)
+\newcommand\kooh{\mathbin{\raisebox{-0.5ex}{$\ulcorner$}}}						% right vector insertion operator (|_)
+
+\DeclareMathOperator\real{Re}											% real part of a complex number (Re)
+\DeclareMathOperator\imag{Im}											% imaginary part of a complex number (Im)
+
+\DeclareMathOperator\Div{div}												% divergence operator (div)
+\DeclareMathOperator\Grad{grad}											% gradient operator (grad)
+\DeclareMathOperator\Sgn{sgn}											% Sign function (sgn)
+\DeclareMathOperator\Tr{tr}												% trace operator (tr)
+
+\DeclareMathOperator\img{im}												% image operator (im)
+\DeclareMathOperator\coimg{coim}											% coimage operator (coim)
+\DeclareMathOperator\coker{coker}											% cokernel operator (coker)
+
+\DeclareMathOperator\Img{Im}
+\DeclareMathOperator\Ker{Ker}
+
+\DeclareMathOperator\sgn{sgn}
+
+
+\newcommand\scri{\mfs{I}}												% null infinity (script I)
+\newcommand\Lie{\mfs{L}}												% Lie derivative operator (script L)
+\newcommand\order{\mfs{O}}												% mathematical order (script O)
+
+\newcommand\Com{\mbb{C}}												% complex numbers (blackboard C)
+\newcommand\Euc{\mathbb{E}}											% Euclidean space (blackboard E)
+\newcommand\Fld{\mathbb{F}}												% general field (blackboard F)
+\newcommand\Qua{\mbb{H}}												% quaternions (blackboard H)
+\newcommand\Nat{\mbb{N}}												% natural numbers (blackboard N)
+\newcommand\Rat{\mbb{Q}}												% rational numbers (blackboard Q)
+\renewcommand\Re{\mbb{R}}												% real numbers (blackboard R)
+\newcommand\Int{\mbb{Z}}												% integers (blackboard Z)
+
+\newcommand\shortperp{{\scriptscriptstyle\perp}}
+\newcommand\tran{{\scriptscriptstyle\top}}
+
+
+%
+%%% DECLARE UTILITY VARIABLES
+%
+
+\newbox\faust@box
+\newdimen\faust@dimen
+
+
+
+ \newcommand\setmargins[1][1in]{%
+ 	\@tempdima = #1%
+	\setlength\hoffset{-1in}\relax				\addtolength\hoffset{\@tempdima}%
+	\setlength\textwidth\paperwidth\relax		\addtolength\textwidth{-2\@tempdima}%
+	\setlength\voffset{-1in}\relax				\addtolength\voffset{\@tempdima}%
+	\setlength\textheight\paperheight\relax		\addtolength\textheight{-2\@tempdima}%
+	\setlength\headsep{30pt}\relax				\addtolength\headsep{-\headheight}%
+	\setlength\footskip{30pt}\relax
+	\setlength\topmargin{-\headheight}\relax		\addtolength\textheight{-2\headsep}%
+	\setlength\oddsidemargin{0pt}\relax			\setlength\evensidemargin{0pt}%
+}
+
+
+
+
+
+%%%
+% Derivative Notations
+%%%
+%
+% These macros provide nice shorthands for both total and partial derivatives.
+% There are two versions of each, one giving the derivative of a given function
+%	and the other giving the derivative operator
+%
+% \fd[n]{f}{x} 			gives the nth derivative of a function			d^n f / d x^n
+% \fdby[n]{x} 			gives the nth derivative operator			d^n / d x^n
+%
+% In both of these cases, n defaults to 1 and will not be typeset if it has that value.
+%
+% \pd[n]{f}[m]{x}[l]{y} 		gives the nth partial derivative of a function	d^n f / d^m x d^l y
+% \pdby[n][m]{x}[l]{y} 	gives the nth partial derivative operator		d^n / d^m x d^l y
+%
+% In both of these cases, n defaults to 1 and will not be typeset if it has that value.
+% In both cases, arbitrarily many independent variables (x, y, ...) may be listed, each with its own order (m, l, ...).
+% If n is a number, then (m, l, ...) must be numbers, and must add up to n.
+% The default value of (m, l, ...) is 1 in all cases, except that m defaults to n in \pdby[n]{x}. 
+
+\newcommand\fd[3][1]{\frac{\ifx1#1  \ed  \else  \ed^{#1}  \fi  #2}{\ed  \ifx1#1  #3  \else  #3^{#1}  \fi}}
+
+\newcommand\fdby[2][1]{\frac{\,  \ifx1#1  \ed  \else  \ed^{#1}  \fi  \hfill}{\ed  \ifx1#1  #2  \else  #2^{#1}  \fi}}
+
+\newcommand\pd[2][1]{%
+	\frac{\ifx1#1  \partial  \else  \partial^{#1}  \fi  #2}
+	\bgroup
+	\ifcat_\ifnum0<0#1_\else^\fi  \count0=#1  \else \count0=-1  \fi
+	\pddenom}
+
+\newcommand\pdby[1][1]{%
+	\frac{\ifx1#1  \partial  \else  \partial^{#1}  \fi\,\,}
+	\bgroup
+	\ifcat_\ifnum0<0#1_\else^\fi  \count0=#1  \else \count0=-1  \fi
+	\@ifnextchar[{\pddenom}{\pddenom[#1]}}
+
+\newcommand\pddenom[2][1]{%
+	\ifx0#1  
+		\! #2 \!
+	\else  
+		\partial  \ifx1#1  #2  \else  #2^{#1}  \fi
+	\fi
+	\ifnum\count0>0
+		\ifcat_\ifnum0<0#1_\else^\fi  \advance\count0 by -#1  \fi
+		\ifnum\count0 > 0  \,\let\next\pddenom  \else  \let\next\egroup  \fi
+	\else
+		\def\next{\@ifnextchar\cdots{\,\pddenom[0]}{\@ifnextchar[{\,\pddenom}{\egroup}}}
+	\fi
+	 \next}
+
+
+
+
+\newcommand\vard[2][1]{%
+	\frac{\ifx1#1  \delta  \else  \delta^{#1}  \fi  #2}
+	\bgroup
+	\ifcat_\ifnum0<0#1_\else^\fi  \count0=#1  \else \count0=-1  \fi
+	\varddenom}
+
+\newcommand\vardby[1][1]{%
+	\frac{\ifx1#1  \delta  \else  \delta^{#1}  \fi\,\,}
+	\bgroup
+	\ifcat_\ifnum0<0#1_\else^\fi  \count0=#1  \else \count0=-1  \fi
+	\@ifnextchar[{\varddenom}{\varddenom[#1]}}
+
+\newcommand\varddenom[2][1]{%
+	\ifx0#1  
+		\! #2 \!
+	\else  
+		\delta  \ifx1#1  #2  \else  #2^{#1}  \fi
+	\fi
+	\ifnum\count0>0
+		\ifcat_\ifnum0<0#1_\else^\fi  \advance\count0 by -#1  \fi
+		\ifnum\count0 > 0  \,\let\next\vardenom  \else  \let\next\egroup  \fi
+	\else
+		\def\next{\@ifnextchar\cdots{\,\varddenom[0]}{\@ifnextchar[{\,\varddenom}{\egroup}}}
+	\fi
+	 \next}
+
+
+
+\newcommand\stsig[1]{(\@stsig#1\l@st\st@p)}
+\def\@stsig#1#2#3\st@p{\mathord{#1}  \ifx#2\l@st\else  \@stsig#2#3\st@p  \fi}
+
+
+\def\@markedint#1#2#3{\mathchoice
+	{\@@markedint\displaystyle\textstyle{#1}{#2}{#3}}%
+	{\@@markedint\textstyle\scriptstyle{#1}{#2}{#3}}%
+	{\@@markedint\scriptstyle\scriptscriptstyle{#1}{#2}{#3}}%
+	{\@@markedint\scriptscriptstyle\scriptscriptstyle{#1}{#2}{#3}}%
+	#2}
+
+\def\@@markedint#1#2#3#4#5{\begingroup
+	\setbox0=\hbox{$#1#4$}%
+	\vcenter{\hbox to \wd0{\hss$#2\mathalpha{#3}$#5}}%
+	\kern-1.0\wd0\!\endgroup}
+
+\newcommand\pvint{\@markedint{-}\int\hss}
+\newcommand\ppvint{\@markedint{=}\int\hss}
+\newcommand\pppvint{\@markedint{\equiv}\int\hss}
+
+\newcommand\pvoint{\@markedint{\scriptscriptstyle-}\oint\relax}
+\newcommand\ppvoint{\@markedint{\scriptscriptstyle=}\oint\relax}
+\newcommand\pppvoint{\@markedint{\scriptscriptstyle\equiv}\oint\relax}
+
+\newcommand\pvop{\mathcal{P}}
+
+
+%\ain[^4]{\hat R_abc^d}
+
+
+\newtoks\util@toks
+\newtoks\defaults@toks
+
+% #1 = old command to inherit from (default = \none), #2 = new command to define, #3 = default arguments
+\newcommand\DeclareWithDefaults[3][\none]{%
+	\util@toks={#3}%
+	\ifx#1\none  
+		\edef\@act{\noexpand\defaults@toks={\expandafter\noexpand\csname\string#2@defaults\endcsname}}\@act%
+		\edef\@act{%
+			\noexpand\newcommand{\noexpand#2}{\noexpand\defaults@process{\the\defaults@toks}{\the\util@toks}}%
+			\noexpand\defaults@declare{\the\defaults@toks}}%
+	\else
+		\edef\@act{\noexpand\defaults@toks={\expandafter\noexpand\csname\string#1@defaults\endcsname}}\@act%
+		\edef\@act{%
+			\noexpand\newcommand{\noexpand#2}{\noexpand\defaults@process{\the\defaults@toks}{\the\util@toks}}%
+			\relax}%
+	\fi
+	\@act
+}
+
+% #1 = internal command name, #2 = argument structure, #3 = command syntax
+\def\defaults@declare#1#2#3{%
+	\util@toks={#1#2{#3}}%
+	\edef\@act{\long\def\the\util@toks}\@act%
+}
+
+% #1 = argument to test, #2 = #1 is empty outcome, #2 = #1 is not empty outcome
+\newcommand\IfEmptyArg[3]{%
+	\defaults@emptytest#1\l@st\st@p{#2}{#3}%
+}
+
+% #1 = object tested or \l@st, #2 = rest of test tokens, #3 = #1 is empty outcome, #4 = #1 is not empty outcome
+\def\defaults@emptytest#1#2\st@p#3#4{%
+	\ifx#1\l@st  \toks@={#3}\relax  \else  \toks@={#4}\relax  \fi%
+	\edef\@act{\the\toks@}\@act%
+}
+
+% #1 = internal command, #2 = default options list
+\def\defaults@process#1#2{%
+	\defaults@checknext{#1}{}{#2}%
+}
+
+% #1 = internal command, #2 = processed options, #3 = remaining defaults
+\def\defaults@checknext#1#2#3{%
+	\@ifnextchar[{\defaults@replacenext{#1}{#2}#3\st@p}{#1#2#3}%
+}
+
+% #1 = internal command, #2 = processed options, #3 = next default, #4 = remaining defaults, #5 = next override
+\def\defaults@replacenext#1#2[#3]#4\st@p[#5]{%
+	\IfEmptyArg{#5}{\defaults@checknext{#1}{#2[#3]}{#4}}{\defaults@checknext{#1}{#2[#5]}{#4}}%
+}
+
+
+
+
+\newbox\dirac@box
+\newtoks\dirac@toks
+
+\newcommand\DiracSizes[4]{%
+	\expandafter\def\csname\string\displaystyle@dirac\endcsname{#1}%
+	\expandafter\def\csname\string\textstyle@dirac\endcsname{#2}%
+	\expandafter\def\csname\string\scriptstyle@dirac\endcsname{#3}%
+	\expandafter\def\csname\string\scriptscriptstyle@dirac\endcsname{#4}%
+}
+
+\newcommand\DiracSize[1]{%
+	\DiracSizes{#1}{#1}{#1}{#1}%
+}
+
+\DiracSize{\auto}
+
+\providecommand\auto
+
+\newcommand*\dirac[2][\default]{%												% #1 = size (default = \default), #2 = list of delimiters
+	\dirac@toks={}%														% zero out the token list
+	\dirac@toksbuild#1#2\relax\st@p%											% start building a list of tokens
+}
+
+\def\dirac@toksbuild#1#2#3#4\st@p#5{%										% #1 = size, #2#3#4 = delimiter list, #5 = next item
+	\edef\@act{#2}%														% expand #2 fully to test if it is a delimiter
+	\expandafter\ifcat\expandafter|\@act	%										% if #2 has the same category as a vert (|) then ...
+		\edef\@act{\expandafter\the\expandafter\delcode\expandafter`\@act}	\else%	% get its delimiter code, otherwise ...
+		\edef\@act{\expandafter\ifx\expandafter\protect\@act\else\@act\fi}%			% strip a leading \protect if it is present, and ...
+		\edef\@act{\expandafter\ifx\expandafter\delimiter\@act\else-1\fi}		\fi%		% set \@act to code after \delimiter, or to -1
+	\ifnum\@act < 0  \toks@={#2{#5}}  \else  \toks@={\open#1#2{#5}}  \fi%				% size #2 only if it is a delimiter
+	\edef\@act{\noexpand\dirac@toks={\the\dirac@toks\the\toks@}}\@act%				% append to the token list
+	\ifx#4\relax  \let\@next\dirac@toksfinish  \else  \let\@next\dirac@toksbuild  \fi%		% check for two+ more delimiters
+	\@next#1#3#4\st@p%													% iterate
+}
+
+\def\dirac@toksfinish#1#2#3\st@p{%											% #1 = delimiter size, #2 = closing delimiter, #3 = \relax
+	\edef\@act{#2}%														% expand #2 fully to test if it is a delimiter
+	\expandafter\ifcat\expandafter|\@act	%										% if #2 has the same category as a vert (|) then ...
+		\edef\@act{\expandafter\the\expandafter\delcode\expandafter`\@act}	\else%	% get its delimiter code, otherwise ...
+		\edef\@act{\expandafter\ifx\expandafter\protect\@act\else\@act\fi}%			% strip a leading \protect if it is present, and ...
+		\edef\@act{\expandafter\ifx\expandafter\delimiter\@act\else-1\fi}		\fi%		% set \@act to code after \delimiter, or to -1
+	\ifnum\@act < 0  \toks@={#2}  \else  \toks@={\close#1#2}  \fi%						% size #2 only if it is a delimiter
+	\edef\@act{\noexpand\dirac@toks={\the\dirac@toks\the\toks@}}\@act%				% finish the token list
+	\expandafter\mathpalette\expandafter\dirac@setbox\expandafter{\the\dirac@toks}%	% expand and typeset the result
+	\bgroup\mathpalette\dirac@phantom#1\egroup%								% make an empty box with the final delimiter size
+}
+
+\def\dirac@setbox#1#2{%													% #1 = mathsize (from \mathpalette), #2 = token list
+	\begingroup%															% make all changes local
+	\dirac@toks={#1}%														% remember current math style
+	\let\open\@gobbletwo  \let\close\@gobbletwo%								% suppress all delimiters to create phantom box
+	\setbox\z@\hbox{$\m@th#1{#2}$}%											% set non-delimiter content in current style
+	\setbox\dirac@box\null%													% zero out the phantom box
+	\ht\dirac@box\ht\z@  \dp\dirac@box\dp\z@%									% set vertical dimensions for the phantom box
+	\let\open\mathopen  \let\close\mathclose  \let\auto\dirac@autosize%				% activate and automatically size delimiters
+	\expandafter\let\expandafter\default\csname\string#1@dirac\endcsname%			% get the default delimiter size for this mathstyle
+	{}#2{}%																% typeset the token list
+	\endgroup%															% return to global state
+}
+
+\def\dirac@phantom#1#2{%													% #1 = mathstyle (from \mathpalette), #2 = delimiter size
+	\begingroup%															% make all changes local
+	\ifx#2\default%															% if delimiter size is \default, 
+		\expandafter\expandafter\expandafter\dirac@phantom%						% 	then recall the default size for this mathstyle
+			\expandafter\expandafter\expandafter#1%							%	and expand it to \auto or \big, etc.
+				\csname\string#1@dirac\endcsname					\else%	% 	and then call this macro again
+		\ifx#2\auto%														% if delimiter size is \auto, 
+			\let\open\@gobbletwo  \let\close\@gobbletwo%						% 	then suppress all delimiters 
+			\setbox\z@\hbox{$\m@th#1 \left. \the\dirac@toks \right|$}\relax		\else%	% 	wrap non-delimiter content in sized delimiters
+			\setbox\z@\hbox{$\m@th#1 \mathclose#2|$}\relax				\fi%		% otherwise use fixed-size delimiter
+		\setbox\dirac@box\null%												% get an empty box
+		\ht\dirac@box\ht\z@  \dp\dirac@box\dp\z@  \box\dirac@box			\fi%		% write it out with the height and depth of the delimiter
+	\endgroup%															% return to global state
+}
+
+\def\dirac@autosize#1{%														% #1 = delimiter
+	{\hbox{$\the\dirac@toks\left#1\copy\dirac@box\right.\n@space$}}%					% size #1 with the phantom box in the current style
+}
+
+%\[ \ket{\psi}\, \ket[]{\psi}\, \ket[\big]{\psi} \]
+%\[ \bra{\psi} \]
+%\[ \abs{z}\, \ee^{\abs{z}} \]
+%\[ \norm{\psi} \]
+%\[ \braket{\phi}{\psi}\, \braket[][(>]{\phi}{\psi} \]
+%\[ \setof{x \in \Re}{x < 1} \]
+%\[ \cprob{a}{b} \]
+%\[ \iprod{\phi}{\psi}\, \iprod[][()]{\phi}{\psi} \]
+%\[ \pbrack{f}{g} \]
+%\[ \comm{\dyad A}{\dyad B}\, \mfs{D}_{\comm[]{\dyad A}{\dyad B}}  \]
+%\[ \matel{\psi}{\dyad O}{\phi} \]
+%\[ \expect{O}\, \expect[][\psi]{O}\, \expect[\big]{O}\, \expect[\big][\psi]{O}\, \expect[\big][\psi][()]{O} \]
+
+\DeclareWithDefaults		{\eval}	{[\default][|]}				{[#1][#2]#3}				{\dirac[#1]{\relax#2}{#3}}
+\DeclareWithDefaults		{\ket}		{[\default][|>]}				{[#1][#2#3]#4}				{\dirac[#1]{#2#3}{#4}}
+\DeclareWithDefaults[\ket]		{\bra}	{[\default][<|]}
+\DeclareWithDefaults[\ket]		{\abs}	{[\default][||]}
+\DeclareWithDefaults[\ket]		{\norm}	{[\default][\|\|]}
+\DeclareWithDefaults[\ket]		{\eclass}	{[\default][\{\}]}
+\DeclareWithDefaults		{\braket}	{[\default][<>][|][]}			{[#1][#2#3][#4][#5]#6#7}		{\dirac[#1]{#2#4#3}{#6#5}{#5#7}}
+\DeclareWithDefaults[\braket]	{\setof}	{[\default][\{\}][|][\,]}
+\DeclareWithDefaults[\braket]	{\cprob}	{[\default][()][|][]}
+\DeclareWithDefaults[\braket]	{\iprod}	{[\default][<>][,][]}
+\DeclareWithDefaults[\braket]	{\comm}	{[\default][\lbrack\rbrack][,][]}
+\DeclareWithDefaults[\braket]	{\pbrack}	{[\default][\{\}][,][]}
+\DeclareWithDefaults		{\matel}	{[\default][<>][||]}			{[#1][#2#3][#4#5]#6#7#8}		{\dirac[#1]{#2#4#5#3}{#6}{#7}{#8}}
+\DeclareWithDefaults		{\prop}	{[\default][()][|]}				{[#1][#2#3][#4]#5#6#7}		{\dirac[#1]{.#2#4#3}{#5}{#6}{#7}}
+\DeclareWithDefaults		{\expect}	{[\default][][<>][||]}			{[#1][#2][#3#4][#5#6]#7}		{\IfEmptyArg{#2}
+																				{\dirac[#1]{#3#4}{#7}}
+																				{\dirac[#1]{#3#5#6#4}{#2}{#7}{#2}}}
+
+
+\newcommand*{\ssml}[1]{{\hbox{$\scriptscriptstyle\left#1\vbox to2.5\p@{}\right.\n@space$}}}
+\newcommand*{\sml}[1]{{\hbox{$\scriptstyle\left#1\vbox to2.5\p@{}\right.\n@space$}}}
+\newcommand*{\nml}[1]{{\hbox{$\left#1\vbox to5.5\p@{}\right.\n@space$}}}

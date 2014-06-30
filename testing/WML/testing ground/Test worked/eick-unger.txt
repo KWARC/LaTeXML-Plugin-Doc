@@ -1,0 +1,6 @@
+In [The Epistemics of Presupposition Projection], Jan van Eijck and
+Christina Unger describe an approach to represent Presuppositions via
+public announcement updates and common knowledge in a multimodal
+epistemic logic. It gives a dynamic treamtent in which announcements
+form a sequence rather than a set.
+
