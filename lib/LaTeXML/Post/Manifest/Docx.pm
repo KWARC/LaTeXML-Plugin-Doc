@@ -29,7 +29,6 @@ sub new {
 sub initialize {
   my ($self, $doc) = @_; 
   #I am assuming that tex2docx was applied to *.tex already
-  print "This is using the docx manifest file";
   my $directory = $$self{siteDirectory};  
   # Copy static files from ODT-Skeleton
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
@@ -46,7 +45,7 @@ sub initialize {
       [ catfile($skeleton_directory,'word','styles.xml'), catdir($directory,'word') ],
       [ catfile($skeleton_directory,'word','footnotes.xml'), catdir($directory,'word') ],
       [ catfile($skeleton_directory,'customXML','_rels','item1.xml.rels'), catdir($directory,'customXML','_rels') ],
-      [ catfile($skeleton_directory,'customXML','itemProps1.xml'), catdir($directory,'customXML') ],\
+      [ catfile($skeleton_directory,'customXML','itemProps1.xml'), catdir($directory,'customXML') ],
       [ catfile($skeleton_directory,'_rels','.rels'), catdir($directory,'_rels') ],
       [ catfile($skeleton_directory,'[Content_Types].xml'), catdir($directory,'.')]);
     foreach my $static_file(@static_files) {
@@ -74,7 +73,6 @@ sub initialize {
   return; }
 
 sub process {
-print "I am the lord of the test, heed me";
   my ($self, @docs) = @_;
   $self->initialize($docs[0]);
   # If needed: generate data from each of the @docs.
