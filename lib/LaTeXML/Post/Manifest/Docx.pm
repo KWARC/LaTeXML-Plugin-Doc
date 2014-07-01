@@ -46,7 +46,8 @@ sub initialize {
       [ catfile($skeleton_directory,'word','styles.xml'), catdir($directory,'word') ],
       [ catfile($skeleton_directory,'word','footnotes.xml'), catdir($directory,'word') ],
       [ catfile($skeleton_directory,'customXML','_rels','item1.xml.rels'), catdir($directory,'customXML','_rels') ],
-      [ catfile($skeleton_directory,'customXML','itemProps1.xml'), catdir($directory,'customXML') ],
+      [ catfile($skeleton_directory,'customXML','itemProps1.xml'), catdir($directory,'customXML') ],\
+      [ catfile($skeleton_directory,'_rels','.rels'), catdir($directory,'_rels') ],
       [ catfile($skeleton_directory,'[Content_Types].xml'), catdir($directory,'.')]);
     foreach my $static_file(@static_files) {
       pathname_copy($static_file->[0],  $static_file->[1]); } } #populate the file structure
