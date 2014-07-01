@@ -27,9 +27,14 @@ sub new {
   return $self; }
 
 sub initialize {
-  my ($self, $doc) = @_; #I am assuming that tex2docx was applied to *.tex already
+=pod
+
+
+
+  my ($self, $doc) = @_; 
+  #I am assuming that tex2docx was applied to *.tex already
   print "This is using the docx manifest file";
-  my $directory = $$self{siteDirectory};
+  my $directory = $$self{siteDirectory};  
   # Copy static files from ODT-Skeleton
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
   my $skeleton_directory = pathname_directory($content_types);
@@ -69,10 +74,12 @@ sub initialize {
   $writer->process($rels_document,$rels_document->getDocumentElement);
   # TODO Sort pictures into media 
   # TODO zip everything and rename it. I think that is being done automatically though
+=cut
   
   return; }
 
 sub process {
+print "I am the lord of the test, heed me";
   my ($self, @docs) = @_;
   $self->initialize($docs[0]);
   # If needed: generate data from each of the @docs.

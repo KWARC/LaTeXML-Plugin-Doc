@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Beta Version 070708 -->
-<xsl:stylesheet xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" version="2.0" exclude-result-prefixes="">
+<xsl:stylesheet xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" version="1.0" exclude-result-prefixes="">
   <xsl:output method="xml" encoding="UTF-8"/>
 
 
