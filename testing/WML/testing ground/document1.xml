@@ -28,7 +28,7 @@
         <w:rPr/>
         <w:t>Jacobs University Bremen</w:t>
       </w:r>
-      <w:hyperlink r:id="idp20720">
+      <w:hyperlink r:id="idp20784">
         <w:r>
           <w:rPr>
             <w:rFonts w:ascii="typewriter" w:cs="typewriter"/>
@@ -40,7 +40,7 @@
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_url" href="http://kwarc.info">
           <text font="typewriter">http://kwarc.info</text>
         </ref>
-        <extra id="idp20720"/>
+        <extra id="idp20784"/>
       </external-link>
     </w:p>
     <w:p>
@@ -55,7 +55,7 @@
         <w:rPr/>
         <w:t>DFKI Bremen</w:t>
       </w:r>
-      <w:hyperlink r:id="idp23344">
+      <w:hyperlink r:id="idp23408">
         <w:r>
           <w:rPr>
             <w:rFonts w:ascii="typewriter" w:cs="typewriter"/>
@@ -67,7 +67,7 @@
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_url" href="http://www.dfki.de/cps/staff/liguda">
           <text font="typewriter">http://www.dfki.de/cps/staff/liguda</text>
         </ref>
-        <extra id="idp23344"/>
+        <extra id="idp23408"/>
       </external-link>
     </w:p>
     <w:p>
@@ -102,8 +102,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:sec:Introduction" w:id="idp27568"/>
-      <w:bookmarkEnd w:id="idp27568"/>
+      <w:bookmarkStart w:name="LABEL:sec:Introduction" w:id="idp27632"/>
+      <w:bookmarkEnd w:id="idp27632"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -122,8 +122,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S1.p1" w:id="idp29728"/>
-      <w:bookmarkEnd w:id="idp29728"/>
+      <w:bookmarkStart w:name="S1.p1" w:id="idp29792"/>
+      <w:bookmarkEnd w:id="idp29792"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -160,8 +160,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S1.p2" w:id="idp33104"/>
-      <w:bookmarkEnd w:id="idp33104"/>
+      <w:bookmarkStart w:name="S1.p2" w:id="idp33168"/>
+      <w:bookmarkEnd w:id="idp33168"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -171,8 +171,8 @@
         <w:rPr/>
         <w:t>Existing tools center around risk management for spreadsheets via </w:t>
       </w:r>
-      <w:bookmarkStart w:id="idp34240" w:name="@xml:id"/>
-      <w:bookmarkEnd w:id="idp34240"/>
+      <w:bookmarkStart w:id="idp34304" w:name="@xml:id"/>
+      <w:bookmarkEnd w:id="idp34304"/>
       <!--elided element anchor-->
       <w:r>
         <w:rPr/>
@@ -297,8 +297,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S1.p3" w:id="idp77760"/>
-      <w:bookmarkEnd w:id="idp77760"/>
+      <w:bookmarkStart w:name="S1.p3" w:id="idp77824"/>
+      <w:bookmarkEnd w:id="idp77824"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -318,8 +318,8 @@
         <w:rPr/>
         <w:t> we need tools that scale to very large corpora. In practice, this means two things: </w:t>
       </w:r>
-      <w:bookmarkStart w:id="idp79296" w:name="@xml:id"/>
-      <w:bookmarkEnd w:id="idp79296"/>
+      <w:bookmarkStart w:id="idp79360" w:name="@xml:id"/>
+      <w:bookmarkEnd w:id="idp79360"/>
       <!--elided element anchor-->
       <w:r>
         <w:rPr/>
@@ -358,8 +358,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S1.SS0.SSS0.P1.p1" w:id="idp84304"/>
-      <w:bookmarkEnd w:id="idp84304"/>
+      <w:bookmarkStart w:name="S1.SS0.SSS0.P1.p1" w:id="idp84368"/>
+      <w:bookmarkEnd w:id="idp84368"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -457,8 +457,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S1.SS0.SSS0.P2.p1" w:id="idp96560"/>
-      <w:bookmarkEnd w:id="idp96560"/>
+      <w:bookmarkStart w:name="S1.SS0.SSS0.P2.p1" w:id="idp96688"/>
+      <w:bookmarkEnd w:id="idp96688"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -558,8 +558,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:sec:MathML" w:id="idp144592"/>
-      <w:bookmarkEnd w:id="idp144592"/>
+      <w:bookmarkStart w:name="LABEL:sec:MathML" w:id="idp143984"/>
+      <w:bookmarkEnd w:id="idp143984"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -588,8 +588,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S2.p1" w:id="idp148096"/>
-      <w:bookmarkEnd w:id="idp148096"/>
+      <w:bookmarkStart w:name="S2.p1" w:id="idp147488"/>
+      <w:bookmarkEnd w:id="idp147488"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -621,8 +621,8 @@
         <w:rPr/>
         <w:t> is a W3C standard for the representation of mathematical formulae. It contains two two sub-languages: </w:t>
       </w:r>
-      <w:bookmarkStart w:id="idp151008" w:name="@xml:id"/>
-      <w:bookmarkEnd w:id="idp151008"/>
+      <w:bookmarkStart w:id="idp150400" w:name="@xml:id"/>
+      <w:bookmarkEnd w:id="idp150400"/>
       <!--elided element anchor-->
       <w:r>
         <w:rPr/>
@@ -689,13 +689,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="LABEL:fig:mathml" w:id="idp161392"/>
-      <w:bookmarkEnd w:id="idp161392"/>
-    </w:p>
-    <w:p>
       <w:tbl>
         <w:tblGrid/>
         <w:tr>
@@ -706,6 +699,7 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -713,6 +707,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -720,12 +715,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>xmlns=”http://www.w3.org/1998/Math/MathML”</w:t>
@@ -741,12 +738,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cdgroup=”http://oaff.info/spshp/”&gt;</w:t>
@@ -762,12 +761,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>  </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -775,6 +776,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -782,6 +784,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -797,12 +800,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -810,6 +815,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -817,12 +823,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;</w:t>
@@ -830,6 +838,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -837,6 +846,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -844,6 +854,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -851,6 +862,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -866,12 +878,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -879,6 +893,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -886,6 +901,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -901,12 +917,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -914,6 +932,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -921,12 +940,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;</w:t>
@@ -934,6 +955,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -941,6 +963,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -948,6 +971,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -955,6 +979,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -970,12 +995,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -983,6 +1010,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -990,6 +1018,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1005,12 +1034,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -1018,6 +1049,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1025,12 +1057,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spshform”&gt;range&lt;/</w:t>
@@ -1038,6 +1072,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1045,6 +1080,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1060,12 +1096,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -1073,6 +1111,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1080,6 +1119,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;1&lt;/</w:t>
@@ -1087,6 +1127,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1094,6 +1135,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;&lt;</w:t>
@@ -1101,6 +1143,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1108,6 +1151,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;5&lt;/</w:t>
@@ -1115,6 +1159,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1122,6 +1167,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;&lt;</w:t>
@@ -1129,6 +1175,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1136,6 +1183,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;1&lt;/</w:t>
@@ -1143,6 +1191,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1150,6 +1199,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;&lt;</w:t>
@@ -1157,6 +1207,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1164,6 +1215,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;8&lt;/</w:t>
@@ -1171,6 +1223,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1178,6 +1231,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1193,12 +1247,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -1206,6 +1262,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1213,6 +1270,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1228,12 +1286,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -1241,6 +1301,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1248,6 +1309,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1263,12 +1325,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -1276,6 +1340,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1283,6 +1348,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;2&lt;/</w:t>
@@ -1290,6 +1356,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1297,6 +1364,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1312,12 +1380,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>  </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -1325,6 +1395,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1332,6 +1403,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1347,6 +1419,7 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -1354,6 +1427,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -1361,6 +1435,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -1384,8 +1459,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S2.p2" w:id="idp231632"/>
-      <w:bookmarkEnd w:id="idp231632"/>
+      <w:bookmarkStart w:name="S2.p2" w:id="idp230880"/>
+      <w:bookmarkEnd w:id="idp230880"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -1400,8 +1475,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S2.p3" w:id="idp233200"/>
-      <w:bookmarkEnd w:id="idp233200"/>
+      <w:bookmarkStart w:name="S2.p3" w:id="idp232496"/>
+      <w:bookmarkEnd w:id="idp232496"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -1481,13 +1556,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="LABEL:fig:ontology" w:id="idp241392"/>
-      <w:bookmarkEnd w:id="idp241392"/>
-    </w:p>
-    <w:p>
       <w:r>
         <w:drawing>
           <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -1562,8 +1630,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S2.SS0.SSS0.P1.p1" w:id="idp259952"/>
-      <w:bookmarkEnd w:id="idp259952"/>
+      <w:bookmarkStart w:name="S2.SS0.SSS0.P1.p1" w:id="idp259232"/>
+      <w:bookmarkEnd w:id="idp259232"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -1708,8 +1776,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S2.SS0.SSS0.P1.p2" w:id="idp273328"/>
-      <w:bookmarkEnd w:id="idp273328"/>
+      <w:bookmarkStart w:name="S2.SS0.SSS0.P1.p2" w:id="idp272592"/>
+      <w:bookmarkEnd w:id="idp272592"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -1813,8 +1881,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S2.SS0.SSS0.P2.p1" w:id="idp283808"/>
-      <w:bookmarkEnd w:id="idp283808"/>
+      <w:bookmarkStart w:name="S2.SS0.SSS0.P2.p1" w:id="idp283072"/>
+      <w:bookmarkEnd w:id="idp283072"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -1896,13 +1964,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="LABEL:fig:interop" w:id="idp290800"/>
-      <w:bookmarkEnd w:id="idp290800"/>
-    </w:p>
-    <w:p>
       <w:r>
         <w:drawing>
           <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -1922,8 +1983,8 @@
                     <pic:cNvPicPr/>
                   </pic:nvPicPr>
                   <pic:blipFill>
-                    <a:blip r:embed="idp292816"/>
-                    <picturus id="idp292816" reference="media/tikz/spshp/interop.png,tikz/spshp/interop.tex"/>
+                    <a:blip r:embed="idp292016"/>
+                    <picturus id="idp292016" reference="media/tikz/spshp/interop.png,tikz/spshp/interop.tex"/>
                     <a:stretch>
                       <a:fillRect/>
                     </a:stretch>
@@ -1958,8 +2019,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S2.SS0.SSS0.P2.p2" w:id="idp298496"/>
-      <w:bookmarkEnd w:id="idp298496"/>
+      <w:bookmarkStart w:name="S2.SS0.SSS0.P2.p2" w:id="idp297648"/>
+      <w:bookmarkEnd w:id="idp297648"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -2202,8 +2263,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:sec:mws" w:id="idp346144"/>
-      <w:bookmarkEnd w:id="idp346144"/>
+      <w:bookmarkStart w:name="LABEL:sec:mws" w:id="idp345360"/>
+      <w:bookmarkEnd w:id="idp345360"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -2222,8 +2283,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S3.p1" w:id="idp349088"/>
-      <w:bookmarkEnd w:id="idp349088"/>
+      <w:bookmarkStart w:name="S3.p1" w:id="idp348304"/>
+      <w:bookmarkEnd w:id="idp348304"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -2532,13 +2593,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="LABEL:fig:sys_struct" w:id="idp377056"/>
-      <w:bookmarkEnd w:id="idp377056"/>
-    </w:p>
-    <w:p>
       <w:r>
         <w:drawing>
           <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -2558,8 +2612,8 @@
                     <pic:cNvPicPr/>
                   </pic:nvPicPr>
                   <pic:blipFill>
-                    <a:blip r:embed="idp378976"/>
-                    <picturus id="idp378976" reference="media/"/>
+                    <a:blip r:embed="idp378192"/>
+                    <picturus id="idp378192" reference="media/"/>
                     <a:stretch>
                       <a:fillRect/>
                     </a:stretch>
@@ -2595,8 +2649,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:sec:harvesting" w:id="idp383472"/>
-      <w:bookmarkEnd w:id="idp383472"/>
+      <w:bookmarkStart w:name="LABEL:sec:harvesting" w:id="idp382704"/>
+      <w:bookmarkEnd w:id="idp382704"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -2615,8 +2669,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.p1" w:id="idp386368"/>
-      <w:bookmarkEnd w:id="idp386368"/>
+      <w:bookmarkStart w:name="S4.p1" w:id="idp385600"/>
+      <w:bookmarkEnd w:id="idp385600"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -2723,8 +2777,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:subsec:background" w:id="idp401840"/>
-      <w:bookmarkEnd w:id="idp401840"/>
+      <w:bookmarkStart w:name="LABEL:subsec:background" w:id="idp401088"/>
+      <w:bookmarkEnd w:id="idp401088"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -2743,8 +2797,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.SS1.p1" w:id="idp404160"/>
-      <w:bookmarkEnd w:id="idp404160"/>
+      <w:bookmarkStart w:name="S4.SS1.p1" w:id="idp403472"/>
+      <w:bookmarkEnd w:id="idp403472"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -2914,20 +2968,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="" w:id="idp420368"/>
-      <w:bookmarkEnd w:id="idp420368"/>
-    </w:p>
-    <w:p>
-      <w:p>
-        <w:pPr>
-          <w:pStyle w:val="empty"/>
-        </w:pPr>
-        <w:bookmarkStart w:name="LABEL:fig:winograd" w:id="idp421776"/>
-        <w:bookmarkEnd w:id="idp421776"/>
-      </w:p>
       <w:p>
         <w:r>
           <w:drawing>
@@ -2948,8 +2988,8 @@
                       <pic:cNvPicPr/>
                     </pic:nvPicPr>
                     <pic:blipFill>
-                      <a:blip r:embed="idp423312"/>
-                      <picturus id="idp423312" reference="media/"/>
+                      <a:blip r:embed="idp422624"/>
+                      <picturus id="idp422624" reference="media/"/>
                       <a:stretch>
                         <a:fillRect/>
                       </a:stretch>
@@ -2975,13 +3015,6 @@
         </w:r>
       </w:p>
       <w:p>
-        <w:pPr>
-          <w:pStyle w:val="empty"/>
-        </w:pPr>
-        <w:bookmarkStart w:name="LABEL:fig:snippet" w:id="idp426784"/>
-        <w:bookmarkEnd w:id="idp426784"/>
-      </w:p>
-      <w:p>
         <w:r>
           <w:drawing>
             <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -3001,8 +3034,8 @@
                       <pic:cNvPicPr/>
                     </pic:nvPicPr>
                     <pic:blipFill>
-                      <a:blip r:embed="idp428544"/>
-                      <picturus id="idp428544" reference="media/"/>
+                      <a:blip r:embed="idp427856"/>
+                      <picturus id="idp427856" reference="media/"/>
                       <a:stretch>
                         <a:fillRect/>
                       </a:stretch>
@@ -3032,129 +3065,118 @@
         <w:t>A spreadsheet and a cutout of a computed functional block</w:t>
       </w:r>
     </w:p>
+    <w:p/>
+    <w:tbl>
+      <w:tblGrid/>
+      <w:tr>
+        <w:tc>
+          <w:tcPr>
+            <w:vAlign w:val="center"/>
+            <w:tcborders>
+              <w:start w:val="single"/>
+              <w:top w:val="single"/>
+              <w:top w:val="double"/>
+              <w:end w:val="single"/>
+            </w:tcborders>
+            <w:tcW w:type="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:r>
+              <w:rPr/>
+              <w:t>MathML Formula</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr>
+        <w:tc>
+          <w:tcPr>
+            <w:vAlign w:val="center"/>
+            <w:tcborders>
+              <w:start w:val="single"/>
+              <w:top w:val="single"/>
+              <w:top w:val="double"/>
+              <w:end w:val="single"/>
+            </w:tcborders>
+            <w:tcW w:type="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:r>
+              <w:rPr/>
+              <w:t>Position information</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr>
+        <w:tc>
+          <w:tcPr>
+            <w:vAlign w:val="center"/>
+            <w:tcborders>
+              <w:start w:val="single"/>
+              <w:top w:val="single"/>
+              <w:top w:val="double"/>
+              <w:end w:val="single"/>
+            </w:tcborders>
+            <w:tcW w:type="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:r>
+              <w:rPr/>
+              <w:t>Keywords</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr>
+        <w:tc>
+          <w:tcPr>
+            <w:vAlign w:val="center"/>
+            <w:tcborders>
+              <w:start w:val="single"/>
+              <w:top w:val="single"/>
+              <w:top w:val="double"/>
+              <w:end w:val="single"/>
+            </w:tcborders>
+            <w:tcW w:type="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:r>
+              <w:rPr/>
+              <w:t>Excel formula</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr>
+        <w:tc>
+          <w:tcPr>
+            <w:vAlign w:val="center"/>
+            <w:tcborders>
+              <w:start w:val="single"/>
+              <w:top w:val="single"/>
+              <w:top w:val="double"/>
+              <w:end w:val="single"/>
+              <w:bottom w:val="single"/>
+            </w:tcborders>
+            <w:tcW w:type="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:r>
+              <w:rPr/>
+              <w:t>XHTML Snippet</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+    </w:tbl>
+    <w:p/>
     <w:p>
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:tab:harvest" w:id="idp434208"/>
-      <w:bookmarkEnd w:id="idp434208"/>
-    </w:p>
-    <w:p>
-      <w:tbl>
-        <w:tblGrid/>
-        <w:tr>
-          <w:tc>
-            <w:tcPr>
-              <w:vAlign w:val="center"/>
-              <w:tcborders>
-                <w:start w:val="single"/>
-                <w:top w:val="single"/>
-                <w:top w:val="double"/>
-                <w:end w:val="single"/>
-              </w:tcborders>
-              <w:tcW w:type="auto"/>
-            </w:tcPr>
-            <w:p>
-              <w:r>
-                <w:rPr/>
-                <w:t>MathML Formula</w:t>
-              </w:r>
-            </w:p>
-          </w:tc>
-        </w:tr>
-        <w:tr>
-          <w:tc>
-            <w:tcPr>
-              <w:vAlign w:val="center"/>
-              <w:tcborders>
-                <w:start w:val="single"/>
-                <w:top w:val="single"/>
-                <w:top w:val="double"/>
-                <w:end w:val="single"/>
-              </w:tcborders>
-              <w:tcW w:type="auto"/>
-            </w:tcPr>
-            <w:p>
-              <w:r>
-                <w:rPr/>
-                <w:t>Position information</w:t>
-              </w:r>
-            </w:p>
-          </w:tc>
-        </w:tr>
-        <w:tr>
-          <w:tc>
-            <w:tcPr>
-              <w:vAlign w:val="center"/>
-              <w:tcborders>
-                <w:start w:val="single"/>
-                <w:top w:val="single"/>
-                <w:top w:val="double"/>
-                <w:end w:val="single"/>
-              </w:tcborders>
-              <w:tcW w:type="auto"/>
-            </w:tcPr>
-            <w:p>
-              <w:r>
-                <w:rPr/>
-                <w:t>Keywords</w:t>
-              </w:r>
-            </w:p>
-          </w:tc>
-        </w:tr>
-        <w:tr>
-          <w:tc>
-            <w:tcPr>
-              <w:vAlign w:val="center"/>
-              <w:tcborders>
-                <w:start w:val="single"/>
-                <w:top w:val="single"/>
-                <w:top w:val="double"/>
-                <w:end w:val="single"/>
-              </w:tcborders>
-              <w:tcW w:type="auto"/>
-            </w:tcPr>
-            <w:p>
-              <w:r>
-                <w:rPr/>
-                <w:t>Excel formula</w:t>
-              </w:r>
-            </w:p>
-          </w:tc>
-        </w:tr>
-        <w:tr>
-          <w:tc>
-            <w:tcPr>
-              <w:vAlign w:val="center"/>
-              <w:tcborders>
-                <w:start w:val="single"/>
-                <w:top w:val="single"/>
-                <w:top w:val="double"/>
-                <w:end w:val="single"/>
-                <w:bottom w:val="single"/>
-              </w:tcborders>
-              <w:tcW w:type="auto"/>
-            </w:tcPr>
-            <w:p>
-              <w:r>
-                <w:rPr/>
-                <w:t>XHTML Snippet</w:t>
-              </w:r>
-            </w:p>
-          </w:tc>
-        </w:tr>
-      </w:tbl>
-      <w:r>
-        <w:rPr/>
-        <w:t>Harvest for a FB</w:t>
-      </w:r>
-    </w:p>
-    <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="S4.SS1.p2" w:id="idp446768"/>
-      <w:bookmarkEnd w:id="idp446768"/>
+      <w:bookmarkStart w:name="S4.SS1.p2" w:id="idp446128"/>
+      <w:bookmarkEnd w:id="idp446128"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3209,8 +3231,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:subsec:parsing" w:id="idp455776"/>
-      <w:bookmarkEnd w:id="idp455776"/>
+      <w:bookmarkStart w:name="LABEL:subsec:parsing" w:id="idp455184"/>
+      <w:bookmarkEnd w:id="idp455184"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3229,8 +3251,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.SS2.p1" w:id="idp458096"/>
-      <w:bookmarkEnd w:id="idp458096"/>
+      <w:bookmarkStart w:name="S4.SS2.p1" w:id="idp457504"/>
+      <w:bookmarkEnd w:id="idp457504"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3344,13 +3366,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="LABEL:fig:AST" w:id="idp470112"/>
-      <w:bookmarkEnd w:id="idp470112"/>
-    </w:p>
-    <w:p>
       <w:r>
         <w:drawing>
           <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -3370,8 +3385,8 @@
                     <pic:cNvPicPr/>
                   </pic:nvPicPr>
                   <pic:blipFill>
-                    <a:blip r:embed="idp473536"/>
-                    <picturus id="idp473536" reference="media/"/>
+                    <a:blip r:embed="idp472896"/>
+                    <picturus id="idp472896" reference="media/"/>
                     <a:stretch>
                       <a:fillRect/>
                     </a:stretch>
@@ -3414,8 +3429,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:subsec:extraction" w:id="idp503536"/>
-      <w:bookmarkEnd w:id="idp503536"/>
+      <w:bookmarkStart w:name="LABEL:subsec:extraction" w:id="idp502832"/>
+      <w:bookmarkEnd w:id="idp502832"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3434,8 +3449,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.SS3.p1" w:id="idp506192"/>
-      <w:bookmarkEnd w:id="idp506192"/>
+      <w:bookmarkStart w:name="S4.SS3.p1" w:id="idp505488"/>
+      <w:bookmarkEnd w:id="idp505488"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3481,8 +3496,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.SS3.SSS0.P1.p1" w:id="idp511136"/>
-      <w:bookmarkEnd w:id="idp511136"/>
+      <w:bookmarkStart w:name="S4.SS3.SSS0.P1.p1" w:id="idp510416"/>
+      <w:bookmarkEnd w:id="idp510416"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3660,8 +3675,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.SS3.SSS0.P2.p1" w:id="idp529072"/>
-      <w:bookmarkEnd w:id="idp529072"/>
+      <w:bookmarkStart w:name="S4.SS3.SSS0.P2.p1" w:id="idp528512"/>
+      <w:bookmarkEnd w:id="idp528512"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3770,8 +3785,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:subsec:harvestGen" w:id="idp540816"/>
-      <w:bookmarkEnd w:id="idp540816"/>
+      <w:bookmarkStart w:name="LABEL:subsec:harvestGen" w:id="idp540256"/>
+      <w:bookmarkEnd w:id="idp540256"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3790,8 +3805,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.SS4.p1" w:id="idp543136"/>
-      <w:bookmarkEnd w:id="idp543136"/>
+      <w:bookmarkStart w:name="S4.SS4.p1" w:id="idp542640"/>
+      <w:bookmarkEnd w:id="idp542640"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3840,8 +3855,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S4.SS4.p2" w:id="idp548432"/>
-      <w:bookmarkEnd w:id="idp548432"/>
+      <w:bookmarkStart w:name="S4.SS4.p2" w:id="idp547936"/>
+      <w:bookmarkEnd w:id="idp547936"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3913,8 +3928,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:sec:xlsearch" w:id="idp555456"/>
-      <w:bookmarkEnd w:id="idp555456"/>
+      <w:bookmarkStart w:name="LABEL:sec:xlsearch" w:id="idp554960"/>
+      <w:bookmarkEnd w:id="idp554960"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3939,8 +3954,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S5.p1" w:id="idp559024"/>
-      <w:bookmarkEnd w:id="idp559024"/>
+      <w:bookmarkStart w:name="S5.p1" w:id="idp558432"/>
+      <w:bookmarkEnd w:id="idp558432"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -3984,8 +3999,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S5.SS4.SSS0.Px1.p1" w:id="idp564576"/>
-      <w:bookmarkEnd w:id="idp564576"/>
+      <w:bookmarkStart w:name="S5.SS4.SSS0.Px1.p1" w:id="idp563968"/>
+      <w:bookmarkEnd w:id="idp563968"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -4087,13 +4102,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="LABEL:fig:index" w:id="idp577040"/>
-      <w:bookmarkEnd w:id="idp577040"/>
-    </w:p>
-    <w:p>
       <w:tbl>
         <w:tblGrid/>
         <w:tr>
@@ -4104,6 +4112,7 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4111,6 +4120,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4118,12 +4128,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>xmlns=”http://www.w3.org/1998/Math/MathML”</w:t>
@@ -4139,12 +4151,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>       </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>xmlns:q=âhttp://search.mathweb.org/nsâ&gt;</w:t>
@@ -4160,12 +4174,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>  </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4173,6 +4189,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4180,6 +4197,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4195,12 +4213,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4208,6 +4228,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4215,12 +4236,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;opAdd&lt;/</w:t>
@@ -4228,6 +4251,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4235,6 +4259,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4250,24 +4275,28 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;q:qvar</w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>name=”X0”/&gt;</w:t>
@@ -4283,12 +4312,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4296,6 +4327,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4303,6 +4335,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4318,12 +4351,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4331,6 +4366,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4338,12 +4374,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;opMul&lt;/</w:t>
@@ -4351,6 +4389,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4358,6 +4397,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4373,12 +4413,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4386,6 +4428,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4393,6 +4436,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4408,12 +4452,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4421,6 +4467,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4428,12 +4475,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;opDiv&lt;/</w:t>
@@ -4441,6 +4490,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4448,6 +4498,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4463,12 +4514,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4476,6 +4529,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4483,6 +4537,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4498,12 +4553,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>          </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4511,6 +4568,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4518,12 +4576,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;opSub&lt;/</w:t>
@@ -4531,6 +4591,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4538,6 +4599,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4553,24 +4615,28 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>          </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;q:qvar</w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>name=”X1”/&gt;</w:t>
@@ -4586,24 +4652,28 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>          </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;q:qvar</w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>name=”X2”/&gt;</w:t>
@@ -4619,12 +4689,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -4632,6 +4704,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4639,6 +4712,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4654,12 +4728,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4667,6 +4743,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4674,6 +4751,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4689,12 +4767,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>          </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4702,6 +4782,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4709,12 +4790,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;opSub&lt;/</w:t>
@@ -4722,6 +4805,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4729,6 +4813,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4744,24 +4829,28 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>          </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;q:qvar</w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>name=”X3”/&gt;</w:t>
@@ -4777,24 +4866,28 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>          </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;q:qvar</w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>name=”X2”/&gt;</w:t>
@@ -4810,12 +4903,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -4823,6 +4918,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4830,6 +4926,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4845,12 +4942,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -4858,6 +4957,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4865,6 +4965,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4880,12 +4981,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4893,6 +4996,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4900,6 +5004,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4915,12 +5020,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;</w:t>
@@ -4928,6 +5035,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4935,12 +5043,14 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>cd=”spsht-arith”&gt;opSub&lt;/</w:t>
@@ -4948,6 +5058,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -4955,6 +5066,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -4970,24 +5082,28 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;q:qvar</w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>name=”X4”/&gt;</w:t>
@@ -5003,24 +5119,28 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>        </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;q:qvar</w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t> </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>name=”X0”/&gt;</w:t>
@@ -5036,12 +5156,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>      </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -5049,6 +5171,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -5056,6 +5179,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -5071,12 +5195,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>    </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -5084,6 +5210,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -5091,6 +5218,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -5106,12 +5234,14 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>  </w:t>
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -5119,6 +5249,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -5126,6 +5257,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -5141,6 +5273,7 @@
             <w:p>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&lt;/</w:t>
@@ -5148,6 +5281,7 @@
               <w:r>
                 <w:rPr>
                   <w:b/>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="serif" w:cs="serif"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
@@ -5155,6 +5289,7 @@
               </w:r>
               <w:r>
                 <w:rPr>
+                  <w:sz w:val="5"/>
                   <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
                 </w:rPr>
                 <w:t>&gt;</w:t>
@@ -5164,21 +5299,29 @@
         </w:tr>
       </w:tbl>
       <w:r>
-        <w:rPr/>
+        <w:rPr>
+          <w:sz w:val="5"/>
+        </w:rPr>
         <w:t>Index Entry for </w:t>
       </w:r>
       <w:r>
-        <w:rPr/>
+        <w:rPr>
+          <w:sz w:val="5"/>
+        </w:rPr>
         <w:t>C7+(E</w:t>
       </w:r>
       <omml:oMath><r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><w:rPr><w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/></w:rPr><t>3-C</t></r>3-C</omml:oMath>
       <w:r>
-        <w:rPr/>
+        <w:rPr>
+          <w:sz w:val="5"/>
+        </w:rPr>
         <w:t>3)/(D</w:t>
       </w:r>
       <omml:oMath><r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><w:rPr><w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/></w:rPr><t>3-C</t></r>3-C</omml:oMath>
       <w:r>
-        <w:rPr/>
+        <w:rPr>
+          <w:sz w:val="5"/>
+        </w:rPr>
         <w:t>3)*(D7-C7)—</w:t>
       </w:r>
     </w:p>
@@ -5195,8 +5338,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S5.SS4.SSS0.P1.p1" w:id="idp723936"/>
-      <w:bookmarkEnd w:id="idp723936"/>
+      <w:bookmarkStart w:name="S5.SS4.SSS0.P1.p1" w:id="idp723472"/>
+      <w:bookmarkEnd w:id="idp723472"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5358,13 +5501,6 @@
       </w:r>
     </w:p>
     <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="LABEL:fig:frontend" w:id="idp747984"/>
-      <w:bookmarkEnd w:id="idp747984"/>
-    </w:p>
-    <w:p>
       <w:r>
         <w:drawing>
           <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -5384,8 +5520,8 @@
                     <pic:cNvPicPr/>
                   </pic:nvPicPr>
                   <pic:blipFill>
-                    <a:blip r:embed="idp749904"/>
-                    <picturus id="idp749904" reference="media/"/>
+                    <a:blip r:embed="idp749120"/>
+                    <picturus id="idp749120" reference="media/"/>
                     <a:stretch>
                       <a:fillRect/>
                     </a:stretch>
@@ -5424,8 +5560,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S5.SS4.SSS0.P1.p2" w:id="idp755472"/>
-      <w:bookmarkEnd w:id="idp755472"/>
+      <w:bookmarkStart w:name="S5.SS4.SSS0.P1.p2" w:id="idp754688"/>
+      <w:bookmarkEnd w:id="idp754688"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5485,8 +5621,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S5.SS4.SSS0.P2.p1" w:id="idp764000"/>
-      <w:bookmarkEnd w:id="idp764000"/>
+      <w:bookmarkStart w:name="S5.SS4.SSS0.P2.p1" w:id="idp763024"/>
+      <w:bookmarkEnd w:id="idp763024"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5506,7 +5642,7 @@
         <w:rPr/>
         <w:t> at </w:t>
       </w:r>
-      <w:hyperlink r:id="idp765952">
+      <w:hyperlink r:id="idp765008">
         <w:r>
           <w:rPr>
             <w:rFonts w:ascii="typewriter" w:cs="typewriter"/>
@@ -5518,7 +5654,7 @@
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_url" href="http://search.mathweb.org/xl/">
           <text font="typewriter">http://search.mathweb.org/xl/</text>
         </ref>
-        <extra id="idp765952"/>
+        <extra id="idp765008"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -5562,8 +5698,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="LABEL:sec:concl" w:id="idp770208"/>
-      <w:bookmarkEnd w:id="idp770208"/>
+      <w:bookmarkStart w:name="LABEL:sec:concl" w:id="idp769264"/>
+      <w:bookmarkEnd w:id="idp769264"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5582,8 +5718,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S6.p1" w:id="idp773152"/>
-      <w:bookmarkEnd w:id="idp773152"/>
+      <w:bookmarkStart w:name="S6.p1" w:id="idp772208"/>
+      <w:bookmarkEnd w:id="idp772208"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5598,8 +5734,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S6.p2" w:id="idp775376"/>
-      <w:bookmarkEnd w:id="idp775376"/>
+      <w:bookmarkStart w:name="S6.p2" w:id="idp774432"/>
+      <w:bookmarkEnd w:id="idp774432"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5663,8 +5799,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S6.SS4.SSS0.P1.p1" w:id="idp781264"/>
-      <w:bookmarkEnd w:id="idp781264"/>
+      <w:bookmarkStart w:name="S6.SS4.SSS0.P1.p1" w:id="idp780304"/>
+      <w:bookmarkEnd w:id="idp780304"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5695,8 +5831,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S6.SS4.SSS0.P1.p2" w:id="idp784384"/>
-      <w:bookmarkEnd w:id="idp784384"/>
+      <w:bookmarkStart w:name="S6.SS4.SSS0.P1.p2" w:id="idp783424"/>
+      <w:bookmarkEnd w:id="idp783424"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5740,8 +5876,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S6.SS4.SSS0.P2.p1" w:id="idp789424"/>
-      <w:bookmarkEnd w:id="idp789424"/>
+      <w:bookmarkStart w:name="S6.SS4.SSS0.P2.p1" w:id="idp788464"/>
+      <w:bookmarkEnd w:id="idp788464"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5788,8 +5924,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S6.SS4.SSS0.P2.p2" w:id="idp794080"/>
-      <w:bookmarkEnd w:id="idp794080"/>
+      <w:bookmarkStart w:name="S6.SS4.SSS0.P2.p2" w:id="idp793008"/>
+      <w:bookmarkEnd w:id="idp793008"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5839,8 +5975,8 @@
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
-      <w:bookmarkStart w:name="S6.SS4.SSS0.Px1.p1" w:id="idp799248"/>
-      <w:bookmarkEnd w:id="idp799248"/>
+      <w:bookmarkStart w:name="S6.SS4.SSS0.Px1.p1" w:id="idp798128"/>
+      <w:bookmarkEnd w:id="idp798128"/>
     </w:p>
     <w:p>
       <w:pPr>
@@ -5994,7 +6130,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp837424">
+      <w:hyperlink r:id="idp836176">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -6004,7 +6140,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="http://www.journalofaccountancy.com/issues/2003/nov/inexcelcellnamesspellspeedsafety.htm" class="ltx_bib_external">Link</ref>
-        <extra id="idp837424"/>
+        <extra id="idp836176"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -6350,7 +6486,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp914032">
+      <w:hyperlink r:id="idp912768">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -6360,7 +6496,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="http://kwarc.info/kohlhase/papers/mkm09-sachs.pdf" class="ltx_bib_external">Link</ref>
-        <extra id="idp914032"/>
+        <extra id="idp912768"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -6466,7 +6602,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp937792">
+      <w:hyperlink r:id="idp936464">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -6476,7 +6612,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="http://kwarc.info/kohlhase/papers/aisc12-mws.pdf" class="ltx_bib_external">Link</ref>
-        <extra id="idp937792"/>
+        <extra id="idp936464"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -6550,7 +6686,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp955536">
+      <w:hyperlink r:id="idp954144">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -6560,7 +6696,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="https://svn.mathweb.org/repos/mws/doc/manual/manual.pdf" class="ltx_bib_external">Link</ref>
-        <extra id="idp955536"/>
+        <extra id="idp954144"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -6651,7 +6787,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp975120">
+      <w:hyperlink r:id="idp973728">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -6661,7 +6797,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="http://omdoc.org/pubs/omdoc1.2.pdf" class="ltx_bib_external">Link</ref>
-        <extra id="idp975120"/>
+        <extra id="idp973728"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -6751,7 +6887,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp993440">
+      <w:hyperlink r:id="idp992048">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -6761,7 +6897,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="http://dfki.de/~bach/FGWM-2012-Proc.pdf" class="ltx_bib_external">Link</ref>
-        <extra id="idp993440"/>
+        <extra id="idp992048"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -6919,7 +7055,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp1034560">
+      <w:hyperlink r:id="idp1033168">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -6929,7 +7065,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="http://www.w3.org/TR/MathML3" class="ltx_bib_external">Link</ref>
-        <extra id="idp1034560"/>
+        <extra id="idp1033168"/>
       </external-link>
       <w:r>
         <w:rPr/>
@@ -7211,7 +7347,7 @@
         <w:rPr/>
         <w:t>External Links: </w:t>
       </w:r>
-      <w:hyperlink r:id="idp1099312">
+      <w:hyperlink r:id="idp1097808">
         <w:r>
           <w:rPr>
             <w:rStyle w:val="biblinks"/>
@@ -7221,7 +7357,7 @@
       </w:hyperlink>
       <external-link>
         <ref xmlns="http://dlmf.nist.gov/LaTeXML" href="http://kwarc.info/frabe/Research/mmt.pdf" class="ltx_bib_external">Link</ref>
-        <extra id="idp1099312"/>
+        <extra id="idp1097808"/>
       </external-link>
       <w:r>
         <w:rPr/>

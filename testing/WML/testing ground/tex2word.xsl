@@ -525,14 +525,20 @@
   </xsl:template> 
 
   <xsl:template match="ltx:figure">
-    <w:p>
-      <w:pPr>
-        <w:pStyle w:val="empty"/>
-      </w:pPr>
-      <w:bookmarkStart w:name="{@labels}" w:id="{generate-id(.)}"/>
-      <w:bookmarkEnd w:id="{generate-id(.)}"/>
+     <xsl:if test="./ltx:tabular">
+      <w:p>
+      <xsl:apply-templates select="./ltx:listingblock/ltx:tabular/preceding-sibling::*"/>
     </w:p>
-    <xsl:apply-templates/>
+    <xsl:apply-templates select="ltx:tabular"/>
+    <w:p>
+      <xsl:apply-templates select="./ltx:listinglock/ltx:tabular/following-sibling::*"/>
+    </w:p> 
+  </xsl:if>
+  <xsl:if test="not(./ltx:tabular)">
+    <w:p>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:if>
   </xsl:template> 
 
   <xsl:template match="ltx:graphics[ancestor::ltx:figure]">

@@ -5,6 +5,6 @@ whatsin = document
 whatsout = archive
 pmml =
 cmml =
-stylesheet = ltx2word.xsl
+stylesheet = tex2docx.xsl
 nodefaultresources = 
 path = $LATEXMLINPUTS
