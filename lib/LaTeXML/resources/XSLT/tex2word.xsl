@@ -154,6 +154,12 @@
         <xsl:if test="ancestor::ltx:text[contains(@font,'smallcaps')]">
           <w:rFonts w:ascii="smallcaps" w:cs="smallcaps"/>
         </xsl:if>
+        <xsl:if test="ancestor::*[contains(@fontsize,'small')]">
+          <w:sz w:val="10"/>
+        </xsl:if>
+        <xsl:if test="ancestor::*[contains(@fontsize,'footnote')]">
+          <w:sz w:val="5"/>
+        </xsl:if>
         <xsl:if test="ancestor::*[contains(@font,'bold')]">
           <w:b/>
         </xsl:if>

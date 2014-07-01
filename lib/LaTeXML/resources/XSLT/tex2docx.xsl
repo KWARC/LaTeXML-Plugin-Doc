@@ -264,6 +264,12 @@
         <xsl:if test="ancestor::*[contains(@font,'bold')]">
           <w:b/>
         </xsl:if>
+        <xsl:if test="ancestor::*[contains(@fontsize,'small')]">
+          <w:sz w:val="10"/>
+        </xsl:if>
+        <xsl:if test="ancestor::*[contains(@fontsize,'footnote')]">
+          <w:sz w:val="5"/>
+        </xsl:if>
         <xsl:if test="ancestor::*[@font='serif' or contains(@font,' serif') or contains(@font,'serif ') and not(contains(@font,'sansserif'))]">
           <w:rFonts w:ascii="serif" w:cs="serif"/>
         </xsl:if>

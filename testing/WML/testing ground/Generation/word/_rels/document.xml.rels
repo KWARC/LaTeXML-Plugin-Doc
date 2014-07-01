@@ -5,4 +5,22 @@
   <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
   <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
   <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footnotes" Target="footnotes.xml"/>
+  <Relationship Id="idp20720" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://kwarc.info" TargetMode="External"/>
+  <Relationship Id="idp23344" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://www.dfki.de/cps/staff/liguda" TargetMode="External"/>
+  <Relationship Id="idm9632" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/tikz/spshp/spshp.png,tikz/spshp/spshp.tex"/>
+  <Relationship Id="idp292816" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/tikz/spshp/interop.png,tikz/spshp/interop.tex"/>
+  <Relationship Id="idp378976" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/"/>
+  <Relationship Id="idp423312" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/"/>
+  <Relationship Id="idp428544" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/"/>
+  <Relationship Id="idp473536" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/"/>
+  <Relationship Id="idp749904" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/"/>
+  <Relationship Id="idp765952" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://search.mathweb.org/xl/" TargetMode="External"/>
+  <Relationship Id="idp837424" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://www.journalofaccountancy.com/issues/2003/nov/inexcelcellnamesspellspeedsafety.htm" TargetMode="External"/>
+  <Relationship Id="idp914032" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://kwarc.info/kohlhase/papers/mkm09-sachs.pdf" TargetMode="External"/>
+  <Relationship Id="idp937792" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://kwarc.info/kohlhase/papers/aisc12-mws.pdf" TargetMode="External"/>
+  <Relationship Id="idp955536" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="https://svn.mathweb.org/repos/mws/doc/manual/manual.pdf" TargetMode="External"/>
+  <Relationship Id="idp975120" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://omdoc.org/pubs/omdoc1.2.pdf" TargetMode="External"/>
+  <Relationship Id="idp993440" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://dfki.de/~bach/FGWM-2012-Proc.pdf" TargetMode="External"/>
+  <Relationship Id="idp1034560" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://www.w3.org/TR/MathML3" TargetMode="External"/>
+  <Relationship Id="idp1099312" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://kwarc.info/frabe/Research/mmt.pdf" TargetMode="External"/>
 </Relationships>

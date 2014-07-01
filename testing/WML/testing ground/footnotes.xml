@@ -1,20 +1,90 @@
 <?xml version="1.0"?>
 <w:footnotes xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:exsl="http://exslt.org/common" mc:Ignorable="w14 wp14">
+  <w:footnote w:id="0">
+    <w:p w:rsidR="00AB4F54" w:rsidRDefault="00AB4F54"><w:pPr><w:pStyle w:val="FootnoteText"/></w:pPr><w:r><w:rPr><w:rStyle w:val="FootnoteReference"/></w:rPr><w:footnoteRef/></w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>represented as dashed arrows in Figure </w:t>
+          </w:r>
+          <w:hyperlink w:anchor="LABEL:fig:interop">
+            <w:r>
+              <w:rPr/>
+              <w:t>3</w:t>
+            </w:r>
+          </w:hyperlink>
+          <w:r>
+            <w:rPr/>
+            <w:t>; the label </w:t>
+          </w:r>
+          <omml:oMath xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math"><r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><w:rPr><w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/></w:rPr><t>𝗃:ψ</t></r>\mathsf{j}:\psi</omml:oMath>
+          <w:r>
+            <w:rPr/>
+            <w:t> specifies the name </w:t>
+          </w:r>
+          <omml:oMath xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math"><r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"><w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML"><w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/></w:rPr><t>𝗂</t></r>\mathsf{i}</omml:oMath>
+          <w:r>
+            <w:rPr/>
+            <w:t> and the translation </w:t>
+          </w:r>
+          <omml:oMath xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math"><r xmlns="http://schemas.openxmlformats.org/officeDocument/2006/math"><w:rPr xmlns:mml="http://www.w3.org/1998/Math/MathML"><w:rFonts w:ascii="Cambria Math" w:eastAsia="Cambria Math" w:hAnsi="Cambria Math" w:cs="Cambria Math"/></w:rPr><t>φ</t></r>\varphi</omml:oMath>
+          <w:r>
+            <w:rPr/>
+            <w:t>.</w:t>
+          </w:r>
+        </w:p>
+  </w:footnote>
   <w:footnote w:id="1">
-    <w:p w:rsidR="00AB4F54" w:rsidRDefault="00AB4F54">
-      <w:pPr>
-        <w:pStyle w:val="FootnoteText"/>
-      </w:pPr>
-      <w:r>
-        <w:rPr>
-          <w:rStyle w:val="FootnoteReference"/>
-        </w:rPr>
-        <w:footnoteRef/>
-      </w:r>
-      <w:r>
-        <w:rPr/>
-        <w:t>Kim ist doof</w:t>
-      </w:r>
-    </w:p>
+    <w:p w:rsidR="00AB4F54" w:rsidRDefault="00AB4F54"><w:pPr><w:pStyle w:val="FootnoteText"/></w:pPr><w:r><w:rPr><w:rStyle w:val="FootnoteReference"/></w:rPr><w:footnoteRef/></w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>Note that we envision essentially one crawler per corpus. The crawlers are specialized to the respective formula representation, the organization and access methods to the corpus, etc.</w:t>
+          </w:r>
+        </w:p>
+  </w:footnote>
+  <w:footnote w:id="2">
+    <w:p w:rsidR="00AB4F54" w:rsidRDefault="00AB4F54"><w:pPr><w:pStyle w:val="FootnoteText"/></w:pPr><w:r><w:rPr><w:rStyle w:val="FootnoteReference"/></w:rPr><w:footnoteRef/></w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>However, they do depend on the complexity of the query</w:t>
+          </w:r>
+        </w:p>
+  </w:footnote>
+  <w:footnote w:id="3">
+    <w:p w:rsidR="00AB4F54" w:rsidRDefault="00AB4F54"><w:pPr><w:pStyle w:val="FootnoteText"/></w:pPr><w:r><w:rPr><w:rStyle w:val="FootnoteReference"/></w:rPr><w:footnoteRef/></w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>As formulae in other spreadsheet programs have nearly the same syntax as Excel, our parser can be tailored for those with minimal adjustments.</w:t>
+          </w:r>
+        </w:p>
+  </w:footnote>
+  <w:footnote w:id="4">
+    <w:p w:rsidR="00AB4F54" w:rsidRDefault="00AB4F54"><w:pPr><w:pStyle w:val="FootnoteText"/></w:pPr><w:r><w:rPr><w:rStyle w:val="FootnoteReference"/></w:rPr><w:footnoteRef/></w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>These cells can classified by other heuristics or via decision trees (see </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>[</w:t>
+          </w:r>
+          <w:hyperlink w:anchor="bib.bib11">
+            <w:r>
+              <w:rPr/>
+              <w:t>11</w:t>
+            </w:r>
+          </w:hyperlink>
+          <w:r>
+            <w:rPr/>
+            <w:t>]</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve"> </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t>)</w:t>
+          </w:r>
+        </w:p>
   </w:footnote>
 </w:footnotes>
