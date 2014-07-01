@@ -1031,4 +1031,882 @@
       <w:vertAlign w:val="superscript"/>
     </w:rPr>
   </w:style>
+  <w:style w:styleId="style0" w:default="1" w:type="paragraph">
+      <w:name w:val="Default Style"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:widowControl/>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:ind w:firstLine="227" w:left="0" w:right="0"/>
+         <w:jc w:val="both"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Times;Times New Roman" w:cs="Times;Times New Roman"
+                   w:eastAsia="Times New Roman"
+                   w:hAnsi="Times;Times New Roman"/>
+         <w:color w:val="auto"/>
+         <w:sz w:val="20"/>
+         <w:szCs w:val="20"/>
+         <w:lang w:bidi="ar-SA" w:eastAsia="zh-CN" w:val="en-US"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style1" w:type="paragraph">
+      <w:name w:val="Heading 1"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:pageBreakBefore/>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="284" w:val="left"/>
+         </w:tabs>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:spacing w:after="1600" w:before="0" w:line="320" w:lineRule="exact"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+         <w:sz w:val="28"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style2" w:type="paragraph">
+      <w:name w:val="Heading 2"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="454" w:val="left"/>
+         </w:tabs>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:spacing w:after="280" w:before="520" w:line="280" w:lineRule="exact"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style3" w:type="paragraph">
+      <w:name w:val="Heading 3"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="510" w:val="left"/>
+         </w:tabs>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:spacing w:after="220" w:before="440" w:line="240" w:lineRule="exact"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style4" w:type="paragraph">
+      <w:name w:val="Heading 4"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:numPr>
+            <w:ilvl w:val="3"/>
+            <w:numId w:val="1"/>
+         </w:numPr>
+         <w:spacing w:after="60" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:outlineLvl w:val="3"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Arial" w:cs="Arial" w:hAnsi="Arial"/>
+         <w:b/>
+         <w:sz w:val="24"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style5" w:type="paragraph">
+      <w:name w:val="Heading 5"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="4"/>
+            <w:numId w:val="1"/>
+         </w:numPr>
+         <w:spacing w:after="60" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:outlineLvl w:val="4"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Arial" w:cs="Arial" w:hAnsi="Arial"/>
+         <w:sz w:val="22"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style6" w:type="paragraph">
+      <w:name w:val="Heading 6"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="5"/>
+            <w:numId w:val="1"/>
+         </w:numPr>
+         <w:spacing w:after="60" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:outlineLvl w:val="5"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Times New Roman" w:cs="Times New Roman" w:hAnsi="Times New Roman"/>
+         <w:i/>
+         <w:sz w:val="22"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style7" w:type="paragraph">
+      <w:name w:val="Heading 7"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="6"/>
+            <w:numId w:val="1"/>
+         </w:numPr>
+         <w:spacing w:after="60" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:outlineLvl w:val="6"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Arial" w:cs="Arial" w:hAnsi="Arial"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style8" w:type="paragraph">
+      <w:name w:val="Heading 8"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="7"/>
+            <w:numId w:val="1"/>
+         </w:numPr>
+         <w:spacing w:after="60" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:outlineLvl w:val="7"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Arial" w:cs="Arial" w:hAnsi="Arial"/>
+         <w:i/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style9" w:type="paragraph">
+      <w:name w:val="Heading 9"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="8"/>
+            <w:numId w:val="1"/>
+         </w:numPr>
+         <w:spacing w:after="60" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:outlineLvl w:val="8"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Arial" w:cs="Arial" w:hAnsi="Arial"/>
+         <w:b/>
+         <w:i/>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style15" w:default="1" w:type="character">
+      <w:name w:val="WW8Num1z3"/>
+      <w:next w:val="style15"/>
+      <w:rPr>
+         <w:rFonts w:ascii="Tms Rmn;Times New Roman" w:cs="Tms Rmn;Times New Roman"
+                   w:hAnsi="Tms Rmn;Times New Roman"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style16" w:type="character">
+      <w:name w:val="WW8Num3z0"/>
+      <w:next w:val="style16"/>
+      <w:rPr>
+         <w:rFonts w:ascii="Symbol" w:cs="Symbol" w:hAnsi="Symbol"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style17" w:type="character">
+      <w:name w:val="WW8Num4z0"/>
+      <w:next w:val="style17"/>
+      <w:rPr>
+         <w:rFonts w:ascii="Symbol" w:cs="Symbol" w:hAnsi="Symbol"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style18" w:default="1" w:type="character">
+      <w:name w:val="Default Paragraph Font"/>
+      <w:next w:val="style18"/>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style19" w:type="character">
+      <w:name w:val="Page Number"/>
+      <w:basedOn w:val="style18"/>
+      <w:next w:val="style19"/>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style20" w:type="character">
+      <w:name w:val="Footnote Characters"/>
+      <w:basedOn w:val="style18"/>
+      <w:next w:val="style20"/>
+      <w:rPr>
+         <w:position w:val="0"/>
+         <w:sz w:val="12"/>
+         <w:sz w:val="12"/>
+         <w:vertAlign w:val="baseline"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style21" w:type="character">
+      <w:name w:val="Internet Link"/>
+      <w:basedOn w:val="style18"/>
+      <w:next w:val="style21"/>
+      <w:rPr>
+         <w:color w:val="0000FF"/>
+         <w:u w:val="single"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style22" w:type="character">
+      <w:name w:val="heading3 Zchn"/>
+      <w:basedOn w:val="style18"/>
+      <w:next w:val="style22"/>
+      <w:rPr>
+         <w:rFonts w:ascii="Times;Times New Roman" w:cs="Times;Times New Roman"
+                   w:hAnsi="Times;Times New Roman"/>
+         <w:b/>
+         <w:lang w:bidi="ar-SA" w:val="en-US"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style23" w:type="character">
+      <w:name w:val="p1a Zchn"/>
+      <w:basedOn w:val="style18"/>
+      <w:next w:val="style23"/>
+      <w:rPr>
+         <w:rFonts w:ascii="Times;Times New Roman" w:cs="Times;Times New Roman"
+                   w:hAnsi="Times;Times New Roman"/>
+         <w:lang w:bidi="ar-SA" w:val="en-US"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style24" w:type="character">
+      <w:name w:val="Footnote Anchor"/>
+      <w:next w:val="style24"/>
+      <w:rPr>
+         <w:vertAlign w:val="superscript"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style25" w:type="character">
+      <w:name w:val="Endnote Characters"/>
+      <w:next w:val="style25"/>
+      <w:rPr>
+         <w:vertAlign w:val="superscript"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style26" w:type="character">
+      <w:name w:val="WW-Endnote Characters"/>
+      <w:next w:val="style26"/>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style27" w:type="character">
+      <w:name w:val="Endnote Anchor"/>
+      <w:next w:val="style27"/>
+      <w:rPr>
+         <w:vertAlign w:val="superscript"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style28" w:type="paragraph">
+      <w:name w:val="Heading"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style29"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:spacing w:after="120" w:before="240"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Liberation Sans;Arial" w:cs="Lohit Hindi" w:eastAsia="DejaVu Sans"
+                   w:hAnsi="Liberation Sans;Arial"/>
+         <w:sz w:val="28"/>
+         <w:szCs w:val="28"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style29" w:type="paragraph">
+      <w:name w:val="Text Body"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style29"/>
+      <w:pPr>
+         <w:spacing w:after="120" w:before="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style30" w:type="paragraph">
+      <w:name w:val="List"/>
+      <w:basedOn w:val="style29"/>
+      <w:next w:val="style30"/>
+      <w:pPr/>
+      <w:rPr>
+         <w:rFonts w:cs="Lohit Hindi"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style31" w:type="paragraph">
+      <w:name w:val="Caption"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:spacing w:after="120" w:before="120"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style32" w:type="paragraph">
+      <w:name w:val="Index"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style32"/>
+      <w:pPr>
+         <w:suppressLineNumbers/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:cs="Lohit Hindi"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style33" w:type="paragraph">
+      <w:name w:val="Header"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style33"/>
+      <w:pPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="4536" w:val="center"/>
+            <w:tab w:leader="none" w:pos="9072" w:val="right"/>
+         </w:tabs>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style34" w:type="paragraph">
+      <w:name w:val="Footer"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style34"/>
+      <w:pPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="4536" w:val="center"/>
+            <w:tab w:leader="none" w:pos="9072" w:val="right"/>
+         </w:tabs>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style35" w:type="paragraph">
+      <w:name w:val="title"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style36"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:pageBreakBefore/>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="284" w:val="left"/>
+         </w:tabs>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:spacing w:after="460" w:before="0" w:line="348" w:lineRule="exact"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:jc w:val="center"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+         <w:sz w:val="28"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style36" w:type="paragraph">
+      <w:name w:val="author"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style37"/>
+      <w:pPr>
+         <w:spacing w:after="220" w:before="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:jc w:val="center"/>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style37" w:type="paragraph">
+      <w:name w:val="authorinfo"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style38"/>
+      <w:pPr>
+         <w:jc w:val="center"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style38" w:type="paragraph">
+      <w:name w:val="email"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style46"/>
+      <w:pPr>
+         <w:jc w:val="center"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style39" w:type="paragraph">
+      <w:name w:val="heading1"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style45"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="454" w:val="left"/>
+         </w:tabs>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:spacing w:after="280" w:before="520"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+         <w:sz w:val="24"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style40" w:type="paragraph">
+      <w:name w:val="heading2"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style45"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="510" w:val="left"/>
+         </w:tabs>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:spacing w:after="220" w:before="440"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style41" w:type="paragraph">
+      <w:name w:val="heading3"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style45"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="284" w:val="left"/>
+         </w:tabs>
+         <w:suppressAutoHyphens w:val="true"/>
+         <w:spacing w:after="0" w:before="320"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style42" w:type="paragraph">
+      <w:name w:val="equation"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="6464" w:val="left"/>
+         </w:tabs>
+         <w:spacing w:after="120" w:before="120"/>
+         <w:ind w:firstLine="227" w:left="227" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:jc w:val="center"/>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style43" w:type="paragraph">
+      <w:name w:val="figlegend"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:spacing w:after="240" w:before="120"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style44" w:type="paragraph">
+      <w:name w:val="tablelegend"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:spacing w:after="120" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+         <w:lang w:val="de-DE"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style45" w:type="paragraph">
+      <w:name w:val="p1a"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style46" w:type="paragraph">
+      <w:name w:val="abstract"/>
+      <w:basedOn w:val="style45"/>
+      <w:next w:val="style39"/>
+      <w:pPr>
+         <w:spacing w:after="120" w:before="600"/>
+         <w:ind w:hanging="0" w:left="567" w:right="567"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style47" w:type="paragraph">
+      <w:name w:val="reference"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style47"/>
+      <w:pPr>
+         <w:ind w:hanging="227" w:left="227" w:right="0"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style48" w:type="paragraph">
+      <w:name w:val="Running head - left"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style48"/>
+      <w:pPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="680" w:val="left"/>
+            <w:tab w:leader="none" w:pos="6237" w:val="right"/>
+            <w:tab w:leader="none" w:pos="6917" w:val="right"/>
+         </w:tabs>
+         <w:spacing w:after="240" w:before="0" w:line="240" w:lineRule="exact"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:jc w:val="left"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style49" w:type="paragraph">
+      <w:name w:val="Running head - right"/>
+      <w:basedOn w:val="style48"/>
+      <w:next w:val="style49"/>
+      <w:pPr>
+         <w:jc w:val="right"/>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style50" w:type="paragraph">
+      <w:name w:val="Item"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="0"/>
+            <w:numId w:val="3"/>
+         </w:numPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="454" w:val="left"/>
+            <w:tab w:leader="none" w:pos="681" w:val="left"/>
+         </w:tabs>
+         <w:ind w:hanging="227" w:left="227" w:right="0"/>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style51" w:type="paragraph">
+      <w:name w:val="Bullet Item"/>
+      <w:basedOn w:val="style50"/>
+      <w:next w:val="style51"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="0"/>
+            <w:numId w:val="4"/>
+         </w:numPr>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style52" w:type="paragraph">
+      <w:name w:val="Numbered Item"/>
+      <w:basedOn w:val="style50"/>
+      <w:next w:val="style52"/>
+      <w:pPr>
+         <w:numPr>
+            <w:ilvl w:val="0"/>
+            <w:numId w:val="5"/>
+         </w:numPr>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style53" w:type="paragraph">
+      <w:name w:val="Footnote"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style53"/>
+      <w:pPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="340" w:val="left"/>
+         </w:tabs>
+         <w:ind w:hanging="170" w:left="170" w:right="0"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style54" w:type="paragraph">
+      <w:name w:val="programcode"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style54"/>
+      <w:pPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="1588" w:val="left"/>
+            <w:tab w:leader="none" w:pos="1758" w:val="left"/>
+            <w:tab w:leader="none" w:pos="1928" w:val="left"/>
+            <w:tab w:leader="none" w:pos="2098" w:val="left"/>
+            <w:tab w:leader="none" w:pos="2268" w:val="left"/>
+            <w:tab w:leader="none" w:pos="2438" w:val="left"/>
+            <w:tab w:leader="none" w:pos="2608" w:val="left"/>
+            <w:tab w:leader="none" w:pos="2779" w:val="left"/>
+         </w:tabs>
+         <w:spacing w:after="120" w:before="120"/>
+         <w:ind w:hanging="0" w:left="227" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+         <w:jc w:val="left"/>
+      </w:pPr>
+      <w:rPr>
+         <w:rFonts w:ascii="Courier;Courier New" w:cs="Courier;Courier New"
+                   w:hAnsi="Courier;Courier New"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style55" w:type="paragraph">
+      <w:name w:val="Fußnotentext.Footnote"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style55"/>
+      <w:pPr>
+         <w:tabs>
+            <w:tab w:leader="none" w:pos="340" w:val="left"/>
+         </w:tabs>
+         <w:ind w:hanging="170" w:left="170" w:right="0"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style56" w:type="paragraph">
+      <w:name w:val="heading4"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style45"/>
+      <w:pPr>
+         <w:spacing w:after="0" w:before="320"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:i/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style57" w:type="paragraph">
+      <w:name w:val="address"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style38"/>
+      <w:pPr>
+         <w:jc w:val="center"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style58" w:type="paragraph">
+      <w:name w:val="figure legend"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:spacing w:after="240" w:before="120"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style59" w:type="paragraph">
+      <w:name w:val="table title"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style0"/>
+      <w:pPr>
+         <w:keepNext/>
+         <w:keepLines/>
+         <w:spacing w:after="120" w:before="240"/>
+         <w:ind w:hanging="0" w:left="0" w:right="0"/>
+         <w:contextualSpacing w:val="false"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+         <w:lang w:val="de-DE"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style60" w:type="paragraph">
+      <w:name w:val="referenceitem"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style60"/>
+      <w:pPr>
+         <w:ind w:hanging="227" w:left="227" w:right="0"/>
+      </w:pPr>
+      <w:rPr>
+         <w:sz w:val="18"/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="style61" w:type="paragraph">
+      <w:name w:val="Body Text 21"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style61"/>
+      <w:pPr/>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style62" w:type="paragraph">
+      <w:name w:val="Table Contents"/>
+      <w:basedOn w:val="style0"/>
+      <w:next w:val="style62"/>
+      <w:pPr>
+         <w:suppressLineNumbers/>
+      </w:pPr>
+      <w:rPr/>
+   </w:style>
+   <w:style w:styleId="style63" w:type="paragraph">
+      <w:name w:val="Table Heading"/>
+      <w:basedOn w:val="style62"/>
+      <w:next w:val="style63"/>
+      <w:pPr>
+         <w:suppressLineNumbers/>
+         <w:jc w:val="center"/>
+      </w:pPr>
+      <w:rPr>
+         <w:b/>
+         <w:bCs/>
+      </w:rPr>
+   </w:style>
+      <w:style w:styleId="bibnumber" w:type="character">
+      <w:name w:val="bibnumber"/>
+      <w:next w:val="bibnumber"/>
+      <w:rPr>
+         <w:rFonts w:ascii="Symbol" w:cs="Symbol" w:hAnsi="Symbol"/>
+         <w:b/>
+      </w:rPr>
+   </w:style>
+      <w:style w:styleId="bibauthor" w:type="character">
+      <w:name w:val="bibauthor"/>
+      <w:next w:val="style16"/>
+      <w:rPr>
+         <w:rFonts w:ascii="Symbol" w:cs="Symbol" w:hAnsi="Symbol"/>
+         <w:b/>
+      </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibfullauthors" w:type="character">
+    <w:name w:val="bibfullauthors"/>
+    <w:basedOn w:val="style0"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibyear" w:type="character">
+    <w:name w:val="bibyear"/>
+    <w:basedOn w:val="style0"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibtype" w:type="character">
+    <w:name w:val="bibtype"/>
+    <w:basedOn w:val="style0"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibtitle" w:type="character">
+    <w:name w:val="bibtitle"/>
+    <w:basedOn w:val="style0"/>
+   </w:style>
+   <w:style w:styleId="bibauthor2" w:type="character">
+    <w:name w:val="bibauthor2"/>
+    <w:basedOn w:val="style0"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibpublicationdate" w:type="character">
+    <w:name w:val="bibpublicationdate"/>
+    <w:basedOn w:val="style0"/>
+   </w:style>
+   <w:style w:styleId="bibtitle2" w:type="character">
+    <w:name w:val="bibtitle2"/>
+    <w:basedOn w:val="bibtitle2"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibtype2" w:type="character">
+    <w:name w:val="bibtype2"/>
+    <w:basedOn w:val="style0"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="biborganization" w:type="character">
+    <w:name w:val="biborganization"/>
+    <w:basedOn w:val="style0"/>
+   </w:style>
+   <w:style w:styleId="bibnote" w:type="character">
+    <w:name w:val="bibnote"/>
+    <w:basedOn w:val="style0"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibpages" w:type="character">
+    <w:name w:val="bibpages"/>
+    <w:basedOn w:val="style0"/>
+   </w:style>
+   <w:style w:stleId="bibtype2" w:type="character">
+    <w:name w:val="bibtype2"/>
+    <w:basedOn w:val="style0"/>
+    <w:rPr>
+    <w:vanish/>
+    </w:rPr>
+   </w:style>
+   <w:style w:styleId="bibseries" w:type="character">
+    <w:name w:val="bibseries"/>
+    <w:basedOn w:val="style0"/>
+   </w:style>
 </w:styles>
