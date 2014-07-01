@@ -10,7 +10,7 @@
 # | Michael Kohlhase <m.kohlhase@jacobs-university.de>          #_#     | #
 # | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
 # \=========================================================ooo==U==ooo=/ #
-package LaTeXML::Post::Manifest::docx;
+package LaTeXML::Post::Manifest::Docx;
 use strict;
 use warnings;
 use base qw(LaTeXML::Post::Manifest);
@@ -27,10 +27,6 @@ sub new {
   return $self; }
 
 sub initialize {
-=pod
-
-
-
   my ($self, $doc) = @_; 
   #I am assuming that tex2docx was applied to *.tex already
   print "This is using the docx manifest file";
@@ -74,8 +70,6 @@ sub initialize {
   $writer->process($rels_document,$rels_document->getDocumentElement);
   # TODO Sort pictures into media 
   # TODO zip everything and rename it. I think that is being done automatically though
-=cut
-  
   return; }
 
 sub process {
