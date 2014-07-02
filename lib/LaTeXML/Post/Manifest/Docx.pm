@@ -46,6 +46,7 @@ sub initialize {
       [ catfile($skeleton_directory,'word','footnotes.xml'), catdir($directory,'word') ],
       [ catfile($skeleton_directory,'customXML','_rels','item1.xml.rels'), catdir($directory,'customXML','_rels') ],
       [ catfile($skeleton_directory,'customXML','itemProps1.xml'), catdir($directory,'customXML') ],
+      [ catfile($skeleton_directory,'customXML','item1.xml'), catdir($directory,'customXML') ],
       [ catfile($skeleton_directory,'_rels','.rels'), catdir($directory,'_rels') ],
       [ catfile($skeleton_directory,'[Content_Types].xml'), catdir($directory,'.')]);
     foreach my $static_file(@static_files) {
@@ -56,6 +57,7 @@ sub initialize {
   my $document_footnotes =catfile($directory,'word','footnotes.xml');
   my $footnotes_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'docx-footnotes.xsl', noresources=>1);
   my $footnotes_document = $footnotes_stylesheet->process($doc); #We create footnotes.xml by applying footnotes.xsl to document1.xml 
+  $footnotes_document->{destination}= $document_footnotes;
   my $document_final =catfile($directory,'word','document.xml');
   my $cleanup_stylesheet = LaTeXML::Post::XSLT->new (stylesheet => 'docx-cleaner.xsl', noresources => 1); 
   my $final_document = $cleanup_stylesheet->process($doc); #We create document.xml by applying cleaner.xsl to document1.xml
@@ -68,6 +70,8 @@ sub initialize {
   # TODO: Think about whether just using LibXML won't be simpler
   my $writer = LaTeXML::Post::Writer->new(format=>'xml',omit_doctype=>0);
   $writer->process($rels_document,$rels_document->getDocumentElement);
+  $writer->process($final_document,$final_document->getDocumentElement); 
+  $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
   # TODO Sort pictures into media 
   # TODO zip everything and rename it. I think that is being done automatically though
   return; }
