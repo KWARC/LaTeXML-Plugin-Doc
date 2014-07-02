@@ -20,6 +20,8 @@ use LaTeXML::Util::Pathname;
 use LaTeXML::Post;    # for error handling!
 use LaTeXML::Post::XSLT;
 use LaTeXML::Post::Writer;
+use Cwd; 
+use File::Find::Rule; 
 
 sub new {
   my ($class, %options) = @_;
@@ -73,6 +75,14 @@ sub initialize {
   $writer->process($final_document,$final_document->getDocumentElement); 
   $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
   # TODO Sort pictures into media 
+  
+    my @files;
+    push(@files,File::Find::Rule->file()->name('*.png')->in(cwd()));
+    push(@files,File::Find::Rule->file()->name('*.jpg')->in(cwd()));
+    push(@files,File::Find::Rule->file()->name('*.jpeg')->in(cwd()));
+    push(@files,File::Find::Rule->file()->name('*.eps')->in(cwd()));  
+    print @files;
+
   # TODO zip everything and rename it. I think that is being done automatically though
   return; }
 
@@ -85,6 +95,14 @@ sub process {
 
 sub finalize {
   my ($self,$doc) = @_;
+}
+sub Wanted
+{
+unless(/\.pm$/){
+return;
+}
+return $File::Find::Name;
+
 }
 
 
