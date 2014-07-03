@@ -10,6 +10,8 @@
 # | Michael Kohlhase <m.kohlhase@jacobs-university.de>          #_#     | #
 # | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
 # \=========================================================ooo==U==ooo=/ #
+
+#This is for transforming to .docx when there is no .bib file present or the user wants it to have most functions in non Microsoft Word text editors. 
 package LaTeXML::Post::Manifest::Docx;
 use strict;
 use warnings;
@@ -32,7 +34,7 @@ sub new {
 sub initialize {
   my ($self, $doc) = @_; 
   #I am assuming that tex2docx was applied to *.tex already
-  my $directory = $$self{siteDirectory};  
+  my $directory = $$self{siteDirectory};
   # Copy static files from ODT-Skeleton
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
   my $skeleton_directory = pathname_directory($content_types);
@@ -75,9 +77,7 @@ sub initialize {
   $writer->process($final_document,$final_document->getDocumentElement); 
   $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
   # TODO Sort pictures into media 
-  my $current=cwd();
-  $$doc{destination}="penis.xml";
-                             
+  my $current=cwd();                             
   find(sub
 {
 unless($_=~/\.png$/ or $_=~/\.jpg$/ or $_=~/\.eps$/ or $_=~/\.jpeg$/){
@@ -94,6 +94,7 @@ return;
 
 sub process {
   my ($self, @docs) = @_;
+ $docs[0]->{destination}="asdf.xml";
   $self->initialize($docs[0]);
   # If needed: generate data from each of the @docs.
   $self->finalize($docs[0]);
