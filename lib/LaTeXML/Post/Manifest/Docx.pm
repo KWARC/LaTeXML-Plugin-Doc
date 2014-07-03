@@ -76,6 +76,7 @@ sub initialize {
   $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
   # TODO Sort pictures into media 
   my $current=cwd();
+  $$doc{destination}="penis.xml";
                              
   find(sub
 {
