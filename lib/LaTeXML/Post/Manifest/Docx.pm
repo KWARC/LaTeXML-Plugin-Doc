@@ -23,7 +23,6 @@ use LaTeXML::Post;    # for error handling!
 use LaTeXML::Post::XSLT;
 use LaTeXML::Post::Writer;
 use File::Find;
-use File::Path;
 use Cwd; 
 
 sub new {
@@ -86,7 +85,6 @@ return;
 my $relative_filename=File::Spec->abs2rel($File::Find::dir,$current);
 File::Path->make_path(catdir($directory,'word','media',$relative_filename));
 pathname_copy($File::Find::name,catfile($directory,'word','media',$relative_filename,$_)); 
-
 return;
 },cwd());
   # TODO Try to make this work using pathname_findall 
@@ -94,7 +92,6 @@ return;
 
 sub process {
   my ($self, @docs) = @_;
- $docs[0]->{destination}="asdf.xml";
   $self->initialize($docs[0]);
   # If needed: generate data from each of the @docs.
   $self->finalize($docs[0]);
