@@ -20,8 +20,9 @@ use LaTeXML::Util::Pathname;
 use LaTeXML::Post;    # for error handling!
 use LaTeXML::Post::XSLT;
 use LaTeXML::Post::Writer;
+use File::Find;
+use File::Path;
 use Cwd; 
-use File::Find::Rule; 
 
 sub new {
   my ($class, %options) = @_;
@@ -55,7 +56,6 @@ sub initialize {
       pathname_copy($static_file->[0],  $static_file->[1]); } } #populate the file structure
   else {
     Error('I/O',$content_types,undef,"Couldn't find WML static resource: $content_types.xml"); }
-  
   my $document_footnotes =catfile($directory,'word','footnotes.xml');
   my $footnotes_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'docx-footnotes.xsl', noresources=>1);
   my $footnotes_document = $footnotes_stylesheet->process($doc); #We create footnotes.xml by applying footnotes.xsl to document1.xml 
@@ -75,15 +75,20 @@ sub initialize {
   $writer->process($final_document,$final_document->getDocumentElement); 
   $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
   # TODO Sort pictures into media 
-  
-    my @files;
-    push(@files,File::Find::Rule->file()->name('*.png')->in(cwd()));
-    push(@files,File::Find::Rule->file()->name('*.jpg')->in(cwd()));
-    push(@files,File::Find::Rule->file()->name('*.jpeg')->in(cwd()));
-    push(@files,File::Find::Rule->file()->name('*.eps')->in(cwd()));  
-    print @files;
+  my $current=cwd();
+                             
+  find(sub
+{
+unless($_=~/\.png$/ or $_=~/\.jpg$/ or $_=~/\.eps$/ or $_=~/\.jpeg$/){
+return;
+}
+my $relative_filename=File::Spec->abs2rel($File::Find::dir,$current);
+File::Path->make_path(catdir($directory,'word','media',$relative_filename));
+pathname_copy($File::Find::name,catfile($directory,'word','media',$relative_filename,$_)); 
 
-  # TODO zip everything and rename it. I think that is being done automatically though
+return;
+},cwd());
+  # TODO Try to make this work using pathname_findall 
   return; }
 
 sub process {
@@ -96,14 +101,5 @@ sub process {
 sub finalize {
   my ($self,$doc) = @_;
 }
-sub Wanted
-{
-unless(/\.pm$/){
-return;
-}
-return $File::Find::Name;
-
-}
-
 
 1;
