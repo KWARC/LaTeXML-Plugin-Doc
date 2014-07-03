@@ -1,0 +1,10 @@
+# Profile for Word generation
+post =
+format = Word
+whatsin = document
+whatsout = archive
+pmml =
+cmml =
+stylesheet = tex2word.xsl
+nodefaultresources = 
+path = $LATEXMLINPUTS
