@@ -1,5 +1,0 @@
-I se partly why you think sectoin 5 is weak - there's a table in the source 
-file which results in the 'floats lost' warning. I'll have to look at that.
-
-Later: the same is now happening with the 'short' version: I hope adding more
-text will solve this.
