@@ -104,10 +104,10 @@ return;
   my $stylesheetus=catfile(catdir($skeleton_directory,'..','XSLT'),'docx-bibliographies.xsl'); 
   my $style_doc = XML::LibXML->load_xml(location=>$stylesheetus);
   my $stylesheet = $xslt->parse_stylesheet($style_doc); 
-  my $results = $stylesheet->transform($source);
+  my $temp=catfile($directory,'paper.ltxml');
+  my $results = $stylesheet->transform($source, test =>"'$temp'");
   $stylesheet->output_file($results,$bib_pathname);
-
-  
+  system("rm $temp");
   return; }
 
 sub process {

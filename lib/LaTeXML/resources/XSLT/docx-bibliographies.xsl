@@ -19,7 +19,8 @@
       <xsl:copy-of select="."/>
     </xsl:comment>
   </xsl:template>
-  <xsl:variable name="document" select="document('paper.ltxml')//ltx:bibliography"/>
+  <xsl:param name="test"/>
+  <xsl:variable name="document" select="document($test)"/>
   <xsl:template match="/">
     <b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" SelectedStyle="\APA.XSL" StyleName="APA">
       <xsl:apply-templates/>
