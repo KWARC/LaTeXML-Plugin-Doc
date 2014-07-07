@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\author{Lukas Kohlhase}
+\title{Demonstration of capabilities of tex2word and tex2docx}
+\begin{document}
+\maketitle
+\section{General Text formatting}
+\subsection{Playing around with bold and italic}
+Normally formatted text looks like this. \footnote{Footnotes are also possible. \textbf{Markup in footnotes works as well}} \textbf{Common text formatting is supported, just as you would expect. \textit {Nested bold and italic works as well}}. Note that the width of a line is larger in Word than in the default LaTeX uses.  \\ 
+\subsection{A normal paragraph again}
+New paragraphs are back to the default. Since every kind of text formatting has to be manually added to the xslt files, just contact me (l.kohlhase@jacobs-university.de) if your text formatting doesn't work. 
+\section{mathematics}
+All kinds of mathematics is able to be displayed. \\ 
+Inline math works, $a^2+b^2=c^2$, but as in TeX be careful with the bigger ones, they might look weird $\sum\limits_{k=0}^{\infty} \frac{x^k}{k!} =e$ \\
+Note that the limits of the sum are not at the correct places, even though I used \textbackslash limits . \\ 
+Display math: 
+\[
+\sum\limits_{k=0}^{\infty} \frac{x^k}{k!} =e
+\]
+And everything looks proper again. However there are still some slight differences that are inherent to the different ways of representing math. \\
+Equations look like this
+\begin{equation}
+a^2+b^2=c^2
+\end{equation}
+The align environment looks like this: 
+\begin{align}
+a^2+b^2&=c^2&=\frac{E}{m} \\ 
+&=26 &=123
+\end{align}
+Evidently this does not work well. This is an issue with the transformation of MathMl to OMML (word math format) that I am not in a position to fix. 
+\section{pictures}
+\includegraphics{image1.jpeg}
+Including graphics works as well. Note that the only supported formats at the moment are jpeg, png and eps. Graphics need to be kept in the same directory as the .tex file or in one of its subdirectories.  \\ 
+
+Figures etc. Work, however captions are not supported at the moment. 
+\section{references}
+\cite{book1} \cite{book2} \cite{booklet1,incollection1}
+\bibliography{test}
+\end{document}

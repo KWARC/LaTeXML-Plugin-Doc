@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/WML/testerus"?>
+<?latexml class="article"?>
+<?latexml package="amsmath"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" xmlns:m="http://www.w3.org/1998/Math/MathML" class="ltx_authors_1line" xml:id="Document">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Demonstration of capabilities of tex2word and tex2docx</title>
+  <creator role="author">
+    <personname>Lukas Kohlhase</personname>
+  </creator>
+  <section refnum="1" xml:id="S1" fragid="S1">
+    <title><tag close=" ">1</tag>General Text formatting</title>
+    <subsection refnum="1.1" xml:id="S1.SS1" fragid="S1.SS1">
+      <title><tag close=" ">1.1</tag>Playing around with bold and italic</title>
+      <para xml:id="S1.SS1.p1" fragid="S1.SS1.p1">
+        <p>Normally formatted text looks like this. <note mark="1" role="footnote">Footnotes are also possible. <text font="bold">Markup in footnotes works as well</text></note> <text font="bold">Common text formatting is supported, just as you would expect. <text font="italic">Nested bold and italic works as well</text></text>. Note that the width of a line is larger in Word than in the default LaTeX uses. <break/></p>
+      </para>
+    </subsection>
+    <subsection refnum="1.2" xml:id="S1.SS2" fragid="S1.SS2">
+      <title><tag close=" ">1.2</tag>A normal paragraph again</title>
+      <para xml:id="S1.SS2.p1" fragid="S1.SS2.p1">
+        <p>New paragraphs are back to the default. Since every kind of text formatting has to be manually added to the xslt files, just contact me (l.kohlhase@jacobs-university.de) if your text formatting doesn’t work.</p>
+      </para>
+    </subsection>
+  </section>
+  <section refnum="2" xml:id="S2" fragid="S2">
+    <title><tag close=" ">2</tag>mathematics</title>
+    <para xml:id="S2.p1" fragid="S2.p1">
+      <p>All kinds of mathematics is able to be displayed. <break/>Inline math works, <Math mode="inline" xml:id="S2.p1.m1" tex="a^{2}+b^{2}=c^{2}" text="a ^ 2 + b ^ 2 = c ^ 2" fragid="S2.p1.m1"><m:math alttext="a^{2}+b^{2}=c^{2}" display="inline"><m:mrow><m:mrow><m:msup><m:mi>a</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mi>b</m:mi><m:mn>2</m:mn></m:msup></m:mrow><m:mo>=</m:mo><m:msup><m:mi>c</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:math></Math>, but as in TeX be careful with the bigger ones, they might look weird <Math mode="inline" xml:id="S2.p1.m2" tex="\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e" text="((sum _ (k = 0)) ^ infinity)@(x ^ k / kfactorial) = e" fragid="S2.p1.m2"><m:math alttext="\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e" display="inline"><m:mrow><m:mrow><m:munderover><m:mo largeop="true" movablelimits="false" symmetric="true">∑</m:mo><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow><m:mi mathvariant="normal">∞</m:mi></m:munderover><m:mfrac><m:msup><m:mi>x</m:mi><m:mi>k</m:mi></m:msup><m:mrow><m:mi>k</m:mi><m:mi mathvariant="normal">!</m:mi></m:mrow></m:mfrac></m:mrow><m:mo>=</m:mo><m:mi>e</m:mi></m:mrow></m:math></Math> <break/>Note that the limits of the sum are not at the correct places, even though I used \limits . <break/>Display math:</p>
+      <equation xml:id="S2.Ex1" fragid="S2.Ex1">
+        <Math mode="display" xml:id="S2.Ex1.m1" tex="\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e" text="((sum _ (k = 0)) ^ infinity)@(x ^ k / kfactorial) = e" fragid="S2.Ex1.m1">
+          <m:math alttext="\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e" display="block">
+            <m:mrow>
+              <m:mrow>
+                <m:munderover>
+                  <m:mo largeop="true" movablelimits="false" symmetric="true">∑</m:mo>
+                  <m:mrow>
+                    <m:mi>k</m:mi>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                  <m:mi mathvariant="normal">∞</m:mi>
+                </m:munderover>
+                <m:mfrac>
+                  <m:msup>
+                    <m:mi>x</m:mi>
+                    <m:mi>k</m:mi>
+                  </m:msup>
+                  <m:mrow>
+                    <m:mi>k</m:mi>
+                    <m:mi mathvariant="normal">!</m:mi>
+                  </m:mrow>
+                </m:mfrac>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:mi>e</m:mi>
+            </m:mrow>
+          </m:math>
+        </Math>
+      </equation>
+      <p>And everything looks proper again. However there are still some slight differences that are inherent to the different ways of representing math. <break/>Equations look like this</p>
+      <equation frefnum="(1)" refnum="1" xml:id="S2.E1" fragid="S2.E1">
+        <Math mode="display" xml:id="S2.E1.m1" tex="a^{2}+b^{2}=c^{2}" text="a ^ 2 + b ^ 2 = c ^ 2" fragid="S2.E1.m1">
+          <m:math alttext="a^{2}+b^{2}=c^{2}" display="block">
+            <m:mrow>
+              <m:mrow>
+                <m:msup>
+                  <m:mi>a</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msup>
+                <m:mo>+</m:mo>
+                <m:msup>
+                  <m:mi>b</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msup>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:msup>
+                <m:mi>c</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+            </m:mrow>
+          </m:math>
+        </Math>
+      </equation>
+      <!-- %**** example.tex Line 25 **** -->
+      <p>The align environment looks like this:</p>
+      <equationgroup class="ltx_eqn_align" xml:id="S4.EGx1" fragid="S4.EGx1">
+        <equation frefnum="(2)" refnum="2" xml:id="S2.E2" fragid="S2.E2">
+          <MathFork>
+            <Math xml:id="S2.E2.m4" tex="\displaystyle a^{2}+b^{2}=c^{2}" text="a ^ 2 + b ^ 2 = c ^ 2" fragid="S2.E2.m4">
+              <m:math alttext="\displaystyle a^{2}+b^{2}=c^{2}" display="inline">
+                <m:mrow>
+                  <m:mrow>
+                    <m:msup>
+                      <m:mi>a</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>+</m:mo>
+                    <m:msup>
+                      <m:mi>b</m:mi>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                  </m:mrow>
+                  <m:mo>=</m:mo>
+                  <m:msup>
+                    <m:mi>c</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:mrow>
+              </m:math>
+            </Math>
+            <MathBranch>
+              <td align="right">
+                <Math mode="inline" xml:id="S2.E2.m1" tex="\displaystyle a^{2}+b^{2}" text="a ^ 2 + b ^ 2" fragid="S2.E2.m1">
+                  <m:math alttext="\displaystyle a^{2}+b^{2}" display="inline">
+                    <m:mrow>
+                      <m:msup>
+                        <m:mi>a</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msup>
+                      <m:mo>+</m:mo>
+                      <m:msup>
+                        <m:mi>b</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msup>
+                    </m:mrow>
+                  </m:math>
+                </Math>
+              </td>
+              <td align="left">
+                <Math mode="inline" xml:id="S2.E2.m2" tex="\displaystyle=c^{2}" text="absent = c ^ 2" fragid="S2.E2.m2">
+                  <m:math alttext="\displaystyle=c^{2}" display="inline">
+                    <m:mrow>
+                      <m:mi/>
+                      <m:mo>=</m:mo>
+                      <m:msup>
+                        <m:mi>c</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msup>
+                    </m:mrow>
+                  </m:math>
+                </Math>
+              </td>
+            </MathBranch>
+          </MathFork>
+          <MathFork>
+            <Math xml:id="S2.E2.m5" tex="\displaystyle=\frac{E}{m}" text="absent = E / m" fragid="S2.E2.m5">
+              <m:math alttext="\displaystyle=\frac{E}{m}" display="inline">
+                <m:mrow>
+                  <m:mi/>
+                  <m:mo>=</m:mo>
+                  <m:mstyle displaystyle="true">
+                    <m:mfrac>
+                      <m:mi>E</m:mi>
+                      <m:mi>m</m:mi>
+                    </m:mfrac>
+                  </m:mstyle>
+                </m:mrow>
+              </m:math>
+            </Math>
+            <MathBranch>
+              <td align="right">
+                <Math mode="inline" xml:id="S2.E2.m3" tex="\displaystyle=\frac{E}{m}" text="absent = E / m" fragid="S2.E2.m3">
+                  <m:math alttext="\displaystyle=\frac{E}{m}" display="inline">
+                    <m:mrow>
+                      <m:mi/>
+                      <m:mo>=</m:mo>
+                      <m:mstyle displaystyle="true">
+                        <m:mfrac>
+                          <m:mi>E</m:mi>
+                          <m:mi>m</m:mi>
+                        </m:mfrac>
+                      </m:mstyle>
+                    </m:mrow>
+                  </m:math>
+                </Math>
+              </td>
+            </MathBranch>
+          </MathFork>
+        </equation>
+        <equation frefnum="(3)" refnum="3" xml:id="S2.E3" fragid="S2.E3">
+          <MathFork>
+            <Math xml:id="S2.E3.m4" tex="\displaystyle=26" text="absent = 26" fragid="S2.E3.m4">
+              <m:math alttext="\displaystyle=26" display="inline">
+                <m:mrow>
+                  <m:mi/>
+                  <m:mo>=</m:mo>
+                  <m:mn>26</m:mn>
+                </m:mrow>
+              </m:math>
+            </Math>
+            <MathBranch>
+              <td align="right"/>
+              <td align="left">
+                <Math mode="inline" xml:id="S2.E3.m2" tex="\displaystyle=26" text="absent = 26" fragid="S2.E3.m2">
+                  <m:math alttext="\displaystyle=26" display="inline">
+                    <m:mrow>
+                      <m:mi/>
+                      <m:mo>=</m:mo>
+                      <m:mn>26</m:mn>
+                    </m:mrow>
+                  </m:math>
+                </Math>
+              </td>
+            </MathBranch>
+          </MathFork>
+          <MathFork>
+            <Math xml:id="S2.E3.m5" tex="\displaystyle=123" text="absent = 123" fragid="S2.E3.m5">
+              <m:math alttext="\displaystyle=123" display="inline">
+                <m:mrow>
+                  <m:mi/>
+                  <m:mo>=</m:mo>
+                  <m:mn>123</m:mn>
+                </m:mrow>
+              </m:math>
+            </Math>
+            <MathBranch>
+              <td align="right">
+                <Math mode="inline" xml:id="S2.E3.m3" tex="\displaystyle=123" text="absent = 123" fragid="S2.E3.m3">
+                  <m:math alttext="\displaystyle=123" display="inline">
+                    <m:mrow>
+                      <m:mi/>
+                      <m:mo>=</m:mo>
+                      <m:mn>123</m:mn>
+                    </m:mrow>
+                  </m:math>
+                </Math>
+              </td>
+            </MathBranch>
+          </MathFork>
+        </equation>
+      </equationgroup>
+      <p>Evidently this does not work well.</p>
+    </para>
+  </section>
+  <section refnum="3" xml:id="S3" fragid="S3">
+    <title><tag close=" ">3</tag>pictures</title>
+  </section>
+  <section refnum="4" xml:id="S4" fragid="S4">
+    <title><tag close=" ">4</tag>references</title>
+  </section>
+</document>

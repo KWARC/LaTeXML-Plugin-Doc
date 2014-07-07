@@ -97,7 +97,20 @@
     </w:document>
   </xsl:template> 
 
-  <xsl:template match="ltx:bibliography"/>
+  <xsl:template match="ltx:bibliography">
+  <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style35"/>
+      </w:pPr>
+      <w:r> 
+        <w:rPr>
+        <w:color w:val="FF0000"/>
+        </w:rPr>
+        <w:t> To insert a Bibligraphy, press References on the upper bar and click on insert Bibliopgraphy and then Works Cited. To change citation styles, do the same, just change the citation style on the selection above the insert Bibliograpy button. 
+        </w:t>
+        </w:r>
+    </w:p>
+  </xsl:template>
   <xsl:template match="ltx:text[@class='ltx_bib_crossref']">
     <xsl:apply-templates/>
   </xsl:template> 
