@@ -24,6 +24,9 @@ use LaTeXML::Post::XSLT;
 use LaTeXML::Post::Writer;
 use File::Find;
 use Cwd; 
+use XML::LibXSLT;
+
+
 
 sub new {
   my ($class, %options) = @_;
@@ -31,8 +34,9 @@ sub new {
   return $self; }
 
 sub initialize {
-  my ($self, $doc) = @_; 
-  #I am assuming that tex2word was applied to *.tex already
+  my ($self, $xml) = @_; 
+  my $transform_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'tex2word.xsl', noresources=>1);
+  my $doc = $transform_stylesheet->process($xml); #Apply tex2word.xsl to the processed document.
   my $directory = $$self{siteDirectory};
   # Copy static files from ODT-Skeleton
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
@@ -87,12 +91,23 @@ pathname_copy($File::Find::name,catfile($directory,'word','media',$relative_file
 return;
 },cwd());
   # TODO Try to make this work using pathname_findall 
-  my $bib='test.bib'; 
+  my $bibnode = $xml->findnode('//ltx:bibliography');
+  my $bibs=$bibnode->getAttribute('files');
+  my $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
   my $bib_pathname= catfile(catdir($directory,'customXML'),'item1.xml');
-  print "$bib_pathname \n";
-  my $cmd= "latexmlc $bib --destination=$bib_pathname"; 
-  print "$cmd \n";
-  system($cmd); 
+  my $cmd= "latexmlc $bib --destination=$bib_pathname";
+  system($cmd);
+  $xml->{destination}=catfile($directory,'paper.ltxml');
+  $writer->process($xml,$xml->getDocumentElement);
+  my $xslt = XML::LibXSLT->new();
+  my $source = XML::LibXML->load_xml(location =>$bib_pathname);
+  my $stylesheetus=catfile(catdir($skeleton_directory,'..','XSLT'),'docx-bibliographies.xsl'); 
+  my $style_doc = XML::LibXML->load_xml(location=>$stylesheetus);
+  my $stylesheet = $xslt->parse_stylesheet($style_doc); 
+  my $results = $stylesheet->transform($source);
+  $stylesheet->output_file($results,$bib_pathname);
+
+  
   return; }
 
 sub process {
