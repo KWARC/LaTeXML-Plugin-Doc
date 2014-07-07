@@ -922,7 +922,11 @@
   <xsl:template match="ltx:note"/>
   <xsl:template match="ltx:date"/>
   <xsl:template match="ltx:title/ltx:tag">
-    <xsl:apply-templates/>
+  <w:r>
+  <w:t xml:space="preserve">
+  <xsl:value-of select="concat(./text(),' ')"/>
+  </w:t>
+  </w:r>
   </xsl:template> 
 
   <xsl:template match="ltx:table">
