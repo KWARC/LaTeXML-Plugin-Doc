@@ -506,7 +506,7 @@
   <w:rPr>
         <w:color w:val="FF0000"/>
         </w:rPr>
- <w:t>  <xsl:value-of select="local-name()"/> was not transformed </w:t>
+ <w:t> Error! Stylesheet does not recognize element: <xsl:value-of select="local-name()"/> </w:t>
 </w:r>
 </xsl:if>
 <xsl:if test="not(ancestor::ltx:p)">
@@ -515,7 +515,7 @@
   <w:rPr>
         <w:color w:val="FF0000"/>
         </w:rPr>
- <w:t> Error: <xsl:value-of select="local-name()"/> </w:t>
+ <w:t> Error! Stylesheet does not recognize element: <xsl:value-of select="local-name()"/> </w:t>
 </w:r>
 </w:p>
 </xsl:if>
@@ -1014,9 +1014,7 @@
   <xsl:template match="ltx:date"/>
   <xsl:template match="ltx:title/ltx:tag">
   <w:r>
-  <w:t xml:space="preserve">
-  <xsl:value-of select="concat(./text(),' ')"/>
-  </w:t>
+  <w:t xml:space="preserve"><xsl:value-of select="concat(./text(),' ')"/></w:t>
   </w:r>
   </xsl:template> 
 
