@@ -98,18 +98,74 @@
   </xsl:template> 
 
   <xsl:template match="ltx:bibliography">
-  <w:p>
-      <w:pPr>
-        <w:pStyle w:val="style35"/>
-      </w:pPr>
-      <w:r> 
+<w:sdt>
+      <w:sdtPr>
+        <w:id w:val="-102652684"/>
+        <w:docPartObj>
+          <w:docPartGallery w:val="Bibliographies"/>
+          <w:docPartUnique/>
+        </w:docPartObj>
+      </w:sdtPr>
+      <w:sdtEndPr>
         <w:rPr>
-        <w:color w:val="FF0000"/>
+          <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsiaTheme="minorEastAsia" w:hAnsiTheme="minorHAnsi" w:cstheme="minorBidi"/>
+          <w:bCs/>
+          <w:sz w:val="22"/>
+          <w:szCs w:val="22"/>
+          <w:lang w:eastAsia="en-US"/>
         </w:rPr>
-        <w:t> To insert a Bibligraphy, press References on the upper bar and click on insert Bibliopgraphy and then Works Cited. To change citation styles, do the same, just change the citation style on the selection above the insert Bibliograpy button. 
-        </w:t>
-        </w:r>
-    </w:p>
+      </w:sdtEndPr>
+      <w:sdtContent>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:pPr>
+            <w:pStyle w:val="Heading1"/>
+          </w:pPr>
+          <w:r>
+            <w:t>Works Cit</w:t>
+          </w:r>
+          <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+          <w:bookmarkEnd w:id="0"/>
+          <w:r>
+            <w:t>ed</w:t>
+          </w:r>
+        </w:p>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:pPr>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> BIBLIOGRAPHY </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+        </w:p>
+        <xsl:apply-templates/>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:pPr>
+            <w:divId w:val="1325429968"/>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Times New Roman"/>
+              <w:noProof/>
+            </w:rPr>
+          </w:pPr>
+        </w:p>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:p>
+      </w:sdtContent>
+    </w:sdt>
   </xsl:template>
   <xsl:template match="ltx:text[@class='ltx_bib_crossref']">
     <xsl:apply-templates/>
@@ -1153,4 +1209,134 @@
 </w:p>
 </xsl:if>
 </xsl:template>
+<xsl:template match="ltx:bibblock">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <!-- Child elements of bibblock -->
+  <xsl:template match="ltx:text[@class='ltx_bib_author']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='smallcaps']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_editor']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='typewriter']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+  
+  <xsl:template match="ltx:text[@font='bold italic']">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@font='medium']">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text">
+  	<xsl:apply-templates/>
+  	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+  	<xsl:comment> Text formatting error here </xsl:comment>
+  </xsl:template>
+
+  <xsl:template match="ltx:text[@class='ltx_bib_year']">
+    <xsl:apply-templates select="ltx:bib-date"/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bib-date[@role='publication']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_title']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_title']/ltx:bib-title">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_note']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_journal']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_journal']/ltx:bib-title">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_series']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bib-part[@role='series']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_publisher']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bib-publisher">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_etal']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_links']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='isbn ltx_bib_external']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+<xsl:template match="ltx:bibliography/ltx:title">
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style1"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
+
+  <xsl:template match="ltx:biblist">
+    <xsl:apply-templates/>
+  </xsl:template> 
+  
+  <xsl:template match="ltx:bibtag"/>
+
+  <xsl:template match="ltx:text[@class='ltx_bib_crossref']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+   <xsl:template match="ltx:bibitem">
+      <w:p>
+      <w:pPr>
+      	<w:pStyle w:val="empty"/>
+      </w:pPr>
+     <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@xml:id}"/>
+    <w:bookmarkEnd w:id="{./@xml:id}"/>
+</w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Bibliographyitem"/>
+      </w:pPr>
+      <w:r>
+      	<w:rPr>
+      		<w:b/>
+      	</w:rPr>
+      	<w:t>[<xsl:value-of select="./ltx:bibtag[@role='refnum']"/>]</w:t>
+      	</w:r>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
 </xsl:stylesheet>

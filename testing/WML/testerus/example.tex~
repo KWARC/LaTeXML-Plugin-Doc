@@ -21,6 +21,8 @@ New paragraphs are back to the default. Since every kind of text formatting has 
 \item item 3 \ldots 
 \end{enumerate}
 Note that I haven't been able to make itemize lists work with showing dots instead of numbers. At the moment all lists are enumerated.
+\subsection{Errors}
+\nonsensicaltag 
 \subsection {Tables}
 \begin{tabular}{ c c c }
   1 & 2 & 3 \\
@@ -55,5 +57,7 @@ Including graphics works as well. Note that the only supported formats at the mo
 Figures etc. Work, however captions are not supported at the moment. 
 \section{references}
 \cite{book1} \cite{book2} \cite{booklet1,incollection1}
+Note that when first opening these references and using --profile=word, they are not formatted yet and only appear as numbers. To change the citation style, go to the references tab and then change the style in the style selector. Standard LaTeX References have the style IEEE 2006.  \\ 
+Note that the bibliography is not added by default if you used --profile=word . In this case you again go to the references tab, click on Bibliography and then on Works cited to insert it yourself. 
 \bibliography{test}
 \end{document}
