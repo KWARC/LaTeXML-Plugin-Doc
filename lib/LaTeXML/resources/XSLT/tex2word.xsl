@@ -445,6 +445,24 @@
   <xsl:template match="*">
     <xsl:message>cannot deal with element <xsl:value-of select="local-name()"/> yet!</xsl:message>
     <xsl:comment>elided element <xsl:value-of select="local-name()"/></xsl:comment>
+     <xsl:if test="ancestor::ltx:p">
+ <w:r>
+  <w:rPr>
+        <w:color w:val="FF0000"/>
+        </w:rPr>
+ <w:t>  <xsl:value-of select="local-name()"/> was not transformed </w:t>
+</w:r>
+</xsl:if>
+<xsl:if test="not(ancestor::ltx:p)">
+<w:p>
+ <w:r>
+  <w:rPr>
+        <w:color w:val="FF0000"/>
+        </w:rPr>
+ <w:t> Error: <xsl:value-of select="local-name()"/> </w:t>
+</w:r>
+</w:p>
+</xsl:if>
   </xsl:template> 
 
   <xsl:template match="ltx:ref[@labelref]">
@@ -1114,4 +1132,25 @@
   </xsl:template> 
 
   <xsl:template match="ltx:XMHint"/>
+   <xsl:template match="ltx:ERROR">
+ <xsl:message> An Error occurred here </xsl:message>
+ <xsl:if test="ancestor::ltx:p">
+ <w:r>
+  <w:rPr>
+        <w:color w:val="FF0000"/>
+        </w:rPr>
+ <w:t> Error: <xsl:value-of select="./text()"/> </w:t>
+</w:r>
+</xsl:if>
+<xsl:if test="not(ancestor::ltx:p)">
+<w:p>
+ <w:r>
+  <w:rPr>
+        <w:color w:val="FF0000"/>
+        </w:rPr>
+ <w:t> Error: <xsl:value-of select="./text()"/> </w:t>
+</w:r>
+</w:p>
+</xsl:if>
+</xsl:template>
 </xsl:stylesheet>
