@@ -118,6 +118,19 @@
       <w:sdtContent>
         <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
           <w:pPr>
+            <w:pStyle w:val="Heading1"/>
+          </w:pPr>
+          <w:r>
+            <w:t>Works Cit</w:t>
+          </w:r>
+          <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+          <w:bookmarkEnd w:id="0"/>
+          <w:r>
+            <w:t>ed</w:t>
+          </w:r>
+        </w:p>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:pPr>
             <w:rPr>
               <w:noProof/>
             </w:rPr>
