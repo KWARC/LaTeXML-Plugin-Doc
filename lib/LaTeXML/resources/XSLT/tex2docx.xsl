@@ -965,6 +965,9 @@
         </xsl:choose>
       </w:tcPr>
       <w:p>
+       <w:pPr>
+          <w:ind w:firstLine="0"/>
+        </w:pPr>
         <xsl:apply-templates/>
       </w:p>
     </w:tc>

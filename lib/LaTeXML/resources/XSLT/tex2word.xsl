@@ -418,6 +418,7 @@
       <w:p>
       <w:pPr>
         <w:pStyle w:val="style46"/>
+        
       </w:pPr> 
       <xsl:apply-templates select="/ltx:tabular/preceding-sibling::*"/>
     </w:p>
@@ -778,7 +779,7 @@
   <xsl:template name="ntimes">
     <xsl:param name="i"/>
     <xsl:if test="$i&gt;0">
-      <w:gridCol/>
+      <w:gridCol />
       <xsl:call-template name="ntimes">
         <xsl:with-param name="i" select="$i - 1"/>
       </xsl:call-template>
@@ -893,6 +894,9 @@
         </xsl:choose>
       </w:tcPr>
       <w:p>
+        <w:pPr>
+          <w:ind w:firstLine="0"/>
+        </w:pPr>
         <xsl:apply-templates/>
       </w:p>
     </w:tc>

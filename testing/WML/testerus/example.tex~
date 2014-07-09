@@ -10,6 +10,25 @@
 Normally formatted text looks like this. \footnote{Footnotes are also possible. \textbf{Markup in footnotes works as well}} \textbf{Common text formatting is supported, just as you would expect. \textit {Nested bold and italic works as well}}. Note that the width of a line is larger in Word than in the default LaTeX uses.  \\ 
 \subsection{A normal paragraph again}
 New paragraphs are back to the default. Since every kind of text formatting has to be manually added to the xslt files, just contact me (l.kohlhase@jacobs-university.de) if your text formatting doesn't work. 
+\subsection{Lists}
+\begin{enumerate}
+\item item1
+\begin{enumerate}
+\item nested item 1
+\item nested item 2
+\end{enumerate}
+\item item 2 
+\item item 3 \ldots 
+\end{enumerate}
+Note that I haven't been able to make itemize lists work with showing dots instead of numbers. At the moment all lists are enumerated.
+\subsection {Tables}
+\begin{tabular}{ c c c }
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9 \\
+\end{tabular}
+Everything should work here, but sometimes there is trouble with nested tables. 
+
 \section{mathematics}
 All kinds of mathematics is able to be displayed. \\ 
 Inline math works, $a^2+b^2=c^2$, but as in TeX be careful with the bigger ones, they might look weird $\sum\limits_{k=0}^{\infty} \frac{x^k}{k!} =e$ \\
