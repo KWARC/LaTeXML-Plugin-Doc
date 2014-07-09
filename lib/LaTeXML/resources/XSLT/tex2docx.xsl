@@ -1202,4 +1202,67 @@
 </w:p>
 </xsl:if>
 </xsl:template>
+  <xsl:template match="ltx:TOC">
+      <w:sdt>
+      <w:sdtPr>
+        <w:id w:val="1841044555"/>
+        <w:docPartObj>
+          <w:docPartGallery w:val="Table of Contents"/>
+          <w:docPartUnique/>
+        </w:docPartObj>
+      </w:sdtPr>
+      <w:sdtEndPr>
+        <w:rPr>
+          <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsiaTheme="minorEastAsia" w:hAnsiTheme="minorHAnsi" w:cstheme="minorBidi"/>
+          <w:noProof/>
+          <w:color w:val="auto"/>
+          <w:sz w:val="22"/>
+          <w:szCs w:val="22"/>
+          <w:lang w:eastAsia="en-US"/>
+        </w:rPr>
+      </w:sdtEndPr>
+      <w:sdtContent>
+        <w:p w:rsidR="00E4086D" w:rsidRDefault="00E4086D">
+          <w:pPr>
+            <w:pStyle w:val="TOCHeading"/>
+          </w:pPr>
+          <w:r>
+            <w:t>Contents</w:t>
+          </w:r>
+          <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+          <w:bookmarkEnd w:id="0"/>
+        </w:p>
+        <w:p w:rsidR="00E4086D" w:rsidRDefault="00E4086D">
+          <w:pPr>
+            <w:pStyle w:val="TOC1"/>
+            <w:tabs>
+              <w:tab w:val="right" w:leader="dot" w:pos="9350"/>
+            </w:tabs>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> TOC \o "1-3" \h \z \u </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+        </w:p>
+        <w:p w:rsidR="00E4086D" w:rsidRDefault="00E4086D">
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+              <w:noProof/>
+            </w:rPr>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:p>
+      </w:sdtContent>
+    </w:sdt>
+    </xsl:template>
 </xsl:stylesheet>
