@@ -107,7 +107,7 @@ return;
   my $temp=catfile($directory,'paper.ltxml');
   my $results = $stylesheet->transform($source, test =>"'$temp'");
   $stylesheet->output_file($results,$bib_pathname);
-  system("rm $temp");
+  unlink $temp;
   return; }
 
 sub process {
