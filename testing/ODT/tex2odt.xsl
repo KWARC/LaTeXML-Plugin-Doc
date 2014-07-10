@@ -78,7 +78,16 @@
   		<text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="3"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/>
   	</text:p>
   </xsl:template>
+  <xsl:template match="ltx:TOC">
+  <text:table-of-content>
+  <text:table-of-content-source text:use-index-marks="true"/>
+  <text:index-body><text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head"><text:p text:style-name="Contents_20_Heading">Please update this Table</text:p></text:index-title></text:index-body> <!-- This message will disappear when the user updates the table. Till then, they are asked to update the table of contents -->
+  </text:table-of-content>
+  </xsl:template>
   <xsl:template match="ltx:break">
   <text:line-break/>
+  </xsl:template>
+  <xsl:template match="ltx:document/ltx:title">
+  <text:p text:style-name="title"><xsl:apply-templates/></text:p>
   </xsl:template>
 </xsl:stylesheet>
