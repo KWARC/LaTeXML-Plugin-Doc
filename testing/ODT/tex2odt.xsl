@@ -33,6 +33,9 @@
         <style:font-face style:name="AR PL UMing HK" svg:font-family="'AR PL UMing HK'" style:font-family-generic="system" style:font-pitch="variable"/>
         <style:font-face style:name="Lohit Devanagari" svg:font-family="'Lohit Devanagari'" style:font-family-generic="system" style:font-pitch="variable"/>
       </office:font-face-decls>
+      <office:automatic-styles>
+      <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties officeooo:paragraph-rsid="001edd4d"/></style:style>
+      </office:automatic-styles>
       <office:body>
         <office:text>
           <xsl:apply-templates/>
@@ -49,4 +52,33 @@
     </text:p>
   </xsl:template>
   <xsl:template match="ltx:resource"/>
+  <xsl:template match="ltx:section">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:section/ltx:title">
+  <text:p text:style-name="heading1"><text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="1"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/></text:p>
+  </xsl:template>
+  <xsl:template match="ltx:tag">
+  	<xsl:apply-templates/>
+  	<text:s/>
+  </xsl:template>
+  <xsl:template match="ltx:subsection">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:subsection/ltx:title">
+  	<text:p text:style-name="heading2">
+  		<text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="2"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/>
+  	</text:p>
+  </xsl:template>
+    <xsl:template match="ltx:subsubsection">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:subsubsection/ltx:title">
+  	<text:p text:style-name="heading2">
+  		<text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="3"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/>
+  	</text:p>
+  </xsl:template>
+  <xsl:template match="ltx:break">
+  <text:line-break/>
+  </xsl:template>
 </xsl:stylesheet>
