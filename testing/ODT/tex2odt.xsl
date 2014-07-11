@@ -194,4 +194,14 @@
   <xsl:apply-templates/>
   </text:list-item>
   </xsl:template>
+  
+  <xsl:template match="ltx:graphics[ancestor::ltx:p]">
+  <draw:frame text:anchor-type="as-char" svg:y="-0.1366in" draw:z-index="0"><draw:image xlink:href="Pictures/10000201000001AB0000004C7C3B6A12.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§$a^2+b^2=c^2$§png§600§TRUE</svg:desc></draw:frame>
+  </xsl:template>
+  <xsl:template match="bookmark">
+  <text:bookmark text:name="@name"/>
+  </xsl:template>
+  <xsl:template match="ltx:ref[@idref]">
+  <text:a xlink:type="simple" xlink:href="{concat('#',@idref)}"><xsl:apply-templates/></text:a>
+  </xsl:template>
 </xsl:stylesheet>

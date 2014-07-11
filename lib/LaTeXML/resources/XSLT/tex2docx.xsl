@@ -706,7 +706,12 @@
                     <xsl:variable name="foo" select="generate-id(.)"/>
                     <a:blip r:embed="{$foo}"/>
                     <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
+                    <xsl:if test="@candidates">
                     <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
+                    </xsl:if>
+                    <xsl:if test="not(@candidates) and @graphic">
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic}"/>
+                    </xsl:if>
                     <a:stretch>
                       <a:fillRect/>
                       <!-- This stuff tells Word to stretch the image to the frame size -->
@@ -750,7 +755,12 @@
                   <xsl:variable name="foo" select="generate-id(.)"/>
                   <a:blip r:embed="{$foo}"/>
                   <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
-                  <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
+                    <xsl:if test="@candidates">
+                    <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
+                    </xsl:if>
+                    <xsl:if test="not(@candidates) and @graphic">
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic}"/>
+                    </xsl:if>
                   <a:stretch>
                     <a:fillRect/>
                     <!-- This stuff tells Word to stretch the image to the frame size -->
@@ -797,7 +807,12 @@
                     <xsl:variable name="foo" select="generate-id(.)"/>
                     <a:blip r:embed="{$foo}"/>
                     <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
+                      <xsl:if test="@candidates">
                     <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
+                    </xsl:if>
+                    <xsl:if test="not(@candidates) and @graphic">
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic}"/>
+                    </xsl:if>
                     <a:stretch>
                       <a:fillRect/>
                       <!-- This stuff tells Word to stretch the image to the frame size -->
