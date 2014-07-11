@@ -35,6 +35,9 @@
       </office:font-face-decls>
       <office:automatic-styles>
       <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties officeooo:paragraph-rsid="001edd4d"/></style:style>
+      <style:style style:name="bold" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-weight="bold"/></style:style>
+      <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-style="italic"/></style:style>
+      <!-- most text processing is done here --> 
       </office:automatic-styles>
       <office:body>
         <office:text>
@@ -154,4 +157,18 @@
   	</text:note-body>
   </text:note>
   </xsl:template>
+  <!-- Text processing templates begin here -->
+  <xsl:template match="ltx:text[@font='bold']">
+  <text:span text:style-name="bold">
+  	<xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
+  
+    <xsl:template match="ltx:text[@font='italic']">
+  <text:span text:style-name="italic">
+  	<xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
+  
+  <!-- Text procesing templates end here --> 
 </xsl:stylesheet>
