@@ -847,23 +847,32 @@
     </xsl:variable>
     <xsl:variable name="foo">
       <!-- <xsl:for-each select="$numtcs/number"> -->
-      <xsl:for-each select="./ltx:tr">
+      <xsl:for-each select="./ltx:tbody/ltx:tr">
         <xsl:sort select="count(./ltx:td) "/>
         <xsl:if test="position()=last()">
-          <xsl:value-of select="."/>
+          <xsl:value-of select="count(./ltx:td)"/>
         </xsl:if>
       </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="bar">
+    <xsl:if test="not(./ltx:tr)">0</xsl:if>
+    <xsl:for-each select="./ltx:tr">
+    <xsl:sort select="counter(./ltx:td)"/>
+    <xsl:if test="position()=last()">
+      <xsl:value-of select="count(./ltx:td)"/>
+    </xsl:if>
+    </xsl:for-each>
     </xsl:variable>
     <w:tbl>
       <w:tblGrid>
         <xsl:call-template name="ntimes">
-          <xsl:with-param name="i" select="number($foo)"/>
+          <xsl:with-param name="i" select="number($foo)+number($bar)"/>
         </xsl:call-template>
       </w:tblGrid>
       <xsl:apply-templates/>
     </w:tbl>
   </xsl:template> 
-
+  
   <xsl:template name="ntimes">
     <xsl:param name="i"/>
     <xsl:if test="$i&gt;0">

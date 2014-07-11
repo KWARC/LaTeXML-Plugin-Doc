@@ -90,4 +90,58 @@
   <xsl:template match="ltx:document/ltx:title">
   <text:p text:style-name="title"><xsl:apply-templates/></text:p>
   </xsl:template>
+  
+   <xsl:template match="ltx:tabular">
+    <xsl:variable name="foo">
+    <xsl:if test="not(./ltx:tbody/ltx:tr)">0</xsl:if>
+      <xsl:for-each select="./ltx:tbody/ltx:tr">
+        <xsl:sort select="count(./ltx:td) "/>
+        <xsl:if test="position()=last()">
+          <xsl:value-of select="count(./ltx:td)"/>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="bar">
+    <xsl:if test="not(./ltx:tr)">0</xsl:if>
+    <xsl:for-each select="./ltx:tr">
+    <xsl:sort select="count(./ltx:td)"/>
+    <xsl:if test="position()=last()">
+      <xsl:value-of select="count(./ltx:td)"/>
+    </xsl:if>
+    </xsl:for-each>
+    </xsl:variable>
+    <table:table>
+        <xsl:call-template name="ntimes">
+          <xsl:with-param name="i" select="number($foo)+number($bar)"/>
+        </xsl:call-template>
+      <xsl:apply-templates/>
+     </table:table>
+  </xsl:template> 
+  
+  <xsl:template name="ntimes">
+    <xsl:param name="i"/>
+    <xsl:if test="$i&gt;0">
+      <table:table-column/>
+      <xsl:call-template name="ntimes">
+        <xsl:with-param name="i" select="$i - 1"/>
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:if test="$i = 0">
+   </xsl:if>
+  </xsl:template> 
+  <xsl:template match="ltx:tbody">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:tr">
+  <table:table-row>
+  	<xsl:apply-templates/>
+  </table:table-row>
+  </xsl:template>
+  <xsl:template match="ltx:td">
+  <table:table-cell>
+  	<text:p>
+  		<xsl:apply-templates/>
+  	</text:p>
+  </table:table-cell>
+  </xsl:template> <!-- TODO Add support for table-styles. --> 
 </xsl:stylesheet>
