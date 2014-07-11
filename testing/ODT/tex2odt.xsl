@@ -144,4 +144,14 @@
   	</text:p>
   </table:table-cell>
   </xsl:template> <!-- TODO Add support for table-styles. --> 
+  <xsl:template match="ltx:note[@role='footnote']">
+  <text:note text:note-class="footnote">
+  	<text:note-citation><xsl:value-of select="@mark"/></text:note-citation>
+  	<text:note-body>
+  		<text:p> 
+  			<xsl:apply-templates/>
+  		</text:p>
+  	</text:note-body>
+  </text:note>
+  </xsl:template>
 </xsl:stylesheet>
