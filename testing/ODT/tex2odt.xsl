@@ -61,10 +61,17 @@
   <xsl:template match="ltx:section/ltx:title">
   <text:p text:style-name="heading1"><text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="1"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/></text:p>
   </xsl:template>
-  <xsl:template match="ltx:tag">
+  <xsl:template match="ltx:creator">
+  <text:p text:style-name="author"><xsl:apply-templates/></text:p>
+  </xsl:template>
+  <xsl:template match="ltx:personname">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:title/ltx:tag">
   	<xsl:apply-templates/>
   	<text:s/>
   </xsl:template>
+  <xsl:template match="ltx:item/ltx:tag"/>
   <xsl:template match="ltx:subsection">
   	<xsl:apply-templates/>
   </xsl:template>
@@ -171,4 +178,20 @@
   </xsl:template>
   
   <!-- Text procesing templates end here --> 
+  
+  <xsl:template match="ltx:enumerate">
+  <text:list text:style-name="WW8StyleNum2">
+  <xsl:apply-templates/>
+  </text:list>
+  </xsl:template>
+   <xsl:template match="ltx:itemize">
+  <text:list text:style-name="WW8StyleNum1">
+  <xsl:apply-templates/>
+  </text:list>
+  </xsl:template>
+  <xsl:template match="ltx:item">
+  <text:list-item >
+  <xsl:apply-templates/>
+  </text:list-item>
+  </xsl:template>
 </xsl:stylesheet>
