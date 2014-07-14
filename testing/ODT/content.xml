@@ -27,16 +27,25 @@
     <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text">
       <style:text-properties fo:font-style="italic"/>
     </style:style>
+    <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard">
+      <style:paragraph-properties style:vertical-align="middle"/>
+    </style:style>
+    <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard">
+      <style:paragraph-properties style:vertical-align="left"/>
+    </style:style>
+    <style:style style:name="right" style:family="paragraph" style:parent-style-name="Standard">
+      <style:paragraph-properties style:vertical-align="right"/>
+    </style:style>
   </office:automatic-styles>
   <office:body>
     <office:text>
       <text:p>sadfsadasdsaasfsafsadfasfd
-<draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".44in" svg:height=".16in"><draw:image xlink:href="Pictures/mi/mi2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§a=b§png§600§FALSE</svg:desc></draw:frame> sdfsadfasdfsadfasdfs dasdf
+<draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".44in" svg:height=".16in"><draw:image xlink:href="mi/mi2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§a=b§png§600§FALSE</svg:desc></draw:frame> sdfsadfasdfsadfasdfs dasdf
 fsadfsadfas dfasdf asf<text:line-break/>sdfasfasdfsdafasdfasf
 asdfasfasfs fasdfas</text:p>
       <text:p>
         <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width=".44in" svg:height=".16in">
-          <draw:image xlink:href="Pictures/mi/mi1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+          <draw:image xlink:href="mi/mi1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
             <text:p/>
           </draw:image>
           <svg:title>TexMaths</svg:title>

@@ -41,6 +41,9 @@
       <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties officeooo:paragraph-rsid="001edd4d"/></style:style>
       <style:style style:name="bold" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-weight="bold"/></style:style>
       <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-style="italic"/></style:style>
+      <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
+      <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
+      <style:style style:name="right" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="right"/></style:style>	
       <!-- most text processing is done here --> 
       </office:automatic-styles>
       <office:body>
@@ -154,6 +157,15 @@
   <xsl:template match="ltx:td">
   <table:table-cell>
   	<text:p>
+  	<xsl:if test="@align='left'">
+  	<xsl:attribute name="text:style-name">left</xsl:attribute>
+  	</xsl:if>
+  	<xsl:if test="@align='right'">
+  	<xsl:attribute name="text:style-name">right</xsl:attribute>
+  	</xsl:if>
+  	<xsl:if test="@align='center'">
+  	<xsl:attribute name="text:style-name">center</xsl:attribute>
+  	</xsl:if>
   		<xsl:apply-templates/>
   	</text:p>
   </table:table-cell>
@@ -213,7 +225,7 @@
   <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
   <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
   <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"> <!-- I assume a dpi of 100 -->
-  <draw:image xlink:href="{concat('Pictures/',@imagesrc)}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+  <draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
   <text:p/>
   </draw:image>
   <svg:title>TexMaths</svg:title>
@@ -223,7 +235,7 @@
   <xsl:template match="ltx:Math[@mode='display']">
   <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
   <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
-  <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{concat('Pictures/',@imagesrc)}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§display§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc></draw:frame>
+  <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§display§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc></draw:frame>
   </xsl:template>
   <xsl:template match="ltx:equation">
   <text:p>
