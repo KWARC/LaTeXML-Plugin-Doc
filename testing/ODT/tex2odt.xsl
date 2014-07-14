@@ -37,6 +37,7 @@
           <style:style style:name="gr1" style:family="graphic"> <!-- necessary to have mathimages actually display the math -->
       <style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
     </style:style>
+    <style:style style:name="gr2" style:family="graphic" style:list-style-name="L1"><style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/></style:style> <!-- Same reason as before -->
       <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties officeooo:paragraph-rsid="001edd4d"/></style:style>
       <style:style style:name="bold" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-weight="bold"/></style:style>
       <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-style="italic"/></style:style>
@@ -209,15 +210,25 @@
   </xsl:template>
   <!-- ============================================================== Math starts here ==================================================================================== -->
   <xsl:template match="ltx:Math[@mode='inline']">
-  <xsl:variable name="height" select="format-number(@imageheight div 90,'#.00')"/>
-  <xsl:variable name="width" select="format-number(@imagewidth div 90,'#.00')"/>
-  <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"> <!-- I assume a dpi of 90 -->
+  <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+  <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"> <!-- I assume a dpi of 100 -->
   <draw:image xlink:href="{concat('Pictures/',@imagesrc)}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
   <text:p/>
   </draw:image>
   <svg:title>TexMaths</svg:title>
   <svg:desc>12§inline§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc>
   </draw:frame>
+  </xsl:template>
+  <xsl:template match="ltx:Math[@mode='display']">
+  <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+  <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{concat('Pictures/',@imagesrc)}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§display§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc></draw:frame>
+  </xsl:template>
+  <xsl:template match="ltx:equation">
+  <text:p>
+  	<xsl:apply-templates/>
+  </text:p>
   </xsl:template>
   <!-- ============================================================== Math ends here ====================================================================================== -->
 </xsl:stylesheet>

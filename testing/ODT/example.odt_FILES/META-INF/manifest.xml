@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest:manifest xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" manifest:version="1.2">
  <manifest:file-entry manifest:full-path="/" manifest:version="1.2" manifest:media-type="application/vnd.oasis.opendocument.text"/>
- <manifest:file-entry manifest:full-path="Pictures/mi/mi.png" manifest:media-type=""/>
+ <manifest:file-entry manifest:full-path="Pictures/10000000000000BB0000003BD2C7761A.png" manifest:media-type=""/>
+ <manifest:file-entry manifest:full-path="Pictures/10000000000000940000003B6F0EF698.png" manifest:media-type=""/>
  <manifest:file-entry manifest:full-path="meta.xml" manifest:media-type="text/xml"/>
  <manifest:file-entry manifest:full-path="settings.xml" manifest:media-type="text/xml"/>
  <manifest:file-entry manifest:full-path="content.xml" manifest:media-type="text/xml"/>

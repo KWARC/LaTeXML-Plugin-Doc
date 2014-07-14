@@ -15,6 +15,9 @@
     <style:style style:name="gr1" style:family="graphic">
       <style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
     </style:style>
+    <style:style style:name="gr2" style:family="graphic" style:list-style-name="L1">
+      <style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
+    </style:style>
     <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
       <style:text-properties officeooo:paragraph-rsid="001edd4d"/>
     </style:style>
@@ -27,7 +30,20 @@
   </office:automatic-styles>
   <office:body>
     <office:text>
-      <text:p><draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".49in" svg:height=".18in"><draw:image xlink:href="Pictures/mi/mi1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§a=b§png§600§FALSE</svg:desc></draw:frame></text:p>
+      <text:p>sadfsadasdsaasfsafsadfasfd
+<draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".44in" svg:height=".16in"><draw:image xlink:href="Pictures/mi/mi2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§a=b§png§600§FALSE</svg:desc></draw:frame> sdfsadfasdfsadfasdfs dasdf
+fsadfsadfas dfasdf asf<text:line-break/>sdfasfasdfsdafasdfasf
+asdfasfasfs fasdfas</text:p>
+      <text:p>
+        <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width=".44in" svg:height=".16in">
+          <draw:image xlink:href="Pictures/mi/mi1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+            <text:p/>
+          </draw:image>
+          <svg:title>TexMaths</svg:title>
+          <svg:desc>12§display§a=b§png§600§FALSE</svg:desc>
+        </draw:frame>
+      </text:p>
+      <text:p>asdfsafsafasa asdfasfasdfs asdfasdf sadf asdfasdf</text:p>
     </office:text>
   </office:body>
 </office:document-content>
