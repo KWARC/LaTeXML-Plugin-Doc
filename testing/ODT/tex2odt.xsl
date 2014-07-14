@@ -41,9 +41,11 @@
       <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties officeooo:paragraph-rsid="001edd4d"/></style:style>
       <style:style style:name="bold" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-weight="bold"/></style:style>
       <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-style="italic"/></style:style>
+      <!-- Don't quite work yet 
       <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
       <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
       <style:style style:name="right" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="right"/></style:style>	
+      -->
       <!-- most text processing is done here --> 
       </office:automatic-styles>
       <office:body>
@@ -241,6 +243,34 @@
   <text:p>
   	<xsl:apply-templates/>
   </text:p>
+  </xsl:template>
+  <xsl:template match="ltx:equationgroup">
+    <xsl:variable name="foo">
+      <xsl:for-each select="./ltx:equation">
+        <xsl:sort select="count(.//ltx:td) "/>
+        <xsl:if test="position()=last()">
+          <xsl:value-of select="count(.//ltx:td)"/>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:variable>
+    <table:table>
+        <xsl:call-template name="ntimes">
+          <xsl:with-param name="i" select="number($foo)"/>
+        </xsl:call-template>
+      <xsl:apply-templates/>
+     </table:table>
+  </xsl:template>
+  <xsl:template match="ltx:MathFork">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:MathFork/ltx:Math"/>
+  <xsl:template match="ltx:MathBranch">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:equationgroup/ltx:equation">
+  <table:table-row>
+  <xsl:apply-templates/>
+  </table:table-row>
   </xsl:template>
   <!-- ============================================================== Math ends here ====================================================================================== -->
 </xsl:stylesheet>

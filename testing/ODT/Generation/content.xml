@@ -27,23 +27,196 @@
     <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text">
       <style:text-properties fo:font-style="italic"/>
     </style:style>
+    <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard">
+      <style:paragraph-properties style:vertical-align="middle"/>
+    </style:style>
+    <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard">
+      <style:paragraph-properties style:vertical-align="left"/>
+    </style:style>
+    <style:style style:name="right" style:family="paragraph" style:parent-style-name="Standard">
+      <style:paragraph-properties style:vertical-align="right"/>
+    </style:style>
   </office:automatic-styles>
   <office:body>
     <office:text>
-      <text:p>sadfsadasdsaasfsafsadfasfd
-<draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".44in" svg:height=".16in"><draw:image xlink:href="mi/mi2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§a=b§png§600§FALSE</svg:desc></draw:frame> sdfsadfasdfsadfasdfs dasdf
-fsadfsadfas dfasdf asf<text:line-break/>sdfasfasdfsdafasdfasf
-asdfasfasfs fasdfas</text:p>
+      <text:p text:style-name="title">Demonstration of capabilities of tex2word and tex2docx</text:p>
+      <text:p text:style-name="author">Lukas Kohlhase</text:p>
+      <text:table-of-content>
+        <text:table-of-content-source text:use-index-marks="true"/>
+        <text:index-body>
+          <text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
+            <text:p text:style-name="Contents_20_Heading">Please update this Table</text:p>
+          </text:index-title>
+        </text:index-body>
+      </text:table-of-content>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp3970368" text:outline-level="1"/>1<text:s/>General Text formatting<text:toc-mark-end text:id="idp3970368"/></text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp3631648" text:outline-level="2"/>1.1<text:s/>Playing around with bold and italic<text:toc-mark-end text:id="idp3631648"/></text:p>
+      <text:p>Normally formatted text looks like this. <text:note text:note-class="footnote"><text:note-citation>1</text:note-citation><text:note-body><text:p>Footnotes are also possible. <text:span text:style-name="bold">Markup in footnotes works as well</text:span></text:p></text:note-body></text:note> <text:span text:style-name="bold">Common text formatting is supported, just as you would expect. <text:span text:style-name="italic">Nested bold and italic works as well</text:span></text:span>. Note that the width of a line is larger in Word than in the default LaTeX uses. <text:line-break/></text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp3623840" text:outline-level="2"/>1.2<text:s/>A normal paragraph again<text:toc-mark-end text:id="idp3623840"/></text:p>
+      <text:p>New paragraphs are back to the default. Since every kind of text formatting has to be manually added to the xslt files, just contact me (l.kohlhase@jacobs-university.de) if your text formatting doesn’t work.</text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp4329376" text:outline-level="2"/>1.3<text:s/>Lists<text:toc-mark-end text:id="idp4329376"/></text:p>
+      <text:list text:style-name="WW8StyleNum2">
+        <text:list-item>
+          <text:p>item1</text:p>
+          <text:list text:style-name="WW8StyleNum2">
+            <text:list-item>
+              <text:p>nested item 1</text:p>
+            </text:list-item>
+            <text:list-item>
+              <text:p>nested item 2</text:p>
+            </text:list-item>
+          </text:list>
+        </text:list-item>
+        <text:list-item>
+          <text:p>item 2</text:p>
+        </text:list-item>
+        <text:list-item>
+          <text:p>item 3 …</text:p>
+        </text:list-item>
+      </text:list>
+      <text:p>Note that I haven’t been able to make itemize lists work with showing dots instead of numbers. At the moment all lists are enumerated.
+</text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp4362672" text:outline-level="2"/>1.4<text:s/>Errors<text:toc-mark-end text:id="idp4362672"/></text:p>
+      <text:p>Errors are printed in red. If the output is simply Error: nameoftag , then this probably means that LaTeXML did not recognize your macro. <text:line-break/>If it says the stylesheet did not recognize the element then this is an error in the stylesheet and you should contact me (l.kohlhase@jacobs-university.de) so that I can add the appropriate things to the stylesheets.</text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp4372368" text:outline-level="2"/>1.5<text:s/>Tables<text:toc-mark-end text:id="idp4372368"/></text:p>
+      <table:table>
+        <table:table-column/>
+        <table:table-column/>
+        <table:table-column/>
+        <table:table-row>
+          <table:table-cell>
+            <text:p text:style-name="center">1</text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="center">2</text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="center">3</text:p>
+          </table:table-cell>
+        </table:table-row>
+        <table:table-row>
+          <table:table-cell>
+            <text:p text:style-name="center">4</text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="center">5</text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="center">6</text:p>
+          </table:table-cell>
+        </table:table-row>
+        <table:table-row>
+          <table:table-cell>
+            <text:p text:style-name="center">7</text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="center">8</text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="center">9</text:p>
+          </table:table-cell>
+        </table:table-row>
+      </table:table>
+      <text:p>Everything should work here, but sometimes there is trouble with nested tables.</text:p>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp4406096" text:outline-level="1"/>2<text:s/>mathematics<text:toc-mark-end text:id="idp4406096"/></text:p>
+      <text:p>All kinds of mathematics is able to be displayed. <text:line-break/>Inline math works, <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".97in" svg:height=".20in"><draw:image xlink:href="mi/mi9.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§a^{2}+b^{2}=c^{2}§png§600§FALSE</svg:desc></draw:frame>, but as in TeX be careful with the bigger ones, they might look weird <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".84in" svg:height=".45in"><draw:image xlink:href="mi/mi8.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e§png§600§FALSE</svg:desc></draw:frame> <text:line-break/>Note that the limits of the sum are not at the correct places, even though I used \limits . <text:line-break/>Display math:</text:p>
       <text:p>
-        <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width=".44in" svg:height=".16in">
-          <draw:image xlink:href="mi/mi1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+        <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width=".87in" svg:height=".56in">
+          <draw:image xlink:href="mi/mi5.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
             <text:p/>
           </draw:image>
           <svg:title>TexMaths</svg:title>
-          <svg:desc>12§display§a=b§png§600§FALSE</svg:desc>
+          <svg:desc>12§display§\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e§png§600§FALSE</svg:desc>
         </draw:frame>
       </text:p>
-      <text:p>asdfsafsafasa asdfasfasdfs asdfasdf sadf asdfasdf</text:p>
+      <text:p>And everything looks proper again. However there are still some slight differences that are inherent to the different ways of representing math. <text:line-break/>Equations look like this</text:p>
+      <text:p>
+        <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width=".97in" svg:height=".20in">
+          <draw:image xlink:href="mi/mi6.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+            <text:p/>
+          </draw:image>
+          <svg:title>TexMaths</svg:title>
+          <svg:desc>12§display§a^{2}+b^{2}=c^{2}§png§600§FALSE</svg:desc>
+        </draw:frame>
+      </text:p>
+      <text:p>The align environment looks like this:
+</text:p>
+      <table:table>
+        <table:table-column/>
+        <table:table-column/>
+        <table:table-column/>
+        <table:table-row>
+          <table:table-cell>
+            <text:p text:style-name="right">
+              <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".58in" svg:height=".20in">
+                <draw:image xlink:href="mi/mi7.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+                  <text:p/>
+                </draw:image>
+                <svg:title>TexMaths</svg:title>
+                <svg:desc>12§inline§\displaystyle a^{2}+b^{2}§png§600§FALSE</svg:desc>
+              </draw:frame>
+            </text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="left">
+              <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".38in" svg:height=".19in">
+                <draw:image xlink:href="mi/mi4.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+                  <text:p/>
+                </draw:image>
+                <svg:title>TexMaths</svg:title>
+                <svg:desc>12§inline§\displaystyle=c^{2}§png§600§FALSE</svg:desc>
+              </draw:frame>
+            </text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="right">
+              <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".42in" svg:height=".40in">
+                <draw:image xlink:href="mi/mi3.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+                  <text:p/>
+                </draw:image>
+                <svg:title>TexMaths</svg:title>
+                <svg:desc>12§inline§\displaystyle=\frac{E}{m}§png§600§FALSE</svg:desc>
+              </draw:frame>
+            </text:p>
+          </table:table-cell>
+        </table:table-row>
+        <table:table-row>
+          <table:table-cell>
+            <text:p text:style-name="right"/>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="left">
+              <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".40in" svg:height=".16in">
+                <draw:image xlink:href="mi/mi2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+                  <text:p/>
+                </draw:image>
+                <svg:title>TexMaths</svg:title>
+                <svg:desc>12§inline§\displaystyle=26§png§600§FALSE</svg:desc>
+              </draw:frame>
+            </text:p>
+          </table:table-cell>
+          <table:table-cell>
+            <text:p text:style-name="right">
+              <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width=".49in" svg:height=".16in">
+                <draw:image xlink:href="mi/mi1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+                  <text:p/>
+                </draw:image>
+                <svg:title>TexMaths</svg:title>
+                <svg:desc>12§inline§\displaystyle=123§png§600§FALSE</svg:desc>
+              </draw:frame>
+            </text:p>
+          </table:table-cell>
+        </table:table-row>
+      </table:table>
+      <text:p>Evidently this does not work well. This is an issue with the transformation of MathMl to OMML (word math format) that I am not in a position to fix.</text:p>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp4818848" text:outline-level="1"/>3<text:s/>pictures<text:toc-mark-end text:id="idp4818848"/></text:p>
+      <!--cannot deal with element graphics here yet!-->
+      <text:p>Including graphics works as well. Note that the only supported formats at the moment are jpeg, png and eps. Graphics need to be kept in the same directory as the .tex file or in one of its subdirectories. <text:line-break/></text:p>
+      <text:p>Figures etc. Work, however captions are not supported at the moment.</text:p>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp4838304" text:outline-level="1"/>4<text:s/>references<text:toc-mark-end text:id="idp4838304"/></text:p>
+      <text:p><!--cannot deal with element cite here yet!--> <!--cannot deal with element cite here yet!--> <!--cannot deal with element cite here yet!-->
+Note that when first opening these references and using –profile=word, they are not formatted yet and only appear as numbers. To change the citation style, go to the references tab and then change the style in the style selector. Standard LaTeX References have the style IEEE 2006. <text:line-break/>Note that the bibliography is not added by default if you used –profile=word . In this case you again go to the references tab, click on Bibliography and then on Works cited to insert it yourself.</text:p>
+      <!--cannot deal with element bibliography here yet!-->
     </office:text>
   </office:body>
 </office:document-content>
