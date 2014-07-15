@@ -10,17 +10,21 @@
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" version="1.0" exclude-result-prefixes="ltx">
-  <xsl:output method="xml" encoding="utf-8"/>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:css3t="http://www.w3.org/TR/css3-text/" version="1.0" exclude-result-prefixes="ltx">
+  <xsl:output method="xml" indent="yes" encoding="utf-8"/>
+    <xsl:strip-space elements="*"/>
+  
   <!-- fallback for debugging -->
   <xsl:template match="*">
     <xsl:message>cannot deal with element <xsl:value-of select="local-name()"/> yet!</xsl:message>
     <xsl:comment>cannot deal with element <xsl:value-of select="local-name()"/> here yet!</xsl:comment>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="/">
     <xsl:comment>generated from LTXML</xsl:comment>
     <xsl:apply-templates/>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="ltx:document">
     <office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2">
       <office:font-face-decls>
@@ -34,20 +38,32 @@
         <style:font-face style:name="Lohit Devanagari" svg:font-family="'Lohit Devanagari'" style:font-family-generic="system" style:font-pitch="variable"/>
       </office:font-face-decls>
       <office:automatic-styles>
-          <style:style style:name="gr1" style:family="graphic"> <!-- necessary to have mathimages actually display the math -->
-      <style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
-    </style:style>
-    <style:style style:name="gr2" style:family="graphic" style:list-style-name="L1"><style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/></style:style> <!-- Same reason as before -->
-    <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics"><style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:mirror="none" fo:clip="rect(0in, 0in, 0in, 0in)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/></style:style>
-      <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties officeooo:paragraph-rsid="001edd4d"/></style:style>
-      <style:style style:name="bold" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-weight="bold"/></style:style>
-      <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-style="italic"/></style:style>
-      <!-- Don't quite work yet 
+        <style:style style:name="gr1" style:family="graphic">
+          <!-- necessary to have mathimages actually display the math -->
+          <style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
+        </style:style>
+        <style:style style:name="gr2" style:family="graphic" style:list-style-name="L1">
+          <style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
+        </style:style>
+        <!-- Same reason as before -->
+        <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+          <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:mirror="none" fo:clip="rect(0in, 0in, 0in, 0in)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+        </style:style>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
+          <style:text-properties officeooo:paragraph-rsid="001edd4d"/>
+        </style:style>
+        <style:style style:name="bold" style:family="text" style:parent-style-name="Preformatted_20_Text">
+          <style:text-properties fo:font-weight="bold"/>
+        </style:style>
+        <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text">
+          <style:text-properties fo:font-style="italic"/>
+        </style:style>
+        <!-- Don't quite work yet 
       <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
       <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
       <style:style style:name="right" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="right"/></style:style>	
       -->
-      <!-- most text processing is done here --> 
+        <!-- most text processing is done here -->
       </office:automatic-styles>
       <office:body>
         <office:text>
@@ -55,65 +71,96 @@
         </office:text>
       </office:body>
     </office:document-content>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="ltx:para">
     <xsl:apply-templates/>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="ltx:p">
     <text:p>
       <xsl:apply-templates/>
     </text:p>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="ltx:resource"/>
   <xsl:template match="ltx:section">
-  <xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:section/ltx:title">
-  <text:p text:style-name="heading1"><text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="1"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/></text:p>
-  </xsl:template>
+    <text:p text:style-name="heading1">
+      <text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="1"/>
+      <xsl:apply-templates/>
+      <text:toc-mark-end text:id="{generate-id(.)}"/>
+    </text:p>
+  </xsl:template> 
+
   <xsl:template match="ltx:creator">
-  <text:p text:style-name="author"><xsl:apply-templates/></text:p>
-  </xsl:template>
+    <text:p text:style-name="author">
+      <xsl:apply-templates/>
+    </text:p>
+  </xsl:template> 
+
   <xsl:template match="ltx:personname">
-  	<xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:title/ltx:tag">
-  	<xsl:apply-templates/>
-  	<text:s/>
-  </xsl:template>
+    <xsl:apply-templates/>
+    <text:s/>
+  </xsl:template> 
+
   <xsl:template match="ltx:item/ltx:tag"/>
   <xsl:template match="ltx:subsection">
-  	<xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:subsection/ltx:title">
-  	<text:p text:style-name="heading2">
-  		<text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="2"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/>
-  	</text:p>
-  </xsl:template>
-    <xsl:template match="ltx:subsubsection">
-  	<xsl:apply-templates/>
-  </xsl:template>
+    <text:p text:style-name="heading2">
+      <text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="2"/>
+      <xsl:apply-templates/>
+      <text:toc-mark-end text:id="{generate-id(.)}"/>
+    </text:p>
+  </xsl:template> 
+
+  <xsl:template match="ltx:subsubsection">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:subsubsection/ltx:title">
-  	<text:p text:style-name="heading2">
-  		<text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="3"/> <xsl:apply-templates/><text:toc-mark-end text:id="{generate-id(.)}"/>
-  	</text:p>
-  </xsl:template>
+    <text:p text:style-name="heading2">
+      <text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="3"/>
+      <xsl:apply-templates/>
+      <text:toc-mark-end text:id="{generate-id(.)}"/>
+    </text:p>
+  </xsl:template> 
+
   <xsl:template match="ltx:TOC">
-  <text:table-of-content>
-  <text:table-of-content-source text:use-index-marks="true"/>
-  <text:index-body><text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head"><text:p text:style-name="Contents_20_Heading">Please update this Table</text:p></text:index-title></text:index-body> <!-- This message will disappear when the user updates the table. Till then, they are asked to update the table of contents -->
-  </text:table-of-content>
-  </xsl:template>
+    <text:table-of-content>
+      <text:table-of-content-source text:use-index-marks="true"/>
+      <text:index-body>
+        <text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
+          <text:p text:style-name="Contents_20_Heading">Please update this Table</text:p>
+        </text:index-title>
+      </text:index-body>
+      <!-- This message will disappear when the user updates the table. Till then, they are asked to update the table of contents -->
+    </text:table-of-content>
+  </xsl:template> 
+
   <xsl:template match="ltx:break">
-  <text:line-break/>
-  </xsl:template>
+    <text:line-break/>
+  </xsl:template> 
+
   <xsl:template match="ltx:document/ltx:title">
-  <text:p text:style-name="title"><xsl:apply-templates/></text:p>
-  </xsl:template>
-  
-   <xsl:template match="ltx:tabular">
+    <text:p text:style-name="title">
+      <xsl:apply-templates/>
+    </text:p>
+  </xsl:template> 
+
+  <xsl:template match="ltx:tabular">
     <xsl:variable name="foo">
-    <xsl:if test="not(./ltx:tbody/ltx:tr)">0</xsl:if>
+      <xsl:if test="not(./ltx:tbody/ltx:tr)">0</xsl:if>
       <xsl:for-each select="./ltx:tbody/ltx:tr">
         <xsl:sort select="count(./ltx:td) "/>
         <xsl:if test="position()=last()">
@@ -122,22 +169,22 @@
       </xsl:for-each>
     </xsl:variable>
     <xsl:variable name="bar">
-    <xsl:if test="not(./ltx:tr)">0</xsl:if>
-    <xsl:for-each select="./ltx:tr">
-    <xsl:sort select="count(./ltx:td)"/>
-    <xsl:if test="position()=last()">
-      <xsl:value-of select="count(./ltx:td)"/>
-    </xsl:if>
-    </xsl:for-each>
+      <xsl:if test="not(./ltx:tr)">0</xsl:if>
+      <xsl:for-each select="./ltx:tr">
+        <xsl:sort select="count(./ltx:td)"/>
+        <xsl:if test="position()=last()">
+          <xsl:value-of select="count(./ltx:td)"/>
+        </xsl:if>
+      </xsl:for-each>
     </xsl:variable>
     <table:table>
-        <xsl:call-template name="ntimes">
-          <xsl:with-param name="i" select="number($foo)+number($bar)"/>
-        </xsl:call-template>
+      <xsl:call-template name="ntimes">
+        <xsl:with-param name="i" select="number($foo)+number($bar)"/>
+      </xsl:call-template>
       <xsl:apply-templates/>
-     </table:table>
+    </table:table>
   </xsl:template> 
-  
+
   <xsl:template name="ntimes">
     <xsl:param name="i"/>
     <xsl:if test="$i&gt;0">
@@ -149,18 +196,21 @@
     <xsl:if test="$i = 0">
    </xsl:if>
   </xsl:template> 
+
   <xsl:template match="ltx:tbody">
-  <xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:tr">
-  <table:table-row>
-  	<xsl:apply-templates/>
-  </table:table-row>
-  </xsl:template>
+    <table:table-row>
+      <xsl:apply-templates/>
+    </table:table-row>
+  </xsl:template> 
+
   <xsl:template match="ltx:td">
-  <table:table-cell>
-  	<text:p>
-  	<!-- Doesn't quite work yet
+    <table:table-cell>
+      <text:p>
+        <!-- Doesn't quite work yet
   	<xsl:if test="@align='left'">
   	<xsl:attribute name="text:style-name">left</xsl:attribute>
   	</xsl:if>
@@ -170,84 +220,111 @@
   	<xsl:if test="@align='center'">
   	<xsl:attribute name="text:style-name">center</xsl:attribute>
   	</xsl:if> 
-  	--> 
-  		<xsl:apply-templates/>
-  	</text:p>
-  </table:table-cell>
-  </xsl:template> <!-- TODO Add support for table-styles. --> 
+  	-->
+        <xsl:apply-templates/>
+      </text:p>
+    </table:table-cell>
+  </xsl:template> 
+
+  <!-- TODO Add support for table-styles. -->
   <!-- TODO add upport for alignments in tables -->
   <xsl:template match="ltx:note[@role='footnote']">
-  <text:note text:note-class="footnote">
-  	<text:note-citation><xsl:value-of select="@mark"/></text:note-citation>
-  	<text:note-body>
-  		<text:p> 
-  			<xsl:apply-templates/>
-  		</text:p>
-  	</text:note-body>
-  </text:note>
-  </xsl:template>
+    <text:note text:note-class="footnote">
+      <text:note-citation>
+        <xsl:value-of select="@mark"/>
+      </text:note-citation>
+      <text:note-body>
+        <text:p>
+          <xsl:apply-templates/>
+        </text:p>
+      </text:note-body>
+    </text:note>
+  </xsl:template> 
+
   <!-- Text processing templates begin here -->
   <xsl:template match="ltx:text[@font='bold']">
-  <text:span text:style-name="bold">
-  	<xsl:apply-templates/>
-  </text:span>
-  </xsl:template>
-  
-    <xsl:template match="ltx:text[@font='italic']">
-  <text:span text:style-name="italic">
-  	<xsl:apply-templates/>
-  </text:span>
-  </xsl:template>
-  
-  <!-- Text procesing templates end here --> 
-  
+    <text:span text:style-name="bold">
+      <xsl:apply-templates/>
+    </text:span>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='italic']">
+    <text:span text:style-name="italic">
+      <xsl:apply-templates/>
+    </text:span>
+  </xsl:template> 
+
+  <!-- Text procesing templates end here -->
   <xsl:template match="ltx:enumerate">
-  <text:list text:style-name="WW8StyleNum2">
-  <xsl:apply-templates/>
-  </text:list>
-  </xsl:template>
-   <xsl:template match="ltx:itemize">
-  <text:list text:style-name="WW8StyleNum1">
-  <xsl:apply-templates/>
-  </text:list>
-  </xsl:template>
+    <text:list text:style-name="WW8StyleNum2">
+      <xsl:apply-templates/>
+    </text:list>
+  </xsl:template> 
+
+  <xsl:template match="ltx:itemize">
+    <text:list text:style-name="WW8StyleNum1">
+      <xsl:apply-templates/>
+    </text:list>
+  </xsl:template> 
+
   <xsl:template match="ltx:item">
-  <text:list-item >
-  <xsl:apply-templates/>
-  </text:list-item>
-  </xsl:template>
-  
+    <text:list-item>
+      <xsl:apply-templates/>
+    </text:list-item>
+  </xsl:template> 
+
   <xsl:template match="ltx:graphics[ancestor::ltx:p]">
-  <draw:frame text:anchor-type="as-char" svg:y="-0.1366in" draw:z-index="0"><draw:image xlink:href="Pictures/10000201000001AB0000004C7C3B6A12.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§$a^2+b^2=c^2$§png§600§TRUE</svg:desc></draw:frame>
-  </xsl:template>
+    <draw:frame text:anchor-type="as-char" svg:y="-0.1366in" draw:z-index="0">
+      <draw:image xlink:href="Pictures/10000201000001AB0000004C7C3B6A12.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+        <text:p/>
+      </draw:image>
+      <svg:title>TexMaths</svg:title>
+      <svg:desc>12§inline§$a^2+b^2=c^2$§png§600§TRUE</svg:desc>
+    </draw:frame>
+  </xsl:template> 
+
   <xsl:template match="bookmark">
-  <text:bookmark text:name="@name"/>
-  </xsl:template>
+    <text:bookmark text:name="@name"/>
+  </xsl:template> 
+
   <xsl:template match="ltx:ref[@idref]">
-  <text:a xlink:type="simple" xlink:href="{concat('#',@idref)}"><xsl:apply-templates/></text:a>
-  </xsl:template>
+    <text:a xlink:type="simple" xlink:href="{concat('#',@idref)}">
+      <xsl:apply-templates/>
+    </text:a>
+  </xsl:template> 
+
   <!-- ============================================================== Math starts here ==================================================================================== -->
   <xsl:template match="ltx:Math[@mode='inline']">
-  <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
-  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
-  <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"> <!-- I assume a dpi of 100 -->
-  <draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-  <text:p/>
-  </draw:image>
-  <svg:title>TexMaths</svg:title>
-  <svg:desc>12§inline§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc>
-  </draw:frame>
-  </xsl:template>
+    <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+    <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+    <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}">
+      <!-- I assume a dpi of 100 -->
+      <draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+        <text:p/>
+      </draw:image>
+      <svg:title>TexMaths</svg:title>
+      <svg:desc>12§inline§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc>
+    </draw:frame>
+  </xsl:template> 
+
   <xsl:template match="ltx:Math[@mode='display']">
-  <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
-  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
-  <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§display§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc></draw:frame>
-  </xsl:template>
+    <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+    <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+    <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}">
+      <draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+        <text:p/>
+      </draw:image>
+      <svg:title>TexMaths</svg:title>
+      <svg:desc>12§display§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc>
+    </draw:frame>
+  </xsl:template> 
+
   <xsl:template match="ltx:equation">
-  <text:p>
-  	<xsl:apply-templates/>
-  </text:p>
-  </xsl:template>
+    <text:p>
+      <xsl:apply-templates/>
+    </text:p>
+  </xsl:template> 
+
   <xsl:template match="ltx:equationgroup">
     <xsl:variable name="foo">
       <xsl:for-each select="./ltx:equation">
@@ -258,36 +335,152 @@
       </xsl:for-each>
     </xsl:variable>
     <table:table>
-        <xsl:call-template name="ntimes">
-          <xsl:with-param name="i" select="number($foo)"/>
-        </xsl:call-template>
+      <xsl:call-template name="ntimes">
+        <xsl:with-param name="i" select="number($foo)"/>
+      </xsl:call-template>
       <xsl:apply-templates/>
-     </table:table>
-  </xsl:template>
+    </table:table>
+  </xsl:template> 
+
   <xsl:template match="ltx:MathFork">
-  <xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:MathFork/ltx:Math"/>
   <xsl:template match="ltx:MathBranch">
-  <xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:equationgroup/ltx:equation">
-  <table:table-row>
-  <xsl:apply-templates/>
-  </table:table-row>
-  </xsl:template>
+    <table:table-row>
+      <xsl:apply-templates/>
+    </table:table-row>
+  </xsl:template> 
+
   <!-- ============================================================== Math ends here ====================================================================================== -->
   <xsl:template match="ltx:graphics[ancestor::ltx:p]">
-  <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
-  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
-  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/></draw:frame>
-  </xsl:template>
+    <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+    <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+    <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}">
+      <draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+    </draw:frame>
+  </xsl:template> 
+
   <xsl:template match="ltx:graphics">
     <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
-  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
-  <text:p>
-  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/></draw:frame>
-  </text:p>
+    <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+    <text:p>
+      <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}">
+        <draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+      </draw:frame>
+    </text:p>
   </xsl:template> 
+
   <!-- TODO look at whether these are all occurring graphic types. -->
+  <!-- Bibliography management begins here -->
+  <xsl:variable name="bibfile" select="document('bibfile.xml')"/>
+  <!-- TODO change this to something with parameteres -->
+  <xsl:variable name="bibliography">
+    <xsl:apply-templates select="$bibfile"/>
+  </xsl:variable>
+  <xsl:template match="ltx:bibliography">
+    <xsl:copy-of select="$bibliography"/>
+  </xsl:template> 
+
+  <xsl:template match="b:Sources">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="b:Source">
+    <text:bibliography-mark text:bibliography-type="{./b:SourceType/text()}" text:identifier="{./b:Tag/text()}">
+      <xsl:if test="./b:Author">
+        <xsl:attribute name="text:Author">
+          <xsl:for-each select="./b:Author/b:Author/b:NameList/b:Person">
+            <xsl:if test="not(position()=1)">,</xsl:if>
+            <xsl:value-of select="concat(./b:First,' ')"/>
+            <xsl:value-of select="./b:Last"/>
+          </xsl:for-each>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Title">
+        <xsl:attribute name="text:title">
+          <xsl:value-of select="./b:Title/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Year">
+        <xsl:attribute name="text:year">
+          <xsl:value-of select="./b:Year/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Publisher">
+        <xsl:attribute name="text:publisher">
+          <xsl:value-of select="./b:Publisher/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:City">
+        <xsl:attribute name="text:address">
+          <xsl:value-of select="./b:City/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Month">
+        <xsl:attribute name="text:month">
+          <xsl:value-of select="./b:Month/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:BookTitle">
+        <xsl:attribute name="text:booktitle">
+          <xsl:value-of select="./b:BookTitle/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Pages">
+        <xsl:attribute name="text:pages">
+          <xsl:value-of select="./b:Pages/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:ConferenceName">
+        <xsl:attribute name="text:organziation">
+          <xsl:value-of select="./b:ConferenceName/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Url">
+        <xsl:attribute name="text:url">
+          <xsl:value-of select="./b:Url/text()"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="b:issn">
+        <xsl:attribute name="text:issn"><xsl:value-of select="./b:issn/text()"/></xsl:attribute>
+      </xsl:if>
+      <xsl:if test="b:isbn">
+        <xsl:attribute name="text:isbn"><xsl:value-of select="./b:isbn/text()"/></xsl:attribute>
+      </xsl:if>
+      <xsl:if test="b:chapter">
+      	<xsl:attribute name="text:chapter"><xsl:value-of select="./b:chapter/text()"/></xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Note">
+      	<xsl:attribute name="text:note"><xsl:value-of select="./b:Note/text()"/></xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./b:Edition">
+      	<xsl:attribute name="text:editoin"><xsl:value-of select="./b:Edition"/></xsl:attribute>
+      </xsl:if>
+      <xsl:apply-templates/>
+    </text:bibliography-mark>
+  </xsl:template> 
+
+  <xsl:template match="b:SourceType"/>
+  <xsl:template match="b:Tag"/>
+  <xsl:template match="b:Author"/>
+  <xsl:template match="b:Title"/>
+  <xsl:template match="b:Year"/>
+  <xsl:template match="b:Publisher"/>
+  <xsl:template match="b:City"/>
+  <xsl:template match="b:Month"/>
+  <xsl:template match="b:BookTitle"/>
+  <xsl:template match="b:Pages"/>
+  <xsl:template match="b:ConferenceName"/>
+  <xsl:template match="b:Url"/>
+  <xsl:template match="b:issn"/>
+  <xsl:template match="b:isbn"/>
+  <xsl:template match="b:chapter"/>
+  <xsl:template match="b:Note"/>
+  <xsl:template match="b:Edition"/>
 </xsl:stylesheet>
