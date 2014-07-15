@@ -38,6 +38,7 @@
       <style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
     </style:style>
     <style:style style:name="gr2" style:family="graphic" style:list-style-name="L1"><style:graphic-properties draw:stroke="none" svg:stroke-width="0in" svg:stroke-color="#3465af" draw:marker-start="" draw:marker-start-width="0.0783in" draw:marker-start-center="false" draw:marker-end="" draw:marker-end-width="0.0783in" draw:marker-end-center="false" draw:fill="none" draw:fill-color="#729fcf" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" fo:padding-top="0.0492in" fo:padding-bottom="0.0492in" fo:padding-left="0.0984in" fo:padding-right="0.0984in" draw:shadow="hidden" draw:shadow-offset-x="0.0783in" draw:shadow-offset-y="0.0783in" draw:shadow-color="#808080" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0in, 0in, 0in, 0in)" draw:image-opacity="100%" style:mirror="none" fo:margin-top="0in" fo:margin-bottom="0in" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/></style:style> <!-- Same reason as before -->
+    <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics"><style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:mirror="none" fo:clip="rect(0in, 0in, 0in, 0in)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/></style:style>
       <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties officeooo:paragraph-rsid="001edd4d"/></style:style>
       <style:style style:name="bold" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-weight="bold"/></style:style>
       <style:style style:name="italic" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-style="italic"/></style:style>
@@ -159,6 +160,7 @@
   <xsl:template match="ltx:td">
   <table:table-cell>
   	<text:p>
+  	<!-- Doesn't quite work yet
   	<xsl:if test="@align='left'">
   	<xsl:attribute name="text:style-name">left</xsl:attribute>
   	</xsl:if>
@@ -167,11 +169,13 @@
   	</xsl:if>
   	<xsl:if test="@align='center'">
   	<xsl:attribute name="text:style-name">center</xsl:attribute>
-  	</xsl:if>
+  	</xsl:if> 
+  	--> 
   		<xsl:apply-templates/>
   	</text:p>
   </table:table-cell>
   </xsl:template> <!-- TODO Add support for table-styles. --> 
+  <!-- TODO add upport for alignments in tables -->
   <xsl:template match="ltx:note[@role='footnote']">
   <text:note text:note-class="footnote">
   	<text:note-citation><xsl:value-of select="@mark"/></text:note-citation>
@@ -273,4 +277,16 @@
   </table:table-row>
   </xsl:template>
   <!-- ============================================================== Math ends here ====================================================================================== -->
+  <xsl:template match="ltx:graphics[ancestor::ltx:p]">
+  <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/></draw:frame>
+  </xsl:template>
+  <xsl:template match="ltx:graphics">
+    <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+  <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+  <text:p>
+  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/></draw:frame>
+  </text:p>
+  </xsl:template>
 </xsl:stylesheet>

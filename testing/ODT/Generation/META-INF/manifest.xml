@@ -18,5 +18,5 @@
  <manifest:file-entry manifest:full-path="mi/mi7.png" manifest:media-type=""/>
  <manifest:file-entry manifest:full-path="mi/mi8.png" manifest:media-type=""/>
  <manifest:file-entry manifest:full-path="mi/mi9.png" manifest:media-type=""/>
-    
+ <manifest:file-entry manifest:full-path="image1.jpg" manifest:media-type=""/>   
 </manifest:manifest>
