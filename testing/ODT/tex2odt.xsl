@@ -288,5 +288,6 @@
   <text:p>
   <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}"><draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/></draw:frame>
   </text:p>
-  </xsl:template>
+  </xsl:template> 
+  <!-- TODO look at whether these are all occurring graphic types. -->
 </xsl:stylesheet>
