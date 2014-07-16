@@ -19,6 +19,12 @@
     <xsl:message>cannot deal with element <xsl:value-of select="local-name()"/> yet!</xsl:message>
     <xsl:comment>cannot deal with element <xsl:value-of select="local-name()"/> here yet!</xsl:comment>
   </xsl:template> 
+  
+    <xsl:template match="ltx:text">
+  	<xsl:apply-templates/>
+  	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+  	<xsl:comment> Text formatting error here </xsl:comment>
+  </xsl:template>
 
   <xsl:template match="/">
     <xsl:comment>generated from LTXML</xsl:comment>
@@ -72,6 +78,15 @@
       </office:body>
     </office:document-content>
   </xsl:template> 
+  
+
+  <xsl:template match="ltx:cite">
+  <xsl:for-each select=".//ltx:ref">
+  	<xsl:variable name="foo"><xsl:value-of select="//ltx:bibitem[@xml:id=current()/@idref]/@key"/></xsl:variable>
+  	<xsl:apply-templates select="$bibfile/b:Sources/b:Source[./b:Tag[./text()=$foo]]"/>
+  </xsl:for-each>
+  </xsl:template>
+
 
   <xsl:template match="ltx:para">
     <xsl:apply-templates/>
@@ -380,16 +395,67 @@
   <!-- Bibliography management begins here -->
   <xsl:variable name="bibfile" select="document('bibfile.xml')"/>
   <!-- TODO change this to something with parameteres -->
-  <xsl:variable name="bibliography">
-    <xsl:apply-templates select="$bibfile"/>
-  </xsl:variable>
   <xsl:template match="ltx:bibliography">
-    <xsl:copy-of select="$bibliography"/>
+    <text:bibliography>
+    	<text:index-body>
+    		<xsl:apply-templates/>
+    	</text:index-body>
+    </text:bibliography>
   </xsl:template> 
+  
+  <xsl:template match="ltx:bibliography/ltx:title">
+  	<text:p text:style-name="heading1">
+  		<xsl:apply-templates/>
+  	</text:p>
+  </xsl:template>
+  
+  <xsl:template match="ltx:bibblock//*">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:bibblock//ltx:text">
+  	<xsl:apply-templates/>
+  	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+  	<xsl:comment> Text formatting error here </xsl:comment>
+  </xsl:template>
+  
+  <xsl:template match="ltx:bibblock//ltx:text[@class]">
+  	<xsl:apply-templates/>
+  </xsl:template>
+
+  <xsl:template match="ltx:bib-publisher">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+
+
+  
+  
+<xsl:template match="ltx:bib-note">
+	<xsl:apply-templates/>
+</xsl:template>
+  <xsl:template match="ltx:biblist">
+    <xsl:apply-templates/>
+  </xsl:template> 
+  
+  <xsl:template match="ltx:bibtag"/>
+
+   <xsl:template match="ltx:bibitem">
+    <text:p>
+      <text:span text:style-name="bold">
+      	[<xsl:value-of select="./ltx:bibtag[@role='refnum']"/>]
+	</text:span>
+      <xsl:apply-templates/>
+    </text:p>
+  </xsl:template>
 
   <xsl:template match="b:Sources">
     <xsl:apply-templates/>
   </xsl:template> 
+  
+  <xsl:template match="ltx:bibblock">
+  	<xsl:apply-templates/>
+  </xsl:template>
 
   <xsl:template match="b:Source">
     <text:bibliography-mark text:bibliography-type="{./b:SourceType/text()}" text:identifier="{./b:Tag/text()}">

@@ -619,7 +619,9 @@
     </b:City>
   </xsl:template>
   <xsl:template match="ltx:bib-part[@role='series']"/>
-  <xsl:template match="ltx:bib-edition"/>
+  <xsl:template match="ltx:bib-edition">
+  <b:Edition><xsl:value-of select="./text()"/></b:Edition>
+  </xsl:template>
   <xsl:template match="ltx:bib-note[@role='publication']"/>
   <xsl:template match="ltx:bib-part[@role='chapter']">
   <b:chapter><xsl:value-of select="./text()"/></b:chapter>
