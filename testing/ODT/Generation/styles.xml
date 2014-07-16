@@ -346,6 +346,12 @@
     <style:style style:name="heading3_20_Zchn" style:display-name="heading3 Zchn" style:family="text" style:parent-style-name="Absatz-Standardschriftart">
       <style:text-properties style:font-name="Times" fo:language="en" fo:country="US" fo:font-weight="bold" style:font-weight-asian="bold" style:language-complex="ar" style:country-complex="SA"/>
     </style:style>
+        <style:style style:name="References_20_-_20_Default" style:display-name="References - Default" style:family="text">
+      <style:text-properties fo:font-size="11pt" fo:language="en" fo:country="US"/>
+    </style:style>
+    <style:style style:name="References_20_-_20_Italic" style:display-name="References - Italic" style:family="text" style:parent-style-name="References_20_-_20_Default">
+      <style:text-properties fo:font-style="italic"/>
+    </style:style>
     <style:style style:name="p1a_20_Zchn" style:display-name="p1a Zchn" style:family="text" style:parent-style-name="Absatz-Standardschriftart">
       <style:text-properties style:font-name="Times" fo:language="en" fo:country="US" style:language-complex="ar" style:country-complex="SA"/>
     </style:style>

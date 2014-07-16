@@ -43,12 +43,12 @@
           </text:index-title>
         </text:index-body>
       </text:table-of-content>
-      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp6534480" text:outline-level="1"/>1<text:s/>General Text formatting<text:toc-mark-end text:id="idp6534480"/></text:p>
-      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6502192" text:outline-level="2"/>1.1<text:s/>Playing around with bold and italic<text:toc-mark-end text:id="idp6502192"/></text:p>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp6521616" text:outline-level="1"/>1<text:s/>General Text formatting<text:toc-mark-end text:id="idp6521616"/></text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6478912" text:outline-level="2"/>1.1<text:s/>Playing around with bold and italic<text:toc-mark-end text:id="idp6478912"/></text:p>
       <text:p>Normally formatted text looks like this. <text:note text:note-class="footnote"><text:note-citation>1</text:note-citation><text:note-body><text:p>Footnotes are also possible. <text:span text:style-name="bold">Markup in footnotes works as well</text:span></text:p></text:note-body></text:note><text:span text:style-name="bold">Common text formatting is supported, just as you would expect. <text:span text:style-name="italic">Nested bold and italic works as well</text:span></text:span>. Note that the width of a line is larger in Word than in the default LaTeX uses. <text:line-break/></text:p>
-      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6127952" text:outline-level="2"/>1.2<text:s/>A normal paragraph again<text:toc-mark-end text:id="idp6127952"/></text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6105264" text:outline-level="2"/>1.2<text:s/>A normal paragraph again<text:toc-mark-end text:id="idp6105264"/></text:p>
       <text:p>New paragraphs are back to the default. Since every kind of text formatting has to be manually added to the xslt files, just contact me (l.kohlhase@jacobs-university.de) if your text formatting doesn’t work.</text:p>
-      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6856192" text:outline-level="2"/>1.3<text:s/>Lists<text:toc-mark-end text:id="idp6856192"/></text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6835168" text:outline-level="2"/>1.3<text:s/>Lists<text:toc-mark-end text:id="idp6835168"/></text:p>
       <text:list text:style-name="WW8StyleNum2">
         <text:list-item>
           <text:p>item1</text:p>
@@ -70,9 +70,9 @@
       </text:list>
       <text:p>Note that I haven’t been able to make itemize lists work with showing dots instead of numbers. At the moment all lists are enumerated.
 </text:p>
-      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6890624" text:outline-level="2"/>1.4<text:s/>Errors<text:toc-mark-end text:id="idp6890624"/></text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6869360" text:outline-level="2"/>1.4<text:s/>Errors<text:toc-mark-end text:id="idp6869360"/></text:p>
       <text:p>Errors are printed in red. If the output is simply Error: nameoftag , then this probably means that LaTeXML did not recognize your macro. <text:line-break/>If it says the stylesheet did not recognize the element then this is an error in the stylesheet and you should contact me (l.kohlhase@jacobs-university.de) so that I can add the appropriate things to the stylesheets.</text:p>
-      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6899520" text:outline-level="2"/>1.5<text:s/>Tables<text:toc-mark-end text:id="idp6899520"/></text:p>
+      <text:p text:style-name="heading2"><text:toc-mark-start text:id="idp6878448" text:outline-level="2"/>1.5<text:s/>Tables<text:toc-mark-end text:id="idp6878448"/></text:p>
       <table:table>
         <table:table-column/>
         <table:table-column/>
@@ -112,7 +112,7 @@
         </table:table-row>
       </table:table>
       <text:p>Everything should work here, but sometimes there is trouble with nested tables.</text:p>
-      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp6934560" text:outline-level="1"/>2<text:s/>mathematics<text:toc-mark-end text:id="idp6934560"/></text:p>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp6913520" text:outline-level="1"/>2<text:s/>mathematics<text:toc-mark-end text:id="idp6913520"/></text:p>
       <text:p>All kinds of mathematics is able to be displayed. <text:line-break/>Inline math works, <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="NaNin" svg:height="NaNin"><draw:image xlink:href="" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§a^{2}+b^{2}=c^{2}§png§600§FALSE</svg:desc></draw:frame>, but as in TeX be careful with the bigger ones, they might look weird <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="NaNin" svg:height="NaNin"><draw:image xlink:href="" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"><text:p/></draw:image><svg:title>TexMaths</svg:title><svg:desc>12§inline§\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e§png§600§FALSE</svg:desc></draw:frame><text:line-break/>Note that the limits of the sum are not at the correct places, even though I used \limits . <text:line-break/>Display math:</text:p>
       <text:p>
         <draw:frame text:anchor-type="as-char" svg:y="-0.1181in" draw:z-index="1" draw:style-name="gr2" svg:width="NaNin" svg:height="NaNin">
@@ -203,7 +203,7 @@
         </table:table-row>
       </table:table>
       <text:p>Evidently this does not work well. This is an issue with the transformation of MathMl to OMML (word math format) that I am not in a position to fix.</text:p>
-      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp7346624" text:outline-level="1"/>3<text:s/>pictures<text:toc-mark-end text:id="idp7346624"/></text:p>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp7325504" text:outline-level="1"/>3<text:s/>pictures<text:toc-mark-end text:id="idp7325504"/></text:p>
       <text:p>
         <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="4.80in" svg:height="6.40in">
           <draw:image xlink:href="image1.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
@@ -211,10 +211,340 @@
       </text:p>
       <text:p>Including graphics works as well. Note that the only supported formats at the moment are jpeg, png and eps. Graphics need to be kept in the same directory as the .tex file or in one of its subdirectories. <text:line-break/></text:p>
       <text:p>Figures etc. Work, however captions are not supported at the moment.</text:p>
-      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp7366384" text:outline-level="1"/>4<text:s/>references<text:toc-mark-end text:id="idp7366384"/></text:p>
-      <text:p><text:bibliography-mark text:bibliography-type="book" text:identifier="book1" text:Author="Author of book1" text:title="Title of book1" text:year="1993" text:publisher="Publisher of book1" text:address="address of publisher of book1"/><text:bibliography-mark text:bibliography-type="book" text:identifier="book2" text:Author="Author1 of book2,Author2 of book2" text:title="Title of book2" text:year="year of book2" text:publisher="publisher of book2" text:address="address of book2" text:month="month of book2" text:note="note of book2"/><text:bibliography-mark text:bibliography-type="booklet" text:identifier="booklet1" text:Author=" author of booklet1" text:title="Title of booklet1" text:year="year of booklet1" text:address="address of booklet1" text:month="month of booklet1"/><text:bibliography-mark text:bibliography-type="incollection" text:identifier="incollection1" text:Author=" author of incollection1" text:title="Title of incolleciton1" text:year="year of incollection1" text:publisher="publisher of incollection1" text:address="address of incollection1" text:month="month of incollection1" text:booktitle="booktitle of incollection1" text:pages="pages of incollection1" text:chapter="chapter of incollection1" text:note="note of incollection1"/><text:bibliography-mark text:bibliography-type="inbook" text:identifier="inbook1" text:Author=" author of inbook1" text:title="Title of inbook1" text:year="year of inbook1" text:publisher="publisher of inbook1" text:address="address of inbook1" text:month="month of inbook1" text:pages="pages of inbook1" text:chapter="chapter of inbook1" text:note="note of inbook1"/><text:bibliography-mark text:bibliography-type="inproceedings" text:identifier="inproceedings1" text:Author=" author of inproceedings1" text:title="Title of inproceedings1" text:year="year of inproceedings1" text:publisher="publisher of inproceedings 1" text:address="address of inproceedings1" text:month="month of inproceedings1" text:pages="pages of inproceedings1" text:organziation="booktitle of inproceedings1q&#9;" text:note="note of inproceedings1"/><text:bibliography-mark text:bibliography-type="thesis" text:identifier="mastersthesis1" text:Author=" author of mastersthesis1" text:title="Title of mastersthesis1" text:year="year of mastersthesis1" text:publisher="school of mastersthesis1" text:month="month of masterstheiss1" text:note="note of mastersthesis1"/><text:bibliography-mark text:bibliography-type="thesis" text:identifier="phthesis1" text:Author=" author of phdthesis1" text:title="Title of phdthesis1" text:year="year of phdthesis1" text:publisher="schookl of phdthesis1" text:month="month of phdthesis1" text:note="note of phdthesis1"/><text:bibliography-mark text:bibliography-type="manual" text:identifier="manual1" text:Author=" author of manual1" text:title="Title of manual1" text:year="year of manual1" text:publisher="organization of manual1" text:address="address of manual1" text:note="note of manual1"/><text:bibliography-mark text:bibliography-type="misc" text:identifier="misc1" text:Author=" author of misc1" text:title="Title of misc1" text:year="year of misc1" text:month="month of misc1" text:note="note of misc1"/><text:bibliography-mark text:bibliography-type="proceedings" text:identifier="proceedings1" text:Author="" text:title="Title of proceedings1" text:year="year of proceedings1" text:publisher="publisher of proceedings1" text:address="address of proceedings1" text:month="month of proceedings1" text:organziation="organization of proceedings1" text:note="note of proceedings1"/><text:bibliography-mark text:bibliography-type="unpublished" text:identifier="unpublished1" text:Author=" author of unpublished1" text:title="Title of unpulished1" text:year="year of unpublished1" text:month="month of unpublished 1" text:note="note of unpublished1"/>
+      <text:p text:style-name="heading1"><text:toc-mark-start text:id="idp7345264" text:outline-level="1"/>4<text:s/>references<text:toc-mark-end text:id="idp7345264"/></text:p>
+      <text:p><text:bibliography-mark text:bibliography-type="book" text:custom2="book1" text:author="Author of book1" text:identifier="12" text:title="Title of book1" text:year="1993" text:publisher="Publisher of book1" text:address="address of publisher of book1" text:custom1="12"/><text:bibliography-mark text:bibliography-type="book" text:custom2="book2" text:author="Author1 of book2,Author2 of book2" text:identifier="1" text:title="Title of book2" text:year="year of book2" text:publisher="publisher of book2" text:address="address of book2" text:month="month of book2" text:note="note of book2" text:custom1="1"/><text:bibliography-mark text:bibliography-type="booklet" text:custom2="booklet1" text:author=" author of booklet1" text:identifier="2" text:title="Title of booklet1" text:year="year of booklet1" text:address="address of booklet1" text:month="month of booklet1" text:custom1="2"/><text:bibliography-mark text:bibliography-type="incollection" text:custom2="incollection1" text:author=" author of incollection1" text:identifier="4" text:title="Title of incolleciton1" text:year="year of incollection1" text:publisher="publisher of incollection1" text:address="address of incollection1" text:month="month of incollection1" text:booktitle="booktitle of incollection1" text:pages="pages of incollection1" text:chapter="chapter of incollection1" text:note="note of incollection1" text:custom1="4"/><text:bibliography-mark text:bibliography-type="inbook" text:custom2="inbook1" text:author=" author of inbook1" text:identifier="3" text:title="Title of inbook1" text:year="year of inbook1" text:publisher="publisher of inbook1" text:address="address of inbook1" text:month="month of inbook1" text:pages="pages of inbook1" text:chapter="chapter of inbook1" text:note="note of inbook1" text:custom1="3"/><text:bibliography-mark text:bibliography-type="inproceedings" text:custom2="inproceedings1" text:author=" author of inproceedings1" text:identifier="5" text:title="Title of inproceedings1" text:year="year of inproceedings1" text:publisher="publisher of inproceedings 1" text:address="address of inproceedings1" text:month="month of inproceedings1" text:pages="pages of inproceedings1" text:organziation="booktitle of inproceedings1q&#9;" text:note="note of inproceedings1" text:custom1="5"/><text:bibliography-mark text:bibliography-type="thesis" text:custom2="mastersthesis1" text:author=" author of mastersthesis1" text:identifier="7" text:title="Title of mastersthesis1" text:year="year of mastersthesis1" text:publisher="school of mastersthesis1" text:month="month of masterstheiss1" text:note="note of mastersthesis1" text:custom1="7"/><text:bibliography-mark text:bibliography-type="thesis" text:custom2="phthesis1" text:author=" author of phdthesis1" text:identifier="9" text:title="Title of phdthesis1" text:year="year of phdthesis1" text:publisher="schookl of phdthesis1" text:month="month of phdthesis1" text:note="note of phdthesis1" text:custom1="9"/><text:bibliography-mark text:bibliography-type="manual" text:custom2="manual1" text:author=" author of manual1" text:identifier="6" text:title="Title of manual1" text:year="year of manual1" text:publisher="organization of manual1" text:address="address of manual1" text:note="note of manual1" text:custom1="6"/><text:bibliography-mark text:bibliography-type="misc" text:custom2="misc1" text:author=" author of misc1" text:identifier="8" text:title="Title of misc1" text:year="year of misc1" text:month="month of misc1" text:note="note of misc1" text:custom1="8"/><text:bibliography-mark text:bibliography-type="proceedings" text:custom2="proceedings1" text:author="" text:identifier="10" text:title="Title of proceedings1" text:year="year of proceedings1" text:publisher="publisher of proceedings1" text:address="address of proceedings1" text:month="month of proceedings1" text:organziation="organization of proceedings1" text:note="note of proceedings1" text:custom1="10"/><text:bibliography-mark text:bibliography-type="unpublished" text:custom2="unpublished1" text:author=" author of unpublished1" text:identifier="11" text:title="Title of unpulished1" text:year="year of unpublished1" text:month="month of unpublished 1" text:note="note of unpublished1" text:custom1="11"/>
 Note that when first opening these references and using –profile=word, they are not formatted yet and only appear as numbers. To change the citation style, go to the references tab and then change the style in the style selector. Standard LaTeX References have the style IEEE 2006. <text:line-break/>Note that the bibliography is not added by default if you used –profile=word . In this case you again go to the references tab, click on Bibliography and then on Works cited to insert it yourself.</text:p>
-      <text:bibliography>
+      <text:bibliography text:style-name="Sect2" text:protected="true" text:name="Bibliography1">
+        <text:bibliography-source>
+          <text:index-title-template text:style-name="Heading_20_1">References</text:index-title-template>
+          <text:bibliography-entry-template text:bibliography-type="article" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="book" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="address"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="booklet" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="conference" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="custom1" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="custom2" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="custom3" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="custom4" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="custom5" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="email" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="inbook" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="incollection" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="inproceedings" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="journal" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="manual" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="mastersthesis" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="misc" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="phdthesis" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="proceedings" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="techreport" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="unpublished" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+          <text:bibliography-entry-template text:bibliography-type="www" text:style-name="Bibliography_20_1">
+            <text:index-entry-span text:style-name="References_20_-_20_Default">[</text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="custom1"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">] </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="author"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Italic" text:bibliography-data-field="title"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="publisher"/>
+            <text:index-entry-span text:style-name="References_20_-_20_Default">, </text:index-entry-span>
+            <text:index-entry-bibliography text:bibliography-data-field="address"/>
+            <text:index-entry-span>, </text:index-entry-span>
+            <text:index-entry-bibliography text:style-name="References_20_-_20_Default" text:bibliography-data-field="year"/>
+            <text:index-entry-span>.</text:index-entry-span>
+          </text:bibliography-entry-template>
+        </text:bibliography-source>
         <text:index-body>
           <text:p text:style-name="heading1">References</text:p>
           <text:p><text:span text:style-name="bold">
