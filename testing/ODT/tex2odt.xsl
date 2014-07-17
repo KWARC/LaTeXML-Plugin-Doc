@@ -395,7 +395,8 @@
 
   <!-- TODO look at whether these are all occurring graphic types. -->
   <!-- Bibliography management begins here -->
-  <xsl:variable name="bibfile" select="document('bibfile.xml')"/>
+  <xsl:param name="temporary"/>
+  <xsl:variable name="bibfile" select="document('temporary.xml')"/> <!-- If I change the name here, I have to change the name in Odt.pm as well. Vice versa as well. -->
   <!-- TODO change this to something with parameteres -->
   <xsl:template match="ltx:bibliography">
     <text:bibliography text:style-name="Sect2" text:protected="true" text:name="Bibliography1">

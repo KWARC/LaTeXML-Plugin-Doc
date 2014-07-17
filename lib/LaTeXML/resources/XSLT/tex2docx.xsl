@@ -710,7 +710,7 @@
                     <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                    <picturus id="{$foo}" reference="{concat('media/',@graphic}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic)}"/>
                     </xsl:if>
                     <a:stretch>
                       <a:fillRect/>
@@ -759,7 +759,7 @@
                     <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                    <picturus id="{$foo}" reference="{concat('media/',@graphic}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic)}"/>
                     </xsl:if>
                   <a:stretch>
                     <a:fillRect/>
@@ -811,7 +811,7 @@
                     <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                    <picturus id="{$foo}" reference="{concat('media/',@graphic}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic)}"/>
                     </xsl:if>
                     <a:stretch>
                       <a:fillRect/>

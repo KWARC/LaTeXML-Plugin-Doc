@@ -1,6 +1,6 @@
 # /=====================================================================\ #
-# | LaTeXML::Post::Manifest::ODT                                        | #
-# | Manifest creation for ODT                                           | #
+# | LaTeXML::Post::Manifest::Docx                                       | #
+# | Manifest creation for Docx                                          | #
 # |=====================================================================| #
 # | Part of LaTeXML:                                                    | #
 # |  Public domain software, produced as part of work done by the       | #
@@ -10,108 +10,97 @@
 # | Michael Kohlhase <m.kohlhase@jacobs-university.de>          #_#     | #
 # | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
 # \=========================================================ooo==U==ooo=/ #
+
+#This is for transforming to .docx when there is no .bib file present or the user wants it to have most functions in non Microsoft Word text editors. 
 package LaTeXML::Post::Manifest::Odt;
 use strict;
 use warnings;
-
 use base qw(LaTeXML::Post::Manifest);
 use File::Spec::Functions qw(catdir catfile);
 use XML::LibXML;
 use LaTeXML::Util::Pathname;
 use LaTeXML::Post;    # for error handling!
-our $odt_manifest_namespace = "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0";
-our $manifest_static = <<"EOL";
-<?xml version="1.0"?>
-<manifest:manifest manifest:version="1.2" xmlns:manifest="$odt_manifest_namespace"> 
-  <manifest:file-entry manifest:media-type="application/vnd.oasis.opendocument.text" manifest:full-path="/"/>
-  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="content.xml"/>
-  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="meta.xml"/>
-  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="settings.xml"/>
-  <manifest:file-entry manifest:media-type="text/xml" manifest:full-path="styles.xml"/>
-</manifest:manifest>
-EOL
+use LaTeXML::Post::XSLT;
+use LaTeXML::Post::Writer;
+use File::Find;
+use Cwd; 
+use XML::LibXSLT;
+
+
 
 sub new {
   my ($class, %options) = @_;
   my $self = $class->SUPER::new(%options);
   return $self; }
 
-our %media_types = ('png'=>'image/png','jpg'=>'','jpeg'=>'');
 sub initialize {
-  my ($self, $doc) = @_;
+  my ($self, $xml) = @_;
+  my $stuff=$$xml{destination};
+  my $writer = LaTeXML::Post::Writer->new(format=>'xml',omit_doctype=>0);
+    my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
+  my $skeleton_directory1 = pathname_directory($content_types); #Searching for content.xml didn't lead me to the correct place, so I used the same code as in Word.pm, just sightly modified. 
+  #TODO make this code independent of find [Content_Types] . 
+  my $skeleton_directory= catdir($skeleton_directory1,'..','ODT-Skeleton');   
+  my $transform_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'odt-preparer.xsl', noresources=>1);
+  my $doc = $transform_stylesheet->process($xml); #Apply odt-preparer.xsl to the document. This adds some extra bookmarks, so that internal links work better. 
   my $directory = $$self{siteDirectory};
-  my $pictures_directory = catdir($directory,'Pictures');
-  # Generate all auxiliary file and structure.
-  # 1. Create mimetype declaration
-  open my $odt_fh, ">", pathname_concat($directory, 'mimetype');
-  print $odt_fh 'application/vnd.oasis.opendocument.text';
-  close $odt_fh;
-  # 2. Create META-INF metadata directory
-  my $meta_inf_dir = catdir($directory, 'META-INF');
-  mkdir $meta_inf_dir;
-  # 2.1. Add the manifest.xml description (to be extended later)
-  my $manifest_dom = XML::LibXML->load_xml(string => $manifest_static);
-  #Index all CSS files (written already)
-  opendir(my $pictures_handle, $pictures_directory);
-  my @files = readdir($pictures_handle);
-  closedir $pictures_handle;
-  my $relative_pictures_directory = pathname_relative($pictures_directory,$directory);
-  my @images = map {catfile($relative_pictures_directory,$_)}
-  	grep { /\.(png|jpg|jpeg)$/i && -f pathname_concat($pictures_directory, $_) } @files;
-  my $manifest_element = $manifest_dom->documentElement;
-  foreach my $image_file(@images) {
-  	my $extension;
-  	if ($image_file =~ /\.(png|jpg|jpeg)$/) {$extension = $1;}
-  	my $file_entry = $manifest_element->addNewChild($odt_manifest_namespace, "file-entry");
-  	$file_entry->setAttributeNS($odt_manifest_namespace,'full-path',$image_file);
-  	$file_entry->setAttributeNS($odt_manifest_namespace,'media-type',$media_types{$extension}); }
-  my $manifest_content = $manifest_dom->toString(1);
-  open my $manifest_fh, ">" . pathname_concat($meta_inf_dir, 'manifest.xml');
-  print $manifest_fh $manifest_content;
-  close $manifest_fh;
-
+    my $current=cwd();                             
+  my $bibnode = $xml->findnode('//ltx:bibliography');
+  my $bibs=$bibnode->getAttribute('files'); #Find the bibliography that is used
+  my $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
+  my $bib_pathname= catfile($directory,$bib.'.xml');
+  my $cmd= "latexmlc $bib --destination=$bib_pathname"; #Convert the .bib file into semantic XML
+  system($cmd);
+  $doc->{destination}=catfile($directory,'temporary.xml');
+  $writer->process($doc,$doc->getDocumentElement); #Write temporary.xml . odt-bibliographies-interim.xsl will use this file to only transform the needed nodes. 
+  my $xslt = XML::LibXSLT->new();
+  my $source = XML::LibXML->load_xml(location =>$bib_pathname);
+  my $stylesheetus=catfile(catdir($skeleton_directory,'..','XSLT'),'odt-bibliographies-interim.xsl'); 
+  my $style_doc = XML::LibXML->load_xml(location=>$stylesheetus);
+  my $stylesheet = $xslt->parse_stylesheet($style_doc); 
+  my $temp=catfile($directory,'temporary.xml');
+  my $results = $stylesheet->transform($source, test =>"'$temp'");
+  $stylesheet->output_file($results,$bib_pathname);
   # Copy static files from ODT-Skeleton
-  foreach my $static_resource(qw(settings meta styles)) {
-    my $static_path = pathname_find($static_resource,types=>['xml'],installation_subdir=>catdir('resources','ODT-Skeleton'));
-    if ($static_path) {
-    	pathname_copy($static_path,$directory); }
-    else { Error('I/O',$static_resource,undef,"Couldn't find ODT static resource: $static_resource.xml");} }
+  if ($skeleton_directory) {
+    foreach my $subdirectory (qw/META-INF/) { #create the file structure
+      mkdir(catdir($directory, $subdirectory)); }
+    my @static_files = (
+      [ catfile($skeleton_directory,'mimetype'), catdir($directory) ],
+      [ catfile($skeleton_directory,'styles.xml'), catdir($directory) ]);
+    foreach my $static_file(@static_files) {
+      pathname_copy($static_file->[0],  $static_file->[1]); } } #populate the file structure
+  my $document_final =catfile($directory,'content.xml');
+  my $xslt2 = XML::LibXSLT->new();
+  my $source2 = XML::LibXML->load_xml(location =>$temp);
+  my $stylesheetus2=catfile(catdir($skeleton_directory,'..','XSLT'),'tex2odt.xsl');
+  my $style_doc2 = XML::LibXML->load_xml(location=>$stylesheetus2);
+  my $stylesheet2 = $xslt2->parse_stylesheet($style_doc2); 
+  my $results2 = $stylesheet2->transform($source2, temporary =>"'$bib_pathname'");
+  $stylesheet2->output_file($results2,$document_final);
+  my $document_rels = catfile($directory,'META-INF','manifest.xml');
+  my $xslt3 = XML::LibXSLT->new();
+  my $source3= XML::LibXML->load_xml(location =>$document_final);
+  my $stylesheetus3=catfile(catdir($skeleton_directory,'..','XSLT'),'odt-manifest.xsl');
+  my $style_doc3 = XML::LibXML->load_xml(location=>$stylesheetus3);
+  my $stylesheet3 = $xslt3->parse_stylesheet($style_doc3);
+  my $asdf=pathname_name($stuff).'.'.pathname_type($stuff);
+  my $results3 = $stylesheet3->transform($source3, example =>"'$asdf'");
+  $stylesheet3->output_file($results3,$document_rels);
+  
+  unlink $temp; #remove temporary.xml once it isn't needed anymore. 
+  unlink $bib_pathname;
   return; }
 
 sub process {
   my ($self, @docs) = @_;
   $self->initialize($docs[0]);
-  foreach my $doc (@docs) {
-    # Add each document to the spine manifest
-    if (my $destination = $doc->getDestination) {
-      # my (undef, $name, $ext) = pathname_split($destination);
-      # my $file = "$name.$ext";
-      # my $relative_destination = pathname_relative($destination, $$self{OPS_directory});
-
-      # Add to manifest
-        # my $manifest = $$self{opf_manifest};
-        # my $item = $manifest->addNewChild(undef, 'item');
-        # $item->setAttribute('id',         $file);
-        # $item->setAttribute('href',       $relative_destination);
-        # $item->setAttribute('media-type', "application/xhtml+xml");
-        # my @properties;
-        # push @properties, 'mathml' if $doc->findnode('//*[local-name() = "math"]');
-        # push @properties, 'svg'    if $doc->findnode('//*[local-name() = "svg"]');
-        # my $properties = join(" ", @properties);
-        # $item->setAttribute('properties', $properties) if $properties;
-
-      # Add to spine
-        # my $spine = $$self{opf_spine};
-        # my $itemref = $spine->addNewChild(undef, 'itemref');
-        # $itemref->setAttribute('idref', $file);
-
-      # Add to navigation
-        # my $nav_map = $$self{nav_map};
-        # my $nav_li  = $nav_map->addNewChild(undef, 'li');
-        # my $nav_a   = $nav_li->addNewChild(undef, 'a');
-        # $nav_a->setAttribute('href', $file);
-        # $nav_a->appendText($file); } 
-  } }
+  # If needed: generate data from each of the @docs.
+   $self->finalize($docs[0]);
   return; }
+
+sub finalize {
+  my ($self,$doc) = @_;
+}
 
 1;

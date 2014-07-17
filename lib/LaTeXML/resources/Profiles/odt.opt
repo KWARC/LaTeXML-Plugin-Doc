@@ -1,9 +1,9 @@
-# Profile for ODT generation
+# Profile for Word generation
 post =
-format = odt
+format = Odt
 whatsin = document
 whatsout = archive
-mathimages =
-stylesheet = LaTeXML-ODT.xsl
+pmml =
+mathimages = 
 nodefaultresources = 
 path = $LATEXMLINPUTS
