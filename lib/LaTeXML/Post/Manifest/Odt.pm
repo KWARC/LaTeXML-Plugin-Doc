@@ -44,23 +44,29 @@ sub initialize {
   my $transform_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'odt-preparer.xsl', noresources=>1);
   my $doc = $transform_stylesheet->process($xml); #Apply odt-preparer.xsl to the document. This adds some extra bookmarks, so that internal links work better. 
   my $directory = $$self{siteDirectory};
-    my $current=cwd();                             
-  my $bibnode = $xml->findnode('//ltx:bibliography');
-  my $bibs=$bibnode->getAttribute('files'); #Find the bibliography that is used
-  my $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
-  my $bib_pathname= catfile($directory,$bib.'.xml');
-  my $cmd= "latexmlc $bib --destination=$bib_pathname"; #Convert the .bib file into semantic XML
-  system($cmd);
+  my $temp=catfile($directory,'temporary.xml');
+  my $current=cwd();                             
   $doc->{destination}=catfile($directory,'temporary.xml');
   $writer->process($doc,$doc->getDocumentElement); #Write temporary.xml . odt-bibliographies-interim.xsl will use this file to only transform the needed nodes. 
-  my $xslt = XML::LibXSLT->new();
-  my $source = XML::LibXML->load_xml(location =>$bib_pathname);
-  my $stylesheetus=catfile(catdir($skeleton_directory,'..','XSLT'),'odt-bibliographies-interim.xsl'); 
-  my $style_doc = XML::LibXML->load_xml(location=>$stylesheetus);
-  my $stylesheet = $xslt->parse_stylesheet($style_doc); 
-  my $temp=catfile($directory,'temporary.xml');
-  my $results = $stylesheet->transform($source, test =>"'$temp'");
-  $stylesheet->output_file($results,$bib_pathname);
+  my $bibnode = $xml->findnode('//ltx:bibliography');
+  my ($bib,$bibs,$bib_pathname,$cmd);
+  $bib_pathname="";
+  if($bibnode){
+   	$bibs=$bibnode->getAttribute('files'); #Find the bibliography that is used 
+  	 if ($bibs){
+  	 	 $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
+  	 	 $bib_pathname= catfile($directory,$bib.'.xml');
+ 	 	 my $cmd= "latexmlc $bib --destination=$bib_pathname"; #Convert the .bib file into semantic XML
+	 	 system($cmd);
+ 		 my $xslt = XML::LibXSLT->new();
+ 		 my $source = XML::LibXML->load_xml(location =>$bib_pathname);
+ 	 	 my $stylesheetus=catfile(catdir($skeleton_directory,'..','XSLT'),'odt-bibliographies-interim.xsl'); 
+		 my $style_doc = XML::LibXML->load_xml(location=>$stylesheetus);
+ 		 my $stylesheet = $xslt->parse_stylesheet($style_doc); 
+ 		 my $results = $stylesheet->transform($source, test =>"'$temp'");
+ 		 $stylesheet->output_file($results,$bib_pathname);
+ 	 }
+  }
   # Copy static files from ODT-Skeleton
   if ($skeleton_directory) {
     foreach my $subdirectory (qw/META-INF/) { #create the file structure
@@ -89,7 +95,9 @@ sub initialize {
   $stylesheet3->output_file($results3,$document_rels);
   
   unlink $temp; #remove temporary.xml once it isn't needed anymore. 
+  if($bibnode){
   unlink $bib_pathname;
+  }
   return; }
 
 sub process {
