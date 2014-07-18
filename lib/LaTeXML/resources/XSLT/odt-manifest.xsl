@@ -32,4 +32,8 @@ xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"version="1.0"
   <xsl:template match="draw:image">
     <manifest:file-entry manifest:full-path="{@xlink:href}" manifest:media-type=""/>
   </xsl:template>
+    <xsl:template match="image">
+    <xsl:message> I cam here </xsl:message>
+    <manifest:file-entry manifest:full-path="{@src}" manifest:media-type=""/>
+  </xsl:template>
 </xsl:stylesheet>

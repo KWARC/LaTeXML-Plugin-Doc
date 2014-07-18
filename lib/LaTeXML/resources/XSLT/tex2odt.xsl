@@ -10,7 +10,7 @@
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:css3t="http://www.w3.org/TR/css3-text/" version="1.0" exclude-result-prefixes="ltx">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:css3t="http://www.w3.org/TR/css3-text/" version="1.0" exclude-result-prefixes="ltx">
   <xsl:output method="xml" indent="yes" encoding="utf-8"/>
     <xsl:strip-space elements="*"/>
   
@@ -68,6 +68,7 @@
           <style:text-properties fo:font-style="italic"/>
         </style:style>
         <style:style style:name="typewriter" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties style:font-name="Nimbus Mono L" officeooo:paragraph-rsid="00077ad6"/></style:style> <!-- looked to be the closest approximation -->
+        <style:style style:name="error" style:family="text" style:parent-style-name="Standard"><style:text-properties fo:color="#ff0000" fo:font-style="italic" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" fo:font-weight="bold" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-style-complex="italic" style:font-weight-complex="bold"/></style:style>
         <!-- Don't quite work yet 
       <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
       <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
@@ -140,7 +141,12 @@
   	<xsl:apply-templates/>
   </xsl:template>
 
-  <xsl:template match="ltx:title/ltx:tag">
+  <xsl:template match="ltx:caption/ltx:tag">
+    <xsl:apply-templates/>
+    <text:s/>
+  </xsl:template> 
+  
+    <xsl:template match="ltx:title/ltx:tag">
     <xsl:apply-templates/>
     <text:s/>
   </xsl:template> 
@@ -148,6 +154,15 @@
   <xsl:template match="ltx:item/ltx:tag"/>
   <xsl:template match="ltx:subsection">
     <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:abstract">
+  <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="ltx:abstract/ltx:p">
+  <text:p text:style-name="abstract">
+  	<xsl:apply-templates/>
+  </text:p>
   </xsl:template>
   
   <xsl:template match="ltx:toctile"/>
@@ -159,6 +174,22 @@
       <text:toc-mark-end text:id="{generate-id(.)}"/>
     </text:p>
   </xsl:template> 
+  
+  <xsl:template match="ltx:classification"/>
+  
+  <xsl:template match="ltx:ERROR[ancestor::ltx:p]">
+  	<text:span text:style-name="error">
+  		Error with element <xsl:apply-templates/>
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:ERROR">
+  <text:p>
+  <text:span text:style-name="error">
+  		Error with element <xsl:apply-templates/>
+  	</text:span>
+  </text:p>
+  </xsl:template>
 
   <xsl:template match="ltx:subsubsection">
     <xsl:apply-templates/>
@@ -194,6 +225,9 @@
     </text:p>
   </xsl:template> 
 
+  <xsl:template match="ltx:table">
+  	<xsl:apply-templates/>
+  </xsl:template>
   <xsl:template match="ltx:tabular">
     <xsl:variable name="foo">
       <xsl:if test="not(./ltx:tbody/ltx:tr)">0</xsl:if>
@@ -236,6 +270,10 @@
   <xsl:template match="ltx:tbody">
     <xsl:apply-templates/>
   </xsl:template> 
+  
+  <xsl:template match="ltx:thead">
+  	<xsl:apply-templates/>
+  </xsl:template>
 
   <xsl:template match="ltx:tr">
     <table:table-row>
@@ -290,6 +328,12 @@
     </text:span>
   </xsl:template> 
   
+  <xsl:template match="ltx:emph">
+  <text:span text:style-name="italic">
+      <xsl:apply-templates/>
+    </text:span>
+   </xsl:template>
+   
   <xsl:template match="ltx:text[@font='typewriter']">
   	<text:span text:style-name="typewriter">
   		<xsl:apply-templates/>
@@ -353,6 +397,19 @@
       <svg:desc>12§inline§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc>
     </draw:frame>
   </xsl:template> 
+  
+  <xsl:template match="ltx:Math">
+    <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
+    <xsl:variable name="width" select="format-number(@imagewidth div 100,'#.00')"/>
+  <draw:frame text:anchor-type="as-char" svg:y="-0.1154in" draw:z-index="1" draw:style-name="gr1" svg:width="{concat($width,'in')}" svg:height="{concat($height,'in')}">
+      <!-- I assume a dpi of 100 -->
+      <draw:image xlink:href="{@imagesrc}" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+        <text:p/>
+      </draw:image>
+      <svg:title>TexMaths</svg:title>
+      <svg:desc>12§inline§<xsl:value-of select="@tex"/>§png§600§FALSE</svg:desc>
+    </draw:frame>
+    </xsl:template> <!-- If the math doesn't specify, I am assuming it is inline -->
 
   <xsl:template match="ltx:Math[@mode='display']">
     <xsl:variable name="height" select="format-number(@imageheight div 100,'#.00')"/>
@@ -393,7 +450,9 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="ltx:MathFork/ltx:Math"/>
+  <xsl:template match="ltx:MathFork/ltx:Math">
+  <image src="{@imagesrc}"/>
+  </xsl:template>
   <xsl:template match="ltx:MathBranch">
     <xsl:apply-templates/>
   </xsl:template> 
@@ -417,6 +476,7 @@
   </xsl:template>
   
   <xsl:template match="ltx:toctitle"/>
+  <xsl:template match="ltx:toccaption"/>
   
   <xsl:template match="ltx:proof">
   	<xsl:apply-templates/>
@@ -429,6 +489,20 @@
   </text:span>
   </text:p>  
   </xsl:template>
+  
+  <xsl:template match="ltx:theorem/ltx:title[@font='italic']">
+  <text:p>
+  <text:span text:style-name="italic">
+  	<xsl:apply-templates/>
+  </text:span>
+  </text:p>  
+  </xsl:template>
+  
+  <xsl:template match="ltx:caption">
+  	<text:p>
+  		<xsl:apply-templates/>
+  	</text:p>
+  </xsl:template> <!-- TODO change this to a different style if it looks weird -->
   
   <xsl:template match="ltx:ref[@labelref and not(@idref)]">
   <xsl:variable name="bar" select="@labelref"/>
