@@ -115,7 +115,9 @@
     <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
       <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
       <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-size-complex="12pt" style:font-style-complex="italic"/>
-    </style:style><text:outline-style style:name="Outline">
+    </style:style>
+    <style:style style:name="hidden" style:display-name="Preformatted Text" style:family="paragraph" style:parent-style-name="Standard" style:class="html"><style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false"><style:tab-stops/><style:drop-cap/></style:paragraph-properties><style:text-properties style:font-name="DejaVu Sans Mono" fo:font-size="10pt" style:font-name-asian="AR PL UMing HK1" style:font-size-asian="10pt" style:font-weight-asian="normal" style:font-name-complex="Lohit Devanagari2" style:font-size-complex="10pt" text:display="none"/></style:style>
+    <text:outline-style style:name="Outline">
       <text:outline-level-style text:level="1" style:num-format="">
         <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
           <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.3in" fo:text-indent="-0.3in" fo:margin-left="0.3in"/>
