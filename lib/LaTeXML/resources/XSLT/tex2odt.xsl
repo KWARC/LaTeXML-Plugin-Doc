@@ -69,6 +69,8 @@
         </style:style>
         <style:style style:name="typewriter" style:family="paragraph" style:parent-style-name="Preformatted_20_Text"><style:text-properties style:font-name="Nimbus Mono L" officeooo:paragraph-rsid="00077ad6"/></style:style> <!-- looked to be the closest approximation -->
         <style:style style:name="error" style:family="text" style:parent-style-name="Standard"><style:text-properties fo:color="#ff0000" fo:font-style="italic" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" fo:font-weight="bold" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-style-complex="italic" style:font-weight-complex="bold"/></style:style>
+        <style:style style:name="super" style:family="text"><style:text-properties style:text-position="super 58%"/></style:style>
+        <style:style style:name="smallcaps" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-variant="small-caps"/></style:style>
         <!-- Don't quite work yet 
       <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
       <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
@@ -120,7 +122,18 @@
     <text:p text:style-name="author">
       <xsl:apply-templates/>
     </text:p>
-  </xsl:template> 
+  </xsl:template>
+  
+  <xsl:template match="ltx:date">
+  	<text:p text:style-name="author">
+  		<xsl:apply-templates/>
+  	</text:p>
+  </xsl:template>
+  
+  <xsl:template match="ltx:inline-block">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
   
   <xsl:template match="ltx:contact">
   	<text:line-break/><xsl:apply-templates/>   
@@ -183,6 +196,12 @@
   	</text:span>
   </xsl:template>
   
+  <xsl:template match="ltx:sup">
+  <text:span text:style-name="sup">
+  	<xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
+
   <xsl:template match="ltx:ERROR">
   <text:p>
   <text:span text:style-name="error">
@@ -313,7 +332,20 @@
         </text:p>
       </text:note-body>
     </text:note>
-  </xsl:template> 
+  </xsl:template>
+  
+  <xsl:template match="ltx:note[@role='footnotetext']">
+  <text:note text:note-class="footnote">
+      <text:note-citation>
+        <xsl:value-of select="@mark"/>
+      </text:note-citation>
+      <text:note-body>
+        <text:p>
+          <xsl:apply-templates/>
+        </text:p>
+      </text:note-body>
+    </text:note>
+  </xsl:template>
 
   <!-- Text processing templates begin here -->
   <xsl:template match="ltx:text[@font='bold']">
@@ -321,6 +353,12 @@
       <xsl:apply-templates/>
     </text:span>
   </xsl:template> 
+  
+  <xsl:template match="ltx:text[@font='smallcaps']">
+  <text:span text:style-name="smallcaps">
+  	<xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
 
   <xsl:template match="ltx:text[@font='italic']">
     <text:span text:style-name="italic">
@@ -383,6 +421,14 @@
       <xsl:apply-templates/>
     </text:a>
   </xsl:template> 
+  
+  <xsl:template match="ltx:ref[@class='ltx_url']">
+   <text:a xlink:type="simple" xlink:href="{@href}">
+      <xsl:apply-templates/>
+    </text:a>
+  </xsl:template>
+  
+  <xsl:template match="ltx:rdf"/>
 
   <!-- ============================================================== Math starts here ==================================================================================== -->
   <xsl:template match="ltx:Math[@mode='inline']">
