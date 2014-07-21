@@ -406,7 +406,11 @@
     <text:span text:style-name="bold">
       <xsl:apply-templates/>
     </text:span>
-  </xsl:template> 
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@color='#000000']">
+  	<xsl:apply-templates/>
+  </xsl:template>
   
   <xsl:template match="ltx:text[@font='smallcaps']">
   <text:span text:style-name="smallcaps">
