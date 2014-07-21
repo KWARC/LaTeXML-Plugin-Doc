@@ -72,6 +72,7 @@
         <style:style style:name="super" style:family="text"><style:text-properties style:text-position="super 58%"/></style:style>
         <style:style style:name="smallcaps" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-variant="small-caps"/></style:style>
         <style:style style:name="small" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-size="8pt"/></style:style>
+        <style:style style:name="tiny" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-size="5pt"/></style:style>
         <!-- Don't quite work yet 
       <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
       <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
@@ -177,6 +178,12 @@
 
 <xsl:template match="ltx:text[@fontsize='small']">
 	<text:span text:style-name="small">
+		<xsl:apply-templates/>
+	</text:span>
+</xsl:template>
+
+<xsl:template match="ltx:text[@fontsize='tiny']">
+	<text:span text:style-name="tiny">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
@@ -417,7 +424,7 @@
   	<xsl:apply-templates/>
   </text:span>
   </xsl:template>
-
+  
   <xsl:template match="ltx:text[@font='bold italic']">
     <text:span text:style-name="italic">
     	<text:span text:style-name="bold">
@@ -1062,7 +1069,7 @@
   <xsl:template match="ltx:bibblock//ltx:text">
   	<xsl:apply-templates/>
   	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
-  	<xsl:comment> Text formatting error here </xsl:comment>
+  	<xsl:comment> Text formatting error here <xsl:copy-of select="."/> </xsl:comment>
   </xsl:template>
   
   <xsl:template match="ltx:bibblock//ltx:text[@class]">
@@ -1083,6 +1090,18 @@
   
   <xsl:template match="ltx:text[@font='italic']">
   	<text:span text:style-name="italic">
+  		<xsl:apply-templates/>
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@font='slanted']">
+  	<text:span text:style-name="italic">
+  		<xsl:apply-templates/>
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:bibblock//ltx:text[@font='slanted']">
+  <text:span text:style-name="italic">
   		<xsl:apply-templates/>
   	</text:span>
   </xsl:template>
@@ -1110,6 +1129,13 @@
   		<xsl:apply-templates/>
   	</text:span>
   </xsl:template>
+  
+    <xsl:template match="ltx:bibblock//ltx:text[@font='smallcaps']">
+  <text:span text:style-name="smallcaps">
+  <xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
+
   
   <xsl:template match="ltx:text[@font='normal']">
   	<xsl:apply-templates/>
