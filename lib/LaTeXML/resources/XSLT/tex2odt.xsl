@@ -375,6 +375,19 @@
     </text:note>
   </xsl:template>
   
+  <xsl:template match="ltx:note[@role='thanks']">
+  <text:note text:note-class="footnote">
+      <text:note-citation>
+        <xsl:value-of select="@mark"/>
+      </text:note-citation>
+      <text:note-body>
+        <text:p>
+          <xsl:apply-templates/>
+        </text:p>
+      </text:note-body>
+    </text:note>
+  </xsl:template>
+  
   <xsl:template match="ltx:note[@role='footnotetext']">
   <text:note text:note-class="footnote">
       <text:note-citation>
@@ -1070,7 +1083,21 @@
   	</text:span>
   </xsl:template>
   
+  <xsl:template match="ltx:paragraph">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:paragraph/ltx:title">
+  	<text:p text:style-name="heading3">
+  		<xsl:apply-templates/>
+  	</text:p>
+  </xsl:template>
+  
   <xsl:template match="ltx:text[@font='medium']">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:figure">
   	<xsl:apply-templates/>
   </xsl:template>
   
@@ -1078,6 +1105,10 @@
   	<text:span text:style-name="italic">
   		<xsl:apply-templates/>
   	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@font='normal']">
+  	<xsl:apply-templates/>
   </xsl:template>
 
   <xsl:template match="ltx:bib-publisher">
