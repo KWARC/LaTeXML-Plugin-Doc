@@ -23,7 +23,7 @@
     <xsl:template match="ltx:text">
   	<xsl:apply-templates/>
   	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
-  	<xsl:comment> Text formatting error here </xsl:comment>
+  	<xsl:comment> Text formatting error here <xsl:copy-of select="."/></xsl:comment>
   </xsl:template>
   
   <xsl:variable name="bibliography" select="//ltx:bibliography"/>
@@ -71,6 +71,7 @@
         <style:style style:name="error" style:family="text" style:parent-style-name="Standard"><style:text-properties fo:color="#ff0000" fo:font-style="italic" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" fo:font-weight="bold" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-style-complex="italic" style:font-weight-complex="bold"/></style:style>
         <style:style style:name="super" style:family="text"><style:text-properties style:text-position="super 58%"/></style:style>
         <style:style style:name="smallcaps" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-variant="small-caps"/></style:style>
+        <style:style style:name="small" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-size="8pt"/></style:style>
         <!-- Don't quite work yet 
       <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
       <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
@@ -110,6 +111,10 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
+  <xsl:template match="ltx:appendix">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
   <xsl:template match="ltx:section/ltx:title">
     <text:p text:style-name="heading1">
       <text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="1"/>
@@ -117,6 +122,14 @@
       <text:toc-mark-end text:id="{generate-id(.)}"/>
     </text:p>
   </xsl:template> 
+  
+  <xsl:template match="ltx:appendix/ltx:title">
+  	    <text:p text:style-name="heading1">
+      <text:toc-mark-start text:id="{generate-id(.)}" text:outline-level="1"/>
+      <xsl:apply-templates/>
+      <text:toc-mark-end text:id="{generate-id(.)}"/>
+    </text:p>
+  </xsl:template>
 
   <xsl:template match="ltx:creator">
     <text:p text:style-name="author">
@@ -153,6 +166,20 @@
   <xsl:template match="ltx:text[@class='ltx_markedasmath']">
   	<xsl:apply-templates/>
   </xsl:template>
+  
+  <xsl:template match="ltx:text[@class='ltx_caption']">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@class='ltx_ref_title']">
+  	<xsl:apply-templates/>
+  </xsl:template>
+
+<xsl:template match="ltx:text[@fontsize='small']">
+	<text:span text:style-name="small">
+		<xsl:apply-templates/>
+	</text:span>
+</xsl:template>
 
   <xsl:template match="ltx:caption/ltx:tag">
     <xsl:apply-templates/>
@@ -167,6 +194,20 @@
   <xsl:template match="ltx:item/ltx:tag"/>
   <xsl:template match="ltx:subsection">
     <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:item">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:quote">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:quote/ltx:p">
+  	<text:p text:style-name="italic">
+  		<xsl:apply-templates/>
+  	</text:p>
   </xsl:template>
   
   <xsl:template match="ltx:abstract">
@@ -360,9 +401,11 @@
   </text:span>
   </xsl:template>
 
-  <xsl:template match="ltx:text[@font='italic']">
+  <xsl:template match="ltx:text[@font='bold italic']">
     <text:span text:style-name="italic">
+    	<text:span text:style-name="bold">
       <xsl:apply-templates/>
+        </text:span>
     </text:span>
   </xsl:template> 
   
@@ -391,11 +434,70 @@
     </text:list>
   </xsl:template> 
 
-  <xsl:template match="ltx:item">
+  <xsl:template match="ltx:enumerate/ltx:item">
     <text:list-item>
       <xsl:apply-templates/>
     </text:list-item>
   </xsl:template> 
+  
+  <xsl:template match="itemize/ltx:item">
+    <text:list-item>
+      <xsl:apply-templates/>
+    </text:list-item>
+  </xsl:template> 
+  
+  <xsl:template match="ltx:description/ltx:item">
+  <text:p>
+  	<xsl:apply-templates select="./ltx:tag"/>
+	<xsl:apply-templates select=".//ltx:p"/>
+</text:p>
+  </xsl:template>
+  
+  <xsl:template match="ltx:description/ltx:item//ltx:p">
+  	<text:s/>
+    	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:XMTok">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:description">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:description/ltx:item/ltx:tag">
+  	<text:span text:style-name="bold">
+  		<xsl:apply-templates/>
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:p//ltx:picture">
+  	<text:span text:style-name="error">
+  		The \picture macro is currently not supported. Transform it to a .png or .jpg and insert manually 
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:picture">
+  	<text:p>
+  		<text:span text:style-name="error">
+  		The \picture macro is currently not supported. Transform it to a .png or .jpg and insert manually 
+  		</text:span>
+  	</text:p>
+  </xsl:template>
+  
+  <xsl:template match="ltx:rule[contains(@width,'%')]">
+  <xsl:variable name="foo" select="@width"/>
+  <xsl:variable name="bar"><xsl:value-of select="substring-before($foo,'%')"/></xsl:variable>
+  <draw:line text:anchor-type="paragraph" draw:z-index="0"  svg:x1="0in" svg:y1="0in" svg:x2="{concat(format-number($bar*8.27 div 100,'#.00'),'in')}" svg:y2="0in"></draw:line>
+  </xsl:template>
+  
+  <xsl:template match="ltx:rule[contains(@width,'pt')]">
+  <xsl:variable name="foo" select="@width"/>
+  <draw:line text:anchor-type="as-char" svg:x1="0in" svg:y1="0in" svg:x2="{$foo}" svg:y2="0in"/>
+  </xsl:template>
+  			
+  <xsl:template match="ltx:pagination"/>
 
   <xsl:template match="ltx:graphics[ancestor::ltx:p]">
     <draw:frame text:anchor-type="as-char" svg:y="-0.1366in" draw:z-index="0">
@@ -954,6 +1056,22 @@
   <text:span text:style-name="bold">
   <xsl:apply-templates/>
   </text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:bibblock//ltx:text[@fontsize='small']">
+  	<text:span text:style-name="small">
+  		<xsl:apply-templates/>
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@font='italic']">
+  	<text:span text:style-name="italic">
+  		<xsl:apply-templates/>
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@font='medium']">
+  	<xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="ltx:bibblock//ltx:text[@font='italic']">
