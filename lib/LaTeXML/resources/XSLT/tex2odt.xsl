@@ -73,6 +73,7 @@
         <style:style style:name="smallcaps" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-variant="small-caps"/></style:style>
         <style:style style:name="small" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-size="8pt"/></style:style>
         <style:style style:name="tiny" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-size="5pt"/></style:style>
+        <style:style style:name="large" style:family="text" style:parent-style-name="Preformatted_20_Text"><style:text-properties fo:font-size="16pt"/></style:style>
         <!-- Don't quite work yet 
       <style:style style:name="center" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="middle"/></style:style>	
       <style:style style:name="left" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties style:vertical-align="left"/></style:style>	
@@ -182,11 +183,37 @@
 	</text:span>
 </xsl:template>
 
+<xsl:template match="ltx:keywords"/>
+
 <xsl:template match="ltx:text[@fontsize='tiny']">
 	<text:span text:style-name="tiny">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
+
+<xsl:template match="ltx:text[@align]">
+	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="ltx:float">
+	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="ltx:text[@width]">
+	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="ltx:text[@fontsize='footnote']">
+<text:span text:style-name="tiny">
+		<xsl:apply-templates/>
+	</text:span>
+</xsl:template>
+
+<xsl:template match="ltx:text[@class='ltx_align_left']">
+	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="ltx:indexmark"/>
 
   <xsl:template match="ltx:caption/ltx:tag">
     <xsl:apply-templates/>
@@ -519,6 +546,24 @@
   <xsl:template match="ltx:rule[contains(@width,'pt')]">
   <xsl:variable name="foo" select="@width"/>
   <draw:line text:anchor-type="as-char" svg:x1="0in" svg:y1="0in" svg:x2="{$foo}" svg:y2="0in"/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:titlepage">
+  <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@font='upright']">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="ltx:note[@role='preprint']"/>
+  
+  <xsl:template match="ltx:line">
+  <xsl:variable name="x1" select="substring-before(@points,',')"/>
+  <xsl:variable name="y1" select="substring-before(substring-after(@points,','),' ')"/>
+  <xsl:variable name="x2" select="substring-before(substring-after(@points,' '),',')"/>
+  <xsl:variable name="y2" select="substring-after(substring-after(@points,' '),',')"/>
+  <draw:line text:anchor-type="paragraph" svg:x1="{concat(format-number($x1 div 100,'#.00'),'in')}" svg:y1="{concat(format-number($y1 div 100,'#.00'),'in')}" svg:x2="{concat(format-number($x2 div 100,'#.00'),'in')}" svg:y2="{concat(format-number($y2 div 100,'#.00'),'in')}"/>
   </xsl:template>
   			
   <xsl:template match="ltx:pagination"/>
@@ -1079,6 +1124,26 @@
   <xsl:template match="ltx:bibblock//ltx:text[@font='bold']">
   <text:span text:style-name="bold">
   <xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:text[@fontsize='large']">
+  <text:span text:style-name="large">
+  	<xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
+  
+  
+  <xsl:template match="ltx:text[@fontsize='Large']">
+  <text:span text:style-name="large">
+  	<xsl:apply-templates/>
+  </text:span>
+  </xsl:template>
+  
+  
+  <xsl:template match="ltx:text[@fontsize='LARGE']">
+  <text:span text:style-name="large">
+  	<xsl:apply-templates/>
   </text:span>
   </xsl:template>
   
