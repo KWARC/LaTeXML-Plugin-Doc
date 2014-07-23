@@ -50,11 +50,24 @@ sub initialize {
   $writer->process($doc,$doc->getDocumentElement); #Write temporary.xml . odt-bibliographies-interim.xsl will use this file to only transform the needed nodes. 
   my $bibnode = $xml->findnode('//ltx:bibliography');
   my ($bib,$bibs,$bib_pathname,$cmd);
-  $bib_pathname="";
+  $bib=catfile($directory,'bibfile.bib');
   if($bibnode){
    	$bibs=$bibnode->getAttribute('files'); #Find the bibliography that is used 
   	 if ($bibs){
-  	 	 $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
+  	 	  my @values = split(',', $bibs);
+open my $out, ">>$bib" or die "Cannot open temporary bibliography \n";
+foreach my $file (@values)
+{
+$file=$file.'.bib';
+open my $in, "<$file" or die "Cannot open $file!\n";
+while(<$in>)
+{
+print $out $_;
+}
+close $in;
+}
+close $out;
+
   	 	 $bib_pathname= catfile($directory,$bib.'.xml');
   	 	 if(-e $bib){
  	 	 my $cmd= "latexmlc $bib --destination=$bib_pathname"; #Convert the .bib file into semantic XML
@@ -102,6 +115,7 @@ sub initialize {
   unlink $temp; #remove temporary.xml once it isn't needed anymore. 
   if($bibnode){
   unlink $bib_pathname;
+  unlink $bib;
   }
   return; }
 
