@@ -56,6 +56,7 @@ sub initialize {
   	 if ($bibs){
   	 	 $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
   	 	 $bib_pathname= catfile($directory,$bib.'.xml');
+  	 	 if(-e $bib){
  	 	 my $cmd= "latexmlc $bib --destination=$bib_pathname"; #Convert the .bib file into semantic XML
 	 	 system($cmd);
  		 my $xslt = XML::LibXSLT->new();
@@ -65,6 +66,10 @@ sub initialize {
  		 my $stylesheet = $xslt->parse_stylesheet($style_doc); 
  		 my $results = $stylesheet->transform($source, test =>"'$temp'");
  		 $stylesheet->output_file($results,$bib_pathname);
+ 		 }
+ 		 else {
+ 		 print " \n Bibliography is not at the correct place  \n ";
+ 		 }
  	 }
   }
   # Copy static files from ODT-Skeleton

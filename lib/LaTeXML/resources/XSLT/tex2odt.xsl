@@ -209,6 +209,8 @@
 	</text:span>
 </xsl:template>
 
+<xsl:template match="ltx:note[@role='footnotemark']"/>
+
 <xsl:template match="ltx:text[@class='ltx_align_left']">
 	<xsl:apply-templates/>
 </xsl:template>
@@ -446,6 +448,10 @@
   	<xsl:apply-templates/>
   </xsl:template>
   
+  <xsl:template match="ltx:text[@color='black']">
+  	<xsl:apply-templates/>
+  </xsl:template>
+  
   <xsl:template match="ltx:text[@font='smallcaps']">
   <text:span text:style-name="smallcaps">
   	<xsl:apply-templates/>
@@ -467,6 +473,12 @@
    </xsl:template>
    
   <xsl:template match="ltx:text[@font='typewriter']">
+  	<text:span text:style-name="typewriter">
+  		<xsl:apply-templates/>
+  	</text:span>
+  </xsl:template>
+  
+  <xsl:template match="ltx:bibblock//ltx:text[@font='typewriter']">
   	<text:span text:style-name="typewriter">
   		<xsl:apply-templates/>
   	</text:span>
