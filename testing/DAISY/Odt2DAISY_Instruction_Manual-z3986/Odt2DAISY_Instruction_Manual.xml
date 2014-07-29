@@ -1,0 +1,731 @@
+<?xml version='1.0' encoding='utf-8'?><!DOCTYPE dtbook PUBLIC "-//NISO//DTD dtbook 2005-3//EN" "http://www.daisy.org/z3986/2005/dtbook-2005-3.dtd"><!--     This DAISY Book was generated with odt2daisy      --><!--     More info at http://odt2daisy.sourceforge.net     --><!--     © Copyright 2008 - Vincent Spiewak                --><?xml-stylesheet href='dtbook.2005.basic.css' type='text/css'?><dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="en-US" version="2005-3">
+	<head>
+		<meta name="dc:Identifier" content="7b8747e7-0dd5-4e2b-9944-b94cdfad743d" />
+		<meta name="dc:Language" content="en-US" />
+		<meta name="dc:Title" content="odt2daisy Instruction Manual" />
+		<meta name="dc:Creator" content="Vincent Spiewak" />
+		<meta name="dc:Publisher" content="Vincent Spiewak" />
+		<meta content="Vincent Spiewak" name="dtb:producer" />
+		<meta name="dc:Date" content="2008-10-13" />
+		<meta name="dc:Type" content="Text" />
+		<meta name="dc:Format" content="ANSI/NISO Z39.86-2005" />
+		<meta name="dtb:uid" content="7b8747e7-0dd5-4e2b-9944-b94cdfad743d" />
+		<meta content="72" name="dtb:revision" />
+		<meta content="2009-11-02" name="dtb:revisionDate" />
+		<meta name="Generator" content="odt2daisy by Vincent Spiewak" />
+	</head>
+	<book>
+		<frontmatter>
+			<doctitle id="dtb1" smilref="speechgen0001.smil#tcp1">odt2daisy Instruction Manual</doctitle>
+			<docauthor id="dtb2" smilref="speechgen0001.smil#tcp2">Vincent Spiewak</docauthor>
+			<level1 class="title_page">
+				<pagenum page="normal" id="pN71610" smilref="speechgen0001.smil#tcp3">1</pagenum>
+				<h1 smilref="speechgen0002.smil#tcp4" id="dtb3">Title Page</h1>
+				<p><img height="142" smilref="speechgen0002.smil#tcp5" width="612" src="images/2.png" id="dtb4" alt="odt2daisy logo" /></p>
+				<p smilref="speechgen0002.smil#tcp6" id="dtb5">odt2daisy Instruction Manual</p>
+				<p id="dtb6" smilref="speechgen0002.smil#tcp7">Vincent Spiewak</p>
+				<pagenum page="normal" smilref="speechgen0002.smil#tcp8" id="pN71641">2</pagenum>
+				<level2 class="print_toc">
+					<h2 smilref="speechgen0003.smil#tcp9" id="dtb7">Table of Contents</h2>
+					<list smilref="speechgen0003.smil#tcs1" type="pl" id="dtb8" class="toc">
+						<li>
+							<lic class="entry" smilref="speechgen0003.smil#tcp10" id="dtb9">Introduction</lic>
+							<lic id="dtb10" class="pagenum" smilref="speechgen0003.smil#tcp11">3</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb11" smilref="speechgen0003.smil#tcp12">Installation</lic>
+							<lic class="pagenum" id="dtb12" smilref="speechgen0003.smil#tcp13">3</lic>
+						</li>
+						<li>
+							<lic class="entry" smilref="speechgen0003.smil#tcp14" id="dtb13">Export as <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> <acronym title="Extensible Markup Language" pronounce="no">XML</acronym></lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp15" id="dtb14"> 5</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb15" smilref="speechgen0003.smil#tcp16">Export as Full <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym></lic>
+							<lic id="dtb16" class="pagenum" smilref="speechgen0003.smil#tcp17">5</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp18" id="dtb17" class="entry">Microsoft Windows</lic>
+							<lic smilref="speechgen0003.smil#tcp19" class="pagenum" id="dtb18">5</lic>
+						</li>
+						<li>
+							<lic id="dtb19" class="entry" smilref="speechgen0003.smil#tcp20">Linux, Solaris and Open Solaris</lic>
+							<lic id="dtb20" class="pagenum" smilref="speechgen0003.smil#tcp21">5</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp22" class="entry" id="dtb21">Mac OS X (PowerPC and Intel)</lic>
+							<lic smilref="speechgen0003.smil#tcp23" class="pagenum" id="dtb22"> 6</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp24" id="dtb23" class="entry">Export Dialog</lic>
+							<lic id="dtb24" class="pagenum" smilref="speechgen0003.smil#tcp25">7</lic>
+						</li>
+						<li>
+							<lic id="dtb25" smilref="speechgen0003.smil#tcp26" class="entry">UID</lic>
+							<lic smilref="speechgen0003.smil#tcp27" class="pagenum" id="dtb26">7</lic>
+						</li>
+						<li>
+							<lic id="dtb27" class="entry" smilref="speechgen0003.smil#tcp28">Title</lic>
+							<lic smilref="speechgen0003.smil#tcp29" class="pagenum" id="dtb28">7</lic>
+						</li>
+						<li>
+							<lic id="dtb29" smilref="speechgen0003.smil#tcp30" class="entry">Creator</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp31" id="dtb30">7</lic>
+						</li>
+						<li>
+							<lic id="dtb31" smilref="speechgen0003.smil#tcp32" class="entry">Publisher</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp33" id="dtb32">7</lic>
+						</li>
+						<li>
+							<lic id="dtb33" smilref="speechgen0003.smil#tcp34" class="entry">Producer</lic>
+							<lic smilref="speechgen0003.smil#tcp35" class="pagenum" id="dtb34">8</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp36" class="entry" id="dtb35">Language</lic>
+							<lic class="pagenum" id="dtb36" smilref="speechgen0003.smil#tcp37">8</lic>
+						</li>
+						<li>
+							<lic id="dtb37" class="entry" smilref="speechgen0003.smil#tcp38">Page Numbers</lic>
+							<lic smilref="speechgen0003.smil#tcp39" id="dtb38" class="pagenum">8</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb39" smilref="speechgen0003.smil#tcp40">Basic Numbering</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp41" id="dtb40">8</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb41" smilref="speechgen0003.smil#tcp42">Advanced Numbering</lic>
+							<lic class="pagenum" id="dtb42" smilref="speechgen0003.smil#tcp43">8</lic>
+						</li>
+						<li>
+							<lic id="dtb43" smilref="speechgen0003.smil#tcp44" class="entry">Alternate Level Markup</lic>
+							<lic smilref="speechgen0003.smil#tcp45" class="pagenum" id="dtb44">9</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp46" class="entry" id="dtb45">Including <acronym pronounce="no" title="Cascading Style Sheets">CSS</acronym></lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp47" id="dtb46">9</lic>
+						</li>
+						<li>
+							<lic id="dtb47" smilref="speechgen0003.smil#tcp48" class="entry">Bitrate</lic>
+							<lic id="dtb48" class="pagenum" smilref="speechgen0003.smil#tcp49">9</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp50" id="dtb49" class="entry">Fix Routines</lic>
+							<lic class="pagenum" id="dtb50" smilref="speechgen0003.smil#tcp51">9</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb51" smilref="speechgen0003.smil#tcp52">Sentence detection</lic>
+							<lic class="pagenum" id="dtb52" smilref="speechgen0003.smil#tcp53">9</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp54" id="dtb53" class="entry">Conversion Errors</lic>
+							<lic id="dtb54" smilref="speechgen0003.smil#tcp55" class="pagenum">10</lic>
+						</li>
+						<li>
+							<lic id="dtb55" class="entry" smilref="speechgen0003.smil#tcp56">Accessibility Rules</lic>
+							<lic smilref="speechgen0003.smil#tcp57" id="dtb56" class="pagenum"> 11</lic>
+						</li>
+						<li>
+							<lic class="entry" smilref="speechgen0003.smil#tcp58" id="dtb57">Major Structural Elements</lic>
+							<lic class="pagenum" id="dtb58" smilref="speechgen0003.smil#tcp59">12</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp60" id="dtb59" class="entry">Metadata</lic>
+							<lic smilref="speechgen0003.smil#tcp61" id="dtb60" class="pagenum">12</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb61" smilref="speechgen0003.smil#tcp62">Front, Body, Rear Matter</lic>
+							<lic smilref="speechgen0003.smil#tcp63" id="dtb62" class="pagenum">12</lic>
+						</li>
+						<li>
+							<lic id="dtb63" smilref="speechgen0003.smil#tcp64" class="entry">Basic Front Matter</lic>
+							<lic id="dtb64" class="pagenum" smilref="speechgen0003.smil#tcp65">12</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp66" class="entry" id="dtb65">Advanced Front Matter</lic>
+							<lic id="dtb66" class="pagenum" smilref="speechgen0003.smil#tcp67">12</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp68" id="dtb67" class="entry">Advanced Rear Matter</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp69" id="dtb68">12</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp70" id="dtb69" class="entry">Levels</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp71" id="dtb70"> 12</lic>
+						</li>
+						<li>
+							<lic id="dtb71" class="entry" smilref="speechgen0003.smil#tcp72">Part, Chapter, Section, Subsection Levels</lic>
+							<lic smilref="speechgen0003.smil#tcp73" class="pagenum" id="dtb72">12</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp74" id="dtb73" class="entry">Inline Elements</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp75" id="dtb74">13</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb75" smilref="speechgen0003.smil#tcp76">Native Inline Elements</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp77" id="dtb76">13</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp78" class="entry" id="dtb77">Anchor</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp79" id="dtb78">13</lic>
+						</li>
+						<li>
+							<lic id="dtb79" smilref="speechgen0003.smil#tcp80" class="entry">Custom Styles</lic>
+							<lic smilref="speechgen0003.smil#tcp81" id="dtb80" class="pagenum">13</lic>
+						</li>
+						<li>
+							<lic id="dtb81" class="entry" smilref="speechgen0003.smil#tcp82">Block Elements</lic>
+							<lic smilref="speechgen0003.smil#tcp83" class="pagenum" id="dtb82">14</lic>
+						</li>
+						<li>
+							<lic id="dtb83" class="entry" smilref="speechgen0003.smil#tcp84">Lists</lic>
+							<lic smilref="speechgen0003.smil#tcp85" class="pagenum" id="dtb84">14</lic>
+						</li>
+						<li>
+							<lic class="entry" smilref="speechgen0003.smil#tcp86" id="dtb85">Tables</lic>
+							<lic class="pagenum" smilref="speechgen0003.smil#tcp87" id="dtb86">14</lic>
+						</li>
+						<li>
+							<lic class="entry" smilref="speechgen0003.smil#tcp88" id="dtb87">Images</lic>
+							<lic id="dtb88" smilref="speechgen0003.smil#tcp89" class="pagenum">14</lic>
+						</li>
+						<li>
+							<lic id="dtb89" class="entry" smilref="speechgen0003.smil#tcp90">MathML</lic>
+							<lic class="pagenum" id="dtb90" smilref="speechgen0003.smil#tcp91">14</lic>
+						</li>
+						<li>
+							<lic id="dtb91" class="entry" smilref="speechgen0003.smil#tcp92">Notes, Footnotes &amp; Endnotes</lic>
+							<lic class="pagenum" id="dtb92" smilref="speechgen0003.smil#tcp93">14</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp94" id="dtb93" class="entry">Sections</lic>
+							<lic smilref="speechgen0003.smil#tcp95" class="pagenum" id="dtb94">15</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb95" smilref="speechgen0003.smil#tcp96">Frames</lic>
+							<lic smilref="speechgen0003.smil#tcp97" class="pagenum" id="dtb96">15</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp98" id="dtb97" class="entry">Custom Block Elements</lic>
+							<lic id="dtb98" class="pagenum" smilref="speechgen0003.smil#tcp99">15</lic>
+						</li>
+						<li>
+							<lic class="entry" id="dtb99" smilref="speechgen0003.smil#tcp100">Localization</lic>
+							<lic id="dtb100" class="pagenum" smilref="speechgen0003.smil#tcp101">16</lic>
+						</li>
+						<li>
+							<lic smilref="speechgen0003.smil#tcp102" class="entry" id="dtb101">More Information</lic>
+							<lic class="pagenum" id="dtb102" smilref="speechgen0003.smil#tcp103">16</lic>
+						</li>
+					</list>
+				</level2>
+			</level1>
+		</frontmatter>
+		<bodymatter>
+			<level1>
+				<pagenum id="pN72105" smilref="speechgen0003.smil#tcp104" page="normal">3</pagenum>
+				<h1 id="dtb103" smilref="speechgen0004.smil#tcp105">Introduction</h1>
+				<p id="dtb104" smilref="speechgen0004.smil#tcp106">This document provides guidance on how to use the odt2daisy extension for OpenOffice.org.</p>
+				<level2>
+					<h2 id="dtb105" smilref="speechgen0005.smil#tcp107">Installation</h2>
+					<p id="dtb106" smilref="speechgen0005.smil#tcp108">Odt2daisy is simple to install:</p>
+					<list type="ul" smilref="speechgen0005.smil#tcs2" id="dtb107">
+						<li><p smilref="speechgen0005.smil#tcp109" id="dtb108">open OpenOffice.org 3</p></li>
+						<li><p id="dtb109" smilref="speechgen0005.smil#tcp110">select "Extension Manager …" in the "Tools" menu</p></li>
+						<li><p id="dtb110" smilref="speechgen0005.smil#tcp111">click "Add..." , and select the downloaded oxt file</p></li>
+						<li><p id="dtb111" smilref="speechgen0005.smil#tcp112">restart OOo</p></li>
+					</list>
+					<p smilref="speechgen0005.smil#tcp113" id="dtb112">After the installation and restart, you should find the following in OpenOffice Writer:</p>
+					<list type="ul" smilref="speechgen0005.smil#tcs3" id="dtb113">
+						<li><p smilref="speechgen0005.smil#tcp114" id="dtb114">an “Export As <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> XML” button in the toolbar</p></li>
+						<li><p id="dtb115" smilref="speechgen0005.smil#tcp115">an “Export As Full DAISY” button in the toolbar</p></li>
+						<li><p id="dtb116" smilref="speechgen0005.smil#tcp116">an “Export As <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> XML” menu item in the “File” menu</p></li>
+						<li><p smilref="speechgen0005.smil#tcp117" id="dtb117">an “Export As Full DAISY” menu item in the “File” menu</p></li>
+						<li><p smilref="speechgen0005.smil#tcp118" id="dtb118">a set of templates in  the “DAISY Books” folder</p></li>
+					</list>
+					<p>
+						<imggroup>
+							<img id="dtb119" alt="Screenshot of the OpenOffice.org Extension Manager" height="347" src="images/5.png" smilref="speechgen0005.smil#tcp119" width="609" />
+							<caption smilref="speechgen0005.smil#tcp120" id="dtb120">Illustration 1: Odt2daisy appears in the extension manager after installation</caption>
+						</imggroup>
+					</p>
+					<pagenum page="normal" smilref="speechgen0005.smil#tcp121" id="pN72223">4</pagenum>
+					<p>
+						<imggroup>
+							<img height="263" smilref="speechgen0005.smil#tcp122" id="dtb121" width="635" alt="Screenshot of OpenOffice.org. The mouse cursor is over the Export As DAISY XML toolbar item" src="images/1.png" />
+							<caption id="dtb122" smilref="speechgen0005.smil#tcp123">Illustration 2: "Export As <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> XML" option in the OpenOffice.org Toolbar</caption>
+						</imggroup>
+						<imggroup>
+							<img alt="Screenshot of OpenOffice.org. Templates dialog is open and the mouse cursor is over the DAISY book folder." id="dtb123" smilref="speechgen0005.smil#tcp124" height="300" src="images/3.png" width="391" />
+							<caption id="dtb124" smilref="speechgen0005.smil#tcp125">Illustration 3: "DAISY Books" templates folder</caption>
+						</imggroup>
+					</p>
+				</level2>
+			</level1>
+			<level1>
+				<pagenum id="pN72312" page="normal" smilref="speechgen0005.smil#tcp126">5</pagenum>
+				<h1 id="dtb125" smilref="speechgen0006.smil#tcp127">Export as <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> <acronym title="Extensible Markup Language" pronounce="no">XML</acronym> </h1>
+				<p><sent id="dtb126" smilref="speechgen0006.smil#tcp128">To export a document as <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> <acronym pronounce="no" title="Extensible Markup Language">XML</acronym> (without audio), select “Export as <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> XML” in the “File” menu or use the <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> <acronym pronounce="no" title="Extensible Markup Language">XML</acronym> button on the toolbar. </sent><sent id="dtb127" smilref="speechgen0006.smil#tcp129">The“Export Dialog” section describe how to fill the export dialog properly.</sent></p>
+			</level1>
+			<level1>
+				<h1 id="dtb128" smilref="speechgen0007.smil#tcp130">Export as Full <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym></h1>
+				<p id="dtb129" smilref="speechgen0007.smil#tcp131">A Full <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book contains both an audio and a text version of the content, and structure information. </p>
+				<p><sent smilref="speechgen0007.smil#tcp132" id="dtb130">odt2daisy generates the audio version of an OpenOffice.org document by using the TTS engines or “voices” installed on your operating system. </sent><sent smilref="speechgen0007.smil#tcp133" id="dtb131">For this reason, the quality of the audio and the languages that can be produced depend on the TTS engines that are installed on your computer.</sent></p>
+				<p smilref="speechgen0007.smil#tcp134" id="dtb132">
+               <strong>Note:</strong> “Asian” and “Complex Text Layout” (CTL) languages are not supported.</p>
+				<level2>
+					<h2 smilref="speechgen0008.smil#tcp135" id="dtb133">Microsoft Windows</h2>
+					<p smilref="speechgen0008.smil#tcp136" id="dtb134">The English versions of Microsoft Windows (XP, Vista and 7) embed an English TTS engine,<br />so you can produce Full <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> books in English out of the box.</p>
+					<p smilref="speechgen0008.smil#tcp137" id="dtb135">In order to produce better quality audio and audio in multiple languages, you can use third-party TTS engines, such as:</p>
+					<list smilref="speechgen0008.smil#tcs4" type="ul" id="dtb136">
+						<li><p><span id="dtb137" smilref="speechgen0008.smil#tcp138" class="normalized">Cepstral Voices (</span><a href="http://cepstral.com/" id="dtb138" external="true" smilref="speechgen0008.smil#tcp139">http://cepstral.com/</a><span smilref="speechgen0008.smil#tcp140" class="normalized" id="dtb139">)</span></p>
+						</li>
+						<li><p><span smilref="speechgen0008.smil#tcp141" class="normalized" id="dtb140">Dolphin Voices (</span><a external="true" id="dtb141" href="http://www.yourdolphin.com/" smilref="speechgen0008.smil#tcp142">http://www.yourdolphin.com/</a><span id="dtb142" class="normalized" smilref="speechgen0008.smil#tcp143">)</span></p>
+						</li>
+						<li><p><span id="dtb143" class="normalized" smilref="speechgen0008.smil#tcp144">InfoVox Voices (</span><a id="dtb144" external="true" href="http://www.acapela-group.com/" smilref="speechgen0008.smil#tcp145">http://www.acapela-group.com/</a><span class="normalized" id="dtb145" smilref="speechgen0008.smil#tcp146">)</span></p>
+						</li>
+						<li><p smilref="speechgen0008.smil#tcp147" id="dtb146">or any other SAPI5-compatible TTS voices </p></li>
+					</list>
+				</level2>
+				<level2>
+					<h2 id="dtb147" smilref="speechgen0009.smil#tcp148">Linux, Solaris and Open Solaris</h2>
+					<p smilref="speechgen0009.smil#tcp149" id="dtb148">On Linux, Solaris and Open Solaris odt2daisy uses the eSpeak TTS engine (already included by default in many cases).<br />Odt2daisy can produce Full <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> books in all “Western” eSpeak voices, including:</p>
+					<list smilref="speechgen0009.smil#tcs5" id="dtb149" type="ul">
+						<li><p smilref="speechgen0009.smil#tcp150" id="dtb150">English</p></li>
+						<li><p id="dtb151" smilref="speechgen0009.smil#tcp151">French</p></li>
+						<li><p smilref="speechgen0009.smil#tcp152" id="dtb152">Spanish</p></li>
+						<li><p id="dtb153" smilref="speechgen0009.smil#tcp153">Italian</p></li>
+						<li><p id="dtb154" smilref="speechgen0009.smil#tcp154">German</p></li>
+					</list>
+					<p><span id="dtb155" class="normalized" smilref="speechgen0009.smil#tcp155">More information about eSpeak TTS can be found on the official website </span><a external="true" smilref="speechgen0009.smil#tcp156" href="http://espeak.sourceforge.net/" id="dtb156">http://espeak.sourceforge.net/</a>.</p>
+					<p><span smilref="speechgen0009.smil#tcp157" id="dtb157" class="normalized">You can also use third-party voices such as those from Loquendo or <acronym pronounce="no" title="Intelligent Business Machines">IBM</acronym>.<br />In that case, you will need to edit the ttsbuilder.xml file installed at: <br />
+                  <strong>~/.pipeline-lite/transformers/se_tpb_speechgen2/tts/ttsbuilder.xml<br />Note:</strong></span>
+                  <span id="dtb158" smilref="speechgen0009.smil#tcp158"> More informations can be found here: </span>
+                  <a href="http://www.daisy.org/forums/node/136" external="true" smilref="speechgen0009.smil#tcp159" id="dtb159">http://www.daisy.org/forums/node/136</a>
+                  <span>.</span>
+               </p>
+				</level2>
+				<level2>
+					<pagenum page="normal" id="pN72507" smilref="speechgen0009.smil#tcp160">6</pagenum>
+					<h2 id="dtb160" smilref="speechgen0010.smil#tcp161">Mac OS X (PowerPC and Intel) </h2>
+					<p><sent smilref="speechgen0010.smil#tcp162" id="dtb161">Odt2daisy is compatible with Mac OS X. </sent><sent id="dtb162" smilref="speechgen0010.smil#tcp163">You can produce Full <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> books in English out of the box using “Alex” VoiceOver.</sent></p>
+					<p id="dtb163" smilref="speechgen0010.smil#tcp164">You can also use third party voices such as:</p>
+					<list id="dtb164" type="ul" smilref="speechgen0010.smil#tcs6">
+						<li><p><span id="dtb165" smilref="speechgen0010.smil#tcp165" class="normalized">Cepstral Voices (</span><a external="true" id="dtb166" smilref="speechgen0010.smil#tcp166" href="http://cepstral.com/">http://cepstral.com/</a><span id="dtb167" smilref="speechgen0010.smil#tcp167" class="normalized">)</span></p>
+						</li>
+						<li><p><span smilref="speechgen0010.smil#tcp168" class="normalized" id="dtb168">InfoVox Voices (</span><a href="http://www.acapela-group.com/" id="dtb169" smilref="speechgen0010.smil#tcp169" external="true">http://www.acapela-group.com/</a><span class="normalized" smilref="speechgen0010.smil#tcp170" id="dtb170">)</span></p>
+						</li>
+						<li><p id="dtb171" smilref="speechgen0010.smil#tcp171">or any other TTS voice compatible with VoiceOver</p></li>
+					</list>
+					<p><span smilref="speechgen0010.smil#tcp172" class="normalized" id="dtb172">When using a third-party voice, you need to edit ttsbuilder.xml file installed at: <br />
+                  <strong>~/.pipeline-lite/transformers/se_tpb_speechgen2/tts/ttsbuilder.xml<br />Note:</strong></span>
+                  <span id="dtb173" smilref="speechgen0010.smil#tcp173"> More informations can be found here: </span>
+                  <a smilref="speechgen0010.smil#tcp174" external="true" id="dtb174" href="http://www.daisy.org/forums/node/136">http://www.daisy.org/forums/node/136</a>
+                  <span>.</span>
+               </p>
+					<p>
+						<imggroup>
+							<img alt="Screenshot of OpenOffice.org during export as Full DAISY" width="743" src="images/0.png" smilref="speechgen0010.smil#tcp175" id="dtb175" height="464" />
+							<caption smilref="speechgen0010.smil#tcp176" id="dtb176">Illustration 4: Export As Full <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> dialog on Mac OS X</caption>
+						</imggroup>
+					</p>
+				</level2>
+			</level1>
+			<level1>
+				<pagenum smilref="speechgen0010.smil#tcp177" page="normal" id="pN72627">7</pagenum>
+				<h1 smilref="speechgen0011.smil#tcp178" id="dtb177">Export Dialog</h1>
+				<p><img alt="" width="370" smilref="speechgen0011.smil#tcp179" id="dtb178" height="392" src="images/4.png" /></p>
+				<p id="dtb179" smilref="speechgen0011.smil#tcp180">
+               <strong>Note:</strong> During an export as <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> <acronym title="Extensible Markup Language" pronounce="no">XML</acronym>, the export dialog don't include bitrate, fix routines, and sentence detection since these parameters are used for audio generation.</p>
+				<level2>
+					<h2 id="dtb180" smilref="speechgen0012.smil#tcp181">UID</h2>
+					<p><sent smilref="speechgen0012.smil#tcp182" id="dtb181">The UID is a universally unique identifier for your <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book. </sent><sent smilref="speechgen0012.smil#tcp183" id="dtb182">The UID is generated automatically, but you can specify your own UID if you prefer.</sent></p>
+				</level2>
+				<level2>
+					<h2 id="dtb183" smilref="speechgen0013.smil#tcp184">Title</h2>
+					<p><sent smilref="speechgen0013.smil#tcp185" id="dtb184"><acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> Book Title. </sent><sent id="dtb185" smilref="speechgen0013.smil#tcp186">This field will be empty if you have not filled in the title of the file in the file properties. </sent><sent smilref="speechgen0013.smil#tcp187" id="dtb186">You can also set the title of the file in the Properties dialog in the File menu in OpenOffice.org: in the Properties dialog, go to the Description tab and fill in the Title field.</sent></p>
+				</level2>
+				<level2>
+					<h2 id="dtb187" smilref="speechgen0014.smil#tcp188">Creator</h2>
+					<p><sent smilref="speechgen0014.smil#tcp189" id="dtb188">The author of the <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> book. </sent><sent smilref="speechgen0014.smil#tcp190" id="dtb189">This field is filled automatically with user data from OpenOffice.org. </sent><sent id="dtb190" smilref="speechgen0014.smil#tcp191">If the field is empty and you want it to be automatically filled with your name, you can also set your first name and last name in the Options dialog under the Tools menu: go to “User data” (in the OpenOffice.org section of the options) and fill in your first name and/or last name.  
+</sent></p>
+				</level2>
+				<level2>
+					<h2 id="dtb191" smilref="speechgen0015.smil#tcp192">Publisher</h2>
+					<p><sent smilref="speechgen0015.smil#tcp193" id="dtb192">The agency responsible for making the <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> book available. </sent><sent id="dtb193" smilref="speechgen0015.smil#tcp194"><br />Odt2daisy uses the value in Creator as default value.</sent></p>
+				</level2>
+				<level2>
+					<pagenum page="normal" id="pN72709" smilref="speechgen0015.smil#tcp195">8</pagenum>
+					<h2 smilref="speechgen0016.smil#tcp196" id="dtb194">Producer</h2>
+					<p><sent id="dtb195" smilref="speechgen0016.smil#tcp197">The organization that created the <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book. </sent><sent id="dtb196" smilref="speechgen0016.smil#tcp198"><br />Odt2daisy uses the value in Creator as default value.</sent></p>
+				</level2>
+				<level2>
+					<h2 id="dtb197" smilref="speechgen0017.smil#tcp199">Language</h2>
+					<p smilref="speechgen0017.smil#tcp200" id="dtb198">The main language of the document must be set in Tools > Language > For all Text... > <strong>Language</strong>
+                  <em>.</em>
+               </p>
+					<p><sent id="dtb199" smilref="speechgen0017.smil#tcp201">Odt2daisy can produce multilingual books. </sent><sent smilref="speechgen0017.smil#tcp202" id="dtb200"><br />If the document contains paragraphs in a language that is different from the default language, you should set the language of that paragraph by using Tools > Language > For Paragraph.<br />If the document contains words or phrases in a language that is different from the immediately surrounding text, you should set the language of that word or phrase by using Tools > Language > For Selection.</sent></p>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0018.smil#tcp203" id="dtb201">Page Numbers</h2>
+					<level3>
+						<h3 id="dtb202" smilref="speechgen0019.smil#tcp204">Basic Numbering</h3>
+						<p><sent id="dtb203" smilref="speechgen0019.smil#tcp205">If your document contains page numbers, you can choose to include them in your <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book. </sent><sent smilref="speechgen0019.smil#tcp206" id="dtb204">If you check the box “include page numbers”, all pages that have a footer or a header with a “Page Number field” will have page number in <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym>.</sent></p>
+						<p id="dtb205" smilref="speechgen0019.smil#tcp207">If your document does not contain page numbers, you add them by following these steps:</p>
+						<list smilref="speechgen0019.smil#tcs7" type="ul" id="dtb206">
+							<li><p><sent id="dtb207" smilref="speechgen0019.smil#tcp208">Go to Insert > Footer (or Header) > Default. </sent><sent id="dtb208" smilref="speechgen0019.smil#tcp209">This adds an empty footer (or header) section to your document.</sent></p></li>
+							<li><p smilref="speechgen0019.smil#tcp210" id="dtb209">Go to Insert > Fields > Page Number.</p></li>
+							<li><p id="dtb210" smilref="speechgen0019.smil#tcp211">You can change the alignment of the page number in the Paragraph dialogue under the Format menu or by using the alignment buttons on the toolbar.</p></li>
+						</list>
+					</level3>
+					<level3>
+						<h3 id="dtb211" smilref="speechgen0020.smil#tcp212">Advanced Numbering</h3>
+						<p id="dtb212" smilref="speechgen0020.smil#tcp213">Odt2daisy allows several pages to be numbered as a single page in the <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book.</p>
+						<p id="dtb213" smilref="speechgen0020.smil#tcp214">If you want to output two or more pages in OpenOffice.org as a single <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> page, proceed as follows: </p>
+						<list id="dtb214" type="ul" smilref="speechgen0020.smil#tcs8">
+							<li><p id="dtb215" smilref="speechgen0020.smil#tcp215">Create a new Page Style, named “NoPageNumber” (or any other name you find more appropriate) without any Page Number in header or footer.</p></li>
+							<li><p smilref="speechgen0020.smil#tcp216" id="dtb216">Write the first page with a page style including a Page Number in header or footer, for example page number 3</p></li>
+							<li><p id="dtb217" smilref="speechgen0020.smil#tcp217">Write the other pages using the page style named “NoPageNumber”</p></li>
+							<li><p smilref="speechgen0020.smil#tcp218" id="dtb218">At the last page, insert a page break, change style to a Page Numbered Style, and change the page number to what would be the next page number, in this example page 4.</p></li>
+						</list>
+					</level3>
+				</level2>
+				<level2>
+					<pagenum smilref="speechgen0020.smil#tcp219" id="pN72819" page="normal">9</pagenum>
+					<h2 smilref="speechgen0021.smil#tcp220" id="dtb219">Alternate Level Markup</h2>
+					<p id="dtb220" smilref="speechgen0021.smil#tcp221">If you check “use alternate level markup”, your <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> book will use &lt;level depth=''N''> notation instead of &lt;levelN>.</p>
+					<p smilref="speechgen0021.smil#tcp222" id="dtb221">It must be checked if your book use “Heading 7” Style and higher.</p>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0022.smil#tcp223" id="dtb222">Including <acronym pronounce="no" title="Cascading Style Sheets">CSS</acronym></h2>
+					<p smilref="speechgen0022.smil#tcp224" id="dtb223">If you check “include CSS”, odt2daisy will also produce a <acronym title="Cascading Style Sheets" pronounce="no">CSS</acronym> file.</p>
+					<p smilref="speechgen0022.smil#tcp225" id="dtb224">This <acronym title="Cascading Style Sheets" pronounce="no">CSS</acronym> file allows to view your <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> book in a browser.</p>
+				</level2>
+				<level2>
+					<h2 id="dtb225" smilref="speechgen0023.smil#tcp226">Bitrate</h2>
+					<p><sent smilref="speechgen0023.smil#tcp227" id="dtb226">Selects the bit rate of the generated MP3 audio files. </sent><sent id="dtb227" smilref="speechgen0023.smil#tcp228">A higher value will result in better sound quality but the audio files will be larger. </sent><sent smilref="speechgen0023.smil#tcp229" id="dtb228">The default value is 32 kbit/s.</sent></p>
+				</level2>
+				<level2>
+					<h2 id="dtb229" smilref="speechgen0024.smil#tcp230">Fix Routines</h2>
+					<p><sent id="dtb230" smilref="speechgen0024.smil#tcp231">Selects whether to apply <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book fix routines to the input document. </sent><sent id="dtb231" smilref="speechgen0024.smil#tcp232">These routines try to clean and possibly repair the input <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> <acronym pronounce="no" title="Extensible Markup Language">XML</acronym> document to enforce the best compatibility with the remaining steps. </sent><sent smilref="speechgen0024.smil#tcp233" id="dtb232">This option is recommended.</sent></p>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0025.smil#tcp234" id="dtb233">Sentence detection</h2>
+					<p smilref="speechgen0025.smil#tcp235" id="dtb234">Selects whether to apply sentence detection to the input document text to enable a finer-grained audio synchronization.</p>
+				</level2>
+			</level1>
+			<level1>
+				<pagenum smilref="speechgen0025.smil#tcp236" id="pN72908" page="normal">10</pagenum>
+				<h1 id="dtb235" smilref="speechgen0026.smil#tcp237">Conversion Errors</h1>
+				<p smilref="speechgen0026.smil#tcp238" id="dtb236">If you conversion error occurs during the export process, odt2daisy will show a warning.</p>
+				<p>
+               <imggroup>
+						<img alt="Screenshot of OpenOffice.org showing odt2daisy error dialog " width="646" src="images/6.png" id="dtb237" height="353" smilref="speechgen0026.smil#tcp239" />
+						<caption smilref="speechgen0026.smil#tcp240" id="dtb238">Illustration 5: Example of an error: an heading 1 followed by an heading 3</caption></imggroup><sent id="dtb239" smilref="speechgen0026.smil#tcp241">It is important to fix any errors in the source document before exporting the <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> book. </sent><sent id="dtb240" smilref="speechgen0026.smil#tcp242">It is highly discouraged to use or distribute an invalid <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> Book. </sent><sent id="dtb241" smilref="speechgen0026.smil#tcp243">A common cause of errors is the incorrect use of heading levels, for example if the first heading after a Heading 1 is a Heading 3 instead of a Heading 2, the resulting <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book will not be valid.</sent></p>
+				<p smilref="speechgen0026.smil#tcp244" id="dtb242"><acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> format is “structure centered” so your OpenOffice.org document have to be well structured.<br />Please respect accessibility rules for a better document.</p>
+			</level1>
+			<level1>
+				<pagenum id="pN72979" page="normal" smilref="speechgen0026.smil#tcp245">11</pagenum>
+				<h1 smilref="speechgen0027.smil#tcp246" id="dtb243">Accessibility Rules </h1>
+				<p smilref="speechgen0027.smil#tcp247" id="dtb244">You should start to check these points before going further during an export as <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> error or simply for produce more accessible <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> books:</p>
+				<list smilref="speechgen0027.smil#tcs9" type="ul" id="dtb245">
+					<li>
+						<p smilref="speechgen0027.smil#tcp248" id="dtb246">Check the Heading structure of your document using the OpenOffice.org Navigator <br />(View > Navigator > Headings)</p>
+						<list type="ul" smilref="speechgen0027.smil#tcs10" id="dtb247">
+							<li><p id="dtb248" smilref="speechgen0027.smil#tcp249">Avoid gaps (Heading 1 followed by an Heading 3)</p></li>
+							<li><p smilref="speechgen0027.smil#tcp250" id="dtb249">Avoid blank headings</p></li>
+							<li><p id="dtb250" smilref="speechgen0027.smil#tcp251">Avoid headings in frames</p></li>
+							<li><p smilref="speechgen0027.smil#tcp252" id="dtb251">Avoid headings in sections</p></li>
+						</list>
+					</li>
+					<li>
+						<p id="dtb252" smilref="speechgen0027.smil#tcp253">Search hidden structure issues by showing Non printing characters<br />(“View” > “Nonprinting Characters”)</p>
+						<list smilref="speechgen0027.smil#tcs11" id="dtb253" type="ul">
+							<li><p id="dtb254" smilref="speechgen0027.smil#tcp254">remove empty lists</p></li>
+							<li><p id="dtb255" smilref="speechgen0027.smil#tcp255">keep in mind that a new paragraph (key “Enter”) is different than a break line (keys “Shift + Enter”)</p></li>
+						</list>
+					</li>
+					<li>
+						<p id="dtb256" smilref="speechgen0027.smil#tcp256">Use simple tables </p>
+						<list type="ul" id="dtb257" smilref="speechgen0027.smil#tcs12">
+							<li><p smilref="speechgen0027.smil#tcp257" id="dtb258">with headings (“Insert” > “Table...” and check heading)</p></li>
+							<li><p id="dtb259" smilref="speechgen0027.smil#tcp258">avoid nested tables (A table included in another one)  
+</p></li>
+						</list>
+					</li>
+					<li><p smilref="speechgen0027.smil#tcp259" id="dtb260">Use JPEG, PNG or SVG pictures only</p></li>
+					<li>
+						<p><sent id="dtb261" smilref="speechgen0027.smil#tcp260">Fill alternative text. </sent><sent id="dtb262" smilref="speechgen0027.smil#tcp261">It should be relevant and must be different if you have a caption. </sent></p>
+						<list smilref="speechgen0027.smil#tcs13" type="ul" id="dtb263">
+							<li><p id="dtb264" smilref="speechgen0027.smil#tcp262">Picture: right click > “Picture...” then select the “Options” tab and fill “Alternative (Text only)” field.</p></li>
+							<li><p id="dtb265" smilref="speechgen0027.smil#tcp263">Formula: right click > “Object...” then select the “Options” tab and fill “Alternative (Text only)” field.</p></li>
+						</list>
+					</li>
+					<li>
+						<p><sent id="dtb266" smilref="speechgen0027.smil#tcp264">Fill language of each part of your document (selection, paragraph and all text). </sent><sent smilref="speechgen0027.smil#tcp265" id="dtb267"><br />This step is crucial for “Export as DAISY” during audio generation</sent></p>
+						<list smilref="speechgen0027.smil#tcs14" type="ul" id="dtb268">
+							<li><p smilref="speechgen0027.smil#tcp266" id="dtb269">start by setting the main language of the document<br />(Tools > Language > For all Text)</p>
+							</li>
+							<li><p smilref="speechgen0027.smil#tcp267" id="dtb270">set every words or any selection of the document with a different language<br />(Tools > Language > For Selection)</p>
+							</li>
+							<li><p smilref="speechgen0027.smil#tcp268" id="dtb271">set every paragraphs of the document with a different language <br />(Tools > Language > For Paragraph)</p>
+							</li>
+						</list>
+					</li>
+					<li><p id="dtb272" smilref="speechgen0027.smil#tcp269">Use OpenOffice.org styles for formatting your document</p></li>
+					<li><p smilref="speechgen0027.smil#tcp270" id="dtb273">Use <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> styles (name start with “[DAISY]”) to enrich the structure</p></li>
+				</list>
+			</level1>
+			<level1>
+				<pagenum smilref="speechgen0027.smil#tcp271" id="pN73121" page="normal">12</pagenum>
+				<h1 id="dtb274" smilref="speechgen0028.smil#tcp272">Major Structural Elements</h1>
+				<p><sent id="dtb275" smilref="speechgen0028.smil#tcp273">The instructions in the first part of this manual explain how to produce simple <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> books. </sent><sent id="dtb276" smilref="speechgen0028.smil#tcp274">The next part of the manual provides information for people who want to create <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> from more complex documents, or who want to use more complex <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> features.</sent></p>
+				<level2>
+					<h2 smilref="speechgen0029.smil#tcp275" id="dtb277">Metadata</h2>
+					<p smilref="speechgen0029.smil#tcp276" id="dtb278">Subject and Keywords metadata can be set in File > Properties > Description.<br />Keywords must be separated by a comma.</p>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0030.smil#tcp277" id="dtb279">Front, Body, Rear Matter</h2>
+					<level3>
+						<h3 id="dtb280" smilref="speechgen0031.smil#tcp278">Basic Front Matter</h3>
+						<p id="dtb281" smilref="speechgen0031.smil#tcp279">The front matter is automatically managed by the translator.<br />It will include everything before the first “Heading 1” inside a &lt;level1 class=''title_page''>.</p>
+					</level3>
+					<level3>
+						<h3 smilref="speechgen0032.smil#tcp280" id="dtb282">Advanced Front Matter</h3>
+						<p smilref="speechgen0032.smil#tcp281" id="dtb283">You can specify the front matter with a Section named “BodyMatterStart”.<br />In that case, the front matter will be everything before this section.</p>
+						<p id="dtb284" smilref="speechgen0032.smil#tcp282">
+                     <strong>Note:</strong> “Advanced <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> Book” template can be a good start.</p>
+					</level3>
+					<level3>
+						<h3 id="dtb285" smilref="speechgen0033.smil#tcp283">Advanced Rear Matter</h3>
+						<p id="dtb286" smilref="speechgen0033.smil#tcp284">Rear matter can be defined with a Section named “RearMatterStart”.<br />In that case, rear matter start after it.</p>
+						<p id="dtb287" smilref="speechgen0033.smil#tcp285">
+                     <strong>Note:</strong> “Advanced <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> Book” template can be a good start.</p>
+					</level3>
+				</level2>
+				<level2>
+					<h2 id="dtb288" smilref="speechgen0034.smil#tcp286">Levels </h2>
+					<p id="dtb289" smilref="speechgen0034.smil#tcp287">Levels are mapped with Heading 1, Heading 2, …, Heading X Styles.<br />You should have a correct Heading markup to produce a <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book.<br />This means you cannot have a Heading 3 just after an Heading 1, for example.</p>
+				</level2>
+				<level2>
+					<h2 id="dtb290" smilref="speechgen0035.smil#tcp288">Part, Chapter, Section, Subsection Levels</h2>
+					<p id="dtb291" smilref="speechgen0035.smil#tcp289">You can produce levels with Part, Chapter, Sections and Subsection class attributes.<br />For example, if your level1 is a “Part” , specify it like this:</p>
+					<list smilref="speechgen0035.smil#tcs15" type="ul" id="dtb292">
+						<li><p id="dtb293" smilref="speechgen0035.smil#tcp290">go to File > Properties > User Defined</p></li>
+						<li><p id="dtb294" smilref="speechgen0035.smil#tcp291">click on “Info fields...” and change “Info 1” to “DAISY TOP LEVEL”</p></li>
+						<li><p smilref="speechgen0035.smil#tcp292" id="dtb295">put “Part” as value (others values are “Chapter” and “Section”)</p></li>
+					</list>
+					<p><sent smilref="speechgen0035.smil#tcp293" id="dtb296">“Part” value will map level1 to part, level2 to chapter, level3 to section, level4 to subsection.</sent><sent id="dtb297" smilref="speechgen0035.smil#tcp294"><br />“Chapter” value will map level1 to chapter, level2 to section, level3 to subsection.</sent><sent smilref="speechgen0035.smil#tcp295" id="dtb298"><br />“Section” value will map level1 to section, level2 to subsection.</sent></p>
+					<p>
+                  <pagenum page="normal" smilref="speechgen0035.smil#tcp296" id="pN73259">13</pagenum>
+                  <span smilref="speechgen0035.smil#tcp297" id="dtb299" class="normalized"><strong>Note:</strong> “Part <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> Book”, “Chapter <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> Book” and “Section <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym>Book” templates can be a good start.</span> </p>
+				</level2>
+			</level1>
+			<level1>
+				<h1 id="dtb300" smilref="speechgen0036.smil#tcp298">Inline Elements</h1>
+				<level2>
+					<h2 smilref="speechgen0037.smil#tcp299" id="dtb301">Native Inline Elements</h2>
+					<p smilref="speechgen0037.smil#tcp300" id="dtb302">Bold, Italic, Emphasis Style, Strong Emphasis Style, Subscript and Superscript, Emails and Hyperlinks are natively supported, so they can be used as usual.</p>
+					<level3>
+						<h3 id="dtb303" smilref="speechgen0038.smil#tcp301">Anchor</h3>
+						<p smilref="speechgen0038.smil#tcp302" id="dtb304">Anchors can be produced using a bookmark (Insert > Bookmark, Insert > Cross Reference)</p>
+					</level3>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0039.smil#tcp303" id="dtb305">Custom Styles</h2>
+					<p><sent smilref="speechgen0039.smil#tcp304" id="dtb306"><acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> templates include custom styles to produce some <acronym pronounce="yes" title="Digital Accessible Information System">DAISY</acronym> inline elements. </sent><sent id="dtb307" smilref="speechgen0039.smil#tcp305"><br />You can find them in Character Styles if you started your document from a <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> template.<br />You can also load the <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> Style using the “Formatting and Styles dialog”.<br />The custom styles for <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> inline elements are:</sent></p>
+					<list smilref="speechgen0039.smil#tcs16" id="dtb308" type="ul">
+						<li><p id="dtb309" smilref="speechgen0039.smil#tcp306">Abbreviation</p></li>
+						<li><p smilref="speechgen0039.smil#tcp307" id="dtb310">Acronym</p></li>
+						<li><p id="dtb311" smilref="speechgen0039.smil#tcp308">Acronym (Pronounce)</p></li>
+						<li><p smilref="speechgen0039.smil#tcp309" id="dtb312">Blockquote</p></li>
+						<li><p id="dtb313" smilref="speechgen0039.smil#tcp310">Computer Code</p></li>
+						<li><p id="dtb314" smilref="speechgen0039.smil#tcp311">Keyboard Input</p></li>
+						<li><p id="dtb315" smilref="speechgen0039.smil#tcp312">Prodnote</p></li>
+						<li><p smilref="speechgen0039.smil#tcp313" id="dtb316">Prodnote (Optional)</p></li>
+						<li><p smilref="speechgen0039.smil#tcp314" id="dtb317">Sample</p></li>
+						<li><p id="dtb318" smilref="speechgen0039.smil#tcp315">Sentence</p></li>
+						<li><p id="dtb319" smilref="speechgen0039.smil#tcp316">Span</p></li>
+					</list>
+				</level2>
+			</level1>
+			<level1>
+				<pagenum smilref="speechgen0039.smil#tcp317" page="normal" id="pN73355">14</pagenum>
+				<h1 smilref="speechgen0040.smil#tcp318" id="dtb320">Block Elements</h1>
+				<level2>
+					<h2 smilref="speechgen0041.smil#tcp319" id="dtb321">Lists</h2>
+					<p id="dtb322" smilref="speechgen0041.smil#tcp320">Lists and numbered lists are supported natively so you can produce unordered lists, or numbered lists as usual.<br />It is also possible to use nested lists like this:</p>
+					<list enum="1" id="dtb323" smilref="speechgen0041.smil#tcs17" type="ol">
+						<li><p id="dtb324" smilref="speechgen0041.smil#tcp321">Windows</p></li>
+						<li>
+							<p smilref="speechgen0041.smil#tcp322" id="dtb325">Linux</p>
+							<list smilref="speechgen0041.smil#tcs18" enum="a" id="dtb326" type="ol">
+								<li><p smilref="speechgen0041.smil#tcp323" id="dtb327">Ubuntu</p></li>
+								<li><p id="dtb328" smilref="speechgen0041.smil#tcp324">Fedora</p></li>
+							</list>
+						</li>
+						<li><p smilref="speechgen0041.smil#tcp325" id="dtb329">Mac OS X</p></li>
+					</list>
+				</level2>
+				<level2>
+					<h2 id="dtb330" smilref="speechgen0042.smil#tcp326">Tables</h2>
+					<p><sent smilref="speechgen0042.smil#tcp327" id="dtb331">Tables and nested tables are supported natively so you can manage them as usual.<br />Complex tables and nested tables are less accessible than simple tables. </sent><sent smilref="speechgen0042.smil#tcp328" id="dtb332">It is recommended to author simple tables with heading like this:</sent></p>
+					<list type="ul" id="dtb333" smilref="speechgen0042.smil#tcs19">
+						<li><p smilref="speechgen0042.smil#tcp329" id="dtb334">Insert > Table</p></li>
+						<li><p smilref="speechgen0042.smil#tcp330" id="dtb335">check “Heading” box below “Options”</p></li>
+					</list>
+					<table id="dtb336" smilref="speechgen0042.smil#tcs20">
+						<thead>
+							<tr id="dtb337" smilref="speechgen0042.smil#tcs21">
+								<th rowspan="1" colspan="1"><p smilref="speechgen0042.smil#tcp331" id="dtb338">First Name</p></th>
+								<th colspan="1" rowspan="1"><p id="dtb339" smilref="speechgen0042.smil#tcp332">Last Name</p></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="dtb340" smilref="speechgen0042.smil#tcs22">
+								<td rowspan="1" colspan="1"><p smilref="speechgen0042.smil#tcp333" id="dtb341">Vincent</p></td>
+								<td rowspan="1" colspan="1"><p smilref="speechgen0042.smil#tcp334" id="dtb342">Spiewak</p></td>
+							</tr>
+							<tr smilref="speechgen0042.smil#tcs23" id="dtb343">
+								<td rowspan="1" colspan="1"><p id="dtb344" smilref="speechgen0042.smil#tcp335">Greg</p></td>
+								<td rowspan="1" colspan="1"><p id="dtb345" smilref="speechgen0042.smil#tcp336">Kearney</p></td>
+							</tr>
+						</tbody>
+					</table>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0043.smil#tcp337" id="dtb346">Images</h2>
+					<p><sent smilref="speechgen0043.smil#tcp338" id="dtb347">Images are supported natively, you can insert it with: Insert > Picture > from File... </sent><sent id="dtb348" smilref="speechgen0043.smil#tcp339"><br />They will be output in an “images/” directory if you don't check “link” box.</sent></p>
+					<p id="dtb349" smilref="speechgen0043.smil#tcp340">Images without a text alternative are not accessible If an image is not purely decorative, you should provide Alternate Text using <br />“Right Click” > Picture … > Options > Alternative (text only)</p>
+					<p smilref="speechgen0043.smil#tcp341" id="dtb350">Captions are also supported using “Right Click” > Caption … > Caption field.</p>
+				</level2>
+				<level2>
+					<h2 id="dtb351" smilref="speechgen0044.smil#tcp342">MathML</h2>
+					<p smilref="speechgen0044.smil#tcp343" id="dtb352">Mathematics are supported natively, you can insert a formula with: Insert > Object... > Formula.<br />You should also provide a “textual” version of the formula using “Right Click” > “Object...” > Alternative (text only)</p>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0045.smil#tcp344" id="dtb353">Notes, Footnotes &amp; Endnotes</h2>
+					<p id="dtb354" smilref="speechgen0045.smil#tcp345">Notes, Footnotes and Endnotes are supported natively, so you can use them as usual.</p>
+				</level2>
+				<level2>
+					<pagenum page="normal" id="pN73513" smilref="speechgen0045.smil#tcp346">15</pagenum>
+					<h2 id="dtb355" smilref="speechgen0046.smil#tcp347">Sections</h2>
+					<p id="dtb356" smilref="speechgen0046.smil#tcp348">Sections are flattened.</p>
+					<p id="dtb357" smilref="speechgen0046.smil#tcp349">For example, this section:</p>
+					<p id="dtb358" smilref="speechgen0046.smil#tcp350">One</p>
+					<p id="dtb359" smilref="speechgen0046.smil#tcp351">Two</p>
+					<p id="dtb360" smilref="speechgen0046.smil#tcp352">Three</p>
+					<p id="dtb361" smilref="speechgen0046.smil#tcp353">Four</p>
+					<p id="dtb362" smilref="speechgen0046.smil#tcp354">Will appear in the <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book like this:</p>
+					<p id="dtb363" smilref="speechgen0046.smil#tcp355">One<br />Two<br />Three<br />Four<br />
+                  <strong>Warning</strong>: Do not use headings inside sections.</p>
+				</level2>
+				<level2>
+					<h2 smilref="speechgen0047.smil#tcp356" id="dtb364">Frames</h2>
+					<p id="dtb365" smilref="speechgen0047.smil#tcp357">Frames are natively supported, so you can use them as usual.</p>
+					<p smilref="speechgen0047.smil#tcp358" id="dtb366">Warning:</p>
+					<list smilref="speechgen0047.smil#tcs24" id="dtb367" type="ul">
+						<li><p smilref="speechgen0047.smil#tcp359" id="dtb368">Do not use headings inside sections !</p></li>
+						<li><p id="dtb369" smilref="speechgen0047.smil#tcp360">Do not use frames within another frame!</p></li>
+					</list>
+				</level2>
+				<level2>
+					<h2 id="dtb370" smilref="speechgen0048.smil#tcp361">Custom Block Elements</h2>
+					<p smilref="speechgen0048.smil#tcp362" id="dtb371">The <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> templates include custom styles to produce <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> block elements.<br />You can find them in Paragraph Styles.</p>
+					<p id="dtb372" smilref="speechgen0048.smil#tcp363">These styles are listed below:</p>
+					<list smilref="speechgen0048.smil#tcs25" type="ul" id="dtb373">
+						<li><p id="dtb374" smilref="speechgen0048.smil#tcp364">Address</p></li>
+						<li><p id="dtb375" smilref="speechgen0048.smil#tcp365">Author</p></li>
+						<li><p id="dtb376" smilref="speechgen0048.smil#tcp366">Blockquote</p></li>
+						<li><p id="dtb377" smilref="speechgen0048.smil#tcp367">BridgeHead</p></li>
+						<li><p id="dtb378" smilref="speechgen0048.smil#tcp368">ByLine</p></li>
+						<li><p smilref="speechgen0048.smil#tcp369" id="dtb379">DateLine</p></li>
+						<li><p id="dtb380" smilref="speechgen0048.smil#tcp370">Keyboard Input</p></li>
+						<li><p id="dtb381" smilref="speechgen0048.smil#tcp371">Prodnote</p></li>
+						<li><p smilref="speechgen0048.smil#tcp372" id="dtb382">Prodnote (Optional)</p></li>
+						<li><p smilref="speechgen0048.smil#tcp373" id="dtb383">Sample</p></li>
+					</list>
+					<p id="dtb384" smilref="speechgen0048.smil#tcp374">For example, if you have an address in your document like:</p>
+					<address>
+						<line smilref="speechgen0048.smil#tcp375" id="dtb385">Vincent Spiewak</line>
+						<line smilref="speechgen0048.smil#tcp376" id="dtb386">4 place Jussieu</line>
+						<line smilref="speechgen0048.smil#tcp377" id="dtb387">75005 Paris</line>
+						<line id="dtb388" smilref="speechgen0048.smil#tcp378">France</line>
+					</address>
+					<p><span id="dtb389" smilref="speechgen0048.smil#tcp379" class="normalized">If these lines are marked up with a “[DAISY]Address” paragraph style,</span><br />
+                  <pagenum smilref="speechgen0048.smil#tcp380" id="pN73678" page="normal">16</pagenum><span id="dtb390" smilref="speechgen0048.smil#tcp381" class="normalized">Odt2daisy will produce:</span></p>
+					<p id="dtb391" smilref="speechgen0048.smil#tcp382">&lt;address></p>
+					<p smilref="speechgen0048.smil#tcp383" id="dtb392">   &lt;line>Vincent Spiewak&lt;/line></p>
+					<p smilref="speechgen0048.smil#tcp384" id="dtb393">   &lt;line>4 place Jussieu&lt;/line></p>
+					<p id="dtb394" smilref="speechgen0048.smil#tcp385">   &lt;line>75005 Paris&lt;/line></p>
+					<p id="dtb395" smilref="speechgen0048.smil#tcp386">   &lt;line>France&lt;/line></p>
+					<p id="dtb396" smilref="speechgen0048.smil#tcp387">&lt;address></p>
+				</level2>
+			</level1>
+			<level1>
+				<h1 id="dtb397" smilref="speechgen0049.smil#tcp388">Localization</h1>
+				<p><span class="normalized" id="dtb398" smilref="speechgen0049.smil#tcp389">Odt2daisy is easy to localize in other languages.<br />Please check out this page for more information </span><a smilref="speechgen0049.smil#tcp390" id="dtb399" external="true" href="http://odt2daisy.sourceforge.net/l10n/">http://odt2daisy.sourceforge.net/l10n/</a>.</p>
+			</level1>
+			<level1>
+				<pagenum id="pN73731" smilref="speechgen0049.smil#tcp391" page="normal">17</pagenum>
+				<h1 id="dtb400" smilref="speechgen0050.smil#tcp392">Frequently Asked Questions</h1>
+				<level2>
+					<h2><a smilref="speechgen0051.smil#tcp393" external="false" id="How_To_Install">How to install odt2daisy ?</a></h2>
+					<list type="ul" id="dtb401" smilref="speechgen0051.smil#tcs26">
+						<li><p smilref="speechgen0051.smil#tcp394" id="dtb402">Open OpenOffice.org </p></li>
+						<li><p id="dtb403" smilref="speechgen0051.smil#tcp395">in menu "Tools", select "Extension Manager ..." </p></li>
+						<li><p smilref="speechgen0051.smil#tcp396" id="dtb404">Click on "Add..." button, and then, select the downloaded oxt file </p></li>
+						<li><p id="dtb405" smilref="speechgen0051.smil#tcp397">Restart OOo </p></li>
+					</list>
+					<p smilref="speechgen0051.smil#tcp398" id="dtb406">Now, in a Writer View, you can see the Daisy DTBook Toolbar.<br />You can dock it in OOo Toolbar by drag-n-drop.</p>
+				</level2>
+				<level2>
+					<h2><a external="false" smilref="speechgen0052.smil#tcp399" id="faq2">Why odt2daisy works only with OpenOffice.org 3.0 (or grather) ?</a></h2>
+					<p id="dtb407" smilref="speechgen0052.smil#tcp400">Odt2daisy works only with OOo.org 3.0 because it's compatible with ODF 1.2 (or grather).</p>
+				</level2>
+				<level2>
+					<h2><a smilref="speechgen0053.smil#tcp401" external="false" id="faq3">Why odt2daisy doesn't detect the right document language ?</a></h2>
+					<p id="dtb408" smilref="speechgen0053.smil#tcp402">You need to set the right document language like this in OOO.org with<br />"Tools" > "Language" > "For All Text" > <em>YOUR LANGUAGE</em>
+               </p>
+				</level2>
+				<level2>
+					<h2><a external="false" smilref="speechgen0054.smil#tcp403" id="faq4">Why my <acronym title="Digital Accessible Information System" pronounce="yes">DAISY</acronym> book have not pagenum tag ?</a></h2>
+					<p><sent smilref="speechgen0054.smil#tcp404" id="dtb409">Odt2daisy output a pagenum if only a header or a footer is in the page and have a Page Number Field. </sent><sent id="dtb410" smilref="speechgen0054.smil#tcp405">You can do it like this:<br />"Insert" > "Footer" > "Default", and next "Insert" > "Fields" > "Page Number"</sent></p>
+				</level2>
+				<level2>
+					<h2><a external="false" id="faq5" smilref="speechgen0055.smil#tcp406">Why the error "Could not create Java implementation loader" occurs during installation ?</a></h2>
+					<p id="dtb411" smilref="speechgen0055.smil#tcp407">This error occurs if you didn't install or configure Java JRE properly.<br />Go to "Tools" > "Options ..." then select "Java" in the list and verify:</p>
+					<list type="ul" id="dtb412" smilref="speechgen0055.smil#tcs27">
+						<li><p smilref="speechgen0055.smil#tcp408" id="dtb413">Use a Java runtime environment should be checked </p></li>
+						<li><p id="dtb414" smilref="speechgen0055.smil#tcp409">A JRE should be selected in "Java runtime environment (JRE) already installed" list </p></li>
+					</list>
+					<p><span id="dtb415" smilref="speechgen0055.smil#tcp410" class="normalized">If this list is empty, you should install a JRE at </span><a id="dtb416" smilref="speechgen0055.smil#tcp411" href="http://java.sun.com/javase/downloads/index.jsp" external="true">Java SE Downloads page</a>.</p>
+				</level2>
+				<level2>
+					<h2>
+						<a id="faq6" external="false" smilref="speechgen0056.smil#tcp412">Why the error "(com.sun.star.registry.CannotRegisterImplementationException) { { Message = "", Context = com.sun.star.unoXInterface) @0 } } </a>
+						<br />
+						<br />
+					</h2>
+					<p><sent id="dtb417" smilref="speechgen0056.smil#tcp413">This error can occurs on some operating systems which doesn't include a proper version of OpenOffice.org. </sent><sent><span id="dtb418" smilref="speechgen0056.smil#tcp414" class="normalized">You should remove OpenOffice.org and install a new version from </span><a smilref="speechgen0056.smil#tcp415" external="true" href="http://www.openoffice.org/" id="dtb419">official website</a>. </sent></p>
+					<p><br /></p>
+				</level2>
+			</level1>
+			<level1>
+				<pagenum smilref="speechgen0056.smil#tcp416" id="pN73889" page="normal">18</pagenum>
+				<h1 id="dtb420" smilref="speechgen0057.smil#tcp417">More Information</h1>
+				<p><span smilref="speechgen0057.smil#tcp418" id="dtb421" class="normalized">The official odt2daisy website is available at:</span><br />
+               <a id="dtb422" href="http://odt2daisy.sf.net/" external="true" smilref="speechgen0057.smil#tcp419">http://odt2daisy.sf.net</a>
+            </p>
+				<p smilref="speechgen0057.smil#tcp420" id="dtb423">The website contains a lot of useful information, including:</p>
+				<list id="dtb424" smilref="speechgen0057.smil#tcs28" type="ul">
+					<li><p smilref="speechgen0057.smil#tcp421" id="dtb425">Screen-casts</p></li>
+					<li><p id="dtb426" smilref="speechgen0057.smil#tcp422">Forum</p></li>
+					<li><p smilref="speechgen0057.smil#tcp423" id="dtb427">Bug Report </p></li>
+					<li><p smilref="speechgen0057.smil#tcp424" id="dtb428">Task List (for developer who wants to contribute)</p></li>
+					<li><p smilref="speechgen0057.smil#tcp425" id="dtb429">Donation (only if you like this software :)</p></li>
+				</list>
+				<p><span smilref="speechgen0057.smil#tcp426" id="dtb430" class="normalized">You can contact me at </span><a smilref="speechgen0057.smil#tcp427" href="mailto:vspiewak@sourceforge.net" id="dtb431" external="true">vspiewak@sourceforge.net</a>.</p>
+			</level1>
+		</bodymatter>
+	</book>
+</dtbook>

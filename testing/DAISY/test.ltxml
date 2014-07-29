@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/lnk/Desktop/LaTeXML-Plugin-Doc/testing/DAISY"?>
+<?latexml class="article"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" xml:id="Document">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Hello World</title>
+  <creator role="author">
+    <personname>Lukas Kohlhase</personname>
+  </creator>
+  <para xml:id="p1" fragid="p1">
+    <p>Hello World</p>
+  </para>
+</document>

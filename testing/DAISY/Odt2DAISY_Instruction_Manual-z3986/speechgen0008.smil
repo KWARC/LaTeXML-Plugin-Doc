@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE smil
+  PUBLIC "-//NISO//DTD dtbsmil 2005-2//EN" "http://www.daisy.org/z3986/2005/dtbsmil-2005-2.dtd">
+<smil xmlns="http://www.w3.org/2001/SMIL20/">
+	  <head>
+		    <meta content="7b8747e7-0dd5-4e2b-9944-b94cdfad743d" name="dtb:uid"/>
+		    <meta content="TPB Narrator" name="dtb:generator"/>
+		    <meta content="0:04:47.858" name="dtb:totalElapsedTime"/>
+		
+	  </head>
+	  <body>
+		    <seq dur="0:00:49.445" fill="remove" id="mseq">
+		       <par id="tcp135">
+            <text id="text135" src="Odt2DAISY_Instruction_Manual.xml#dtb133"/>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.337" src="speechgen0008.mp3"/>
+         </par>
+         <par id="tcp136">
+            <text id="text136" src="Odt2DAISY_Instruction_Manual.xml#dtb134"/>
+            <audio clipBegin="0:00:04.337" clipEnd="0:00:14.949" src="speechgen0008.mp3"/>
+         </par>
+         <par id="tcp137">
+            <text id="text137" src="Odt2DAISY_Instruction_Manual.xml#dtb135"/>
+            <audio clipBegin="0:00:14.949" clipEnd="0:00:23.070" src="speechgen0008.mp3"/>
+         </par>
+         <seq class="list" end="DTBuserEscape;tcp147.end" fill="remove" id="tcs4">
+            <par id="tcp138">
+               <text id="text138" src="Odt2DAISY_Instruction_Manual.xml#dtb137"/>
+               <audio clipBegin="0:00:23.070" clipEnd="0:00:24.614" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp139">
+               <text id="text139" src="Odt2DAISY_Instruction_Manual.xml#dtb138"/>
+               <audio clipBegin="0:00:24.614" clipEnd="0:00:29.254" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp140">
+               <text id="text140" src="Odt2DAISY_Instruction_Manual.xml#dtb139"/>
+               <audio clipBegin="0:00:29.254" clipEnd="0:00:29.454" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp141">
+               <text id="text141" src="Odt2DAISY_Instruction_Manual.xml#dtb140"/>
+               <audio clipBegin="0:00:29.454" clipEnd="0:00:30.944" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp142">
+               <text id="text142" src="Odt2DAISY_Instruction_Manual.xml#dtb141"/>
+               <audio clipBegin="0:00:30.944" clipEnd="0:00:37.074" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp143">
+               <text id="text143" src="Odt2DAISY_Instruction_Manual.xml#dtb142"/>
+               <audio clipBegin="0:00:37.074" clipEnd="0:00:37.274" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp144">
+               <text id="text144" src="Odt2DAISY_Instruction_Manual.xml#dtb143"/>
+               <audio clipBegin="0:00:37.274" clipEnd="0:00:38.970" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp145">
+               <text id="text145" src="Odt2DAISY_Instruction_Manual.xml#dtb144"/>
+               <audio clipBegin="0:00:38.970" clipEnd="0:00:45.563" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp146">
+               <text id="text146" src="Odt2DAISY_Instruction_Manual.xml#dtb145"/>
+               <audio clipBegin="0:00:45.563" clipEnd="0:00:45.763" src="speechgen0008.mp3"/>
+            </par>
+            <par id="tcp147">
+               <text id="text147" src="Odt2DAISY_Instruction_Manual.xml#dtb146"/>
+               <audio clipBegin="0:00:45.763" clipEnd="0:00:49.445" src="speechgen0008.mp3"/>
+            </par>
+         </seq>
+      </seq>
+	  </body>
+</smil>

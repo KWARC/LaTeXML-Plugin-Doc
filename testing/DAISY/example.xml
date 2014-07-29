@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+
+   <!DOCTYPE dtbook PUBLIC "-//NISO//DTD dtbook 2005-2//EN" "http://www.daisy.org/z3986/2005/dtbook-2005-2.dtd" [
+  <!ENTITY % MATHML.prefixed "INCLUDE" >
+  <!ENTITY % MATHML.prefix "m">
+  <!ENTITY % MATHML.Common.attrib
+          "xlink:href    CDATA       #IMPLIED
+          xlink:type     CDATA       #IMPLIED	
+          class          CDATA       #IMPLIED
+          style          CDATA       #IMPLIED
+          id             ID          #IMPLIED
+          xref           IDREF       #IMPLIED
+          other          CDATA       #IMPLIED
+          xmlns:dtbook   CDATA       #FIXED	'http://www.daisy.org/z3986/2005/dtbook/'
+          dtbook:smilref CDATA       #IMPLIED"
+  >    
+  <!ENTITY % mathML2 PUBLIC "-//W3C//DTD MathML 2.0//EN"
+             "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd"
+  >
+  %mathML2;        
+  <!ENTITY % externalFlow "| m:math">
+  <!ENTITY % externalNamespaces "xmlns:m CDATA #FIXED 'http://www.w3.org/1998/Math/MathML'">      
+ ]
+>
+
+<dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xmlns:m="http://www.w3.org/1998/Math/MathML" xml:lang="en-US" version="2005-2">
+  <head>
+    <meta name="dc:Title" content="Demonstration of capabilities of tex2word and tex2docx"/>
+    <meta name="dc:Creator" content="Lukas Kohlhase"/>
+    <meta name="dc:Format" content="ANSI/NISO Z39.86-2005"/>
+    <meta name="Generator" content="tex2dtbook by Lukas Kohlhase"/>
+  </head>
+  <book>
+    <frontmatter>
+      <doctitle id="idp4684880">Demonstration of capabilities of tex2word and tex2docx</doctitle>
+      <docauthor id="idp6875680">Lukas Kohlhase</docauthor>
+    </frontmatter>
+    <bodymatter>
+      <level1>
+        <list type="ul">
+          <li>
+            <a href="#S1">1 General Text formatting</a>
+            <list type="ul">
+              <li>
+                <a href="#S1.SS1">1.1 Playing around with bold and italic</a>
+              </li>
+              <li>
+                <a href="#S1.SS2">1.2 A normal paragraph again</a>
+              </li>
+              <li>
+                <a href="#S1.SS3">1.3 Lists</a>
+              </li>
+              <li>
+                <a href="#S1.SS4">1.4 Errors</a>
+              </li>
+              <li>
+                <a href="#S1.SS5">1.5 Tables</a>
+              </li>
+            </list>
+          </li>
+          <li>
+            <a href="#S2">2 mathematics</a>
+          </li>
+          <li>
+            <a href="#S3">3 pictures</a>
+          </li>
+          <li>
+            <a href="#S4">4 references</a>
+          </li>
+          <li>
+            <a href="#bib">References</a>
+          </li>
+        </list>
+      </level1>
+      <level1>
+        <h1>1 General Text formatting</h1>
+        <level2>
+          <h2>1.1 Playing around with bold and italic</h2>
+          <p>Normally formatted text looks like this. <noteref idref="#idp6851904">1</noteref>Common text formatting is supported, just as you would expect. Nested bold and italic works as well<!-- Text formatting error here Nested bold and italic works as well--><!-- Text formatting error here Common text formatting is supported, just as you would expect. Nested bold and italic works as well-->. Note that the width of a line is larger in Word than in the default LaTeX uses. <br/></p>
+          <note id="idp6851904">
+            <p><sup>1</sup>Footnotes are also possible. Markup in footnotes works as well<!-- Text formatting error here Markup in footnotes works as well--></p>
+          </note>
+        </level2>
+        <level2>
+          <h2>1.2 A normal paragraph again</h2>
+          <p>New paragraphs are back to the default. Since every kind of text formatting has to be manually added to the xslt files, just contact me (l.kohlhase@jacobs-university.de) if your text formatting doesn&#x2019;t work.</p>
+        </level2>
+        <level2>
+          <h2>1.3 Lists</h2>
+          <list type="ol">
+            <li>item1<list type="ol"><li>nested item 1</li><li>nested item 2</li></list></li>
+            <li>item 2</li>
+            <li>item 3 &#x2026;</li>
+          </list>
+          <p>Note that I haven&#x2019;t been able to make itemize lists work with showing dots instead of numbers. At the moment all lists are enumerated.
+</p>
+        </level2>
+        <level2>
+          <h2>1.4 Errors</h2>
+          <p>Errors are printed in red. If the output is simply Error: nameoftag , then this probably means that LaTeXML did not recognize your macro. <br/>If it says the stylesheet did not recognize the element then this is an error in the stylesheet and you should contact me (l.kohlhase@jacobs-university.de) so that I can add the appropriate things to the stylesheets.</p>
+        </level2>
+        <level2>
+          <h2>1.5 Tables</h2>
+          <!--cannot deal with element tabular here yet!-->
+          <p>Everything should work here, but sometimes there is trouble with nested tables.</p>
+        </level2>
+      </level1>
+      <level1>
+        <h1>2 mathematics</h1>
+        <p>All kinds of mathematics is able to be displayed. <br/>Inline math works, <m:math alttext="a^{2}+b^{2}=c^{2}" display="inline"><m:mrow><m:mrow><m:msup><m:mi>a</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mi>b</m:mi><m:mn>2</m:mn></m:msup></m:mrow><m:mo>=</m:mo><m:msup><m:mi>c</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:math>, but as in TeX be careful with the bigger ones, they might look weird <m:math alttext="\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e" display="inline"><m:mrow><m:mrow><m:munderover><m:mo largeop="true" movablelimits="false" symmetric="true">&#x2211;</m:mo><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow><m:mi mathvariant="normal">&#x221E;</m:mi></m:munderover><m:mfrac><m:msup><m:mi>x</m:mi><m:mi>k</m:mi></m:msup><m:mrow><m:mi>k</m:mi><m:mi mathvariant="normal">!</m:mi></m:mrow></m:mfrac></m:mrow><m:mo>=</m:mo><m:mi>e</m:mi></m:mrow></m:math><br/>Note that the limits of the sum are not at the correct places, even though I used \limits . <br/>Display math:</p>
+        <m:math alttext="\sum\limits_{k=0}^{\infty}\frac{x^{k}}{k!}=e" display="block">
+          <m:mrow>
+            <m:mrow>
+              <m:munderover>
+                <m:mo largeop="true" movablelimits="false" symmetric="true">&#x2211;</m:mo>
+                <m:mrow>
+                  <m:mi>k</m:mi>
+                  <m:mo>=</m:mo>
+                  <m:mn>0</m:mn>
+                </m:mrow>
+                <m:mi mathvariant="normal">&#x221E;</m:mi>
+              </m:munderover>
+              <m:mfrac>
+                <m:msup>
+                  <m:mi>x</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msup>
+                <m:mrow>
+                  <m:mi>k</m:mi>
+                  <m:mi mathvariant="normal">!</m:mi>
+                </m:mrow>
+              </m:mfrac>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mi>e</m:mi>
+          </m:mrow>
+        </m:math>
+        <p>And everything looks proper again. However there are still some slight differences that are inherent to the different ways of representing math. <br/>Equations look like this</p>
+        <m:math alttext="a^{2}+b^{2}=c^{2}" display="block">
+          <m:mrow>
+            <m:mrow>
+              <m:msup>
+                <m:mi>a</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:msup>
+                <m:mi>b</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:msup>
+              <m:mi>c</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+          </m:mrow>
+        </m:math>
+        <p>The align environment looks like this:
+</p>
+        <m:math alttext="\displaystyle a^{2}+b^{2}=c^{2}" display="inline">
+          <m:mrow>
+            <m:mrow>
+              <m:msup>
+                <m:mi>a</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:msup>
+                <m:mi>b</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:msup>
+              <m:mi>c</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+          </m:mrow>
+        </m:math>
+        <m:math alttext="\displaystyle=\frac{E}{m}" display="inline">
+          <m:mrow>
+            <m:mi/>
+            <m:mo>=</m:mo>
+            <m:mstyle displaystyle="true">
+              <m:mfrac>
+                <m:mi>E</m:mi>
+                <m:mi>m</m:mi>
+              </m:mfrac>
+            </m:mstyle>
+          </m:mrow>
+        </m:math>
+        <m:math alttext="\displaystyle=26" display="inline">
+          <m:mrow>
+            <m:mi/>
+            <m:mo>=</m:mo>
+            <m:mn>26</m:mn>
+          </m:mrow>
+        </m:math>
+        <m:math alttext="\displaystyle=123" display="inline">
+          <m:mrow>
+            <m:mi/>
+            <m:mo>=</m:mo>
+            <m:mn>123</m:mn>
+          </m:mrow>
+        </m:math>
+        <p>Evidently this does not work well. This is an issue with the transformation of MathMl to OMML (word math format) that I am not in a position to fix.</p>
+      </level1>
+      <level1>
+        <h1>3 pictures</h1>
+        <!--cannot deal with element graphics here yet!-->
+        <p>Including graphics works as well. Note that the only supported formats at the moment are jpeg, png and eps. Graphics need to be kept in the same directory as the .tex file or in one of its subdirectories. <br/></p>
+        <p>Figures etc. Work, however captions are not supported at the moment.</p>
+      </level1>
+      <level1>
+        <h1>4 references</h1>
+        <p>[<a href="#bib.bib1">12</a>][<a href="#bib.bib3">1</a>][<a href="#bib.bib4">2</a>, <a href="#bib.bib6">4</a>][<a href="#bib.bib5">3</a>][<a href="#bib.bib7">5</a>][<a href="#bib.bib9">7</a>][<a href="#bib.bib11">9</a>][<a href="#bib.bib8">6</a>][<a href="#bib.bib10">8</a>][<a href="#bib.bib12">10</a>][<a href="#bib.bib13">11</a>]
+Note that when first opening these references and using &#x2013;profile=word, they are not formatted yet and only appear as numbers. To change the citation style, go to the references tab and then change the style in the style selector. Standard LaTeX References have the style IEEE 2006. <br/>Note that the bibliography is not added by default if you used &#x2013;profile=word . In this case you again go to the references tab, click on Bibliography and then on Works cited to insert it yourself.</p>
+      </level1>
+      <level1>
+        <h1>References</h1>
+        <p>A. of book2 and A. of book2 (year of book2-month of book2)</p>
+        <p>Title of book2.</p>
+        <p>edition of book2 edition, series of book2, Vol. volume of book2,  publisher of book2, address of book2.</p>
+        <p>Note: note of book2</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of booklet1 (year of booklet1-month of booklet1)</p>
+        <p>Title of booklet1.</p>
+        <p>address of booklet1.</p>
+        <p>Note: howpublished of booklet1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of inbook1 (year of inbook1-month of inbook1)</p>
+        <p>Title of inbook1.</p>
+        <p>type of inbook1</p>
+        <p>series of inbook1, Vol. volume of inbook1,  pp.&#xA0;pages of inbook1.</p>
+        <p>Note: note of inbook1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of incollection1 (year of incollection1-month of incollection1)</p>
+        <p>Title of incolleciton1.</p>
+        <p>type of incollection1 in editor of incollection1 (Ed.), booktitle of incollection1,</p>
+        <p>series of incollection1,  pp.&#xA0;pages of incollection1.</p>
+        <p>Note: note of incollection1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of inproceedings1 (year of inproceedings1-month of inproceedings1)</p>
+        <p>Title of inproceedings1.</p>
+        <p>series of inproceedings1, Vol. volume of inproceedings1, address of inproceedings1,  pp.&#xA0;pages of inproceedings1.</p>
+        <p>Note: note of inproceedings1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of manual1 (year of manual1-month of manual1)</p>
+        <p>Title of manual1.</p>
+        <p>edition of manual1 edition,  organization of manual1, address of manual1.</p>
+        <p>Note: note of manual1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of mastersthesis1 (year of mastersthesis1-month of masterstheiss1)</p>
+        <p>Title of mastersthesis1.</p>
+        <p>type of mastersthesis1, school of mastersthesis1, address of mastersthesis1.</p>
+        <p>Note: note of mastersthesis1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of misc1 (year of misc1-month of misc1)</p>
+        <p>Title of misc1.</p>
+        <p>Note: howpublished of misc1note of misc1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of phdthesis1 (year of phdthesis1-month of phdthesis1)</p>
+        <p>Title of phdthesis1.</p>
+        <p>Ph.D. Thesis, schookl of phdthesis1.</p>
+        <p>Note: note of phdthesis1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>editor of proceedings1 (Ed.) (year of proceedings1-month of proceedings1)</p>
+        <p>Title of proceedings1.</p>
+        <p>series of proceedings1, Vol. volume of proceedings1,  publisher of proceedings1,  organization of proceedings1, address of proceedings1.</p>
+        <p>Note: note of proceedings1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>author of unpublished1 (year of unpublished1-month of unpublished 1)</p>
+        <p>Title of unpulished1.</p>
+        <p>Note: note of unpublished1</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+        <p>A. of book1 (1993)</p>
+        <p>Title of book1.</p>
+        <p>Publisher of book1, address of publisher of book1.</p>
+        <p>Cited by: <a href="#S4.p1">4</a>.</p>
+      </level1>
+    </bodymatter>
+  </book>
+</dtbook>

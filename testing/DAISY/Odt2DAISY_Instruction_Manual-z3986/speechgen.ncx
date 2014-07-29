@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ncx
+  PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en-US">
+	  <head>
+		    <meta content="7b8747e7-0dd5-4e2b-9944-b94cdfad743d" name="dtb:uid"/>
+		    <meta content="3" name="dtb:depth"/>
+		
+		    <meta content="TPB Narrator" name="dtb:generator"/>
+		    <meta content="18" name="dtb:totalPageCount"/>
+		    <meta content="18" name="dtb:maxPageNumber"/>
+	     <smilCustomTest bookStruct="PAGE_NUMBER" defaultState="false" id="pagenum" override="visible"/>
+   </head>
+  
+	  <docTitle>
+	     <text>odt2daisy Instruction Manual</text>
+      <audio clipBegin="0:00:00" clipEnd="0:00:03.262" src="speechgen0001.mp3"/>
+   </docTitle>
+  
+	  <docAuthor>
+	     <text>Vincent Spiewak</text>
+      <audio clipBegin="0:00:03.262" clipEnd="0:00:05.972" src="speechgen0001.mp3"/>
+   </docAuthor>
+	
+	  <navMap id="navMap">
+      <navPoint class="h1" id="ncx-2" playOrder="2">
+         <navLabel>
+            <text>Title Page</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:03.937" src="speechgen0002.mp3"/>
+         </navLabel>
+         <content src="speechgen0002.smil#tcp4"/>
+         <navPoint class="h2" id="ncx-4" playOrder="4">
+            <navLabel>
+               <text>Table of Contents</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.252" src="speechgen0003.mp3"/>
+            </navLabel>
+            <content src="speechgen0003.smil#tcp9"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-6" playOrder="6">
+         <navLabel>
+            <text>Introduction</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:03.818" src="speechgen0004.mp3"/>
+         </navLabel>
+         <content src="speechgen0004.smil#tcp105"/>
+         <navPoint class="h2" id="ncx-7" playOrder="7">
+            <navLabel>
+               <text>Installation</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.889" src="speechgen0005.mp3"/>
+            </navLabel>
+            <content src="speechgen0005.smil#tcp107"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-10" playOrder="10">
+         <navLabel>
+            <text>Export as DAISY XML </text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.752" src="speechgen0006.mp3"/>
+         </navLabel>
+         <content src="speechgen0006.smil#tcp127"/>
+      </navPoint>
+      <navPoint class="h1" id="ncx-11" playOrder="11">
+         <navLabel>
+            <text>Export as Full DAISY</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.543" src="speechgen0007.mp3"/>
+         </navLabel>
+         <content src="speechgen0007.smil#tcp130"/>
+         <navPoint class="h2" id="ncx-12" playOrder="12">
+            <navLabel>
+               <text>Microsoft Windows</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.337" src="speechgen0008.mp3"/>
+            </navLabel>
+            <content src="speechgen0008.smil#tcp135"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-13" playOrder="13">
+            <navLabel>
+               <text>Linux, Solaris and Open Solaris</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:05.414" src="speechgen0009.mp3"/>
+            </navLabel>
+            <content src="speechgen0009.smil#tcp148"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-15" playOrder="15">
+            <navLabel>
+               <text>Mac OS X (PowerPC and Intel) </text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:05.706" src="speechgen0010.mp3"/>
+            </navLabel>
+            <content src="speechgen0010.smil#tcp161"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-17" playOrder="17">
+         <navLabel>
+            <text>Export Dialog</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.140" src="speechgen0011.mp3"/>
+         </navLabel>
+         <content src="speechgen0011.smil#tcp178"/>
+         <navPoint class="h2" id="ncx-18" playOrder="18">
+            <navLabel>
+               <text>UID</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.941" src="speechgen0012.mp3"/>
+            </navLabel>
+            <content src="speechgen0012.smil#tcp181"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-19" playOrder="19">
+            <navLabel>
+               <text>Title</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.546" src="speechgen0013.mp3"/>
+            </navLabel>
+            <content src="speechgen0013.smil#tcp184"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-20" playOrder="20">
+            <navLabel>
+               <text>Creator</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.632" src="speechgen0014.mp3"/>
+            </navLabel>
+            <content src="speechgen0014.smil#tcp188"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-21" playOrder="21">
+            <navLabel>
+               <text>Publisher</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.711" src="speechgen0015.mp3"/>
+            </navLabel>
+            <content src="speechgen0015.smil#tcp192"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-23" playOrder="23">
+            <navLabel>
+               <text>Producer</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.694" src="speechgen0016.mp3"/>
+            </navLabel>
+            <content src="speechgen0016.smil#tcp196"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-24" playOrder="24">
+            <navLabel>
+               <text>Language</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.747" src="speechgen0017.mp3"/>
+            </navLabel>
+            <content src="speechgen0017.smil#tcp199"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-25" playOrder="25">
+            <navLabel>
+               <text>Page Numbers</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04" src="speechgen0018.mp3"/>
+            </navLabel>
+            <content src="speechgen0018.smil#tcp203"/>
+            <navPoint class="h3" id="ncx-26" playOrder="26">
+               <navLabel>
+                  <text>Basic Numbering</text>
+                  <audio clipBegin="0:00:00" clipEnd="0:00:04.124" src="speechgen0019.mp3"/>
+               </navLabel>
+               <content src="speechgen0019.smil#tcp204"/>
+            </navPoint>
+            <navPoint class="h3" id="ncx-27" playOrder="27">
+               <navLabel>
+                  <text>Advanced Numbering</text>
+                  <audio clipBegin="0:00:00" clipEnd="0:00:04.181" src="speechgen0020.mp3"/>
+               </navLabel>
+               <content src="speechgen0020.smil#tcp212"/>
+            </navPoint>
+         </navPoint>
+         <navPoint class="h2" id="ncx-29" playOrder="29">
+            <navLabel>
+               <text>Alternate Level Markup</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.437" src="speechgen0021.mp3"/>
+            </navLabel>
+            <content src="speechgen0021.smil#tcp220"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-30" playOrder="30">
+            <navLabel>
+               <text>Including CSS</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.293" src="speechgen0022.mp3"/>
+            </navLabel>
+            <content src="speechgen0022.smil#tcp223"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-31" playOrder="31">
+            <navLabel>
+               <text>Bitrate</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.612" src="speechgen0023.mp3"/>
+            </navLabel>
+            <content src="speechgen0023.smil#tcp226"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-32" playOrder="32">
+            <navLabel>
+               <text>Fix Routines</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.970" src="speechgen0024.mp3"/>
+            </navLabel>
+            <content src="speechgen0024.smil#tcp230"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-33" playOrder="33">
+            <navLabel>
+               <text>Sentence detection</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.179" src="speechgen0025.mp3"/>
+            </navLabel>
+            <content src="speechgen0025.smil#tcp234"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-35" playOrder="35">
+         <navLabel>
+            <text>Conversion Errors</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.125" src="speechgen0026.mp3"/>
+         </navLabel>
+         <content src="speechgen0026.smil#tcp237"/>
+      </navPoint>
+      <navPoint class="h1" id="ncx-37" playOrder="37">
+         <navLabel>
+            <text>Accessibility Rules </text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.271" src="speechgen0027.mp3"/>
+         </navLabel>
+         <content src="speechgen0027.smil#tcp246"/>
+      </navPoint>
+      <navPoint class="h1" id="ncx-39" playOrder="39">
+         <navLabel>
+            <text>Major Structural Elements</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.641" src="speechgen0028.mp3"/>
+         </navLabel>
+         <content src="speechgen0028.smil#tcp272"/>
+         <navPoint class="h2" id="ncx-40" playOrder="40">
+            <navLabel>
+               <text>Metadata</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.799" src="speechgen0029.mp3"/>
+            </navLabel>
+            <content src="speechgen0029.smil#tcp275"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-41" playOrder="41">
+            <navLabel>
+               <text>Front, Body, Rear Matter</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:05.403" src="speechgen0030.mp3"/>
+            </navLabel>
+            <content src="speechgen0030.smil#tcp277"/>
+            <navPoint class="h3" id="ncx-42" playOrder="42">
+               <navLabel>
+                  <text>Basic Front Matter</text>
+                  <audio clipBegin="0:00:00" clipEnd="0:00:04.333" src="speechgen0031.mp3"/>
+               </navLabel>
+               <content src="speechgen0031.smil#tcp278"/>
+            </navPoint>
+            <navPoint class="h3" id="ncx-43" playOrder="43">
+               <navLabel>
+                  <text>Advanced Front Matter</text>
+                  <audio clipBegin="0:00:00" clipEnd="0:00:04.405" src="speechgen0032.mp3"/>
+               </navLabel>
+               <content src="speechgen0032.smil#tcp280"/>
+            </navPoint>
+            <navPoint class="h3" id="ncx-44" playOrder="44">
+               <navLabel>
+                  <text>Advanced Rear Matter</text>
+                  <audio clipBegin="0:00:00" clipEnd="0:00:04.326" src="speechgen0033.mp3"/>
+               </navLabel>
+               <content src="speechgen0033.smil#tcp283"/>
+            </navPoint>
+         </navPoint>
+         <navPoint class="h2" id="ncx-45" playOrder="45">
+            <navLabel>
+               <text>Levels </text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.651" src="speechgen0034.mp3"/>
+            </navLabel>
+            <content src="speechgen0034.smil#tcp286"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-46" playOrder="46">
+            <navLabel>
+               <text>Part, Chapter, Section, Subsection Levels</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:06.791" src="speechgen0035.mp3"/>
+            </navLabel>
+            <content src="speechgen0035.smil#tcp288"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-48" playOrder="48">
+         <navLabel>
+            <text>Inline Elements</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.064" src="speechgen0036.mp3"/>
+         </navLabel>
+         <content src="speechgen0036.smil#tcp298"/>
+         <navPoint class="h2" id="ncx-49" playOrder="49">
+            <navLabel>
+               <text>Native Inline Elements</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.454" src="speechgen0037.mp3"/>
+            </navLabel>
+            <content src="speechgen0037.smil#tcp299"/>
+            <navPoint class="h3" id="ncx-50" playOrder="50">
+               <navLabel>
+                  <text>Anchor</text>
+                  <audio clipBegin="0:00:00" clipEnd="0:00:03.553" src="speechgen0038.mp3"/>
+               </navLabel>
+               <content src="speechgen0038.smil#tcp301"/>
+            </navPoint>
+         </navPoint>
+         <navPoint class="h2" id="ncx-51" playOrder="51">
+            <navLabel>
+               <text>Custom Styles</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.094" src="speechgen0039.mp3"/>
+            </navLabel>
+            <content src="speechgen0039.smil#tcp303"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-53" playOrder="53">
+         <navLabel>
+            <text>Block Elements</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:03.969" src="speechgen0040.mp3"/>
+         </navLabel>
+         <content src="speechgen0040.smil#tcp318"/>
+         <navPoint class="h2" id="ncx-54" playOrder="54">
+            <navLabel>
+               <text>Lists</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.557" src="speechgen0041.mp3"/>
+            </navLabel>
+            <content src="speechgen0041.smil#tcp319"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-55" playOrder="55">
+            <navLabel>
+               <text>Tables</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.633" src="speechgen0042.mp3"/>
+            </navLabel>
+            <content src="speechgen0042.smil#tcp326"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-56" playOrder="56">
+            <navLabel>
+               <text>Images</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.629" src="speechgen0043.mp3"/>
+            </navLabel>
+            <content src="speechgen0043.smil#tcp337"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-57" playOrder="57">
+            <navLabel>
+               <text>MathML</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.040" src="speechgen0044.mp3"/>
+            </navLabel>
+            <content src="speechgen0044.smil#tcp342"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-58" playOrder="58">
+            <navLabel>
+               <text>Notes, Footnotes &amp; Endnotes</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:05.203" src="speechgen0045.mp3"/>
+            </navLabel>
+            <content src="speechgen0045.smil#tcp344"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-60" playOrder="60">
+            <navLabel>
+               <text>Sections</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.718" src="speechgen0046.mp3"/>
+            </navLabel>
+            <content src="speechgen0046.smil#tcp347"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-61" playOrder="61">
+            <navLabel>
+               <text>Frames</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.676" src="speechgen0047.mp3"/>
+            </navLabel>
+            <content src="speechgen0047.smil#tcp356"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-62" playOrder="62">
+            <navLabel>
+               <text>Custom Block Elements</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.333" src="speechgen0048.mp3"/>
+            </navLabel>
+            <content src="speechgen0048.smil#tcp361"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-64" playOrder="64">
+         <navLabel>
+            <text>Localization</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:03.993" src="speechgen0049.mp3"/>
+         </navLabel>
+         <content src="speechgen0049.smil#tcp388"/>
+      </navPoint>
+      <navPoint class="h1" id="ncx-66" playOrder="66">
+         <navLabel>
+            <text>Frequently Asked Questions</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:04.736" src="speechgen0050.mp3"/>
+         </navLabel>
+         <content src="speechgen0050.smil#tcp392"/>
+         <navPoint class="h2" id="ncx-67" playOrder="67">
+            <navLabel>
+               <text>How to install odt2daisy ?</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.055" src="speechgen0051.mp3"/>
+            </navLabel>
+            <content src="speechgen0051.smil#tcp393"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-68" playOrder="68">
+            <navLabel>
+               <text>Why odt2daisy works only with OpenOffice.org 3.0 (or grather) ?</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:07.854" src="speechgen0052.mp3"/>
+            </navLabel>
+            <content src="speechgen0052.smil#tcp399"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-69" playOrder="69">
+            <navLabel>
+               <text>Why odt2daisy doesn't detect the right document language ?</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:04.486" src="speechgen0053.mp3"/>
+            </navLabel>
+            <content src="speechgen0053.smil#tcp401"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-70" playOrder="70">
+            <navLabel>
+               <text>Why my DAISY book have not pagenum tag ?</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:03.696" src="speechgen0054.mp3"/>
+            </navLabel>
+            <content src="speechgen0054.smil#tcp403"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-71" playOrder="71">
+            <navLabel>
+               <text>Why the error "Could not create Java implementation loader" occurs during installation ?</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:06.268" src="speechgen0055.mp3"/>
+            </navLabel>
+            <content src="speechgen0055.smil#tcp406"/>
+         </navPoint>
+         <navPoint class="h2" id="ncx-72" playOrder="72">
+            <navLabel>
+               <text>Why the error "(com.sun.star.registry.CannotRegisterImplementationException) { { Message = "", Context = com.sun.star.unoXInterface) @0 } }</text>
+               <audio clipBegin="0:00:00" clipEnd="0:00:14.342" src="speechgen0056.mp3"/>
+            </navLabel>
+            <content src="speechgen0056.smil#tcp412"/>
+         </navPoint>
+      </navPoint>
+      <navPoint class="h1" id="ncx-74" playOrder="74">
+         <navLabel>
+            <text>More Information</text>
+            <audio clipBegin="0:00:00" clipEnd="0:00:02.160" src="speechgen0057.mp3"/>
+         </navLabel>
+         <content src="speechgen0057.smil#tcp417"/>
+      </navPoint>
+   </navMap>
+	
+	  <pageList id="page">
+      <pageTarget class="pagenum" id="ncx-1" playOrder="1" type="normal" value="1">
+         <navLabel>
+            <text>1</text>
+            <audio clipBegin="0:00:05.972" clipEnd="0:00:06.909" src="speechgen0001.mp3"/>
+         </navLabel>
+         <content src="speechgen0001.smil#tcp3"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-3" playOrder="3" type="normal" value="2">
+         <navLabel>
+            <text>2</text>
+            <audio clipBegin="0:00:09.825" clipEnd="0:00:10.809" src="speechgen0002.mp3"/>
+         </navLabel>
+         <content src="speechgen0002.smil#tcp8"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-5" playOrder="5" type="normal" value="3">
+         <navLabel>
+            <text>3</text>
+            <audio clipBegin="0:01:48.699" clipEnd="0:01:49.784" src="speechgen0003.mp3"/>
+         </navLabel>
+         <content src="speechgen0003.smil#tcp104"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-8" playOrder="8" type="normal" value="4">
+         <navLabel>
+            <text>4</text>
+            <audio clipBegin="0:00:57.348" clipEnd="0:00:58.411" src="speechgen0005.mp3"/>
+         </navLabel>
+         <content src="speechgen0005.smil#tcp121"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-9" playOrder="9" type="normal" value="5">
+         <navLabel>
+            <text>5</text>
+            <audio clipBegin="0:01:31.511" clipEnd="0:01:32.685" src="speechgen0005.mp3"/>
+         </navLabel>
+         <content src="speechgen0005.smil#tcp126"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-14" playOrder="14" type="normal" value="6">
+         <navLabel>
+            <text>6</text>
+            <audio clipBegin="0:01:10.743" clipEnd="0:01:11.833" src="speechgen0009.mp3"/>
+         </navLabel>
+         <content src="speechgen0009.smil#tcp160"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-16" playOrder="16" type="normal" value="7">
+         <navLabel>
+            <text>7</text>
+            <audio clipBegin="0:01:20.759" clipEnd="0:01:21.877" src="speechgen0010.mp3"/>
+         </navLabel>
+         <content src="speechgen0010.smil#tcp177"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-22" playOrder="22" type="normal" value="8">
+         <navLabel>
+            <text>8</text>
+            <audio clipBegin="0:00:11.867" clipEnd="0:00:12.812" src="speechgen0015.mp3"/>
+         </navLabel>
+         <content src="speechgen0015.smil#tcp195"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-28" playOrder="28" type="normal" value="9">
+         <navLabel>
+            <text>9</text>
+            <audio clipBegin="0:00:49.168" clipEnd="0:00:50.295" src="speechgen0020.mp3"/>
+         </navLabel>
+         <content src="speechgen0020.smil#tcp219"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-34" playOrder="34" type="normal" value="10">
+         <navLabel>
+            <text>10</text>
+            <audio clipBegin="0:00:10.667" clipEnd="0:00:11.685" src="speechgen0025.mp3"/>
+         </navLabel>
+         <content src="speechgen0025.smil#tcp236"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-36" playOrder="36" type="normal" value="11">
+         <navLabel>
+            <text>11</text>
+            <audio clipBegin="0:00:56.623" clipEnd="0:00:57.740" src="speechgen0026.mp3"/>
+         </navLabel>
+         <content src="speechgen0026.smil#tcp245"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-38" playOrder="38" type="normal" value="12">
+         <navLabel>
+            <text>12</text>
+            <audio clipBegin="0:02:04.768" clipEnd="0:02:05.936" src="speechgen0027.mp3"/>
+         </navLabel>
+         <content src="speechgen0027.smil#tcp271"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-47" playOrder="47" type="normal" value="13">
+         <navLabel>
+            <text>13</text>
+            <audio clipBegin="0:00:53.498" clipEnd="0:00:54.767" src="speechgen0035.mp3"/>
+         </navLabel>
+         <content src="speechgen0035.smil#tcp296"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-52" playOrder="52" type="normal" value="14">
+         <navLabel>
+            <text>14</text>
+            <audio clipBegin="0:00:35.915" clipEnd="0:00:37.208" src="speechgen0039.mp3"/>
+         </navLabel>
+         <content src="speechgen0039.smil#tcp317"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-59" playOrder="59" type="normal" value="15">
+         <navLabel>
+            <text>15</text>
+            <audio clipBegin="0:00:10.924" clipEnd="0:00:12.252" src="speechgen0045.mp3"/>
+         </navLabel>
+         <content src="speechgen0045.smil#tcp346"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-63" playOrder="63" type="normal" value="16">
+         <navLabel>
+            <text>16</text>
+            <audio clipBegin="0:00:38.872" clipEnd="0:00:40.167" src="speechgen0048.mp3"/>
+         </navLabel>
+         <content src="speechgen0048.smil#tcp380"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-65" playOrder="65" type="normal" value="17">
+         <navLabel>
+            <text>17</text>
+            <audio clipBegin="0:00:18.307" clipEnd="0:00:19.691" src="speechgen0049.mp3"/>
+         </navLabel>
+         <content src="speechgen0049.smil#tcp391"/>
+      </pageTarget>
+      <pageTarget class="pagenum" id="ncx-73" playOrder="73" type="normal" value="18">
+         <navLabel>
+            <text>18</text>
+            <audio clipBegin="0:00:27.717" clipEnd="0:00:28.852" src="speechgen0056.mp3"/>
+         </navLabel>
+         <content src="speechgen0056.smil#tcp416"/>
+      </pageTarget>
+   </pageList>
+  
+</ncx>

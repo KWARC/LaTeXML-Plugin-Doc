@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE smil
+  PUBLIC "-//NISO//DTD dtbsmil 2005-2//EN" "http://www.daisy.org/z3986/2005/dtbsmil-2005-2.dtd">
+<smil xmlns="http://www.w3.org/2001/SMIL20/">
+	  <head>
+		    <meta content="7b8747e7-0dd5-4e2b-9944-b94cdfad743d" name="dtb:uid"/>
+		    <meta content="TPB Narrator" name="dtb:generator"/>
+		    <meta content="0:22:57.675" name="dtb:totalElapsedTime"/>
+		
+	  </head>
+	  <body>
+		    <seq dur="0:00:13.818" fill="remove" id="mseq">
+		       <par id="tcp356">
+            <text id="text356" src="Odt2DAISY_Instruction_Manual.xml#dtb364"/>
+            <audio clipBegin="0:00:00" clipEnd="0:00:03.676" src="speechgen0047.mp3"/>
+         </par>
+         <par id="tcp357">
+            <text id="text357" src="Odt2DAISY_Instruction_Manual.xml#dtb365"/>
+            <audio clipBegin="0:00:03.676" clipEnd="0:00:07.782" src="speechgen0047.mp3"/>
+         </par>
+         <par id="tcp358">
+            <text id="text358" src="Odt2DAISY_Instruction_Manual.xml#dtb366"/>
+            <audio clipBegin="0:00:07.782" clipEnd="0:00:08.645" src="speechgen0047.mp3"/>
+         </par>
+         <seq class="list" end="DTBuserEscape;tcp360.end" fill="remove" id="tcs24">
+            <par id="tcp359">
+               <text id="text359" src="Odt2DAISY_Instruction_Manual.xml#dtb368"/>
+               <audio clipBegin="0:00:08.645" clipEnd="0:00:11.169" src="speechgen0047.mp3"/>
+            </par>
+            <par id="tcp360">
+               <text id="text360" src="Odt2DAISY_Instruction_Manual.xml#dtb369"/>
+               <audio clipBegin="0:00:11.169" clipEnd="0:00:13.818" src="speechgen0047.mp3"/>
+            </par>
+         </seq>
+      </seq>
+	  </body>
+</smil>
