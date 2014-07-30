@@ -32,8 +32,8 @@
   </head>
   <book>
     <frontmatter>
-      <doctitle id="idp4684880">Demonstration of capabilities of tex2word and tex2docx</doctitle>
-      <docauthor id="idp6875680">Lukas Kohlhase</docauthor>
+      <doctitle id="idp6448176">Demonstration of capabilities of tex2word and tex2docx</doctitle>
+      <docauthor id="idp4344592">Lukas Kohlhase</docauthor>
     </frontmatter>
     <bodymatter>
       <level1>
@@ -76,8 +76,8 @@
         <h1>1 General Text formatting</h1>
         <level2>
           <h2>1.1 Playing around with bold and italic</h2>
-          <p>Normally formatted text looks like this. <noteref idref="#idp6851904">1</noteref>Common text formatting is supported, just as you would expect. Nested bold and italic works as well<!-- Text formatting error here Nested bold and italic works as well--><!-- Text formatting error here Common text formatting is supported, just as you would expect. Nested bold and italic works as well-->. Note that the width of a line is larger in Word than in the default LaTeX uses. <br/></p>
-          <note id="idp6851904">
+          <p>Normally formatted text looks like this. <noteref idref="#idp6510528">1</noteref>Common text formatting is supported, just as you would expect. Nested bold and italic works as well<!-- Text formatting error here Nested bold and italic works as well--><!-- Text formatting error here Common text formatting is supported, just as you would expect. Nested bold and italic works as well-->. Note that the width of a line is larger in Word than in the default LaTeX uses. <br/></p>
+          <note id="idp6510528">
             <p><sup>1</sup>Footnotes are also possible. Markup in footnotes works as well<!-- Text formatting error here Markup in footnotes works as well--></p>
           </note>
         </level2>
@@ -101,7 +101,25 @@
         </level2>
         <level2>
           <h2>1.5 Tables</h2>
-          <!--cannot deal with element tabular here yet!-->
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+              </tr>
+            </tbody>
+          </table>
           <p>Everything should work here, but sometimes there is trouble with nested tables.</p>
         </level2>
       </level1>
@@ -208,7 +226,7 @@
       </level1>
       <level1>
         <h1>3 pictures</h1>
-        <!--cannot deal with element graphics here yet!-->
+        <img src="image1.jpg" alt="Image inserted into the document"/>
         <p>Including graphics works as well. Note that the only supported formats at the moment are jpeg, png and eps. Graphics need to be kept in the same directory as the .tex file or in one of its subdirectories. <br/></p>
         <p>Figures etc. Work, however captions are not supported at the moment.</p>
       </level1>

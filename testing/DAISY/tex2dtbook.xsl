@@ -91,6 +91,12 @@
     
     <xsl:template match="ltx:personname">
     	<xsl:apply-templates/>
+    	<br/>
+    </xsl:template>
+    
+    <xsl:template match="ltx:contact">
+    	<xsl:apply-templates/>
+    	<br/>
     </xsl:template>
     
     <xsl:template match="ltx:creator[@role='author']">
@@ -298,9 +304,66 @@
      	<xsl:apply-templates/>
      </xsl:template>
      
+     <xsl:template match="ltx:graphics">
+     	<img src="{@imagesrc}" alt="Image inserted into the document"/>
+     </xsl:template>
+     
      <xsl:template match="m:math">
      <xsl:copy>
      	<xsl:apply-templates select="@*|node()"/>
      </xsl:copy>
      </xsl:template>
+     
+     <xsl:template match="ltx:tabular">
+     	<table>
+     		<xsl:apply-templates select="ltx:caption"/>
+     		<xsl:apply-templates select="ltx:thead"/>
+     		<xsl:apply-templates select="ltx:tfooter"/>
+     		<xsl:apply-templates select="ltx:tbody"/>
+     		<xsl:apply-templates select="ltx:tr"/>
+     	</table>
+     </xsl:template>
+     
+     <xsl:template match="ltx:tr">
+     	<tr>
+     		<xsl:apply-templates/>
+     	</tr>
+     </xsl:template>
+     
+     <xsl:template match="ltx:td">
+     	<td>
+		<xsl:apply-templates/>
+	</td>
+     </xsl:template>
+     
+     <xsl:template match="ltx:tbody">
+     	<tbody>
+     		<xsl:apply-templates/>
+     	</tbody>
+     </xsl:template>
+     
+     <xsl:template match="ltx:emph">
+     	<em>
+     		<xsl:apply-templates/>
+     	</em>
+     </xsl:template>
+     
+     <xsl:template match="ltx:theorem">
+     	<xsl:apply-templates/>
+     </xsl:template>
+     
+     <xsl:template match="ltx:proof">
+     	<xsl:apply-templates/>
+     </xsl:template>
+     
+     <xsl:template match="ltx:toctitle"/>
+     
+     <xsl:template match="ltx:abstract">
+     	<xsl:apply-templates/>
+     </xsl:template>
+     
+     <xsl:template match="ltx:classification"/>
+     
+     
+     
     </xsl:stylesheet>

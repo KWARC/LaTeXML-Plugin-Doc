@@ -368,7 +368,7 @@
   <section refnum="3" xml:id="S3" fragid="S3">
     <title><tag close=" ">3</tag>pictures</title>
     <para xml:id="S3.p1" fragid="S3.p1">
-      <graphics graphic="image1" xml:id="S3.p1.g1" fragid="S3.p1.g1"/>
+      <graphics candidates="image1.jpg" graphic="image1" xml:id="S3.p1.g1" fragid="S3.p1.g1" imagesrc="image1.jpg" imagewidth="480" imageheight="640"/>
       <p>Including graphics works as well. Note that the only supported formats at the moment are jpeg, png and eps. Graphics need to be kept in the same directory as the .tex file or in one of its subdirectories. <break/></p>
     </para>
     <para xml:id="S3.p2" fragid="S3.p2">
