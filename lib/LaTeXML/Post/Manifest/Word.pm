@@ -73,7 +73,6 @@ sub initialize {
     # We need to create the document.xml.rels by applying a stylesheet to document1.xml:
   my $rels_document = $rels_stylesheet->process($doc);
   $rels_document->{destination} = $document_rels;
-  # TODO: Think about whether just using LibXML won't be simpler
   my $writer = LaTeXML::Post::Writer->new(format=>'xml',omit_doctype=>0);
   $writer->process($rels_document,$rels_document->getDocumentElement);
   $writer->process($final_document,$final_document->getDocumentElement); 
@@ -90,7 +89,6 @@ File::Path->make_path(catdir($directory,'word','media',$relative_filename));
 pathname_copy($File::Find::name,catfile($directory,'word','media',$relative_filename,$_)); 
 return;
 },cwd());
-  # TODO Try to make this work using pathname_findall 
   my $bibnode = $xml->findnode('//ltx:bibliography');
   my $bibs=$bibnode->getAttribute('files');
   my $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
