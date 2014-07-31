@@ -1,5 +1,5 @@
 # /=====================================================================\ #
-# | LaTeXML::Post::Manifest::Docx                                       | #
+# | LaTeXML::Post::Manifest::Word                                       | #
 # | Manifest creation for Docx                                          | #
 # |=====================================================================| #
 # | Part of LaTeXML:                                                    | #
