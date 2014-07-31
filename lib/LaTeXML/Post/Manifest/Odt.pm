@@ -1,6 +1,6 @@
 # /=====================================================================\ #
-# | LaTeXML::Post::Manifest::Docx                                       | #
-# | Manifest creation for Docx                                          | #
+# | LaTeXML::Post::Manifest::Odt                                        | #
+# | Manifest creation for Odt                                           | #
 # |=====================================================================| #
 # | Part of LaTeXML:                                                    | #
 # |  Public domain software, produced as part of work done by the       | #
