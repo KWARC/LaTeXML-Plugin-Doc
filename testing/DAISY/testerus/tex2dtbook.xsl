@@ -169,6 +169,7 @@
     </xsl:template>
     
     <xsl:template match="@stretchy[ancestor::m:math]"/>
+    <xsl:template match="@xml:id[ancestor::m:math]"/>
     <xsl:template match="ltx:note[@role='footnote']">
     <noteref idref="{concat('#',generate-id(.))}"><xsl:value-of select="@mark"/></noteref>
     </xsl:template>
@@ -359,6 +360,8 @@
     </level1>
     </xsl:template>
     
+    <xsl:template match="ltx:toccaption"/>
+    
     <xsl:template match="ltx:bibliography/ltx:title">
      <h1>
      	<xsl:apply-templates/>
@@ -444,6 +447,11 @@
      </xsl:copy>
      </xsl:template>
      
+     <xsl:template match="ltx:figure//ltx:p">
+     	<xsl:apply-templates/>
+     </xsl:template>
+     
+     
      <xsl:template match="m:math[@display='block']">
      	<p>
      	     <xsl:copy>
@@ -472,11 +480,44 @@
      
      
      <xsl:template match="ltx:table/ltx:tabular">
+     <xsl:choose>
+     	<xsl:when test="preceding-sibling::ltx:tabular or following-sibling::ltx:tabular">
+     		<xsl:apply-templates select="ltx:caption" mode="asdf"/>
+     		<xsl:apply-templates select="ltx:thead" mode="asdf"/>
+     		<xsl:apply-templates select="ltx:tfooter" mode="asdf"/>
+     		<xsl:apply-templates select="ltx:tbody" mode="asdf" />
+     		<xsl:apply-templates select="ltx:tr"/>
+     	</xsl:when>
+     	<xsl:otherwise>
      		<xsl:apply-templates select="ltx:caption"/>
      		<xsl:apply-templates select="ltx:thead"/>
      		<xsl:apply-templates select="ltx:tfooter"/>
      		<xsl:apply-templates select="ltx:tbody"/>
      		<xsl:apply-templates select="ltx:tr"/>
+     	</xsl:otherwise>
+     </xsl:choose>
+     </xsl:template>
+     
+     <xsl:template match="ltx:thead" mode="asdf">
+     	<xsl:apply-templates/>
+     </xsl:template>
+     
+     <xsl:template match="ltx:tbody" mode="asdf">
+     	<xsl:apply-templates/>
+     </xsl:template>
+     
+          <xsl:template match="ltx:tfooter" mode="asdf">
+     	<xsl:apply-templates/>
+     </xsl:template>
+     
+     <xsl:template match="ltx:tfooter">
+     	<tfooter>
+     		<xsl:apply-templates/>
+     	</tfooter>
+     </xsl:template>
+     
+     <xsl:template match="ltx:table//ltx:caption" mode="asdf">
+     	<xsl:apply-templates/>
      </xsl:template>
      
      <xsl:template match="ltx:tr">
@@ -492,17 +533,45 @@
      </xsl:template>
      
      <xsl:template match="ltx:tbody">
+     	<xsl:if test="not(preceding-sibling::ltx:tbody)">
      	<tbody>
      		<xsl:apply-templates/>
      	</tbody>
+     </xsl:if>
+     <xsl:if test="preceding-sibling::ltx:tbody">
+	<xsl:apply-templates/>
+     </xsl:if>
      </xsl:template>
      
+     
+     <xsl:template match="ltx:thead">
+     <xsl:if test="not(preceding-sibling::ltx:thead)">
+     	<thead>
+     		<xsl:apply-templates/>
+     	</thead>
+     </xsl:if>
+     <xsl:if test="preceding-sibling::ltx:thead">
+	<xsl:apply-templates/>
+     </xsl:if>
+     </xsl:template>
      <xsl:template match="ltx:emph">
      	<em>
      		<xsl:apply-templates/>
      	</em>
      </xsl:template>
      
+     <xsl:template match="ltx:figure">
+     <imggroup>
+     	<xsl:apply-templates select="ltx:caption"/>
+     	<xsl:apply-templates select="*[not(self::ltx:caption)]"/>
+     </imggroup>
+     </xsl:template>
+     
+     <xsl:template match="ltx:figure/ltx:caption">
+     	<caption>
+     		<xsl:apply-templates/>
+     	</caption>
+     </xsl:template>
      <xsl:template match="ltx:theorem">
      	<xsl:apply-templates/>
      </xsl:template>
