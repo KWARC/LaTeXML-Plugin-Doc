@@ -33,7 +33,8 @@ sub new {
 sub initialize {
   my ($self, $xml) = @_;
   my $transform_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'tex2docx.xsl', noresources=>1);
-  my $doc = $transform_stylesheet->process($xml); #Apply tex2docx.xsl to the processed document.
+  my $doc = $transform_stylesheet->process($xml); #Apply tex2word.xsl to the processed document.
+  #I am assuming that tex2docx was applied to *.tex already
   my $directory = $$self{siteDirectory};
   # Copy static files from ODT-Skeleton
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));

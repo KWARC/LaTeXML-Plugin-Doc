@@ -683,10 +683,10 @@
                     <a:blip r:embed="{$foo}"/>
                     <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
                       <xsl:if test="@candidates">
-                    <picturus id="{$foo}" reference="{@candidates}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                    <picturus id="{$foo}" reference="{@graphic}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic)}"/>
                     </xsl:if>
                     <a:stretch>
                       <a:fillRect/>
@@ -733,10 +733,10 @@
                   <a:blip r:embed="{$foo}"/>
                   <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
                     <xsl:if test="@candidates">
-                    <picturus id="{$foo}" reference="{@candidates}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                    <picturus id="{$foo}" reference="{@graphic}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic)}"/>
                     </xsl:if>
                   <a:stretch>
                     <a:fillRect/>
@@ -785,10 +785,10 @@
                     <a:blip r:embed="{$foo}"/>
                     <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
                       <xsl:if test="@candidates">
-                    <picturus id="{$foo}" reference="{@candidates}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                    <picturus id="{$foo}" reference="{@graphic}"/>
+                    <picturus id="{$foo}" reference="{concat('media/',@graphic)}"/>
                     </xsl:if>
                     <a:stretch>
                       <a:fillRect/>
