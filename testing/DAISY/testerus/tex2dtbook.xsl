@@ -137,12 +137,18 @@
     
     <xsl:template match="ltx:p">
     	<p>
+    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     	</p>
     </xsl:template>
     
     <xsl:template match="ltx:section">
     	<level1>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     		<xsl:apply-templates select=".//ltx:note[@role='footnote' and not(ancestor::ltx:subsection)]" mode="print"/>
     	</level1>
@@ -150,6 +156,9 @@
     
     <xsl:template match="ltx:subsubsection">
     	<level3>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     		<xsl:apply-templates select=".//ltx:note[@role='footnote' and ancestor::ltx:subsection and not(ancestor::ltx:subsubsection)]" mode="print"/>
     	</level3>
@@ -176,24 +185,36 @@
     
     <xsl:template match="ltx:TOC">
     <level1>
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     	<xsl:apply-templates/>
     </level1>
     </xsl:template>
     
     <xsl:template match="ltx:tocentry">
     <li>
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     	<xsl:apply-templates/>
     </li>
     </xsl:template>
     
     <xsl:template match="ltx:toclist">
     	<list type="ul">
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
         </list>
     </xsl:template>
     
     <xsl:template match="ltx:ref[@idref]">
     <a href="{concat('#',@idref)}">
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     	<xsl:apply-templates/>
     </a>
     </xsl:template>
@@ -204,6 +225,9 @@
   <xsl:value-of select="//*[@labels=$bar]/@xml:id"/>
   </xsl:variable>
     <a href="{concat('#',$foo)}">
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
 	<xsl:apply-templates/>
     </a>
     <xsl:if test="not($foo)">
@@ -211,13 +235,61 @@
     <xsl:comment> this reference is not working </xsl:comment>
     </xsl:if>
   </xsl:template>
-    
+  
+  <xsl:template match="ltx:ref[not(@labelref) and not(@idref) and @href]">
+  <a href="@href"><xsl:apply-templates/></a>
+  </xsl:template>
+  
+  <xsl:template match="ltx:pagination"/>
     <xsl:template match="ltx:tocentry//ltx:tag">
     	<xsl:value-of select="concat(text(),' ')"/>
     </xsl:template>
     
+    <xsl:template match="ltx:note[@role='pubyear']"/>
+    
+    <xsl:template match="ltx:description">
+    	<list type="ol">
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+    		<xsl:apply-templates/>
+    	</list>
+    </xsl:template>
+    
+    <xsl:template match="ltx:note[@role='pagerange']"/>
+    
     <xsl:template match="ltx:title/ltx:tag">
    	<xsl:value-of select="concat(text(),' ')"/>
+    </xsl:template>
+    
+    <xsl:template match="ltx:appendix">
+    	<level1>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+    		<xsl:apply-templates/>
+    	</level1>
+    </xsl:template>
+    
+    <xsl:template match="ltx:appendix/ltx:title">
+    	<h1>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+    		<xsl:apply-templates/>
+    	</h1>
+    </xsl:template>
+    <xsl:template match="ltx:p//ltx:picture">
+    	Missing picture
+    </xsl:template>
+    
+    <xsl:template match="ltx:picture">
+    	<p>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+    		Missing Picture
+    	</p>
     </xsl:template>
     
         <xsl:template match="ltx:caption/ltx:tag">
@@ -230,6 +302,10 @@
     
     <xsl:template match="ltx:ERROR[not(ancestor::ltx:p) and ancestor::ltx:section] ">
     	<p>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+
     		An Error occured here with element <xsl:apply-templates/>
     	</p>
     </xsl:template>
@@ -237,6 +313,9 @@
     <xsl:template match="ltx:ERROR[not(ancestor::ltx:section)]">
     <level1>
     	<p>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		An Error occured here with element <xsl:apply-templates/>
     	</p>
     </level1>
@@ -249,18 +328,27 @@
     
     <xsl:template match="ltx:section/ltx:title">
     <h1>
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     	<xsl:apply-templates/>
     </h1>  
     </xsl:template>
     
     <xsl:template match="ltx:subsubsection/ltx:title">
     	<h3>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     	</h3>
     </xsl:template>
     
     <xsl:template match="ltx:subsection">
     	<level2>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     		<xsl:apply-templates select=".//ltx:note[@role='footnote' and not(ancestor::ltx:subsubsection)]" mode="print"/>
     	</level2>
@@ -268,12 +356,18 @@
     
     <xsl:template match="ltx:subsection/ltx:title">
     	<h2>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     	</h2>
     </xsl:template>
     
     <xsl:template match="ltx:enumerate">
     <p>
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     <list type="ol">
 	<xsl:apply-templates/>
     </list>
@@ -282,6 +376,9 @@
     
     <xsl:template match="ltx:p//ltx:itemize">
     	<list type="ul">
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     	</list>
     </xsl:template>
@@ -294,6 +391,9 @@
     
     <xsl:template match="ltx:itemize">
     <p>
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     	<list type="ul">
     		<xsl:apply-templates/>
     	</list>
@@ -307,6 +407,9 @@
     
     <xsl:template match="ltx:table" mode="display">
         	<table>
+        	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates select="ltx:caption"/>
      		<xsl:apply-templates select="ltx:tabular"/>
      	</table>
@@ -317,18 +420,28 @@
     
     <xsl:template match="ltx:table">
     		<table>
+    		    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates select="ltx:caption"/>
      		<xsl:apply-templates select="ltx:tabular"/>
      	</table>
     </xsl:template>
     <xsl:template match="ltx:table/ltx:caption">
     <caption>
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     	<xsl:apply-templates/>
     </caption>
     </xsl:template>
     
     <xsl:template match="ltx:cite">
     <xsl:apply-templates/>
+    </xsl:template>
+    
+    <xsl:template match="ltx:note[@mark and @role='affiliation']">
+    	<sup><xsl:value-of select="@mark"/></sup>
     </xsl:template>
     
     <xsl:template match="ltx:item//ltx:p">
@@ -339,14 +452,29 @@
 
     <xsl:template match="ltx:enumerate/ltx:item">
     	<li>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     	</li>
     </xsl:template>	
       <xsl:template match="ltx:itemize/ltx:item">
     	<li>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     		<xsl:apply-templates/>
     	</li>
     </xsl:template>	
+    
+    <xsl:template match="ltx:description/ltx:item">
+    	<li>
+    	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+    		<xsl:apply-templates/>
+    	</li>
+    </xsl:template>
     
     <xsl:template match="ltx:p//ltx:break">
     	<br/>
@@ -356,6 +484,9 @@
     
     <xsl:template match="ltx:bibliography">
     <level1>
+        	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
     	<xsl:apply-templates/>
     </level1>
     </xsl:template>
@@ -364,6 +495,9 @@
     
     <xsl:template match="ltx:bibliography/ltx:title">
      <h1>
+         	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      	<xsl:apply-templates/>
      </h1>
      </xsl:template>
@@ -373,13 +507,19 @@
      </xsl:template>
      
      <xsl:template match="ltx:bibitem">
+     <p>
+         	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+     <strong>
+     <xsl:value-of select="ltx:bibtag[@role='refnum']/text()"/>
+     </strong>
      	<xsl:apply-templates select="ltx:bibblock"/>
+     </p>
      </xsl:template>
      
      <xsl:template match="ltx:bibblock">
-     	<p>
      		<xsl:apply-templates/>
-     	</p>
      </xsl:template>
      
      <xsl:template match="ltx:bib-title">
@@ -438,7 +578,9 @@
      </xsl:template>
      
      <xsl:template match="ltx:graphics">
-     	<img src="{@imagesrc}" alt="Image inserted into the document"/>
+     	<img src="{@imagesrc}" alt="Image inserted into the document">    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if></img>
      </xsl:template>
      
      <xsl:template match="m:math">
@@ -454,6 +596,9 @@
      
      <xsl:template match="m:math[@display='block']">
      	<p>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      	     <xsl:copy>
      	<xsl:apply-templates select="@*|node()"/>
      </xsl:copy>
@@ -470,6 +615,9 @@
      
      <xsl:template match="ltx:tabular">
      	<table>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates select="ltx:caption"/>
      		<xsl:apply-templates select="ltx:thead"/>
      		<xsl:apply-templates select="ltx:tfooter"/>
@@ -512,6 +660,9 @@
      
      <xsl:template match="ltx:tfooter">
      	<tfooter>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates/>
      	</tfooter>
      </xsl:template>
@@ -520,14 +671,25 @@
      	<xsl:apply-templates/>
      </xsl:template>
      
+     <xsl:template match="ltx:keywords"/>
+     
      <xsl:template match="ltx:tr">
      	<tr>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates/>
      	</tr>
      </xsl:template>
      
      <xsl:template match="ltx:td">
      	<td>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
 		<xsl:apply-templates/>
 	</td>
      </xsl:template>
@@ -535,6 +697,9 @@
      <xsl:template match="ltx:tbody">
      	<xsl:if test="not(preceding-sibling::ltx:tbody)">
      	<tbody>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates/>
      	</tbody>
      </xsl:if>
@@ -547,6 +712,9 @@
      <xsl:template match="ltx:thead">
      <xsl:if test="not(preceding-sibling::ltx:thead)">
      	<thead>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates/>
      	</thead>
      </xsl:if>
@@ -562,6 +730,9 @@
      
      <xsl:template match="ltx:figure">
      <imggroup>
+         	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      	<xsl:apply-templates select="ltx:caption"/>
      	<xsl:apply-templates select="*[not(self::ltx:caption)]"/>
      </imggroup>
@@ -569,6 +740,9 @@
      
      <xsl:template match="ltx:figure/ltx:caption">
      	<caption>
+     	    	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      		<xsl:apply-templates/>
      	</caption>
      </xsl:template>
@@ -578,6 +752,9 @@
      
      <xsl:template match="ltx:theorem/ltx:title">
      <p>
+         	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      	<strong>
      		<xsl:apply-templates/>
      	</strong>
@@ -586,6 +763,9 @@
      
      <xsl:template match="ltx:proof/ltx:title">
      <p>
+         	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      	<strong>
      		<xsl:apply-templates/>
      	</strong>
@@ -600,12 +780,18 @@
      
      <xsl:template match="ltx:abstract">
      <level1>
+         	<xsl:if test="@xml:id">
+    		<xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+    	</xsl:if>
      	<xsl:apply-templates/>
      </level1>
      </xsl:template>
      
      <xsl:template match="ltx:classification"/>
      
+     <xsl:template match="@xml:id">
+     	<xsl:attribute name="id" select="."/>
+     </xsl:template>
      
      
     </xsl:stylesheet>
