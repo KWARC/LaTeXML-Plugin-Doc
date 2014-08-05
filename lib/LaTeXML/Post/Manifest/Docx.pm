@@ -33,8 +33,7 @@ sub new {
 sub initialize {
   my ($self, $xml) = @_;
   my $transform_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'tex2docx.xsl', noresources=>1);
-  my $doc = $transform_stylesheet->process($xml); #Apply tex2word.xsl to the processed document.
-  #I am assuming that tex2docx was applied to *.tex already
+  my $doc = $transform_stylesheet->process($xml); #Apply tex2docx.xsl to the processed document.
   my $directory = $$self{siteDirectory};
   # Copy static files from ODT-Skeleton
   my $content_types = pathname_find('[Content_Types]',types=>['xml'],installation_subdir=>catdir('resources','WML-Skeleton'));
@@ -79,17 +78,6 @@ sub initialize {
   $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
 
   my $current=cwd();                             
-  find(sub
-{
-unless($_=~/\.png$/ or $_=~/\.jpg$/ or $_=~/\.eps$/ or $_=~/\.jpeg$/){
-return;
-}
-my $relative_filename=File::Spec->abs2rel($File::Find::dir,$current);
-File::Path->make_path(catdir($directory,'word','media',$relative_filename));
-pathname_copy($File::Find::name,catfile($directory,'word','media',$relative_filename,$_)); 
-return;
-},cwd());
-
   return; }
 
 sub process {

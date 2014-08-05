@@ -77,18 +77,8 @@ sub initialize {
   $writer->process($rels_document,$rels_document->getDocumentElement);
   $writer->process($final_document,$final_document->getDocumentElement); 
   $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
-  # TODO Sort pictures into media 
+
   my $current=cwd();                             
-  find(sub
-{
-unless($_=~/\.png$/ or $_=~/\.jpg$/ or $_=~/\.eps$/ or $_=~/\.jpeg$/){
-return;
-}
-my $relative_filename=File::Spec->abs2rel($File::Find::dir,$current);
-File::Path->make_path(catdir($directory,'word','media',$relative_filename));
-pathname_copy($File::Find::name,catfile($directory,'word','media',$relative_filename,$_)); 
-return;
-},cwd());
   my $bibnode = $xml->findnode('//ltx:bibliography');
   my $bibs=$bibnode->getAttribute('files');
   my $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
