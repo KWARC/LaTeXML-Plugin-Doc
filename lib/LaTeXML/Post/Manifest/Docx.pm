@@ -33,10 +33,8 @@ sub new {
 sub initialize {
   my ($self, $xml) = @_;
   my $bibnode = $xml->findnode('//ltx:bibliography');
-  if ($bibnode) {
+  if ($bibnode && $bibnode->getAttribute('files')) {
   	my $bibs=$bibnode->getAttribute('files'); #Find the bibliography that is used 
-  	if($bibs){
-  	print "\n \n \n \n Penis \n \n \n \n ";
   	my $transform_stylesheet = LaTeXML::Post::XSLT-> new (stylesheet => 'tex2word.xsl', noresources=>1);
   my $doc = $transform_stylesheet->process($xml); #Apply tex2word.xsl to the processed document.
   my $directory = $$self{siteDirectory};
@@ -81,8 +79,7 @@ sub initialize {
   $writer->process($footnotes_document,$footnotes_document->getDocumentElement); 
 
   my $current=cwd();                             
-  my $bibnode = $xml->findnode('//ltx:bibliography');
-  my $bibs=$bibnode->getAttribute('files');
+  $bibs=$bibnode->getAttribute('files');
   my $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
   my $bib_pathname= catfile(catdir($directory,'customXML'),'item1.xml');
   my $cmd= "latexmlc $bib --destination=$bib_pathname";
@@ -98,7 +95,6 @@ sub initialize {
   my $results = $stylesheet->transform($source, test =>"'$temp'");
   $stylesheet->output_file($results,$bib_pathname);
   unlink $temp;
-  	}
  
   }
   else {

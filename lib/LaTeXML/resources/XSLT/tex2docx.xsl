@@ -209,7 +209,7 @@
   <!-- End of child elements of bibblock -->
 
   <xsl:template match="ltx:bibliography">
-    <xsl:apply-templates/>
+    <xsl:apply-templates select="ltx:bibblock"/>
   </xsl:template> 
 
   <xsl:template match="ltx:bibliography/ltx:title">

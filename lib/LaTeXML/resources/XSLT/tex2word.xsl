@@ -145,7 +145,7 @@
             <w:fldChar w:fldCharType="separate"/>
           </w:r>
         </w:p>
-        <xsl:apply-templates/>
+        <xsl:apply-templates select="ltx:bibblock"/>
         <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
           <w:pPr>
             <w:divId w:val="1325429968"/>
