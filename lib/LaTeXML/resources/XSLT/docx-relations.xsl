@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 /=====================================================================\ 
-|  cleaner.xsl                                                        |
-|  Stylesheet for cleaning up and making Word-readable document.xml   |
+| docx-relations.xsl                                                  |
+|  Stylesheet to create document.xml.rels when converting from LaTeX  |
+|  to OOXML                                                           |
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
@@ -16,7 +17,7 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="/">
+  <xsl:template match="/"> <!-- Some default relationships that are always included. These are essentially documents that are always present and always at the same place -->
     <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
       <Relationship Target="styles.xml" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Id="rId1"/>
       <Relationship Target="../customXml/item1.xml" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/customXml" Id="rId2"/>

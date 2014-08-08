@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /=====================================================================\ 
-|  ltx2word.xsl                                                       |
-|  Stylesheet for converting LaTeXML documents to OOXML          |
+|  odt-preparer.xsl                                                   |
+|  Adds booksmarks to everything with xml:id                          |
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
@@ -25,4 +25,5 @@
       </xsl:copy>
 </xsl:template> 
 
+<!-- This makes conversion a lot easier, since I can just match to the <bookmark> I added --> 
 </xsl:stylesheet>

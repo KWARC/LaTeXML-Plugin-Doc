@@ -27,7 +27,6 @@
 
   <xsl:variable name="bibliography" select="//ltx:bibliography"/>
   <xsl:template match="/">
-    <xsl:comment>generated from LTXML</xsl:comment>
     <xsl:apply-templates/>
   </xsl:template> 
 
@@ -105,7 +104,7 @@
   <xsl:template match="ltx:cite">
     <xsl:for-each select=".//ltx:ref">
       <xsl:variable name="foo">
-        <xsl:value-of select="//ltx:bibitem[@xml:id=current()/@idref]/@key"/>
+        <xsl:value-of select="//ltx:bibitem[@xml:id=current()/@idref]/@key"/> <!-- in the bibfile only the key is present, so first the correct key has to be found --> 
       </xsl:variable>
       <xsl:apply-templates select="$bibfile/b:Sources/b:Source[./b:Tag[./text()=$foo]]"/>
     </xsl:for-each>
@@ -359,7 +358,7 @@
     </xsl:variable>
     <table:table>
       <xsl:call-template name="ntimes">
-        <xsl:with-param name="i" select="number($foo)+number($bar)"/>
+        <xsl:with-param name="i" select="number($foo)+number($bar)"/> <!-- there needs to be as many <table:table-columns> as there are cells in one row --> 
       </xsl:call-template>
       <xsl:apply-templates/>
     </table:table>
@@ -394,17 +393,6 @@
   <xsl:template match="ltx:td">
     <table:table-cell>
       <text:p>
-        <!-- Doesn't quite work yet
-  	<xsl:if test="@align='left'">
-  	<xsl:attribute name="text:style-name">left</xsl:attribute>
-  	</xsl:if>
-  	<xsl:if test="@align='right'">
-  	<xsl:attribute name="text:style-name">right</xsl:attribute>
-  	</xsl:if>
-  	<xsl:if test="@align='center'">
-  	<xsl:attribute name="text:style-name">center</xsl:attribute>
-  	</xsl:if> 
-  	-->
         <xsl:apply-templates/>
       </text:p>
     </table:table-cell>
@@ -550,12 +538,12 @@
   </xsl:template> 
 
   <xsl:template match="ltx:p//ltx:picture">
-    <text:span text:style-name="error">
+    <text:span text:style-name="error"> <!-- Picture images should work, but somehow they don't get transformed. -->
   		The \picture macro is currently not supported. Transform it to a .png or .jpg and insert manually 
   	</text:span>
   </xsl:template> 
 
-  <xsl:template match="ltx:picture">
+  <xsl:template match="ltx:picture"> <!-- With paragraph, as text outside of paragrpahs isn't supported -->
     <text:p>
       <text:span text:style-name="error">
   		The \picture macro is currently not supported. Transform it to a .png or .jpg and insert manually 
@@ -754,7 +742,6 @@
     </text:p>
   </xsl:template> 
 
-  <!-- TODO change this to a different style if it looks weird -->
   <xsl:template match="ltx:note[@role='affiliation']"/>
   <xsl:template match="ltx:ref[@labelref and not(@idref)]">
     <xsl:variable name="bar" select="@labelref"/>
@@ -793,12 +780,10 @@
     </text:p>
   </xsl:template> 
 
-  <!-- TODO look at whether these are all occurring graphic types. -->
   <!-- Bibliography management begins here -->
   <xsl:param name="temporary"/>
   <xsl:variable name="bibfile" select="document($temporary)"/>
-  <!-- If I change the name here, I have to change the name in Odt.pm as well. Vice versa as well. -->
-  <!-- TODO change this to something with parameteres -->
+
   <xsl:template match="ltx:bibliography">
     <text:bibliography text:style-name="Sect2" text:protected="true" text:name="Bibliography1">
       <text:bibliography-source>
@@ -1269,7 +1254,7 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="b:Source">
+  <xsl:template match="b:Source"> 
     <text:bibliography-mark text:bibliography-type="{./b:SourceType/text()}" text:custom2="{./b:Tag/text()}">
       <xsl:if test="./b:Author">
         <xsl:attribute name="text:author">

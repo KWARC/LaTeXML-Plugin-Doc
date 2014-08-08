@@ -492,7 +492,6 @@
   <!-- Fallback for debugging -->
   <xsl:template match="*">
     <xsl:message>cannot deal with element <xsl:value-of select="local-name()"/> yet!</xsl:message>
-    <xsl:comment>elided element <xsl:value-of select="local-name()"/></xsl:comment>
     <xsl:if test="ancestor::ltx:p">
       <w:r>
         <w:rPr>
@@ -511,7 +510,7 @@
         </w:r>
       </w:p>
     </xsl:if>
-  </xsl:template> 
+  </xsl:template> <!-- I input the error message directly into the document, so that the enduser knows something went wrong and can fix it, or tell me about it -->
 
   <xsl:template match="ltx:ref[@labelref]">
     <w:hyperlink w:anchor="{@labelref}">
@@ -531,7 +530,7 @@
         <w:rStyle w:val="FootnoteReference"/>
       </w:rPr>
       <w:footnoteReference w:id="{count(preceding::ltx:note[@role='footnote'])}"/>
-      <footnote w:id="{count(preceding::ltx:note[@role='footnote'])}">
+      <footnote w:id="{count(preceding::ltx:note[@role='footnote'])}"> <!-- This only works with numerical ids, in contrast to almost every other id you can find in word -->
         <xsl:apply-templates/>
       </footnote>
     </w:r>
@@ -546,6 +545,8 @@
       <extra id="{generate-id()}"/>
     </external-link>
   </xsl:template> 
+  
+  <!-- Lots of tags that try to give some semantics to child elements of bibblock. However I have to throw away all that meaning, sine Word doesn't handle it --> 	
 
   <xsl:template match="ltx:text[@class='ltx_lst_space']">
     <xsl:apply-templates/>
@@ -616,7 +617,7 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="ltx:graphics[ancestor::ltx:figure]">
+  <xsl:template match="ltx:graphics[ancestor::ltx:figure]"> <!-- Word graphics need to be contained in a paragraph. Hence special handling for graphics that are children of figures, since I can't count on them being in paragraphs already -->
     <w:p>
       <w:r>
         <w:drawing>
@@ -822,13 +823,6 @@
   </xsl:template> 
 
   <xsl:template match="ltx:tabular">
-    <xsl:variable name="numtcs">
-      <xsl:for-each select="./ltx:tr">
-        <number>
-          <xsl:value-of select="count(./ltx:td)"/>
-        </number>
-      </xsl:for-each>
-    </xsl:variable>
     <xsl:variable name="foo">
       <xsl:for-each select="./ltx:tbody/ltx:tr">
         <xsl:sort select="count(./ltx:td) "/>
@@ -845,7 +839,7 @@
           <xsl:value-of select="count(./ltx:td)"/>
         </xsl:if>
       </xsl:for-each>
-    </xsl:variable>
+    </xsl:variable> <!-- To make a table, I need to tell word how many columns it will make. $foo and $bar just what the maximum amount is. Two variables are needed because there could be a tbody element and we want it to work with nested tables -->
     <w:tbl>
       <w:tblGrid>
         <xsl:call-template name="ntimes">
@@ -856,7 +850,7 @@
     </w:tbl>
   </xsl:template> 
 
-  <xsl:template name="ntimes">
+  <xsl:template name="ntimes"> <!-- A template to print out w:gridcol n times -->
     <xsl:param name="i"/>
     <xsl:if test="$i&gt;0">
       <w:gridCol/>
@@ -903,7 +897,7 @@
               </xsl:when>
               <xsl:otherwise>
           Abstract
-        </xsl:otherwise>
+        </xsl:otherwise> <!-- If the abstract doesn't have a title, it is Abstract by default -->
             </xsl:choose>
           </w:t>
         </w:r>
@@ -921,9 +915,6 @@
       <w:tcPr>
         <xsl:if test="@colspan">
           <w:gridSpan w:val="{@colspan}"/>
-        </xsl:if>
-        <xsl:if test="@rowspan">
-          <!-- I can't deal with spanning rows yet. I will have to take a closer look at this later -->
         </xsl:if>
         <xsl:if test="@align">
           <xsl:if test="not(@align='justify')">
@@ -1037,7 +1028,7 @@
     <w:hyperlink r:id="{generate-id()}">
       <xsl:apply-templates/>
     </w:hyperlink>
-    <external-link>
+    <external-link> <!-- created solely for my later stylesheets. Will be removed by docx-cleaner.xsl -->
       <xsl:copy-of select="."/>
       <extra id="{generate-id()}"/>
     </external-link>
@@ -1098,8 +1089,6 @@
     </w:p>
   </xsl:template> 
 
-  <xsl:template match="ltx:break[not(parent::ltx:p)]"/>
-
   <xsl:template match="ltx:proof">
     <xsl:apply-templates/>
   </xsl:template> 
@@ -1137,7 +1126,7 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="ltx:item[(count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate))=1]">
+  <xsl:template match="ltx:item[(count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate))=1]"> <!-- An item that's actually a part of a list--> 
     <xsl:variable name="foo">
       <xsl:for-each select="..//ltx:item">
         <xsl:if test="position()=1">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /=====================================================================\ 
-|  ltx2word.xsl                                                       |
-|  Stylesheet for converting LaTeXML documents to OOXML          |
+|  tex2word.xsl                                                       |
+|  Stylesheet for converting LaTeXML documents to OOXML               |
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
@@ -68,27 +68,6 @@
     </w:p>
   </xsl:template> 
 
-  <!-- Variables -->
-  <!--
-<xsl:variable name="bibliographyreferences"> 
-<xsl:for-each select="//ltx:cite">
-  <xsl:for-each select="./ltx:ref">
-    <bibreference>
-    <xsl:value-of select="./@idref"/>
-    </bibreference>
-  </xsl:for-each>
-</xsl:for-each>
-</xsl:variable> 
--->
-  <!-- 
-<xsl:variable name="bibrefs"> 
-<xsl:for-each select="$bibliographyreferences/bibreference">
-  <xsl:if test="not(preceding::bibreference[.=current()])">
-    <bibref content="{./text()}"/>
-  </xsl:if>
-</xsl:for-each>
-</xsl:variable> -->
-  <!-- End Variables-->
   <xsl:template match="ltx:document">
     <w:document xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing">
       <w:body>
@@ -247,10 +226,6 @@
         </xsl:if>
         <xsl:if test="ancestor::ltx:text[contains(@font,'sansserif')]">
           <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
-        </xsl:if>
-        <xsl:if test="ancestor::ltx:bibtag[contains(@class,'ltx_bib_number') and @role='number']">
-          <!--  <w:rStyle w:val="bibnumber"/> -->
-          <!-- I should add this back in at some point. I am removing it now to make references look better. -->
         </xsl:if>
         <xsl:if test="ancestor::ltx:bibtag[@class='ltx_bib_author' and @role='authors']">
           <w:rStyle w:val="bibauthor"/>
@@ -1129,17 +1104,6 @@
     </w:p>
   </xsl:template> 
 
-  <!-- 
-  <xsl:template match="ltx:itemize">
-  <xsl:variable name="foo">
-  <xsl:for-each select=".//ltx:item">
-  <item> <xsl:copy-of select=".//ltx:p"/> </item>
-  </xsl:for-each>
-  </xsl:variable>
-  <xsl:copy-of select="exsl:node-set($foo)"/> 
-  </xsl:template> 
- 
- -->
   <xsl:template match="ltx:itemize">
     <xsl:apply-templates/>
   </xsl:template> 

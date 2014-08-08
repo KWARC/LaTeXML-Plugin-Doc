@@ -21,7 +21,8 @@
   </xsl:template> 
 
   <xsl:param name="test"/>
-  <xsl:variable name="document" select="document($test)"/>
+  <xsl:variable name="document" select="document($test)"/> <!--Loads the document with latexml run on it. This is used so that only the necessary ones are converted. This doesn't necessarily make the performance of the original conversion better, however Word does not work well with bibliographies with 1000s of entries. 
+  For kwarc.bib opening it with Word took about 30 minutes --> 
   <xsl:template match="/">
     <b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" SelectedStyle="\APA.XSL" StyleName="APA">
       <xsl:apply-templates/>
@@ -74,8 +75,7 @@
       <xsl:apply-templates/>
     </b:Source>	 
     </xsl:if>
-    <xsl:comment> Haven't deal with this bibentry yet </xsl:comment>
-    <!-- <xsl:message>Haven't dealt with this bibentry yet </xsl:message> -->
+    <xsl:comment> Haven't deal with this bibentry yet </xsl:comment> <!-- Used for debugging -->
   </xsl:template> 
 
   <xsl:template match="ltx:bibentry[contains(./@type,'proceedings')]/ltx:bib-url"/>
@@ -509,7 +509,7 @@
 
   <xsl:template match="ltx:bib-data[@role='venue']"/>
   
-  <xsl:template match="ltx:bib-data[@role='eventdate']"/>
+  <xsl:template match="ltx:bib-data[@role='eventdate']"/> <!-- various parts of the .bib file that aren't modelled by word --> 
   <xsl:template match="ltx:bib-name[@role='author' or @role='authors']"/>
   <xsl:template match="ltx:bib-extract[@role='keywords']"/>
   <xsl:template match="ltx:bibentry[@type='article']/ltx:bib-url"/>
@@ -581,8 +581,11 @@
   <xsl:template match="ltx:bib-data[@role='notes']"/>
   <xsl:template match="ltx:bib-data[@role='page']"/>
   <xsl:template match="ltx:bib-language"/>
+  
   <xsl:template match="ltx:bibentry[@type='collection']/ltx:bib-url">
-  <b:Url><xsl:value-of select="./text()"/></b:Url>
+  <b:Url>
+  	<xsl:value-of select="./text()"/>
+  </b:Url>
   </xsl:template> 
 
   <xsl:template match="ltx:bib-data[@role='citeulike-article-id']"/>

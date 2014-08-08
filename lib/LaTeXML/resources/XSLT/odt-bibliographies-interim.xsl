@@ -2,8 +2,8 @@
 <!--
 /=====================================================================\ 
 |  ltx2word.xsl                                                       |
-|  Stylesheet for converting LaTeXML converted .bib files to a the    |
-|Word bibliography format                                             |
+|  Stylesheet for converting LaTeXML converted .bib files to an easy  |
+|  target for conversion to ODT bibliographies                        |
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
@@ -11,6 +11,8 @@
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
+
+<!-- This is essentially docx-bibliographies.xsl just with some tinkering to it. -->
 <xsl:stylesheet xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="ltx">
   <xsl:output method="xml" indent="yes"/>
   <xsl:template match="*">

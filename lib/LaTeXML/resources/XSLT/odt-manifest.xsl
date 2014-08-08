@@ -24,7 +24,7 @@ xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"version="1.0"
       <manifest:file-entry manifest:full-path="/" manifest:version="1.2" manifest:media-type="application/vnd.oasis.opendocument.text"/>
       <manifest:file-entry manifest:full-path="content.xml" manifest:media-type="text/xml"/>
       <manifest:file-entry manifest:full-path="styles.xml" manifest:media-type="text/xml"/>
-      <manifest:file-entry manifest:full-path="{$example}" manifest:media-type=""/>
+      <manifest:file-entry manifest:full-path="{$example}" manifest:media-type=""/> <!-- name of the converted tex document with no stylesheets whatsoever applied to it --> 
       <manifest:file-entry manifest:full-path="LaTeXML.cache" manifest:media-types=""/> <!-- TODO remove the cache somehow -->
       <xsl:apply-templates/>
     </manifest:manifest>

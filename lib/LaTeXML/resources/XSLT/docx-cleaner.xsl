@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /=====================================================================\ 
-|  ltx2word.xsl                                                       |
-|  Stylesheet for converting LaTeXML documents to OOXML          |
+|  docx-cleaner.xsl                                                   |
+|  Stylesheet to remove helping elements and try to patch obvious     |
+|  issues when converting from LaTeX to OOXML                         |
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
