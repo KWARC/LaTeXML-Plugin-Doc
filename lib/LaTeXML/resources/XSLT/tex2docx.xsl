@@ -23,7 +23,7 @@
       <xsl:apply-templates mode="mml"/>
     </omml:oMath>
   </xsl:template> 
-
+<!-- ============================================== Math stuff ================================================================================ -->
   <xsl:template match="ltx:Math[@mode='inline']">
     <xsl:if test="./@labels">
       <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
@@ -67,28 +67,9 @@
       </omml:oMath>
     </w:p>
   </xsl:template> 
+  
+  <!-- ========================================================== End of Math stuff =========================================================================== --> 
 
-  <!-- Variables -->
-  <!--
-<xsl:variable name="bibliographyreferences"> 
-<xsl:for-each select="//ltx:cite">
-  <xsl:for-each select="./ltx:ref">
-    <bibreference>
-    <xsl:value-of select="./@idref"/>
-    </bibreference>
-  </xsl:for-each>
-</xsl:for-each>
-</xsl:variable> 
--->
-  <!-- 
-<xsl:variable name="bibrefs"> 
-<xsl:for-each select="$bibliographyreferences/bibreference">
-  <xsl:if test="not(preceding::bibreference[.=current()])">
-    <bibref content="{./text()}"/>
-  </xsl:if>
-</xsl:for-each>
-</xsl:variable> -->
-  <!-- End Variables-->
   <xsl:template match="ltx:document">
     <w:document xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing">
       <w:body>
@@ -97,8 +78,8 @@
     </w:document>
   </xsl:template> 
 
-  <xsl:template match="ltx:bibliography">
-    <w:sdt>
+  <xsl:template match="ltx:bibliography"> <!-- This is a OOXML field. The user can update it to let Word create the Bibliography. Until then I print out the formatting from bibblock -->
+    <w:sdt>				  <!-- I just copied most of this from a Word document -->
       <w:sdtPr>
         <w:id w:val="-102652684"/>
         <w:docPartObj>
@@ -126,7 +107,7 @@
           <w:bookmarkStart w:id="0" w:name="_GoBack"/>
           <w:bookmarkEnd w:id="0"/>
           <w:r>
-            <w:t>ed</w:t>
+            <w:t>ed</w:t> 
           </w:r>
         </w:p>
         <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
@@ -218,8 +199,8 @@
   </xsl:template> 
 
   <!-- Start of text formatting-->
-  <xsl:template match="text()">
-    <w:r>
+  <xsl:template match="text()"> <!-- Since the structure of a document needs to be relatively flat for Word, I just check what the ancestor was and add the appropriate property. --> 
+    <w:r>			<!-- Extra properties need to be added manually, so if someone wanted to use Arial, I would need to add some lines here --> 
       <w:rPr>
         <xsl:if test="ancestor::ltx:text[contains(@font,'smallcaps')]">
           <w:rFonts w:ascii="smallcaps" w:cs="smallcaps"/>
@@ -247,10 +228,6 @@
         </xsl:if>
         <xsl:if test="ancestor::ltx:text[contains(@font,'sansserif')]">
           <w:rFonts w:ascii="sansserif" w:cs="sansserif"/>
-        </xsl:if>
-        <xsl:if test="ancestor::ltx:bibtag[contains(@class,'ltx_bib_number') and @role='number']">
-          <!--  <w:rStyle w:val="bibnumber"/> -->
-          <!-- I should add this back in at some point. I am removing it now to make references look better. -->
         </xsl:if>
         <xsl:if test="ancestor::ltx:bibtag[@class='ltx_bib_author' and @role='authors']">
           <w:rStyle w:val="bibauthor"/>
@@ -323,11 +300,13 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <xsl:template match="ltx:break">
+  <xsl:template match="ltx:p//ltx:break"> <!-- Word only accepts line breaks inside  a paragraph -->
     <w:r>
       <w:br/>
     </w:r>
   </xsl:template> 
+  
+  <xsl:template match="ltx:break"/> <!-- A Break between paragraphs should be ignorable -->
 
   <xsl:template match="ltx:personname">
     <w:p>
@@ -337,7 +316,7 @@
       <xsl:apply-templates/>
     </w:p>
   </xsl:template> 
-
+  
   <xsl:template match="ltx:text[@font='sansserif']">
     <xsl:apply-templates/>
   </xsl:template> 
@@ -349,11 +328,24 @@
   <xsl:template match="ltx:text[@font='medium']">
     <xsl:apply-templates/>
   </xsl:template> 
+  
+    <xsl:template match="ltx:text[@fontsize='small']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+  
+    <xsl:template match="ltx:text[@font='slanted']">
+    <xsl:apply-templates/>
+  </xsl:template> 
 
   <xsl:template match="ltx:text">
     <xsl:apply-templates/>
     <xsl:comment> elided text formatting <xsl:copy-of select="."/> </xsl:comment>
     <xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+  </xsl:template> 
+
+
+  <xsl:template match="ltx:text[@fontsize='footnote']">
+    <xsl:apply-templates/>
   </xsl:template> 
 
   <xsl:template match="ltx:text[@font='bold']">
@@ -829,7 +821,6 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
-  <!-- I have no idea what this thing does -->
   <xsl:template match="ltx:tabular">
     <xsl:variable name="numtcs">
       <xsl:for-each select="./ltx:tr">
@@ -839,7 +830,6 @@
       </xsl:for-each>
     </xsl:variable>
     <xsl:variable name="foo">
-      <!-- <xsl:for-each select="$numtcs/number"> -->
       <xsl:for-each select="./ltx:tbody/ltx:tr">
         <xsl:sort select="count(./ltx:td) "/>
         <xsl:if test="position()=last()">
@@ -1042,9 +1032,6 @@
     </w:p>
   </xsl:template> 
 
-  <xsl:template match="ltx:text[@fontsize='footnote']">
-    <xsl:apply-templates/>
-  </xsl:template> 
 
   <xsl:template match="ltx:ref[not(@labelref) and not(@idref) and @href]">
     <w:hyperlink r:id="{generate-id()}">
@@ -1056,9 +1043,6 @@
     </external-link>
   </xsl:template> 
 
-  <xsl:template match="ltx:text[@fontsize='small']">
-    <xsl:apply-templates/>
-  </xsl:template> 
 
   <xsl:template match="ltx:appendix">
     <xsl:if test="./@labels">
@@ -1115,9 +1099,6 @@
   </xsl:template> 
 
   <xsl:template match="ltx:break[not(parent::ltx:p)]"/>
-  <xsl:template match="ltx:text[@font='slanted']">
-    <xsl:apply-templates/>
-  </xsl:template> 
 
   <xsl:template match="ltx:proof">
     <xsl:apply-templates/>
@@ -1129,18 +1110,6 @@
     </w:p>
   </xsl:template> 
 
-  <!-- 
-  <xsl:template match="ltx:itemize">
-  <xsl:variable name="foo">
-  <xsl:for-each select=".//ltx:item">
-  <item> <xsl:copy-of select=".//ltx:p"/> </item>
-  </xsl:for-each>
-  </xsl:variable>
-  <xsl:copy-of select="exsl:node-set($foo)"/> 
-  </xsl:template> 
- 
- 
- -->
   <xsl:template match="ltx:itemize">
     <xsl:apply-templates/>
   </xsl:template> 
@@ -1255,12 +1224,6 @@
 
   <xsl:template match="ltx:text[@font='medium']">
     <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text">
-    <xsl:apply-templates/>
-    <xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
-    <xsl:comment> Text formatting error here </xsl:comment>
   </xsl:template> 
 
   <xsl:template match="ltx:text[@class='ltx_bib_year']">
