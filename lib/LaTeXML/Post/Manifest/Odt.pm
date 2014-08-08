@@ -50,6 +50,7 @@ sub initialize {
   $writer->process($doc,$doc->getDocumentElement); #Write temporary.xml . odt-bibliographies-interim.xsl will use this file to only transform the needed nodes. 
   my $bibnode = $xml->findnode('//ltx:bibliography');
   my ($bib,$bibs,$bib_pathname,$cmd);
+  $bib_pathname="";
   $bib=catfile($directory,'bibfile.bib');
   if($bibnode){
    	$bibs=$bibnode->getAttribute('files'); #Find the bibliography that is used 
@@ -113,7 +114,7 @@ close $out;
   $stylesheet3->output_file($results3,$document_rels);
   
   unlink $temp; #remove temporary.xml once it isn't needed anymore. 
-  if($bibnode){
+  if($bibs){
   unlink $bib_pathname;
   unlink $bib;
   }

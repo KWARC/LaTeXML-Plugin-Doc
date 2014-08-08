@@ -22,23 +22,27 @@
       <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
       </xsl:copy>
-    </xsl:template>
+    </xsl:template> 
+
     <xsl:template match="external-link"/>
     <xsl:template match="picturus"/>
     <xsl:template match="w:p//w:p">
     <xsl:apply-templates select="@*|node()"/>
-    </xsl:template>
+    </xsl:template> 
+
         <xsl:template match="w:p//w:tc/w:p">
         <xsl:copy>
     <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
-    </xsl:template>
+    </xsl:template> 
+
     <xsl:template select="w:r[not(ancestor::w:p)]">
     <w:p>
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
       </xsl:copy>
     </w:p>
-    </xsl:template>
+    </xsl:template> 
+
     <xsl:template match="footnote"/>
     </xsl:stylesheet>

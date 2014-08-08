@@ -16,7 +16,8 @@ xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"version="1.0"
   <xsl:output indent="yes" method="xml"/>
   <xsl:template match="*">
     <xsl:apply-templates/>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:param name="example"/>
   <xsl:template match="/">
    <manifest:manifest manifest:version="1.2">
@@ -27,12 +28,15 @@ xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"version="1.0"
       <manifest:file-entry manifest:full-path="LaTeXML.cache" manifest:media-types=""/> <!-- TODO remove the cache somehow -->
       <xsl:apply-templates/>
     </manifest:manifest>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="text()"/>
   <xsl:template match="draw:image">
     <manifest:file-entry manifest:full-path="{@xlink:href}" manifest:media-type=""/>
-  </xsl:template>
+  </xsl:template> 
+
     <xsl:template match="image">
     <manifest:file-entry manifest:full-path="{@src}" manifest:media-type=""/>
-  </xsl:template>
+  </xsl:template> 
+
 </xsl:stylesheet>

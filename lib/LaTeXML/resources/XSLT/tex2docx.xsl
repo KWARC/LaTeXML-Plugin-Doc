@@ -10,15 +10,15 @@
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
-<xsl:stylesheet xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math" version="1.0" exclude-result-prefixes="ltx" xmlns:exsl="http://exslt.org/common">
+<xsl:stylesheet xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:omml="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="ltx">
   <xsl:import href="mml2omml.xsl"/>
   <xsl:output method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
   <xsl:template match="ltx:equation">
-  <xsl:if test="./@labels">
+    <xsl:if test="./@labels">
       <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
-    <w:bookmarkEnd w:id="{./@xml:id}"/>
-  </xsl:if>
+      <w:bookmarkEnd w:id="{./@xml:id}"/>
+    </xsl:if>
     <omml:oMath>
       <xsl:apply-templates mode="mml"/>
     </omml:oMath>
@@ -27,21 +27,23 @@
   <xsl:template match="ltx:Math[@mode='inline']">
     <xsl:if test="./@labels">
       <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
-    <w:bookmarkEnd w:id="{./@xml:id}"/>
-  </xsl:if>
+      <w:bookmarkEnd w:id="{./@xml:id}"/>
+    </xsl:if>
     <omml:oMath>
       <xsl:apply-templates mode="mml"/>
     </omml:oMath>
   </xsl:template> 
 
   <xsl:template match="ltx:Math">
-   <xsl:if test="./@labels">
-  <w:p>
-  <w:pPr><w:pStyle w:val="empty"/></w:pPr>
-      <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
-    <w:bookmarkEnd w:id="{./@xml:id}"/>
-  </w:p>
-  </xsl:if>
+    <xsl:if test="./@labels">
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="empty"/>
+        </w:pPr>
+        <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
+        <w:bookmarkEnd w:id="{./@xml:id}"/>
+      </w:p>
+    </xsl:if>
     <w:p>
       <omml:oMath>
         <xsl:apply-templates mode="mml"/>
@@ -50,13 +52,15 @@
   </xsl:template> 
 
   <xsl:template match="ltx:equation[not(ancestor::ltx:p)]">
-   <xsl:if test="./@labels">
-  <w:p>
-  <w:pPr><w:pStyle w:val="empty"/></w:pPr>
-      <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
-    <w:bookmarkEnd w:id="{./@xml:id}"/>
-  </w:p>
-  </xsl:if>
+    <xsl:if test="./@labels">
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="empty"/>
+        </w:pPr>
+        <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
+        <w:bookmarkEnd w:id="{./@xml:id}"/>
+      </w:p>
+    </xsl:if>
     <w:p>
       <omml:oMath>
         <xsl:apply-templates mode="mml"/>
@@ -93,155 +97,114 @@
     </w:document>
   </xsl:template> 
 
-  <xsl:template match="ltx:bibitem">
-      <w:p>
-      <w:pPr>
-      	<w:pStyle w:val="empty"/>
-      </w:pPr>
-     <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@xml:id}"/>
-    <w:bookmarkEnd w:id="{./@xml:id}"/>
-</w:p>
-    <w:p>
-      <w:pPr>
-        <w:pStyle w:val="Bibliographyitem"/>
-      </w:pPr>
-      <w:r>
-      	<w:rPr>
-      		<w:b/>
-      	</w:rPr>
-      	<w:t>[<xsl:value-of select="./ltx:bibtag[@role='refnum']"/>]</w:t>
-      	</w:r>
-      <xsl:apply-templates/>
-    </w:p>
-  </xsl:template> 
-
-  <xsl:template match="ltx:bibblock">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <!-- Child elements of bibblock -->
-  <xsl:template match="ltx:text[@class='ltx_bib_author']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@font='smallcaps']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_editor']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@font='typewriter']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-  
-  <xsl:template match="ltx:text[@font='bold italic']">
-    <xsl:apply-templates/>
-  </xsl:template>
-  
-  <xsl:template match="ltx:text[@font='medium']">
-  	<xsl:apply-templates/>
-  </xsl:template>
-  
-  <xsl:template match="ltx:text">
-  	<xsl:apply-templates/>
-  	<xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
-  	<xsl:comment> Text formatting error here </xsl:comment>
-  </xsl:template>
-
-  <xsl:template match="ltx:text[@class='ltx_bib_year']">
-    <xsl:apply-templates select="ltx:bib-date"/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:bib-date[@role='publication']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_title']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_title']/ltx:bib-title">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_note']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_journal']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_journal']/ltx:bib-title">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_series']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:bib-part[@role='series']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_publisher']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:bib-publisher">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_etal']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='ltx_bib_links']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <xsl:template match="ltx:text[@class='isbn ltx_bib_external']">
-    <xsl:apply-templates/>
-  </xsl:template> 
-
-  <!-- End of child elements of bibblock -->
-
   <xsl:template match="ltx:bibliography">
-    <xsl:apply-templates select="ltx:bibblock"/>
+    <w:sdt>
+      <w:sdtPr>
+        <w:id w:val="-102652684"/>
+        <w:docPartObj>
+          <w:docPartGallery w:val="Bibliographies"/>
+          <w:docPartUnique/>
+        </w:docPartObj>
+      </w:sdtPr>
+      <w:sdtEndPr>
+        <w:rPr>
+          <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsiaTheme="minorEastAsia" w:hAnsiTheme="minorHAnsi" w:cstheme="minorBidi"/>
+          <w:bCs/>
+          <w:sz w:val="22"/>
+          <w:szCs w:val="22"/>
+          <w:lang w:eastAsia="en-US"/>
+        </w:rPr>
+      </w:sdtEndPr>
+      <w:sdtContent>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:pPr>
+            <w:pStyle w:val="Heading1"/>
+          </w:pPr>
+          <w:r>
+            <w:t>Works Cit</w:t>
+          </w:r>
+          <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+          <w:bookmarkEnd w:id="0"/>
+          <w:r>
+            <w:t>ed</w:t>
+          </w:r>
+        </w:p>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:pPr>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r>
+            <w:instrText xml:space="preserve"> BIBLIOGRAPHY </w:instrText>
+          </w:r>
+          <w:r>
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+        </w:p>
+        <xsl:apply-templates select="ltx:bibblock"/>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:pPr>
+            <w:divId w:val="1325429968"/>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Times New Roman"/>
+              <w:noProof/>
+            </w:rPr>
+          </w:pPr>
+        </w:p>
+        <w:p w:rsidR="000759A3" w:rsidRDefault="000759A3">
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:p>
+      </w:sdtContent>
+    </w:sdt>
   </xsl:template> 
-
-  <xsl:template match="ltx:bibliography/ltx:title">
-    <w:p>
-      <w:pPr>
-        <w:pStyle w:val="style1"/>
-      </w:pPr>
-      <xsl:apply-templates/>
-    </w:p>
-  </xsl:template> 
-
-  <xsl:template match="ltx:biblist">
-    <xsl:apply-templates/>
-  </xsl:template> 
-  
-  <xsl:template match="ltx:bibtag"/>
 
   <xsl:template match="ltx:text[@class='ltx_bib_crossref']">
     <xsl:apply-templates/>
   </xsl:template> 
 
   <xsl:template match="ltx:cite">
-    <xsl:apply-templates/>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> </w:t>
-    </w:r>
+    <xsl:for-each select=".//ltx:ref">
+      <w:sdt>
+        <w:sdtPr>
+          <w:id w:val="{count(preceding::ltx:ref)}"/>
+          <w:citation/>
+        </w:sdtPr>
+        <w:sdtEndPr/>
+        <w:sdtContent>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="begin"/>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:instrText xml:space="preserve"> CITATION <xsl:value-of select="//ltx:bibitem[@xml:id=current()/@idref]/@key"/> \l 1033 </w:instrText>
+          </w:r>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="separate"/>
+          </w:r>
+          <xsl:apply-templates select=".//text()"/>
+          <w:r w:rsidR="00597C89">
+            <w:fldChar w:fldCharType="end"/>
+          </w:r>
+        </w:sdtContent>
+      </w:sdt>
+    </xsl:for-each>
   </xsl:template> 
 
   <xsl:template match="ltx:text[@xml:id and @fragid]">
     <w:bookmarkStart w:id="{generate-id(.)}" w:name="@xml:id"/>
     <w:bookmarkEnd w:id="{generate-id(.)}"/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_inbook']">
     <xsl:apply-templates/>
   </xsl:template> 
 
@@ -261,14 +224,14 @@
         <xsl:if test="ancestor::ltx:text[contains(@font,'smallcaps')]">
           <w:rFonts w:ascii="smallcaps" w:cs="smallcaps"/>
         </xsl:if>
-        <xsl:if test="ancestor::*[contains(@font,'bold')]">
-          <w:b/>
-        </xsl:if>
         <xsl:if test="ancestor::*[contains(@fontsize,'small')]">
           <w:sz w:val="10"/>
         </xsl:if>
         <xsl:if test="ancestor::*[contains(@fontsize,'footnote')]">
           <w:sz w:val="5"/>
+        </xsl:if>
+        <xsl:if test="ancestor::*[contains(@font,'bold')]">
+          <w:b/>
         </xsl:if>
         <xsl:if test="ancestor::*[@font='serif' or contains(@font,' serif') or contains(@font,'serif ') and not(contains(@font,'sansserif'))]">
           <w:rFonts w:ascii="serif" w:cs="serif"/>
@@ -276,7 +239,7 @@
         <xsl:if test="ancestor::ltx:text[contains(@font,'typewriter')]">
           <w:rFonts w:ascii="typewriter" w:cs="typewriter"/>
         </xsl:if>
-        <xsl:if test="ancestor::*[contains(@font,'italic')] or ancestor::ltx:emph or ancestor::*[contains(@shape,'italic') or contains(@font,'slanted')]">
+        <xsl:if test="ancestor::*[contains(@font,'italic') or contains(@font,'slanted')] or ancestor::ltx:emph or ancestor::*[contains(@shape,'italic')]">
           <w:i/>
         </xsl:if>
         <xsl:if test="ancestor::*[contains(@framed,'underline')]">
@@ -379,6 +342,20 @@
     <xsl:apply-templates/>
   </xsl:template> 
 
+  <xsl:template match="ltx:text[@font='bold italic']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='medium']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text">
+    <xsl:apply-templates/>
+    <xsl:comment> elided text formatting <xsl:copy-of select="."/> </xsl:comment>
+    <xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+  </xsl:template> 
+
   <xsl:template match="ltx:text[@font='bold']">
     <xsl:apply-templates/>
   </xsl:template> 
@@ -455,7 +432,6 @@
   </xsl:template> 
 
   <xsl:template match="ltx:tag"/>
-
   <xsl:template match="ltx:paragraph/ltx:title">
     <w:p>
       <w:pPr>
@@ -494,55 +470,57 @@
     </w:p>
   </xsl:template> 
 
- <xsl:template match="ltx:p">
-  <xsl:if test="./ltx:tabular">
+  <xsl:template match="ltx:p">
+    <xsl:if test="./ltx:tabular">
       <w:p>
-      <w:pPr>
-        <w:pStyle w:val="style46"/>
-      </w:pPr> 
-      <xsl:apply-templates select="/ltx:tabular/preceding-sibling::*"/>
-    </w:p>
-    <xsl:apply-templates select="ltx:tabular"/>
-    <w:p>
-      <w:pPr>
-        <w:pStyle w:val="style46"/>
-      </w:pPr>
-      <xsl:apply-templates select="/ltx:tabular/following-sibling::*"/>
-    </w:p> 
-  </xsl:if>
-  <xsl:if test="not(./ltx:tabular)">
-    <w:p>
-      <w:pPr>
-        <w:pStyle w:val="style0"/>
-      </w:pPr>
-      <xsl:apply-templates/>
-    </w:p>
-  </xsl:if>
+        <w:pPr>
+          <w:pStyle w:val="style46"/>
+        </w:pPr>
+        <xsl:apply-templates select="/ltx:tabular/preceding-sibling::*"/>
+      </w:p>
+      <xsl:apply-templates select="ltx:tabular"/>
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="style46"/>
+        </w:pPr>
+        <xsl:apply-templates select="/ltx:tabular/following-sibling::*"/>
+      </w:p>
+    </xsl:if>
+    <xsl:if test="not(./ltx:tabular)">
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="style0"/>
+        </w:pPr>
+        <xsl:apply-templates/>
+      </w:p>
+    </xsl:if>
   </xsl:template> 
+
   <xsl:template match="ltx:resource"/>
   <!-- Fallback for debugging -->
-<xsl:template match="*">
+  <xsl:template match="*">
     <xsl:message>cannot deal with element <xsl:value-of select="local-name()"/> yet!</xsl:message>
     <xsl:comment>elided element <xsl:value-of select="local-name()"/></xsl:comment>
-     <xsl:if test="ancestor::ltx:p">
- <w:r>
-  <w:rPr>
-        <w:color w:val="FF0000"/>
+    <xsl:if test="ancestor::ltx:p">
+      <w:r>
+        <w:rPr>
+          <w:color w:val="FF0000"/>
         </w:rPr>
- <w:t> Error! Stylesheet does not recognize element: <xsl:value-of select="local-name()"/> </w:t>
-</w:r>
-</xsl:if>
-<xsl:if test="not(ancestor::ltx:p)">
-<w:p>
- <w:r>
-  <w:rPr>
-        <w:color w:val="FF0000"/>
-        </w:rPr>
- <w:t> Error! Stylesheet does not recognize element: <xsl:value-of select="local-name()"/> </w:t>
-</w:r>
-</w:p>
-</xsl:if>
+        <w:t> Error! Stylesheet does not recognize element: <xsl:value-of select="local-name()"/> </w:t>
+      </w:r>
+    </xsl:if>
+    <xsl:if test="not(ancestor::ltx:p)">
+      <w:p>
+        <w:r>
+          <w:rPr>
+            <w:color w:val="FF0000"/>
+          </w:rPr>
+          <w:t> Error! Stylesheet does not recognize element: <xsl:value-of select="local-name()"/> </w:t>
+        </w:r>
+      </w:p>
+    </xsl:if>
   </xsl:template> 
+
   <xsl:template match="ltx:ref[@labelref]">
     <w:hyperlink w:anchor="{@labelref}">
       <xsl:apply-templates/>
@@ -556,18 +534,19 @@
   </xsl:template> 
 
   <xsl:template match="ltx:note[@role='footnote']">
-        <w:r>
-        <w:rPr>
-          <w:rStyle w:val="FootnoteReference"/>
-        </w:rPr>
-        <w:footnoteReference w:id="{count(preceding::ltx:note[@role='footnote'])}"/>
-        <footnote w:id="{count(preceding::ltx:note[@role='footnote'])}">
-          <xsl:apply-templates/>
-        </footnote>
-      </w:r>
-  </xsl:template>
+    <w:r>
+      <w:rPr>
+        <w:rStyle w:val="FootnoteReference"/>
+      </w:rPr>
+      <w:footnoteReference w:id="{count(preceding::ltx:note[@role='footnote'])}"/>
+      <footnote w:id="{count(preceding::ltx:note[@role='footnote'])}">
+        <xsl:apply-templates/>
+      </footnote>
+    </w:r>
+  </xsl:template> 
+
   <xsl:template match="ltx:ref[@class='ltx_bib_external']">
-    <w:hyperlink r:id="{generate-id()}">
+    <w:hyperlink id="{generate-id()}">
       <xsl:apply-templates/>
     </w:hyperlink>
     <external-link>
@@ -579,7 +558,6 @@
   <xsl:template match="ltx:text[@class='ltx_lst_space']">
     <xsl:apply-templates/>
   </xsl:template> 
-
 
   <xsl:template match="ltx:ref[@class='ltx_url']">
     <w:hyperlink r:id="{generate-id()}">
@@ -643,12 +621,11 @@
       <w:bookmarkStart w:name="{@labels}" w:id="{generate-id(.)}"/>
       <w:bookmarkEnd w:id="{generate-id(.)}"/>
     </w:p>
-    <w:p>
     <xsl:apply-templates/>
-    </w:p>
   </xsl:template> 
 
   <xsl:template match="ltx:graphics[ancestor::ltx:figure]">
+    <w:p>
       <w:r>
         <w:drawing>
           <wp:anchor distT="0" distB="0" distL="0" distR="0" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
@@ -707,10 +684,10 @@
                     <a:blip r:embed="{$foo}"/>
                     <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
                     <xsl:if test="@candidates">
-                   <picturus id="{$foo}" reference="{concat('../',@candidates)}"/>
+                      <picturus id="{$foo}" reference="{concat('../',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                   <picturus id="{$foo}" reference="{concat('../',@graphic)}"/>
+                      <picturus id="{$foo}" reference="{concat('../',@graphic)}"/>
                     </xsl:if>
                     <a:stretch>
                       <a:fillRect/>
@@ -722,7 +699,7 @@
                       <a:off x="0" y="0"/>
                       <!-- offset. Is deletable if there is no offset. -->
                       <a:ext cx="{9525*@imagewidth}" cy="{9525*@imageheight}"/>
-                      <!-- I think this is just the size of theS1.Thmlemma1.p1 frame or something. Is deletable and values are changable, however there is no real picture if the values differ relevantly from the size of the frame given beforehand. Don't mess around with it I guess -->
+                      <!-- I think this is just the size of the frame or something. Is deletable and values are changable, however there is no real picture if the values differ relevantly from the size of the frame given beforehand. Don't mess around with it I guess -->
                     </a:xfrm>
                     <a:prstGeom prst="rect">
                       <a:avLst/>
@@ -734,6 +711,7 @@
           </wp:anchor>
         </w:drawing>
       </w:r>
+    </w:p>
   </xsl:template> 
 
   <xsl:template match="ltx:graphics[ancestor::ltx:p]">
@@ -755,12 +733,12 @@
                   <xsl:variable name="foo" select="generate-id(.)"/>
                   <a:blip r:embed="{$foo}"/>
                   <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
-                    <xsl:if test="@candidates">
-                   <picturus id="{$foo}" reference="{concat('../',@candidates)}"/>
-                    </xsl:if>
-                    <xsl:if test="not(@candidates) and @graphic">
-                   <picturus id="{$foo}" reference="{concat('../',@graphic)}"/>
-                    </xsl:if>
+                  <xsl:if test="@candidates">
+                    <picturus id="{$foo}" reference="{concat('../',@candidates)}"/>
+                  </xsl:if>
+                  <xsl:if test="not(@candidates) and @graphic">
+                    <picturus id="{$foo}" reference="{concat('../',@graphic)}"/>
+                  </xsl:if>
                   <a:stretch>
                     <a:fillRect/>
                     <!-- This stuff tells Word to stretch the image to the frame size -->
@@ -807,11 +785,11 @@
                     <xsl:variable name="foo" select="generate-id(.)"/>
                     <a:blip r:embed="{$foo}"/>
                     <!-- This encodes what picture to actually take, by the id specified in document.xml.rels " -->
-                      <xsl:if test="@candidates">
-                   <picturus id="{$foo}" reference="{concat('../',@candidates)}"/>
+                    <xsl:if test="@candidates">
+                      <picturus id="{$foo}" reference="{concat('../',@candidates)}"/>
                     </xsl:if>
                     <xsl:if test="not(@candidates) and @graphic">
-                   <picturus id="{$foo}" reference="{concat('../',@graphic)}"/>
+                      <picturus id="{$foo}" reference="{concat('../',@graphic)}"/>
                     </xsl:if>
                     <a:stretch>
                       <a:fillRect/>
@@ -870,13 +848,13 @@
       </xsl:for-each>
     </xsl:variable>
     <xsl:variable name="bar">
-    <xsl:if test="not(./ltx:tr)">0</xsl:if>
-    <xsl:for-each select="./ltx:tr">
-    <xsl:sort select="counter(./ltx:td)"/>
-    <xsl:if test="position()=last()">
-      <xsl:value-of select="count(./ltx:td)"/>
-    </xsl:if>
-    </xsl:for-each>
+      <xsl:if test="not(./ltx:tr)">0</xsl:if>
+      <xsl:for-each select="./ltx:tr">
+        <xsl:sort select="counter(./ltx:td)"/>
+        <xsl:if test="position()=last()">
+          <xsl:value-of select="count(./ltx:td)"/>
+        </xsl:if>
+      </xsl:for-each>
     </xsl:variable>
     <w:tbl>
       <w:tblGrid>
@@ -887,7 +865,7 @@
       <xsl:apply-templates/>
     </w:tbl>
   </xsl:template> 
-  
+
   <xsl:template name="ntimes">
     <xsl:param name="i"/>
     <xsl:if test="$i&gt;0">
@@ -957,13 +935,13 @@
         <xsl:if test="@rowspan">
           <!-- I can't deal with spanning rows yet. I will have to take a closer look at this later -->
         </xsl:if>
-         <xsl:if test="@align">
-        <xsl:if test="not(@align='justify')">
-          <w:vAlign w:val="{@align}"/>
-        </xsl:if>
-        <xsl:if test="@align='justify'">
-          <w:vAlign w:val="both"/>
-        </xsl:if>
+        <xsl:if test="@align">
+          <xsl:if test="not(@align='justify')">
+            <w:vAlign w:val="{@align}"/>
+          </xsl:if>
+          <xsl:if test="@align='justify'">
+            <w:vAlign w:val="both"/>
+          </xsl:if>
         </xsl:if>
         <xsl:if test="thead='true'">
           <w:rStyle w:val="tablehead"/>
@@ -1006,103 +984,118 @@
         </xsl:choose>
       </w:tcPr>
       <w:p>
-       <w:pPr>
+        <w:pPr>
           <w:ind w:firstLine="0"/>
         </w:pPr>
         <xsl:apply-templates/>
       </w:p>
     </w:tc>
   </xsl:template> 
-  <!-- ======================================================================================================================================================================== -->
+
+  <!-- ============================================================================================================================================ -->
   <xsl:template match="ltx:theorem">
-      <xsl:apply-templates/>
+    <xsl:apply-templates/>
   </xsl:template> 
 
   <xsl:template match="ltx:theorem/ltx:title">
-<w:p>
-  <xsl:apply-templates/>
-</w:p>
+    <w:p>
+      <xsl:apply-templates/>
+    </w:p>
   </xsl:template> 
 
   <xsl:template match="ltx:equationgroup">
-  <xsl:apply-templates/>
+    <xsl:apply-templates/>
   </xsl:template> 
+
   <xsl:template match="ltx:toctitle"/>
   <xsl:template match="ltx:acknowledgements">
-  <w:p>
-  	<w:pPr>
-  		<w:pStyle w:val="acknowledgments"/>
-  	</w:pPr>
-  <xsl:apply-templates/>
-  </w:p>
-  </xsl:template>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="acknowledgments"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
 
   <xsl:template match="ltx:contact">
-  <w:p>
-  	<w:pPr>
-  		<w:pStyle w:val="contact"/>
-  	</w:pPr>
-  <xsl:apply-templates/>
-  </w:p>
-  </xsl:template>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="contact"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
+
   <xsl:template match="ltx:note"/>
   <xsl:template match="ltx:date"/>
   <xsl:template match="ltx:title/ltx:tag">
-  <w:r>
-  <w:t xml:space="preserve"><xsl:value-of select="concat(./text(),' ')"/></w:t>
-  </w:r>
-  </xsl:template>
- 
+    <w:r>
+      <w:t xml:space="preserve">
+        <xsl:value-of select="concat(./text(),' ')"/>
+      </w:t>
+    </w:r>
+  </xsl:template> 
+
   <xsl:template match="ltx:table">
-  <w:p>
-  <xsl:apply-templates/>
-  </w:p>
-  </xsl:template>
+    <w:p>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
+
   <xsl:template match="ltx:text[@fontsize='footnote']">
-  <xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:ref[not(@labelref) and not(@idref) and @href]">
-      <w:hyperlink r:id="{generate-id()}">
+    <w:hyperlink r:id="{generate-id()}">
       <xsl:apply-templates/>
     </w:hyperlink>
     <external-link>
       <xsl:copy-of select="."/>
       <extra id="{generate-id()}"/>
     </external-link>
-    </xsl:template>
-    <xsl:template match="ltx:text[@fontsize='small']">
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@fontsize='small']">
     <xsl:apply-templates/>
-    </xsl:template>
-   <xsl:template match="ltx:appendix">
-  <xsl:if test="./@labels">
-  <w:p>
-  <w:pPr><w:pStyle w:val="empty"/></w:pPr>
-      <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
-    <w:bookmarkEnd w:id="{./@xml:id}"/>
-  </w:p>
-  </xsl:if>
-   <xsl:apply-templates/>
-   </xsl:template>
-   <xsl:template match="ltx:appendix/ltx:title">
-     <w:p>
+  </xsl:template> 
+
+  <xsl:template match="ltx:appendix">
+    <xsl:if test="./@labels">
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="empty"/>
+        </w:pPr>
+        <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@labels}"/>
+        <w:bookmarkEnd w:id="{./@xml:id}"/>
+      </w:p>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:appendix/ltx:title">
+    <w:p>
       <w:pPr>
         <w:pStyle w:val="style1"/>
       </w:pPr>
       <xsl:apply-templates/>
     </w:p>
-   </xsl:template>
-   <xsl:template match="ltx:titlepage">
-   <xsl:apply-templates/>
-   </xsl:template>
-   <xsl:template match="ltx:pagination[@role='newpage']">
-   <w:p>
-   <w:r>
-   <w:break type="page"/>
-   </w:r>
-   </w:p>
-   </xsl:template>
-  <xsl:template match="ltx:subsubsection"> 
-   <w:p>
+  </xsl:template> 
+
+  <xsl:template match="ltx:titlepage">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:pagination[@role='newpage']">
+    <w:p>
+      <w:r>
+        <w:break type="page"/>
+      </w:r>
+    </w:p>
+  </xsl:template> 
+
+  <xsl:template match="ltx:subsubsection">
+    <w:p>
       <w:pPr>
         <w:pStyle w:val="empty"/>
       </w:pPr>
@@ -1120,19 +1113,22 @@
       <xsl:apply-templates/>
     </w:p>
   </xsl:template> 
+
   <xsl:template match="ltx:break[not(parent::ltx:p)]"/>
   <xsl:template match="ltx:text[@font='slanted']">
-  <xsl:apply-templates/>
-  </xsl:template>
-   <xsl:template match="ltx:proof">
-      <xsl:apply-templates/>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:proof">
+    <xsl:apply-templates/>
   </xsl:template> 
 
   <xsl:template match="ltx:proof/ltx:title">
-<w:p>
-  <xsl:apply-templates/>
-</w:p>
+    <w:p>
+      <xsl:apply-templates/>
+    </w:p>
   </xsl:template> 
+
   <!-- 
   <xsl:template match="ltx:itemize">
   <xsl:variable name="foo">
@@ -1141,12 +1137,16 @@
   </xsl:for-each>
   </xsl:variable>
   <xsl:copy-of select="exsl:node-set($foo)"/> 
-  </xsl:template> --> 
+  </xsl:template> 
+ 
+ 
+ -->
   <xsl:template match="ltx:itemize">
-   <xsl:apply-templates/>
-  </xsl:template>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:item">
-   <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
+    <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
       <w:pPr>
         <w:pStyle w:val="ListParagraph"/>
         <w:numPr>
@@ -1158,33 +1158,34 @@
     </w:p>
     <xsl:apply-templates select=".//ltx:itemize"/>
     <xsl:apply-templates select=".//ltx:enumerate"/>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="ltx:item/ltx:para/ltx:p">
-  <xsl:apply-templates/>
-  </xsl:template>
-  
-    <xsl:template match="ltx:enumerate">
-   <xsl:apply-templates/>
-  </xsl:template>
-  
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:enumerate">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
   <xsl:template match="ltx:item[(count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate))=1]">
-  <xsl:variable name="foo">
-  <xsl:for-each select="..//ltx:item">
-  <xsl:if test="position()=1">
-    <xsl:value-of select="count(preceding::ltx:item)"/>
-  </xsl:if>
-  </xsl:for-each>
-  </xsl:variable>
-   <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
+    <xsl:variable name="foo">
+      <xsl:for-each select="..//ltx:item">
+        <xsl:if test="position()=1">
+          <xsl:value-of select="count(preceding::ltx:item)"/>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:variable>
+    <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
       <w:pPr>
         <w:pStyle w:val="ListParagraph"/>
         <w:numPr>
           <w:ilvl w:val="{count(ancestor::ltx:itemize)+count(ancestor::ltx:enumerate)-1}"/>
           <xsl:if test="$foo=0">
-          <w:numId w:val="1"/>
+            <w:numId w:val="1"/>
           </xsl:if>
-          <xsl:if test="$foo>0">
-          <w:numId w:val="{$foo}"/>
+          <xsl:if test="$foo&gt;0">
+            <w:numId w:val="{$foo}"/>
           </xsl:if>
         </w:numPr>
       </w:pPr>
@@ -1192,40 +1193,174 @@
     </w:p>
     <xsl:apply-templates select=".//ltx:itemize"/>
     <xsl:apply-templates select=".//ltx:enumerate"/>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="ltx:item/ltx:para/ltx:p">
-  <xsl:apply-templates/>
-  </xsl:template>
- 
- <xsl:template match="ltx:figure/ltx:p"/>
- <xsl:template match="ltx:rule"/>
- <xsl:template match="ltx:inline-block">
- 	<xsl:apply-templates/>
- </xsl:template>
- <xsl:template match="ltx:XMHint"/>
-   <xsl:template match="ltx:ERROR">
- <xsl:message> An Error occurred here </xsl:message>
- <xsl:if test="ancestor::ltx:p">
- <w:r>
-  <w:rPr>
-        <w:color w:val="FF0000"/>
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:figure/ltx:p"/>
+  <xsl:template match="ltx:rule"/>
+  <xsl:template match="ltx:inline-block">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:XMHint"/>
+  <xsl:template match="ltx:ERROR">
+    <xsl:message> An Error occurred here </xsl:message>
+    <xsl:if test="ancestor::ltx:p">
+      <w:r>
+        <w:rPr>
+          <w:color w:val="FF0000"/>
         </w:rPr>
- <w:t> Error: <w:value-of select="./text()"/> </w:t>
-</w:r>
-</xsl:if>
-<xsl:if test="not(ancestor::ltx:p)">
-<w:p>
- <w:r>
-  <w:rPr>
-        <w:color w:val="FF0000"/>
+        <w:t> Error: <xsl:value-of select="./text()"/> </w:t>
+      </w:r>
+    </xsl:if>
+    <xsl:if test="not(ancestor::ltx:p)">
+      <w:p>
+        <w:r>
+          <w:rPr>
+            <w:color w:val="FF0000"/>
+          </w:rPr>
+          <w:t> Error: <xsl:value-of select="./text()"/> </w:t>
+        </w:r>
+      </w:p>
+    </xsl:if>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bibblock">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <!-- Child elements of bibblock -->
+  <xsl:template match="ltx:text[@class='ltx_bib_author']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='smallcaps']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_editor']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='typewriter']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='bold italic']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@font='medium']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text">
+    <xsl:apply-templates/>
+    <xsl:message> cannot deal with element <xsl:value-of select="name()"/> yet! </xsl:message>
+    <xsl:comment> Text formatting error here </xsl:comment>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_year']">
+    <xsl:apply-templates select="ltx:bib-date"/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bib-date[@role='publication']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_title']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_title']/ltx:bib-title">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_note']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_journal']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_journal']/ltx:bib-title">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_series']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bib-part[@role='series']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_publisher']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bib-publisher">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_etal']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='ltx_bib_links']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:text[@class='isbn ltx_bib_external']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bibliography/ltx:title">
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="style1"/>
+      </w:pPr>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
+
+  <xsl:template match="ltx:biblist">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bibtag"/>
+  <xsl:template match="ltx:text[@class='ltx_bib_crossref']">
+    <xsl:apply-templates/>
+  </xsl:template> 
+
+  <xsl:template match="ltx:bibitem">
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="empty"/>
+      </w:pPr>
+      <w:bookmarkStart w:id="{./@xml:id}" w:name="{./@xml:id}"/>
+      <w:bookmarkEnd w:id="{./@xml:id}"/>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Bibliographyitem"/>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:b/>
         </w:rPr>
- <w:t> Error: <xsl:value-of select="./text()"/> </w:t>
-</w:r>
-</w:p>
-</xsl:if>
-</xsl:template>
+        <w:t>[<xsl:value-of select="./ltx:bibtag[@role='refnum']"/>]</w:t>
+      </w:r>
+      <xsl:apply-templates/>
+    </w:p>
+  </xsl:template> 
+
   <xsl:template match="ltx:TOC">
-      <w:sdt>
+    <w:sdt>
       <w:sdtPr>
         <w:id w:val="1841044555"/>
         <w:docPartObj>
@@ -1286,5 +1421,6 @@
         </w:p>
       </w:sdtContent>
     </w:sdt>
-    </xsl:template>
+  </xsl:template> 
+
 </xsl:stylesheet>

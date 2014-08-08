@@ -529,7 +529,6 @@
   <xsl:template match="ltx:bib-data[@role='bibstamp']"/>
   <xsl:template match="ltx:bib-data[@role='topics']"/>
   <xsl:template match="ltx:bib-data[@role='nonumber']"/>
-
   <xsl:template match="ltx:bib-data[@role='shortauthor']"/>
   <xsl:template match="ltx:bib-data[@role='issn']"/>
   <xsl:template match="ltx:bib-data[@role='priority']"/>

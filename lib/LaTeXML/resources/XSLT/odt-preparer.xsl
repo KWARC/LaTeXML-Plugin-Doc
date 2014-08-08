@@ -16,11 +16,13 @@
       <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
       </xsl:copy>
-    </xsl:template>
+    </xsl:template> 
+
     <xsl:template match="*[@xml:id and not(self::ltx:document)]">
     <bookmark name="{@xml:id}"/>
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
       </xsl:copy>
-</xsl:template>
+</xsl:template> 
+
 </xsl:stylesheet>

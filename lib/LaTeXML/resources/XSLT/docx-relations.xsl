@@ -14,7 +14,8 @@
   <xsl:output indent="yes" method="xml"/>
   <xsl:template match="*">
     <xsl:apply-templates/>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="/">
     <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
       <Relationship Target="styles.xml" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Id="rId1"/>
@@ -24,12 +25,15 @@
       <Relationship Target="footnotes.xml" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footnotes" Id="rId5"/>
       <xsl:apply-templates/>
     </Relationships>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="text()"/>
   <xsl:template match="external-link">
     <Relationship Target="{./*[@href]/@href}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Id="{./extra/@id}" TargetMode="External"/>
-  </xsl:template>
+  </xsl:template> 
+
   <xsl:template match="picturus">
     <Relationship Target="{./@reference}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Id="{./@id}"/>
-  </xsl:template>
+  </xsl:template> 
+
 </xsl:stylesheet>
