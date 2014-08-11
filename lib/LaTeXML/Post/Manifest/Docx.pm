@@ -80,7 +80,20 @@ sub initialize {
 
   my $current=cwd();                             
   $bibs=$bibnode->getAttribute('files');
-  my $bib=$bibs.'.bib'; #TODO Implement code to work with multiple bibliographies at once. Simply split at , and append files should work. 
+ my $bib=catfile($directory,'bibfile.bib');
+    my @values = split(',', $bibnode->getAttribute('files'));
+open my $out, ">>$bib" or die "Cannot open temporary bibliography \n";
+foreach my $file (@values)
+{
+$file=$file.'.bib';
+open my $in, "<$file" or die "Cannot open $file!\n";
+while(<$in>)
+{
+print $out $_;
+}
+close $in;
+}
+close $out;
   my $bib_pathname= catfile(catdir($directory,'customXML'),'item1.xml');
   my $cmd= "latexmlc $bib --destination=$bib_pathname";
   system($cmd);

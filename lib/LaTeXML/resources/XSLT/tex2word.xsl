@@ -1109,7 +1109,7 @@
   </xsl:template> 
 
   <xsl:template match="ltx:item">
-    <w:p w:rsidR="00847883" w:rsidRDefault="00E521C7" w:rsidP="00E521C7">
+    <w:p>
       <w:pPr>
         <w:pStyle w:val="ListParagraph"/>
         <w:numPr>
