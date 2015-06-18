@@ -44,7 +44,7 @@ sub initialize {
   if ($skeleton_directory) {
     foreach my $subdirectory (qw/_rels word docProps customXML/, catdir('word','_rels'),catdir('customXML','_rels'),catdir('word','media')) { #create the file structure
       mkdir(catdir($directory, $subdirectory)); }
-    # Annoying, but let's copy each of the 6 static files individually:
+    # Annoying, but let's copy each of the static files individually:
     my @static_files = (
       [ catfile($skeleton_directory,'docProps','app.xml'), catdir($directory,'docProps') ],
       [ catfile($skeleton_directory,'docProps','core.xml'), catdir($directory,'docProps') ],
@@ -121,7 +121,7 @@ close $out;
   if ($skeleton_directory) {
     foreach my $subdirectory (qw/_rels word docProps customXML/, catdir('word','_rels'),catdir('customXML','_rels'),catdir('word','media')) { #create the file structure
       mkdir(catdir($directory, $subdirectory)); }
-    # Annoying, but let's copy each of the 6 static files individually:
+    # Annoying, but let's copy each of the static files individually:
     my @static_files = (
       [ catfile($skeleton_directory,'docProps','app.xml'), catdir($directory,'docProps') ],
       [ catfile($skeleton_directory,'docProps','core.xml'), catdir($directory,'docProps') ],
