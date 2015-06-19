@@ -2,11 +2,11 @@
 <!--
 /=====================================================================\ 
 |  ltx2word.xsl                                                       |
-|  Stylesheet for converting LaTeXML documents to OOXML          |
+|  Stylesheet for converting LaTeXML documents to OOXML               |
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
-| Michael Kohlhase http://kwarc.info/kohlhase                 #_#     |
+| Lukas Kohlhase                                              #_#     |
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->

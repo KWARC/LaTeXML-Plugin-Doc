@@ -6,7 +6,7 @@
 |=====================================================================|
 | not yet Part of LaTeXML: http://dlmf.nist.gov/LaTeXML/              |
 |=====================================================================|
-| Michael Kohlhase http://kwarc.info/kohlhase                 #_#     |
+| Lukas Kohlhase http://kwarc.info/kohlhase                   #_#     |
 | Public domain software                                     (o o)    |
 \=========================================================ooo==U==ooo=/
 -->
