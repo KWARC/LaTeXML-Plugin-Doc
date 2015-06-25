@@ -27,9 +27,7 @@
 
     <xsl:template match="external-link"/>
     <xsl:template match="picturus"/>
-    <xsl:template match="w:p//w:p">
-    <xsl:comment>Penis</xsl:comment>
-    </xsl:template> 
+    <xsl:template match="w:p//w:p"/>
 
         <xsl:template match="w:p//w:tc/w:p">
         <xsl:copy>
