@@ -3,7 +3,6 @@ post =
 format = Odt
 whatsin = document
 whatsout = archive
-pmml =
 mathimages = 
 nodefaultresources = 
 path = $LATEXMLINPUTS
