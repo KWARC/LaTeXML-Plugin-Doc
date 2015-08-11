@@ -398,8 +398,6 @@
     </table:table-cell>
   </xsl:template> 
 
-  <!-- TODO Add support for table-styles. -->
-  <!-- TODO add upport for alignments in tables -->
   <xsl:template match="ltx:note[@role='footnote']">
     <text:note text:note-class="footnote">
       <text:note-citation>
