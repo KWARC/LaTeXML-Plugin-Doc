@@ -1,9 +1,20 @@
-This directory contains the transformation spreadsheets. 
-LaTeXML-*-ODT.xsl      transformation to OpenOffice
-ltx2ODTmanifest.xsl     transformation to OpenOffice Manifest
-ltx2docbook.xsl            very partial transformation to DocBook
+This directory contains the transformation stylesheets. 
+docx-cleaner.xsl 				Used to clean up the content.xml files for docx files (get rid of paragraphs inside paragraphs etc. )
+docx-footnotes.xsl 				Used to make the footnotes for docx files.
+docx-relations.xsl 				Used for the relations file in docx.
+tex2docx.xsl					Main stylesheet for transforming LaTeX to docx.
+tex2word.xsl 					Similar to tex2docx.xsl , but with different handling of bibliographies
+docx-bibliographies.xsl				Bibliographies for docx.
 
-ltx2word.xsl                  transformation to WML (MS DocX)
-mml2omml.xsl              MathML to MS DocX Math
-relations.xsl 		      transformation for (MS DocX relations file)
+dtbook-manifest.xsl 				Same as docx-manifest.xsl just for dtbooks.
+dtbook-navfile.xsl 				Makes the dt-book navfile, which contains information about metadata, and headings.
+ltx2docbook.xsl					Main file for creating docbook. Makes the content file
+
+odt-manifest.xsl				Makes the ODT manifest.
+odt-bibliographies-interim.xsl			Makes the bibliograpy file for ODT transformation.
+tex2odt.xsl 					Main file for transformation to ODT 
+odt-preparer.xsl				Adds bookmarks etc. for easier linking.		
+
+mml2omml.xsl              			MathML to MS DocX Math
+ltx2manifest.xsl				Not entirely sure if this is used at all.
 
